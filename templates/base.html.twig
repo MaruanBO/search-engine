@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en" class="h-100">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}BKO{% endblock %}</title>
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {% block stylesheets %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+              crossorigin="anonymous">
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous"></script>
+
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+
+</head>
+
+<body class="d-flex flex-column h-100">
+
+<main class="flex-shrink-0">
+    <div class="container-fluid p-4">
+        {% block body %}{% endblock %}
+    </div>
+</main>
+
+{% block footer %}
+    <div class="footer mt-auto py-3 px-4">
+        <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+            <!--begin::Location-->
+            <div class="text-dark order-2 order-md-1 d-flex align-items-center">
+                <img src="{{ asset('build/images/location.svg') }}" alt="location" height="35" width="35"
+                     class="float-start">
+                <span class="text-gray-800 fw-bold ps-2">Ixelles</span>
+            </div>
+            <!--end::Location-->
+            <!--begin::Middle Text-->
+            <div class="order-1 order-md-1 d-flex align-items-center ms-5">
+                <a href="https://www.linkedin.com/in/marouane-boukhriss-ouchab/en"
+                   class="text-muted fw-semibold mx-3 a-text-none" target="_blank">About</a>
+                <a href="empty..." class="text-muted fw-semibold mx-3 a-text-none " target="_blank">Advertising</a>
+                <a href="empty too.." class="text-muted fw-semibold mx-3 a-text-none" target="_blank">Business</a>
+                <a href="coming soon.." class="text-muted fw-semibold mx-3 a-text-none" target="_blank">How I created
+                    it?</a>
+            </div>
+            <!--end::Middle Text-->
+            <!--begin::Menu-->
+            <ul class="menu menu-gray-600 fw-bw order-2">
+                <li class="menu-item">
+                    <div class="input-group input-group-solid flex-nowrap">
+                        <span class="input-group-text">
+                            <img src="{{ asset('build/images/word_language.svg') }}" alt="">
+                        </span>
+                        <select class="form-select form-select-solid me-0"
+                                data-control="select2" data-placeholder="Select an option">
+                            <option value="EN">EN</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+            <!--end::Menu-->
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+
+</html>

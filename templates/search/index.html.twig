@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!--begin::navbar-->
+    <nav class="navbar navbar-expand-sm justify-content-end">
+        <div class="col-auto pe-4">
+            <a href="#">
+                <img src="{{ asset('build/images/google_youtube.svg') }}" alt="location" height="30" width="30">
+            </a>
+        </div>
+        <div class="col-auto">
+            <a href="mailto:maruanbueno55@gmail.com">
+                <img src="{{ asset('build/images/google_mail.svg') }}" alt="location" height="40" width="40"
+                     class="card-img">
+            </a>
+        </div>
+        <div class="col-auto px-3">
+            <a href="https://www.google.com/maps/place/Ixelles/data=!4m2!3m1!1s0x47c3c49d464cf871:0x6ad2d087c927be75?sa=X&ved=2ahUKEwitz-X6kbL5AhUlM-wKHZvsBCMQ8gF6BAgFEAE"
+               target="_blank">
+                <img src="{{ asset('build/images/google_map.svg') }}" alt="location" height="40" width="40">
+            </a>
+        </div>
+        <div class="navbar-brand me-0">
+            <a href="https://maruan.tech" target="_blank">
+                <img class="rounded-circle border border-800" height="40"
+                     src="{{ asset('build/images/1650055502528.jpeg') }}" alt="picture_photo">
+            </a>
+        </div>
+    </nav>
+    <!--end::navbar-->
+    <!--begin::google search bar-->
+    <div class="row g-0 position-absolute top-50 start-50 translate-middle">
+        <div class="col-md-12 d-flex justify-content-center mb-5">
+            <img src="{{ asset('build/images/google_logo.svg') }}" class="float-start" alt="google_logo" width="120"
+                 height="120">
+            <p class="text-gray-800 fw-bold ps-1 h6 pt-lg-6">Belgium</p>
+        </div>
+        <div class="col-12">
+            {{ form_start(form) }}
+            <div class="input-group input-group-solid">
+                <span class="input-group-text rounded-circle-20 border-left-0 px-3 py-3">
+                    <button class="inherent-button">
+                        <img src="{{ asset('build/images/google_search.png') }}"
+                             alt="search_icon" height="40">
+                    </button>
+                </span>
+                {{ form_widget(form.query, {'attr': {'class': 'rounded-0 fw-bolder', placeholder: 'Type something..'}}) }}
+                <span class="input-group-text rounded-circle-20 px-4 py-3">
+                    <a href="#">
+                        <img src="{{ asset('build/images/google_micro.png') }}" alt="" height="30">
+                    </a>
+                </span>
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+        <div class="col-12 text-center py-5">
+            <a href="https://maruan.tech/contact" target="_blank"
+               class="btn btn-secondary me-2 mb-2 text-center fw-semibold p-3 rounded"> <img src="{{ asset('build/images/babyangel.svg') }}" alt="" height="30" class="pe-4">I'm Feeling Lucky!</a>
+        </div>
+    </div>
+    <!--end::google search bar-->
+{% endblock %}
