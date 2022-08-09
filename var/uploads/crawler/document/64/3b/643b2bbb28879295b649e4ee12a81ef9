@@ -1,0 +1,300 @@
+a:3:{i:0;s:21:"http://rhymezone.com/";i:1;s:9418:"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<link rel="stylesheet" type="text/css" href="rz.css?3">
+<link type="application/opensearchdescription+xml" rel="search" href="rz.osdd"/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<meta name=description content="A language arts reference tool and comprehensive search engine for words.  Includes the functions of a rhyming dictionary, thesaurus, and spelling checker, as well as an integrated full-text search engine for all of Shakespeare's works and thousands of quotations and poems.">
+<meta name=keywords content="rhyming dictionary rhyme rhymes thesaurus spelling spellcheck words songwriting poetry language lyrics shakespeare quotations mother goose quotes rimezone rymezone">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<TITLE>RhymeZone rhyming dictionary and thesaurus</TITLE>
+<script src="//ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js?load=effects,controls"></script>
+</HEAD>
+<BODY BGCOLOR="#f7f3ff" onLoad="init()">
+
+<center>
+
+
+
+<table width=800>
+<tr><td valign=top width=180>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783337899867996";
+google_ad_slot = "1814522780";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</td><td>&nbsp;</td><td valign=top>
+
+<TABLE BORDER=0 WIDTH=600 CELLSPACING=2 CELLPADDING=0>
+<TR><TD colspan=2 ALIGN=CENTER><IMG SRC="rz6_large.png" BORDER=0 alt="RhymeZone"></TD></TR>
+<tr><td><br></tr>
+<br><center><table bgcolor="#ffffef" border=0 width=600 cellspacing=0 cellpadding=5 style="border-radius: 15px;">
+<tr><td align=center>
+
+<div class="mainform">
+<form METHOD="GET" name="form1"
+      ACTION="/r/rhyme.cgi">
+
+<font size=-1>Find rhymes, synonyms, definitions, and more!<br><br></font>
+<b>Word:</b>&nbsp;
+<input SIZE=16 MAXLENGTH=120  NAME="Word" id="rzinput" style="font-size: 16px;"
+Value="">
+<div id="autocomplete_choices" class="autocompleteclass"></div>
+
+<INPUT TYPE="submit" VALUE="Search" style="font-size: 16px;">
+
+<select name="typeofrhyme" style="font-size: 16px;"> 
+<option value=perfect
+SELECTED
+>
+Find rhymes
+<option value=nry
+>
+Find near rhymes
+<option value=syn
+>
+Find synonyms
+<option value=ant
+>
+Find antonyms
+<option value=def
+>
+Find definition
+<option value=exa
+>
+Find poetry verses
+<option value=rel
+>
+Find related words
+<option value=sim
+>
+Find similar sounding words
+<option value=hom
+>
+Find homophones
+<option value=cons
+>
+Match consonants only
+<option value=sub
+>
+Match these letters
+<option value=spell
+>
+Check spelling of word
+<option value=pic
+>
+Search for pictures
+<option value=shake
+>
+Search in Shakespeare
+<option value=quotes
+>
+Search for quotations
+</select>
+<br>
+
+<font size=-1>
+<br><b>Organize results by</b>:   
+<INPUT TYPE="radio" NAME="org1" VALUE="syl" CHECKED>Syllables
+<INPUT TYPE="radio" NAME="org1" VALUE="let">Letters
+&nbsp;&nbsp;&nbsp;
+<b>Include phrases</b>:&nbsp;<INPUT TYPE="radio" NAME="org2" VALUE="l" CHECKED>Yes&nbsp;<INPUT TYPE="radio" NAME="org2" VALUE="sl">No
+</font>
+<input type="hidden" name="org3" value="y">
+</form>
+</div>
+
+<font size=2><b>Tip:&nbsp</b>
+Use RhymeZone as a thesaurus.  Have you tried the <A HREF="http://www.rhymezone.com/r/rhyme.cgi?Word=rain&typeofrhyme=rel&org1=syl&org2=l">Related words</A> option yet?
+ 
+<br></font>
+
+<script language="javascript" type="text/javascript">
+<!--
+function init() {
+  document.form1.Word.focus();
+}
+function getCookie(Name) {
+	var search = Name + "="
+	if (document.cookie.length > 0) { // if there are any cookies
+	offset = document.cookie.indexOf(search) 
+	if (offset != -1) { // if cookie exists 
+		offset += search.length 
+		// set index of beginning of value
+		end = document.cookie.indexOf(";", offset) 
+		// set index of end of cookie value
+		if (end == -1) 
+		end = document.cookie.length
+		return unescape(document.cookie.substring(offset, end))
+		} 
+	}
+    }
+
+    var selected1 = getCookie("rzDm");
+
+    var sel1 = document.form1.typeofrhyme;
+    for (var i = 0; i < sel1.length; i++) {
+        if (sel1[i].value == selected1) {
+            sel1[i].selected = true;
+            break;
+        }
+    }
+    selected1 = getCookie("rzOrg1");	
+    sel1 = document.form1.org1;
+    for (var i = 0; i < sel1.length; i++) {
+        if (sel1[i].value == selected1) {
+	    sel1[i].checked = true;
+            break;
+        }
+     }
+    selected1 = getCookie("rzOrg2");	
+    sel1 = document.form1.org2;
+    for (var i = 0; i < sel1.length; i++) {
+            if (sel1[i].value == selected1) {
+	    sel1[i].checked = true;
+            break;
+        }
+    }
+    selected1 = getCookie("rzOrg3");	
+    if (selected1 == "n") document.form1.org3.value = "n";
+// -->
+</SCRIPT>
+
+</td></tr>
+</table>
+
+</center>
+
+<br>
+
+<center><table bgcolor="#eeffee" border=0 width=600 cellspacing=0 style="border-radius: 15px;">
+<tr>
+<td align=center colspan=2>
+<font size=2><br>Other great features on RhymeZone</font><br><br></tr>
+<tr><td align=left>
+<center>
+<table width="80%" border=0>
+
+<tr>
+<td valign=top><font size=3><b><a href="/shakespeare/">Shakespeare</a></b></font><br>
+<font size=1>
+<a href="/g/shakespeare/comedies">Comedies</a>, 
+<a href="/g/shakespeare/tragedies">Tragedies</a>, 
+<a href="/g/shakespeare/histories">Histories</a>, 
+<a href="/g/shakespeare/poetry">Poetry</a>,
+<a href="/shakespeare/toplines/">Top&nbsp;lines</a>,
+<a href="/g/shakespeare/coinages//">Coined&nbsp;words</a>.
+</font>
+</td>
+
+<td width=40>&nbsp;</td>
+
+<td valign=top><font size=3><b><a href="/r/dz.cgi?cmd=change">Quizzes</a></b></font><br>
+<font size=1>
+<a href="/r/dz.cgi?p=v">Verbs</a>,
+<a href="/r/dz.cgi?p=n">Nouns</a>,
+<a href="/r/dz.cgi?p=a">Adjectives</a>,
+<a href="/r/dz.cgi?p=states">State&nbsp;capitals</a>,
+<a href="/r/dz.cgi?p=frv">French</a>,
+<a href="/r/dz.cgi?p=esv">Spanish</a>,
+<a href="/r/dz.cgi?cmd=change">More...</a>
+</font>
+</td>
+</tr>
+
+<td colspan=1 align=left valign=top>
+<font size=-1><br></font>
+<font size=3><b><u>Great documents</u></b></font><br>
+<font size=1>
+<a href="/g/quotes">Famous&nbsp;quotes</a>,
+<a href="/g/goose">Mother&nbsp;Goose&nbsp;rhymes</a>,
+<a href="/g/holy/oldtestament">Old&nbsp;Testament</a>,
+<a href="/g/holy/newtestament">New&nbsp;Testament</a>,
+<a href="/g/america/">U.S.&nbsp;history</a>
+</font>
+</td>
+
+<td width=40>&nbsp;</td>
+
+
+<td colspan=1 align=left valign=top>
+<font size=-1><br></font>
+<font size=3><b><u>Other tools</u></b></font><br>
+<font size=1>
+<!-- <a href="/r/rd.cgi?c=rht&url=4">Anrdoid app</a>, -->
+<a HREF="http://forum.rhymezone.com">Message board</a>,
+<a href="http://www.onelook.com/">Dictionary Search</a>,
+<a href="http://www.onelook.com/reverse-dictionary.shtml">Reverse dictionary</a>,
+<a href="http://www.onelook.com/wotd.shtml">Word of the day</a>
+</font>
+</td>
+
+</table>
+</center>
+<br>
+</table>
+
+
+<center>
+
+<br>
+<font FACE="VERDANA,HELVETICA,ARIAL">
+<A HREF="/help/">Help</A>&nbsp;
+<A HREF="/r/rd.cgi?c=forum&url=homepage">Forum</A>&nbsp;
+<A HREF="http://www.onelook.com/?c=about&sel=rz#feedback">Feedback</A>&nbsp;
+<A HREF="/help#privacy">Privacy</A>&nbsp;
+<A href="/r/rd.cgi?c=rht&url=hp1">Android</a>&nbsp;
+<A href="/r/rd.cgi?c=ios&url=hp1">iPhone/iPad</a>&nbsp;
+
+<!--
+<a href="https://twitter.com/RhymeZonecom" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @RhymeZonecom</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+-->
+
+<br><br>Copyright &copy; 2015 Datamuse
+</center>
+</font>
+
+
+<script type="text/javascript">
+
+Ajax.Request.prototype.setRequestHeaders = function() {
+  var headers = {
+    'Accept': 'text/javascript, text/html, application/xml, text/xml, */*'
+  };
+  if (this.method == 'post') {
+    headers['Content-Type'] = this.options.contentType +
+      (this.options.encoding ? '; charset=' + this.options.encoding : '');
+    if (this.transport.overrideMimeType &&
+        (navigator.userAgent.match(/Gecko\/(\d{4})/) || [0,2005])[1] < 2005)
+          headers['Connection'] = 'close';
+  }
+  if (typeof this.options.requestHeaders == 'object') {
+    var extras = this.options.requestHeaders;
+
+    if (Object.isFunction(extras.push))
+      for (var i = 0, length = extras.length; i < length; i += 2)
+        headers[extras[i]] = extras[i+1];
+    else
+      $H(extras).each(function(pair) { headers[pair.key] = pair.value; });
+  }
+  for (var name in headers)
+    this.transport.setRequestHeader(name, headers[name]);
+}
+new Ajax.Autocompleter("rzinput", "autocomplete_choices", "http://api.rhymezone.com/sug", {
+  paramName: "s", 
+  parameters: "k=rz_sug1",
+  frequency: 0.2,
+  minChars: 3,
+  afterUpdateElement: function() { document.form1.submit(); }
+});
+</script>
+</BODY>
+</HTML>
+";i:2;s:4:"8157";}

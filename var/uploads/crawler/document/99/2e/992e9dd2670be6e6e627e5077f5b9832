@@ -1,0 +1,574 @@
+a:3:{i:0;s:26:"http://dunhamsrewards.com/";i:1;s:35450:"
+
+
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    
+    <title>Dunham's Rewards Registration</title>
+    
+    <!--[if lt IE 9]>
+	<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="css_1/gridsystem.css"/>
+    <link rel="stylesheet" type="text/css" href="css_1/dunhams.css"/>
+    <link rel="stylesheet" type="text/css" href="css_1/fontawesome.css"/>
+    <link rel="stylesheet" type="text/css" href="css_1/validationEngine.css"/>
+    <link rel="stylesheet" type="text/css" href="css/validationEngine.jquery.css"/>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/languages/jquery.validationEngine-en.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.validationEngine.js"></script>
+
+
+
+    <script type="text/javascript">
+
+
+        jQuery(document).ready(function () {
+
+            jQuery('.expanding-header a').click(function () {
+                var target = jQuery(this).attr('href');
+                if (jQuery(this).hasClass('active')) {
+                    jQuery(target).slideUp('fast');
+                    jQuery(this).removeClass('active');
+                    jQuery(this).children('span').html('+');
+                } else {
+                    jQuery(target).slideDown('fast');
+                    jQuery(this).addClass('active');
+                    jQuery(this).children('span').html('-');
+                }
+                return false;
+            });
+
+            jQuery('#mobile-toggle a').click(function () {
+
+                if (jQuery(this).hasClass('active')) {
+                    jQuery('#mobile_navigation').slideUp('fast');
+                    jQuery(this).removeClass('active');
+                } else {
+
+                    jQuery('#mobile_navigation').slideDown('fast');
+                    jQuery(this).addClass('active');
+
+                }
+
+                return false;
+
+            });
+
+            jQuery('#phone').change(function () {
+                val = jQuery(this).val();
+                jQuery('.this-number').html(val);
+            });
+
+            jQuery('#mobile-nav li a').click(function () {
+
+                if (jQuery(this).siblings().size() > 0) {
+
+                    if (jQuery(this).parent().hasClass('active')) {
+
+                        jQuery(this).parent().children('ul').slideUp('fast');
+                        jQuery(this).parent().removeClass('active');
+
+                    } else {
+
+                        jQuery('#mobile-nav li.active ul').slideUp('fast');
+                        jQuery('#mobile-nav li.active').removeClass('active');
+                        jQuery(this).parent().children('ul').slideDown('fast');
+                        jQuery(this).parent().addClass('active');
+
+                    }
+
+                    return false;
+                }
+
+            });
+
+            jQuery("#form1").validationEngine({
+                'custom_error_messages': {
+                    '#email_addr': { 'required': { 'message': "* Email Address is required " } },
+                    '#first_name': { 'required': { 'message': "* First Name is required " } },
+                    '#last_name': { 'required': { 'message': "* Last Name is required " } },
+                    '#zip_code': { 'required': { 'message': "* Zip Code is required " } },
+                    '#phone': { 'required': { 'message': "* Phone Number is required " } },
+                    '#18orOlder': { 'required': { 'message': "* You must be 18 or older to sign up " } },
+                    '#checkone': { 'required': { 'message': "* Please select at least 1 sport " } }
+                }
+            });
+
+
+
+            /* If any of these are checked the validation surrogate checkbox will be checked to satisfy the minimum check boxes */
+            $("#baseball").click(function () { checkSports(); });
+            $("#archery").click(function () { checkSports(); });
+            $("#aerobics").click(function () { checkSports(); });
+            $("#basketball").click(function () { checkSports(); });
+            $("#backpacking").click(function () { checkSports(); });
+            $("#bicycling").click(function () { checkSports(); });
+            $("#bowling").click(function () { checkSports(); });
+            $("#boating").click(function () { checkSports(); });
+            $("#running").click(function () { checkSports(); });
+            $("#football").click(function () { checkSports(); });
+            $("#camping").click(function () { checkSports(); });
+            $("#swimming").click(function () { checkSports(); });
+            $("#golf").click(function () { checkSports(); });
+            $("#diskgolf").click(function () { checkSports(); });
+            $("#tennis").click(function () { checkSports(); });
+            $("#hockey").click(function () { checkSports(); });
+            $("#fishing").click(function () { checkSports(); });
+            $("#weight_training").click(function () { checkSports(); });
+            $("#lacrosse").click(function () { checkSports(); });
+            $("#hunting").click(function () { checkSports(); });
+            $("#soccer").click(function () { checkSports(); });
+            $("#iceskating").click(function () { checkSports(); });
+            $("#volleyball").click(function () { checkSports(); });
+            $("#skiing").click(function () { checkSports(); });
+            $("#sledding").click(function () { checkSports(); });
+            $("#snowboarding").click(function () { checkSports(); });
+            $("#snowmobiling").click(function () { checkSports(); });
+        });
+
+        function checkSports() { /* Validation surrogate check */
+            if (document.form1.baseball.checked ||
+                    document.form1.archery.checked ||
+                    document.form1.aerobics.checked ||
+                    document.form1.basketball.checked ||
+                    document.form1.backpacking.checked ||
+                    document.form1.bicycling.checked ||
+                    document.form1.bowling.checked ||
+                    document.form1.boating.checked ||
+                    document.form1.running.checked ||
+                    document.form1.football.checked ||
+                    document.form1.camping.checked ||
+                    document.form1.swimming.checked ||
+                    document.form1.golf.checked ||
+                    document.form1.diskgolf.checked ||
+                    document.form1.tennis.checked ||
+                    document.form1.hockey.checked ||
+                    document.form1.fishing.checked ||
+                    document.form1.weight_training.checked ||
+                    document.form1.lacrosse.checked ||
+                    document.form1.hunting.checked ||
+                    document.form1.soccer.checked ||
+                    document.form1.iceskating.checked ||
+                    document.form1.volleyball.checked ||
+                    document.form1.skiing.checked ||
+                    document.form1.sledding.checked ||
+                    document.form1.snowboarding.checked ||
+                    document.form1.snowmobiling.checked) {
+                document.form1.checkone.checked = true;
+            } else {
+                document.form1.checkone.checked = false;
+            }
+        }
+    </script>
+
+</head>
+<body>
+<!--/#Mobile nav from primary site-->
+<nav id="mobile-nav" role="navigation" class="group">
+    <p class="small-logo"><a href="/"><img src="http://www.dunhamssports.com/wp-content/themes/ds-responsive/images/logo.png" alt="Dunham's Sporting Goods"></a></p>
+    <ul>
+        <li id="mobile-stores"><a href="http://www.dunhamssports.com/store-map/"><span><i class="fa fa-map-marker"></i></span> Stores</a></li>
+        <li id="mobile-circulars"><a href="http://www.dunhamssports.com/weekly-circular/"><span><i class="fa fa-tags"></i></span> Circulars</a></li>
+        <li id="mobile-products">
+            <a href="http://www.dunhamssports.com/products/"><span><i class="fa fa-arrow-circle-down"></i></span> Products</a>
+            <ul><li><a href="http://www.dunhamssports.com/products-page/featured/">Hot Deals</a></li><li><a href="http://www.dunhamssports.com/products-page/apparel/">Apparel</a></li><li><a href="http://www.dunhamssports.com/products-page/fitness/">Fitness</a></li><li><a href="http://www.dunhamssports.com/products-page/footwear/">Footwear</a></li><li><a href="http://www.dunhamssports.com/products-page/games-3/">Games</a></li><li><a href="http://www.dunhamssports.com/products-page/outdoor/">Outdoor</a></li><li><a href="http://www.dunhamssports.com/products-page/shop-by-sport/">Shop by Sport</a></li><li><a href="http://www.dunhamssports.com/products-page/travel-accessories/">Travel & Accessories</a></li><li><a href="http://www.dunhamssports.com/products-page/top-brands/">Top Brands</a><div></div></li></ul>		</li>
+        <li id="mobile-more"><a href="#"><span><i class="fa fa-bars"></i></span> More</a>
+            <ul>
+                <li><a href="http://www.dunhamssports.com/in-store-special-order/">In-Store Order</a></li>
+                <li><a href="http://www.dunhamssports.com/discount-programs/">Discounts</a></li>
+                <li><a href="http://www.dunhamssports.com/faq/#pricematch">Low Price Guarantee</a></li>
+                <li><a href="http://www.dunhamssports.com/blog/">Blog</a></li>
+                <li><a href="http://www.dunhamssports.com/product-returns/">Returns</a></li>
+                <li><a href="http://www.dunhamssports.com/checklists/">Shopping Checklists</a></li>
+                <li><a href="http://www.dunhamssports.com/resource-center/">Resource Center</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<nav id="mobile-search" class="clear">
+    <div class="mobile-search-wrapper group">
+        <form method="get" action="http://www.dunhamssports.com/products/">
+            <input class="field" type="text" name="search" title="Search" placeholder="Search" />
+            <input class="submit" type="submit" value="Go" />
+        </form>
+    </div>
+</nav>
+<!--/#mobile-nav-->
+
+<!--#masthead from primary-site-->
+<header id="masthead" class="group">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-3 col-md-3 col-sm-4">
+                <h1 id="logo"><a href="http://www.dunhamssports.com/"><img src="images/logo.png" alt="Dunham's Sporting Goods"></a></h1>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-8">
+                <h3 class="slogan">Big Names...Low Prices <em>Delivering VALUE since 1937</em></h3>
+            </div>
+        </div>
+    </div>
+</header>
+<!--/#masthead -->
+<!--/#primary-navigation from main site -->
+<div id="primary-nav-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-sm-8">
+                <nav id="primary-nav" class="group">
+                    <ul class="pull-left">
+                        <li><a href="http://www.dunhamssports.com/">Home</a></li>
+                        <li><a href="http://www.dunhamssports.com/products/">Products</a><ul><li><a href="http://www.dunhamssports.com/products-page/featured/">Hot Deals</a></li><li><a href="http://www.dunhamssports.com/products-page/apparel/">Apparel</a></li><li><a href="http://www.dunhamssports.com/products-page/fitness/">Fitness</a></li><li><a href="http://www.dunhamssports.com/products-page/footwear/">Footwear</a></li><li><a href="http://www.dunhamssports.com/products-page/games-3/">Games</a></li><li><a href="http://www.dunhamssports.com/products-page/outdoor/">Outdoor</a></li><li><a href="http://www.dunhamssports.com/products-page/shop-by-sport/">Shop by Sport</a></li><li><a href="http://www.dunhamssports.com/products-page/travel-accessories/">Travel & Accessories</a></li><li><a href="http://www.dunhamssports.com/products-page/top-brands/">Top Brands</a><div></div></li></ul></li>
+                        <li><a href="http://www.dunhamssports.com/store-map/">Store Locator</a></li>
+                        <li><a href="http://www.dunhamssports.com/weekly-circular/">Circular</a></li>
+                        <li><a href="http://www.dunhamssports.com/discount-programs/">Discounts</a>
+                            <ul>
+                                <li><a href="http://www.dunhamssports.com/company/">Company Program</a></li>
+                                <li><a href="http://www.dunhamssports.com/sportsmen/">Sportsmen's Club</a></li>
+                                <li><a href="http://www.dunhamssports.com/team/">Team Program</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="http://www.dunhamssports.com/in-store-special-order/">In-Store Order</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4">
+                <form class="search-form" method="get" action="http://www.dunhamssports.com/products/" class="pull-right">
+                    <input id="top_search" class="field" type="text" name="search" title="Search" value="Search" >
+                    <input class="submit" type="submit" value="Go" >
+                </form>			</div>
+        </div> <!--/.row-->
+    </div>
+</div>
+<!--/#primary-navigation-->
+
+<!-- START MAIN FORM -->
+<div id="wrapper" class="container group">
+
+    <header id="signup-masthead">
+        <img src="images/structure/rewards-logo.png" alt="Save Money with Dunham's Rewards - It's Free & Easy"/>
+    </header>
+    <h3 id="tagline">Receive Exclusive Coupons, Product Sales &amp; Local Event Info via Email</h3>
+
+
+    <div id="form">
+       <form name="form1" method="POST" action="index.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTYwMzY5OTQwNmRkF8LhvB060lBJxgMT7srkIUOyA5o=" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="2861F7AE" />
+
+            <!-- hidden fields -->
+           	<input type="hidden" name="subdomain" id="Hidden1" value="" />
+			<input type="hidden" name="trackingCode" id="Hidden2" value="" />
+            <!-- hidden fields -->
+
+            <div id="primary">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Please complete the fields below.</h2>
+                        <p class="req">* Indicates Required Fields</p>
+
+                        <p><small>Dunham's will not rent, sell, or share personal information to third parties</small></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="contact-information" class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <ul>
+                                <li><input id="email_addr" type="text" name="email_addr" tabindex="1"
+                                   class="validate[required,custom[email]]" value="E-mail Address" onBlur="if(value=='') value='E-mail Address'" onfocus="if(value=='E-mail Address') value = ''"/><span class="red">*</span></li>
+
+                                <li><div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <input id="first_name" type="text" name="first_name" tabindex="2" value="First Name" data-validation-placeholder="First Name"
+                                       onBlur="if(value=='') value='First Name'" onFocus="if(value=='First Name') value = ''"/>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <input id="last_name" type="text" name="last_name" tabindex="3" value="Last Name" data-validation-placeholder="Last Name"
+                                       onBlur="if(value=='') value='Last Name'" onFocus="if(value=='Last Name') value = ''"/>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-8">
+                                        <input id="address_1" type="text" name="address_1" tabindex="4" value="Address" onBlur="if(value=='') value='Address'" onFocus="if(value=='Address') value = ''" />
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+                                        <input id="apt" type="text" name="apt" tabindex="5" value="Apt #" onBlur="if(value=='') value='Apt #'" onFocus="if(value=='Apt #') value = ''" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <input id="city" type="text" name="city" tabindex="6" value="City" onBlur="if(value=='') value='City'" onFocus="if(value=='City') value = ''" />
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <select id="state" name="state" tabindex="7" style="width: 200px; font-size:8pt;">
+                                            <option value="">State/Province</option>
+                                            <option value="AL">Alabama</option>
+                                            <option value="AK">Alaska</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="CA">California</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="CT">Connecticut</option>
+                                            <option value="DE">Delaware</option>
+                                            <option value="DC">District of Columbia</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="GA">Georgia</option>
+                                            <option value="HI">Hawaii</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="IL">Illinois</option>
+                                            <option value="IN">Indiana</option>
+                                            <option value="IA">Iowa</option>
+                                            <option value="KS">Kansas</option>
+                                            <option value="KY">Kentucky</option>
+                                            <option value="LA">Louisiana</option>
+                                            <option value="ME">Maine</option>
+                                            <option value="MD">Maryland</option>
+                                            <option value="MA">Massachusetts</option>
+                                            <option value="MI">Michigan</option>
+                                            <option value="MN">Minnesota</option>
+                                            <option value="MS">Mississippi</option>
+                                            <option value="MO">Missouri</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="NH">New Hampshire</option>
+                                            <option value="NJ">New Jersey</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="NY">New York</option>
+                                            <option value="NC">North Carolina</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="OH">Ohio</option>
+                                            <option value="OK">Oklahoma</option>
+                                            <option value="OR">Oregon</option>
+                                            <option value="PA">Pennsylvania</option>
+                                            <option value="RI">Rhode Island</option>
+                                            <option value="SC">South Carolina</option>
+                                            <option value="SD">South Dakota</option>
+                                            <option value="TN">Tennessee</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="VT">Vermont</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="WA">Washington</option>
+                                            <option value="WV">West Virginia</option>
+                                            <option value="WI">Wisconsin</option>
+                                            <option value="WY">Wyoming</option>
+                                            <option value="AB">Alberta</option>
+                                            <option value="BC">British Columbia</option>
+                                            <option value="MB">Manitoba</option>
+                                            <option value="NB">New Brunswick</option>
+                                            <option value="NL">Newfoundland & Labrador</option>
+                                            <option value="NS">Nova Scotia</option>
+                                            <option value="ON">Ontario</option>
+                                            <option value="PE">Prince Edward Island</option>
+                                            <option value="SK">Saskatchewan</option>
+                                            <option value="QC">Quebec</option>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li id="zipcode-field">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                      <input id="zip_code" type="text" name="zip_code" tabindex="8" maxlength="10" value="Zip Code" value="Zip Code" data-validation-placeholder="Zip Code" onBlur="if(value=='') value='Zip Code'" class="validate[required] text-input" onFocus="if(value=='Zip Code') value = ''" />
+                                        <span class="red">*</span>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <span class="smallboldtext">&nbsp;&nbsp;For store-specific coupons</span>
+                                    </div>
+                                </li>
+                                <li id="birthday-field">
+                                    <select name="dob_mm" id="dob_mm" style="width: 130px;" tabindex="10" >
+                                        <option value="">Birthday Month</option>
+                                        <option value="01">January</option>
+                                        <option value="02">February</option>
+                                        <option value="03">March</option>
+                                        <option value="04">April</option>
+                                        <option value="05">May</option>
+                                        <option value="06">June</option>
+                                        <option value="07">July</option>
+                                        <option value="08">August</option>
+                                        <option value="09">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                    <span class="smalltext">We will send you a 30% off coupon during your birthday month!</span>
+                                </li>
+                            </ul>
+                        </div> <!--/.form-group-->
+                    </div> <!--/#contact-information-->
+                    <div id="contact-information-2" class="col-lg-6 col-md-6 adjustTop">
+                        <div class="form-group">
+                            <ul>
+                                <li>
+                                    <div class="col-lg-5 col-md-5">
+                                        <label for="phone">Phone Number:</label><br>
+                                        <input id="phone" type="text" name="phone" tabindex="11" value="" onBlur="if(value=='') value='(###)###-####'" onFocus="if(value=='(###)###-####') value = ''"/>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7">
+                                        <span class="phone-text smalltext">Phone number is used as a customer ID number only. You will not be called and your information will not be sold or repurposed.</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="mobile-alerts" name="mobile-alerts"/> <label for="mobile-alerts"/>Sign me up for <a href="http://www.dunhamssports.com/mobile/" target="_blank">text message coupons and events</a> at <span class="this-number">this number</span></label>
+                                </li>
+                                <li>
+                                    <label for="gender_m3"><input type="radio" id="gender_m3" name="gender" value="male" tabindex="13" /> Male</label>
+                                    &nbsp;&nbsp;<label for="gender_f3"><input type="radio" id="gender_f3" name="gender" value="female" tabindex="14" > Female</label>
+                                </li>
+                                <li>
+                                    <input id="18orOlder" name="18orOlder" type="checkbox" tabindex="16" style="width: 15px; vertical-align: text-top; height: 15px; line-height: 0px;" error="* You must be 18 or older to sign up "
+                                           class="validate[required] checkbox" /> <label for="18orOlder">18 or Older</label> <span class="req">*</span>
+                                </li>
+                                <li>
+                                    <input name="veteran2" id="veteran2" type="checkbox" tabindex="15" style="width: 15px;
+															vertical-align: text-top; height: 15px; line-height: 0px;" /> <label for="veteran2">Military Member <span class="graytxt">(special offers for Active or Veteran Military Members)</span></label>
+                                </li>
+                                <li>
+                                    <input name="50orOlder" type="checkbox" tabindex="17" style="width:15px; vertical-align:text-top; height:15px; line-height:0px;"/> <label for="50orOlder">50 or Older (special offers for active & older customers)</label>
+                                </li>
+                            </ul>
+                        </div> <!--/.form-group-->
+                    </div> <!--/#contact-information-2-->
+                </div> <!--/#contact-information-->
+            </div> <!--/.row-->
+
+            <hr>
+             
+            <div class="row group">
+                <div class="col-lg-12">
+                    <h2>Favorite Sports</h2>
+                    <p>Sign up for special offers for your favorite sports. Check all that apply.</p>
+<!--
+                         <input class="validate[required] checkbox" tabindex="999" id="checkone" name="checkone" type="checkbox" style="visibility:hidden; margin:0px"/>
+-->
+                </div> <!--/.col-lg-12-->
+            
+                
+                   <div class="col-lg-4 col-md-4 col-sm-4">
+
+                    <p class="expanding-header"><a href="#team-sports"><span>+</span> Team Sports</a></p>
+
+                    <div id="team-sports" class="sport-group">
+                        <div class="col-lg-6 col-md-6">
+                            <ul class="stl">
+                                <li><input type="checkbox" id="baseball" name="baseball" /> <label for="baseball">Baseball/Softball</label></li>
+                                <li><input type="checkbox" id="basketball" name="basketball" /> <label for="basketball">Basketball</label></li>
+                                <li><input type="checkbox" id="bowling" name="bowling" /> <label for="bowling">Bowling</label></li>
+                                <li><input type="checkbox" id="football" name="football" /> <label for="football">Football</label></li>
+                                <li><input type="checkbox" id="golf" name="golf" /> <label for="golf">Golf</label></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-5 col-md-6">
+                            <ul class="stl">
+                                <li><input type="checkbox" id="hockey" name="hockey" /> <label for="hockey">Hockey</label></li>
+                                <li><input type="checkbox" id="lacrosse" name="lacrosse" /> <label for="lacrosse">Lacrosse</label></li>
+                                <li><input type="checkbox" id="soccer" name="soccer" /> <label for="soccer">Soccer</label></li>
+                                <li><input type="checkbox" id="volleyball" name="volleyball" /> <label for="volleyball">Volleyball</label></li>
+                            </ul>
+                        </div>
+                    </div> <!--/#team-sports-->
+
+                </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-4">
+
+                    <p class="expanding-header"><a href="#outdoor-sports"><span>+</span> Outdoor Sports</a></p>
+
+                    <div id="outdoor-sports" class="sport-group">
+                        <div class="col-lg-6 col-md-6">
+                            <ul class="stl">
+                                <li><input type="checkbox" id="archery" name="archery" /> <label for="archery">Archery</label></li>
+                                <li><input type="checkbox" id="backpacking" name="backpacking" /> <label for="backpacking">Backpacking</label></li>
+                                <li><input type="checkbox" id="boating" name="boating" /> <label for="boating">Boating</label></li>
+                                <li><input type="checkbox" id="camping" name="camping" /> <label for="camping">Camping</label></li>
+                                <li><input type="checkbox" id="diskgolf" name="diskgolf" /> <label for="diskgolf">Disc Golf</label></li>
+                                <li><input type="checkbox" id="fishing" name="fishing" /> <label for="fishing">Fishing</label></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <ul class="stl">
+                                <li><input type="checkbox" id="hunting" name="hunting"   /> <label for="hunting">Hunting</label></li>
+                                <li><input type="checkbox" id="iceskating" name="iceskating" /> <label for="iceskating">Ice Skating</label></li>
+                                <li><input type="checkbox" id="skiing" name="skiing2" /> <label for="skiing">Skiing</label></li>
+                                <li><input type="checkbox" id="sledding" name="sledding" /> <label for="sledding">Sledding</label></li>
+                                <li><input type="checkbox" id="snowboarding" name="snowboarding" /> <label for="snowboarding">Snowboarding</label></li>
+                                <li><input type="checkbox" id="snowmobiling" name="snowmobiling" /> <label for="snowmobiling">Snowmobiling</label></li>
+                            </ul>
+                        </div>
+                    </div> <!--/#outdoor-sports-->
+
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+
+                    <p class="expanding-header"><a href="#fitness"><span>+</span> Fitness Activities</a></p>
+
+                    <div id="fitness" class="sport-group">
+                        <div class="col-lg-6 cold-md-6">
+                            <ul class="stl">
+                                <li><input type="checkbox" id="aerobics" name="aerobics" /> <label for="aerobics">Aerobics</label></li>
+                                <li><input type="checkbox" id="bicycling" name="bicycling"/> <label for="bicycling">Bicycling</label></li>
+                                <li><input type="checkbox" id="running" name="running" /> <label for="running">Running</label></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <ul class="stl">
+                                <li><input type="checkbox" id="swimming" name="swimming" /> <label for="swimming">Swimming</label></li>
+                                <li><input type="checkbox" id="tennis" name="tennis"/> <label for="tennis">Tennis</label></li>
+                                <li><input type="checkbox" id="weight_training" name="weight_training" /> <label for="weight_training">Weight Training</label></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div> <!--/.row-->
+
+            <div class="row">
+                <div id="cta" class="col-lg-12">
+
+                    <input type="image" src="images/submit.png" class="submit_button" />
+                    <br/><br/>
+                    <p class="smalltxt">
+                        Your confirmation e-mail (with first coupon) will be sent within 72 hours of submission.
+                        <br />
+                        Once enrolled, you can select the frequency of e-mails delivered from Dunham's Rewards.
+                    </p>
+                </div>
+            </div>
+			
+
+           </form>
+            </div> <!--/#primary-->
+        
+    </div> <!--/#form-->
+
+
+</body>
+<!-- Segment Pixel - JRC - 5764 - Dunham's - 1 - DO NOT MODIFY -->
+<script src="http://ib.adnxs.com/seg?add=1522669&t=1" type="text/javascript"></script>
+<!-- End of Segment Pixel -->
+
+<!-- Segment Pixel - JRC - 5764 - Dunham's - 2 - DO NOT MODIFY -->
+<script src="http://ib.adnxs.com/seg?add=1522672&t=1" type="text/javascript"></script>
+<!-- End of Segment Pixel -->
+
+<!-- Conversion Pixel - JRNN - 7087 - Dunham's Sporting - Conversion Pixel - DO NOT MODIFY -->
+<script src="https://secure.adnxs.com/px?id=196191&t=1" type="text/javascript"></script>
+<!-- End of Conversion Pixel -->
+
+
+
+</html>";i:2;s:4:"6780";}

@@ -1,0 +1,356 @@
+a:3:{i:0;s:20:"http://wowbrary.org/";i:1;s:17895:"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta name="ProgId" content="SharePoint.WebPartPage.Document" />
+<meta name="WebPartPageExpansion" content="full" />
+<meta name="keywords" content="books, new books, library, public library, reading, DVDs, CDs, movies, music" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="basic.css" />
+<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+<title id="genericTitle">Wowbrary - Newest Books, Movies, and Music at your Library</title>
+</head>
+<body><form name="form1" method="POST" action="index.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMTQ0OTIyNzA1ZGR5z9b2hVP6vBrYRXlZcD1TIvhEiw==" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="90059987" /><div id="divall" class="ALL">
+<div id="content">
+<script type="text/javascript" language="JavaScript">
+<!--
+
+// sets a cookie, optionally with the number of days it will last
+function setCookie(strName,value,expiredays) {
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate()+expiredays);
+	document.cookie = strName + "=" + escape(value) + ((expiredays==null) ? "" : ";expires=" + exdate.toGMTString());
+}
+
+// reads in a cookie
+function getCookie(strName) {
+	if (document.cookie.length > 0)  {
+		var iStart = document.cookie.indexOf(strName + "=");
+		if (iStart !=-1) { 
+			iStart = iStart + strName.length + 1;
+			var iEnd = document.cookie.indexOf(";",iStart);
+			if (iEnd==-1) iEnd=document.cookie.length;
+			return unescape(document.cookie.substring(iStart,iEnd))
+			} 
+		}
+	return "";
+}
+
+// returns the window height, if at all possible
+function getWindowHeight() {
+	if (window.innerHeight!=window.undefined) return window.innerHeight;
+	if (document.compatMode=='CSS1Compat') return document.documentElement.clientHeight;
+	if (document.body) return document.body.clientHeight;
+	return 440; // slightly less than 480
+}
+
+// set the footer to be at the bottom
+function setFooter() {
+
+	if (document.getElementById) {
+		var windowHeight = getWindowHeight();
+		if (windowHeight > 0) {
+		
+			var footerElement = document.getElementById('footer');
+
+			// this fixes an obscure IE bug on the doc page that gives an incorrect offsetHeight if the footer is currently static
+			footerElement.style.position = 'relative';
+		
+			// take the height readings
+			var footerHeight  = footerElement.offsetHeight;
+			var contentHeight = document.getElementById('content').offsetHeight;
+			var extraitemHeight = (document.getElementById('ExtraItemToMeasure') ? document.getElementById('ExtraItemToMeasure').offsetHeight : 0);
+
+			// if there's extra room ...
+			if (windowHeight - (contentHeight + extraitemHeight + footerHeight) >= 0) {
+				
+					// ... force the footer to the bottom, ignoring any extra floating item
+					if (extraitemHeight > 0) document.getElementById('<%=strExtraItemToMeasure %>').className = "<%=strExtraItemToMeasure %>";
+					footerElement.style.position = 'relative';
+					footerElement.style.top = (windowHeight - (contentHeight + footerHeight)) + 'px';
+					}
+
+			// otherwise, if we have overflow, make everything static					
+			else {			
+				if (extraitemHeight > 0) document.getElementById('<%=strExtraItemToMeasure %>').className = "<%=strExtraItemToMeasure %>" + 1;
+				footerElement.style.position = 'static';
+				}
+			}
+		}
+}
+
+// adjusts the core BODY style size by fAdjustment; remembers the setting for a year, but extends it each visit
+function adjustText(fAdjustment)
+{
+	// ignore all changes for now TBD
+	return;
+
+	var sheet = document.styleSheets[0];
+	var rule1 = sheet.cssRules ? sheet.cssRules[0] : sheet.rules[0];
+	
+	// if can find font size of the first style, adjust it
+	if (rule1.style.fontSize != undefined) rule1.style.fontSize = parseFloat(rule1.style.fontSize)*fAdjustment + "pt";
+}
+
+// if the size is cookied, use it
+function adjustTextFromCookieAndFooter()
+{
+	if (getCookie("textsize") != "") adjustText(parseFloat(getCookie("textsize")));
+	setFooter();
+}
+
+// adjusts text; sets the footer; remembers the setting
+function adjustTextAndFooter(fAdjustment) 
+{
+	adjustText(fAdjustment);
+	setFooter();
+	
+	// save accumulated adjustment
+	setCookie("textsize",(getCookie("textsize") == "" ? 1 : parseFloat(getCookie("textsize")))*fAdjustment,365);
+}
+
+// adjust the footer when the text is laid out
+window.onload = adjustTextFromCookieAndFooter;
+window.onresize = setFooter;
+
+// creates a hyperlink for an email address from the name and domain, with a protected link being the same
+// unless strLink is specified
+function reference(strName, strDomain, strLink)
+{
+	if (strLink == "") strLink = strName.substring(0,1) + "<span></span>" + strName.substring(1) + "&#64" + strDomain;
+	document.write("<a href='mailto:" + strName + "&#64" + strDomain + "'>" + strLink + "</a>");
+}
+
+// if enter was pressed, press the strSubmit button; fill in the flag value too if a flag ID is available
+function submitPress(eventThis,strSubmitButton,strFlag) {
+
+	// in IE, events don't create an event in the scope of the call, so use the global windows.event
+	if (window.event ? (window.event && window.event.keyCode == 13) : (eventThis && eventThis.which == 13)) return submitClick(strSubmitButton,strFlag);
+    return true;
+}
+
+// simulate a click of strSubmit button; fill in the flag value too if a flag ID is available
+function submitClick(strSubmitButton,strFlag) {
+    var defaultButton = document.getElementById(strSubmitButton);
+    if (defaultButton && typeof(defaultButton.click) != 'undefined') {
+        
+		// set the flag field if possible
+		var inputFlag = document.getElementById("flag");
+		if (inputFlag) inputFlag.value = strFlag;
+			
+		// click the submit button
+		defaultButton.click();
+		window.event.cancelBubble = true;
+		if (window.event.stopPropagation) window.event.stopPropagation();
+		return false;
+    }
+    return true;
+}
+
+// returns the value of a parameter from the page url
+function getURLParameter(strParameterName) 
+{
+	var regex = new RegExp("[\\?&]"+strParameterName+"=([^&#]*)");  
+	var matchResults = regex.exec(window.location.href); 
+	return (matchResults ? matchResults[1] : "");
+}
+
+// the id of the currently displayed submenu, null if none
+var strCurrentSubmenuId;
+var bOnSubmenuPage = false;
+
+// highlights the current top menu and sub menu items (so the user knows
+// what page they are on
+function highlightCurrentMenu() 
+{
+	// highlight the main menu current item
+	var url = window.location.pathname;
+	var strPageName = url.substring(url.lastIndexOf('/')+1);
+	var row = document.getElementById("TOPMENUROW");
+	var cells = row.childNodes;
+	var pattern = new RegExp(strPageName, "i");
+	for (var i=0 ; i < cells.length ; i++) {
+		if (cells[i].tagName == "TD") {
+			if (pattern.test(cells[i].getAttribute("onclick").toString())) {
+				cells[i].className = "TOPMENUITEMCURRENT";
+				break;
+			}
+		}
+	}
+	
+	// search for a submenu for this page
+	strCurrentSubmenuId = strPageName.substring(0, strPageName.indexOf(".")).toUpperCase() + "_SUBMENU";
+	row = document.getElementById(strCurrentSubmenuId);
+	if (!row) {
+		strCurrentSubmenuId = null;
+		return;
+		}
+
+	// having found the submenu, make it visible
+	row.style.display = "block";
+	bOnSubmenuPage = true;
+
+	// then find the current submenu item to highlight
+	var view = getURLParameter("view");
+	// if (view == "") return;
+	row = document.getElementById(strCurrentSubmenuId + "ROW");
+	cells = row.childNodes;
+	pattern = new RegExp("view=" + view, "i");
+	for (var i=0 ; i < cells.length ; i++) {
+		if (cells[i].tagName == "TD") {
+			if (pattern.test(cells[i].getAttribute("onclick").toString()) || view == "") {
+				cells[i].className = "SUBMENUITEMCURRENT";
+				break;
+			}
+		}
+	}
+}
+
+// highlight topmenu items on mouse over and out
+function topMenuHover(nodeCurrent, bOver) 
+{
+	var bCurrent = nodeCurrent.className.indexOf("CURRENT") >= 0 ? true : false;
+	
+	if (bOver)
+		nodeCurrent.className = nodeCurrent.className == "TOPMENUITEMCURRENT" || bCurrent ? "TOPMENUITEMCURRENTOVER" : "TOPMENUITEMOVER";
+	else
+		nodeCurrent.className = nodeCurrent.className == "TOPMENUITEMCURRENTOVER" || bCurrent ? "TOPMENUITEMCURRENT" : "TOPMENUITEM";
+
+	// Don't change submenu if it is the current page
+	// BUG! Assumes there is one submenu for libraries
+	// if (!strCurrentSubmenuId) 
+	if (!bOnSubmenuPage) document.getElementById("LIBRARIES_SUBMENU").style.display = 
+		(nodeCurrent.getAttribute("onclick").match(/libraries.aspx/i) && bOver) ? "block" : "none";
+}
+
+// highlight submenu items on mouse over and out
+function subMenuHover(nodeCurrent, bOver) 
+{
+	// Might get two overs in a row
+	var bCurrent = nodeCurrent.className.indexOf("CURRENT") >= 0 ? true : false;
+	if (bOver)
+		nodeCurrent.className = nodeCurrent.className == "SUBMENUITEMCURRENT" || bCurrent ? "SUBMENUITEMCURRENTOVER" : "SUBMENUITEMOVER";
+	else
+		nodeCurrent.className = nodeCurrent.className == "SUBMENUITEMCURRENTOVER" || bCurrent ? "SUBMENUITEMCURRENT" : "SUBMENUITEM";
+	if (!bOnSubmenuPage) document.getElementById("LIBRARIES_SUBMENU").style.display = bOver ? "block" : "none";
+}
+
+
+//-->
+</script><a name=top></a>
+	<table cellpadding="0" border="0" cellspacing="0" width="900"><tr>
+		<td style="padding-left: 25px;"><a href="/index.aspx"><img src="/images/wowlogob.gif" border="0" width="154" height="57" title="Wowbrary: The newest stuff at your library" /></a></td>
+		<td width="50%"></td>
+		<td height="60px" style="padding-top: 5px;"><a href='http://wowbrary.org/bannerlink.aspx?l=1'><img id='imgBanner' src='http://wowbrary.org/banner.aspx?l=1&b' height='60' border='0' ismap></a></td>
+		<td width="50%"></td>
+	</tr></table>	
+    <table class="TOPMENU" cellpadding="0" border="0" cellspacing="0"><tr><td>
+		<table cellpadding="0" border="0" cellspacing="0"><tr id="TOPMENUROW">
+			<td class="TOPMENUITEM" onmouseover="topMenuHover(this, true)" onmouseout="topMenuHover(this, false)" onclick="window.location = '/index.aspx';" >Home</td>
+			<td class="TOPMENUITEM" onmouseover="topMenuHover(this, true)" onmouseout="topMenuHover(this, false)" onclick="window.location = '/signup.aspx';">Sign Up</td>
+			<td class="TOPMENUITEM" onmouseover="topMenuHover(this, true)" onmouseout="topMenuHover(this, false)" onclick="window.location = '/recipients.aspx';">For Users</td>
+			<td class="TOPMENUITEM" onmouseover="topMenuHover(this, true)" onmouseout="topMenuHover(this, false)" onclick="window.location = '/libraries.aspx';">For Libraries <div class="arrow-down"></div></td>
+			<td class="TOPMENUITEM" onmouseover="topMenuHover(this, true)" onmouseout="topMenuHover(this, false)" onclick="window.location = '/sponsor.aspx';">For Sponsors</td>
+			<td class="TOPMENUITEM" onmouseover="topMenuHover(this, true)" onmouseout="topMenuHover(this, false)" onclick="window.location = '/about.aspx';" >About Us</td>
+			<td class="TOPMENUITEM" onmouseover="topMenuHover(this, true)" onmouseout="topMenuHover(this, false)" onclick="window.location = '/contact.aspx';">Contact</td>
+		</tr></table>
+		</td>
+	</tr></table>
+	<div style="position:relative">
+		<div id="LIBRARIES_SUBMENU" style="display:none;position:absolute;top:0px;left:40px;z-index:999;">
+			<table cellpadding="0" border="0" cellspacing="0"><tr id="LIBRARIES_SUBMENUROW"">
+				<td class="SUBMENUITEM" onmouseover="subMenuHover(this, true)" onmouseout="subMenuHover(this, false)" onclick="window.location = '/libraries.aspx?view=overview';">Overview</td>
+				<td class="SUBMENUITEM" onmouseover="subMenuHover(this, true)" onmouseout="subMenuHover(this, false)" onclick="window.location = '/libraries.aspx?view=newsletter';">Newsletter</td>
+				<td class="SUBMENUITEM" onmouseover="subMenuHover(this, true)" onmouseout="subMenuHover(this, false)" onclick="window.location = '/libraries.aspx?view=widget';">Web Widget</td>
+				<td class="SUBMENUITEM" onmouseover="subMenuHover(this, true)" onmouseout="subMenuHover(this, false)" onclick="window.location = '/libraries.aspx?view=social';">Facebook, Twitter &amp; Pinterest</td>
+				<td class="SUBMENUITEM" onmouseover="subMenuHover(this, true)" onmouseout="subMenuHover(this, false)" onclick="window.location = '/libraries.aspx?view=easy';">Easy</td>
+				<td class="SUBMENUITEM" onmouseover="subMenuHover(this, true)" onmouseout="subMenuHover(this, false)" onclick="window.location = '/libraries.aspx?view=pricing';" style="border-right: 0px;">Affordable</td>
+				<td class="SUBMENUSHADOW"><img src="/1x1.gif" width="3"></td>
+			</tr>
+			<tr>
+				<td class="SUBMENUSHADOW" colspan="7" style="border-left: white 3px solid;"><img src="/1x1.gif" height="3"></td>
+			</tr>
+			</table>
+		</div>
+	</div>
+<script type="text/javascript" language="JavaScript">
+<!--
+highlightCurrentMenu();
+//--></script>
+  
+  <table width="100%" cellpadding="0" border="0" cellspacing="0">
+    <tr>
+      <td class="LEFTCOLUMN">
+      
+         <!-- start: subscribe box -->
+         <DIV class="searchboxbg">
+          <DIV class="roundbox_tr">
+           <DIV class="roundbox_bl">
+             <DIV class="roundbox_br">
+               <DIV class="thesearchbox">
+                 <DIV class="small" style="FONT-WEIGHT: bold; PADDING-BOTTOM: 3px" align="left">See your library's latest</DIV>
+                 <DIV align="left">
+                   <input style="FONT-WEIGHT: normal; FONT-SIZE: 11px; WIDTH: 80px; COLOR: #666; FONT-FAMILY: arial; BACKGROUND-COLOR: #ebebeb" onkeypress="return submitPress(event,'enrollGo','')" onfocus="if (this.value == 'ZIP code') this.value = '';" size="17" value="ZIP code" name="enrollzip"/> &nbsp;
+                   <input id="enrollGo" type="submit" value="Go" name="enrollGo"/><BR>
+                  </DIV>
+                </DIV>
+              </DIV>
+            </DIV>
+          </DIV>
+        </DIV>
+      
+</td></tr></table>
+<center><table class="CENTERED"><tr><td colspan="3">
+<h1 class="BODY" style="text-align: center">Free Alerts about Your Library's Newest Books, Movies & Music!</h1>
+</td></tr>
+<tr>
+ <td width="50%" valign="top" align="right" style="padding-left: 30px;"><div style="position: relative;"><div style="position: absolute; right: 17px; top: 3px; z-index: 3;"><img src="images/NuThumb319.png" title="Sample Wowbrary email - you can get this each week for free!" width="300" height="257" border="0"/></div></div><img src="images/sample.png" title="Sample Wowbrary email - you can get this each week for free!" width="351" height="276" border="0"/></td>
+ <td><img width="20" src="1x1.gif"/></td>
+ <td width="50%" valign="top" align="left" style="padding-right: 30px;">
+ <p class='INDEXCHECK'>&#10003; Receive free weekly email alerts or RSS</p>
+ <p class='INDEXCHECK'>&#10003; Discover the latest books, DVDs and CDs</p>
+ <p class='INDEXCHECK'>&#10003; Reserve bestsellers instantly</p>
+ <p class='INDEXCHECK'>&#10003; Enjoy the early notification</p>
+ <p class='INDEXCHECK'>&#10003; Completely private - 100% spam-free</p>
+ <p class='INDEXCHECK'>&#10003; Wildly convenient - view it from home</p>
+ <p class='BODY' style="font-size: 110%;"><b>&nbsp;<br />See if your library is covered!<br />
+ Just enter your ZIP code:&nbsp;&nbsp;</b><span style="position: absolute;">
+<input type="hidden" id="flag" value="" name="flag" />
+<input style="FONT-WEIGHT: normal; FONT-SIZE: 11px; WIDTH: 80px; COLOR: #666; FONT-FAMILY: arial; BACKGROUND-COLOR: #ebebeb" onkeypress="return submitPress(event,'joinGo','bottom')" onfocus="if (this.value == 'ZIP code') this.value = '';" size="17" value="ZIP code" name="joinZip" /> &nbsp; 
+<input id="joinGo" type="button" value="Go" onclick="return submitClick('enrollGo','bottom')" name="joinGo"/></span></p>
+ </td>
+</tr>
+<!-- tr><td colspan="3" style="padding-left: 40px; padding-right: 40px;">
+<div class="quickfactsbox"><div class="roundbox_tr"><div class="roundbox_bl"><div class="roundbox_br"><div style='padding: 0.2em 1em 1em 1em; text-align: justify;'><span class='BODY'><b style='color: #535353;'>Quick Facts:</b><br /><br style="line-height: 4px;" />
+Your public library acquires thousands of wonderful new books, DVDs, and CDs every year. Discover your local library’s latest acquisitions via a user-friendly email or RSS feed. Review or borrow new titles you fancy, from home and whenever you wish. This community service is made possible by a nonprofit organization supporting lifelong learning.</span></div>
+</div></div></div></div>
+</td></tr -->
+</table><table><tr><td>
+
+  </td></tr></table>
+<div id="footer" style="position: relative;">
+<table class="FOOTER" width=100% border=0 cellpadding=0 cellspacing=0>
+ <tr>
+  <td class="FOOTER" align="left" width="33%">Copyright &copy; 2015 <SPAN title="wowbrary-001-site1.smarterasp.net">by</SPAN> Wowbrary &nbsp;</td>
+  <td class="FOOTER" align="center" width="34%"><a href="/privacy.aspx">Privacy Policy</a>&nbsp;&nbsp; &nbsp;&nbsp;<a href="/termsofservice.aspx">Terms of Service</a></td>
+  <td class="FOOTER" align="right" width="33%">&nbsp;</td>
+ </tr>
+</table>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6158290-1");
+pageTracker._trackPageview();
+</script>
+</form>    
+</body>
+</html>";i:2;s:4:"6817";}

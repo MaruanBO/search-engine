@@ -1,0 +1,788 @@
+a:3:{i:0;s:21:"http://timetoast.com/";i:1;s:148130:"<!doctype html>
+<!--[if IE 8]>    <html class="no-js lt-ie10 lt-ie9 ie"><![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js lt-ie10 ie"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if !IE]><!--><script>if(/*@cc_on!@*/false){document.documentElement.className+=' ie10 ie';}</script><!--<![endif]-->
+<!-- google_ad_section_start(weight=ignore) -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"41dc0fd2a6","applicationID":"48020","transactionName":"JQwLTEVbXQlcQhdRXQsGSlFZUFQd","queueTime":0,"applicationTime":22,"agentToken":null,"agent":"js-agent.newrelic.com/nr-536.min.js"}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQADUkVXAAMCVA=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(5),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e;try{throw new Error}catch(u){"stack"in u&&(t(3),t(4),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:6,4:5,5:20,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:20,2:21,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:21,2:20,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:21,2:20,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:21,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],10:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","trackUserAction","finished","traceEvent","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:19,2:20,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=(t(2),window),u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-536.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:19,2:10,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],19:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],20:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],21:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:20,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+<!-- facebook insights -->
+<meta property="fb:page_id" content="163456097039250" />
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196">
+<link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<title>Create timelines, share them on the web | Timetoast timelines</title>
+<meta name="description" content="Timetoast is a place to create timelines that you can add to your blog or website. You can create historical timelines of important events, or build a timeline of your vacation. It&#39;s all up to you." />
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="bxtNpO6xUPUwaFXt8xghklpM8llXOZXagsIl/ba7GIg=" name="csrf-token" />
+<meta name="keywords" content="timeline, interactive, create, historical, time, visualization, chronology, chronological, reference" />
+<script type="text/underscore-template" id="announcement-view-template">
+  <% if(message.length > 0){ %>
+    <div class='announcement'>
+      <div class='text-body'>
+        <%= message %>
+      </div>
+      <a href='javascript:void(0);' class='js-hide-announcement hide-announcement'>x</span>
+      <div class='clearfix'></div>
+    </div>
+  <% } %>
+
+</script>
+  <!-- START TIMELINE VIEW CONTROLS APP TEMPLATES -->
+  <script type="text/x-underscore-template" id="timeline-view-controls-layout-template">
+    
+      <div class="timeline-size-buttons">
+        <div id="size-selector-region">
+        </div>
+      </div>
+
+      <div id="timeline-view-toggle" class="draggable-switch">
+        <div id="view-mode-selector-region">
+        </div>
+      </div>
+
+    </section>
+
+  </script>
+
+  <script type="text/x-underscore-template" id="size-selector-view-template">
+
+    <ul>
+      <li><a href="javascript:void(0);" class="small selected" data-size="small">small</a></li>
+      <li><a href="javascript:void(0);" class="medium" data-size="medium">medium</a></li>
+      <li><a href="javascript:void(0);" class="large" data-size="large">large</a></li>
+    </ul>
+
+  </script>
+<!-- END TIMELINE VIEW CONTROLS APP TEMPLATES -->
+  <!-- START SLIDER SWITCH COMPONENT TEMPLATES -->
+  <script type="text/x-underscore-template" id="scrollable-slider-switch-template">
+  <span data-state="draft" class="toggle-slider-label left-label"><%= leftLabel %></span>
+  <div class="dragdealer">
+    <div class="handle"></div>
+  </div>
+  <span data-state="public" class="toggle-slider-label right-label"><%= rightLabel %></span>
+  </script>
+<!-- END SLIDER SWITCH COMPONENT TEMPLATES -->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//s3.amazonaws.com/timetoast-assets/assets/modernizr.min-e572fab17bc01990d274437beb46688e.js"></script>
+<script src="//s3.amazonaws.com/timetoast-assets/assets/application-d6e3e23dd68f2c853bdabf685804d2d2.js"></script>
+  <link href="//s3.amazonaws.com/timetoast-assets/assets/application-f1015f616189a1fce455c0b3c3e7697a.css" media="all" rel="stylesheet" />
+
+<!--[if (gte IE 6)&(lte IE 8)]>
+  <script src="//s3.amazonaws.com/timetoast-assets/assets/selectivizr.min-332235989ebba1f2e90b21ba61c63113.js"></script>
+<![endif]-->
+
+<!-- start analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-1375530-2', 'timetoast.com');
+  ga('send', 'pageview');
+</script>
+<!-- end analytics -->
+
+
+
+</head>
+<!-- google_ad_section_end -->
+<body id="home" class="index">
+
+  <div id="announcements-region">
+  </div>
+
+  <!-- google_ad_section_start(weight=ignore) -->
+<header role="site-header">
+  <div class="header-container">
+    <div class="container">
+      <div class="header-logo">
+        <a href="http://www.timetoast.com/"><img alt="Timetoast logo" class="logo" src="//s3.amazonaws.com/timetoast-assets/assets/timetoast-logo-4122040af336741062013b71d8a36817.png" title="home" /></a>
+      </div>
+      <nav>
+        <div class="nav-item">
+  <a class="button button--callout" href="/plans"><span>Sign up</span></a>
+</div>
+  <a class="nav-item" href="/accounts/sign_in">Sign in</a>
+<a class="nav-item search js-search" href="javascript:void(0);">
+  <span>Search</span>
+</a><a class="nav-item" href="/categories">Browse timelines</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="container overflow">
+  <div class="dropdown">
+    <div class="js-menu-dropdown dropdown-menu menu-dropdown" style="display:none;">
+      <!-- nothing here -->
+    </div>
+  </div>
+</div>
+
+
+<!-- google_ad_section_end -->
+
+  <div class="search-content-holder">
+    <div class="container">
+      <div class="js-search-dropdown search-dropdown" style="display:none;">
+        <form action="http://www.timetoast.com/search/timelines" id="cse-search-box">
+  <input type="hidden" name="cx" value="partner-pub-3637961829875093:ehixnl-dg1y" />
+  <input type="hidden" name="cof" value="FORID:9" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="text" name="q" size="20" placeholder="Start typing and hit enter" />
+  <input type="submit" name="sa" value="Search" class="button button-flat button--flat-cta" />
+</form>
+<script type="text/javascript" src="//www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div id="notifications" class="notifications-container" >
+    
+  </div>
+
+  <div id="content">
+    <!-- google_ad_section_start(weight=ignore) -->
+<section class="homepage">
+
+   <header class="intro homepage-loggedout-intro">
+  <div class="container">
+    <h1 class="page-title">Make timelines, share them on the web</h1>
+    <p>
+      Timetoast is a great way to share the past, or even the future...<br />
+      Create timelines in minutes, it's as simple as can be.
+    </p>
+    <div class="center-container">
+      <div class="button-container">
+        <a class="button button--callout button--large" href="/plans"><span>Create your account</span></a>
+      </div>
+    </div>
+    
+  </div>
+</header>
+
+  <div class="container overflow">
+    
+    
+
+    <div class="panel">
+      <article id="featured-timeline" class="timeline">
+
+        <header class="panel_section panel_section--padded timeline-header">
+          <div class="content">
+            <div class="show">
+              <img alt="Audrey hepburn 67dbb" class="thumb" src="http://s3.timetoast.com/public/uploads/photos/1415570/Audrey-Hepburn-67dbb_small_square.jpg?1298408156" />
+              <div class="text-container">
+                <h3><span class="featured-label">Featured timeline</span> <a href="/timelines/115783">The Life of Audrey Hepburn</a></h3>
+                <span class="timeline-subtitle">Timeline created by <a href="/users/100827">krobinson803</a></span>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="flash-requirement panel_section panel_section--padded hidden">
+  <a href="http://get.adobe.com/flashplayer/" rel="nofollow"><img alt="Get Flash Player" src="//s3.amazonaws.com/timetoast-assets/assets/buttons/get_flash_player-bda6a1c2f37cc19f88828fe95ce02914.jpg" /></a><p>Note: <a href="http://get.adobe.com/flashplayer" rel="nofollow">Install Adobe Flash Player</a> to view our fully interactive timelines.</p>
+</div>
+        <div id="timeline-player-container">
+          <div id="timeline-player" class="hidden">
+            <div id="swfTarget">
+              <div class="loading-timeline">
+                Loading timeline...
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-table">
+          <table>
+    <thead>
+    <tr>
+      <th width="86"></th>
+      <th width="100"><strong>Event Date:</strong></th>
+      <th width="256"><strong>Event Title:</strong></th>
+      <th width="455"><strong>Event Description:</strong></th>
+    </tr>
+    </thead>
+    <tr class="even">
+      <td><img alt="Baby%20audrey" src="http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_small_square.jpg?1298389237" /></td>
+      <td><time datetime="1929-05-04T00:00:00+00:00">4th May, 1929</time></td>
+      <td><b>Audrey Hepburn was born.</b></td>
+      <td>Audrey Hepburn was born in Brussels, Belgium, with the name Audrey Kathleen Ruston. Her father, Joseph Victor Anthony Ruston, was an English banker and her mother, Ella, was a Dutch baroness.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Father" src="http://s3.timetoast.com/public/uploads/photos/1414705/father_small_square.jpg?1298390935" /></td>
+      <td><time datetime="1935-01-24T00:00:00+00:00">24th Jan, 1935</time></td>
+      <td><b>Hepburn's Parents Divorce </b></td>
+      <td>Her father, a Nazi sympathiser, left the family and Hepburn referred to her father's leaving as the most traumatic moment of her life.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Timeline" src="//s3.amazonaws.com/timetoast-assets/assets/default/timeline_small_square-d6dff2c280a7452dcf8bcbd4308e97fb.png" /></td>
+      <td><time datetime="1940-05-10T00:00:00+00:00">10th May, 1940</time></td>
+      <td><b>Pseudonym Edda van Heemstra</b></td>
+      <td>Audrey's mother sent her and her two half-brothers to live with their grandfather in the Netherlands because she felt it would be safe from German attack. In 1940, when the Germans invaded the Netherlands, Hepburn adopted the name Edda van Heemstra. Her given name was considered to be dangerous because it sounded English and indicated her British roots.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Art" src="http://s3.timetoast.com/public/uploads/photos/1414762/art_small_square.jpg?1298391759" /></td>
+      <td><time datetime="1944-04-24T00:00:00+00:00">24th Apr, 1944</time></td>
+      <td><b>Hepburn's Wartime Experiences</b></td>
+      <td>In 1944, Audrey was an accompished ballerina and she secretly performed for groups of people. Over the winter of 1944, the Germans blocked supply routes for food and fuel leaving people to starve and freeze to death. Hepburn made flour out of tulip bulbs to bake cakes and biscuits. Hepburn suffered from malnutrition, anaemia, and respiratory problems. She passed time by drawing. The attached picture shows two of her drawings.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Ballerina" src="http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_small_square.jpg?1298392145" /></td>
+      <td><time datetime="1945-04-24T00:00:00+00:00">24th Apr, 1945</time></td>
+      <td><b>The Start of Her Career</b></td>
+      <td>After the war, Audrey moved to Amsterdam and took ballet lessons with Sonia Gaskell. She then studied at the Ballet Rambert and supported herself by working part time as a model. Rambert later told Hepburn that her poor nutrition during the war and the fact that she was relatively tall (5 ft 7) would keep her from becoming the prima ballerina she dreamed of. Hepburn decided to pursue acting.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="7less" src="http://s3.timetoast.com/public/uploads/photos/1414847/7less_small_square.jpg?1298392530" /></td>
+      <td><time datetime="1948-03-24T00:00:00+00:00">24th Mar, 1948</time></td>
+      <td><b>Educational film "Dutch in Seven Lessons"</b></td>
+      <td>Release in 1948, "Dutch in Seven Lessons" was Hepburn's first appearance in the industry.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Wild%20oat" src="http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_small_square.jpg?1298392940" /></td>
+      <td><time datetime="1951-02-22T00:00:00+00:00">22nd Feb, 1951</time></td>
+      <td><b>Her First Minor Roles</b></td>
+      <td>In 1951, Audrey played a hotel receptionist in her first motion picture film, One Wild Oat. She also played minor roles in:<br>
+Young Wives' Tale<br>
+Laughter in Paradise<br>
+The Lavender Hill Mob<br>
+Monte Carlo Baby</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Gigi" src="http://s3.timetoast.com/public/uploads/photos/1414907/gigi_small_square.jpg?1298393227" /></td>
+      <td><time datetime="1951-11-24T00:00:00+00:00">24th Nov, 1951</time></td>
+      <td><b>First Lead Roles</b></td>
+      <td>During the making of Monte Carlo Baby, Audrey was chosen to play the lead role in the Broadway rendition of Gigi. It opened at the Fulton Theatre and ran for 219 performances. In the last months of its running, it was performed in San Francisco and Los Angeles. However, her first significant fil performance was in the Dickinson film "Secret People" which was release in 1952. She played a ballerina and did all her own dancing.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="1steng" src="http://s3.timetoast.com/public/uploads/photos/1415083/1steng_small_square.jpg?1298396795" /></td>
+      <td><time datetime="1952-03-18T00:00:00+00:00">18th Mar, 1952</time></td>
+      <td><b>Hepburn's First Engagement</b></td>
+      <td>James Hanson and Audrey Hepburn engaged in 1952 and Hepburn called it "love at first sight." Shortly after being fitted for her wedding dress and setting the date, they decided their careers would keep them apart most of the time and broke it off.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Roman" src="http://s3.timetoast.com/public/uploads/photos/1414923/roman_small_square.jpg?1298393434" /></td>
+      <td><time datetime="1953-02-22T00:00:00+00:00">22nd Feb, 1953</time></td>
+      <td><b>Roman Holiday</b></td>
+      <td>With Gregory Peck, the Italian-set romantic-comedy, "Roman Holiday," was her first MAJOR star role. Elizabeth Taylor was originally wanted for the role but director William Wyler was greatly impressed by Hepburn's talent and cast her instead. For her role in this film, Hepburn won an Academy Award, a Golden Globe and a BAFTA.  
+
+ "She had everything I was looking for: charm, innocence and talent. She also was very funny. She was absolutely enchanting and we said, 'That's the girl!'"<br>
+Willam Wyler</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Sabrina" src="http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_small_square.jpg?1298389425" /></td>
+      <td><time datetime="1954-01-22T00:00:00+00:00">22nd Jan, 1954</time></td>
+      <td><b>"Sabrina" directed by Billy Wilder</b></td>
+      <td>In 1954, Audrey starred as Sabrina Fairchild in the movie "Sabrina" with Humphrey Bogart. This was Audrey's second big film.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Oscar" src="http://s3.timetoast.com/public/uploads/photos/1414667/oscar_small_square.jpg?1298390365" /></td>
+      <td><time datetime="1954-03-30T00:00:00+00:00">30th Mar, 1954</time></td>
+      <td><b>Audrey wins an Oscar Award</b></td>
+      <td>The 1954 Oscars were held on March 30, 1955. Audrey Hepburn received a Best Actress Oscar for her role in "Roman Holiday."</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Asda" src="http://s3.timetoast.com/public/uploads/photos/1414995/asda_small_square.jpg?1298395367" /></td>
+      <td><time datetime="1954-06-27T00:00:00+00:00">27th Jun, 1954</time></td>
+      <td><b>Awards</b></td>
+      <td>Audrey is one of few entertainers who have won an Oscar, Emmy, Grammy, and Tony Award. She has also received an Acadamey Award, a Golden Glove, and a BAFTA. In 1961, she was named to the International Best Dressed List Hall of Fame.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Mel" src="http://s3.timetoast.com/public/uploads/photos/1415127/mel_small_square.jpg?1298397716" /></td>
+      <td><time datetime="1954-09-24T00:00:00+00:00">24th Sep, 1954</time></td>
+      <td><b>First Marriage</b></td>
+      <td>On September 24, 1954, Mel Ferrer and Audrey Hepburn married. They met at a party hosted by Gregory Peck. Rehearsals for the play "Odine" began in January and the following September they were married. She said they were inseparable and very happy but admitted he had a bad temper. Rumors said Ferrer was controlling; however, a friend of Hepburn said, "I think Audrey allows Mel to think he influences her."</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Vogue" src="http://s3.timetoast.com/public/uploads/photos/1414602/vogue_small_square.jpg?1298389011" /></td>
+      <td><time datetime="1954-11-01T00:00:00+00:00">1st Nov, 1954</time></td>
+      <td><b>Featured in Vogue Magazine</b></td>
+      <td>Audrey was featured in the 1954 November issue of Vogue and photographed by Cecil Beaton, who said, "With the passing of every month, Audrey Hepburn increases in dramatic stature. Intelligent and alert, wistful but enthusiastic, frank yet tactful, assured without conceit and tender without sentimentality, she is the most promising theatrical talent to appear since the war."</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="1st%20child" src="http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_small_square.jpg?1298398953" /></td>
+      <td><time datetime="1960-07-17T00:00:00+00:00">17th Jul, 1960</time></td>
+      <td><b>First Child Born</b></td>
+      <td>Hepburn had her first pregnancy but miscarried in March of 1955. In 1959, she fell off a horse and onto a rock and broke her back while filming "The Unforgiven" and she spent weeks in the hospital and had her second miscarriage due to physical and mental stress. In 1960, she had her first child with Mel Ferrer and his name is Sean Hepburn Ferrer.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Breakfast" src="http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_small_square.jpg?1298394485" /></td>
+      <td><time datetime="1961-03-12T00:00:00+00:00">12th Mar, 1961</time></td>
+      <td><b>Breakfast at Tiffany's </b></td>
+      <td>Hepburn played the role of Holly Golightly in the 1961 film, Breakfast at Tiffany's. Hepburn referred to this role as "the jazziest of my career." Holly Golightly became an "iconic character in American cinema."</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Charade" src="http://s3.timetoast.com/public/uploads/photos/1414982/charade_small_square.jpg?1298394954" /></td>
+      <td><time datetime="1963-05-15T00:00:00+00:00">15th May, 1963</time></td>
+      <td><b>Charade</b></td>
+      <td>Her only film with Cary Grant, Hepburn starred in Charade.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Pres" src="http://s3.timetoast.com/public/uploads/photos/1415157/pres_small_square.jpg?1298398619" /></td>
+      <td><time datetime="1963-05-29T00:00:00+00:00">29th May, 1963</time></td>
+      <td><b>"Happy Birthday, Dear Jack"</b></td>
+      <td>Hepbun and President John F. Kennedy were dear friends and Hepburn was his favorite actress. Hepburn sang "Happy Birthday, Dear Jack" to the president on what ended up being his last birthday.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Div" src="http://s3.timetoast.com/public/uploads/photos/1415190/div_small_square.jpg?1298399044" /></td>
+      <td><time datetime="1968-12-05T00:00:00+00:00">5th Dec, 1968</time></td>
+      <td><b>Hepburn and Ferrer Divorce</b></td>
+      <td>After being married for 14 years, Hepburn and Ferrer divorce. Her son was quoted saying his mother had stayed in the marriage with his father for too long. She broke off all contact with Ferrer and only spoke to him twice more in her life.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Dotti" src="http://s3.timetoast.com/public/uploads/photos/1415205/dotti_small_square.jpg?1298399366" /></td>
+      <td><time datetime="1969-01-18T00:00:00+00:00">18th Jan, 1969</time></td>
+      <td><b>Second Marriage</b></td>
+      <td>Hepburn went on a cruise and met Italian psychiatrist, Andrea Dotti and they fell in love. They married in 1969.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Ahlucvog" src="http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_small_square.jpg?1298400541" /></td>
+      <td><time datetime="1970-02-08T00:00:00+00:00">8th Feb, 1970</time></td>
+      <td><b>Second Child Born</b></td>
+      <td>Audrey was very careful while pregnant with her next child to prevent another miscarriage. She passed the time by painting and then on February 8, she had her second son and they named him Luca Dotti. 
+
+ The picture to the left is Audrey pushing baby Luca for, Vogue photographer, Henry Clarke.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Timeline" src="//s3.amazonaws.com/timetoast-assets/assets/default/timeline_small_square-d6dff2c280a7452dcf8bcbd4308e97fb.png" /></td>
+      <td><time datetime="1974-08-10T00:00:00+00:00">10th Aug, 1974</time></td>
+      <td><b>Another Miscarriage</b></td>
+      <td>Wanting more children, Audrey had her final miscarriage in 1974.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Ram" src="http://s3.timetoast.com/public/uploads/photos/1415494/ram_small_square.jpg?1298405233" /></td>
+      <td><time datetime="1976-03-11T00:00:00+00:00">11th Mar, 1976</time></td>
+      <td><b>Robin and Marian</b></td>
+      <td>Released on March 11, 1976, Robin and Marian was a romantic adventure film directed by Richard Lester. Audrey Hepburn starred in this film with Sean Connery and Ronnie Barker.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Mrfam" src="http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_small_square.jpg?1298402081" /></td>
+      <td><time datetime="1982-05-30T00:00:00+00:00">30th May, 1982</time></td>
+      <td><b>Hepburn and Dotti Divorce</b></td>
+      <td>Hepburn and Dotti were married for 13 years. Their marriage ended in 1982 when she felt that her sons could handle living their lives with a single mother. They divorced due to Dotti's tendency to have affairs with younger women. Unlike Ferrer, Hepburn stayed in touch with Dotti for Luca's sake. Andrea Dotti died in 2007. 
+
+ The picture is Audrey with her yorkie named Mr. Famous.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Ahrw" src="http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_small_square.jpg?1298403299" /></td>
+      <td><time datetime="1982-11-19T00:00:00+00:00">19th Nov, 1982</time></td>
+      <td><b>Robert Wolders</b></td>
+      <td>Audrey Hepburn became romantically involved with actor Robert Wolders. Although they never married, she referred to her time with him as the happiest years of her life. In an interview with Barbara Walters, Walters asked Hepburn why they never married. Hepburn replied they were married just not formally. Hepburn lived with her companion from 1982 until her death.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Unicef2" src="http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_small_square.jpg?1298404829" /></td>
+      <td><time datetime="1988-04-25T00:00:00+00:00">25th Apr, 1988</time></td>
+      <td><b>International Goodwill Ambassador</b></td>
+      <td>Influenced by her wartime experiences, Audrey Hepburn decided to dedicate the remainder of her life to helping needy children in impoverished countries. In 1988 she was appointed as the UNICEF's International Goodwill Ambassador. During the years up to her death, she visited many needy countries. Her first mission was to Ethiopia.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Always" src="http://s3.timetoast.com/public/uploads/photos/1415440/always_small_square.jpg?1298404391" /></td>
+      <td><time datetime="1989-12-22T00:00:00+00:00">22nd Dec, 1989</time></td>
+      <td><b>Always</b></td>
+      <td>Steven Spielberg's film "Always," was released on December 22, 1989. Hepburn played the role of an angel. This is the last film she was in.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Ench" src="http://s3.timetoast.com/public/uploads/photos/1415505/ench_small_square.jpg?1298405718" /></td>
+      <td><time datetime="1992-04-07T00:00:00+00:00">7th Apr, 1992</time></td>
+      <td><b>Audrey Hepburn's Enchanted Tales</b></td>
+      <td>In 1992, Audrey recorded a "spoken word album" that was titled "Audrey Hepburn's Enchanted Tales;" she read classic children's stories. She won a Grammy Award for Best Spoken Word Album for Children.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Unicef" src="http://s3.timetoast.com/public/uploads/photos/1415527/unicef_small_square.jpg?1298406612" /></td>
+      <td><time datetime="1992-11-01T00:00:00+00:00">1st Nov, 1992</time></td>
+      <td><b>Diagnosed with Cancer</b></td>
+      <td>She returned from a UNICEF tripto Somalia and began feeling abdominal pain. After seeing a specialist and receiving inconclusive results, she went to another doctor. On November 1, 1992, doctors discovered she had abdominal cancer that had originated in her appendix. After several surgeries, doctors concluded the cancer had spread too far and there was nothing they could do.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Presmedalfreedom" src="http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_small_square.jpg?1298403661" /></td>
+      <td><time datetime="1992-12-11T00:00:00+00:00">11th Dec, 1992</time></td>
+      <td><b>Presidential Medal of Freedom</b></td>
+      <td>On December 11, 1992, President George Bush awarded Audrey Hepburn with the Presidential Medal of Freedom.</td>
+    </tr>
+    <tr class="odd">
+      <td><img alt="Ah12" src="http://s3.timetoast.com/public/uploads/photos/1415551/ah12_small_square.jpg?1298407559" /></td>
+      <td><time datetime="1993-01-20T00:00:00+00:00">20th Jan, 1993</time></td>
+      <td><b>Audrey Hepburn Passes Away</b></td>
+      <td>Her dear friend and fashion designer, Hubert de Givenchy, arranged for Hepburn to be brought to her home in Switzerland from California. He sent her a private jet that he had filled with flowers. She died in her home on January 20, 1993. After hearing of her death, Gregory Peck tearfully read Hepburn's favorite poem, "Unending Love" by Rabindranath Tagore, on camera.</td>
+    </tr>
+    <tr class="even">
+      <td><img alt="Funeral 2" src="http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_small_square.jpg?1298408003" /></td>
+      <td><time datetime="1993-01-24T00:00:00+00:00">24th Jan, 1993</time></td>
+      <td><b>Audrey Hepburn's Funeral</b></td>
+      <td>Hepburn's funeral services were held in Switzerland, on Sunday, January 24, 1993. UNICEF's Prince Sadruddin Aga Khan delivered a eulogy. Her family and friends were there, including her two sons, Sean and Luca, and her partner Robert Wolders. Her two sons and partner helped carry her coffin to the grave site. 
+
+ "Audrey Hepburn became more than a movie star. She became a legend, first on screen - and then on the arid plains of Africa." - Ian Woodward, Author</td>
+    </tr>
+  
+  
+</table>
+
+
+        </div>
+
+          <script type="text/json" data-timeline-json="115783">
+  {&quot;id&quot;:115783,&quot;title&quot;:&quot;The Life of Audrey Hepburn&quot;,&quot;publish_status_code&quot;:1,&quot;categories&quot;:[{&quot;id&quot;:3,&quot;name&quot;:&quot;Film&quot;}],&quot;photos&quot;:[{&quot;id&quot;:1415570,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415570/Audrey-Hepburn-67dbb.jpg?1298408156&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415570/Audrey-Hepburn-67dbb_thumb.jpg?1298408156&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415570/Audrey-Hepburn-67dbb_tiny.jpg?1298408156&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415570/Audrey-Hepburn-67dbb_tiny_square.jpg?1298408156&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415570/Audrey-Hepburn-67dbb_small_square.jpg?1298408156&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415570/Audrey-Hepburn-67dbb_medium_square.jpg?1298408156&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415570/Audrey-Hepburn-67dbb_tiny_landscape.jpg?1298408156&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415570/Audrey-Hepburn-67dbb_small_landscape.jpg?1298408156&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415570/Audrey-Hepburn-67dbb_medium_landscape.jpg?1298408156&quot;},&quot;image_processing&quot;:false}],&quot;markers&quot;:[{&quot;id&quot;:951030,&quot;title&quot;:&quot;Audrey Hepburn was born.&quot;,&quot;description&quot;:&quot;Audrey Hepburn was born in Brussels, Belgium, with the name Audrey Kathleen Ruston. Her father, Joseph Victor Anthony Ruston, was an English banker and her mother, Ella, was a Dutch baroness.&quot;,&quot;marks_time_at&quot;:&quot;1929-05-04 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey.jpg?1298389237&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_thumb.jpg?1298389237&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_tiny.jpg?1298389237&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_tiny_square.jpg?1298389237&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_small_square.jpg?1298389237&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_medium_square.jpg?1298389237&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_tiny_landscape.jpg?1298389237&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_small_landscape.jpg?1298389237&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_medium_landscape.jpg?1298389237&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414613,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey.jpg?1298389237&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_thumb.jpg?1298389237&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_tiny.jpg?1298389237&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_tiny_square.jpg?1298389237&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_small_square.jpg?1298389237&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_medium_square.jpg?1298389237&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_tiny_landscape.jpg?1298389237&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_small_landscape.jpg?1298389237&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414613/Baby%20Audrey_medium_landscape.jpg?1298389237&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951280,&quot;title&quot;:&quot;Hepburn\u0026#39;s Parents Divorce &quot;,&quot;description&quot;:&quot;Her father, a Nazi sympathiser, left the family and Hepburn referred to her father&#39;s leaving as the most traumatic moment of her life.&quot;,&quot;marks_time_at&quot;:&quot;1935-01-24 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father.jpg?1298390935&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_thumb.jpg?1298390935&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_tiny.jpg?1298390935&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_tiny_square.jpg?1298390935&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_small_square.jpg?1298390935&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_medium_square.jpg?1298390935&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_tiny_landscape.jpg?1298390935&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_small_landscape.jpg?1298390935&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_medium_landscape.jpg?1298390935&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414705,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father.jpg?1298390935&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_thumb.jpg?1298390935&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_tiny.jpg?1298390935&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_tiny_square.jpg?1298390935&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_small_square.jpg?1298390935&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_medium_square.jpg?1298390935&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_tiny_landscape.jpg?1298390935&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_small_landscape.jpg?1298390935&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414705/father_medium_landscape.jpg?1298390935&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951315,&quot;title&quot;:&quot;Pseudonym Edda van Heemstra&quot;,&quot;description&quot;:&quot;Audrey&#39;s mother sent her and her two half-brothers to live with their grandfather in the Netherlands because she felt it would be safe from German attack. In 1940, when the Germans invaded the Netherlands, Hepburn adopted the name Edda van Heemstra. Her given name was considered to be dangerous because it sounded English and indicated her British roots.&quot;,&quot;marks_time_at&quot;:&quot;1940-05-10 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;//s3.amazonaws.com/timetoast-assets/default/timeline_original.png&quot;,&quot;thumb&quot;:&quot;//s3.amazonaws.com/timetoast-assets/default/timeline_thumb.png&quot;,&quot;tiny&quot;:&quot;//s3.amazonaws.com/timetoast-assets/default/timeline_tiny.png&quot;,&quot;tiny_square&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_square-0464464f6b1aa815abecaa0696e7a89b.png&quot;,&quot;small_square&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_small_square-d6dff2c280a7452dcf8bcbd4308e97fb.png&quot;,&quot;medium_square&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_medium_square-a19ad77bdbed3b9bf801a711d26e1923.png&quot;,&quot;tiny_landscape&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_landscape-6055a2273dd2f31afc10e03e8961a2d7.png&quot;,&quot;small_landscape&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_small_landscape-c7900d66ecb17816c57d1ff8a34458bd.png&quot;,&quot;medium_landscape&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_medium_landscape-f579b7b956b9a6edd9b486a5974c3116.png&quot;},&quot;photos&quot;:[]},{&quot;id&quot;:951365,&quot;title&quot;:&quot;Hepburn\u0026#39;s Wartime Experiences&quot;,&quot;description&quot;:&quot;In 1944, Audrey was an accompished ballerina and she secretly performed for groups of people. Over the winter of 1944, the Germans blocked supply routes for food and fuel leaving people to starve and freeze to death. Hepburn made flour out of tulip bulbs to bake cakes and biscuits. Hepburn suffered from malnutrition, anaemia, and respiratory problems. She passed time by drawing. The attached picture shows two of her drawings.&quot;,&quot;marks_time_at&quot;:&quot;1944-04-24 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art.jpg?1298391759&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_thumb.jpg?1298391759&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_tiny.jpg?1298391759&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_tiny_square.jpg?1298391759&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_small_square.jpg?1298391759&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_medium_square.jpg?1298391759&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_tiny_landscape.jpg?1298391759&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_small_landscape.jpg?1298391759&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_medium_landscape.jpg?1298391759&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414762,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art.jpg?1298391759&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_thumb.jpg?1298391759&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_tiny.jpg?1298391759&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_tiny_square.jpg?1298391759&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_small_square.jpg?1298391759&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_medium_square.jpg?1298391759&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_tiny_landscape.jpg?1298391759&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_small_landscape.jpg?1298391759&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414762/art_medium_landscape.jpg?1298391759&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951418,&quot;title&quot;:&quot;The Start of Her Career&quot;,&quot;description&quot;:&quot;After the war, Audrey moved to Amsterdam and took ballet lessons with Sonia Gaskell. She then studied at the Ballet Rambert and supported herself by working part time as a model. Rambert later told Hepburn that her poor nutrition during the war and the fact that she was relatively tall (5 ft 7) would keep her from becoming the prima ballerina she dreamed of. Hepburn decided to pursue acting.&quot;,&quot;marks_time_at&quot;:&quot;1945-04-24 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina.jpg?1298392145&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_thumb.jpg?1298392145&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_tiny.jpg?1298392145&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_tiny_square.jpg?1298392145&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_small_square.jpg?1298392145&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_medium_square.jpg?1298392145&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_tiny_landscape.jpg?1298392145&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_small_landscape.jpg?1298392145&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_medium_landscape.jpg?1298392145&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414807,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina.jpg?1298392145&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_thumb.jpg?1298392145&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_tiny.jpg?1298392145&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_tiny_square.jpg?1298392145&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_small_square.jpg?1298392145&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_medium_square.jpg?1298392145&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_tiny_landscape.jpg?1298392145&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_small_landscape.jpg?1298392145&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414807/ballerina_medium_landscape.jpg?1298392145&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951438,&quot;title&quot;:&quot;Educational film \u0026quot;Dutch in Seven Lessons\u0026quot;&quot;,&quot;description&quot;:&quot;Release in 1948, \&quot;Dutch in Seven Lessons\&quot; was Hepburn&#39;s first appearance in the industry.&quot;,&quot;marks_time_at&quot;:&quot;1948-03-24 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less.jpg?1298392530&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_thumb.jpg?1298392530&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_tiny.jpg?1298392530&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_tiny_square.jpg?1298392530&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_small_square.jpg?1298392530&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_medium_square.jpg?1298392530&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_tiny_landscape.jpg?1298392530&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_small_landscape.jpg?1298392530&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_medium_landscape.jpg?1298392530&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414847,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less.jpg?1298392530&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_thumb.jpg?1298392530&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_tiny.jpg?1298392530&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_tiny_square.jpg?1298392530&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_small_square.jpg?1298392530&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_medium_square.jpg?1298392530&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_tiny_landscape.jpg?1298392530&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_small_landscape.jpg?1298392530&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414847/7less_medium_landscape.jpg?1298392530&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951470,&quot;title&quot;:&quot;Her First Minor Roles&quot;,&quot;description&quot;:&quot;In 1951, Audrey played a hotel receptionist in her first motion picture film, One Wild Oat. She also played minor roles in:\u003cbr\u003e\nYoung Wives&#39; Tale\u003cbr\u003e\nLaughter in Paradise\u003cbr\u003e\nThe Lavender Hill Mob\u003cbr\u003e\nMonte Carlo Baby&quot;,&quot;marks_time_at&quot;:&quot;1951-02-22 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat.jpg?1298392940&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_thumb.jpg?1298392940&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_tiny.jpg?1298392940&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_tiny_square.jpg?1298392940&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_small_square.jpg?1298392940&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_medium_square.jpg?1298392940&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_tiny_landscape.jpg?1298392940&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_small_landscape.jpg?1298392940&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_medium_landscape.jpg?1298392940&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414886,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat.jpg?1298392940&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_thumb.jpg?1298392940&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_tiny.jpg?1298392940&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_tiny_square.jpg?1298392940&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_small_square.jpg?1298392940&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_medium_square.jpg?1298392940&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_tiny_landscape.jpg?1298392940&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_small_landscape.jpg?1298392940&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414886/wild%20oat_medium_landscape.jpg?1298392940&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951499,&quot;title&quot;:&quot;First Lead Roles&quot;,&quot;description&quot;:&quot;During the making of Monte Carlo Baby, Audrey was chosen to play the lead role in the Broadway rendition of Gigi. It opened at the Fulton Theatre and ran for 219 performances. In the last months of its running, it was performed in San Francisco and Los Angeles. However, her first significant fil performance was in the Dickinson film \&quot;Secret People\&quot; which was release in 1952. She played a ballerina and did all her own dancing.&quot;,&quot;marks_time_at&quot;:&quot;1951-11-24 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi.jpg?1298393227&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_thumb.jpg?1298393227&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_tiny.jpg?1298393227&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_tiny_square.jpg?1298393227&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_small_square.jpg?1298393227&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_medium_square.jpg?1298393227&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_tiny_landscape.jpg?1298393227&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_small_landscape.jpg?1298393227&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_medium_landscape.jpg?1298393227&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414907,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi.jpg?1298393227&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_thumb.jpg?1298393227&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_tiny.jpg?1298393227&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_tiny_square.jpg?1298393227&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_small_square.jpg?1298393227&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_medium_square.jpg?1298393227&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_tiny_landscape.jpg?1298393227&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_small_landscape.jpg?1298393227&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414907/gigi_medium_landscape.jpg?1298393227&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951883,&quot;title&quot;:&quot;Hepburn\u0026#39;s First Engagement&quot;,&quot;description&quot;:&quot;James Hanson and Audrey Hepburn engaged in 1952 and Hepburn called it \&quot;love at first sight.\&quot; Shortly after being fitted for her wedding dress and setting the date, they decided their careers would keep them apart most of the time and broke it off.&quot;,&quot;marks_time_at&quot;:&quot;1952-03-18 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng.jpg?1298396795&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_thumb.jpg?1298396795&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_tiny.jpg?1298396795&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_tiny_square.jpg?1298396795&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_small_square.jpg?1298396795&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_medium_square.jpg?1298396795&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_tiny_landscape.jpg?1298396795&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_small_landscape.jpg?1298396795&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_medium_landscape.jpg?1298396795&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415083,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng.jpg?1298396795&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_thumb.jpg?1298396795&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_tiny.jpg?1298396795&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_tiny_square.jpg?1298396795&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_small_square.jpg?1298396795&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_medium_square.jpg?1298396795&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_tiny_landscape.jpg?1298396795&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_small_landscape.jpg?1298396795&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415083/1steng_medium_landscape.jpg?1298396795&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951519,&quot;title&quot;:&quot;Roman Holiday&quot;,&quot;description&quot;:&quot;With Gregory Peck, the Italian-set romantic-comedy, \&quot;Roman Holiday,\&quot; was her first MAJOR star role. Elizabeth Taylor was originally wanted for the role but director William Wyler was greatly impressed by Hepburn&#39;s talent and cast her instead. For her role in this film, Hepburn won an Academy Award, a Golden Globe and a BAFTA.  \n\n \&quot;She had everything I was looking for: charm, innocence and talent. She also was very funny. She was absolutely enchanting and we said, &#39;That&#39;s the girl!&#39;\&quot;\u003cbr\u003e\nWillam Wyler&quot;,&quot;marks_time_at&quot;:&quot;1953-02-22 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman.jpg?1298393434&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_thumb.jpg?1298393434&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_tiny.jpg?1298393434&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_tiny_square.jpg?1298393434&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_small_square.jpg?1298393434&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_medium_square.jpg?1298393434&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_tiny_landscape.jpg?1298393434&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_small_landscape.jpg?1298393434&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_medium_landscape.jpg?1298393434&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414923,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman.jpg?1298393434&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_thumb.jpg?1298393434&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_tiny.jpg?1298393434&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_tiny_square.jpg?1298393434&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_small_square.jpg?1298393434&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_medium_square.jpg?1298393434&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_tiny_landscape.jpg?1298393434&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_small_landscape.jpg?1298393434&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414923/roman_medium_landscape.jpg?1298393434&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951186,&quot;title&quot;:&quot;\u0026quot;Sabrina\u0026quot; directed by Billy Wilder&quot;,&quot;description&quot;:&quot;In 1954, Audrey starred as Sabrina Fairchild in the movie \&quot;Sabrina\&quot; with Humphrey Bogart. This was Audrey&#39;s second big film.&quot;,&quot;marks_time_at&quot;:&quot;1954-01-22 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina.jpg?1298389425&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_thumb.jpg?1298389425&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_tiny.jpg?1298389425&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_tiny_square.jpg?1298389425&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_small_square.jpg?1298389425&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_medium_square.jpg?1298389425&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_tiny_landscape.jpg?1298389425&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_small_landscape.jpg?1298389425&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_medium_landscape.jpg?1298389425&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414625,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina.jpg?1298389425&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_thumb.jpg?1298389425&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_tiny.jpg?1298389425&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_tiny_square.jpg?1298389425&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_small_square.jpg?1298389425&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_medium_square.jpg?1298389425&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_tiny_landscape.jpg?1298389425&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_small_landscape.jpg?1298389425&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414625/sabrina_medium_landscape.jpg?1298389425&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951206,&quot;title&quot;:&quot;Audrey wins an Oscar Award&quot;,&quot;description&quot;:&quot;The 1954 Oscars were held on March 30, 1955. Audrey Hepburn received a Best Actress Oscar for her role in \&quot;Roman Holiday.\&quot;&quot;,&quot;marks_time_at&quot;:&quot;1954-03-30 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar.jpg?1298390365&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_thumb.jpg?1298390365&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_tiny.jpg?1298390365&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_tiny_square.jpg?1298390365&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_small_square.jpg?1298390365&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_medium_square.jpg?1298390365&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_tiny_landscape.jpg?1298390365&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_small_landscape.jpg?1298390365&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_medium_landscape.jpg?1298390365&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414667,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar.jpg?1298390365&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_thumb.jpg?1298390365&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_tiny.jpg?1298390365&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_tiny_square.jpg?1298390365&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_small_square.jpg?1298390365&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_medium_square.jpg?1298390365&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_tiny_landscape.jpg?1298390365&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_small_landscape.jpg?1298390365&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414667/oscar_medium_landscape.jpg?1298390365&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951697,&quot;title&quot;:&quot;Awards&quot;,&quot;description&quot;:&quot;Audrey is one of few entertainers who have won an Oscar, Emmy, Grammy, and Tony Award. She has also received an Acadamey Award, a Golden Glove, and a BAFTA. In 1961, she was named to the International Best Dressed List Hall of Fame.&quot;,&quot;marks_time_at&quot;:&quot;1954-06-27 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda.jpg?1298395367&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_thumb.jpg?1298395367&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_tiny.jpg?1298395367&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_tiny_square.jpg?1298395367&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_small_square.jpg?1298395367&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_medium_square.jpg?1298395367&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_tiny_landscape.jpg?1298395367&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_small_landscape.jpg?1298395367&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_medium_landscape.jpg?1298395367&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414995,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda.jpg?1298395367&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_thumb.jpg?1298395367&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_tiny.jpg?1298395367&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_tiny_square.jpg?1298395367&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_small_square.jpg?1298395367&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_medium_square.jpg?1298395367&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_tiny_landscape.jpg?1298395367&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_small_landscape.jpg?1298395367&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414995/asda_medium_landscape.jpg?1298395367&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951928,&quot;title&quot;:&quot;First Marriage&quot;,&quot;description&quot;:&quot;On September 24, 1954, Mel Ferrer and Audrey Hepburn married. They met at a party hosted by Gregory Peck. Rehearsals for the play \&quot;Odine\&quot; began in January and the following September they were married. She said they were inseparable and very happy but admitted he had a bad temper. Rumors said Ferrer was controlling; however, a friend of Hepburn said, \&quot;I think Audrey allows Mel to think he influences her.\&quot;&quot;,&quot;marks_time_at&quot;:&quot;1954-09-24 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel.jpg?1298397716&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_thumb.jpg?1298397716&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_tiny.jpg?1298397716&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_tiny_square.jpg?1298397716&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_small_square.jpg?1298397716&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_medium_square.jpg?1298397716&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_tiny_landscape.jpg?1298397716&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_small_landscape.jpg?1298397716&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_medium_landscape.jpg?1298397716&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415127,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel.jpg?1298397716&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_thumb.jpg?1298397716&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_tiny.jpg?1298397716&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_tiny_square.jpg?1298397716&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_small_square.jpg?1298397716&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_medium_square.jpg?1298397716&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_tiny_landscape.jpg?1298397716&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_small_landscape.jpg?1298397716&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415127/mel_medium_landscape.jpg?1298397716&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951086,&quot;title&quot;:&quot;Featured in Vogue Magazine&quot;,&quot;description&quot;:&quot;Audrey was featured in the 1954 November issue of Vogue and photographed by Cecil Beaton, who said, \&quot;With the passing of every month, Audrey Hepburn increases in dramatic stature. Intelligent and alert, wistful but enthusiastic, frank yet tactful, assured without conceit and tender without sentimentality, she is the most promising theatrical talent to appear since the war.\&quot;&quot;,&quot;marks_time_at&quot;:&quot;1954-11-01 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue.jpg?1298389011&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_thumb.jpg?1298389011&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_tiny.jpg?1298389011&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_tiny_square.jpg?1298389011&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_small_square.jpg?1298389011&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_medium_square.jpg?1298389011&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_tiny_landscape.jpg?1298389011&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_small_landscape.jpg?1298389011&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_medium_landscape.jpg?1298389011&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414602,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue.jpg?1298389011&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_thumb.jpg?1298389011&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_tiny.jpg?1298389011&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_tiny_square.jpg?1298389011&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_small_square.jpg?1298389011&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_medium_square.jpg?1298389011&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_tiny_landscape.jpg?1298389011&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_small_landscape.jpg?1298389011&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414602/vogue_medium_landscape.jpg?1298389011&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951955,&quot;title&quot;:&quot;First Child Born&quot;,&quot;description&quot;:&quot;Hepburn had her first pregnancy but miscarried in March of 1955. In 1959, she fell off a horse and onto a rock and broke her back while filming \&quot;The Unforgiven\&quot; and she spent weeks in the hospital and had her second miscarriage due to physical and mental stress. In 1960, she had her first child with Mel Ferrer and his name is Sean Hepburn Ferrer.&quot;,&quot;marks_time_at&quot;:&quot;1960-07-17 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child.jpg?1298398953&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_thumb.jpg?1298398953&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_tiny.jpg?1298398953&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_tiny_square.jpg?1298398953&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_small_square.jpg?1298398953&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_medium_square.jpg?1298398953&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_tiny_landscape.jpg?1298398953&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_small_landscape.jpg?1298398953&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_medium_landscape.jpg?1298398953&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415183,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child.jpg?1298398953&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_thumb.jpg?1298398953&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_tiny.jpg?1298398953&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_tiny_square.jpg?1298398953&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_small_square.jpg?1298398953&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_medium_square.jpg?1298398953&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_tiny_landscape.jpg?1298398953&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_small_landscape.jpg?1298398953&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415183/1st%20child_medium_landscape.jpg?1298398953&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951598,&quot;title&quot;:&quot;Breakfast at Tiffany\u0026#39;s &quot;,&quot;description&quot;:&quot;Hepburn played the role of Holly Golightly in the 1961 film, Breakfast at Tiffany&#39;s. Hepburn referred to this role as \&quot;the jazziest of my career.\&quot; Holly Golightly became an \&quot;iconic character in American cinema.\&quot;&quot;,&quot;marks_time_at&quot;:&quot;1961-03-12 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast.jpg?1298394485&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_thumb.jpg?1298394485&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_tiny.jpg?1298394485&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_tiny_square.jpg?1298394485&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_small_square.jpg?1298394485&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_medium_square.jpg?1298394485&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_tiny_landscape.jpg?1298394485&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_small_landscape.jpg?1298394485&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_medium_landscape.jpg?1298394485&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414971,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast.jpg?1298394485&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_thumb.jpg?1298394485&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_tiny.jpg?1298394485&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_tiny_square.jpg?1298394485&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_small_square.jpg?1298394485&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_medium_square.jpg?1298394485&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_tiny_landscape.jpg?1298394485&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_small_landscape.jpg?1298394485&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414971/breakfast_medium_landscape.jpg?1298394485&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951648,&quot;title&quot;:&quot;Charade&quot;,&quot;description&quot;:&quot;Her only film with Cary Grant, Hepburn starred in Charade.&quot;,&quot;marks_time_at&quot;:&quot;1963-05-15 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade.jpg?1298394954&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_thumb.jpg?1298394954&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_tiny.jpg?1298394954&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_tiny_square.jpg?1298394954&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_small_square.jpg?1298394954&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_medium_square.jpg?1298394954&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_tiny_landscape.jpg?1298394954&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_small_landscape.jpg?1298394954&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_medium_landscape.jpg?1298394954&quot;},&quot;photos&quot;:[{&quot;id&quot;:1414982,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade.jpg?1298394954&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_thumb.jpg?1298394954&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_tiny.jpg?1298394954&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_tiny_square.jpg?1298394954&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_small_square.jpg?1298394954&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_medium_square.jpg?1298394954&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_tiny_landscape.jpg?1298394954&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_small_landscape.jpg?1298394954&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1414982/charade_medium_landscape.jpg?1298394954&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951975,&quot;title&quot;:&quot;\u0026quot;Happy Birthday, Dear Jack\u0026quot;&quot;,&quot;description&quot;:&quot;Hepbun and President John F. Kennedy were dear friends and Hepburn was his favorite actress. Hepburn sang \&quot;Happy Birthday, Dear Jack\&quot; to the president on what ended up being his last birthday.&quot;,&quot;marks_time_at&quot;:&quot;1963-05-29 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres.jpg?1298398619&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_thumb.jpg?1298398619&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_tiny.jpg?1298398619&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_tiny_square.jpg?1298398619&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_small_square.jpg?1298398619&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_medium_square.jpg?1298398619&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_tiny_landscape.jpg?1298398619&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_small_landscape.jpg?1298398619&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_medium_landscape.jpg?1298398619&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415157,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres.jpg?1298398619&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_thumb.jpg?1298398619&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_tiny.jpg?1298398619&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_tiny_square.jpg?1298398619&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_small_square.jpg?1298398619&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_medium_square.jpg?1298398619&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_tiny_landscape.jpg?1298398619&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_small_landscape.jpg?1298398619&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415157/pres_medium_landscape.jpg?1298398619&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:951997,&quot;title&quot;:&quot;Hepburn and Ferrer Divorce&quot;,&quot;description&quot;:&quot;After being married for 14 years, Hepburn and Ferrer divorce. Her son was quoted saying his mother had stayed in the marriage with his father for too long. She broke off all contact with Ferrer and only spoke to him twice more in her life.&quot;,&quot;marks_time_at&quot;:&quot;1968-12-05 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div.jpg?1298399044&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_thumb.jpg?1298399044&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_tiny.jpg?1298399044&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_tiny_square.jpg?1298399044&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_small_square.jpg?1298399044&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_medium_square.jpg?1298399044&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_tiny_landscape.jpg?1298399044&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_small_landscape.jpg?1298399044&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_medium_landscape.jpg?1298399044&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415190,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div.jpg?1298399044&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_thumb.jpg?1298399044&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_tiny.jpg?1298399044&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_tiny_square.jpg?1298399044&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_small_square.jpg?1298399044&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_medium_square.jpg?1298399044&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_tiny_landscape.jpg?1298399044&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_small_landscape.jpg?1298399044&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415190/div_medium_landscape.jpg?1298399044&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952012,&quot;title&quot;:&quot;Second Marriage&quot;,&quot;description&quot;:&quot;Hepburn went on a cruise and met Italian psychiatrist, Andrea Dotti and they fell in love. They married in 1969.&quot;,&quot;marks_time_at&quot;:&quot;1969-01-18 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti.jpg?1298399366&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_thumb.jpg?1298399366&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_tiny.jpg?1298399366&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_tiny_square.jpg?1298399366&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_small_square.jpg?1298399366&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_medium_square.jpg?1298399366&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_tiny_landscape.jpg?1298399366&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_small_landscape.jpg?1298399366&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_medium_landscape.jpg?1298399366&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415205,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti.jpg?1298399366&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_thumb.jpg?1298399366&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_tiny.jpg?1298399366&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_tiny_square.jpg?1298399366&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_small_square.jpg?1298399366&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_medium_square.jpg?1298399366&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_tiny_landscape.jpg?1298399366&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_small_landscape.jpg?1298399366&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415205/dotti_medium_landscape.jpg?1298399366&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952063,&quot;title&quot;:&quot;Second Child Born&quot;,&quot;description&quot;:&quot;Audrey was very careful while pregnant with her next child to prevent another miscarriage. She passed the time by painting and then on February 8, she had her second son and they named him Luca Dotti. \n\n The picture to the left is Audrey pushing baby Luca for, Vogue photographer, Henry Clarke.&quot;,&quot;marks_time_at&quot;:&quot;1970-02-08 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog.jpg?1298400541&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_thumb.jpg?1298400541&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_tiny.jpg?1298400541&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_tiny_square.jpg?1298400541&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_small_square.jpg?1298400541&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_medium_square.jpg?1298400541&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_tiny_landscape.jpg?1298400541&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_small_landscape.jpg?1298400541&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_medium_landscape.jpg?1298400541&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415234,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog.jpg?1298400541&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_thumb.jpg?1298400541&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_tiny.jpg?1298400541&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_tiny_square.jpg?1298400541&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_small_square.jpg?1298400541&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_medium_square.jpg?1298400541&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_tiny_landscape.jpg?1298400541&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_small_landscape.jpg?1298400541&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415234/ahlucvog_medium_landscape.jpg?1298400541&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952071,&quot;title&quot;:&quot;Another Miscarriage&quot;,&quot;description&quot;:&quot;Wanting more children, Audrey had her final miscarriage in 1974.&quot;,&quot;marks_time_at&quot;:&quot;1974-08-10 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;//s3.amazonaws.com/timetoast-assets/default/timeline_original.png&quot;,&quot;thumb&quot;:&quot;//s3.amazonaws.com/timetoast-assets/default/timeline_thumb.png&quot;,&quot;tiny&quot;:&quot;//s3.amazonaws.com/timetoast-assets/default/timeline_tiny.png&quot;,&quot;tiny_square&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_square-0464464f6b1aa815abecaa0696e7a89b.png&quot;,&quot;small_square&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_small_square-d6dff2c280a7452dcf8bcbd4308e97fb.png&quot;,&quot;medium_square&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_medium_square-a19ad77bdbed3b9bf801a711d26e1923.png&quot;,&quot;tiny_landscape&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_landscape-6055a2273dd2f31afc10e03e8961a2d7.png&quot;,&quot;small_landscape&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_small_landscape-c7900d66ecb17816c57d1ff8a34458bd.png&quot;,&quot;medium_landscape&quot;:&quot;//s3.amazonaws.com/timetoast-assets/assets/default/timeline_medium_landscape-f579b7b956b9a6edd9b486a5974c3116.png&quot;},&quot;photos&quot;:[]},{&quot;id&quot;:952499,&quot;title&quot;:&quot;Robin and Marian&quot;,&quot;description&quot;:&quot;Released on March 11, 1976, Robin and Marian was a romantic adventure film directed by Richard Lester. Audrey Hepburn starred in this film with Sean Connery and Ronnie Barker.&quot;,&quot;marks_time_at&quot;:&quot;1976-03-11 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram.jpg?1298405233&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_thumb.jpg?1298405233&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_tiny.jpg?1298405233&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_tiny_square.jpg?1298405233&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_small_square.jpg?1298405233&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_medium_square.jpg?1298405233&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_tiny_landscape.jpg?1298405233&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_small_landscape.jpg?1298405233&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_medium_landscape.jpg?1298405233&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415494,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram.jpg?1298405233&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_thumb.jpg?1298405233&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_tiny.jpg?1298405233&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_tiny_square.jpg?1298405233&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_small_square.jpg?1298405233&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_medium_square.jpg?1298405233&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_tiny_landscape.jpg?1298405233&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_small_landscape.jpg?1298405233&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415494/ram_medium_landscape.jpg?1298405233&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952181,&quot;title&quot;:&quot;Hepburn and Dotti Divorce&quot;,&quot;description&quot;:&quot;Hepburn and Dotti were married for 13 years. Their marriage ended in 1982 when she felt that her sons could handle living their lives with a single mother. They divorced due to Dotti&#39;s tendency to have affairs with younger women. Unlike Ferrer, Hepburn stayed in touch with Dotti for Luca&#39;s sake. Andrea Dotti died in 2007. \n\n The picture is Audrey with her yorkie named Mr. Famous.&quot;,&quot;marks_time_at&quot;:&quot;1982-05-30 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam.jpg?1298402081&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_thumb.jpg?1298402081&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_tiny.jpg?1298402081&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_tiny_square.jpg?1298402081&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_small_square.jpg?1298402081&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_medium_square.jpg?1298402081&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_tiny_landscape.jpg?1298402081&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_small_landscape.jpg?1298402081&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_medium_landscape.jpg?1298402081&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415305,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam.jpg?1298402081&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_thumb.jpg?1298402081&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_tiny.jpg?1298402081&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_tiny_square.jpg?1298402081&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_small_square.jpg?1298402081&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_medium_square.jpg?1298402081&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_tiny_landscape.jpg?1298402081&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_small_landscape.jpg?1298402081&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415305/mrfam_medium_landscape.jpg?1298402081&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952287,&quot;title&quot;:&quot;Robert Wolders&quot;,&quot;description&quot;:&quot;Audrey Hepburn became romantically involved with actor Robert Wolders. Although they never married, she referred to her time with him as the happiest years of her life. In an interview with Barbara Walters, Walters asked Hepburn why they never married. Hepburn replied they were married just not formally. Hepburn lived with her companion from 1982 until her death.&quot;,&quot;marks_time_at&quot;:&quot;1982-11-19 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw.jpg?1298403299&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_thumb.jpg?1298403299&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_tiny.jpg?1298403299&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_tiny_square.jpg?1298403299&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_small_square.jpg?1298403299&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_medium_square.jpg?1298403299&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_tiny_landscape.jpg?1298403299&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_small_landscape.jpg?1298403299&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_medium_landscape.jpg?1298403299&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415356,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw.jpg?1298403299&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_thumb.jpg?1298403299&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_tiny.jpg?1298403299&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_tiny_square.jpg?1298403299&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_small_square.jpg?1298403299&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_medium_square.jpg?1298403299&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_tiny_landscape.jpg?1298403299&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_small_landscape.jpg?1298403299&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415356/ahrw_medium_landscape.jpg?1298403299&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952440,&quot;title&quot;:&quot;International Goodwill Ambassador&quot;,&quot;description&quot;:&quot;Influenced by her wartime experiences, Audrey Hepburn decided to dedicate the remainder of her life to helping needy children in impoverished countries. In 1988 she was appointed as the UNICEF&#39;s International Goodwill Ambassador. During the years up to her death, she visited many needy countries. Her first mission was to Ethiopia.&quot;,&quot;marks_time_at&quot;:&quot;1988-04-25 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2.jpg?1298404829&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_thumb.jpg?1298404829&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_tiny.jpg?1298404829&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_tiny_square.jpg?1298404829&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_small_square.jpg?1298404829&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_medium_square.jpg?1298404829&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_tiny_landscape.jpg?1298404829&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_small_landscape.jpg?1298404829&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_medium_landscape.jpg?1298404829&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415473,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2.jpg?1298404829&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_thumb.jpg?1298404829&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_tiny.jpg?1298404829&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_tiny_square.jpg?1298404829&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_small_square.jpg?1298404829&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_medium_square.jpg?1298404829&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_tiny_landscape.jpg?1298404829&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_small_landscape.jpg?1298404829&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415473/unicef2_medium_landscape.jpg?1298404829&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952392,&quot;title&quot;:&quot;Always&quot;,&quot;description&quot;:&quot;Steven Spielberg&#39;s film \&quot;Always,\&quot; was released on December 22, 1989. Hepburn played the role of an angel. This is the last film she was in.&quot;,&quot;marks_time_at&quot;:&quot;1989-12-22 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always.jpg?1298404391&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_thumb.jpg?1298404391&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_tiny.jpg?1298404391&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_tiny_square.jpg?1298404391&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_small_square.jpg?1298404391&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_medium_square.jpg?1298404391&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_tiny_landscape.jpg?1298404391&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_small_landscape.jpg?1298404391&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_medium_landscape.jpg?1298404391&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415440,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always.jpg?1298404391&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_thumb.jpg?1298404391&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_tiny.jpg?1298404391&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_tiny_square.jpg?1298404391&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_small_square.jpg?1298404391&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_medium_square.jpg?1298404391&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_tiny_landscape.jpg?1298404391&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_small_landscape.jpg?1298404391&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415440/always_medium_landscape.jpg?1298404391&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952518,&quot;title&quot;:&quot;Audrey Hepburn\u0026#39;s Enchanted Tales&quot;,&quot;description&quot;:&quot;In 1992, Audrey recorded a \&quot;spoken word album\&quot; that was titled \&quot;Audrey Hepburn&#39;s Enchanted Tales;\&quot; she read classic children&#39;s stories. She won a Grammy Award for Best Spoken Word Album for Children.&quot;,&quot;marks_time_at&quot;:&quot;1992-04-07 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench.jpg?1298405718&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_thumb.jpg?1298405718&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_tiny.jpg?1298405718&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_tiny_square.jpg?1298405718&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_small_square.jpg?1298405718&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_medium_square.jpg?1298405718&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_tiny_landscape.jpg?1298405718&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_small_landscape.jpg?1298405718&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_medium_landscape.jpg?1298405718&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415505,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench.jpg?1298405718&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_thumb.jpg?1298405718&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_tiny.jpg?1298405718&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_tiny_square.jpg?1298405718&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_small_square.jpg?1298405718&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_medium_square.jpg?1298405718&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_tiny_landscape.jpg?1298405718&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_small_landscape.jpg?1298405718&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415505/ench_medium_landscape.jpg?1298405718&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952355,&quot;title&quot;:&quot;Diagnosed with Cancer&quot;,&quot;description&quot;:&quot;She returned from a UNICEF tripto Somalia and began feeling abdominal pain. After seeing a specialist and receiving inconclusive results, she went to another doctor. On November 1, 1992, doctors discovered she had abdominal cancer that had originated in her appendix. After several surgeries, doctors concluded the cancer had spread too far and there was nothing they could do.&quot;,&quot;marks_time_at&quot;:&quot;1992-11-01 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef.jpg?1298406612&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_thumb.jpg?1298406612&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_tiny.jpg?1298406612&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_tiny_square.jpg?1298406612&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_small_square.jpg?1298406612&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_medium_square.jpg?1298406612&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_tiny_landscape.jpg?1298406612&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_small_landscape.jpg?1298406612&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_medium_landscape.jpg?1298406612&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415527,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef.jpg?1298406612&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_thumb.jpg?1298406612&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_tiny.jpg?1298406612&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_tiny_square.jpg?1298406612&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_small_square.jpg?1298406612&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_medium_square.jpg?1298406612&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_tiny_landscape.jpg?1298406612&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_small_landscape.jpg?1298406612&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415527/unicef_medium_landscape.jpg?1298406612&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952339,&quot;title&quot;:&quot;Presidential Medal of Freedom&quot;,&quot;description&quot;:&quot;On December 11, 1992, President George Bush awarded Audrey Hepburn with the Presidential Medal of Freedom.&quot;,&quot;marks_time_at&quot;:&quot;1992-12-11 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom.jpg?1298403661&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_thumb.jpg?1298403661&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_tiny.jpg?1298403661&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_tiny_square.jpg?1298403661&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_small_square.jpg?1298403661&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_medium_square.jpg?1298403661&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_tiny_landscape.jpg?1298403661&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_small_landscape.jpg?1298403661&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_medium_landscape.jpg?1298403661&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415391,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom.jpg?1298403661&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_thumb.jpg?1298403661&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_tiny.jpg?1298403661&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_tiny_square.jpg?1298403661&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_small_square.jpg?1298403661&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_medium_square.jpg?1298403661&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_tiny_landscape.jpg?1298403661&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_small_landscape.jpg?1298403661&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415391/PresMedalFreedom_medium_landscape.jpg?1298403661&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952605,&quot;title&quot;:&quot;Audrey Hepburn Passes Away&quot;,&quot;description&quot;:&quot;Her dear friend and fashion designer, Hubert de Givenchy, arranged for Hepburn to be brought to her home in Switzerland from California. He sent her a private jet that he had filled with flowers. She died in her home on January 20, 1993. After hearing of her death, Gregory Peck tearfully read Hepburn&#39;s favorite poem, \&quot;Unending Love\&quot; by Rabindranath Tagore, on camera.&quot;,&quot;marks_time_at&quot;:&quot;1993-01-20 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12.jpg?1298407559&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_thumb.jpg?1298407559&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_tiny.jpg?1298407559&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_tiny_square.jpg?1298407559&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_small_square.jpg?1298407559&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_medium_square.jpg?1298407559&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_tiny_landscape.jpg?1298407559&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_small_landscape.jpg?1298407559&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_medium_landscape.jpg?1298407559&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415551,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12.jpg?1298407559&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_thumb.jpg?1298407559&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_tiny.jpg?1298407559&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_tiny_square.jpg?1298407559&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_small_square.jpg?1298407559&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_medium_square.jpg?1298407559&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_tiny_landscape.jpg?1298407559&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_small_landscape.jpg?1298407559&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415551/ah12_medium_landscape.jpg?1298407559&quot;},&quot;image_processing&quot;:false}]},{&quot;id&quot;:952642,&quot;title&quot;:&quot;Audrey Hepburn\u0026#39;s Funeral&quot;,&quot;description&quot;:&quot;Hepburn&#39;s funeral services were held in Switzerland, on Sunday, January 24, 1993. UNICEF&#39;s Prince Sadruddin Aga Khan delivered a eulogy. Her family and friends were there, including her two sons, Sean and Luca, and her partner Robert Wolders. Her two sons and partner helped carry her coffin to the grave site. \n\n \&quot;Audrey Hepburn became more than a movie star. She became a legend, first on screen - and then on the arid plains of Africa.\&quot; - Ian Woodward, Author&quot;,&quot;marks_time_at&quot;:&quot;1993-01-24 00:00:00&quot;,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2.jpg?1298408003&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_thumb.jpg?1298408003&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_tiny.jpg?1298408003&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_tiny_square.jpg?1298408003&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_small_square.jpg?1298408003&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_medium_square.jpg?1298408003&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_tiny_landscape.jpg?1298408003&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_small_landscape.jpg?1298408003&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_medium_landscape.jpg?1298408003&quot;},&quot;photos&quot;:[{&quot;id&quot;:1415562,&quot;image_urls&quot;:{&quot;original&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2.jpg?1298408003&quot;,&quot;thumb&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_thumb.jpg?1298408003&quot;,&quot;tiny&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_tiny.jpg?1298408003&quot;,&quot;tiny_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_tiny_square.jpg?1298408003&quot;,&quot;small_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_small_square.jpg?1298408003&quot;,&quot;medium_square&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_medium_square.jpg?1298408003&quot;,&quot;tiny_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_tiny_landscape.jpg?1298408003&quot;,&quot;small_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_small_landscape.jpg?1298408003&quot;,&quot;medium_landscape&quot;:&quot;http://s3.timetoast.com/public/uploads/photos/1415562/funeral_2_medium_landscape.jpg?1298408003&quot;},&quot;image_processing&quot;:false}]}],&quot;timespans&quot;:[],&quot;user&quot;:{&quot;id&quot;:100827,&quot;display_name&quot;:&quot;krobinson803&quot;}}
+</script>
+
+
+        <section class="timeline-actions panel_section panel_section--padded">
+
+          <a class="comment-count" href="/timelines/115783#timeline-comments"><strong>2 comments</strong></a>
+
+          <section id="timeline-view-controls-region">
+          </section>
+
+        </section>
+
+      </article>
+    </div>
+    <!-- Note: Don't move outside cache! -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+        TimetoastApp.addRegions({
+          timelineViewControlsRegion: "#timeline-view-controls-region"
+        });
+        if(Timetoast.utils.userAgent.isIOSDevice()){
+          // don't bother showing the Flash timeline
+          $("#timeline-player-container").hide();
+        }else{
+          TimetoastApp.addRegions({
+            timelineViewControlsRegion: "#timeline-view-controls-region"
+          });
+          // show the classic timeline
+          TimetoastApp.addInitializer(function(){
+            var viewMode = "timeline"
+            TimetoastApp.module("ClassicTimelineViewerApp").start({
+              timelineId: '115783',
+              environment: "null",
+              viewMode: viewMode,
+              size: "small"
+            });
+            TimetoastApp.module("TimelineViewControlsApp").start({ 
+              region: TimetoastApp.timelineViewControlsRegion, 
+              viewMode: viewMode,
+              currentSize: "small",
+              showSizeControls: true
+            });
+          });
+          TimetoastApp.on("initialize:after", function(){
+            if(Backbone.history){
+              return Backbone.history.start();
+            }
+          });
+          TimetoastApp.on("start", function(options){
+            var timelineLoader = TimetoastApp.request("component:timelineLoader");
+            timelineLoader.loadTimeline(115783);
+          });
+        }
+      });
+    </script>
+
+
+
+      <div class="ads-fullwidth ads-fullwidth-middle">
+    <div class="ads-leaderboard-centered">
+        
+
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-3637961829875093";
+        /* Home: atf leaderboard */
+        google_ad_slot = "3355132570";
+        google_ad_width = 728;
+        google_ad_height = 90;
+        //-->
+        </script>
+        <script type="text/javascript"
+        src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+        
+      
+    </div>
+  </div>
+
+
+    <section class="homepage-timeline-links">
+    <aside id="categoriesList" class="timeline-list">  
+      <h3 class="timelineListTitle"><a href="/categories">Timeline categories</a></h3>
+      <ul>
+        <li><a href="/categories/2" title="Timelines in the Music category.">Music</a></li>
+        <li><a href="/categories/3" title="Timelines in the Film category.">Film</a></li>
+        <li><a href="/categories/4" title="Timelines in the Science and Technology category.">Science and Technology</a></li>
+        <li><a href="/categories/5" title="Timelines in the Business category.">Business</a></li>
+        <li><a href="/categories/6" title="Timelines in the Politics category.">Politics</a></li>
+        <li><a href="/categories/7" title="Timelines in the Biography category.">Biography</a></li>
+        <li><a href="/categories/8" title="Timelines in the Art and Culture category.">Art and Culture</a></li>
+        <li><a href="/categories/9" title="Timelines in the Personal category.">Personal</a></li>
+        <li><a href="/categories/10" title="Timelines in the History category.">History</a></li>
+      </ul>
+    </aside>  
+
+    <aside id ="popularTimelinesList" class="timeline-list detailed-list" >  
+      <h3><a href="/popular">Popular timelines</a></h3>
+      <ul>
+              <li>
+                <a class="thumb" href="/timelines/the-french-revolution-d686fa30-c198-4e1e-8b71-0881b6916731"><img alt="Timeline  square" src="//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_square-0464464f6b1aa815abecaa0696e7a89b.png" /></a>
+                <a href="/timelines/the-french-revolution-d686fa30-c198-4e1e-8b71-0881b6916731">The French Revolution</a>
+              </li>
+              <li>
+                <a class="thumb" href="/timelines/timeline-project-59613416-7940-46a8-8241-6f20b47dfb93"><img alt="Timeline  square" src="//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_square-0464464f6b1aa815abecaa0696e7a89b.png" /></a>
+                <a href="/timelines/timeline-project-59613416-7940-46a8-8241-6f20b47dfb93">Timeline Project</a>
+              </li>
+              <li>
+                <a class="thumb" href="/timelines/the-revalousion"><img alt="Timeline  square" src="//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_square-0464464f6b1aa815abecaa0696e7a89b.png" /></a>
+                <a href="/timelines/the-revalousion">The revalousion</a>
+              </li>
+              <li>
+                <a class="thumb" href="/timelines/age-of-reason-timeline-project-brittany-peters"><img alt="Timeline  square" src="//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_square-0464464f6b1aa815abecaa0696e7a89b.png" /></a>
+                <a href="/timelines/age-of-reason-timeline-project-brittany-peters">Age of Reason Timeline Project- Brittany P...</a>
+              </li>
+              <li>
+                <a class="thumb" href="/timelines/the-production-of-2-faced"><img alt="2 faced frenchy  square" src="http://s3.timetoast.com/public/uploads/photos/6276073/2-FACED_FRENCHY_tiny_square.jpg?1423221670" /></a>
+                <a href="/timelines/the-production-of-2-faced">The production of &quot;2-FACED&quot;</a>
+              </li>
+              <li>
+                <a class="thumb" href="/timelines/history-of-flim-77c607da-7d9d-490b-837b-baace9228335"><img alt="Front5621  square" src="http://s3.timetoast.com/public/uploads/photos/6276517/front5621_tiny_square.jpg?1423231103" /></a>
+                <a href="/timelines/history-of-flim-77c607da-7d9d-490b-837b-baace9228335">History of Flim</a>
+              </li>
+      </ul>
+      <footer>
+        <a href="/popular">View more</a>
+      </footer>
+    </aside>
+  
+  <aside id="latestTimelinesList" class="timeline-list detailed-list">
+    <h3><a href="/latest_timelines">Latest timelines</a></h3>
+    <ul>
+      <li>
+        <a class="thumb" href="/timelines/generacion-de-las-computadoras-d5cf2738-5d2e-4d8d-91b8-4e5b2c88902e"><img alt="Descarga  square" src="http://s3.timetoast.com/public/uploads/photos/6341991/descarga_tiny_square.jpg?1424379458" /></a>
+        <a href="/timelines/generacion-de-las-computadoras-d5cf2738-5d2e-4d8d-91b8-4e5b2c88902e" title="Generación de las computadoras timeline">Generación de las computadoras</a>
+      </li>
+      <li>
+        <a class="thumb" href="/timelines/hitos-ambientales-61b19b8a-62b7-4a05-83c3-9298936c4664"><img alt="Timeline  square" src="//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_square-0464464f6b1aa815abecaa0696e7a89b.png" /></a>
+        <a href="/timelines/hitos-ambientales-61b19b8a-62b7-4a05-83c3-9298936c4664" title="Hitos Ambientales timeline">Hitos Ambientales</a>
+      </li>
+      <li>
+        <a class="thumb" href="/timelines/old-man-timeline"><img alt="Timeline  square" src="//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_square-0464464f6b1aa815abecaa0696e7a89b.png" /></a>
+        <a href="/timelines/old-man-timeline" title="old man timeline timeline">old man timeline</a>
+      </li>
+      <li>
+        <a class="thumb" href="/timelines/willmm"><img alt="Timeline  square" src="//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_square-0464464f6b1aa815abecaa0696e7a89b.png" /></a>
+        <a href="/timelines/willmm" title="willmm timeline">willmm</a>
+      </li>
+      <li>
+        <a class="thumb" href="/timelines/the-vietnam-war-5bf559f6-128f-4027-9f9d-d8b4ae4f7afa"><img alt="Pic  square" src="http://s3.timetoast.com/public/uploads/photos/6341874/pic_tiny_square.jpg?1424378369" /></a>
+        <a href="/timelines/the-vietnam-war-5bf559f6-128f-4027-9f9d-d8b4ae4f7afa" title="The Vietnam War timeline">The Vietnam War</a>
+      </li>
+      <li>
+        <a class="thumb" href="/timelines/miranda-vs-arisona"><img alt="Timeline  square" src="//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_square-0464464f6b1aa815abecaa0696e7a89b.png" /></a>
+        <a href="/timelines/miranda-vs-arisona" title="miranda  vs. arisona timeline">miranda  vs. arisona</a>
+      </li>
+    </ul>
+    <footer>
+      <a href="/latest_timelines">View more</a>
+    </footer>
+  </aside>
+  
+    <aside id ="updatedTimelinesList" class="timeline-list detailed-list">  
+      <h3><a href="/browse/updated_timelines">Updated timelines</a></h3>
+      <ul>
+        <li>
+          <a class="thumb" href="/timelines/the-vietnam-war-5bf559f6-128f-4027-9f9d-d8b4ae4f7afa"><img alt="Pic  square" src="http://s3.timetoast.com/public/uploads/photos/6341874/pic_tiny_square.jpg?1424378369" /></a>
+          <a href="/timelines/the-vietnam-war-5bf559f6-128f-4027-9f9d-d8b4ae4f7afa" title="The Vietnam War timeline">The Vietnam War</a>
+        </li>
+        <li>
+          <a class="thumb" href="/timelines/the-trojan-war-by-garrick-bridges"><img alt="Trojan horse  square" src="http://s3.timetoast.com/public/uploads/photos/6322299/trojan-horse_tiny_square.jpg?1424059268" /></a>
+          <a href="/timelines/the-trojan-war-by-garrick-bridges" title="The Trojan War by Garrick Bridges timeline">The Trojan War by Garrick Bridges</a>
+        </li>
+        <li>
+          <a class="thumb" href="/timelines/10-eventos-mas-relevantes-en-el-avance-y-desarrollo-de-la-tecnologia"><img alt="Avance tecnologico  square" src="http://s3.timetoast.com/public/uploads/photos/6341609/avance_tecnologico_tiny_square.jpg?1424376222" /></a>
+          <a href="/timelines/10-eventos-mas-relevantes-en-el-avance-y-desarrollo-de-la-tecnologia" title="10 EVENTOS MÁS RELEVANTES EN EL AVANCE Y DESARROLLO DE LA TECNOLOGÍA POR GREIVIN SÁNCHEZ SOLANO 2015 timeline">10 EVENTOS MÁS RELEVANTES EN EL ...</a>
+        </li>
+        <li>
+          <a class="thumb" href="/timelines/old-years-of-missouri"><img alt="Mo state flag  square" src="http://s3.timetoast.com/public/uploads/photos/6231548/MO_state_flag_tiny_square.jpg?1422386022" /></a>
+          <a href="/timelines/old-years-of-missouri" title="Old Years of Missouri timeline">Old Years of Missouri</a>
+        </li>
+        <li>
+          <a class="thumb" href="/timelines/the-trojan-war-by-maria-perez"><img alt="Timeline  square" src="//s3.amazonaws.com/timetoast-assets/assets/default/timeline_tiny_square-0464464f6b1aa815abecaa0696e7a89b.png" /></a>
+          <a href="/timelines/the-trojan-war-by-maria-perez" title="The Trojan War by Maria Perez timeline">The Trojan War by Maria Perez</a>
+        </li>
+        <li>
+          <a class="thumb" href="/timelines/personal-055aa00c-7b43-4924-a2c4-40450c00c021"><img alt="A funny baby burrito costume  square" src="http://s3.timetoast.com/public/uploads/photos/6316883/A_Funny_Baby_Burrito_Costume_tiny_square.jpg?1423861573" /></a>
+          <a href="/timelines/personal-055aa00c-7b43-4924-a2c4-40450c00c021" title="Personal timeline">Personal</a>
+        </li>
+      </ul>
+      <footer>
+      <a href="/browse/updated_timelines">View more</a>
+    </footer>
+    </aside>
+
+</section>
+
+  </div>
+
+</section>
+
+  <div class="ads-fullwidth ads-fullwidth-bottom">
+    <div class="ads-leaderboard-centered">
+      
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Wide Bottom of Page -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-3637961829875093"
+             data-ad-slot="1310363593"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+        
+    </div>
+  </div>
+  
+
+<!-- google_ad_section_end -->
+    <div class="clear"></div>
+  </div>
+  <!-- google_ad_section_start(weight=ignore) -->
+  
+  <footer role="site-footer">
+    <div class="container">
+
+      <nav class="footer-links site-links">
+        <h3>Browse</h3>
+        <ul>
+          <li><a href="/categories">Categories</a></li>
+          <li><a href="/popular">Popular timelines</a></li>
+          <li><a href="/browse/updated_timelines">Updated timelines</a></li>
+          <li><a href="/browse/latest_timelines">Latest timelines</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links help-links">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="/faq">FAQs</a></li>
+          <li><a href="/privacy" rel="nofollow">Privacy</a></li>
+          <li><a href="/terms">Terms &amp; conditions</a></li>
+          <li><a href="http://blog.timetoast.com">Product blog</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links misc-links">
+        <ul>
+          <li><span>Copyright © Timetoast, </span><span>All rights reserved.</span></li>
+          <li><span>Find Timetoast on </span><span><a href="http://www.facebook.com/timetoast">Facebook</a> and <a href="http://twitter.com/timetoast">Twitter</a></span></li>
+          <li>Made with &#10084; in London</li>
+          <li>  Full site&nbsp;|&nbsp;<a href="/?mobile=1" rel="alternate">Mobile site</a>
+</li>
+        </ul>
+      </nav>
+      
+      <nav class="footer-links social-links">
+          <h3>Spread the word</h3>
+          <div class="social-link">
+            <a href="http://www.facebook.com/sharer.php?u=http://www.timetoast.com/" class="socialite facebook-like" data-href="http://www.timetoast.com/" data-send="false" data-layout="button_count" data-width="60" data-show-faces="false" rel="nofollow" target="_blank">
+              <span class="vhidden">Share on Facebook</span>
+            </a>
+          </div>
+          <div class="social-link">
+            <a href="http://twitter.com/share" class="socialite twitter-share" data-text="Create and share timelines on Timetoast" data-url="http://www.timetoast.com/" data-count="horizontal" rel="nofollow" target="_blank">
+              <span class="vhidden">Share on Twitter</span>
+            </a>
+          </div>
+          <div class="social-link">
+            <a href="https://plus.google.com/share?url=http://www.timetoast.com/" class="socialite googleplus-one" data-size="medium" annotation="bubble" data-href="http://www.timetoast.com/" rel="nofollow" target="_blank">
+              <span class="vhidden">Share on Google+</span>
+            </a>
+          </div>
+      </nav>
+
+      <div class="clearfix" />
+    </div>
+  </footer>
+
+  <div id="modal" class="modal hidden">
+    <div id="modal-bg"></div>
+    <div id="modal-content">
+      <a href="javascript:void(0);" id="modal-close">x</a>
+      <div id="modal-content-holder">
+      </div>
+    </div>
+  </div>
+
+  <!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-2eYnEaVmgyyns"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-2eYnEaVmgyyns.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+
+  
+  <script type='text/javascript'>
+    $(document).ready(function(){
+      Socialite.load($('.social-links'));
+      
+      /*/
+      // Announcements
+      TimetoastApp.addRegions({announcementsRegion: "#announcements-region"});
+      TimetoastApp.addInitializer(function(){
+        TimetoastApp.module("AnnouncementsApp").start({region: TimetoastApp.announcementsRegion});
+        // increment id and update message text to display an announcement
+        var announcement = new TimetoastApp.AnnouncementsApp.Announcement({id: 4, message: "message"});
+        TimetoastApp.vent.trigger("show:announcement", announcement);
+      });
+      //*/
+      TimetoastApp.addInitializer(function(){
+        TimetoastApp.module("HeaderApp").start();
+      });
+
+      // Starting here so all apps and initializers have been declared
+      TimetoastApp.start();
+    });
+  </script>
+  <!-- google_ad_section_end -->
+</body>
+</html>";i:2;s:4:"5201";}

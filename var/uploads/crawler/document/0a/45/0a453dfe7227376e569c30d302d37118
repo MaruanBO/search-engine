@@ -1,0 +1,222 @@
+a:3:{i:0;s:20:"http://eppicard.com/";i:1;s:9443:"<!DOCTYPE html>
+<head>
+	<TITLE>EPPICard</TITLE>
+	<link href="stylesheets/cssreset.css" rel="stylesheet" type="text/css">
+	<link href="stylesheets/eppic_home.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="images/icon/EPC-favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" > 
+	<script src="scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body onLoad="init();">
+	<div id="homepage" class="container">
+		
+		<div class="header">
+			<a href="index.html"><img src="images/Eppicard_header_logo.png" name="logo" alt="logo" /></a>
+			<img src="images/Eppicard_header_title.png" alt="Eppicard" />
+		</div><!-- header div end here -->
+		
+		<div class="content">
+			<div class="left_column">
+
+				<p class="grey returnafter">EPPICard debit card is a safe
+				and convenient way to access
+				your deposits.</p>
+				<ul class="grey listitem ">
+					<li class="returnafter">Welcome just about everywhere you shop</li>
+					<li class="returnafter">Get cash-back with your purchase at many retailers</li>				
+					<li class="returnafter">Pay your bills</li>
+				</ul>
+				
+				<div class="orange_seprateline space_both"></div>
+				
+				<div>
+					<ul class="common_link">
+						<li><a href="FAQ.html" class="green" title="Frequently Asked Questions">Frequently Asked Questions</a></li>
+						<li><a href="tips.html" class="green" title="EPPICard Security Tips">EPPICard Security Tips</a></li>
+						<li><a href="olprivacystatement.html" class="green" title="Online Privacy Statement">Online Privacy Statement</a></li>
+					</ul>
+				</div>
+			
+			</div><!-- left column ends here -->
+			
+			<form name="state_menu" method="post" id="state_menu" title="Select Your State">
+			<input type="hidden" name="stateName"/>
+			<input type="hidden" name="stateChosen"/>
+			<input type="hidden" name="landingPage" id="landingPage" value="Y"/>
+			<div class="center_column">
+				<div class="blue_round_box ">
+					<p id="state" class="grey bold returnafter">Select your State and Program:</p>	
+					<!--[if lte IE 9]><div class="ie7"><![endif]-->	
+					<div class="selcontainer">
+			<select id="statesselect" onChange="selState(this.options[this.options.selectedIndex].value,this);" onkeyup="selState(this.options[this.options.selectedIndex].value);" name="statesselect" class="statesselect" title="Select Your State">           
+							 <option value="" selected>Select Your State</option>
+							 <option value="state=aledc&programID=">AL</option>
+                             <option value="state=aledc&programID=CSE">AL - Child Support</option>							 
+							 <option value="state=caedc">CA</option>
+							 <option value="state=fledc">FL - Child Support</option>             
+							 <option value="state=fledcui">FL - Unemployment Insurance</option>
+							 <option value="state=gaedc">GA</option>
+							 <option value="state=iaedc&programID=DHS">IA - Department of Human Services</option>
+							 <option value="state=iaedc&programID=MS">IA - Medicaid</option>
+							 <option value="state=iaedc&programID=">IA - Workforce Development</option>
+							 <option value="state=iledc&programID=ILHC">IL</option>
+							 <option value="state=iledc">IL - Child Support</option>
+							 <option value="state=inedc">IN</option>	             
+							 <option value="state=maedc">MA</option>             
+							 <option value="state=msedc">MS</option>
+							 <option value="state=ncedc">NC</option>    
+							 <option value="state=nhedc">NH</option>
+							 <option value="state=njedc">NJ - Child Support</option>  
+							 <option value="state=njedc&programID=NJFC">NJ - Foster Care/Adoptive Services</option>
+							 <option value="state=nmedc&programID=">NM - Child Support</option>
+							 <option value="state=nmedc&programID=NMFC">NM - Foster Care</option> 
+                             <option value="state=nmedc&programID=NMUI">NM - Unemployment Insurance</option>   							 
+							 <option value="state=nvedc">NV</option>
+							 <option value="state=nyedc">NY</option>
+							 <option value="state=ohedc">OH - Child Support</option>
+				        	 <option value="state=ohedcta">OH - TANF</option>
+				        	 <option value="state=okedc">OK</option>       
+				 			 <option value="state=okedcui">OK - Unemployment Insurance</option> 
+							 <option value="state=paedcui">PA</option>	
+							 <option value="state=paedc">PA - Child Support</option>
+				             <option value="state=scedc">SC</option>		
+							 <option value="state=txedc">TX</option>				 	  	
+							 <option value="state=utedc">UT</option>
+							 <option value="state=vaedc">VA</option>
+							 <option value="state=vaedc&programID=ECC">VA - Child Care</option>		
+							 <option value="state=wiedc">WI</option>		
+						</select>
+					</div>
+					<!--[if lte IE 9]></div><![endif]-->	
+					<div id="programselect" class="programselect">
+						<image id="programselectpic" width="135" height="90" alt="Continue"/>
+						<input name="Continue" type="button" class="greenbtn" value="Continue" onClick="go();"/>
+					</div>
+					<div id="announcement" style="display:block;border:thin solid red;width:425px;height:120px;background-color:#FFFFFF">
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr bgcolor="red" height="20px">
+								<td>
+									<table width="425px" border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td width="5px">&nbsp;</td>
+											<td width="405px"><font color="#FFFFFF" size="2" face="verdana"><i>New! Pay-at-the-Pump with your Debit Card</i></font></td>
+											<td width="15px" title="Close" onclick="document.getElementById('announcement').style.display='none'" onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='default'"><font color="#FFFFFF" size="3">&#9746;</font></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table width="425px" border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td width="5px">&nbsp;</td>
+											<td width="415px">
+												<font size="1" face="verdana">
+													Buying gasoline? Now you can pay-at-the-pump with your Card. It's the faster, convenient way to purchase fuel. Try it on your next visit to your favorite gas station.
+												</font>
+											</td>
+											<td width="5px">&nbsp;</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>					
+				</div>
+				
+			</div><!-- center column -->
+			</form>	
+			
+			<div class="right_column">
+					<p class="blue returnafter bold">Welcome to EPPICard.
+					</p>
+					<uL class="blue listitem returnafter">
+						<li>Check your available Card balance</li>
+						<li>Review your Card transaction history</li>
+						<li>Manage your Card account</li>
+						<li>Set up important Card account activity Alerts</li>
+					</uL>
+					
+					
+			</div><!-- right column -->
+		
+			
+		</div><!-- content div end here -->
+		
+		<div class="footer">
+			<div class="orange_seprateline space_up"></div>
+			<img src="images/xerox_badge.png" class="inline" alt="xerox"/>
+			<p id="footer" class="inline copyright"></p>
+		</div><!-- footer div end here -->
+		
+	</div><!-- container div end here -->
+
+</body>
+</html>
+
+<script language="javascript">
+var loc = document.location.toString();
+var index = loc.indexOf(":");
+var url = loc.substring(index,loc.length);
+if (index == "4") {
+   secureUrl = "https" + url;
+   location.replace(secureUrl); // get rid of current page in history
+   location.href = secureUrl;
+}
+
+var dt = new Date(); 
+dt =dt.getFullYear(); 
+document.all("footer").innerHTML="&nbsp;&nbsp; &copy;"+dt+" Xerox State & Local Solutions, Inc. All Rights Reserved.";
+document.all("programselect").style.display = "none";
+function selState(val,obj){
+	var state = document.all("state");
+	var defaultText = "Select your State and Program:";
+	var selText = "Select your State and Program to log in:";
+	if(val==""){
+		state.innerHTML = defaultText;
+		document.all("programselect").style.display = "none";
+		document.all("stateName").value = "";
+		document.all("stateChosen").value = "";
+	}else{
+		var val = val;
+		var arr = val.split("&");
+		var stateVal = val.split("=")[1];
+		var programVal = "";
+		
+		if(arr.length>1){
+			stateVal = arr[0].split("=")[1];
+			programVal = arr[1].split("=")[1];
+		}
+		var icon= programVal==null || programVal == "" ?"":"_"+programVal;
+		icon = stateVal + "" + icon;
+		state.innerHTML = selText;
+		document.all("programselect").style.display = "block";
+		document.all("programselectpic").src = "images/icon/"+icon+".gif";
+		document.all("stateChosen").value=programVal;
+		document.all("stateName").value=stateVal;
+	}
+}
+
+function go(){
+	var state = document.all("stateName").value;
+	if(state.indexOf("okedc")>=0){
+		document.all("state_menu").action="/"+state+"client/index.jsp";
+	}else{
+		document.all("state_menu").action="/"+state+"client/setupPortal.recip";
+	}
+	
+	document.all("state_menu").submit();
+}
+
+function init(){
+	document.all("statesselect").options[0].selected = true;
+}
+$(function(){
+$(".statesselect").resize(function() {
+	//$(".statesselect").removeClass("statesselect").addClass("statesselect");
+	window.location.reload();	
+})
+})
+
+
+</script>";i:2;s:4:"8646";}

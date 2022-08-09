@@ -1,0 +1,1017 @@
+a:3:{i:0;s:20:"http://sigalert.com/";i:1;s:48018:"<!DOCTYPE HTML>
+<!-- Copyright (c) 1998 - 2015 Sigalert.com.  All rights reserved. -->
+<!-- Server: ww1 -->
+<html xmlns:fb="http://ogp.me/ns/fb#" class="HTMLBackground">
+	<head>
+		<meta name="description" content="Los Angeles traffic reports. Real-time speeds, accidents, and traffic cameras.  Check conditions on the Ventura and Hollywood freeways, I-5 and I-405, and other local routes. Email or text traffic alerts on your personalized routes." />
+<meta name="keywords" content="Los Angeles traffic,traffic map,real-time traffic,traffic camera,traffic report,traffic conditions,live traffic,traffic problem,highway map,road conditions,traffic alert,cigalert,5 freeway,210 freeway,405 freeway,san diego freeway,chp traffic,caltrans traffic" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="http://static.sigalert.com/links/fbthumbnail.png" />
+
+
+	<link rel="stylesheet" type="text/css" href="http://cdn-static.sigalert.com/140/Min/CommonHead-combo.css" />
+
+
+<link rel="stylesheet" type="text/css" href="http://cdn-static.sigalert.com/140/Min/Partner/Sigalert/Blue.css">
+
+<!--[if lte IE 6]>
+	<link rel="stylesheet" type="text/css" href="http://cdn-static.sigalert.com/140/Min/Styles-IE.css">
+	
+			<link rel="stylesheet" type="text/css" href="http://cdn-static.sigalert.com/140/Min/Partner/Sigalert/Blue-IE.css">
+	
+<![endif]-->
+
+<script type="text/javascript">
+	
+var GiPageviewRefreshIntervalSeconds	= 20;
+var GiPageviewRefreshDelaySeconds		= 10;
+var GiDataRefreshIntervalMinutes		= 5;
+	var GstrCookieDomain = ".sigalert.com",
+	    GstrImageDir = "http://cdn-static.sigalert.com/140/Images",
+	    GstrStaticDir = "http://cdn-static.sigalert.com/140/Min",
+	    GstrSponsor = "WW1",
+	    GbShowAds = true,
+		GstrDFPnetworkCode = "32564576",
+		GstrDFPhierarchy = "Sigalert",
+	    GbShowCustomPopupInsert = false,
+        GbAllowAlerts = true,
+	    GbUserSeeAds = true,
+	    GstrAnalyticsSegment = "Free",
+	    GstrBuildNumber = "140",
+	    GbEmailAjaxErrors = true,
+	    GiFindRoutesByMinutesId = 1,
+        GstrThemeId = "blue",
+        GstrRouteHeaderDetailsText = "Show Route on Map";
+	
+</script>
+
+<script id="expiredMessage" type="text/html">
+    <div id="idExpiredMessage" class="HeaderMessage">
+        <strong>
+            <span class="Warning">
+                Your My Sigalert <%=(isTrial ? "Free Trial " : "")%>account has expired.
+            </span>
+        </strong>
+        Click here to <a href="/Settings/FormCC.asp"><%=(isTrial ? "subscribe to My Sigalert" : "renew your My Sigalert account")%></a> or click here to <a href="/Logout.asp">log out of your account</a> and hide this message.
+    </div>
+</script>
+
+<script id="routeHeader" type="text/html">
+	<div class="routes-header">
+	    <table class="RouteHeaderTable">
+			<tr>
+				<td class="RouteHeaderVerticalDivider">&nbsp;</td>
+				<td class="RouteHeaderCell">
+					<b>Routes:</b>
+					<br />
+					<select id="cboRouteHeaderRoutes" class="control" disabled="disabled">
+						<option>Loading Routes...</option>
+					</select>
+					<div style="margin-top: 5px; min-width: 190px;">
+						<input type="button" id="btnRouteHeaderRouteDetails" style="float: left;" disabled="disabled" value="<%=routeHeaderDetailsText%>" />
+						<input type="button" id="btnRouteHeaderFindAlternatives" class="nthButton" style="float: right;" disabled="disabled" value="Find Alternatives" />
+						<input type="button" id="btnRouteHeaderAddRoute" style="float: right; display:none;" value="Add Route" />
+					</div>
+				</td>
+				<td class="RouteHeaderVerticalDivider RouteHeaderVerticalDividerRight">&nbsp;</td>
+			</tr>
+		</table>
+	</div>
+</script><script id="chai-popup" type="text/html">
+    <div class="popup-content-frame">
+        <div class="popup-content-header" align="center"></div>
+        <div class="popup-content-body"></div>
+        <div class="popup-hide-button"></div>
+    </div>
+</script><script id="chai-time-input" type="text/html">
+    <input type="number" min="1" max="12" class="input-number time-input-hours">
+    <input type="number" min="0" max="59" class="input-number time-input-minutes">
+    <div class="time-input-period">
+        <div class="time-input-am" unselectable="on">AM</div>
+        <div class="time-input-pm" unselectable="on">PM</div>
+    </div>
+</script><script id="routeSegmentListItem" type="text/html">
+    <div class="route-segment-list-item-data">
+        <div class="route-segment-list-item-arrow route-segment-list-item-collapsed">
+            <div class="route-segment-list-item-title">
+                <div class="route-segment-list-item-title-text"></div>
+                <div class="route-segment-list-item-distance">
+                    <span class="route-segment-list-item-distance-text"><%=distance%> </span>
+                    <span class="route-segment-list-item-distance-units"><%=distanceUnits%></span>
+                </div>
+            </div>
+            <div class="route-segment-list-item-time-info">
+                <div class="route-segment-list-item-time-info-inner">
+                    <div class="route-segment-list-item-time"><%=time%></div>
+                    <div class="route-segment-list-item-time-units"><%=timeUnits%></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="route-segment-list-item-details route-segment-list-item-details-hidden">
+    </div>
+</script><script id="routeSpeed" type="text/html">
+    <div class="route-speed-panel">
+        <div class="route-time">
+            <span class="route-time-text"><%=time%> </span>
+            <span class="route-time-units"><%=timeUnits%></span>
+        </div>
+        <div class="route-distance">
+            <span class="route-distance-text"><%=distance%> </span>
+            <span class="route-distance-units"><%=distanceUnits%></span>
+        </div>
+    </div>
+</script><script id="route" type="text/html">
+    <div class="route-title"><%=name%></div>
+    <div class="route-panel">
+        <div class="route-panel-body">
+            <div class="route-roads"><%=description%></div>
+            <div class="route-info">
+                <div class="route-info-inner">
+                    <div class="route-time">
+                        <span class="route-time-text"><%=time%> </span>
+                        <span class="route-time-units"><%=timeUnits%></span>
+                    </div>
+                    <div class="route-distance">
+                        <span class="route-distance-text"><%=distance%> </span>
+                        <span class="route-distance-units"><%=distanceUnits%></span>
+                    </div>
+                </div>
+            </div>
+            <div class="route-button route-alerts" title="Save this Route and Setup Alerts">
+                <div class="route-button-content fixpng">Save Route</div>
+            </div>
+            <div class="route-button route-alts" title="Show Alternative Routes">
+                <div class="route-button-content fixpng">Alternate Routes</div>
+            </div>
+        </div>
+    </div>
+    <div class="route-segments">
+        <div class="route-segments-body">
+            <div class="route-segments-title">Roads</div>
+        </div>
+    </div>
+    <div class="route-blind-button">
+        <div class="route-blind-icon fixpng"></div>
+    </div>
+    <div class="route-hide fixpng"></div>
+</script><script id="alert-widget" type="text/html">
+    <p class="alert-type"><%=type%></p>
+    <div class="alert-days"></div>
+    <div class="alert-time"><%=time%></div>
+    <p class="alert-devices"></p>
+    <% if (disabled) { %>
+    	<div class="alert-disabled">Disabled</div>
+    <% } %>
+</script><script id="alertListToolbar" type="text/html">
+	<div class="alert-list-toolbar">
+        <input name="all-selected" type="checkbox" class="input-checkbox" title="Select Alerts">
+        <div class="alert-list-button alert-list-edit-button" title="Edit Selected Alerts"><div class="fixpng">Edit</div></div>
+        <div class="alert-list-button alert-list-delete-button" title="Delete Selected Alerts"><div class="fixpng">Delete</div></div>
+        <div class="alert-list-button alert-list-enable-button" title="Enable Selected Alerts"><div class="fixpng">Enable</div></div>
+        <div class="alert-list-button alert-list-disable-button" title="Disable Selected Alerts"><div class="fixpng">Disable</div></div>
+    </div>
+</script>
+
+<script id="alertListEmpty" type="text/html">
+    <div class="alert-list-empty-content">
+        You do not have any alerts for this route.
+    </div>
+</script><script id="routeAlertsForm" type="text/html">
+    <form>
+    	<p class="route-alerts-form-caption">
+    		These are the alerts for your route from <span class="route-alerts-form-caption-from"></span>&nbsp;to&nbsp;<span class="route-alerts-form-caption-to"></span>.
+		</p>
+		<div class="route-alerts-form-alert-list"></div>
+        <button class="input-secondary-button route-alerts-form-add-speed-alert" title="Alerts you when Speeds have become slow on your route">Add Alert for Slow Speeds</button>
+        <button class="input-secondary-button route-alerts-form-add-accident-alert" title="Alerts you when an Accident has occurred on your route">Add Alert for Accidents</button>
+	</form>
+</script><script id="accountSettingsForm" type="text/html">
+    <div class="account-settings-loading">
+        <div class="account-settings-loading-icon"></div>
+        <span class="account-settings-loading-text">Loading</span>
+    </div>
+
+    <form>
+        <div class="account-settings-primary-email">
+            <div>
+                <label>Primary Email Address</label>
+                <input name="primary-email" type="email" placeholder="Primary Email Address" class="input-text" required autofocus>
+            </div>
+            <label class="checkbox-label">
+                <span>Disabled</span>
+                <input type="checkbox" name="primary-email-disabled" class="input-checkbox">
+            </label>
+        </div>
+
+        <div class="ContentContainerDivider"></div>
+
+        <div class="account-settings-secondary-email">
+            <div>
+                <label>Alternate Email Address</label>
+                <input name="secondary-email" type="email" placeholder="Alternate Email Address" class="input-text">
+            </div>
+            <label class="checkbox-label">
+                <span>Disabled</span>
+                <input type="checkbox" name="secondary-email-disabled" class="input-checkbox">
+            </label>
+        </div>
+
+        <div class="ContentContainerDivider"></div>
+
+        <div class="account-settings-mobile-device">
+            <div class="account-settings-mobile-device-carrier">
+                <label>Carrier</label>
+                <select size="1" class="input-select"></select>
+            </div>
+            <div class="account-settings-mobile-device-number">
+                <label>Phone Number</label>
+                <input type="tel" name="phone" class="input-text">
+            </div>
+            <label class="checkbox-label">
+                <span>Disabled</span>
+                <input type="checkbox" name="phone-disabled" class="input-checkbox">
+            </label>
+        </div>
+
+        <div class="ContentContainerDivider"></div>
+
+        <div class="account-settings-password">
+            <p>Leave these boxes blank if you do not want to change your password.</p>
+            <div>
+                <label>Password</label>
+                <input name="password" type="password" class="input-text">
+            </div>
+            <div class="account-settings-confirm-password">
+                <label>Confirm Password</label>
+                <input name="confirm-password" type="password" class="input-text">
+            </div>
+        </div>
+
+        <div class="ContentContainerDivider"></div>
+
+        <div class="account-settings-password">
+            <div>
+                <label>Forgotten Password Question</label>
+                <input name="password-question" type="text" size="47" class="input-text" required>
+            </div>
+            <div class="account-settings-answer">
+                <label>Answer</label>
+                <input name="password-answer" type="text" class="input-text" required>
+            </div>
+        </div>
+
+        <div class="ContentContainerDivider"></div>
+
+        <div class="account-settings-form-buttons">
+            <input type="button" class="input-button account-settings-form-cancel" value="Cancel">
+            <input type="submit" class="input-submit account-settings-form-submit" value="Save Settings">
+        </div>
+    </form>
+</script><script id="route-name-panel" type="text/html">
+    <p>
+        <span class="route-name-panel-name-label">Starting Location Name: </span><span class="route-name-panel-start-name"></span>
+    </p>
+    <p>
+        <span class="route-name-panel-name-label">Ending Location Name: </span><span class="route-name-panel-end-name"></span>
+    </p>
+    <p>
+        <span class="route-name-panel-name-label">Description: </span><span class="route-name-panel-description"></span>
+    </p>
+    <div>
+        <button class="primary-button">Edit Names</button>
+    </div>
+</script><script id="alertsNameForm" type="text/html">
+    <form>
+		<label>Starting Location Name</label>
+		<input name="start" type="text" placeholder="Starting Location (e.g. Home or Work)" class="input-text" required autofocus>
+		<label>Ending Location Name</label>
+		<input name="end" type="text" placeholder="Ending Location (e.g. Home or Work)" class="input-text" required>
+        <label>Description (optional)</label>
+        <input name="description" type="text" placeholder="Description (e.g. Via I-5)" class="input-text">
+        <div>
+            <input type="button" class="input-button alerts-name-form-cancel" value="Cancel">
+            <input type="submit" class="input-submit alerts-name-form-submit" value="Next">
+        </div>
+	</form>
+</script><script id="alertsForm" type="text/html">
+    <form>
+    	<p class="alerts-form-caption">
+    		<span class="alerts-form-caption-preface">This is your</span>&nbsp;route from <span class="alerts-form-caption-from"></span>&nbsp;to&nbsp;<span class="alerts-form-caption-to"></span>. Select when to receive alerts for this route.
+		</p>
+    	<label class="checkbox-label alerts-form-disabled">
+    		<input name="disabled" type="checkbox" class="input-checkbox">
+            <span>Do not send me alerts for this route.</span>
+    	</label>
+		<label>Click on the Days of the Week You Want to Receive Alerts</label>
+		<input name="days" type="chai-weekday" value="0,1,1,1,1,1,0" required>
+        <div class="alerts-form-times">
+            <div class="alerts-form-from-time">
+                <label>Between</label>
+                <input name="fromTime" type="chai-time" value="5:00 pm" required>
+            </div>
+            <div class="alerts-form-to-time">
+                <label>and</label>
+                <input name="toTime" type="chai-time" value="6:00 pm" required>
+            </div>
+        </div>
+        <label>
+            Send Alerts to
+            <input type="button" class="input-secondary-button alerts-form-change-devices-button" value="Change Email Address or Phone Number">
+        </label>
+        <label class="checkbox-label alerts-form-all-devices-label">
+            <input type="checkbox" name="allDevices" class="input-checkbox alerts-form-all-devices">
+            <span>All Email Addresses and Phones</span>
+        </label>
+        <br/>
+        <label class="checkbox-label alerts-form-primary-email-label">
+            <input type="checkbox" name="primaryEmail" class="input-checkbox alerts-form-primary-email">
+            <span></span>
+        </label>
+        <br/>
+        <label class="checkbox-label alerts-form-secondary-email-label">
+            <input type="checkbox" name="secondaryEmail" class="input-checkbox alerts-form-secondary-email">
+            <span></span>
+        </label>
+        <br/>
+        <label class="checkbox-label alerts-form-mobile-label">
+            <input type="checkbox" name="mobile" class="input-checkbox alerts-form-mobile">
+            <span></span>
+        </label>
+        <div class="alerts-form-buttons">
+            <input type="button" class="input-button alerts-form-cancel" value="Back">
+            <input type="submit" class="input-submit alerts-form-submit" value="Next">
+        </div>
+	</form>
+</script><script id="alertsSummaryForm" type="text/html">
+    <form>
+        <p class="alerts-summary-form-forward-route">
+            Your drive from <span class="alerts-summary-form-from"></span>&nbsp;to&nbsp;<span class="alerts-summary-form-to"></span>
+        </p>
+        <p class="alerts-summary-form-forward-route-time">
+            You will receive alerts between <span class="alerts-summary-form-time"></span>&nbsp;on&nbsp;<span class="alerts-summary-form-days"></span>. The alerts will be sent to <span class="alerts-summary-form-devices"></span>.
+        </p>
+        <p class="alerts-summary-form-forward-route-no-alerts alerts-summary-form-route-no-alerts-hidden">
+            You will not receive alerts for this route.
+        </p>
+
+        <p class="alerts-summary-form-reverse-route">
+            Your drive from <span class="alerts-summary-form-from"></span>&nbsp;to&nbsp;<span class="alerts-summary-form-to"></span>
+        </p>
+        <p class="alerts-summary-form-reverse-route-time">
+            You will receive alerts between <span class="alerts-summary-form-time"></span>&nbsp;on&nbsp;<span class="alerts-summary-form-days"></span>. The alerts will be sent to <span class="alerts-summary-form-devices"></span>.
+        </p>
+        <p class="alerts-summary-form-reverse-route-no-alerts alerts-summary-form-route-hidden">
+            You will not receive alerts for this route.
+        </p>
+        <div class="alerts-summary-form-buttons">
+            <input type="button" class="input-button alerts-summary-form-cancel" value="Back">
+            <input type="submit" class="input-submit alerts-summary-form-submit" value="Save">
+        </div>
+	</form>
+</script><script id="editAlertsDialog" type="text/html">
+    <div class="edit-alerts-dialog-loader">
+        <div class="edit-alerts-dialog-loading-icon"></div>
+        <span class="edit-alerts-dialogs-loading-text">Loading</span>
+    </div>
+</script>
+	<script src="http://cdn-static.sigalert.com/140/Min/CommonHead-combo.js"></script>
+
+<script type="text/javascript">
+	if (typeof(Sigalert) === "undefined") {
+		document.write("<scr" + "ipt src='/140/Min/CommonHead-combo.js'></scri" + "pt>");
+		Sigalert.common.Environment.acceptsZipEncoding = false;
+	}
+</script>
+
+
+
+<!-- Sigalert Data JS Files -->
+
+    <script src="http://cdn-static.sigalert.com/140/Min/RegionInfo/SoCalStatic.js"></script>
+    <script src="http://cdn-static.sigalert.com/140/Min/RegionInfo/SoCalMap.js"></script>
+    <script type="text/javascript">
+	    if (typeof(Sigalert.TrafficData) === "undefined") {
+		    document.write("<scr" + "ipt src='/140/Min/RegionInfo/SoCalStatic.js'></scri" + "pt>");
+		    document.write("<scr" + "ipt src='/140/Min/RegionInfo/SoCalMap.js'></scri" + "pt>");
+	    }
+    </script>
+
+
+<script type="text/javascript">
+    Sigalert.common.Environment.set("140");
+	Sigalert.common.Host.set("/Data", "http://static.sigalert.com/AdPushpins");
+    Sigalert.data.MobileDevicesController.get("mobileDevices").parse([
+	{ name: "Alltel", address: "message.alltel.com" },
+	{ name: "AT&T Wireless", address: "txt.att.net" },
+	{ name: "Boost Mobile", address: "myboostmobile.com" },
+	{ name: "Cincinnati Bell", address: "gocbw.com" },
+	{ name: "Cingular", address: "cingularme.com" },
+	{ name: "Metro PCS", address: "mymetropcs.com" },
+	{ name: "Nextel", address: "messaging.nextel.com" },
+	{ name: "Sprint PCS", address: "messaging.sprintpcs.com" },
+	{ name: "T-Mobile", address: "tmomail.net" },
+	{ name: "U.S. Cellular", address: "uscc.textmsg.com" },
+	{ name: "Verizon", address: "vtext.com" },
+	{ name: "Virgin Mobile (US)", address: "vmobl.com" }
+]);Sigalert.common.Location.set(1000, "SoCal", "SoCal", "Greater Los Angeles", "Los Angeles", "LosAngeles", 33.984259, -118.223015, 2);Sigalert.data.UserController.get("user").parse({"id":"","renewalDate":0,"isTrial":false,"passwordQuestion":"","passwordAnswer":"","analytics":"Free","primaryEmailAddress":"","primaryEmailAddressId":-1,"primaryEmailAddressDisabled":false,"secondaryEmailAddress":"","secondaryEmailAddressId":-1,"secondaryEmailAddressDisabled":false,"mobileDeviceNumber":"","mobileDeviceNumberId":-1,"mobileDeviceNumberDisabled":false,"mobileDevice":{"name":"","address":""}});
+	Sigalert.common.Partner.set({id:"", siteType:"Main", tenantId:10, affiliateId:9999, useUpdatingCameras:false});
+
+	Sigalert.data.Manager.defaultDataAccessorOptions = {
+        speeds: true,
+        incidents: true,
+        cameras: true
+    };
+
+    
+</script>
+
+
+	<script type='text/javascript'>
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+		(function() {
+			var gads = document.createElement('script');
+			gads.async = true;
+			gads.type = 'text/javascript';
+			var useSSL = 'https:' == document.location.protocol;
+			gads.src = (useSSL ? 'https:' : 'http:') + 
+			'//www.googletagservices.com/tag/js/gpt.js';
+			var node = document.getElementsByTagName('script')[0];
+			node.parentNode.insertBefore(gads, node);
+		})();
+	</script>
+
+		<title>Sigalert.com Los Angeles Traffic Map</title>
+        
+		
+			<link rel="stylesheet" type="text/css" href="http://cdn-static.sigalert.com/140/Min/Map-combo.css" />
+		
+	</head>
+	
+<body class="yui-skin-sam BackgroundOverride friends friend-units sigalert">
+	
+		<script type='text/javascript'>
+			googletag.cmd.push(function() {
+				
+				Sigalert.data.Ads.addSlot(970, 90, 'ad-header-970x90');
+				Sigalert.data.Ads.addSlot(300, 250, 'ad-medrect-300x250');
+				
+				googletag.pubads().setTargeting("partner", "sigalert");
+				googletag.pubads().setTargeting("area", "LosAngeles");
+				googletag.pubads().setTargeting(unescape("Weather"), unescape("Clear"));
+
+				googletag.pubads().enableSingleRequest();
+				googletag.enableServices();
+			});
+		</script>
+	
+				<ul class="dropdown-menu" id="my-sigalert-dropdown">
+					<li><a href="javascript:Sigalert.common.ShowLoginForm()">Login</a></li>
+					<li class="dropdown-menu-divider"></li>
+					<li><a href="/Settings/FormUser.asp">Free Trial</a></li>
+					<li><a href="/AboutMySa.asp">About My Sigalert</a></li>
+				</ul>
+			
+
+		<ul class="dropdown-menu dropdown-menu-right" id="more-dropdown">
+			<li><a href="/Faq.asp">FAQ</a></li>
+			<li><a href="/Contact.asp">Contact Us</a></li>
+			<li><a href="/WhatsNew.asp">What's New</a></li>
+			<li><a href="/TermsOfUse.asp">Terms of Use</a></li>
+			<li><a href="/Privacy.asp">Privacy Policy</a></li>
+			<li><a href="/Press.asp">News &amp; Press</a></li>
+			<li><a href="mailto:ads@sigalert.com">Advertise</a></li>
+		</ul>
+	
+		<div id="idTextAdStyle" style="visibility: hidden; position: absolute; top: 0px; left: 0px;">
+			<a id="idTextAdLinkStyle"></a><p id="idTextAdTextStyle"></p>
+		</div>
+	
+		<div class="PageHeaderTableBackground">
+			<table class="page-header">
+				<tr class="PageHeaderRow">
+					<td valign="bottom">
+						<a href="/Map.asp" class="PageHeaderLeftCell fixpng large-header-logo">
+		                </a>
+					</td>
+					<td id="PageHeaderRightCell" align="right">
+						
+							<div class="ad-header">
+								<div id="ad-header-970x90" class="ad" style="width: 970px; height: 90px">
+									<script type="text/javascript">
+										googletag.cmd.push(function() { googletag.display('ad-header-970x90'); });
+									</script>
+								</div>
+							</div>
+						
+					</td>
+				</tr>
+			</table>
+			<table class="page-header">
+				<tr>
+					<td class="local-area-title-container">
+						
+							<h1 id="LocalAreaTitle" class="LocalAreaTitle">Los Angeles Traffic Report</h1>
+						
+					</td>
+					<td class="PageHeaderRightCell fixpng" align="right">
+						<ul class="navbar" id="navbar">
+							<li class="navbar-item">
+								<a href="/Map.asp" class="active">Map</a>
+							</li>
+							<li class="navbar-item">
+								<a href="/Details.asp">Road Report</a>
+							</li>
+							
+							
+								<li class="navbar-item">
+									<a href="/Routes.asp">Route Builder</a>
+								</li>
+							
+								<li id="my-sigalert-navbar-item" class="navbar-item nav-dropdown-group" data-dropdown="#my-sigalert-dropdown">
+									<a href="javascript:Sigalert.common.ShowLoginForm()">My Sigalert <small>&#x25BC;</small></a>
+								</li>
+							
+								<li class="navbar-item">
+									<a href="/ChooseMap.asp">Cities</a>
+								</li>
+							
+
+							<li class="navbar-item last-item nav-dropdown-group" data-dropdown="#more-dropdown">
+								<a href="/Contact.asp" class="nav-dropdown">More <small>&#x25BC;</small></a>
+							</li>
+						</ul>
+
+
+						<!-- Menu start -->
+				        <!-- <div id="mainnav" class="yuimenubar yuimenubarnav">
+				            <div class="bd">
+				                <ul class="first-of-type">
+				                    <li class="yuimenubaritem first-of-type menubaritem active">
+				                         <a class="yuimenubaritemlabel menubaritemlabel" href="/Map.asp">
+				                            Map
+				                         </a>
+				                    </li>
+				                    <li class="yuimenubaritem menubaritem">
+				                         <a class="yuimenubaritemlabel menubaritemlabel" href="/Details.asp">
+				                            Road Report
+				                         </a>
+				                    </li>
+				                    
+				                        <li class="yuimenubaritem menubaritem">
+				                             <a class="yuimenubaritemlabel menubaritemlabel" href="/Routes.asp">
+				                                Route Builder
+				                             </a>
+				                        </li>
+				                    
+				                        <li class="yuimenubaritem menubaritem">
+				                             <a class="yuimenubaritemlabel menubaritemlabel" href="javascript:Sigalert.common.ShowLoginForm()">
+				                                  My Sigalert
+				                             </a>
+				                             <div id="mysasubmenu" class="yuimenu">
+				                                <div class="bd">
+				                                    
+			                                            <ul class="dropdownmenu">
+			                                                <li class="yuimenuitem">
+			                                                    <a class="yuimenuitemlabel" href="javascript:Sigalert.common.ShowLoginForm()">Login</a>
+			                                                </li>
+			                                            </ul>
+			                                            <ul class="dropdownmenu">
+			                                                <li class="yuimenuitem">
+			                                                    <a class="yuimenuitemlabel" href="/Settings/FormUser.asp">Free Trial</a>
+			                                                </li>
+			                                                <li class="yuimenuitem">
+			                                                    <a class="yuimenuitemlabel" href="/AboutMySa.asp">About My Sigalert</a>
+			                                                </li>
+			                                            </ul>
+				                                    
+				                                </div>
+				                            </div>
+				                        </li>
+				                    
+										<li class="yuimenubaritem menubaritem">
+					                         <a class="yuimenubaritemlabel menubaritemlabel" href="/ChooseMap.asp">
+					                            Cities
+					                         </a>
+					                    </li>
+									
+				                    <li class="yuimenubaritem menubaritem last-of-type">
+				                        <a class="yuimenubaritemlabel menubaritemlabel" href="/Contact.asp">
+				                            More
+				                        </a>
+				                        <div id="supportsubmenu" class="yuimenu">
+				                            <div class="bd">
+				                                <ul class="dropdownmenu">
+				                                    <li class="yuimenuitem">
+				                                        <a class="yuimenuitemlabel" href="/Wireless.asp">Wireless Access</a>
+				                                    </li>
+				                                    <li class="yuimenuitem">
+				                                        <a class="yuimenuitemlabel" href="/Faq.asp">FAQ</a>
+				                                    </li>
+				                                    <li class="yuimenuitem">
+				                                        <a class="yuimenuitemlabel" href="/Contact.asp">Contact Us</a>
+				                                    </li>
+				                                    <li class="yuimenuitem">
+				                                        <a class="yuimenuitemlabel" href="/WhatsNew.asp">What's New</a>
+				                                    </li>
+				                                </ul>
+				                            </div>
+				                        </div>
+				                    </li>
+				                </ul>
+				            </div>
+				        </div> -->
+				        <!-- Menu end -->
+					</td>
+				</tr>
+			</table>
+		</div>
+	
+
+	<div id="body-container" class="body-container skin-bg">
+		
+			<table id="body">
+				<tr>
+					
+					<td id="idMainContentCell" class="main-content">
+		
+		<img alt="" src="http://cdn-static.sigalert.com/140/Images/DotClear.gif" style="position: absolute; left: -10px; top: -10px;" />
+		<div id="divViewport" class="ContentContainerNoBackground MapPageContainer map-border">
+			<div id="divMap" class="MapDiv ContainerBorder"></div>
+		</div>
+		
+		<script id="wizardTab" type="text/html">
+    <span class="wizard-step-number"><%=number%></span>
+    <div class="wizard-step-label" title="<%=(typeof(labelTitle) === "string" ? labelTitle : "")%>">
+        <div class="wizard-step-label-top"><%=topLabel%></div>
+        <div class="wizard-step-label-bottom"><%=bottomLabel%></div>
+    </div>
+</script><script id="routeDeleter" type="text/html">
+    <div class="ContentContainer ContainerBackground ContainerBorder ContainerText">
+        <p></p>
+        <div class="ContentContainerDivider"></div>
+        
+        <div class="PageSection PageSectionBackground delete-route-description">
+            <p>Deleting this will remove the routes in both directions causing the following routes to be deleted:</p>
+            <ul>
+                <li><%=(routeName1 || "")%></li>
+                <% if (routeName2) { %>
+                    <li><%=routeName2%></li>
+                <% } %>
+            </ul>
+        </div>
+        
+        <div class="ContentContainerDivider"></div>
+        
+        <div class="PageSection PageSectionBackground delete-route-error" style="display: none">
+            <p style="color: red">
+                <strong>Oops. Sorry about that. We encountered an unexpected error.</strong>
+            </p>
+            <p class="delete-route-error-text">strError</p>
+            <p>
+                Please email <a href='mailto:support@sigalert.com'>Support@Sigalert.com</a> if this problem continues.
+            </p>
+        </div>
+        
+        <div class="ContentContainerDivider delete-route-error-divider" style="display: none"></div>
+        
+        <div class="PageSectionNoBackground delete-rotue-buttons">
+            <button class="NthButton cancel-delete-route-button">Cancel</button>
+            <button class="confirm-delete-route-button">Delete Route</button>
+            <p class="clear"></p>
+        </div>
+    </div>
+</script><script id="routeListLoading" type="text/html">
+    <div class="route-list-loading">
+        <div class="route-list-loading-icon"></div>
+        <span class="route-list-loading-text">Loading Routes</span>
+    </div>
+</script>
+
+<script id="routeListEmpty" type="text/html">
+    <div class="route-list-empty-content">
+        Your saved routes will appear here. <%=(typeof description === "string" ? description : "")%>
+    </div>
+</script><script id="mapRouteButton" type="text/html">
+    <div class="map-route-button-text">
+        <span><%=text%></span>
+    </div>
+    <div class="map-route-button-arrow">
+        <span class="map-route-button-arrow-icon"></span>
+    </div>
+</script>
+
+<script id="mapRouteTableNameCell" type="text/html">
+    <div class="map-route-table-name-cell">
+        <%=name%>
+    </div>
+</script>
+
+<script id="mapExpiredAccount" type="text/html">
+    <div>
+        <p><span>Your My Sigalert <%=(isTrial ? "Free Trial " : "")%>account has expired.</span> An account is required to save alerts for routes.</p>
+        <p>Click here to <a href="javascript:Sigalert.App.renewAccount()">renew your My Sigalert account</a> or click here to <a href="javascript:Sigalert.App.logout()">log out of your account</a>.</p>
+    </div>
+</script>
+
+<script id="mapRouteHelp" type="text/html">
+    <p><b>Try out our new route interface for the map!</b></p>
+    <p>Right click on the map to create your route. Click this button to hide your route or recall the last route you viewed.</p>
+    <p class="map-route-help-button-header">To remember routes or receive alerts when there are problems on them, you need to log into your account.</p>
+    <% if (showButtons) { %>
+    <p class="map-route-help-buttons">
+        <button class="primary-button map-route-help-login-button">Login</button>
+        <button class="primary-button map-route-help-create-account-button">Create Account</button>
+    </p>
+    <% } %>
+</script>
+
+<script id="mapRouteOtherRegion" type="text/html">
+    <p>Your recent route is not on this map.<br />
+    Jump to the other map to show the route?</p>
+</script>
+
+<script id="mapRouteOtherRegionButtons" type="text/html">
+    <button class="other-route-region-yes">Yes</button>
+    <button class="other-route-region-no">No</button>
+</script>
+
+<script id="mapRouteNoFlash" type="text/html">
+    Flash version 10.0.0 or higher is required to use routes on the map. Please update or install Flash from <a href="http://www.adobe.com/go/getflashplayer" class="external">Adobe's website</a> to use this feature.
+</script>
+
+<script id="mapRouteWaypointPopup" type="text/html">
+    <div>
+        <span class="map-route-ramp"><%=roadName%></span><span class="map-route-prep"> at </span><span class="map-route-road"><%=rampName%></span>
+    </div>
+    <div class="map-route-links">
+        <% if (nearbyRamps) { %>
+            <span class="map-route-ramp-change"><% =(showNearbyRamps ? "Cancel" : "Change") %></span> | 
+        <% } %>
+        <span class="map-route-remove">Remove</span>
+    </div>
+    <div class="map-route-nearby <% =(nearbyRamps === null ? 'map-route-nearby-loading' : '') %> <% =(showNearbyRamps ? '' : 'map-route-nearby-hidden') %>">
+        <div class="ContentContainerDivider">&nbsp</div>
+        <% if (!nearbyRamps) { %>
+            <span class="map-route-nearby-instructions">Finding nearby ramps...</span><br/>
+        <% } else { %>
+            <span class="map-route-nearby-instructions">Select a nearby ramp</span>
+            <ul class="map-route-nearby-roads">
+                <% for (var roadName in nearbyRamps) { %>
+                	<% var road = nearbyRamps[roadName]; %>
+                    <li>
+                        <%=road.name%> at
+                        <ul class="map-route-nearby-ramps">
+                            <% for (var j = 0, ramps = road.ramps, rampsLength = ramps.length; j < rampsLength; j += 1) { %>
+                                <li data-chai-ramp-index="<%=ramps[j].index%>" data-chai-ramp-type="<%=ramps[j].type%>" class="map-route-nearby-ramp"><%=ramps[j].name%></li>
+                            <% } %>
+                        </ul>
+                    </li>
+                <% } %>
+            </ul>
+        <% } %>
+    </div>
+</script><script id="mapReportRouteProblem" type="text/html">
+    <div class="ContentContainer ContainerBackground ContainerBorder ContainerText">
+		  <div class="PageSectionNoBackground">
+		  		Use this form to tell us about problems with the routes we found for you.
+		  </div>
+        <div class="ContentContainerDivider"></div>
+        
+        <div class="PageSection PageSectionBackground">
+            <div class="FormControlGroup">
+                <div class="label">Description:</div>
+                <div class="control">
+                    <textarea rows="3" class="problem-report-description"></textarea>
+                </div>
+            </div>
+            <p class="clear"></p>
+        </div>
+        
+        <div class="ContentContainerDivider"></div>
+        
+        <div class="PageSection PageSectionBackground">
+            <div class="FormControlGroup">
+                <div class="label">Email Address (optional):</div>
+                <div class="control">
+                    <input type="text" size="40" maxlength="100" class="problem-report-email" />
+                </div>
+            </div>
+            <p class="clear"></p>
+        </div>
+        
+        <div class="ContentContainerDivider"></div>
+        
+        <div class="PageSection PageSectionBackground problem-report-error" style="display: none">
+            <p style="color: red">
+                <strong>Oops. Sorry about that. We encountered an unexpected error.</strong>
+            </p>
+            <p class="problem-report-error-text">strError</p>
+            <p>
+                Please email <a href='mailto:support@sigalert.com'>Support@Sigalert.com</a> if this problem continues.
+            </p>
+        </div>
+        
+        <div class="ContentContainerDivider problem-report-error-divider" style="display: none"></div>
+        
+        <div class="PageSectionNoBackground">
+            <button class="send-problem-report-button">Send Problem Report</button>
+            <button class="NthButton cancel-problem-report-button">Cancel</button>
+            <p class="clear"></p>
+        </div>
+    </div>
+</script><script id="loginForm" type="text/html">
+    <form>
+        <% if (helpText !== "") { %>
+            <p>
+                <%=helpText%>
+            </p>
+        <% } %>
+		<label><%=(customSite ? "Primary Email Address" : "Username")%></label>
+		<input name="username" type="text" placeholder="<%=(customSite ? "Primary Email Address" : "Username")%>" class="input-text login-form-text" autocapitalize="none" required autofocus>
+            <label>Password</label>
+		<input name="password" type="password" placeholder="Password" class="input-text login-form-text" required>
+		<input type="submit" class="input-submit login-form-submit" value="Login">
+		<label class="checkbox-label login-form-remember-label">
+			<input type="checkbox" name="remember" value="1" class="input-checkbox login-form-remember">
+			<span>Remember Me</span>
+		</label>
+        <div>
+            <a href="/ForgotPassword/GetEmAddr.asp">Forgot your username or password?</a>
+            <% if (customSite) { %>
+            <p>Already getting alerts from us but don't have a password? Click create an account below and sign up with the same email address to upgrade your account.</p>
+            <% } %>
+            <p>If you don't have an account, you can create one now. It's easy and FREE.</p>
+            <input type="button" class="input-secondary-button" value="Create <%=(customSite ? "an" : "a My Sigalert")%> Account">
+            </div>
+	</form>
+</script><script id="createAccountForm" type="text/html">
+    <form>
+        <% if (customSite) { %>
+        <p>Already getting alerts from us but don't have a password? Create an account with the same email address to upgrade your account.</p>
+        <% } %>
+        <label><%=(customSite ? "Primary Email Address" : "Email Address")%></label>
+        <input name="email" type="email" placeholder="Email Address" class="input-text" required autofocus>
+		<label class="create-account-form-username-label">Username</label>
+		<input name="username" type="text" placeholder="Username" class="input-text create-account-form-username-field" autocapitalize="none" required>
+		<label>Password</label>
+		<input name="password" type="password" placeholder="Password" class="input-text" required>
+        <label>Confirm Password</label>
+        <input name="confirm-password" type="password" placeholder="Confirm Password" class="input-text" required>
+        <label>Password Question</label>
+        <input name="password-question" type="text" placeholder="Password Question" class="input-text" value="What is your mother's maiden name?" autocapitalize="none" required>
+        <label>Password Answer</label>
+        <input name="password-answer" type="text" placeholder="Password Answer" class="input-text" autocapitalize="none" required>
+		<label class="checkbox-label create-account-form-tos-label">
+			<input type="checkbox" name="tos" value="0" class="input-checkbox create-account-form-tos" required>
+			<span>I have read and agree to the&nbsp;</span>
+            <a href="javascript:void(0)">Terms of Use</a>
+		</label>
+        <div>
+            <input type="button" class="input-button create-account-form-cancel" value="<%=cancelText%>">
+            <input type="submit" class="input-submit create-account-form-submit" value="Create">
+        </div>
+	</form>
+</script><script id="expiredAccountForm" type="text/html">
+    <form>
+        <p>
+            <span>Your My Sigalert <%=(isTrial ? "Free Trial " : "")%>account has expired.</span>
+            An account is required to save alerts for routes.
+        </p>
+        <p>Click here to <a href="/Settings/FormCC.asp"><%=(isTrial ? "subscribe to My Sigalert" : "renew your My Sigalert account")%></a> or click here to <a href="/Logout.asp">log out of your account</a>.</p>
+        <input type="submit" class="input-submit expired-account-form-submit" value="Close">
+	</form>
+</script>
+			<script src="http://cdn-static.sigalert.com/140/Min/Map-combo.js"></script>
+		<script id="mapNavZoom" type="text/html">
+    <div class="MapZoomControls">
+        <div class="MapZoomControlsBg fixpng"></div>
+        <div class="MapNavButton MapNavUp"></div>
+        <div class="MapNavButton MapNavRight"></div>
+        <div class="MapNavButton MapNavDown"></div>
+        <div class="MapNavButton MapNavLeft"></div>
+        <div class="MapNavButton MapGeoLocation"></div>
+        <div class="MapZoomSlider">
+            <div class="MapZoomSliderThumb fixpng"></div>
+        </div>
+        <div class="MapZoomPlus"></div>
+        <div class="MapZoomMinus"></div>
+    </div>
+</script>
+			<script src="http://cdn-static.sigalert.com/140/Min/Common/Widget/MapNavZoomPlugin.js"></script>
+		
+        
+		<script type="text/javascript">
+			if (typeof(Map) === "undefined") {
+				document.write("<scr" + "ipt src='/140/Min/Map-combo.js'></scri" + "pt>");
+				
+				document.write("<scr" + "ipt src='/140/Min/MapControlNavZoom.js'></scri" + "pt>");
+				
+			}
+		</script>
+
+		<script type='text/javascript'>Sigalert.Widget.StaticMap.onMapReadyForIcons('SoCal', function () {});</script>
+		<script type="text/javascript">
+	        Sigalert.data.Manager.defaultDataAccessorOptions = {
+	            speeds: true,
+	            incidents: true,
+		        cameras: true,
+		        mapTiles: true,
+		        mapCameras: true
+	        };
+
+			Sigalert.common.PageInitializer.subscribe(function() { Map.init("http://cdn-tiles.sigalert.com/15/Blue", false); });
+		</script>
+		
+					</td>
+					
+						<td valign="bottom" class="sidebar">
+							<div id="map-details-widget" class="fixed-map-details"><div class="map-details-widget-content"><div class="fixed-map-details-title">Map Details</div><div class="fixed-map-details-body"></div><div class="map-details-widget-camera"></div></div></div>
+
+							<div id="ad-medrect-300x250" style="width: 300px; height: 250px">
+								<script type="text/javascript">
+									googletag.cmd.push(function() { googletag.display('ad-medrect-300x250'); });
+								</script>
+							</div>
+						</td>
+					
+				</tr>
+		</table>
+				
+	</div>
+
+	
+
+
+	<div class="fixpng" style="display: none;"></div>
+
+	<script type="text/javascript">
+		YAHOO.util.Event.addListener(document.getElementsByTagName("a"), "click", Sigalert.common.AddStandardQS);
+		Sigalert.common.PageInitializer.init("SoCal", "SoCal");
+	</script>
+
+	
+									<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+									<script type="text/javascript">
+										try {
+											// Log a generic page view for the www.sigalert.com profile in GA
+											_uacct = "UA-85482-3";
+											urchinTracker();
+										}
+										catch (ex) { /* empty */ }
+									</script>
+
+									<!-- Google Code for Visited Website Remarketing List -->
+									<script type="text/javascript">
+									/* <![CDATA[ */
+									var google_conversion_id = 1072741139;
+									var google_conversion_language = "en";
+									var google_conversion_format = "3";
+									var google_conversion_color = "ffffff";
+									var google_conversion_label = "FqynCPOikwMQk_bC_wM";
+									var google_conversion_value = 0;
+									/* ]]> */
+									</script>
+									<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
+									<noscript>
+										<div style="display:inline;">
+											<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1072741139/?value=0&amp;label=FqynCPOikwMQk_bC_wM&amp;guid=ON&amp;script=0"/>
+										</div>
+									</noscript>
+									
+									<!-- START Nielsen//NetRatings SiteCensus V5.3 -->
+									<!-- COPYRIGHT 2007 Nielsen//NetRatings -->
+									<script type="text/javascript">
+										var _rsCI="us-westwoodone";
+										var _rsCG="sigalert";
+										var _rsDN="//secure-us.imrworldwide.com/";
+										var _rsPLfl=0;
+										var _rsIP=1;
+									</script>
+									<script type="text/javascript" src="http://cdn-static.sigalert.com/140/Min/Nielsen53.js"></script>
+									<noscript>
+										<div><img src="//secure-us.imrworldwide.com/cgi-bin/m?ci=us-westwoodone&amp;cg=sigalert&cc=1" alt=""/></div>
+									</noscript>
+									<!-- END Nielsen//NetRatings SiteCensus V5.3 -->
+									
+									<!-- Begin comScore Tag -->
+									<script type="text/javascript">
+										 document.write(unescape("%3Cscript src='" + (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js' %3E%3C/script%3E"));
+									</script>
+
+									<script type="text/javascript">
+									  Sigalert.common.ComScore.LogPageView();
+									</script>
+									<noscript>
+									  <img src="http://b.scorecardresearch.com/p?c1=2&c2=6036373&c3=&c4=&c5=&c6=&c15=&cj=1" />
+									</noscript>
+									<!-- End comScore Tag -->
+
+	<script type="text/javascript">
+		Sigalert.common.LogPageViewExternally();
+	</script>
+</body>
+
+</html>
+";i:2;s:4:"3391";}

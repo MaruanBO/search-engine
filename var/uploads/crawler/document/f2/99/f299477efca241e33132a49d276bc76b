@@ -1,0 +1,1744 @@
+a:3:{i:0;s:27:"http://charmingcharlie.com/";i:1;s:109141:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwUFVVdWGwcGVFlUBAI="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:19,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:19,2:20,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:20,2:19,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:20,2:19,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:20,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:18,handle:"D5DuLP"}],18:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],19:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],20:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:19,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+<title>charmingcharlie.com | Fashion Jewelry, Accessories &amp; Clothing | charming charlie</title>
+<meta name="description" content="Shop online for on-trend fashion jewelry, watches, shoes, handbags, women's clothing and accessories from charming charlie. Free shipping over $50.
+" />
+<meta name="keywords" content="fashion jewelry, statement necklaces, turquoise jewelry, necklaces for women, cheap clothes online, dresses, shoes online, accessories, beach bags, handbags, watches, scarves, shoes, prom, hair accessories, purses, necklace sets, earring sets, cheap jewelry, sunglasses, costume jewelry, wedding, bridal, bridesmaids, scarf" />
+<meta name="robots" content="INDEX,FOLLOW" />
+<link rel="icon" href="http://media.charmingcharlie.com/media/favicon/default/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://media.charmingcharlie.com/media/favicon/default/favicon.ico" type="image/x-icon" />
+<meta name="p:domain_verify" content="2ad0ed6c81fa3d22ad2cf3ad2b1b7c0a" />
+<meta property="twitter:account_id" content="44379956" />
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = 'http://www.charmingcharlie.com/js/blank.html';
+    var BLANK_IMG = 'http://www.charmingcharlie.com/js/spacer.gif';
+//]]>
+</script>
+<![endif]-->
+<script type="text/javascript">
+    var MEDIA_URL = "http://media.charmingcharlie.com/media/";
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">var $j = jQuery.noConflict();</script>
+
+<script type="text/javascript">
+var socialShareEnabled = true;
+    jQuery(document).ready(function() {
+        jQuery.ajaxSetup({ cache: true });
+        jQuery.getScript('//connect.facebook.net/en_UK/all.js', function(){
+            FB.init({
+                appId: '524651327646239',
+                status: false,
+                xfbml: false
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript" src="//use.typekit.net/jvb8otp.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+ 
+
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/js/fancybox/source/jquery.fancybox.css?v=2.1.4" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/enterprise/default/css/styles.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/enterprise/default/css/widgets.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/enterprise/default/css/aw_zblocks.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/base/default/css/gridsystem960/min/960_16_col.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/base/default/css/gridsystem960/magento_overrides.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/base/default/pronav/css/pronav.core.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/base/default/css/gomage/advanced-navigation.css?v=2.1.8" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/css/svsgiftcard.css?v=2.0.11.0" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/css/custom.css?v=2.1.23.0" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/css/uniform.default.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/css/cms.css?v=2.0.0.0" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/enterprise/default/css/print.css" media="print" />
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/prototype/prototype.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/lib/ccard.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/prototype/validation.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/scriptaculous/builder.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/scriptaculous/effects.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/scriptaculous/dragdrop.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/scriptaculous/controls.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/scriptaculous/slider.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/varien/js.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/varien/form.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/varien/menu.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/mage/translate.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/mage/cookies.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/GoogleAnalyticsPlus/distilled.FirstTouch.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/gomage/advanced-navigation.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/fancybox/source/jquery.fancybox.js?v=2.1.4"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/caroufredsel/jquery.carouFredSel-6.2.1.min.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/uniform/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/js/scripts.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/skin/frontend/enterprise/default/js/enterprise/catalogevent.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/js/svsgiftcard.js?v=2.0.0.0"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/skin/frontend/enterprise/default/js/enterprise/wishlist.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/js/swatch.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/js/custom.js?v=2.0.1.0"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/js/newsletterprompt.js"></script>
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/enterprise/default/css/styles-ie.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/base/default/pronav/css/pronav.patches.ie.css" media="all" />
+<![endif]-->
+<!--[if lt IE 7]>
+<script type="text/javascript" src="http://www.charmingcharlie.com/js/lib/ds-sleight.js"></script>
+<script type="text/javascript" src="http://www.charmingcharlie.com/skin/frontend/enterprise/default/js/iehover-fix.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+//<![CDATA[
+Mage.Cookies.path     = '/';
+Mage.Cookies.domain   = '.www.charmingcharlie.com';
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+optionalZipCountries = ["HK","IE","MO","PA"];
+//]]>
+</script>
+<link rel="stylesheet" type="text/css" href="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/pronav/css/empty.css" media="all" />
+<!-- BEGIN GOOGLE ANALYTICS CODE -->
+<script type="text/javascript">
+//<![CDATA[
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+            var _gaq = _gaq || [];
+
+            _gaq.push(["_setAccount", "UA-38538115-1"] ,["_setDomainName","charmingcharlie.com"], ["_gat._anonymizeIp"]);
+            asyncDistilledFirstTouch(_gaq);
+            _gaq.push(["_trackPageview",""], ["_trackPageLoadTime"]);
+//]]>
+</script>
+
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Google Tag Manager Data Layer -->
+<!-- Google Tag Manager Data Layer -->
+
+<style type="text/css">
+
+	   
+	/* Buttons Color */
+	.block-layered-nav .block-content button.button span span{
+    
+   color: #519CDE;
+    
+    		background-color: #FFFFFF;
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF), to(#FFFFFF));
+		background-image: -webkit-linear-gradient(top, #FFFFFF, #FFFFFF);
+		background-image:    -moz-linear-gradient(top, #FFFFFF, #FFFFFF);
+		background-image:      -o-linear-gradient(top, #FFFFFF, #FFFFFF);
+		background-image:         linear-gradient(to bottom, #FFFFFF, #FFFFFF);
+    
+    	}  
+		
+	.gan-loadinfo{
+		
+				border-color:#E64097 !important;
+				
+				color:#E64097 !important;
+				
+				background-color:#FFFFFF !important;
+				
+				
+				
+				
+	}
+	/* Background Color */
+	.block.block-layered-nav .block-content{
+				background:#E7F1F4;
+			}
+	
+	/* Slider Color */	
+	.narrow-by-list .gan-slider-span{
+				background:#1E90FF;
+			}
+	
+	/* Popup Window Background */
+	#gan-left-nav-main-container filter-note-content-in,
+	#gan-right-nav-main-container .filter-note-content-in,
+	.narrow-by-list .filter-note-content-in{
+				background:#FFFFFF;
+			}
+	
+	/* Help Icon View */
+	#gan-left-nav-main-container .filter-note-handle,
+	#gan-right-nav-main-container .filter-note-handle,
+	.narrow-by-list .filter-note-handle{
+				color:#1F5070;
+			}
+	</style>
+
+<script type="text/javascript">
+//<![CDATA[
+
+
+var GomageNavigation = new GomageNavigationClass({
+						loadimage: 'http://media.charmingcharlie.com/media/gomage/config/default/Mask_-_30x30_-_Pink.gif',
+						loadimagealign: 'left',
+			back_to_top_action: '1',
+			gomage_navigation_loadinfo_text: "Filtering results...",
+			
+							gomage_navigation_urlhash: true,
+			
+		    			gan_shop_by_area: 1,
+                        help_icon_open_type: 'over',
+            		});
+//]]>	
+</script><script type="text/javascript">//<![CDATA[
+        var Translator = new Translate([]);
+        //]]></script><meta name="google-site-verification" content="rBEq9ZpvkH5DcpavClc_A76kxily-QrlOcqJq0I8Rx8" />
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+		jQuery('select').uniform(); 
+		var ua = navigator.userAgent.toLowerCase();
+		var isAndroid = ua.indexOf("android") > -1;
+		if(isAndroid) {
+			jQuery.uniform.restore("#qty");
+		}
+    });
+</script>
+</head>
+<body class=" cms-index-index cms-home">
+
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-W3MDH3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W3MDH3');</script>
+<!-- End Google Tag Manager -->
+
+<div class="wrapper">
+        <noscript>
+        <div class="global-site-notice noscript">
+            <div class="notice-inner">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
+            </div>
+        </div>
+    </noscript>
+    <div class="page container_16">
+        <div class="header-container grid_16">
+        <div class="header">
+        <div class="f-left grid_5 alpha branding">
+                            <h1 class="logo"><strong>Charming Charlie</strong><a href="http://www.charmingcharlie.com/" title="Charming Charlie" class="logo"><img src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/images/logo.png" alt="Charming Charlie" /></a></h1>
+            
+        </div>
+        <div class="grid_11 omega quick-access">
+            <div class="f-right grid_9 placeholder callout omega"><table border="0" width="100%" align="right">
+<tr>
+
+<td><!--<p align="center"><br><a href="http://www.charmingcharlie.com/sale/jewelry-on-sale.html" ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/Bogo_ET-021315.png" alt="President0211" title="Shop President&apos;s Day Sale"  /></a></p>--></td>
+
+<td><p align="right"><br><a id="tc-link" href="#homeTC"><img src="http://media.charmingcharlie.com/media/wysiwyg/home/shipping/FreeShip50_Pink-020915.png"  alt="Free Shipping on Orders $55 and Over" title="Free Shipping on Orders $55 and Over"  /></a></p></td>
+</tr>
+</table>
+<div class="no-display">
+	<div id="tc"><div class="widget widget-static-block"><table style="width: 450px;" border="0">
+<tbody>
+<tr>
+<td>
+<!--<p style="font-family: "Arial;"><strong>FREE Standard Shipping On All Orders</strong><br><br>
+Free standard ground shipping is valid on all purchases. Offer valid in U.S. only from 12/01/2014 at 12:01am PST through 12/03/2014 at 11:59pm PST at charmingcharlie.com. Does not include charming charlie gift cards, unless purchased with other merchandise. No price adjustments on previous purchases. Only available on charmingcharlie.com. Valid on standard U.S. ground shipping to U.S. delivery addresses in the 50 continental states. Additional charges apply for express shipping. Limited time offer. Terms subject to change without notice.</p>-->
+
+
+<p style="font-family: "Arial;"><strong>FREE Standard Shipping On Orders Over $50</strong><br><br>
+Free standard ground shipping is valid on purchases of $50.00 or more after promotional discounts have applied and before taxes, shipping and handling. Does not include charming charlie gift cards, unless purchased with merchandise totaling $50.00 or more before taxes, shipping and handling. No price adjustments on previous purchases. Only available on <a href="http://www.charmingcharlie.com">www.charmingcharlie.com</a>. Valid on standard U.S. ground shipping to U.S. delivery addresses in the 50 continental states. Additional charges apply for express shipping. Limited time offer. Terms subject to change without notice.</p>
+
+<!--<p><strong>FREE Standard Shipping on Orders over $25. </strong></p>
+<br/>
+<p>Free standard ground shipping is valid on purchases of $25.00 or more after promotional discounts have applied and before taxes, shipping and handling. Offer valid in U.S. only from 10/22/2014 at 12:01am PST through 11/4/2014 at 11:59pm PST at <a href="http://www.charmingcharlie.com">www.charmingcharlie.com</a>. Does not include charming charlie gift cards, unless purchased with merchandise totaling $25.00 or more before taxes, shipping and handling. No price adjustments on previous purchases. Only available on <a href="http://www.charmingcharlie.com">www.charmingcharlie.com</a>. Valid on standard U.S. ground shipping to U.S. delivery addresses in the 50 continental states. Additional charges apply for express shipping. Limited time offer. Terms subject to change without notice.</p>-->
+
+<br>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+<style type="text/css">
+
+
+h1 {
+font-family: DidotMed; Didot Med; arial, helvetica, sans-serif;
+font-size: 21px; 
+font-style: italic; 
+}
+
+
+.pink { 
+color: #eb539e; 
+font-size: 22px; 
+font-family: DidotMed, Arial, Helvetica, sans-serif; 
+font-style: normal;
+}
+
+.pink2 { 
+color: #eb539e; 
+font-size: 22px; 
+font-family: Helvetica, Arial, sans-serif; 
+font-style: normal;
+}
+
+
+.index {
+color: black; 
+font-family: PragmaticaBooka; arial, helvetica, sans-serif;
+font-style: normal; 
+font-size: 14px;"
+}
+
+
+<!--Left Menu for footers-->
+
+.cms-menu {
+    padding-top: 8px;
+}
+.cms-menu a {
+    display: inline-block;
+    margin-bottom: 3px;
+}
+.cms-menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+.cms-menu li {
+    text-transform: uppercase;
+}
+.cms-menu li.parent > a, .cms-menu li.parent > strong {
+	background: none;
+}
+.cms-menu a:hover,
+.cms-menu a:active {
+    text-decoration: underline;
+}
+.cms-menu>.current>a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+.cms-menu .current ul {
+    display: inline;
+}
+.cms-menu .current li {
+    padding-left: 15px;
+}
+.cms-menu .current ul a {
+    font-weight: normal;
+    text-decoration: none;
+}
+.cms-menu .current a:hover,
+.cms-menu .current a:focus,
+.cms-menu .current a:active {
+    text-decoration: underline;
+}
+.cms-menu .current ul .current a {
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+
+</style>
+</div>
+</div>
+
+</div>
+
+<!--
+<td><p align="right"><br><a id="tc-link" href="#homeTC"><img src="http://media.charmingcharlie.com/media/wysiwyg/home/FreeShip50_Pink-12172014.png"  alt="Free Shipping on Orders $50 and Over" /></a></p></td>
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_MKLSale_ET.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_MLKsale_EM-37.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_SemiSale_ET37_1.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_GiftEventSale_ET.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/GH_SemiSale_EW-34h_1.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_SemiSale_EW-34h.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_SemiSale_MarkDown2-0105-37.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_SemiSale_MarkDown37.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_GiftEventSale_ET.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_SemiSale37.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_1dayShip_pink-12192014.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/FreeShip50_Pink-12172014.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/FreeShip_ESat-225x37.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_OrderbyMon230x37.png" alt="" />
+<td><p align="center"><br><a href="http://www.charmingcharlie.com/sale/jewelry-on-sale.html"><img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_BogoFJ_endWed230x37.png" alt="BOGO-12032014" title="BOGO Sale - Discount fashion jewelry"  /></a></p></td>
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/FreeShip-12102014.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/FreeShip_EThurs-small.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_BogoFJsmall.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_BogoFJsmall.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_BogoFJ37h.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_BogoFJ.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_BogoFJ_endWed230x37.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/FreeShip50_Red240x37.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/shipping/FreeShip50_Red.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/shipping/GH_BogoFJ_endWed.png" alt="" />
+
+
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/GH_CybMon-230x37.png" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/FreeShip_endWed240x37.png" alt="" />
+-->
+
+
+<!-- pop up div -->
+<div class="no-display fb-content" id="holidayShipping">
+	 <table style="width: 100%;" cellspacing="0" cellpadding="10" bgcolor="#ffffff">
+<tbody>
+<tr>
+	<td style="border-color: #000000; border-width: 1px; padding: 20px 20px 20px 20px;"  bgcolor="#ffffff">
+		<table style="width: 100%;" border="0" cellspacing="0" cellpadding="10"  bgcolor="#ffffff">
+			<tbody>
+			<tr>
+				<td colspan="3"><img src="http://media.charmingcharlie.com/media/wysiwyg/footer/holiday-shipping-header2.png" alt="Holiday Shipping Deadline" /><br><br></td>
+			</tr>
+			<tr>
+				<td colspan="3">To ensure your package arrives on time for the holidays, below are the shipping cutoff dates for orders placed in the U.S.<br><br></td>
+			</tr>
+			<tr>
+				<td style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 14px;"><strong>ORDER BY DATE</strong></td>
+				<td style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 14px;"><strong>SHIPPING METHOD</strong></td>
+				<td style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000; font-size: 14px;"><strong>ESTIMATED ARRIVAL</strong></td>
+			</tr>
+			<tr>
+				<td style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #c0c0c0;">Monday, December 15th, at 1:00pm EST</td>
+				<td style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #c0c0c0;">Standard Ground</td>
+				<td style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #c0c0c0;">Arrives no later than December 24th</td>
+			</tr>
+
+			<tr>
+				<td style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #c0c0c0;">Monday, December 22nd, at 1:00pm EST</td>
+				<td style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #c0c0c0;">Overnight</td>
+				<td style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #c0c0c0;">Arrives no later than December 24th</td>
+			</tr>
+
+
+		</tbody>
+	</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div> 
+
+
+<!--Home TC for Free Shipping-->
+<div class="no-display" id="homeTC"> 
+<table style="width: 400px; background-color:#ffffff; border-collapse: collapse;" border="0" >
+<tbody>
+<tr>
+<td><div style="padding: 6px;">
+<p style="font-family: "Arial;"><strong>FREE Standard Shipping On Orders Over $55</strong><br>
+Free standard ground shipping is valid on purchases of $55.00 or more before taxes, shipping and handling. Offer valid in U.S. at charmingcharlie.com. Does not include charming charlie gift cards, unless purchased with merchandise totaling $55.00 or more before taxes, shipping and handling. No price adjustments on previous purchases. Only available on charmingcharlie.com. Valid on standard U.S. ground shipping to U.S. delivery addresses in the 50 continental states. Additional charges apply for express shipping. Limited time offer. Offers subject to change without notice. We reserve the right to cancel any order due to unauthorized, altered or ineligible use of discounts and to modify or cancel any promotion.</p>
+
+<!--
+<p style="font-family: "Arial;"><strong>FREE Standard Shipping On Orders Over $50</strong><br>
+Free standard ground shipping is valid on purchases of $50.00 or more before taxes, shipping and handling. Offer valid in U.S. at charmingcharlie.com. Does not include charming charlie gift cards, unless purchased with merchandise totaling $50.00 or more before taxes, shipping and handling. No price adjustments on previous purchases. Only available on charmingcharlie.com. Valid on standard U.S. ground shipping to U.S. delivery addresses in the 50 continental states. Additional charges apply for express shipping. Limited time offer. Terms subject to change without notice.</p>
+
+<p><strong>FREE Standard Shipping On All Orders</strong><br>
+FREE Standard Shipping On All Orders: Enjoy Free Standard Ground Shipping on your entire order at <a href="http://www.charmingcharlie.com/">www.charmingcharlie.com</a>. Discount reflected in shopping cart. Offer valid from 12/10/2014 at 12:01am PST through 12/13/2014 at 11:59pm PST at <a href="http://www.charmingcharlie.com/">www.charmingcharlie.com</a> No adjustments on previous purchases. Not valid for cash or cash equivalent. Offer valid in the U.S. only. Terms of offer are subject to change. Exclusions may apply.</p>-->
+
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<script type="text/javascript">// <![CDATA[
+	jQuery("a.category-banner-popup").fancybox();
+// ]]></script>
+
+<script type="text/javascript">// <![CDATA[
+	jQuery("#tc-link").fancybox();
+// ]]></script>
+
+<!--
+
+--></div>
+            <div class="f-right links-to-left_9 omega">
+                    <ul class="links last">
+                        <li class="first last">
+                            <div class="store-locator-header">
+                                <a href="http://stores.charmingcharlie.com/">Find a store</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="links">
+                        <li class="first last" ><a href="https://www.charmingcharlie.com/customer/account/" title="My Account" >My Account</a></li>
+            </ul>
+                    
+<div class="top-cart">
+        <div class="block-title no-items">
+        <a id="cartHeader" href="http://www.charmingcharlie.com/checkout/cart/" title="Shopping Bag (0)" onClick="return false;"><strong>Shopping Bag (<span>0</span>)</strong></a>
+    </div>
+    <div id="topCartContent" class="block-content" style="display:none">
+        <div class="inner-wrapper">                            <p class="block-subtitle">
+                <span onclick="Enterprise.TopCart.hideCart()" class="close-btn">x</span>
+                Recently added item(s)            </p>
+            <p class="cart-empty">
+                You have no items in your shopping cart.            </p>
+                                    </div>
+    </div>
+<script type="text/javascript">
+    Enterprise.TopCart.initialize('topCartContent');
+    // Below can be used to show minicart after item added
+    // Enterprise.TopCart.showCart(7);
+
+    /**
+     * Customized cart header functionality to take the user directly to the shopping cart page if there are items in
+     * his cart
+     * @link http://amplificommerce.tpondemand.com/tp2/entity/171299
+     */
+    jQuery(function($) {
+        $('#cartHeader').click(function (e) {
+            // If cart is empty, perform default behavior
+            if ($('#topCartContent .cart-empty').length) {
+                return true;
+            }
+
+            // If cart has items in it, go directly to cart page
+            e.preventDefault();
+            e.stopPropagation();
+            window.location = 'http://www.charmingcharlie.com/checkout/cart/';
+        });
+    });
+</script>
+</div>
+                    <ul class="links last">
+                        <li class="first last"><a href="http://www.charmingcharlie.com/reward-program-info" title="Charm Club">Charm Club</a></li>
+                    </ul>
+                <form id="search_mini_form" action="http://www.charmingcharlie.com/catalogsearch/result/" method="get">
+<div class="form-search grid_3 omega p-rel">
+    <label for="search">Search site:</label>
+    <input id="search" type="text" name="q" value="" class="input-text-cc" maxlength="128"/><button type="submit" class="cc-search-image" title="Go" class="button header-search-button"></button>
+    <a href="http://www.charmingcharlie.com/catalogsearch/advanced/">Advanced Search</a>
+    <div id="search_autocomplete" class="search-autocomplete"></div>
+    <script type="text/javascript">
+    //<![CDATA[
+        var searchForm = new Varien.searchForm('search_mini_form', 'search', 'SEARCH');
+        searchForm.initAutocomplete('http://www.charmingcharlie.com/catalogsearch/ajax/suggest/', 'search_autocomplete');
+    //]]>
+    </script>
+</div>
+</form>
+            </div>
+        </div>
+    </div>
+    <ul id="pronav" class="pn-default "><li id="li-primary-pronav-what-s-new" class="primary-pronav-item whats-new"><a rel="" href="http://www.charmingcharlie.com/whats-new.html" id="a-primary-what-s-new" class="primary-pronav-link "><span class="pronav-top-level-span">What's New</span></a><div class="sub sub-align-left"><div style="width:380px;">
+<ul class="subcategories-list column-2">
+<li class="pronav-unsorted">
+	<ul class="pronav-column">
+        						
+				
+											<li class="pronav-cat-li-sub4-1 level-2">
+							<a class="pronav-cat-a-sub4-1" href="http://www.charmingcharlie.com/whats-new.html">
+																                                                                    View All                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub125-2 level-3">
+							<a class="pronav-cat-a-sub125-2" href="http://www.charmingcharlie.com/whats-new/new-arrivals.html">
+																                                								    New Arrivals                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub359-3 level-3">
+							<a class="pronav-cat-a-sub359-3" href="http://www.charmingcharlie.com/whats-new/candy-coated-color.html">
+																                                								    Candy Coated Color                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub327-4 level-3">
+							<a class="pronav-cat-a-sub327-4" href="http://www.charmingcharlie.com/whats-new/whats-new-we-heart-handbags.html">
+																                                								    Handbag Event                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub144-5 level-3">
+							<a class="pronav-cat-a-sub144-5" href="http://www.charmingcharlie.com/whats-new/best-sellers.html">
+																                                								    Best Sellers                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub363-6 level-3">
+							<a class="pronav-cat-a-sub363-6" href="http://www.charmingcharlie.com/whats-new/a-hint-of-spring.html">
+																                                								    A Hint of Spring                                 							</a>
+						</li>
+					
+				
+		                    </ul>
+            <ul class="pronav-column">
+                    					
+				
+											<li class="pronav-cat-li-sub211-7 level-3">
+							<a class="pronav-cat-a-sub211-7" href="http://www.charmingcharlie.com/whats-new/nautical.html">
+																                                								    The New Nautical                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub138-8 level-3">
+							<a class="pronav-cat-a-sub138-8" href="http://www.charmingcharlie.com/whats-new/statement-necklaces.html">
+																                                								    Statement Necklaces                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub148-9 level-3">
+							<a class="pronav-cat-a-sub148-9" href="http://www.charmingcharlie.com/whats-new/mint.html">
+																                                								    A Hint of Mint                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub217-10 level-3">
+							<a class="pronav-cat-a-sub217-10" href="http://www.charmingcharlie.com/whats-new/as-seen-in.html">
+																                                								    As Seen In                                							</a>
+						</li>
+					
+				
+		                    		</ul>
+</li>
+</ul>
+
+</div></div></li><li id="li-primary-pronav-jewelry" class="primary-pronav-item jewelry"><a rel="" href="http://www.charmingcharlie.com/jewelry.html" id="a-primary-jewelry" class="primary-pronav-link "><span class="pronav-top-level-span">Jewelry</span></a><div class="sub sub-align-left"><div style="width:320px;">
+<ul class="subcategories-list column-2">
+<li class="pronav-unsorted">
+	<ul class="pronav-column">
+        						
+				
+											<li class="pronav-cat-li-sub5-1 level-2">
+							<a class="pronav-cat-a-sub5-1" href="http://www.charmingcharlie.com/jewelry.html">
+																                                                                    View All                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub170-2 level-3">
+							<a class="pronav-cat-a-sub170-2" href="http://www.charmingcharlie.com/jewelry/jewelry-be-charmed.html">
+																                                								    Be Charmed                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub281-3 level-3">
+							<a class="pronav-cat-a-sub281-3" href="http://www.charmingcharlie.com/jewelry/personalized-jewelry.html">
+																                                								    Personalized                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub21-4 level-3">
+							<a class="pronav-cat-a-sub21-4" href="http://www.charmingcharlie.com/jewelry/bracelets.html">
+																                                								    Bracelets                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub36-5 level-3">
+							<a class="pronav-cat-a-sub36-5" href="http://www.charmingcharlie.com/jewelry/earrings.html">
+																                                								    Earrings                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub74-6 level-3">
+							<a class="pronav-cat-a-sub74-6" href="http://www.charmingcharlie.com/jewelry/necklaces.html">
+																                                								    Necklaces                                							</a>
+						</li>
+					
+				
+		                    </ul>
+            <ul class="pronav-column">
+                    					
+				
+											<li class="pronav-cat-li-sub81-7 level-3">
+							<a class="pronav-cat-a-sub81-7" href="http://www.charmingcharlie.com/jewelry/rings.html">
+																                                								    Rings                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub88-8 level-3">
+							<a class="pronav-cat-a-sub88-8" href="http://www.charmingcharlie.com/jewelry/jewelry-sets.html">
+																                                								    Sets                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub205-9 level-3">
+							<a class="pronav-cat-a-sub205-9" href="http://www.charmingcharlie.com/jewelry/watches.html">
+																                                								    Watches                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub112-10 level-3">
+							<a class="pronav-cat-a-sub112-10" href="http://www.charmingcharlie.com/jewelry/jewelry-organization.html">
+																                                								    Organization                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub296-11 level-3">
+							<a class="pronav-cat-a-sub296-11" href="http://www.charmingcharlie.com/jewelry/jewelry-care-and-accessories.html">
+																                                								    Care & Accessories                                							</a>
+						</li>
+					
+				
+		                    		</ul>
+</li>
+</ul>
+
+</div></div></li><li id="li-primary-pronav-accessories" class="primary-pronav-item accessories"><a rel="" href="http://www.charmingcharlie.com/accessories.html" id="a-primary-accessories" class="primary-pronav-link "><span class="pronav-top-level-span">Accessories</span></a><div class="sub sub-align-left"><div style="width:300px;">
+<ul class="subcategories-list column-2">
+<li class="pronav-unsorted">
+	<ul class="pronav-column">
+        						
+				
+											<li class="pronav-cat-li-sub6-1 level-2">
+							<a class="pronav-cat-a-sub6-1" href="http://www.charmingcharlie.com/accessories.html">
+																                                                                    View All                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub171-2 level-3">
+							<a class="pronav-cat-a-sub171-2" href="http://www.charmingcharlie.com/accessories/beauty.html">
+																                                								    Beauty                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub15-3 level-3">
+							<a class="pronav-cat-a-sub15-3" href="http://www.charmingcharlie.com/accessories/belts.html">
+																                                								    Belts                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub42-4 level-3">
+							<a class="pronav-cat-a-sub42-4" href="http://www.charmingcharlie.com/accessories/eyewear.html">
+																                                								    Eyewear                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub52-5 level-3">
+							<a class="pronav-cat-a-sub52-5" href="http://www.charmingcharlie.com/accessories/hair-accessories.html">
+																                                								    Hair Accessories                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub16-6 level-3">
+							<a class="pronav-cat-a-sub16-6" href="http://www.charmingcharlie.com/accessories/hats.html">
+																                                								    Hats                                							</a>
+						</li>
+					
+				
+		                    </ul>
+            <ul class="pronav-column">
+                    					
+				
+											<li class="pronav-cat-li-sub80-7 level-3">
+							<a class="pronav-cat-a-sub80-7" href="http://www.charmingcharlie.com/accessories/scarves.html">
+																                                								    Scarves                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub183-8 level-3">
+							<a class="pronav-cat-a-sub183-8" href="http://www.charmingcharlie.com/accessories/technology.html">
+																                                								    Technology                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub241-9 level-3">
+							<a class="pronav-cat-a-sub241-9" href="http://www.charmingcharlie.com/accessories/travel-accessories.html">
+																                                								    Travel                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub328-10 level-3">
+							<a class="pronav-cat-a-sub328-10" href="http://www.charmingcharlie.com/accessories/home-and-gifts.html">
+																                                								    Home & Gifts                                							</a>
+						</li>
+					
+				
+		                    		</ul>
+</li>
+</ul>
+
+</div>
+</div></li><li id="li-primary-pronav-handbags" class="primary-pronav-item handbags"><a rel="" href="http://www.charmingcharlie.com/handbags.html" id="a-primary-handbags" class="primary-pronav-link "><span class="pronav-top-level-span">Handbags</span></a><div class="sub sub-align-left"><div style="width:280px;">
+<ul class="subcategories-list column-2">
+<li class="pronav-unsorted">
+	<ul class="pronav-column">
+        						
+				
+											<li class="pronav-cat-li-sub7-1 level-2">
+							<a class="pronav-cat-a-sub7-1" href="http://www.charmingcharlie.com/handbags.html">
+																                                                                    View All                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub316-2 level-3">
+							<a class="pronav-cat-a-sub316-2" href="http://www.charmingcharlie.com/handbags/we-heart-handbags.html">
+																                                								    The Handbag Event                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub67-3 level-3">
+							<a class="pronav-cat-a-sub67-3" href="http://www.charmingcharlie.com/handbags/clutch-handbags.html">
+																                                								    Clutch                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub65-4 level-3">
+							<a class="pronav-cat-a-sub65-4" href="http://www.charmingcharlie.com/handbags/cross-body-handbags.html">
+																                                								    Crossbody                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub62-5 level-3">
+							<a class="pronav-cat-a-sub62-5" href="http://www.charmingcharlie.com/handbags/hobo-handbags.html">
+																                                								    Hobo                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub64-6 level-3">
+							<a class="pronav-cat-a-sub64-6" href="http://www.charmingcharlie.com/handbags/satchel-handbags.html">
+																                                								    Satchel                                							</a>
+						</li>
+					
+				
+		                    </ul>
+            <ul class="pronav-column">
+                    					
+				
+											<li class="pronav-cat-li-sub63-7 level-3">
+							<a class="pronav-cat-a-sub63-7" href="http://www.charmingcharlie.com/handbags/tote-handbags.html">
+																                                								    Tote                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub50-8 level-3">
+							<a class="pronav-cat-a-sub50-8" href="http://www.charmingcharlie.com/handbags/wallets.html">
+																                                								    Wallets                                							</a>
+						</li>
+					
+				
+		                    		</ul>
+</li>
+</ul>
+
+</div>
+</div></li><li id="li-primary-pronav-shoes" class="primary-pronav-item shoes"><a rel="" href="http://www.charmingcharlie.com/shoes.html" id="a-primary-shoes" class="primary-pronav-link "><span class="pronav-top-level-span">Shoes</span></a><div class="sub sub-align-left"><div style="width:270px;">
+<ul class="subcategories-list column-2">
+<li class="pronav-unsorted">
+	<ul class="pronav-column">
+        						
+				
+											<li class="pronav-cat-li-sub8-1 level-2">
+							<a class="pronav-cat-a-sub8-1" href="http://www.charmingcharlie.com/shoes.html">
+																                                                                    View All                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub167-2 level-3">
+							<a class="pronav-cat-a-sub167-2" href="http://www.charmingcharlie.com/shoes/shoe-accessories.html">
+																                                								    Shoe Accessories                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub95-3 level-3">
+							<a class="pronav-cat-a-sub95-3" href="http://www.charmingcharlie.com/shoes/boots.html">
+																                                								    Boots                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub93-4 level-3">
+							<a class="pronav-cat-a-sub93-4" href="http://www.charmingcharlie.com/shoes/flats.html">
+																                                								    Flats                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub257-5 level-3">
+							<a class="pronav-cat-a-sub257-5" href="http://www.charmingcharlie.com/shoes/heels.html">
+																                                								    Heels                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub94-6 level-3">
+							<a class="pronav-cat-a-sub94-6" href="http://www.charmingcharlie.com/shoes/sandals.html">
+																                                								    Sandals                                							</a>
+						</li>
+					
+				
+		                    </ul>
+            <ul class="pronav-column">
+                    					
+				
+											<li class="pronav-cat-li-sub92-7 level-3">
+							<a class="pronav-cat-a-sub92-7" href="http://www.charmingcharlie.com/shoes/wedges.html">
+																                                								    Wedges                                							</a>
+						</li>
+					
+				
+		                    		</ul>
+</li>
+</ul>
+
+</div></div></li><li id="li-primary-pronav-apparel" class="primary-pronav-item apparel"><a rel="" href="http://www.charmingcharlie.com/apparel.html" id="a-primary-apparel" class="primary-pronav-link "><span class="pronav-top-level-span">Apparel</span></a><div class="sub sub-align-left"><div>
+<ul class="subcategories-list column-1">
+<li class="pronav-unsorted">
+	<ul class="pronav-column">
+        						
+				
+											<li class="pronav-cat-li-sub9-1 level-2">
+							<a class="pronav-cat-a-sub9-1" href="http://www.charmingcharlie.com/apparel.html">
+																                                                                    View All                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub35-2 level-3">
+							<a class="pronav-cat-a-sub35-2" href="http://www.charmingcharlie.com/apparel/dresses.html">
+																                                								    Dresses                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub110-3 level-3">
+							<a class="pronav-cat-a-sub110-3" href="http://www.charmingcharlie.com/apparel/tops.html">
+																                                								    Tops                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub312-4 level-3">
+							<a class="pronav-cat-a-sub312-4" href="http://www.charmingcharlie.com/apparel/cardigans-and-kimonos.html">
+																                                								    Cardigans & Kimonos                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub17-5 level-3">
+							<a class="pronav-cat-a-sub17-5" href="http://www.charmingcharlie.com/apparel/legwear.html">
+																                                								    Legwear                                							</a>
+						</li>
+					
+				
+		                    		</ul>
+</li>
+</ul>
+
+</div></div></li><li id="li-primary-pronav-watches" class="primary-pronav-item watches"><a rel="" href="http://www.charmingcharlie.com/watches.html" id="a-primary-watches" class="primary-pronav-link "><span class="pronav-top-level-span">Watches</span></a><div class="sub sub-align-left"><div>
+<ul class="subcategories-list column-1">
+<li class="pronav-unsorted">
+	<ul class="pronav-column">
+        						
+				
+											<li class="pronav-cat-li-sub10-1 level-2">
+							<a class="pronav-cat-a-sub10-1" href="http://www.charmingcharlie.com/watches.html">
+																                                                                    View All                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub116-2 level-3">
+							<a class="pronav-cat-a-sub116-2" href="http://www.charmingcharlie.com/watches/boyfriend-watches.html">
+																                                								    Boyfriend                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub114-3 level-3">
+							<a class="pronav-cat-a-sub114-3" href="http://www.charmingcharlie.com/watches/bracelet-watches.html">
+																                                								    Bracelet                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub216-4 level-3">
+							<a class="pronav-cat-a-sub216-4" href="http://www.charmingcharlie.com/watches/collegiate-watches.html">
+																                                								    Collegiate                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub113-5 level-3">
+							<a class="pronav-cat-a-sub113-5" href="http://www.charmingcharlie.com/watches/strap-watches.html">
+																                                								    Strap                                							</a>
+						</li>
+					
+				
+		                    		</ul>
+</li>
+</ul>
+
+</div></div></li><li id="li-primary-pronav-wedding" class="primary-pronav-item wedding"><a rel="" href="http://www.charmingcharlie.com/wedding.html" id="a-primary-wedding" class="primary-pronav-link "><span class="pronav-top-level-span">Wedding</span></a><div class="sub sub-align-right"><div style="width:540px">
+<ul class="subcategories-list column-3">
+    <li class="pronav-unsorted">
+	    <ul class="pronav-column">
+            <li class="level-2">
+                <a href="http://www.charmingcharlie.com/wedding/shop-by-category/view-all-wedding.html">View All</a>
+            </li>
+                     <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-by-category/wedding-necklaces.html">Necklaces</a>
+            </li>
+            <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-by-category/wedding-earrings.html">Earrings</a>
+            </li>
+            <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-by-category/wedding-bracelets.html">Bracelets</a>
+            </li>
+            <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-by-category/wedding-hair-accessories.html">Hair Accessories</a>
+            </li>
+            <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-by-category/wedding-clutches.html">Clutches</a>
+            </li>
+	    </ul>
+	    <ul class="pronav-column">
+		    <li class="level-2">
+		        <h3>Shop By Style</h3>
+		    </li>
+            <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-by-style/classic-bride.html">Classic bride</a>
+            </li>
+            <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-by-style/vintage-bride.html">Vintage bride</a>
+            </li>
+            <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-by-style/trendy-bride.html">Trendy bride</a>
+            </li>
+<li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-by-style/ethereal-elegance.html">Ethereal Elegance</a>
+            </li>
+	    </ul>
+	    <ul class="pronav-column">
+		    <li class="level-2">
+		        <h3>Shop For</h3>
+		    </li>
+            <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-for/bridesmaids.html">Bridesmaids</a>
+            </li>
+            <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-for/mother-of-the-bride.html">Mother of the Bride</a>
+            </li>
+<li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-for/wedding-guest.html">Wedding Guest</a>
+            </li>
+            <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-for/honeymoon.html">Honeymoon</a>
+            </li>
+            <li class="level-3">
+                <a href="http://www.charmingcharlie.com/wedding/shop-for/wedding-gifts.html">Gifts</a>
+            </li>
+	    </ul>
+    </li>
+</ul>
+</div></div></li><li id="li-primary-pronav-special-occasion" class="primary-pronav-item special-occasion"><a rel="" href="http://www.charmingcharlie.com/rsvp.html" id="a-primary-special-occasion" class="primary-pronav-link "><span class="pronav-top-level-span">Special Occasion</span></a><div class="sub sub-align-right"><div style="width:405px;">
+<ul class="subcategories-list column-3">
+<li class="pronav-unsorted">
+	<ul class="pronav-column">
+        						
+				
+											<li class="pronav-cat-li-sub12-1 level-2">
+							<a class="pronav-cat-a-sub12-1" href="http://www.charmingcharlie.com/rsvp.html">
+																                                                                    View All                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub314-2 level-3">
+							<a class="pronav-cat-a-sub314-2" href="http://www.charmingcharlie.com/rsvp/rsvp-classic-collection.html">
+																                                								    RSVP Classics                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub258-3 level-3">
+							<a class="pronav-cat-a-sub258-3" href="http://www.charmingcharlie.com/rsvp/pearls.html">
+																                                								    Pearls                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub360-4 level-3">
+							<a class="pronav-cat-a-sub360-4" href="http://www.charmingcharlie.com/rsvp/cz-collection.html">
+																                                								    CZ Collection                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub169-5 level-3">
+							<a class="pronav-cat-a-sub169-5" href="http://www.charmingcharlie.com/rsvp/rsvp-accessories.html">
+																                                								    Accessories                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub120-6 level-3">
+							<a class="pronav-cat-a-sub120-6" href="http://www.charmingcharlie.com/rsvp/rsvp-apparel.html">
+																                                								    Apparel                                							</a>
+						</li>
+					
+				
+		                    </ul>
+            <ul class="pronav-column">
+                    					
+				
+											<li class="pronav-cat-li-sub107-7 level-3">
+							<a class="pronav-cat-a-sub107-7" href="http://www.charmingcharlie.com/rsvp/rsvp-bracelets.html">
+																                                								    Bracelets                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub302-8 level-3">
+							<a class="pronav-cat-a-sub302-8" href="http://www.charmingcharlie.com/rsvp/rsvp-brooches.html">
+																                                								    Brooches                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub119-9 level-3">
+							<a class="pronav-cat-a-sub119-9" href="http://www.charmingcharlie.com/rsvp/rsvp-earrings.html">
+																                                								    Earrings                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub69-10 level-3">
+							<a class="pronav-cat-a-sub69-10" href="http://www.charmingcharlie.com/rsvp/rsvp-evening-bags.html">
+																                                								    Evening Bags                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub103-11 level-3">
+							<a class="pronav-cat-a-sub103-11" href="http://www.charmingcharlie.com/rsvp/rsvp-hair-accessories.html">
+																                                								    Hair Accessories                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub106-12 level-3">
+							<a class="pronav-cat-a-sub106-12" href="http://www.charmingcharlie.com/rsvp/rsvp-necklaces.html">
+																                                								    Necklaces                                							</a>
+						</li>
+					
+				
+		                    </ul>
+            <ul class="pronav-column">
+                    					
+				
+											<li class="pronav-cat-li-sub109-13 level-3">
+							<a class="pronav-cat-a-sub109-13" href="http://www.charmingcharlie.com/rsvp/rsvp-rings.html">
+																                                								    Rings                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub180-14 level-3">
+							<a class="pronav-cat-a-sub180-14" href="http://www.charmingcharlie.com/rsvp/tiaras.html">
+																                                								    Tiaras                                							</a>
+						</li>
+					
+				
+		                    		</ul>
+</li>
+</ul>
+
+</div></div></li><li id="li-primary-pronav-sale" class="primary-pronav-item sale"><a rel="" href="http://www.charmingcharlie.com/sale.html" id="a-primary-sale" class="primary-pronav-link "><span class="pronav-top-level-span">Sale</span></a><div class="sub sub-align-right"><div style="width:300px;">
+<ul class="subcategories-list column-2">
+<li class="pronav-unsorted">
+	<ul class="pronav-column">
+        						
+				
+											<li class="pronav-cat-li-sub123-1 level-2">
+							<a class="pronav-cat-a-sub123-1" href="http://www.charmingcharlie.com/sale.html">
+																                                                                    View All                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub126-2 level-3">
+							<a class="pronav-cat-a-sub126-2" href="http://www.charmingcharlie.com/sale/jewelry-on-sale.html">
+																                                								    Jewelry                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub127-3 level-3">
+							<a class="pronav-cat-a-sub127-3" href="http://www.charmingcharlie.com/sale/accessories-on-sale.html">
+																                                								    Accessories                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub128-4 level-3">
+							<a class="pronav-cat-a-sub128-4" href="http://www.charmingcharlie.com/sale/handbags-on-sale.html">
+																                                								    Handbags                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub129-5 level-3">
+							<a class="pronav-cat-a-sub129-5" href="http://www.charmingcharlie.com/sale/shoes-on-sale.html">
+																                                								    Shoes                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub130-6 level-3">
+							<a class="pronav-cat-a-sub130-6" href="http://www.charmingcharlie.com/sale/apparel-on-sale.html">
+																                                								    Apparel                                							</a>
+						</li>
+					
+				
+		                    </ul>
+            <ul class="pronav-column">
+                    					
+				
+											<li class="pronav-cat-li-sub131-7 level-3">
+							<a class="pronav-cat-a-sub131-7" href="http://www.charmingcharlie.com/sale/watches-on-sale.html">
+																                                								    Watches                                							</a>
+						</li>
+					
+				
+		                    					
+				
+											<li class="pronav-cat-li-sub141-8 level-3">
+							<a class="pronav-cat-a-sub141-8" href="http://www.charmingcharlie.com/sale/rsvp-on-sale.html">
+																                                								    Special Occasion                                							</a>
+						</li>
+					
+				
+		                    		</ul>
+</li>
+</ul>
+
+</div></div></li></ul><script type="text/javascript">myProNav = {};myProNav.bodyClass = "cms-home";myProNav.proNavWidth = "auto";myProNav.proNavPosition = "default";myProNav.easingMethodShow = "easeOutQuint";myProNav.easingMethodHide = "easeOutQuint";myProNav.sensitivity = 2;myProNav.interval = 50;myProNav.timeout = 200;myProNav.fadeInTime = 200;myProNav.fadeOutTime = 200;myProNav.currentURL = "http://www.charmingcharlie.com/";myProNav.homeURL = "http://www.charmingcharlie.com/";</script><script type="text/javascript" src="http://www.charmingcharlie.com/js/pronav/jquery.easing.1.3.js"></script><script type="text/javascript" src="http://www.charmingcharlie.com/js/pronav/jquery.hoverIntent.minified.js"></script><script type="text/javascript" src="http://www.charmingcharlie.com/js/pronav/jquery.proNav.js"></script>    <style type="text/css">
+.stretch { width: 82px; }
+.stretch a:hover { width: 102px !important; }
+</style>
+
+<div class="shop-by-color clearfix">
+<div class="grid_2 alpha" ><img class="shop-by-color-navigation-title" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/images/shop-by-color.png" alt="Shop by Color" width="118" height="36" /></div>
+
+<div class="grid_14 omega">
+<table style="border-spacing: 0px; padding: 0px; border-width: 0px; margin: 0px 0px 0px 0px; cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="stretch" style="background-color: #0096b5;" ><a class="oceanBlue" style="background-color: #0096b5;" href="http://www.charmingcharlie.com/shop-by-color/turquoise/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-turq35.png" alt="shopByColorTurquoise" /></a></td>
+<td class="stretch" style="background-color: #c6015b;" ><a class="orchid" style="background-color: #c6015b;" href="http://www.charmingcharlie.com/whats-new/radiant-orchid.html/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-roseberry.png" alt="shopByColorRoseberry" /></a></td>
+<td  class="stretch" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-white-bg35.png');" ><a class="white" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-white-bg35.png');" href="http://www.charmingcharlie.com/shop-by-color/white/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-white35.png" alt="shopByColorWhite" /></a></td>
+<td  class="stretch" style="background-color: #595e62;" ><a class="light-gray" style="background-color: #595e62;" href="http://www.charmingcharlie.com/shop-by-color/grey/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-grey35.png" alt="shopByColorGrey" /></a></td>
+<td class="stretch" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-clear-bg35.png');" ><a class="other"style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-clear-bg35.png');" href="http://www.charmingcharlie.com/shop-by-color/clear/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-clear35.png" alt="shopByColorClear" /></a></td>
+<td class="stretch" style="background-color: #c5b5cf;" ><a class="purple" style="background-color: #c5b5cf;" href="http://www.charmingcharlie.com/shop-by-color/purple/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-purple35.png" alt="shopByColorPurple" /></a></td>
+<td class="stretch" style="background-color: #ffa199;" ><a class="coral" style="background-color: #ffa199;" href="http://www.charmingcharlie.com/shop-by-color/coral/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-coral35.png" alt="shopByColorCoral" /></a></td>
+<td class="stretch" style="background-color: #385785;" ><a  class="blue" style="background-color: #385785;" href="http://www.charmingcharlie.com/shop-by-color/blue/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-blue35.png" alt="shopByColorBlue" /></a></td>
+<td class="stretch" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-animal-bg35.png');" ><a class="animal" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-animal-bg35.png');" href="http://www.charmingcharlie.com/whats-new/animal-prints.html/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-animal-wht35.png" alt="shopByColorAnimal" /></a></td>
+<td  class="stretch" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-gold-bg35A.png');" ><a class="goldenrod" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-gold-bg35A.png');" href="http://www.charmingcharlie.com/shop-by-color/gold/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-gold35.png" alt="shopByColorGold" /></a></td>
+<td class="stretch" style=" background-color: #000000;"><a class="black"  style="background-color: #000000;" href="http://www.charmingcharlie.com/shop-by-color/black/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-black35.png" alt="shopByColorBlack" /></a></td>
+
+
+</tr>
+<tr>
+<td  class="stretch" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-silver-bg35A.png');"><a class="silver"  style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-silver-bg35A.png');" href="http://www.charmingcharlie.com/shop-by-color/silver/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-silver35.png" alt="shopByColorSilver" /></a></td>
+<td class="stretch" style="background-color: #eb6131;" ><a  class="orange" style="background-color: #eb6131;" href="http://www.charmingcharlie.com/shop-by-color/orange/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-orange35.png" alt="shopByColorOrange" /></a></td>
+<td  class="stretch" style="background-color: #89e3d7;"><a class="mint"  style="background-color: #89e3d7;" href="http://www.charmingcharlie.com/shop-by-color/mint/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-mint35.png" alt="" /></a></td>
+<td  class="stretch" style="background-color: #f56589;" ><a class="pink" style="background-color: #f56589;" href="http://www.charmingcharlie.com/shop-by-color/pink/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-pink35.png" alt="shopByColorPink" /></a></td>
+<td class="stretch" style="background-color: #cc1e1f;" ><a  class="red" style="background-color: #cc1e1f;"  href="http://www.charmingcharlie.com/shop-by-color/red/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-red35.png" alt="shopByColorRed" /></a></td>
+<td  class="stretch" style="background-color: #ead6bb;" ><a class="Nude" style="background-color: #ead6bb;" href="http://www.charmingcharlie.com/shop-by-color/nude/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-nude.png" alt="shopByColorNude" /></a></td>
+<td class="stretch" style="background-color: #3ac081;" ><a class="green" style="background-color: #3ac081;" href="http://www.charmingcharlie.com/shop-by-color/green/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-green35.png" alt="shopByColorGreen" /></a></td>
+<td class="stretch" style="background-color: #8b2f32;" ><a class="Marsala"  style="background-color: #8b2f32;" href="http://www.charmingcharlie.com/shop-by-color/wine/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-marsala35.png" alt="shopByColorMarsala" /></a></td>
+<td class="stretch" style="background-color: #eee9e3;"  ><a class="ivory" style="background-color: #eee9e3;" href="http://www.charmingcharlie.com/shop-by-color/ivory/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-ivory35.png" alt="shopByColorIvory" /></a></td>
+<td  class="stretch" style="background-color: #6e3012;" ><a class="brown" style="background-color: #6e3012;" href="http://www.charmingcharlie.com/shop-by-color/brown/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-wht-brown35.png" alt="shopByColorBrown" /></a></td>
+<td class="stretch" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/rose-gold-grad35A.png');" ><a class="rose-gold" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/rose-gold-grad35A.png');" href="http://www.charmingcharlie.com/shop-by-color/rose-gold/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-rosegold35.png" alt="shopByColorRoseGold" /></a></td>
+
+
+
+</tr>
+</tbody>
+</table></div></div>
+
+
+
+
+
+<!--
+<td class="stretch" style="background-color: #0096b5;" ><a class="oceanBlue" style="background-color: #0096b5;" href="http://www.charmingcharlie.com/shop-by-color/turquoise/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/OceanBlueType.png" alt="shopByColorOceanBlue" /></a></td>
+<td class="stretch" style="background-color: #c6015b;" ><a class="orchid" style="background-color: #c6015b;" href="http://www.charmingcharlie.com/whats-new/radiant-orchid.html/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/Fuchsia_ColorSwatch1.png" alt="shopByColorFuchsiaPurple" /></a></td>
+<td  class="stretch" style="background-color: #ead6bb;" ><a class="khaki" style="background-color: #ead6bb;" href="http://www.charmingcharlie.com/shop-by-color/khaki/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-khaki35.png" alt="shopByColorKhaki" /></a></td>
+<td class="stretch" style="background-color: #0096b5;" ><a class="turquoise" style="background-color: #0096b5;" href="http://www.charmingcharlie.com/shop-by-color/turquoise/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-turq35.png" alt="shopByColorTurquoise" /></a></td>
+
+<td class="stretch" style="background-color: #7d734b;" ><a class="olive" style="background-color: #7d734b;" href="http://www.charmingcharlie.com/shop-by-color/olive/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-olive35.png" alt="shopByColorOlive" /></a></td>
+<img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/Fuchsia_ColorSwatch1.png" alt="" />
+<td class="stretch" style="background-color: #c6015b;" ><a class="orchid" style="background-color: #c6015b;" href="http://www.charmingcharlie.com/whats-new/radiant-orchid.html/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/Fuchsia_ColorSwatch.png" alt="shopByColorFuchsiaPurple" /></a></td>
+<td class="stretch" style="background-color: #b75aa7;" ><a class="orchid" style="background-color: #b75aa7;" href="http://www.charmingcharlie.com/whats-new/radiant-orchid.html/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-orchid35_1.png" alt="shopByColorOrchid" /></a></td>
+<td class="stretch" style="background-color: #ffff66;" ><a class="yellow" style="background-color: #ffff66;" href="http://www.charmingcharlie.com/shop-by-color/yellow/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-yellow35.png" alt="" /></a></td>
+
+
+<img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/rose-gold-grad35AB.jpg" alt="" />
+
+<td  class="stretch" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-white-bg35.png');" ><a class="white" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-white-bg35.png');" href="http://www.charmingcharlie.com/shop-by-color/white/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-white35.png" alt="" /></a></td>
+<td class="stretch" style="background-color: #792c40;" ><a class="wine"  style="background-color: #792c40;" href="http://www.charmingcharlie.com/shop-by-color/wine/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-wine35.png" alt="shopByColorWine" /></a></td>
+
+
+
+<td class="stretch" style="background-color: #6a6b4c;" ><a class="olive" style="background-color: #6a6b4c;" href="http://www.charmingcharlie.com/shop-by-color/olive/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-olive35.png" alt="" /></a></td>
+<td class="stretch"><a class="prints" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-prints2-bg35.png');" href="http://www.charmingcharlie.com/whats-new/mixing-prints.html/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-prints-wht35.png" alt="" /></a></td>
+<td><a class="animal" style="background-image: url('http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-animal-bg35.png');" href="http://www.charmingcharlie.com/shop-by-color/prints/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-animal-wht35.png" alt="" /></a></td>
+<td  class="stretch" style="background-color: #c2ebc2;"><a class="mint"  style="background-color: #c2ebc2;" href="http://www.charmingcharlie.com/shop-by-color/mint/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-mint35.png" alt="" /></a></td>
+
+
+<td class="stretch" style="background-color: #ec685b;" ><a class="coral" style="background-color: #ec685b;" href="http://www.charmingcharlie.com/shop-by-color/coral/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-coral35.png" alt="" /></a></td>
+
+<td class="stretch" style=" background-color: #000000;"><a class="black"   style="background-color: #000000;" href="http://www.charmingcharlie.com/shop-by-color/black/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-black35.png" alt="" /></a></td>
+
+<img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/July4th-swatch_noText_110A.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/July4th-swatch_noText_110.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/July4th-swatch_noText_2.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/July4th-swatch_noText_1.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/July4th-swatch_Text.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/July4th-swatch_noText.jpg" alt="" />
+<td  class="stretch" style="background-color: #b5845c;" ><a class="brown" style="background-color: #b5845c;" href="http://www.charmingcharlie.com/shop-by-color/brown/"><img src="http://media.charmingcharlie.com/media/wysiwyg/shop-by-color/shop-by-color-brown35.png" alt="" /></a></td>
+-->    </div>
+                        <div class="main col1-layout grid_16">
+            <div class="col-main">
+                <div class="std"><style type="text/css">
+.pagination { text-align: center; padding-top: 10px; z-index:100; position:absolute; bottom:20px; left:400px; width:140px;}
+.pagination a { background: url(/media/wysiwyg/home/miscellaneous_sprite.png) 0 -300px no-repeat transparent; width: 15px; height: 15px; margin: 0 5px 0 0; display: inline-block; }
+.pagination a.selected { background-position: -25px -300px; cursor: default; }
+.pagination a span { display: none; }
+</style>
+
+
+
+<div  id="homeBanners" style="position:relative;">
+<div id="home_banners">
+
+<a href="http://www.charmingcharlie.com/handbags/we-heart-handbags.html " ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/carousel/HP_HandbagEvent020315.jpg" title="Shop the handbag event, totes,crossbody,wristlets,satchel" alt="HandbagEvent-0209_2" width="940" height="500" /></a>
+
+<a href="http://www.charmingcharlie.com/whats-new/candy-coated-color.html"><img src="http://media.charmingcharlie.com/media/wysiwyg/home/carousel/HP_CandyCoated020315.jpg"  title="Shop Candy Coated" alt="CandyCCoated-0209_3" width="940" height="500" /></a>
+
+<a href="http://www.charmingcharlie.com/whats-new/nautical.html" ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/carousel/HP_Nautical020315.jpg" title="Shop jewelry and accessories in Nautica" alt="Nautica-0209_4"  width="940" height="500" /></a>
+
+<a href="http://www.charmingcharlie.com/rsvp/pearls.html" ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/carousel/HP_RSVPSilverBelle.jpg" title="Shop Silver Belle in Special Occasion" alt="silver-belle-021815"  width="940" height="500" /></a>
+
+
+
+</div>
+
+<div class="pagination" id="home_banner_pag"></div>
+</div>
+
+
+<script type="text/javascript" language="javascript">// <![CDATA[
+jQuery("#home_banners").carouFredSel({
+    circular: true,
+    infinite: true,
+    auto    : true,
+    height  : 500,
+    width   : 940,
+    prev    : {
+        key     : "left"
+    },
+    next    : {
+        key     : "right"
+    },
+    scroll: {
+        pauseOnHover : true,
+        duration : 600
+    },
+    pagination  : "#home_banner_pag"
+});
+// ]]></script>
+
+
+<!--
+
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/carousel/HP_HandbagEvent020315.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/carousel/HP_Nautical020315.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/carousel/HP_CandyCoated020315.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/carousel/HP_RSVP020315.jpg" alt="" />
+
+--> <style>
+.vertical-divider{
+  border-right: thin solid #d0d0d0;
+  padding-right: 0.87em;
+  margin-right:4px!important;
+ margin-left:4px!important;
+
+}
+.vertical-divider-omega{
+  margin-left:4px!important;
+}
+.vertical-divider-alpha{
+  margin-left:0px!important;
+}
+
+
+
+</style>
+<div class="promotion-slots grid_16 alpha"  style="border-top: 0!important;">
+
+
+
+<div class="grid_4 alpha vertical-divider vertical-divider-alpha"><a href="http://www.charmingcharlie.com/whats-new/new-arrivals.html" ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner/HPtile1_NewArrivals020315.jpg" alt="new_arrivals_0201115"  title="Shop What&apos;s New" width="220" height="242" /></a></div>
+
+<div class="grid_4 vertical-divider " ><a href="http://www.charmingcharlie.com/whats-new/best-sellers.html" ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/HPtile2_BestSellers3.jpg"  alt="bestSellers0218" title="Shop for Best Sellers" width="220" height="242" /></a></div>
+
+<div class="grid_8 omega vertical-divider-omega"><a href="http://www.charmingcharlie.com/jewelry/necklaces.html" ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner/HPtile3_Necklace.jpg" alt="sweet-strands-201315" title="Shop Sweet Strands Necklace" width="460" height="242"  /></a></div>
+
+
+</div>
+
+
+<div class="no-display" id="bonus10">
+<table style="width: 310px;" border="0">
+<tbody>
+<tr>
+<td><p><strong>$10 Bonus Card: </strong> Receive a $10 Bonus Card with any purchase of $40 or more from 09/8/2014 through 09/29/2014. Offer valid in-store and online at www.charmingcharlie.com while supplies last. If $40 order is placed during this time, a $10 Bonus Card will be shipped with your order. </p><p>&nbsp;</p><p>Single use $10 Bonus Card is redeemable from 10/1/14 – 10/13/14. Valid in-store and online at www.charmingcharlie.com. Only one $10 Bonus Card may be redeemed per customer, per transaction. Must be presented and surrendered at time of redemption. Purchase must be $10 or more and discount applies to merchandise only, not to Gift Cards, shipping and handling, or applicable taxes. No adjustments on previous purchases. Not valid or combinable with any other discount. $10 Bonus Card is not transferable or refundable. Only store-issued original coupons accepted. Void if lost or stolen. Offer valid in the U.S. only. Terms of offer are subject to change. Exclusions may apply.</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+
+
+<!--
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/HPtile2_BestSellers3.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner/HPtile3_Necklace.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner/HPtile3_Necklace.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner/HPtile3_VGiftCard-0211.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner/HPtile2_BestSellers2.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner/HPtile2_BestSellers0205.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner/HPtile2_Valentines020315.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner/HPtile1_NewArrivals020315.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner/HPtile3_Shoes020315.jpg" alt="" />
+--> <style>
+.gridsizefix {
+width:310px!important;
+}
+</style>
+
+<div class="marketing-slots grid_16 alpha" >
+
+
+<div class="grid_5 gridsizefix alpha vertical-divider vertical-divider-alpha" ><a href="http://www.charmingcharlie.com/charlie-solid-pashmina-scarf.html#color=neon-coral" ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile4_PashminaB-0211.jpg" alt="pashmina0211" title="Shop Pashmina Scarves" width="310" height="185" /></a></div>
+
+<div class="grid_5 gridsizefix vertical-divider vertical-divider-omega" ><a href="http://www.charmingcharlie.com/shoes.html" ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile5_Shoes.jpg" alt="shoes0204" title="Shop Shoes"  width="310" height="185" /></a></div>
+
+<div class="grid_5 omega vertical-divider-omega" ><a href="http://www.charmingcharlie.com/jewelry/earrings.html"  ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile6_Earrings.jpg" alt="earrings_021015" title="Shop Earrings" width="280" height="185"  /></a></div>
+</div>
+
+
+
+
+
+<!--
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile6_Earrings.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile4_COTMRoseberry020315.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile5_BestSellers020315.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile6_Pashminas020315.jpg" alt="" />
+
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile6_Pashminas020315.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile5_BestSellers020315.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile4_COTMRoseberry020315.jpg" alt="" />
+
+
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile4_COTMRoseberry2115.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile5_BestSellers2115.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPtile6_Pashminas2115.jpg" alt="" />
+--> <div class="marketing-slots grid_16 alpha" style="border-top: 0!important;">
+<div class="grid_16 alpha"><a href="http://www.charmingcharlie.com/instagram-charm-charlie/"  ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-l/HPTile_Instagram_Feb9.jpg" alt="instagram 0209"  title="Instagram Charming Charlie"/></a></div>
+</div>
+<!--
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-l/HPTile_Instagram_Jan22B.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-l/HPTile_Instagram_Jan22B.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-l/HPTile_Instagram_Jan9.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/instagram/2015-0112/HPTile_Instagram_Jan9.jpg" alt="" />
+<img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPTile_Instagram_Dec11a.jpg" alt="" />
+-->
+<!--
+<div class="marketing-slots grid_16 alpha">
+<div class="grid_11 alpha"><a href="http://www.charmingcharlie.com/whats-new/arm-candy.html" title="Arm Candy Jewelry Sales Bracelets &amp; Watches"  ><img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPTile4_ArmCandy_May21_1.jpg" width="640" height="185" alt="3for20 arm candy0522"/></a></div>
+<div class="grid_5 omega"><a href="whats-new/graduation.html" title="Graduation Day Outfits &amp; Gifts"><img src="http://media.charmingcharlie.com/media/wysiwyg/home/banner-B/HPTile6_Graduation.jpg" alt="t6 graduation0509"  /></a></div>
+</div>--></div>            </div>
+        </div>
+                <div class="footer-container grid_16">
+    <div class="footer">
+    <div class="as_seen"><a href="/whats-new/as-seen-in.html"><img src="http://media.charmingcharlie.com/media/wysiwyg/footer/as-seen-in.jpg" alt="as-seen-in" title="As seen in Cosmopolitan, Glamour, InStyle, Lucky Magazine, People Style Watch, Redbook, &amp; US Weekly" style="width:936px;height:30px;margin-top:-4px;margin-bottom:23px;" /></a></div>
+        <div class="grid_4 alpha newsletter-signup">
+            <form action="https://www.charmingcharlie.com/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail-footer">
+    <div class="form-subscribe">
+        <button type="submit" class="button" id="newsletter-validate-detail-footer-submit" title="Subscribe"><span><span>Submit</span></span></button><input name="email" type="text" id="newsletter-validate-detail-footer-newsletter" value=" SUBSCRIBE TO EMAIL" onclick="this.value==' SUBSCRIBE TO EMAIL'?this.value='':''" onblur="this.value==''?this.value=' SUBSCRIBE TO EMAIL':''" class="input-text required-entry validate-email" />
+    </div>
+</form>
+<div id="newsletter-validate-detail-message" style="display:none"></div>
+<script type="text/javascript">
+//<![CDATA[
+    (function($) {
+        var newsletterSubscriberFormDetailAjax = new VarienForm('newsletter-validate-detail-footer');
+
+        $("#newsletter-validate-detail-footer").on('submit', function() {
+            var form = $(this);
+            if (newsletterSubscriberFormDetailAjax.validator.validate()) {
+                $.ajax({
+                    type: "POST",
+                    url: "http://www.charmingcharlie.com/newsletter/subscriber/new/event_area/footer/",
+                    data: form.serialize(),
+                    success: function(data)
+                    {
+                        if (data.success) {
+                            $.fancybox.open({
+                                content  : data.success_message,
+                                autoSize : false,
+                                width    : 420,
+                                height   : 330,
+                                padding  : 0
+                            });
+                        }
+                        else {
+                            $.fancybox.open({
+                                content  : data.error_message,
+                                autoSize : true,
+                                width    : 420,
+                                height   : 100,
+                                padding  : 20
+                            });
+                        }
+                    }
+                });
+            }
+
+            return false;
+        });
+    })(jQuery);
+//]]>
+</script>
+            <div class="newsletter-callout">
+                <!--<p>This section can be used to call out a specific offer/promotion encouraging users to sign up.  This is the area under the Newsletter subscription. </p>-->            </div>
+                            <div id="fb-root"></div>
+                <div class="facebook-like">
+                    
+<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fcharmingcharlie&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=80&amp;appId=524651327646239" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe>
+                </div>
+                    </div>
+        <div class="grid_4 rewards-signup">
+            <p><a href="https://www.charmingcharlie.com/customer/account/create/?rewards=1">Sign up for <img class="charm-club" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/images/footer-charm-club.png" alt="Charm Club" /></a></p>
+<p><a class="charm-club-info" href="http://www.charmingcharlie.com/reward-program-info/">[ What is Charm Club? ]</a></p>        </div>
+        <div class="grid_8 omega footer-links">
+            <div class="grid_3 alpha">
+<h5>Customer Service</h5>
+<h5>888.675.2275</h5>
+<ul class="no-text-decoration">
+<li><a href="http://www.charmingcharlie.com/customer-service/contact/">Contact Us</a></li> 
+<li><a href="http://www.charmingcharlie.com/giftcard/">Gift Cards</a></li>
+<li><a href="https://www.charmingcharlie.com/sales/order/history/">Order Status</a></li>
+<li><a href="http://www.charmingcharlie.com/customer-service/returns/">Returns &amp; Exchanges</a></li>
+<li><a href="http://www.charmingcharlie.com/customer-service/shipping/">Shipping Information</a></li>
+</ul>
+</div>
+<div class="grid_2">
+<h5>Company</h5>
+<ul class="no-text-decoration">
+<li><a href="http://www.charmingcharlie.com/about/about-us/">About</a></li>
+<li><a href="http://www.charmingcharlie.com/about/careers/">Careers</a></li>
+<li><a href="http://www.charmingcharlie.com/about/press/">Press</a></li>
+<li><a href="http://www.charmingcharlie.com/about/affiliate-program/">Affiliate Program</a></li>
+<li><a href="http://stores.charmingcharlie.com/">Store Locator</a></li>
+<li><a href="http://www.charmingcharlie.com/lucky-glamour-magazine-faqs">Lucky Glamour FAQs</a></li>
+</ul>
+</div>
+<div class="grid_2 omega push_1 privacy">
+<div class="privacy-terms">
+<h5>Privacy &amp; Terms</h5>
+<ul>
+<li><a href="http://www.charmingcharlie.com/terms/privacy/">Privacy Policy</a></li>
+<li><a href="http://www.charmingcharlie.com/terms/conditions/">Terms &amp; Conditions</a></li>
+</ul>
+</div>
+<div class="social-links">
+<h5>Find Us</h5>
+<ul>
+<li><a href="https://www.facebook.com/CharmingCharlie" target="_blank"><img class="facebook" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/images/social-icons.png" alt="Facebook" /></a></li>
+<li><a href="https://twitter.com/CharmingCharlie" target="_blank"><img class="twitter" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/images/social-icons.png" alt="Twitter" /></a></li>
+<li><a href="http://www.youtube.com/user/CharmingCharlieTV" target="_blank"><img class="youtube" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/images/social-icons.png" alt="YouTube" /></a></li>
+<li><a href="http://pinterest.com/charmcharlie/" target="_blank"><img class="pinterest" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/images/social-icons.png" alt="Pinterest" /></a></li>
+<li><a href="http://instagram.com/charm_charlie" target="_blank"><img class="instagram" src="http://www.charmingcharlie.com/skin/frontend/charmingcharlie/default/images/social-icons.png" alt="Instagram" /></a></li>
+</ul>
+</div>
+</div>
+
+<div class="grid_8 alpha">
+<br/>
+
+<div style="font-size: 10px; font-family: 'pragmatica-web', Arial, Helvetica, sans-serif; font-style: normal; white-space: nowrap; text-align:right;">&copy; 2015. <a href="http://www.charmingcharlie.com"><em>charming</em>charlie.com</a>. All rights reserved.</div>
+
+</div>
+
+<!--
+<img src="http://media.charmingcharlie.com/media/wysiwyg/vendor/Charming_Charlie_Handbag_Look_Book_Fall_2014.pdf" alt="" />
+-->
+
+
+<!--<li><a href="http://www.charmingcharlie.com/gift-cards/classic-gift-card.html">Gift Cards</a></li>-->
+<!--<li><a href="http://www.charmingcharlie.com/gift-card-balance/">Gift Card Balance</a></li>-->
+<!--<li><a href="http://www.charmingcharlie.com/gift-cards/">Gift Cards</a></li>-->
+<!--<li><a href="http://www.charmingcharlie.com/customer-service/account-management-help/">Manage Your Account</a></li>-->
+<!--<li><a href="http://www.charmingcharlie.com/customer-service/faqs/">FAQs</a></li>-->
+<!--<li><a href="http://www.charmingcharlie.com/customer-service/email-sign-up/">Email Sign Up</a></li>-->
+<!--<li><a href="http://www.charmingcharlie.com/about/give-back/">Give Back</a></li>-->
+<!--<li><a href="http://www.charmingcharlie.com/about/company-history/">Company History</a></li>-->
+<!--<li><a href="http://www.charmingcharlie.com/terms/security/">Security Policy</a></li>-->
+<!--<li><a href="http://www.charmingcharlie.com/about/vendors/">Vendors</a></li>-->        </div>
+    </div>
+</div>
+        <div class="gan-totop-button" id="gan-totop-button" style="display:none;">
+	<button onclick="GomageNavigation.ganScrollToTop();" ><span>Back to Top</span></button>
+</div><script type="text/javascript">
+//<![CDATA[
+(function($){
+    // Google Tag Manager Event
+    $('#home_banners > a').on('click', function() {
+        var image = $(this).children('img');
+        if (image.length) {
+            if ('undefined' != typeof(dataLayer)) {
+                dataLayer.push({'event':'hero image','eventCategory': 'hero image','eventAction': 'click', 'eventLabel': image.attr('alt')});
+            }
+        }
+    });
+    
+    $('.promotion-slots img').click(function() {
+            if ('undefined' != typeof(dataLayer)) {
+                dataLayer.push({'event': 'promo tile', 'eventCategory': 'promo tile', 'eventAction': 'click', 'eventLabel': $(this).attr('alt')});
+            }
+        });  
+    $('.marketing-slots img').click(function() {
+        if ('undefined' != typeof(dataLayer)) {
+            dataLayer.push({'event': 'promo tile', 'eventCategory': 'promo tile', 'eventAction': 'click', 'eventLabel': $(this).attr('alt')});
+        }
+    }); 
+})(jQuery);
+//]]>
+</script>
+    </div>
+</div>
+<script type="text/javascript">
+    ;(function (g) {
+        var d = document, i, am = d.createElement('script'), h = d.head || d.getElementsByTagName("head")[0],
+                aex = {
+                    "src": "//gateway.answerscloud.com/charmingcharlie/production/gateway.min.js",
+                    "type": "text/javascript",
+                    "async": "true",
+                    "data-vendor": "acs",
+                    "data-role": "gateway"
+                };
+        for (var attr in aex) { am[attr] = aex[attr]; }
+        h.appendChild(am);
+        g['acsReady'] = function () {var aT = '__acsReady__', args = Array.prototype.slice.call(arguments, 0),k = setInterval(function () {if (typeof g[aT] === 'function') {clearInterval(k);for (i = 0; i < args.length; i++) {g[aT].call(g, function(fn) { return function() { setTimeout(fn, 1) };}(args[i]));}}}, 50);};
+    })(window);
+</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","licenseKey":"825b0e9942","applicationID":"4608633","transactionName":"YANTYEQHChBSVUIPDFlJZEZfSQ0NV1NOSBNfFg==","queueTime":0,"applicationTime":19,"atts":"TERQFgwdGR4=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-515.min.js"}</script></body>
+</html>
+";i:2;s:4:"8504";}

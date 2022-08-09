@@ -1,0 +1,1083 @@
+a:3:{i:0;s:21:"http://mhvillage.com/";i:1;s:72511:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="description" content="New and Used Mobile Homes For Sale and Rent.  Dealers, Retailers, and For Sale By Owner.  Largest Park and Community Database.  Mobile Home Loans, Financing, Insurance, and Appraisals." />
+    <meta name="keywords" content="mobile home parks, community, mobile home dealers, parks, used, sell, mobilehome, fleetwood, mobile homes, florida, California, Texas, Arizona, Las Vegas, Houston, Jacksonville, Mobile, Homes"/>
+    <title>Mobile Homes For Sale - 27,689 Available to Sell or Rent - 37,097 Communities and Parks</title>
+    <link rel="search" type="application/opensearchdescription+xml"
+        title="Search MHVillage.com mobile homes for sale"
+        href="/search.xml"/>
+
+    <link rel='alternate' media='handheld' href='https://m.mhvillage.com/index.php' />    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="Content-Language" content="en-us" />
+    <link href="/css/font.css" rel="stylesheet" type="text/css" />
+    <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/css/grid.css" rel="stylesheet" type="text/css" />
+    <link href="/css/ui-theme.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+
+       
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var MHV = {}; MHV.timer = new Date(); MHV.contentLoad = 0;
+      // break out of frame if any ( and page doesn't prohibit it )
+      if ((( typeof inFrame == "undefined" ) || (( typeof inFrame == "boolean" ) && ( ! inFrame ))) && ( self != top )) {
+        top.location.replace(window.location.href);
+      }
+      document.documentElement.className = "haveJS";
+      var deviceType = "computer";
+
+      var IsDevel = false      /* ]] */
+    </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/jcarousel-skin.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="/js/jquery.jcarousel.js"></script>
+    <script type="text/javascript" >
+/* <![CDATA[ */
+      var localCount = 30;
+      // var collectXY = true;
+
+      
+      $(function () {
+       $("#LogInLink, #RegisterLink").attr("href", "/MyAccount/Login.php?LoginDestination=/MyAccount/index.php");
+
+        if(localCount > 5){
+function mycarousel_initCallback(carousel)
+{
+    // Disable autoscrolling if the user clicks the prev or next button.
+    carousel.buttonNext.bind('click', function() {
+        carousel.startAuto(0);
+    });
+ 
+    carousel.buttonPrev.bind('click', function() {
+        carousel.startAuto(0);
+    });
+ 
+    // Pause autoscrolling if the user moves with the cursor over the clip.
+    carousel.clip.hover(function() {
+        carousel.stopAuto();
+    }, function() {
+        carousel.startAuto();
+    });
+};
+
+        $(".LocalHomes").jcarousel({
+           vertical: true, 
+           auto: 3, 
+           scroll: 1,
+           wrap: "circular",
+           initCallback: mycarousel_initCallback
+           
+        });
+
+        }
+
+        $(".LocalHomes ul").delegate("li", "click", function(e) {
+         document.location.href = $(this).find("a").eq(0).attr("href");
+        });
+
+        $("select[name='SearchType']").bind("change", function(){
+          var selected = $(this).val();
+          var myID = "#"+selected+"Options";
+          $(".otherOptions").not(myID).hide();
+          $(myID).show();
+
+          var myAction = $(myID).find("input[name='MyAction']").val();
+          $("#SearchMHVillage").attr("action", myAction);
+
+          // turn on/off park searching
+          if (selected == "Dealers")
+            $("#Location").autocomplete({ extraParams: { park: "no" } });
+          else
+            $("#Location").autocomplete({ extraParams: { park: "yes" } });
+        });
+
+  $("#Location")
+    .defaultText({
+      defaultText: "Enter zip or city, state",
+      defaultTextClass: "defaultText"
+    }).trigger("blur.defaultText")
+    .cityAutocomplete({
+      showZip: true,
+      autoSubmit: true,
+      settings: { extraParams: { park: "yes" } }
+    });
+
+        $(".SellYourHomeContainer, .AppraisalContainer, .BVAd, .PartsStoreContainer").click(function () {
+          document.location.href = $(this).find("a").attr("href");
+        }).hover(function () {
+          $(this).css('cursor','pointer');
+        },
+        function () {
+          $(this).css('cursor','auto');
+       });
+
+        if(deviceType == "computer"){
+          $(".MapContainer").hover(function(){ $(".fullsize").fadeIn("fast"); }, function(){ $(".fullsize").fadeOut("fast"); });
+        }else{
+          $("#ClickyMap").on("click", function(e){ $("a.SearchMapLink").click(); });
+        }
+
+        $("a.SearchMapLink").bind("click", function(e) {
+          e.stopPropagation();
+          var me = $("img", this);
+          var meXY = me.offset();
+          var sect = $(".SellYourHomeContainer");
+          var sectXY = sect.offset();
+
+          meXY.height = (me.height() * (350 / me.width())) + 35;
+          meXY.left = 199;
+
+          var contentProps = { position: "absolute", width: me.width(), height: me.height(), left: meXY.left, top: meXY.top, overflow: "hidden"};
+          var animProps = {width: 350 };
+          animProps.bottom = (contentProps.top + contentProps.height);
+          animProps.top = (animProps.bottom - meXY.height);
+          animProps.height = meXY.height;
+
+          var content = $("<div id=\"zoom\" class=\"ZoomInMap centered\"><h3 class=\"centered moreSpace\">Click on a State to Find Homes</h3><img src='/images/SearchMap.gif' usemap='#map' alt='' /></div>")
+            .css(contentProps)
+            .prependTo(".MapContainer")
+            .animate(animProps, 500, function() {
+              var close = $("<img src='/images/x.png' alt='close map' />")
+                .css({
+                  position: "absolute", 
+                  left: 540, 
+                  top: $("#zoom").offset().top - 110,
+                  zIndex: 4}
+                ).prependTo(".MapContainer")
+                .bind("click", function(e) {
+                  $(".fullsize").hide();
+                  var newProps = {width: 50, height: 50, left: 199, top: 550, bottom: 600};
+                  $("#zoom").animate(newProps, 500, function(){
+                    $(this).remove();
+                  });
+                  $(this).remove();
+               });
+            });
+          return false;
+        });
+
+        $("#VideoHolder").dialog({modal: true, autoOpen: false, width: 640, height: 555, close: function(event, ui){ $("#VideoHolder").html(""); }});
+        $("#WatchVideo").on("click", function(){
+          $("#VideoHolder").html("<iframe src='https://fast.wistia.net/embed/playlists/klfgt60m6h?media_0_0%5BautoPlay%5D=true&media_0_0%5BcontrolsVisibleOnLoad%5D=false&plugin%5Bsocialbar-v1%5D%5Bbuttons%5D=embed-twitter-googlePlus-facebook&theme=tab&version=v1&videoOptions%5BautoPlay%5D=true&videoOptions%5BplayerColor%5D=0b2966&videoOptions%5BvideoHeight%5D=480&videoOptions%5BvideoWidth%5D=640&videoOptions%5BvolumeControl%5D=true' allowtransparency='true' frameborder='0' scrolling='no' class='wistia_playlist' name='wistia_playlist' allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width='640' height='508'></iframe>");
+          $("#VideoHolder").dialog("open");
+        }).hover(function(){ $(this).css("cursor", "pointer"); }, function(){ $(this).css("cursor", "auto"); });
+      }
+      );
+     
+/* ]]> */
+    </script>
+    <meta name="p:domain_verify" content="e55b043358f83a4b6723b9f6f1e2df83"/>
+  </head>
+  
+  <body >
+    <div class="PageHeader">
+  <div class="PageHeaderContainer">
+    <div class="lFloat">
+      <a href="/"><img src="/images/TinyLogo.png" alt="Mobile Homes For Sale, For Rent, Mobile Home Insurance, Loans, and Financing"/></a>
+    </div>
+
+    <div class="lFloat title med">
+      America's #1 Marketplace to Buy, Sell, or Rent Mobile or Manufactured Homes.
+    </div>
+  </div>
+
+  <div class="BlueMenuBar">
+    <div class="PageHeaderContainer">
+      <!-- Pro Index Whats New Sticky Note -->
+       
+      <!-- End Pro Index -->
+      <div class="headerMenus bClear clearboth">
+                <p class="headerLogIn rFloat title">
+                    <a id="LogInLink" href="/MyAccount/Login.php">Register or Log in Now&rarr;</a>
+                  </p>
+        
+        <ul id="TopMenu" class="TopMenu title">
+          <li>Home Buyers <span></span>
+            <ul>
+              <li><h4><a href="/Mobile-Homes/Search.php">Find Mobile Homes For Sale</a></h4></li>
+              <li><h4><a href="/Mobile-Homes/Search.php?SearchType=Rent">Find Mobile Homes For Rent</a></h4></li>
+              <li><h4><a href="/Communities/Search.php">Find Mobile Home Parks</a></h4></li>
+              <li><h4><a href="/Dealers/Search.php">Find Mobile Home Dealers</a></h4></li>
+              <li><h4><a href="/Communities/FindSites.php">Find Mobile Home Sites</a></h4></li>
+              <li><h4><a href="/mobilehome.php?key=15&amp;loc=mb">Mobile Home Book Value Reports</a></h4></li>
+              <li><h4><a href="/mobilehome.php?key=19&amp;loc=mb">Get Mobile Home Financing</a></h4></li>
+              <li><h4><a href="/mobilehome.php?key=6&amp;loc=mb">Get Mobile Home Insurance</a></h4></li>
+              <li><h4><a href="/Resources/Resources.php">Home Buyer Resources</a></h4></li>
+            </ul>
+          </li>
+          <li>Home Renters <span></span>
+            <ul>
+              <li><h4><a href="/ListHome/StartListing.php">Advertise Your Home For Rent</a></h4></li>
+              <li><h4><a href="/Mobile-Homes/Search.php?SearchType=Rent">Find Mobile Homes For Rent</a></h4></li>
+              <li><h4><a href="/Mobile-Homes/Search.php">Find Mobile Homes For Sale</a></h4></li>
+              <li><h4><a href="/Communities/Search.php?SearchType=Rent">Find Mobile Home Parks with Rentals</a></h4></li>
+              <li><h4><a href="/mobilehome.php?key=6&amp;loc=mb">Get Mobile Home Rental Insurance</a></h4></li>
+              <li><h4><a href="/Resources/Resources.php">Mobile Home Rent Resources</a></h4></li>
+            </ul>
+          </li>
+          <li>Home Sellers <span></span>
+            <ul>
+              <li><h4><a href="/ListHome/StartListing.php">Sell Your Mobile Home</a></h4></li>
+              <li><h4><a href="/Dealers/Search.php">Find Mobile Home Dealers</a></h4></li>
+              <li><h4><a href="/Leads/ContactMe.php">Have a Dealer Contact Me</a></h4></li>
+              <li><h4><a href="/mobilehome.php?key=15&amp;loc=mb">Mobile Home Book Value Reports</a></h4></li>
+              <li><h4><a href="/mobilehome.php?key=27">Mobile Home Parts</a></h4></li>
+              <li><h4><a href="/ListHome/StartListing.php">Advertise Your Home for Sale or Rent</a></h4></li>
+              <li><h4><a href="/Resources/Resources.php">Home Seller Resources</a></h4></li>
+            </ul>
+          </li>
+          <li>Professionals <span></span>
+            <ul>
+              <li><h4><a href="/ListHome/StartListing.php">Sell Your Mobile Homes</a></h4></li>
+              <li><h4><a href="/ListHome/TourAccounts.php?LearnMore=Learn%20More">Retail Business Websites</a></h4></li>
+              <li><h4><a href="/Communities/ShowcaseWhy.php?LearnMore=Learn%20More">Promote Your Communities</a></h4></li>
+              <li><h4><a href="/mobilehome.php?key=42">Park Lists</a></h4></li>
+              <li><h4><a href="/MyAccount/AdFAQ.php?LearnMore=Learn%20More">Pay-Per-Click Ads</a></h4></li>
+              <li><h4><a href="/MyAccount/Advertise.php">All Advertising Options</a></h4></li>
+              <li><h4><a href="/mobilehome.php?key=15&amp;loc=mb">MHVillage Home Value Reports</a></h4></li>
+            </ul>
+          </li>
+          <li>
+                        <a href="/ContactUs.php">Contact Us</a>
+                      </li>
+        </ul>
+              </div>
+    </div>
+  </div>
+</div>
+    <div id="PageBody">
+      <div id="LeftSide" class="LeftColumn">
+  
+    <div id="SideMenu" class="leftSideBox leftSideMenu">
+    <div>
+      <h3 class="title large first">Mobile Homes</h3>
+      <ul class="ui-accordion-content-active">
+	<li><h4><a href="/ListHome/StartListing.php">Sell Your Home</a></h4></li>
+	<li><h4><a href="/Mobile-Homes/Search.php">Find Homes for Sale</a></h4></li>
+	<li><h4><a href="/Mobile-Homes/Search.php?SearchType=Rent">Find Homes for Rent</a></h4></li>
+	<li><h4><a href="/mobilehome.php?key=15&amp;loc=mb">Book Values</a></h4></li>
+	<li><h4><a href="/mobilehome.php?key=6&amp;loc=mb&goToMHQuote">Insurance</a></h4></li>
+
+  <li><h4><a href="/mobilehome.php?key=19&amp;loc=mb">Financing</a></h4></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="title large">Communities</h3>
+      <ul >
+	<li><h4><a href="/Communities/Search.php">Find a Community</a></h4></li>
+        <li><h4><a href="/mobilehome.php?key=44">Get a List of Communities</a></h4></li>
+        <li><h4><a href="/Communities/ShowcaseWhy.php?LearnMore=Learn%20More">Promote Your Community</a></h4></li>
+        <li><h4><a href="/Communities/ShowcaseYourCommunity.php">Showcase Community</a></h4></li>
+        <li><h4><a href="/Communities/FindSites.php">Find Available Sites</a></h4></li>
+        <li><h4><a href="/Communities/ShowcaseWhy.php?LearnMore=Learn%20More">Promote Vacant Sites</a></h4></li>
+	<li><h4><a href="/Communities/ShowcaseWhy.php?LearnMore=Learn%20More">Edit Your Community</a></h4></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="title large">Retailers</h3>
+      <ul >
+	<li><h4><a href="/Dealers/Search.php">Find a Retailer</a></h4></li>
+	<li><h4><a href="/MyAccount/Advertise.php">Promote Your Business</a></h4></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="title large">Products</h3>
+      <ul >
+	<li><h4><a href="/ListHome/StartListing.php">Mobile Home Ads</a></h4></li>
+	<li><h4><a href="/mobilehome.php?key=15&amp;loc=mb">Book Values</a></h4></li>
+	<li><h4><a href="/mobilehome.php?key=19&amp;loc=mb">Financing</a></h4></li>
+	<li><h4><a href="/mobilehome.php?key=6&amp;loc=mb">Insurance</a></h4></li>
+	<li><h4><a href="/mobilehome.php?key=41&amp;loc=mb">Park Lists</a></h4></li>
+	<li><h4><a href="/MyAccount/Advertise.php">Pro Advertising</a></h4></li>
+	<li><h4><a href="/mobilehome.php?key=27">Mobile Home Parts</a></h4></li>
+	<li><h4><a href="/Resources/Resources.php">MHVillage Resources</a></h4></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="title large">Solutions</h3>
+      <ul >
+	<li><h4><a href="/Solutions/BuyersGuide.php">Mobile Home Buyer's Guide</a></h4></li>
+	<li><h4><a href="/Solutions/SellersGuide.php">Mobile Home Seller's Guide</a></h4></li>
+	<li><h4><a href="/Solutions/ProfessionalsGuide.php">Mobile Home Professional's Guide</a></h4></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="title large">Your Account</h3>
+      <ul >
+		<li><h4><a href="/MyAccount/index.php">Why Register?</a></h4></li>
+	<li><h4><a href="/MyAccount/index.php">Register Now</a></h4></li>
+	<li><h4><a href="/MyAccount/Login.php#LogIn">Log In</a></h4></li>
+	      </ul>
+    </div>
+  </div>
+  
+      
+  <div class="leftSideBox Testimonial">
+    <h3 class="title large">What Others<br/>are Saying:</h3>
+        <blockquote>&quot;This manufactured home sold 4 days after listing because it was seen by a local person on MHVillage web site. Thanks MHVillage.&quot;</blockquote>
+    <p class="moreSpace">Lois C.<br/>Savannah, GA</p>
+    
+    <div class="title med textright"><a class="TLink" href="/ListHome/Testimonials.php">View More <img src="/images/RightRedArrow.gif" alt=""/></a></div>
+  </div>
+
+  <div class="leftSideBox FBbox">
+    <h5 class="title"><a href="https://www.facebook.com/pages/MHVillagecom/82986666492" title="MHVillage.com" target="_blank">Find us on Facebook</a></h5>
+    <iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FMHVillagecom%2F82986666492&send=false&layout=button_count&width=100&show_faces=false&font=arial&colorscheme=light&action=like&height=21" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 100px; height: 21px; margin-top: 3px;" allowTransparency="true"></iframe>
+  </div>
+
+    <div class="leftSideBox VideoBox" style="min-height:135px">
+    <h5 class="title centered" style="padding: 3px 0;">Learn about MHVillage.com!</h5>
+    <div class="showVideo TrackWithJS centered" data_track_params="County=&amp;Graphic=79" target="_blank">
+      <img src="/images/AboutMHV.jpg" alt=""/>
+    </div>
+  </div>
+  <div id="VideoPopOut" class="Hide" title="Learn more about MHVillage.com!"></div>
+
+  
+  <!-- google ads back from footer -->
+  
+  <div class="BBBbox">
+<a title="Click for the Business Review of Datacomp Appraisal Services, Inc., an Appraisers in Grand Rapids MI" href="https://www.bbb.org/western-michigan/business-reviews/appraisers/datacomp-appraisal-services-in-grand-rapids-mi-12008593#sealclick"><img alt="Click for the BBB Business Review of this Appraisers in Grand Rapids MI" style="border: 0;" src="https://seal-westernmichigan.bbb.org/seals/black-seal-120-61-datacompappraisalservicesinc-12008593.png" /></a>
+  </div>
+
+  
+</div>
+
+<div id="ytplayer">
+</div>      
+      <div id="PageContent" class="IndexPageContent FullWidth">
+        <div class="row">
+	<div class="IndexContainer LocalHomesContainer rFloat">
+	  <h2 class="centered bigText">Recent Mobile Homes for Sale</h2>
+
+	    <ul class="LocalHomes jcarousel-skin-mhv" >
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270741'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12543459"  alt="1997 Liberty Mobile / Manufactured Home in Sorrento, FL via MHVillage.com" data-pin-photokey="12543459" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270741"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270741">Oak Springs Mobile Home Community</a>
+		</div>
+		<div class="line">Sorrento, FL 32776</div>
+				<div class="line">1997 Liberty 28 x 56</div>
+		<div class="line">Beds: 3 Baths: 2.0</div>
+		<div class="line">Sale Price: $32,900</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270715'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12543193"  alt="2006  Mobile / Manufactured Home in Sorrento, FL via MHVillage.com" data-pin-photokey="12543193" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270715"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270715">Oak Springs Mobile Home Community</a>
+		</div>
+		<div class="line">Sorrento, FL 32776</div>
+				<div class="line">2006  26 x 56</div>
+		<div class="line">Beds: 3 Baths: 2.0</div>
+		<div class="line">Sale Price: $34,900</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270713'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542887"  alt="1983  Mobile / Manufactured Home in Leesburg, FL via MHVillage.com" data-pin-photokey="12542887" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270713"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270713">Cypress Creek Mobile Home Park</a>
+		</div>
+		<div class="line">Leesburg, FL 34748</div>
+				<div class="line">1983  24 x 50</div>
+		<div class="line">Beds: 2 Baths: 2.0</div>
+		<div class="line">Sale Price: $58,900</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270693'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542725"  alt="1993 schult Mobile / Manufactured Home in Bay City, MI via MHVillage.com" data-pin-photokey="12542725" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270693"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270693">Westwood Village</a>
+		</div>
+		<div class="line">Bay City, MI 48706</div>
+				<div class="line">1993 schult 16 x 70</div>
+		<div class="line">Beds: 2 Baths: 1.0</div>
+		<div class="line">Sale Price: $19,900</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270689'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542709"  alt="Fleetwood Mobile / Manufactured Home in Largo, FL via MHVillage.com" data-pin-photokey="12542709" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270689"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270689">Westgate Community</a>
+		</div>
+		<div class="line">Largo, FL 33771</div>
+				<div class="line">Fleetwood 1152 sq. ft.</div>
+		<div class="line">Beds: 3 Baths: 2.0</div>
+		<div class="line">Sale Price: $39,000</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270687'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542701"  alt="1961 Riviera Mobile / Manufactured Home in Pomona, CA via MHVillage.com" data-pin-photokey="12542701" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270687"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270687">Foothill Village Mobile Home Park</a>
+		</div>
+		<div class="line">Pomona, CA 91767</div>
+				<div class="line">1961 Riviera 20 x 48</div>
+		<div class="line">Beds: 1 Baths: 1.0</div>
+		<div class="line">Sale Price: $32,000</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270685'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542697"  alt="1973 Ramad Mobile / Manufactured Home in Venice, FL via MHVillage.com" data-pin-photokey="12542697" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270685"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270685">Bay Indies</a>
+		</div>
+		<div class="line">Venice, FL 34285</div>
+				<div class="line">1973 Ramad 864 sq. ft.</div>
+		<div class="line">Beds: 2 Baths: 2.5</div>
+		<div class="line">Sale Price: $17,900</div>		<div class="line">Rental Price: $875/mo.</div>			      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270661'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542471"  alt="2006 Golden West Mobile / Manufactured Home in Pomona, CA via MHVillage.com" data-pin-photokey="12542471" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270661"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270661">Pomona Islander</a>
+		</div>
+		<div class="line">Pomona, CA 91768</div>
+				<div class="line">2006 Golden West 24 x 60</div>
+		<div class="line">Beds: 3 Baths: 2.0</div>
+		<div class="line">Sale Price: $90,000</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270659'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542525"  alt="1973 Fairmont Mobile / Manufactured Home in New Port Richey, FL via MHVillage.com" data-pin-photokey="12542525" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270659"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270659">Harbor View</a>
+		</div>
+		<div class="line">New Port Richey, FL 34653</div>
+				<div class="line">1973 Fairmont 24 x 48</div>
+		<div class="line">Beds: 2 Baths: 2.0</div>
+		<div class="line">Sale Price: $22,500</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270651'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542365"  alt="1998 Oakhaven Mobile / Manufactured Home in Orlando, FL via MHVillage.com" data-pin-photokey="12542365" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270651"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270651">Mai Tai Village</a>
+		</div>
+		<div class="line">Orlando, FL 32822</div>
+				<div class="line">1998 Oakhaven 28 x 52</div>
+		<div class="line">Beds: 3 Baths: 2.0</div>
+		<div class="line">Sale Price: $40,000</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270647'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542379"  alt="2006 Lamplighter Mobile / Manufactured Home in Alta Loma, CA via MHVillage.com" data-pin-photokey="12542379" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270647"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270647">Alta Vista Mobile Home Community</a>
+		</div>
+		<div class="line">Alta Loma, CA 91701</div>
+				<div class="line">2006 Lamplighter 24 x 60</div>
+		<div class="line">Beds: 4 Baths: 2.0</div>
+		<div class="line">Sale Price: $78,000</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270645'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542343"  alt=" Mobile / Manufactured Home in Fredericksburg, VA via MHVillage.com" data-pin-photokey="12542343" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270645"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270645">Graninger Mobile Home Park</a>
+		</div>
+		<div class="line">Fredericksburg, VA 22408</div>
+				<div class="line"> 14 x 46</div>
+		<div class="line">Beds: 1 Baths: 1.0</div>
+		<div class="line">Sale Price: $10,000</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270637'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542333"  alt="2001 Champion Mobile / Manufactured Home in La Verne, CA via MHVillage.com" data-pin-photokey="12542333" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270637"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270637">Kings Way Gardens MHE</a>
+		</div>
+		<div class="line">La Verne, CA 91750</div>
+				<div class="line">2001 Champion 26 x 56</div>
+		<div class="line">Beds: 4 Baths: 2.0</div>
+		<div class="line">Sale Price: $85,000</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270633'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542285"  alt="1979 Goldenwest Mobile / Manufactured Home in Upland, CA via MHVillage.com" data-pin-photokey="12542285" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270633"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270633">Upland Meadow Mobile Estates</a>
+		</div>
+		<div class="line">Upland, CA 91786</div>
+				<div class="line">1979 Goldenwest 24 x 63</div>
+		<div class="line">Beds: 3 Baths: 2.0</div>
+		<div class="line">Sale Price: $79,500</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270617'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542261"  alt="2014 Friendship Mobile / Manufactured Home in Blaine, MN via MHVillage.com" data-pin-photokey="12542261" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270617"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270617">Centennial Square</a>
+		</div>
+		<div class="line">Blaine, MN 55449</div>
+				<div class="line">2014 Friendship 28 x 52</div>
+		<div class="line">Beds: 3 Baths: 2.0</div>
+		<div class="line">Sale Price: $79,900</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270615'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542957"  alt="1983 Homes of Merit Mobile / Manufactured Home in Fort Pierce, FL via MHVillage.com" data-pin-photokey="12542957" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270615"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270615">Spanish Lakes Country Club</a>
+		</div>
+		<div class="line">Fort Pierce, FL 34951</div>
+				<div class="line">1983 Homes of Merit 1416 sq. ft.</div>
+		<div class="line">Beds: 2 Baths: 2.0</div>
+		<div class="line">Sale Price: $21,500</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270591'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12541997"  alt="2011 Skyline Mobile / Manufactured Home in Federal Heights, CO via MHVillage.com" data-pin-photokey="12541997" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270591"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270591">Holiday Hills Village</a>
+		</div>
+		<div class="line">Federal Heights, CO 80260</div>
+				<div class="line">2011 Skyline 1024 sq. ft.</div>
+		<div class="line">Beds: 2 Baths: 2.0</div>
+		<div class="line">Sale Price: $50,900</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270587'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542085"  alt="1985 Friendship Mobile / Manufactured Home in Blaine, MN via MHVillage.com" data-pin-photokey="12542085" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270587"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270587">Centennial Square</a>
+		</div>
+		<div class="line">Blaine, MN 55449</div>
+				<div class="line">1985 Friendship 14 x 70</div>
+		<div class="line">Beds: 2 Baths: 2.0</div>
+		<div class="line">Sale Price: $23,900</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270575'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12541693"  alt="1986  Mobile / Manufactured Home in Ellenton, FL via MHVillage.com" data-pin-photokey="12541693" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270575"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270575">Colony Cove</a>
+		</div>
+		<div class="line">Ellenton, FL 34222</div>
+				<div class="line">1986  24 x 44</div>
+		<div class="line">Beds: 2 Baths: 2.0</div>
+		<div class="line">Sale Price: $28,000</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270567'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12542147"  alt="1993 SUMM Mobile / Manufactured Home in Osprey, FL via MHVillage.com" data-pin-photokey="12542147" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270567"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270567">Happy Haven Mobile Home Park</a>
+		</div>
+		<div class="line">Osprey, FL 34229</div>
+				<div class="line">1993 SUMM 10 x 33</div>
+		<div class="line">Beds: 1 Baths: 1.0</div>
+		<div class="line">Sale Price: $15,900</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270557'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12541517"  alt="1983 Palm Harbor Mobile / Manufactured Home in Fort Myers, FL via MHVillage.com" data-pin-photokey="12541517" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270557"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270557">Jamaica Bay</a>
+		</div>
+		<div class="line">Fort Myers, FL 33912</div>
+				<div class="line">1983 Palm Harbor 24 x 60</div>
+		<div class="line">Beds: 2 Baths: 2.0</div>
+		<div class="line">Sale Price: $42,500</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270555'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12541431"  alt="1966 Z Mobile / Manufactured Home in Phoenix, AZ via MHVillage.com" data-pin-photokey="12541431" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270555"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270555">Holiday Spa</a>
+		</div>
+		<div class="line">Phoenix, AZ 85020</div>
+				<div class="line">1966 Z 12 x 60</div>
+		<div class="line">Beds: 2 Baths: 1.5</div>
+		<div class="line">Sale Price: $7,900</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270533'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12541387"  alt="1976 Homette Mobile / Manufactured Home in Fort Myers, FL via MHVillage.com" data-pin-photokey="12541387" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270533"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270533">Jamaica Bay</a>
+		</div>
+		<div class="line">Fort Myers, FL 33912</div>
+				<div class="line">1976 Homette 24 x 36</div>
+		<div class="line">Beds: 2 Baths: 2.0</div>
+		<div class="line">Sale Price: $42,500</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270521'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12529267"  alt="1986 Homes of Merit Mobile / Manufactured Home in Fort Pierce, FL via MHVillage.com" data-pin-photokey="12529267" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270521"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270521">Spanish Lakes Country Club</a>
+		</div>
+		<div class="line">Fort Pierce, FL 34951</div>
+				<div class="line">1986 Homes of Merit 1416 sq. ft.</div>
+		<div class="line">Beds: 2 Baths: 2.0</div>
+		<div class="line">Sale Price: $15,500</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270489'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12529177"  alt="1986 PARK Mobile / Manufactured Home in Hudson, FL via MHVillage.com" data-pin-photokey="12529177" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270489"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270489">Winter Paradise</a>
+		</div>
+		<div class="line">Hudson, FL 34667</div>
+				<div class="line">1986 PARK 12 x 36</div>
+		<div class="line">Beds: 1 Baths: 1.0</div>
+		<div class="line">Sale Price: $8,000</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270487'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12529175"  alt="2004 CHAMPION Mobile / Manufactured Home in Belton, MO via MHVillage.com" data-pin-photokey="12529175" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270487"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270487">Springdale Lake Estates</a>
+		</div>
+		<div class="line">Belton, MO 64012</div>
+				<div class="line">2004 CHAMPION 16 x 56</div>
+		<div class="line">Beds: 2 Baths: 2.0</div>
+		<div class="line">Sale Price: $13,500</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270485'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12529173"  alt="2004 Champion Mobile / Manufactured Home in Belton, MO via MHVillage.com" data-pin-photokey="12529173" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270485"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270485">Springdale Lake Estates</a>
+		</div>
+		<div class="line">Belton, MO 64012</div>
+				<div class="line">2004 Champion 16 x 66</div>
+		<div class="line">Beds: 3 Baths: 2.0</div>
+							      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270483'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12529169"  alt="1999 ADVANTAGE MOBIL Mobile / Manufactured Home in Hampton, GA via MHVillage.com" data-pin-photokey="12529169" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270483"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270483">South Hampton Mobile Home Park</a>
+		</div>
+		<div class="line">Hampton, GA 30228</div>
+				<div class="line">1999 ADVANTAGE MOBIL 24 x 40</div>
+		<div class="line">Beds: 3 Baths: 2.0</div>
+		<div class="line">Sale Price: $12,500</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270481'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12529167"  alt="2002 Schult Mobile / Manufactured Home in Topeka, KS via MHVillage.com" data-pin-photokey="12529167" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270481"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270481">Ridgewood Estates</a>
+		</div>
+		<div class="line">Topeka, KS 66609</div>
+				<div class="line">2002 Schult 16 x 76</div>
+		<div class="line">Beds: 3 Baths: 2.0</div>
+		<div class="line">Sale Price: $18,900</div>					      </li>
+	      	      <li class="LocalHome bClear">
+		  <a class="lFloat" href='/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270479'><img class="pinnable" src="/Mobile-Homes/ShowThumbnail.php?type=100&amp;key=12529165"  alt="2015 Clayton Mobile / Manufactured Home in Thornton, CO via MHVillage.com" data-pin-photokey="12529165" data-pin-itemlink="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270479"/></a> 
+				<div class="line">
+		  <a href="/Mobile-Homes/Mobile-Home-For-Sale.php?key=1270479">Pine Lakes Ranch</a>
+		</div>
+		<div class="line">Thornton, CO 80229</div>
+				<div class="line">2015 Clayton 16 x 76</div>
+		<div class="line">Beds: 3 Baths: 2.0</div>
+		<div class="line">Sale Price: $44,900</div>					      </li>
+	      	    </ul>
+
+	</div>
+
+        <div class="IndexContainer WideContainer FindBoxContainer">
+	  
+          <h1 class="bigText">Search Mobile Homes for Sale / Rent, Communities, or Dealers</h1>
+	  
+          <form id="SearchMHVillage" action="/Mobile-Homes/Search.php" method="post">
+            <div>
+              <select name="SearchType">
+                <option value="Homes">Homes</option>
+                <option value="Communities">Parks</option>
+                <option value="Dealers">Dealers</option>
+                <option value="Sites">Sites</option>
+              </select><span>&nbsp;&nbsp;</span>
+              <input id="Location" type="text" name="Location" class="defaultText" value="Enter zip or city, state"/>&nbsp;&nbsp;
+              <input type="submit" name="Search" value="Search"/><input type="hidden" name="Radius" value="-1"/>
+            </div>
+
+            <div id="HomesOptions" class="otherOptions lFloat">
+              <div class="CriteriaBox lFloat">
+                <h3>Find Mobile Homes</h3>
+		<div>
+		  <input type="checkbox" checked="checked" value="1" name="Sale" />&nbsp;Homes&nbsp;for&nbsp;Sale <br/>
+		  <input type="checkbox" checked="checked" value="1" name="Rental" />&nbsp;Homes&nbsp;for&nbsp;Rent 
+                </div>
+              </div>
+              <div class="CriteriaBox lFloat">
+                <h3>More Options</h3>
+		<a class="advancedsearch" href="/Mobile-Homes/Search.php">Advanced Search</a>
+              </div>
+            </div>
+
+            <div id="CommunitiesOptions" class="otherOptions lFloat Hide">
+              <div class="CriteriaBox lFloat">
+                <h3>Age Restrictions</h3>
+                <div>
+		  <input name="CommunityType" type="radio" checked="checked" value="Any" />&nbsp;All&nbsp;Communities<br/>
+		  <input name="CommunityType" type="radio" value="Family" />&nbsp;Only&nbsp;Family (Not Retirement)<br/>
+                  <input name="CommunityType" type="radio" value="Senior" />&nbsp;Only&nbsp;Retirement/Senior
+		</div>
+	      </div>
+              <div class="CriteriaBox lFloat">
+                <h3>More Options</h3>
+		<a class="advancedsearch" href="/Mobile-Homes/Search.php">Advanced Search</a>
+	      </div>
+	      <input type="hidden" name="MyAction" value="/Communities/Search.php"/>
+            </div>
+
+	  
+          <div id="DealersOptions" class="otherOptions lFloat Hide">
+            <div class="CriteriaBox lFloat">
+              <h3>Search Options <small>(optional)</small></h3>
+              <div><input name="Members" type="checkbox" value="1"/>&nbsp;State Association Members Only<br/>
+                <input name="ProPlus" type="checkbox" value="1"/>&nbsp;Pro+ Sellers Only</div>
+              <input type="hidden" name="MyAction" value="/Dealers/Search.php"/>
+            </div>
+          </div>
+
+          <div id="SitesOptions" class="otherOptions lFloat Hide">
+            <div class="CriteriaBox lFloat">
+              <h3>Age Restrictions</h3>
+	      <div>
+		<input name="CommunityType" type="radio" checked="checked" value="Any" />&nbsp;All&nbsp;Communities<br/>
+		<input name="CommunityType" type="radio" value="Family" />&nbsp;Only&nbsp;Family (Not Retirement)<br/>
+                <input name="CommunityType" type="radio" value="Senior" />&nbsp;Only&nbsp;Retirement/Senior
+	      </div>
+            </div>
+	    <div class="CriteriaBox lFloat">
+              <h3>More Options</h3>
+	      <a class="advancedsearch" href="/Communities/FindSites.php">Advanced Search</a>
+	    </div>
+	    <input type="hidden" name="MyAction" value="Communities/FindSites.php"/>
+          </div>
+          </form>
+	  
+	  <div class="Stats lClear">
+	    <a class="label" href="/Mobile-Homes/Search.php">Mobile Homes:</a> <span class="data">27,689</span>
+	    <a class="label" href="/Communities/Search.php">Parks:</a> <span class="data">37,097</span>
+	    <a class="label" href="/Communities/FindSites.php">Sites:</a> <span class="data">94,292</span>
+	    <a class="label" href="/Dealers/Search.php">Retailers:</a> <span class="data">2,576</span>
+	  </div>
+	</div>
+	
+	<div class="IndexContainer WideContainer SellYourHomeContainer">
+	  
+	  <div class="InteriorText">
+	    <h2 class="bigText">Selling Your Mobile Home?</h2>
+	  
+	    <p class="moreSpace">Since Feb 12, 2015, 1728 Mobile Homes were Sold on MHVillage with a total value of $67,185,720! </p>
+
+	    <p class="moreSpace">Sell your home today on MHVillage.com</p>
+
+	    <h3 class="moreSpace centered"><a href="/ListHome/StartListing.php" class="FancyLink">Learn more!</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="/ListHome/StartListing.php" class="FancyLink">Start now!</a></h3>
+	  </div>
+	</div>
+	
+	<div class="IndexContainer NarrowContainer MapContainer lFloat">
+	  <h2 class="centered bigText">Search by Map</h2>
+	  <a href="/Mobile-Homes/Search.php#QuickSearchMap" class="SearchMapLink"><img src="/images/SearchMap5.gif" alt=""/>
+    <img id="ClickyMap" src="/images/fullsize-icon.png" class="fullsize" alt="" /></a>
+    <map id="MapOfUnitedStates" name="map" class="Hide">
+	    <!-- #$-:Image map file created by GIMP Image Map plug-in -->
+	    <!-- #$-:GIMP Image Map plug-in by Maurits Rijk -->
+	    <!-- #$-:Please do not edit lines starting with "#$" -->
+	    <!-- #$VERSION:2.3 -->
+	    <!-- #$AUTHOR:Michael Boers -->
+	    <area shape="poly" coords="82,45,78,76,119,80,120,49" alt="Mobile Homes For Sale in WY" title="Manufactured Homes For Sale in Wyoming" href="/A/C/WY" />
+	    <area shape="poly" coords="61,10,122,19,121,49,82,44,72,48,71,48" alt="Mobile Homes For Sale in MT" title="Manufactured Homes For Sale in Montana" href="/A/C/MT" />
+	    <area shape="poly" coords="61,10,70,48,81,47,79,68,45,62,48,42,54,35,56,10" alt="Mobile Homes For Sale in ID" title="Manufactured Homes For Sale in Idaho" href="/A/C/ID" />
+	    <area shape="poly" coords="55,9,53,33,22,28,17,21,17,5,29,3" alt="Mobile Homes For Sale in WA" title="Manufactured Homes For Sale in Washington" href="/A/C/WA" />
+	    <area shape="poly" coords="16,21,21,28,53,34,48,41,45,62,6,52" alt="Mobile Homes For Sale in OR" title="Manufactured Homes For Sale in Oregon" href="/A/C/OR" />
+	    <area shape="poly" coords="5,52,29,58,23,81,48,117,51,125,46,132,47,135,30,135,30,127,13,116,7,98,2,75,1,63,4,52" alt="Mobile Homes For Sale in CA" title="Manufactured Homes For Sale in California" href="/A/C/CA" />
+	    <area shape="poly" coords="29,59,62,66,54,111,50,109,50,118,24,81" alt="Mobile Homes For Sale in NV" title="Manufactured Homes For Sale in Nevada" href="/A/C/NV" />
+	    <area shape="poly" coords="62,65,78,68,78,76,90,77,86,109,56,104" alt="Mobile Homes For Sale in UT" title="Manufactured Homes For Sale in Utah" href="/A/C/UT" />
+	    <area shape="poly" coords="56,104,86,109,81,152,65,150,48,135,46,132,52,124,50,120,51,110,55,113" alt="Mobile Homes For Sale in AZ" title="Manufactured Homes For Sale in Arizona" href="/A/C/AZ" />
+	    <area shape="poly" coords="86,109,122,112,120,150,97,149,81,152" alt="Mobile Homes For Sale in NM" title="Manufactured Homes For Sale in New Mexico" href="/A/C/NM" />
+	    <area shape="poly" coords="90,77,130,81,129,112,87,109" alt="Mobile Homes For Sale in CO" title="Manufactured Homes For Sale in Colorado" href="/A/C/CO" />
+	    <area shape="poly" coords="122,19,122,42,161,43,158,20" alt="Mobile Homes For Sale in ND" title="Manufactured Homes For Sale in North Dakota" href="/A/C/ND" />
+	    <area shape="poly" coords="121,42,120,65,162,69,161,43,160,43" alt="Mobile Homes For Sale in SD" title="Manufactured Homes For Sale in South Dakota" href="/A/C/SD" />
+	    <area shape="poly" coords="120,65,119,79,131,80,131,88,168,89,161,69" alt="Mobile Homes For Sale in NE" title="Manufactured Homes For Sale in Nebraska" href="/A/C/NE" />
+	    <area shape="poly" coords="130,88,168,89,172,90,170,93,174,97,174,113,129,112" alt="Mobile Homes For Sale in KS" title="Manufactured Homes For Sale in Kansas" href="/A/C/KS" />
+	    <area shape="poly" coords="122,112,122,116,140,116,140,130,144,133,152,135,160,138,169,136,173,137,175,139,174,114" alt="Mobile Homes For Sale in OK" title="Manufactured Homes For Sale in Oklahoma" href="/A/C/OK" />
+	    <area shape="poly" coords="98,150,108,161,109,167,116,173,125,167,135,174,142,186,145,193,157,200,158,184,167,178,174,172,181,168,182,157,178,151,178,139,174,138,169,136,160,139,140,131,139,116,122,116,121,150" alt="Mobile Homes For Sale in TX" title="Manufactured Homes For Sale in Texas" href="/A/C/TX" />
+	    <area shape="poly" coords="158,20,168,20,169,17,173,21,182,22,189,26,197,26,184,36,184,42,181,45,182,53,192,61,162,62,162,44" alt="Mobile Homes For Sale in MN" title="Manufactured Homes For Sale in Minnesota" href="/A/C/MN" />
+	    <area shape="poly" coords="162,62,191,62,192,67,199,72,193,78,191,85,167,85" alt="Mobile Homes For Sale in IA" title="Manufactured Homes For Sale in Iowa" href="/A/C/IA" />
+	    <area shape="poly" coords="168,85,172,90,171,93,175,96,175,116,202,115,201,119,204,119,205,115,208,114,208,110,205,110,205,105,199,102,200,96,196,96,191,85" alt="Mobile Homes For Sale in MO" title="Manufactured Homes For Sale in Missouri" href="/A/C/MO" />
+	    <area shape="poly" coords="175,117,200,114,200,118,205,119,196,138,196,143,179,143,179,139,176,137" alt="Mobile Homes For Sale in AR" title="Manufactured Homes For Sale in Arkansas" href="/A/C/AR" />
+	    <area shape="poly" coords="178,143,196,144,198,147,194,158,207,157,212,173,200,174,193,168,181,168,183,156,178,150" alt="Mobile Homes For Sale in LA" title="Manufactured Homes For Sale in Louisiana" href="/A/C/LA" />
+	    <area shape="poly" coords="185,36,193,34,196,38,203,40,209,44,210,47,214,45,211,55,212,68,195,68,191,62,190,57,184,53,182,45,185,42" alt="Mobile Homes For Sale in WI" title="Manufactured Homes For Sale in Wisconsin" href="/A/C/WI" />
+	    <area shape="poly" coords="196,68,213,68,214,73,215,96,213,102,213,108,212,111,207,110,205,109,205,104,200,102,201,96,197,96,192,85,194,78,200,72" alt="Mobile Homes For Sale in IL" title="Manufactured Homes For Sale in Illinois" href="/A/C/IL" />
+	    <area shape="poly" coords="202,127,215,126,216,162,209,162,207,157,195,158,198,150,199,146,197,144,197,138" alt="Mobile Homes For Sale in MS" title="Manufactured Homes For Sale in Mississippi" href="/A/C/MS" />
+	    <area shape="poly" coords="202,126,238,124,240,118,253,109,214,113,213,115,207,115" alt="Mobile Homes For Sale in TN" title="Manufactured Homes For Sale in Tennessee" href="/A/C/TN" />
+	    <area shape="poly" coords="207,114,213,114,214,112,242,109,250,102,246,97,246,95,243,93,239,94,232,91,230,95,227,98,225,101,222,101,214,102,213,110,210,111" alt="Mobile Homes For Sale in KY" title="Manufactured Homes For Sale in Kentucky" href="/A/C/KY" />
+	    <area shape="poly" coords="229,72,231,91,224,100,215,102,216,97,214,72" alt="Mobile Homes For Sale in IN" title="Manufactured Homes For Sale in Indiana" href="/A/C/IN" />
+	    <area shape="poly" coords="214,71,215,44,196,36,207,28,233,37,242,61,238,71" alt="Mobile Homes For Sale in MI" title="Manufactured Homes For Sale in Michigan" href="/A/C/MI" />
+	    <area shape="poly" coords="216,126,230,125,237,143,237,155,221,155,223,162,216,162" alt="Mobile Homes For Sale in AL" title="Manufactured Homes For Sale in Alabama" href="/A/C/AL" />
+	    <area shape="poly" coords="229,72,237,71,253,66,254,84,246,95,242,92,239,94,232,90,231,82" alt="Mobile Homes For Sale in OH" title="Manufactured Homes For Sale in Ohio" href="/A/C/OH" />
+	    <area shape="poly" coords="224,162,222,156,239,155,239,157,260,153,277,184,277,198,271,196,259,182,256,168,246,161,238,165,229,160" alt="Mobile Homes For Sale in FL" title="Manufactured Homes For Sale in Florida" href="/A/C/FL" />
+	    <area shape="poly" coords="231,125,244,122,263,141,260,153,239,156,238,143" alt="Mobile Homes For Sale in GA" title="Manufactured Homes For Sale in Georgia" href="/A/C/GA" />
+	    <area shape="poly" coords="264,140,245,123,260,120,269,120,276,125,272,134" alt="Mobile Homes For Sale in SC" title="Manufactured Homes For Sale in South Carolina" href="/A/C/SC" />
+	    <area shape="poly" coords="239,122,253,108,284,103,291,107,288,116,279,125,268,118" alt="Mobile Homes For Sale in NC" title="Manufactured Homes For Sale in North Carolina" href="/A/C/NC" />
+	    <area shape="poly" coords="244,108,250,102,259,100,263,91,269,83,274,84,277,89,281,91,283,94,279,98,287,102,260,107" alt="Mobile Homes For Sale in VA" title="Manufactured Homes For Sale in Virginia" href="/A/C/VA" />
+	    <area shape="poly" coords="268,83,266,83,262,86,254,83,246,95,250,101,255,100,259,99,262,91" alt="Mobile Homes For Sale in WV" title="Manufactured Homes For Sale in West Virginia" href="/A/C/WV" />
+	    <area shape="poly" coords="266,82,262,85,256,83,283,79,289,95,286,97,282,90,274,83" alt="Mobile Homes For Sale in MD" title="Manufactured Homes For Sale in Maryland" href="/A/C/MD" />
+	    <area shape="poly" coords="283,78,289,95,304,100,316,100,315,92,304,92,289,84" alt="Mobile Homes For Sale in DE" title="Manufactured Homes For Sale in Delaware" href="/A/C/DE" />
+	    <area shape="poly" coords="255,83,254,65,282,60,286,64,284,70,289,73,283,78" alt="Mobile Homes For Sale in PA" title="Manufactured Homes For Sale in Pennsylvania" href="/A/C/PA" />
+	    <area shape="poly" coords="283,78,290,84,294,77,293,69,291,69,291,65,286,64,284,69,290,73" alt="Mobile Homes For Sale in NJ" title="Manufactured Homes For Sale in New Jersey" href="/A/C/NJ" />
+	    <area shape="poly" coords="254,64,282,59,286,63,291,64,292,68,304,63,293,65,292,57,291,50,288,42,288,35,278,36,273,43,274,49,271,52,261,53,258,55,260,58" alt="Mobile Homes For Sale in NY" title="Manufactured Homes For Sale in New York" href="/A/C/NY" />
+	    <area shape="poly" coords="292,56,301,55,302,60,293,65" alt="Mobile Homes For Sale in CT" title="Manufactured Homes For Sale in Connecticut" href="/A/C/CT" />
+	    <area shape="poly" coords="303,81,316,82,316,90,304,90" alt="Mobile Homes For Sale in CT" title="Manufactured Homes For Sale in Connecticut" href="/A/C/CT" />
+	    <area shape="poly" coords="301,55,304,55,305,59,302,60" alt="Mobile Homes For Sale in RI" title="Manufactured Homes For Sale in Rhode Island" href="/A/C/RI" />
+	    <area shape="poly" coords="304,71,315,71,316,80,304,80" alt="Mobile Homes For Sale in RI" title="Manufactured Homes For Sale in Rhode Island" href="/A/C/RI" />
+	    <area shape="poly" coords="291,51,292,56,303,54,305,57,315,56,313,53,309,54,306,51,304,49" alt="Mobile Homes For Sale in MA" title="Manufactured Homes For Sale in Massachusetts" href="/A/C/MA" />
+	    <area shape="poly" coords="288,34,297,32,297,36,295,38,295,50,292,50,289,45,288,42" alt="Mobile Homes For Sale in VT" title="Manufactured Homes For Sale in Vermont" href="/A/C/VT" />
+	    <area shape="poly" coords="297,31,297,36,295,38,295,49,304,48,304,44,301,37,299,30" alt="Mobile Homes For Sale in NH" title="Manufactured Homes For Sale in New Hampshire" href="/A/C/NH" />
+	    <area shape="poly" coords="299,29,301,15,303,10,309,9,316,22,322,26,314,35,305,45" alt="Mobile Homes For Sale in ME" title="Manufactured Homes For Sale in Maine" href="/A/C/ME" />
+	    <area shape="poly" coords="62,162,37,159,23,171,19,185,21,201,29,214,38,216,25,229,49,214,62,204,71,202,103,215,104,209,84,197,73,198" alt="Mobile Homes For Sale in AK" title="Manufactured Homes For Sale in Alaska" href="/A/C/AK" />
+	    <area shape="poly" coords="124,206,157,217,169,232,160,240,151,224,135,215,124,211,123,209" alt="Mobile Homes For Sale in HI" title="Manufactured Homes For Sale in Hawaii" href="/A/C/HI" />
+	  </map>
+	</div>
+
+		<div class="GraphicContainer lFloat">
+	  	  <a href="/AdTracking.php?Graphic=25" target="_blank"><div style="position: relative;">
+  <img src="/Ads/ELSRental.jpg" alt="ELS Rental homes" />
+  <div style="position: absolute; top: 10px; left: 184px; width: 130px; text-align: center;">
+    <h2 style="width: 110px; margin: 0 auto;">Explore Buying a Home!</h2>
+    <p style="margin-top: 10px;">Brand new & renovated homes are now available in great communities.</p>
+    <h3 style="margin-top: 10px;"><span class="FancyLink">Learn more!</span></h3>
+  </div>
+</div></a>
+	  	</div>
+	
+        <div class="IndexContainer NarrowContainer AppraisalContainer lFloat lClear">
+	  <div class="InteriorText">
+	  <h2 class="bigText">Mobile Home Park List</h2>
+	    <p class="moreSpace">Customized park lists including name,
+	      address, phone, pet and age restrictions, site count,
+	      etc...</p>
+	    <h3 class="moreSpace"><a href="/mobilehome.php?key=40" class="FancyLink">Learn more!</a></h3>
+	  </div>
+	</div>
+
+        <div class="IndexContainer NarrowContainer BVAd lFloat">
+	  <div class="InteriorText">
+	    <h2>
+              <a href="/mobilehome.php?key=15">Get Your<br/>FREE<br />Mobile Home<br/>Book Value<br/>Today!</a>
+	    </h2>
+	  </div>
+
+        </div>
+
+	<div class="lFloat homePageVideoHolder">
+        
+          <h2 class="bigText centered" style="padding-bottom: 1em;">Learn more about MHVillage.com!</h2>
+	  <div id="WatchVideo" class="TrackWithJS" data_track_params="County=HP&amp;Graphic=75"><img src="/images/AboutMHV.jpg" alt=""/></div>
+        	</div>
+
+      <div class="QuickLinks bClear">
+	<h2 id="QuickLinkControl" class="opened">MHVillage.com Mobile Home Quick Links</h2>
+
+	<div class="LinkContent">
+        <div class="LinkGroup">
+          <h3 class="lFloat">Mobile Homes for Sale or Rent by City</h3>
+	  <div class="Links">
+	  <a href="A/C/AL">AL</a> <a href="A/C/AK">AK</a> <a href="A/C/AZ">AZ</a> <a href="A/C/AR">AR</a> <a href="A/C/CA">CA</a> 
+	  <a href="A/C/CO">CO</a> <a href="A/C/CT">CT</a> <a href="A/C/DE">DE</a> <a href="A/C/FL">FL</a> <a href="A/C/GA">GA</a> 
+	  <a href="A/C/ID">ID</a> <a href="A/C/IL">IL</a> <a href="A/C/IN">IN</a> <a href="A/C/IA">IA</a> <a href="A/C/KS">KS</a> 
+	  <a href="A/C/KY">KY</a> <a href="A/C/LA">LA</a> <a href="A/C/ME">ME</a> <a href="A/C/MD">MD</a> <a href="A/C/MA">MA</a> 
+	  <a href="A/C/MI">MI</a> <a href="A/C/MN">MN</a> <a href="A/C/MS">MS</a> <a href="A/C/MO">MO</a> <a href="A/C/MT">MT</a> 
+	  <a href="A/C/NE">NE</a> <a href="A/C/NV">NV</a> <a href="A/C/NH">NH</a> <a href="A/C/NJ">NJ</a> <a href="A/C/NM">NM</a> 
+	  <a href="A/C/NY">NY</a> <a href="A/C/NC">NC</a> <a href="A/C/ND">ND</a> <a href="A/C/OH">OH</a> <a href="A/C/OK">OK</a> 
+	  <a href="A/C/OR">OR</a> <a href="A/C/PA">PA</a> <a href="A/C/RI">RI</a> <a href="A/C/SC">SC</a> <a href="A/C/SD">SD</a> 
+	  <a href="A/C/TN">TN</a> <a href="A/C/TX">TX</a> <a href="A/C/UT">UT</a> <a href="A/C/VT">VT</a> <a href="A/C/VA">VA</a> 
+	  <a href="A/C/WA">WA</a> <a href="A/C/WV">WV</a> <a href="A/C/WI">WI</a> <a href="A/C/WY">WY</a>
+        </div>
+        </div>
+
+        <div class="LinkGroup">
+	  <h3 class="lFloat">Manufactured Housing for Sale or Rent by County</h3>
+	  <div class="Links">
+	  <a href="A/D/AL">AL</a> <a href="A/D/AK">AK</a> <a href="A/D/AZ">AZ</a> <a href="A/D/AR">AR</a> <a href="A/D/CA">CA</a> 
+	  <a href="A/D/CO">CO</a> <a href="A/D/CT">CT</a> <a href="A/D/DE">DE</a> <a href="A/D/FL">FL</a> <a href="A/D/GA">GA</a> 
+	  <a href="A/D/ID">ID</a> <a href="A/D/IL">IL</a> <a href="A/D/IN">IN</a> <a href="A/D/IA">IA</a> <a href="A/D/KS">KS</a> 
+	  <a href="A/D/KY">KY</a> <a href="A/D/LA">LA</a> <a href="A/D/ME">ME</a> <a href="A/D/MD">MD</a> <a href="A/D/MA">MA</a> 
+	  <a href="A/D/MI">MI</a> <a href="A/D/MN">MN</a> <a href="A/D/MS">MS</a> <a href="A/D/MO">MO</a> <a href="A/D/MT">MT</a> 
+	  <a href="A/D/NE">NE</a> <a href="A/D/NV">NV</a> <a href="A/D/NH">NH</a> <a href="A/D/NJ">NJ</a> <a href="A/D/NM">NM</a> 
+	  <a href="A/D/NY">NY</a> <a href="A/D/NC">NC</a> <a href="A/D/ND">ND</a> <a href="A/D/OH">OH</a> <a href="A/D/OK">OK</a> 
+	  <a href="A/D/OR">OR</a> <a href="A/D/PA">PA</a> <a href="A/D/RI">RI</a> <a href="A/D/SC">SC</a> <a href="A/D/SD">SD</a> 
+	  <a href="A/D/TN">TN</a> <a href="A/D/TX">TX</a> <a href="A/D/UT">UT</a> <a href="A/D/VT">VT</a> <a href="A/D/VA">VA</a> 
+	  <a href="A/D/WA">WA</a> <a href="A/D/WV">WV</a> <a href="A/D/WI">WI</a> <a href="A/D/WY">WY</a>
+        </div>
+	</div>
+        <div class="LinkGroup">
+	  <h3 class="lFloat">Mobile Home Parks by City</h3>
+	  <div class="Links">
+	    <a href="A/A/AL">AL</a> <a href="A/A/AK">AK</a> <a href="A/A/AZ">AZ</a> <a href="A/A/AR">AR</a> <a href="A/A/CA">CA</a> 
+	    <a href="A/A/CO">CO</a> <a href="A/A/CT">CT</a> <a href="A/A/DE">DE</a> <a href="A/A/FL">FL</a> <a href="A/A/GA">GA</a> 
+	    <a href="A/A/ID">ID</a> <a href="A/A/IL">IL</a> <a href="A/A/IN">IN</a> <a href="A/A/IA">IA</a> <a href="A/A/KS">KS</a> 
+	    <a href="A/A/KY">KY</a> <a href="A/A/LA">LA</a> <a href="A/A/ME">ME</a> <a href="A/A/MD">MD</a> <a href="A/A/MA">MA</a> 
+	    <a href="A/A/MI">MI</a> <a href="A/A/MN">MN</a> <a href="A/A/MS">MS</a> <a href="A/A/MO">MO</a> <a href="A/A/MT">MT</a> 
+	    <a href="A/A/NE">NE</a> <a href="A/A/NV">NV</a> <a href="A/A/NH">NH</a> <a href="A/A/NJ">NJ</a> <a href="A/A/NM">NM</a> 
+	    <a href="A/A/NY">NY</a> <a href="A/A/NC">NC</a> <a href="A/A/ND">ND</a> <a href="A/A/OH">OH</a> <a href="A/A/OK">OK</a> 
+	    <a href="A/A/OR">OR</a> <a href="A/A/PA">PA</a> <a href="A/A/RI">RI</a> <a href="A/A/SC">SC</a> <a href="A/A/SD">SD</a> 
+	    <a href="A/A/TN">TN</a> <a href="A/A/TX">TX</a> <a href="A/A/UT">UT</a> <a href="A/A/VT">VT</a> <a href="A/A/VA">VA</a> 
+	    <a href="A/A/WA">WA</a> <a href="A/A/WV">WV</a> <a href="A/A/WI">WI</a> <a href="A/A/WY">WY</a>
+	  </div>
+        </div>
+
+        <div class="LinkGroup">
+	  <h3 class="lFloat">Manufactured Housing Parks by County</h3>
+	  <div class="Links">
+	    <a href="A/B/AL">AL</a> <a href="A/B/AK">AK</a> <a href="A/B/AZ">AZ</a> <a href="A/B/AR">AR</a> <a href="A/B/CA">CA</a> 
+	    <a href="A/B/CO">CO</a> <a href="A/B/CT">CT</a> <a href="A/B/DE">DE</a> <a href="A/B/FL">FL</a> <a href="A/B/GA">GA</a> 
+	    <a href="A/B/ID">ID</a> <a href="A/B/IL">IL</a> <a href="A/B/IN">IN</a> <a href="A/B/IA">IA</a> <a href="A/B/KS">KS</a> 
+	    <a href="A/B/KY">KY</a> <a href="A/B/LA">LA</a> <a href="A/B/ME">ME</a> <a href="A/B/MD">MD</a> <a href="A/B/MA">MA</a> 
+	    <a href="A/B/MI">MI</a> <a href="A/B/MN">MN</a> <a href="A/B/MS">MS</a> <a href="A/B/MO">MO</a> <a href="A/B/MT">MT</a> 
+	    <a href="A/B/NE">NE</a> <a href="A/B/NV">NV</a> <a href="A/B/NH">NH</a> <a href="A/B/NJ">NJ</a> <a href="A/B/NM">NM</a> 
+	    <a href="A/B/NY">NY</a> <a href="A/B/NC">NC</a> <a href="A/B/ND">ND</a> <a href="A/B/OH">OH</a> <a href="A/B/OK">OK</a> 
+	    <a href="A/B/OR">OR</a> <a href="A/B/PA">PA</a> <a href="A/B/RI">RI</a> <a href="A/B/SC">SC</a> <a href="A/B/SD">SD</a> 
+	    <a href="A/B/TN">TN</a> <a href="A/B/TX">TX</a> <a href="A/B/UT">UT</a> <a href="A/B/VT">VT</a> <a href="A/B/VA">VA</a> 
+	    <a href="A/B/WA">WA</a> <a href="A/B/WV">WV</a> <a href="A/B/WI">WI</a> <a href="A/B/WY">WY</a>
+          </div>
+	</div>
+
+        <div class="LinkGroup">
+	  <h3 class="lFloat">Popular Mobile Home Cities</h3>
+	  <div class="Links">
+	    <a href="/Mobile-Homes/Search.php?State=NV&amp;City=LAS+VEGAS">Las Vegas</a>,
+	    <a href="/Mobile-Homes/Search.php?State=TX&amp;City=HOUSTON">Houston</a>,
+	    <a href="/Mobile-Homes/Search.php?State=TX&amp;City=DALLAS">Dallas</a>,
+	    <a href="/Mobile-Homes/Search.php?State=TX&amp;City=AUSTIN">Austin</a>,
+	    <a href="/Mobile-Homes/Search.php?State=TX&amp;City=CORPUS+CHRISTI">Corpus Christi</a>,
+	    <a href="/Mobile-Homes/Search.php?State=FL&amp;City=JACKSONVILLE">Jacksonville</a>,
+	    <a href="/Mobile-Homes/Search.php?State=FL&amp;City=ORLANDO">Orlando</a>,	  
+	    <a href="/Mobile-Homes/Search.php?State=FL&amp;City=LAKELAND">Lakeland</a>,  
+	    <a href="/Mobile-Homes/Search.php?State=AZ&amp;City=PHOENIX">Phoenix</a>,
+	    <a href="/Mobile-Homes/Search.php?State=CA&amp;City=SAN+DIEGO">San Diego</a>,
+	    <a href="/Mobile-Homes/Search.php?State=CA&amp;City=SAN+JOSE">San Jose</a>,
+	    <a href="/Mobile-Homes/Search.php?State=CA&amp;City=ORANGE">Orange</a>,
+	    <a href="/Mobile-Homes/Search.php?State=AZ&amp;City=MESA">Mesa</a>,
+	    <a href="/Mobile-Homes/Search.php?State=AZ&amp;City=Tucson">Tucson</a>,
+	    <a href="/Mobile-Homes/Search.php?State=MI&amp;City=FLINT">Flint</a>
+	  </div>
+        </div>
+	
+	<div class="LinkGroup">
+	  <h3 class="lFloat">Popular Mobile Home Park Cities &amp; States</h3>
+	  <div class="Links">
+	    <a href="/Communities/MobileHomeParksState.php?state=FL">Florida Mobile Home Parks</a>,
+	    <a href="/Communities/MobileHomeParksState.php?state=CA">California Mobile Home Parks</a>,
+	    <a href="/Communities/MobileHomeParksState.php?state=AZ">Arizona Mobile Home Parks</a>,
+	    <a href="/Communities/MobileHomeParks.php?State=AZ&amp;City=PHOENIX">Mobile Home Parks Phoenix</a>,
+	    <a href="/Communities/MobileHomeParks.php?State=NV&amp;City=LAS+VEGAS">Mobile Home Parks Las Vegas</a>,
+	    <a href="/Communities/MobileHomeParks.php?State=CA&amp;City=LOS+ANGELES">Mobile Home Parks Los Angeles</a>
+          </div>
+	</div>
+
+        <div class="LinkGroup">
+	  <h3 class="lFloat">More Manufactured Housing Selections</h3>
+	  <div class="Links">
+	    <a href="/Communities/SelectShowcaseCommunities.php">Showcased Communities</a>,
+	    <a href="/Dealers/PremiumDealers.php">Dealer Listings</a>,
+	    <a href="/Mobile-Homes/Open-Houses.php">Open House</a>,
+	    <a href="/Mobile-Homes/Search.php?loc=foot">Used Mobile Homes</a>,
+	    <a href="http://www.senior-retirement-living.com">Senior Mobile Home Parks</a>,
+	    <a href="/Appraisal/AHome.php?loc=foot">Blue Book Value</a>,
+	    <a href="http://www.mh-quote.com/">Floor Plans</a>,
+	    <a href="/MobileHomeInsurance/">Insurance</a>,
+	    <a href="/Resources/PreQualify.php">Mobile Home Loans</a>,
+	    <a href="http://www.mhsupply.com">Parts</a>,
+	    <a href="https://florida.mobilehomes-for-sale.com/">FL Mobile Homes</a>,
+	    <a href="https://california.mobilehomes-for-sale.com/">CA Mobile Homes</a>,
+	    <a href="https://arizona.mobilehomes-for-sale.com/">AZ Mobile Homes</a>,
+	    <a href="https://www.mobilehomes-for-rent.com/">Mobile Homes for Rent</a>,
+	    <a href="https://florida.mobilehomes-for-rent.com/">FL Mobile Homes for Rent</a>,
+	    <a href="https://california.mobilehomes-for-rent.com/">CA Mobile Homes for Rent</a>,
+	    <a href="https://arizona.mobilehomes-for-rent.com/">AZ Mobile Homes for Rent</a>,
+            <a href="http://www.manufacturedhomefloorplans.com">New Home Floor Plans</a>,
+            <a href="/StateAssociations.php">Manufactured Home Associations</a>, 
+	    <a href="/Mobile-Homes/BrandedListings.php">Professional Branded Listings</a>
+          </div>
+	</div>
+	<div class="LinkGroup">
+	  <h3 class="lFloat">Mobile Home Dealers Brokers and Retailers</h3>
+	  <div class="Links">
+	    <a href="/Resources/TopDealers.php">Complete list of Dealers &amp; Brokers</a>
+	    
+	    <a href="/Resources/TopDealers.php#Arizona">Arizona</a>,
+	    <a href="/Resources/TopDealers.php#California">California</a>,
+	    <a href="/Resources/TopDealers.php#Colorado">Colorado</a>, 
+	    <a href="/Resources/TopDealers.php#Florida">Florida</a>,
+	    
+	    <a href="/Resources/TopDealers.php#Indiana">Indiana</a>,
+	    <a href="/Resources/TopDealers.php#Michigan">Michigan</a>,
+	    <a href="/Resources/TopDealers.php#New%20Hampshire">New Hampshire</a>,
+	    <a href="/Resources/TopDealers.php#Nevada">Nevada</a>, 
+	    <a href="/Resources/TopDealers.php#Ohio">Ohio</a>,
+	    <a href="/Resources/TopDealers.php#Oregon">Oregon</a>,
+	    <a href="/Resources/TopDealers.php#Pennsylvania">Pennsylvania</a>, 
+	    <a href="/Resources/TopDealers.php#Texas">Texas</a>,
+	    <a href="/Resources/TopDealers.php#Wisconsin">Wisconsin</a>
+	  </div>
+	</div>
+	<div class="LinkGroup">
+	  <h3 class="lFloat"> Mobile Home Parks, Dealers, and Communities </h3>
+	  <div class="Links">
+	    <a href="/Mobile-Home/State.php?Key=AL">Alabama</a>,
+	    <a href="/Mobile-Home/State.php?Key=AZ">Arizona</a>,
+	    <a href="/Mobile-Home/State.php?Key=AR">Arkansas</a>,
+	    <a href="/Mobile-Home/State.php?Key=CA">California</a>,
+	    <a href="/Mobile-Home/State.php?Key=CO">Colorado</a>,
+	    <a href="/Mobile-Home/State.php?Key=CT">Connecticut</a>,
+	    <a href="/Mobile-Home/State.php?Key=DE">Delaware</a>,
+	    <a href="/Mobile-Home/State.php?Key=FL">Florida</a>,
+	    <a href="/Mobile-Home/State.php?Key=GA">Georgia</a>,
+	    <a href="/Mobile-Home/State.php?Key=ID">Idaho</a>,
+	    <a href="/Mobile-Home/State.php?Key=IL">Illinois</a>,
+	    <a href="/Mobile-Home/State.php?Key=IN">Indiana</a>,
+	    <a href="/Mobile-Home/State.php?Key=IA">Iowa</a>,
+	    <a href="/Mobile-Home/State.php?Key=KS">Kansas</a>,
+	    <a href="/Mobile-Home/State.php?Key=KY">Kentucky</a>,
+	    <a href="/Mobile-Home/State.php?Key=LA">Louisiana</a>,
+	    <a href="/Mobile-Home/State.php?Key=ME">Maine</a>,
+	    <a href="/Mobile-Home/State.php?Key=MD">Maryland</a>,
+	    <a href="/Mobile-Home/State.php?Key=MA">Massachusetts</a>,
+	    <a href="/Mobile-Home/State.php?Key=MI">Michigan</a>,
+	    <a href="/Mobile-Home/State.php?Key=MN">Minnesota</a>,
+	    <a href="/Mobile-Home/State.php?Key=MS">Mississippi</a>,
+	    <a href="/Mobile-Home/State.php?Key=MO">Missouri</a>,
+	    <a href="/Mobile-Home/State.php?Key=MT">Montana</a>,
+	    <a href="/Mobile-Home/State.php?Key=NE">Nebraska</a>,
+	    <a href="/Mobile-Home/State.php?Key=NV">Nevada</a>,
+	    <a href="/Mobile-Home/State.php?Key=NH">New Hampshire</a>,
+	    <a href="/Mobile-Home/State.php?Key=NJ">New Jersey</a>,
+	    <a href="/Mobile-Home/State.php?Key=NM">New Mexico</a>,
+	    <a href="/Mobile-Home/State.php?Key=NY">New York</a>,
+	    <a href="/Mobile-Home/State.php?Key=NC">North Carolina</a>,
+	    <a href="/Mobile-Home/State.php?Key=ND">North Dakota</a>,
+	    <a href="/Mobile-Home/State.php?Key=OH">Ohio</a>,
+	    <a href="/Mobile-Home/State.php?Key=OK">Oklahoma</a>,
+	    <a href="/Mobile-Home/State.php?Key=OR">Oregon</a>,
+	    <a href="/Mobile-Home/State.php?Key=PA">Pennsylvania</a>,
+	    <a href="/Mobile-Home/State.php?Key=RI">Rhode Island</a>,
+	    <a href="/Mobile-Home/State.php?Key=SC">South Carolina</a>,
+	    <a href="/Mobile-Home/State.php?Key=SD">South Dakota</a>,
+	    <a href="/Mobile-Home/State.php?Key=TN">Tennessee</a>,
+	    <a href="/Mobile-Home/State.php?Key=TX">Texas</a>,
+	    <a href="/Mobile-Home/State.php?Key=UT">Utah</a>,
+	    <a href="/Mobile-Home/State.php?Key=VT">Vermont</a>,
+	    <a href="/Mobile-Home/State.php?Key=VA">Virginia</a>,
+	    <a href="/Mobile-Home/State.php?Key=WA">Washington</a>,
+	    <a href="/Mobile-Home/State.php?Key=WV">West Virginia</a>,
+	    <a href="/Mobile-Home/State.php?Key=WI">Wisconsin</a>,
+	    <a href="/Mobile-Home/State.php?Key=WY">Wyoming</a>
+	  </div>
+	</div>
+	</div>
+      </div>
+      </div>
+
+      </div>
+
+      <div id="VideoHolder" class="Hide" title="Learn more about MHVillage.com!"></div>
+
+            <!--[if lte IE 8]>    <script type="text/javascript" src="/js/jquery.bgiframe.js"></script><![endif]-->
+      <script type="text/javascript" src="/js/jquery.hoverIntent.minified.js"></script>
+      <script type="text/javascript" src="/js/superfish.js"></script>
+      <script type="text/javascript" src="/js/jquery.cycle.js"></script>
+      <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+      <script type="text/javascript" src="/js/menuUpdate.js"></script>
+      <script type="text/javascript" src="/js/pinit.js" data-pin-hover="true"></script>
+      <script type="text/javascript">
+      var userState = 0;
+      
+      /* <![CDATA[ */
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), 
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-1302423-1', 'mhvillage.com');
+      ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+
+      // googleTrack is in menu.js - don't wait for domContentLoaded
+      if (( MHV.ecom ) && ( MHV.ecom.OrderID )) {
+        ga('require', 'ecommerce', 'ecommerce.js');
+        googleTrack();
+      }
+
+      /*  ]]> */
+      
+      </script>
+    </div>
+
+    <div class="PageFooter bClear">
+                <p class="centered"><a href="/MyAccount/Advertise.php">Advertise</a> | 
+        <a href="/TermsOfUse.php">Terms of Use</a> |
+        <a href="/PrivacyPolicy.php">Privacy Policy</a> | 
+        <a href="/AboutUs.php">About Us</a></p>
+
+        <p class="centered"><a href="https://www.mhvillage.com">Mobile Home</a> | 
+        <a href="/Appraisal/AHome.php">Mobile Home Values</a> | 
+        <a href="/Resources/PreQualify.php">Mobile Home Loans</a> | 
+        <a href="/MobileHomeInsurance">Mobile Home Insurance</a></p>
+
+        <p class="centered">Copyright (c) 2003 - 2015 MHVillage Inc.</p> 
+    </div>
+  </body>
+</html>
+
+";i:2;s:4:"9084";}

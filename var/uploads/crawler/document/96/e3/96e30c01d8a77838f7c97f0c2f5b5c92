@@ -1,0 +1,1198 @@
+a:3:{i:0;s:19:"http://govtrack.us/";i:1;s:43923:"
+ 
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+		<title>GovTrack.us: Tracking the U.S. Congress</title>
+
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+		
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+		
+		<link media="all" rel="stylesheet" href="/static/css/all-min.css?20150202" />
+
+		<meta name="description" content="Tracking legislation and votes in the United States Congress." />
+		<meta name="keywords" content="" />
+		 
+
+		
+		<meta property="fb:app_id" content="119329904748946" />
+		<meta property="og:site_name" content="GovTrack.us" />
+		<meta name="twitter:site" content="@GovTrack">
+		
+		<meta property="og:image" content="http://www.govtrack.us/static/images/media_icon.png?20130118" />
+		<meta property="og:image:secure_url" content="https://www.govtrack.us/static/images/media_icon.png?20130118" />
+		<meta name="twitter:card" content="summary">
+		
+	
+
+		
+
+		<script type="text/javascript" src="/static/js/modernizr.js"></script> 
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+		
+			<script type="text/javascript" src="/_twostream/user-head?path=/"> </script>
+
+
+		
+		<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="/static/js/jquery-utils.js?2014-11-08"></script>
+		
+		
+		<script type="text/javascript">
+		var user_district_callbacks = [];
+		function onUserDistrictChanged() {
+			function call_callback(cb) {
+				// When there's known data, the state may be XX to indicate the user does not want to be prompted again for his/her district.
+				var cd = cong_dist;
+				if (cd && cd.state == "XX") cd = null;
+
+				// Convert list to hashable array.
+				var mocs = { };
+				if (cong_dist_mocs) {
+					for (var i = 0; i < cong_dist_mocs.length; i++)
+						mocs[cong_dist_mocs[i]] = cong_dist_mocs[i];
+				}
+
+				// Call.
+				cb(cd, mocs);
+			}
+
+			if (typeof arguments[0] == "function") {
+				// Called with a callback. Execute immediately with known data, then save callback for later.
+				var callback = arguments[0];
+				call_callback(callback);
+				user_district_callbacks.push(callback);
+			} else {
+				// Called with a new state and district. Save new info and execute callbacks.
+				if (arguments[0] == null) {
+					cong_dist = null;
+					cong_dist_mocs = null;
+				} else {
+					cong_dist = { state: arguments[0], district: arguments[1] };
+					cong_dist_mocs = arguments[2]; // array of IDs of the user's current MoCs
+				}
+				for (var i = 0; i < user_district_callbacks.length; i++)
+					call_callback(user_district_callbacks[i]);
+			}
+		}
+
+		window.fbAsyncInitFuncs = Array(); // Facebook init functions should be defined between here and the FB embed later
+		
+		
+		<!-- Google Analytics -->
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA\u002D1190841\u002D1');
+		ga('set', 'dimension1', the_user ? "Logged In" : "Anonymous");
+		ga('set', 'dimension2', the_segment);
+		ga('send', 'pageview');
+		<!-- End Google Analytics -->
+		
+		</script>
+
+		
+  <meta property="og:title" content="GovTrack.us" />
+  <meta property="og:description" content="Tracking legislation and votes in the United States Congress." />
+  <meta property="og:url" content="https://www.govtrack.us" />
+
+<style>
+.homepage #header {
+	background: url(/static/images/header-capitol.png) 218px bottom no-repeat;
+}
+
+#intro-box {
+	background: #40a4bd;
+}
+	#intro-box > .container {
+		padding: 20px 10px 10px;
+		height: 256px;
+		background: #40a4bd url(/static/images/bg-intro-box.jpg) 0 0 no-repeat;
+		}
+
+	#intro-box h1 {
+		margin: 0;
+		font: normal 4em/1em serif;
+		color: #fff;
+		text-shadow: 0 2px 2px #066982;
+		}
+	#intro-box h2 {
+		margin: 8px 0 0 2px;
+		font: normal 1.5em/1em PTSerif;
+		color: #fff;
+		text-shadow: 0 1px 1px #066982;
+	}
+
+	#intro-box p {
+		color: #fff;
+		font-family: PTSerif;
+		font-size: 18px;
+	}
+
+	@media only screen and (max-width: 768px) {
+		 .homepage #header {
+		background: none;
+		 }
+		 #intro-box > .container {
+		 background: none;
+		 height: auto;
+		 }
+	}
+
+	#primary-links a {
+		display: block;
+		padding-bottom: 2em;
+		background: url(/static/images/bg-info-box-nav.png) no-repeat 0 0;
+		background-size: 100% 100%;
+		text-align: center;
+		font-size: 10pt;
+		line-height: 140%;
+		font-family: 'PTSerifBold';
+		text-decoration: none;
+	}
+		#primary-links a span {
+			font-family: 'PTSerifBoldItalic';
+			font-style: italic;
+		}
+		#primary-links a img {
+			margin: 0 auto;
+		}
+		#primary-links a:hover img {
+			opacity: .9;
+		}
+
+	
+</style>
+
+	</head>
+
+<body class="homepage">
+    <!--[if lt IE 8]><p style="background-color: black; color: white;">Internet Explorer version 8 or any modern web browser is required to use this website, sorry.<![endif]-->
+    <!--[if gt IE 7]><!-->
+
+	
+	<div id="sitenewscontainer" style="display: none">
+		<div id="sitenews">
+			<div class="ex"><a href="#" onclick="return hide_site_news()">X</a></div>
+			
+<div class="sitenewsbody" data-seq="65">
+    <p><a href="/congress/members/report-cards/2014">Report Cards for 2014</a></p>
+
+	
+
+	
+</div>
+<div style="clear: both"> </div>
+
+		</div>
+	</div>
+	<script>
+	function trackOutboundLink(link, category, action) { 
+		try { 
+			ga('send', 'event', category, action);
+		} catch(err){}
+		setTimeout(function() { document.location.href = link.href; }, 100);
+		return false;
+	}
+
+	function hide_site_news() {
+		$('#sitenewscontainer').fadeOut();
+		$.cookie("sitenewsbanner", $('#sitenewscontainer .sitenewsbody').attr("data-seq"), { expires: 14, path: '/' });
+	}
+	$(function() {
+		
+		
+		// get the first (after the X) link's href, and if it's the current page, don't show
+		// the banner.
+		var cur_link = null;
+		try {
+			cur_link = $('#sitenewscontainer a:not(:first)').first().attr("href");
+		} catch (err) { }
+			
+		if ($.cookie("sitenewsbanner") != $('#sitenewscontainer .sitenewsbody').attr("data-seq")
+			&& document.location.pathname != cur_link) {
+			$.cookie("sitenewsbanner", null, { path: '/' }); // in case it has a different value
+			$('#sitenewscontainer').fadeIn();
+			setTimeout("$('#trending_bills > a').each(function() { $(this).truncate_text() });", 10); // a little after the fade has started so the divs are shown
+		}
+	});
+	</script>
+	
+
+	
+	
+		<div id="masthead">
+				<header id="header" class="container">
+					<a id="logo" href="/" class="">govtrack.us</a>
+
+					<div id="nav-block">
+						<div class="row">
+							<div class="block" style="float: right">
+								<ul class="super-nav">
+									
+									
+									
+										<li id="nav_askcd" style="display: none"><a href="#" onclick="return show_askcd();">Set District</a></li>
+										<li id="nav_login"><a href="/accounts/login?next=/">Log In</a></li>
+										
+											<li id="nav_logout" style="display: none"><a href="/accounts/logout?next=/">Log Out</a></li>
+										
+									
+									
+								</ul>
+								
+									<script>if (the_user) {
+										$('#nav_login').find('a').text(the_user.email).attr('href', '/accounts/profile');
+										$('#nav_logout').show();
+									} else {
+										$('#nav_askcd').show()
+									}</script>
+								
+								<form name="header_search" action="/search" method="GET" class="search-form">
+									<fieldset>
+										<div class="text"><input type="text" placeholder="Search" name="q"/></div>
+										<input class="btn-search" type="submit" value="Search" />
+									</fieldset>
+								</form>
+							</div>
+						</div>
+
+						<nav id="nav">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li class="dropnav">
+									<a href="/start">Browse</a>
+									<ul>
+										<li><a href="/congress/members">Members <em>of</em> Congress</a></li>
+										<li><a href="/congress/bills">Bills <em>&amp;</em> Resolutions</a></li>
+										<li><a href="/congress/votes">Voting Records</a></li>
+										<li><a href="/congress/committees">Committees</a></li>
+										<li><a href="/congress/live">Live Video (Beta)</a></li>
+										<li><a href="/start#states">State Legislation (Beta)</a></li>
+										<li><a href="/videos" style="line-height: 120%">GovTrack Videos (Original Reporting)</a></li>
+									</ul>
+								</li>
+								<li class="dropnav">
+									<a href="/start">Track</a>
+									<ul>
+										
+											<li id="nav_track_start"><a href="/start">Start Tracking</a></li>
+											<li id="nav_track_lists" style="display: none"><a href="/accounts/lists">What I&rsquo;m Tracking</a></li>
+											<script>if (the_user) {
+												$('#nav_track_start').find('a').text("Add a Tracker");
+												$('#nav_track_lists').show();
+											}</script>
+										
+										<li><a href="/accounts/docket">Your Docket</a></li>
+									</ul>
+								</li>
+								<li><a href="/about">About</a></li>
+								<li><a href="/developers">Use our data</a></li>
+							</ul>
+						</nav>
+
+						<nav id="mobile-nav">
+							<select onchange="window.location = $(this).val();">
+								<option value="">Go to...</option>
+								<option value="/">Home</option>
+								<optgroup label="Browse">
+									<option value="/congress/members">Members of Congress</option>
+									<option value="/congress/bills">Bills &amp; Resolutions</option>
+									<option value="/congress/votes">Voting Records</option>
+									<option value="/congress/committees">Committees</option>
+									<option value="/congress/live">Live Video (Beta)</option>
+									<option value="/start#states">State Legislation (Beta)</option>
+									<option value="/videos">GovTrack Videos</option>
+								</optgroup>
+								<optgroup label="Track">
+									
+								</optgroup>
+								<option value="/about">About</option>
+								<option value="/developers">Use our data</option>
+							</select>
+						</nav><!-- /mobile-nav -->
+
+					</div><!-- /nav-block -->
+				</header>
+		</div><!-- /masthead -->
+
+			
+<div id="intro-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-offset-1 col-sm-offset-5">
+				<h1>GovTrack.us</h1>
+				<h2>Tracking the United States Congress</h2>
+				<div class="hidden-xs" style="height: 40px"> </div>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 1em">
+			<div class="col-xs-offset-1 col-sm-offset-5">
+				<p>Track bills in Congress, your representative&rsquo;s voting records, upcoming committee meetings, and get alerts by email.</p>
+			</div>
+		</div>
+	</div>
+</div><!-- /intro-box -->
+
+
+		
+<div style="background-color: white; padding: 25px 10px 0 15px">
+	<div class="container">
+
+		<div id="primary-links" class="row">
+			<div class="col-xs-6 col-sm-3">
+				<a href="/congress/members">
+					<img src="/static/images/img-congress-members.png" class="img-responsive">
+					Members <span>of</span> Congress
+				</a>
+			</div>
+			<div class="col-xs-6 col-sm-3">
+				<a href="/congress/bills/">
+					<img src="/static/images/img-bills-resolutions.png" class="img-responsive">
+					Bills <span>&amp;</span> Resolutions
+				</a>
+			</div>
+			<div class="col-xs-6 col-sm-3">
+				<a href="/congress/votes">
+					<img src="/static/images/img-voting-records.png" class="img-responsive">
+					Voting Records
+				</a>
+			</div>
+			<div class="col-xs-6 col-sm-3">
+				<a href="/congress/committees/">
+					<img src="/static/images/img-committees.png" class="img-responsive">
+					Committees
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="entries-box">
+	<div class="entries-holder container">
+			<div id="generic-events" class="col-sm-7">
+				<h2><span>in</span> Congress</h2>
+		
+				<section class="featured-articles">
+					
+					
+					<article class="post Vote">
+						<div class="event_header">
+							<div class="event_type">Date: <span>Feb 13, 2015 11:22 a.m.</span></div>
+							<h4 class="event_title">Vote</h4>
+							<!--<div class="event_date"><span>Date: </span>Feb 13, 2015 11:22 a.m.</div>-->
+							<p>On Approving the Journal</p>
+						</div>
+						<div class="event_body">
+							<p>Passed 233/158</p>
+
+
+							<a href="/congress/votes/114-2015/h83" class="more">More information...</a>
+						</div>
+					</article>
+					
+					
+					
+					<article class="post Passed House">
+						<div class="event_header">
+							<div class="event_type">Date: <span>Feb 13, 2015</span></div>
+							<h4 class="event_title">Passed House</h4>
+							<!--<div class="event_date"><span>Date: </span>Feb 13, 2015</div>-->
+							<p>H.R. 636: America’s Small Business Tax Relief Act of 2015</p>
+						</div>
+						<div class="event_body">
+							
+							<a href="/congress/bills/114/hr636" class="more">More information...</a>
+						</div>
+					</article>
+					
+					
+					
+					<article class="post Vote">
+						<div class="event_header">
+							<div class="event_type">Date: <span>Feb 13, 2015 11:13 a.m.</span></div>
+							<h4 class="event_title">Vote</h4>
+							<!--<div class="event_date"><span>Date: </span>Feb 13, 2015 11:13 a.m.</div>-->
+							<p>H.R. 636: America’s Small Business Tax Relief Act of 2015</p>
+						</div>
+						<div class="event_body">
+							<p>Passed 272/142</p>
+
+
+							<a href="/congress/votes/114-2015/h82" class="more">More information...</a>
+						</div>
+					</article>
+					
+					
+					
+					<article class="post Vote">
+						<div class="event_header">
+							<div class="event_type">Date: <span>Feb 13, 2015 11:06 a.m.</span></div>
+							<h4 class="event_title">Vote</h4>
+							<!--<div class="event_date"><span>Date: </span>Feb 13, 2015 11:06 a.m.</div>-->
+							<p>On Motion to Recommit with Instructions: H.R. 636: America’s Small Business Tax Relief Act of 2015</p>
+						</div>
+						<div class="event_body">
+							<p>Failed 173/241</p>
+
+
+							<a href="/congress/votes/114-2015/h81" class="more">More information...</a>
+						</div>
+					</article>
+					
+					
+					
+					<article class="post Passed House">
+						<div class="event_header">
+							<div class="event_type">Date: <span>Feb 12, 2015</span></div>
+							<h4 class="event_title">Passed House</h4>
+							<!--<div class="event_date"><span>Date: </span>Feb 12, 2015</div>-->
+							<p>H.R. 644: Fighting Hunger Incentive Act of 2015</p>
+						</div>
+						<div class="event_body">
+							
+							<a href="/congress/bills/114/hr644" class="more">More information...</a>
+						</div>
+					</article>
+					
+					
+					
+					<article class="post Vote">
+						<div class="event_header">
+							<div class="event_type">Date: <span>Feb 12, 2015 5:07 p.m.</span></div>
+							<h4 class="event_title">Vote</h4>
+							<!--<div class="event_date"><span>Date: </span>Feb 12, 2015 5:07 p.m.</div>-->
+							<p>H.R. 644: Fighting Hunger Incentive Act of 2015</p>
+						</div>
+						<div class="event_body">
+							<p>Passed 279/137</p>
+
+
+							<a href="/congress/votes/114-2015/h80" class="more">More information...</a>
+						</div>
+					</article>
+					
+					
+
+				</section>
+			</div><!-- /in-congress -->
+
+			<div id="custom-events" class="col-sm-7">
+				<div style="text-align: right"><small><a href="#" onclick="return show_askcd();">not your district?</a></small></div>
+				<h2 style="margin-top: 0"><span>in district...</span></h2>
+				<section class="row" style="margin-bottom: 1em">
+				</section>
+				<section class="featured-articles">
+				</section>
+				<div style="display: none">
+					<div id="custom-events-rep-template" class="col-xs-4" style="text-align: center;">
+						<a style="text-decoration: none; pading: 1em; display: block">
+							<img src="" class="img-responsive" style="margin: 0 auto">
+							<p class="name" style="margin: .5em 0 0 0; font-weight: bold"> </p>
+							<p class="title" style="margin: 0; font-size: 90%; color: #444"> </p>
+						</a>
+					</div>
+					<article id="custom-events-template" class="post">
+						<div class="event_header">
+							<div class="event_type">Date: <span></span></div>
+							<h4 class="event_title"></h4>
+							<p></p>
+						</div>
+						<div class="event_body">
+							<div class="event_body_body"> </div>
+							<a href="" class="more">More information...</a>
+						</div>
+					</article>
+				</div>
+			</div>
+
+			<div class="col-sm-offset-1 col-sm-4">
+				<article class="rss-block">
+					<h3><span>from the</span> GovTrack Blog <!--<a href="/blog"><img src="images/ico-rss.gif" width="9" height="9" alt="image description"></a>--></h3>
+					
+					<div class="post">
+						<h4><a href="https://www.govtrack.us/blog/2014/12/18/govtracks-summerfall-updates/">GovTrack’s Summer/Fall Updates</a></h4>
+						<div class="article">
+							<em>Posted on Dec 18, 2014 1:49 p.m.</em>
+							<p>Here’s what’s been improved on GovTrack in the summer and fall of this year. Permalinks to individual paragraphs in bill text is now provided (example). ...</p>
+							<div class="block"><a href="https://www.govtrack.us/blog/2014/12/18/govtracks-summerfall-updates/">Read More »</a></div>	
+						</div>
+					</div>
+					
+					<div class="post">
+						<h4><a href="https://www.govtrack.us/blog/2014/12/17/it-wasnt-the-least-productive-congress-after-all/">It wasn’t the least productive Congress after all</a></h4>
+						<div class="article">
+							<em>Posted on Dec 25, 2014 6:46 p.m.</em>
+							<p>UPDATE: 12/25/2014: Because of a discrepancy in bill status as published by Congress, I over-counted by 1. There were 296 new laws in the 113th ...</p>
+							<div class="block"><a href="https://www.govtrack.us/blog/2014/12/17/it-wasnt-the-least-productive-congress-after-all/">Read More »</a></div>	
+						</div>
+					</div>
+					
+					<div class="post">
+						<h4><a href="https://www.govtrack.us/blog/2014/09/05/did-my-representative-enact-enough-bills/">Did my representative enact enough bills?</a></h4>
+						<div class="article">
+							<em>Posted on Sep 5, 2014 12:13 p.m.</em>
+							<p>One common way legislator performance is measured is by how many laws a representative or senator got enacted. Like all quantitative measures, a count of ...</p>
+							<div class="block"><a href="https://www.govtrack.us/blog/2014/09/05/did-my-representative-enact-enough-bills/">Read More »</a></div>	
+						</div>
+					</div>
+					
+					<div class="post">
+						<h4><a href="https://www.govtrack.us/blog/2014/08/04/whos-blocking-the-bills-the-numbers-dont-help-much/">Who’s blocking the bills? The numbers don’t help much.</a></h4>
+						<div class="article">
+							<em>Posted on Aug 4, 2014 9:35 p.m.</em>
+							<p>M.M. asks: There is much discussion about which part of Congress does more (or less) than the other. Some people are fixated on the number ...</p>
+							<div class="block"><a href="https://www.govtrack.us/blog/2014/08/04/whos-blocking-the-bills-the-numbers-dont-help-much/">Read More »</a></div>	
+						</div>
+					</div>
+					
+				</article>
+			</div>
+	</div>
+</div>
+
+
+		<footer id="footer">
+			<div class="container">
+			<div class="row">
+
+				<nav class="col-sm-3 col-md-2">
+					<h4><span>site</span> Menu</h4>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/start">Start Tracking</a></li>
+						<li><a href="/about">About GovTrack</a></li>
+						<li><a href="/developers">For Developers</a></li>
+						
+						<li><a href="/accounts/login">Log in</a></li>
+						
+					</ul>
+				</nav>
+
+				<section class="col-sm-2 social">
+					<h4><span>follow</span> GovTrack</h4>
+					<ul>
+						<li><a href="http://www.facebook.com/pages/Civic-Impulse/312186525430"><span>Facebook</span></a></li>
+						<li><a href="http://twitter.com/govtrack"><span>Twitter</span></a></li>
+						<li><a href="/blog"><span>Blog</span></a></li>
+						<li><a href="https://github.com/govtrack/govtrack.us-web/commits/master">Source Code</a></li>
+					</ul>
+				</section>
+
+				<section class="col-md-offset-1 col-sm-6">
+					<p>Launched in 2004, GovTrack helps everyone learn about and track the activities of the United States Congress. This is a project of <a href="http://www.civicimpulse.com">Civic Impulse, LLC</a>. GovTrack.us is not a government website.</p>
+
+					<p><a href="/about">About the Site</a> | <a href="/contact">Contact Us</a></p>
+
+					<p>You are encouraged to reuse any material on this site. GovTrack supports other Congress-tracking websites through our <a href="/developers">open data</a>.</p>
+					
+					
+				</section>
+
+			</div>
+			</p>
+		</footer>
+
+	</div><!-- /wrapper -->
+
+    <div id="error_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="errorModalTitle" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="errorModalTitle"> </h4>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+	function show_modal(title, message) {
+		$('#error_modal h4').text(title);
+		if (message.charAt(0) != '<') {
+			$('#error_modal .modal-dialog').toggleClass('modal-sm', true);
+			$('#error_modal .modal-body').html($("<p/>").text(message).html());
+		} else {
+			$('#error_modal .modal-dialog').toggleClass('modal-sm', false);
+			$('#error_modal .modal-body').html(message);
+		}
+		$('#error_modal').modal({});
+	}
+	</script>
+
+	<script src="/static/js/govtrack.js?20140720"></script>
+	<!-- modal to ask what district you live in -->
+<div id="askcd_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="askcdModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="askcdModalTitle">Select Your District</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please tell us what congressional district you live in so that we can customize your GovTrack experience.</p>
+
+	<form role="form" onsubmit="return askcd_submit();" style="margin: 1em 0 0 0;">
+	  <div class="form-group">
+	    <label for="askcdState">What state do you live in?</label>
+	    <select class="form-control" id="askcdState" size="1">
+	    	<option value="">(Select State)</option>
+	    	
+	    		<option value="AL" data-districts="7">Alabama</option>
+	    	
+	    		<option value="AK" data-districts="1">Alaska</option>
+	    	
+	    		<option value="AS" data-districts="T">American Samoa</option>
+	    	
+	    		<option value="AZ" data-districts="9">Arizona</option>
+	    	
+	    		<option value="AR" data-districts="4">Arkansas</option>
+	    	
+	    		<option value="CA" data-districts="53">California</option>
+	    	
+	    		<option value="CO" data-districts="7">Colorado</option>
+	    	
+	    		<option value="CT" data-districts="5">Connecticut</option>
+	    	
+	    		<option value="DE" data-districts="1">Delaware</option>
+	    	
+	    		<option value="DC" data-districts="T">District of Columbia</option>
+	    	
+	    		<option value="FL" data-districts="27">Florida</option>
+	    	
+	    		<option value="GA" data-districts="14">Georgia</option>
+	    	
+	    		<option value="GU" data-districts="T">Guam</option>
+	    	
+	    		<option value="HI" data-districts="2">Hawaii</option>
+	    	
+	    		<option value="ID" data-districts="2">Idaho</option>
+	    	
+	    		<option value="IL" data-districts="18">Illinois</option>
+	    	
+	    		<option value="IN" data-districts="9">Indiana</option>
+	    	
+	    		<option value="IA" data-districts="4">Iowa</option>
+	    	
+	    		<option value="KS" data-districts="4">Kansas</option>
+	    	
+	    		<option value="KY" data-districts="6">Kentucky</option>
+	    	
+	    		<option value="LA" data-districts="6">Louisiana</option>
+	    	
+	    		<option value="ME" data-districts="2">Maine</option>
+	    	
+	    		<option value="MD" data-districts="8">Maryland</option>
+	    	
+	    		<option value="MA" data-districts="9">Massachusetts</option>
+	    	
+	    		<option value="MI" data-districts="14">Michigan</option>
+	    	
+	    		<option value="MN" data-districts="8">Minnesota</option>
+	    	
+	    		<option value="MS" data-districts="4">Mississippi</option>
+	    	
+	    		<option value="MO" data-districts="8">Missouri</option>
+	    	
+	    		<option value="MT" data-districts="1">Montana</option>
+	    	
+	    		<option value="NE" data-districts="3">Nebraska</option>
+	    	
+	    		<option value="NV" data-districts="4">Nevada</option>
+	    	
+	    		<option value="NH" data-districts="2">New Hampshire</option>
+	    	
+	    		<option value="NJ" data-districts="12">New Jersey</option>
+	    	
+	    		<option value="NM" data-districts="3">New Mexico</option>
+	    	
+	    		<option value="NY" data-districts="27">New York</option>
+	    	
+	    		<option value="NC" data-districts="13">North Carolina</option>
+	    	
+	    		<option value="ND" data-districts="1">North Dakota</option>
+	    	
+	    		<option value="MP" data-districts="T">Northern Mariana Islands</option>
+	    	
+	    		<option value="OH" data-districts="16">Ohio</option>
+	    	
+	    		<option value="OK" data-districts="5">Oklahoma</option>
+	    	
+	    		<option value="OR" data-districts="5">Oregon</option>
+	    	
+	    		<option value="PA" data-districts="18">Pennsylvania</option>
+	    	
+	    		<option value="PR" data-districts="T">Puerto Rico</option>
+	    	
+	    		<option value="RI" data-districts="2">Rhode Island</option>
+	    	
+	    		<option value="SC" data-districts="7">South Carolina</option>
+	    	
+	    		<option value="SD" data-districts="1">South Dakota</option>
+	    	
+	    		<option value="TN" data-districts="9">Tennessee</option>
+	    	
+	    		<option value="TX" data-districts="36">Texas</option>
+	    	
+	    		<option value="UT" data-districts="4">Utah</option>
+	    	
+	    		<option value="VT" data-districts="1">Vermont</option>
+	    	
+	    		<option value="VI" data-districts="T">Virgin Islands</option>
+	    	
+	    		<option value="VA" data-districts="11">Virginia</option>
+	    	
+	    		<option value="WA" data-districts="10">Washington</option>
+	    	
+	    		<option value="WV" data-districts="3">West Virginia</option>
+	    	
+	    		<option value="WI" data-districts="8">Wisconsin</option>
+	    	
+	    		<option value="WY" data-districts="1">Wyoming</option>
+	    	
+	    </select>
+	  </div>
+	  <div id="askcdDistrictGroup" class="form-group" style="margin-bottom: 0">
+	    <label for="askcdAddress">What is your home&rsquo;s street address and city?</label>
+	    <input id="askcdAddress" type="text" class="form-control" placeholder="123 Main St, Cincinnati, OH"/>
+	    <span class="help-block" style="font-size: 85%">We do not store your address and only use it right now to find your district.</span>
+	  </div>
+	</form>            
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="return askcd_submit(true);">Not Now</button>
+      	<button type="button" class="btn btn-primary" onclick="return askcd_submit();">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal to show geocoder result -->
+<div id="askcd_modal_two" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="askcdModalTitle2" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="askcdModalTitle2">Select Your District</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Please check that map to make sure we found the location of your home correctly.</p>
+            <p class="text-warning">Drag the marker to your home if it is not in the right location. Zoom out if necessary.</p>
+            <p>Your address is in <span id="askcd_result"> </span>.</p>
+            <p>If everything looks right, click OK below the map to continue.</p>
+          </div>
+          <div class="col-xs-6">
+            <div id="askcd_map" style="width: 100%; border: 1px solid black;"> </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// show dialog to ask user where they live
+function show_askcd() {
+	$('#askcdState').val('');
+	$('#askcdDistrictGroup').hide();
+	$('#askcd_modal .btn-primary').attr('disabled', 'disabled');
+	$('#askcd_modal').modal();
+  return false;
+}
+
+// toggle asking for an address depending on whether the state is at-large
+$('#askcdState').change(function() {
+	var val = $('#askcdState').val();
+	if (val == "") {
+		$('#askcdDistrictGroup').slideUp();
+		$('#askcd_modal .btn-primary').prop('disabled', true).text("Next >");
+	} else {
+		var ndistricts = $('#askcdState option[value=' + val + ']').attr('data-districts');
+		if (ndistricts == "T" || ndistricts == "1") {
+			$('#askcdDistrictGroup').slideUp();
+			$('#askcd_modal .btn-primary').prop('disabled', false).text("OK");
+		} else {
+			$('#askcdDistrictGroup').slideDown();
+			$('#askcd_modal .btn-primary').prop('disabled', false).text("Next >");
+		}
+	}
+});
+
+// user says OK here's my state or state & address
+function askcd_submit(is_cancel) {
+  // record GA event
+  try { 
+  	ga('send', 'event', 'miscellaneous', 'set-district');
+  } catch(err){}
+
+  // get user's state
+	var val = $('#askcdState').val();
+	if (is_cancel) val = "XX";
+	if (val == "") return false;
+
+  // did we ask for an address?
+	var ndistricts = $('#askcdState option[value=' + val + ']').attr('data-districts');
+	if (ndistricts == "T" || ndistricts == "1" || val == "XX") {
+		// submit at-large district, or use cancelled this dialog (set district to "XX0")
+		$.ajax('/accounts/_set_district',
+			{
+				type: "POST",
+				data: {
+					state: val,
+					district: "0"
+				},
+        success: function(res) {
+          // Update page, if the page supports it.
+          if (val != "XX")
+            onUserDistrictChanged(val, 0, res.mocs);
+        }
+			}
+		);
+
+    $('#askcd_modal').modal('hide');
+    if (val == "XX") onUserDistrictChanged(); // all nulls to reset
+    return false;
+  }
+
+  // geocode the address
+  var addr = $('#askcdAddress').val();
+  if (!addr) return false;
+  $('#askcd_modal .btn-primary').prop('disabled', true);
+	var geocoder = new google.maps.Geocoder();
+	geocoder.geocode(
+		{
+			address: addr,
+			region: 'us',
+			componentRestrictions: { administrativeArea: val }
+		},
+		function(results, status) {
+      // Failed to geocode
+			if (status != google.maps.GeocoderStatus.OK) {
+        alert("Sorry, Google couldn't find that address: " + status);
+        $('#askcd_modal .btn-primary').prop('disabled', false);
+				return;
+			}
+
+      // Look up the district at that coordinate
+			var geocoder_result = results[0].geometry.location;
+			$.ajax({
+				url: "/congress/members/ajax/district_lookup",
+				data: {
+					lat: geocoder_result.lat(),
+					lng: geocoder_result.lng()
+				},
+				dataType: "json",
+				success: function(data) {
+          // Did not resolve.
+					if (!data.state) {
+						alert("The address does not appear to be within a United States Congressional District.");
+	    			$('#askcd_modal .btn-primary').prop('disabled', false);
+						return;
+					}
+
+          function on_has_district(data) {
+            // Update UI with the result.
+            $('#askcd_result').text(data.state + "-" + data.district);
+            //$('#askcd_modal_two .btn-info').attr('href', "/congress/members/" + data.state + "/" + data.district + "?marker=" + geocoder_result.lng() + ':' + geocoder_result.lat());
+
+            // Save into user's account.
+            $.ajax('/accounts/_set_district',
+              {
+                type: "POST",
+                data: {
+                  state: data.state,
+                  district: data.district
+                },
+                success: function(data2) {
+                  // Update page, if the page supports it.
+                  onUserDistrictChanged(data.state, parseInt(data.district), data2.mocs);
+                }
+              }
+            );
+          }
+
+          // Save.
+          on_has_district(data);
+      
+          // Show the result with a map.
+
+   				$('#askcd_modal').modal('hide');
+   				$('#askcd_modal_two').modal();
+          $('#askcd_modal_two').on('shown.bs.modal', function (e) {
+            // Set the map height since that's hard to do in CSS.
+            $('#askcd_map').css({ height: .7 * $('#askcd_map').width() + 'px'});
+
+            // Create the map.
+            var map = map_controller();
+            map.init(
+              document.getElementById("askcd_map"),
+              data.state,
+              null, // show all districts in the overlay, not just the one we think the user is in
+              {
+                zoom: 13,
+                center: geocoder_result,
+              });
+
+            // Add a marker at the location of the user's address. When the user
+            // moves the marker, see what district the marker is in.
+            var marker = map.addMarker(geocoder_result);
+            marker.setIcon("/static/images/map-home-marker-icon.png");
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(function() { marker.setAnimation(null); }, 2000)
+
+            marker.setDraggable(true);
+            google.maps.event.addListener(marker, "dragend", function(e) {
+              $('#askcd_modal_two button').addClass("disabled");
+              $('#askcd_result').text("...");
+
+              // Look up the district at that coordinate
+              var geocoder_result = results[0].geometry.location;
+              $.ajax({
+                url: "/congress/members/ajax/district_lookup",
+                data: {
+                  lat: marker.getPosition().lat(),
+                  lng: marker.getPosition().lng()
+                },
+                dataType: "json",
+                success: function(data) { 
+                  $('#askcd_modal_two button').removeClass("disabled");
+                  if (!data.state) {
+                    alert("That location is not within a United States Congressional District. Please move the marker to your home address.");
+                    return;
+                  }
+                  on_has_district(data);
+                }});
+            });
+          })
+				}
+			});
+		});
+
+	return false;
+}
+var win_loc_hash = window.location.hash; // may change between now and ()'s execution
+$(function() {
+	setTimeout(function() {
+		if (win_loc_hash == "#track") return;
+
+		var flags = $.cookie("flags");
+		flags = !flags ? {} : parse_qs(flags);
+
+    if (the_segment == "Other" && !flags.itf)
+      show_if_then_fund(flags);
+		else if (the_segment == "Other" && cong_dist == null)
+			show_askcd();
+		else if (Math.random() < .3)
+			show_followus(flags);
+
+		$.cookie("flags", form_qs(flags), { expires: 21, path: '/' });
+	}, 500)
+});
+
+function show_followus(flags) {
+	if (flags.foll_tw) return; // only show once
+	flags.foll_tw = true;
+
+	$('#followus_modal').modal();
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+}
+
+function show_if_then_fund(flags) {
+  flags.itf = true;
+  $('#itfpromo_modal').modal();
+}
+</script>
+
+<script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false"></script>
+<!-- / ask for district -->
+
+<div id="followus_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="followusModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="followusModalTitle">Follow us?</h4>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom: 20px">We tweet when bills are enacted and some of our original research.</p>
+        <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/govtrack" data-widget-id="508366437044330496" height="250" data-tweet-limit="2" data-chrome="nofooter noborders">Tweets by @govtrack</a>
+      </div>
+      <!--<div class="modal-footer">
+      	<button type="button" class="btn btn-default" data-dismiss="modal">Not Now</button>
+      </div>-->
+    </div>
+  </div>
+</div>
+
+<style>
+.itf-brand {
+display: inline-block;
+background: url("https://if.then.fund/static/branding/content-title.9f202d38df28.png") no-repeat;
+width: 72px;
+height: 15px;
+text-indent: -99999em;
+overflow: hidden;
+padding-left: 2px;
+}
+</style>
+<div id="itfpromo_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="itfpromoModalTitle" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="itfpromoModalTitle">Announcing a new way to take action</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-3">
+            <a href="https://if.then.fund/a/3/repealing-affordable-care-act-senate">
+              <img src="https://if.then.fund/static/branding/logo.png" class="img-responsive" style="margin-bottom: 1em">
+            </a>
+          </div>
+          <div class="col-xs-9">
+            <p>The Senate is expected to vote on repealing the Affordable Care Act &mdash; a.k.a. Obamacare.</p>
+            <p>Want the vote to pass? Or to fail? Use <a href="https://if.then.fund/a/3/repealing-affordable-care-act-senate"><span class="itf-brand">if.then.fund</span></a> to make a campaign contribution to senators that vote the way you want them to.</p>
+            <div style="text-align: center; margin: 1em 0;">
+              <a href="https://if.then.fund/a/3/repealing-affordable-care-act-senate" class="btn btn-success">Take Action &raquo;</a>
+            </div>
+            <p>We won&rsquo;t tell Congress why you are making the contribution, but every contribution from a regular American shifts power away from the rich and powerful who control our elections.</p>
+          </div>
+        </div>
+        <hr>
+        <p><a href="https://if.then.fund/a/3/repealing-affordable-care-act-senate"><span class="itf-brand">if.then.fund</span></a> is a new website that can help you shape the future of Congress from the creators of GovTrack and Democracy Engine.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Piwik -->
+	<script type="text/javascript">
+	  var _paq = _paq || [];
+	  _paq.push(['trackPageView']);
+	  _paq.push(['enableLinkTracking']);
+	  (function() {
+	    var u="//www.govtrack.us/analytics/";
+	    _paq.push(['setTrackerUrl', u+'piwik.php']);
+	    _paq.push(['setSiteId', 1]);
+	    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+	    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+	<noscript><p><img src="//www.govtrack.us/analytics/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+	<!-- End Piwik Code -->
+
+	
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+	<!-- Facebook -->
+	<div id="fb-root"></div>
+	<script>
+	  window.fbAsyncInit = function() {
+		// init the FB JS SDK
+		FB.init({
+		  appId      : '119329904748946', // App ID from the App Dashboard
+		  status     : false, // check the login status upon init?
+		  cookie     : false, // set sessions cookies to allow your server to access the session?
+		  xfbml      : true  // parse XFBML tags on this page?
+		});
+
+		// Additional initialization code such as adding Event Listeners goes here
+		for (var i = 0; i < window.fbAsyncInitFuncs.length; i++) {
+			window.fbAsyncInitFuncs[i]();
+		}
+	  };
+
+	  // Load the SDK's source Asynchronously
+	  // Note that the debug version is being actively developed and might
+	  // contain some type checks that are overly strict.
+	  // Please report such bugs using the bugs tool.
+	  (function(d, debug){
+		 var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+		 if (d.getElementById(id)) {return;}
+		 js = d.createElement('script'); js.id = id; js.async = true;
+		 js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+		 ref.parentNode.insertBefore(js, ref);
+	   }(document, /*debug*/ false));
+	</script>
+
+	
+<script>
+// customization based on user's district
+onUserDistrictChanged(function (cong_dist, mocs) {
+    if (cong_dist) {
+		$.ajax({
+			url: "/congress/members/ajax/homepage_summary?district=" + cong_dist.state + cong_dist.district,
+			success: function(res) {
+				$('#custom-events').show();
+				$('#generic-events').hide();
+
+				var n = $('#custom-events');
+				n.find('h2 span').text("in " + res.state_name + "’s " + (res.district > 0 ? res.district_ordinal : 'At-Large') + " Congressional District");
+				n.find('section').text('');
+
+				for (var i = 0; i < res.reps.length; i++) {
+					var r = $('#custom-events-rep-template').clone();
+					r.find('img').attr('src', res.reps[i].photo)
+					r.find('a').attr('href', res.reps[i].link)
+					r.find('.name').text(res.reps[i].name)
+					r.find('.title').text(res.reps[i].title)
+					n.find('.row').append(r);
+				}
+
+				if (res.events.length > 0) {
+					n.find('section.featured-articles').append($('<p>').text('Your representative' + (res.reps.length == 1 ? ' was' : 's were') + ' involved in the following recent legislative events:'));
+				}
+				for (var i = 0; i < res.events.length; i++) {
+					var e = $("#custom-events-template").clone();
+					e.addClass(res.events[i].type);
+					e.find('.event_type span').text(res.events[i].date);
+					e.find('h4').text(res.events[i].type);
+					e.find('p').text(res.events[i].title);
+					e.find('.event_body_body').html(res.events[i].body_html);
+					e.find('.event_body > a').attr('href', res.events[i].url);
+					n.find('section.featured-articles').append(e);
+				}
+			},
+			failure: function() {
+				$('#custom-events').hide();
+				$('#generic-events').show();
+			}
+		});
+    } else {
+		$('#custom-events').hide();
+		$('#generic-events').show();
+	}
+});
+</script>
+
+
+</body>
+</html>
+
+";i:2;s:4:"8821";}

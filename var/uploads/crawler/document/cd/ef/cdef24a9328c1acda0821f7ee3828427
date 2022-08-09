@@ -1,0 +1,321 @@
+a:3:{i:0;s:23:"http://healthvault.com/";i:1;s:12926:"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+lang="en-GB"
+dir="ltr">
+
+<head><meta http-equiv="Content-Type" content="text/html;&#32;charset=utf-8" />
+    <!-- @Request.Browser.Id -->
+    <link rel="shortcut&#32;icon" href="favicon.ico" type="image/x-icon" />
+    <link type="text/css" rel="Stylesheet" href="https://account.healthvault.co.uk/JS/jquery-ui/jquery-ui-1.8.14.custom.css?v=1.19.1001.10717" />
+
+
+<link rel="stylesheet" href="https://account.healthvault.co.uk/CSS/default.css?v=1.19.1001.10717" type="text/css" />
+<link rel="stylesheet" href="https://account.healthvault.co.uk/CSS/print/default.css?v=1.19.1001.10717" type="text/css" media="print" />
+
+
+    <meta name="robots" content="noindex" />
+
+    <style type="text/css">
+        .top140 {
+            top: 140px;
+        }
+
+        .top0 {
+            top: 0;
+        }
+    </style>
+<title>
+	Status - HealthVault
+</title></head>
+<body id="ctl00_body" class="status_aspx">
+    
+<!--[if IE]><script type="text/javascript" src="https://account.healthvault.co.uk/JS/excanvas.js?v=1.19.1001.10717"></script><![endif]-->
+
+<script type="text/javascript" src="https://account.healthvault.co.uk/JS/jquery-1.8.2.min.js?v=1.19.1001.10717"></script>
+<script type="text/javascript" src="https://account.healthvault.co.uk/JS/knockout-2.3.0.js?v=1.19.1001.10717"></script>
+
+<script type="text/javascript" src="https://account.healthvault.co.uk/JS/jquery.validate.min.js?v=1.19.1001.10717"></script>
+<script type="text/javascript" src="https://account.healthvault.co.uk/JS/jquery.unobtrusive-ajax.min.js?v=1.19.1001.10717"></script>
+<script type="text/javascript" src="https://account.healthvault.co.uk/JS/jquery.validate.unobtrusive.min.js?v=1.19.1001.10717"></script>
+<script type="text/javascript" src="https://account.healthvault.co.uk/JS/jquery-ui/jquery-ui-1.8.14.custom.min.js?v=1.19.1001.10717"></script>
+
+    <script type="text/javascript" src="https://account.healthvault.co.uk/JS/common.js?v=1.19.1001.10717"></script>
+
+
+<script type="text/javascript" src="https://account.healthvault.co.uk/JS/shell.js?v=1.19.1001.10717"></script>
+    
+ <script type="text/javascript">
+     g_contentSizeMessage = "This item contains too much data to display here. To view the item, click Print.";
+     g_errorMessage = "We\u0027ve encountered an unexpected error. Please try again.";
+     g_closeText = "Close";
+     g_imagePath = "/en-GB/imgs/";
+     g_dropdownMenuTitle = "More actions";
+     g_recordPickerArrowTitle = "More record options";
+</script>
+    <script type="text/javascript">
+        var g_dateFormats = new Array();
+        g_dateFormats[0] = "dd MM yy";
+        g_dateFormats[1] = "dd/mm/yy";
+        g_dateFormats[2] = 'yy/m/d';
+        g_dateFormats[3] = 'yy-m-d';
+
+        hv.editor.newUrl = "https://account.healthvault.co.uk/healthinfo/new";
+        hv.editor.editUrl = "https://account.healthvault.co.uk/healthinfo/edit";
+        hv.notificationMessage = "";
+       
+        $.datepicker.regional['en-GB'] = {
+            closeText: 'Close',
+            prevText: 'Back',
+            nextText: 'Next',
+            monthNames: ["January","February","March","April","May","June","July","August","September","October","November","December",""],
+            monthNamesShort: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""],
+            dayNames: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            dayNamesMin: ["Su","Mo","Tu","We","Th","Fr","Sa"],
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false
+            };
+
+        $.datepicker.setDefaults($.datepicker.regional['en-GB']);
+            
+        $(document).ready(function() {
+            if (hv.notificationMessage) {
+                showNotificationBar(hv.notificationMessage);
+            }
+            applyEllipsis();
+            handleHashChange();
+        });
+
+        parseGlobalFloat = function (input) {
+            if (input == null || input == "") {
+                return NaN;
+            }
+
+            var decimalSeparator = ".";
+            if (decimalSeparator == ",") {
+                if (input.indexOf('.') >= 0) {
+                    return NaN;
+                }
+                input = input.toString().replace(/,/, ".");
+            } else {
+                if (input.indexOf(',') >= 0) {
+                    return NaN;
+                }
+            }
+
+            // we want strict behavior, not what normal parseFloat does
+            return +input;
+        };
+        
+        globalFloatToString = function (input) {
+            if (input == null) {
+                return null;
+            }
+
+            var decimalSeparator = ".";
+            if (decimalSeparator == ",") {
+                return input.toString().replace(/\./, ",");
+            }
+            else {
+                return input.toString();
+            }
+        };
+            
+        var formContainer;
+        $(this).editorOpened(function (event, result) {
+            $("#editorContainer").html(result).removeClass("hide");
+            formContainer = $("#formContainer").detach();
+        });
+
+        $(this).editorClosed(function (event, result) {
+            hashManager.load();
+            hashManager.removeKey("edit");
+            $("#editorContainer").empty().addClass("hide");
+            if (formContainer) {
+                $("#editorContainer").before(formContainer);
+                formContainer = null;
+            } 
+            if (result) {
+                window.location.reload(true);
+            }               
+        });
+            
+        function handleHashChange() {
+            hashManager.load();
+            if (hashManager.keyExists("edit")) {
+                var editArray = hashManager.getKey("edit").split("/");
+                if (editArray.length == 2) {
+                    hv.editor.launch(editArray[0], editArray[1]);
+                } else {
+                    hv.editor.launch(editArray[0], editArray[1], editArray[2]);
+                }
+            } else {
+                closeEditorBoxHandler(hv.editor.addAnother);
+            }  
+        }
+            
+        window.onhashchange = handleHashChange;
+    </script>
+    <div class="appPageContainer">
+        <a id="skip" href="#MainContent" tabindex="-1">Skip to main content</a>
+        
+        <div class="newPageHeader">
+            
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var menu = $("#headerProfileMenu");
+        var addMenu = $("#headerAddMenu");
+        var profileMenuLink = $("#headerProfileMenuLink");
+        var addMenuLink = $("#headerAddMenuLink");
+
+        profileMenuLink.click(function (event) {
+            event.stopPropagation();
+            menu.toggleClass("hide");
+            addMenu.addClass("hide");
+            profileMenuLink.toggleClass("headerProfileMenuOpen");
+            $(document).one("click", function () {
+                menu.addClass("hide");
+                profileMenuLink.removeClass("headerProfileMenuOpen");
+            });
+        });
+
+        addMenuLink.click(function (event) {
+            event.stopPropagation();
+            addMenu.toggleClass("hide");
+            menu.addClass("hide");
+            addMenuLink.toggleClass("headerAddMenuOpen");
+            $(document).one("click", function () {
+                addMenu.addClass("hide");
+                addMenuLink.removeClass("headerAddMenuOpen");
+            });
+        });
+
+        $(".menuEditorLink").click(function () {
+            addMenu.toggleClass("hide");
+            addMenuLink.removeClass("headerAddMenuOpen");
+        });
+
+        $(".oldeditor").each(function () {
+            var title = $(this).data("editor-title");
+            var edmondtonLightBox = createLightbox({ header: title, content: $(this).attr("href") });
+            $(this).click(function (event) {
+                event.preventDefault();
+                edmondtonLightBox.show(this);
+            });
+        });
+    })
+</script>
+
+<div class="header">
+    <a href="/" class="noBorder logoLink" title="HealthVault">
+        <img class="logo" alt="HealthVault" src="/images/logos/HealthVaultLogo.png" />
+    </a>
+    
+    <div class="links">
+        
+        <a id="signUpOrIn" href="https://account.healthvault.co.uk/">
+            Sign up or sign in
+            <img alt="Sign in" src="/images/icons/signInArrow_white.png" class="signInArrow" />
+        </a>
+        
+        <a id="showhelp" target="_blank" href="https://account.healthvault.co.uk/help/en-GB/default.htm" title="Help">
+            <img alt="Help" src="/images/icons/icon_Help.png" class="helpIcon" />
+        </a>
+        
+    </div>
+</div>
+<div id="headerProfileMenu" class="hide">
+    <div class="menuItem">
+        <a id="editsettings" href="https://account.healthvault.co.uk/account">
+            Account settings
+        </a>
+    </div>
+    <div class="menuItem">
+        
+    </div>
+</div>
+
+        </div>
+        
+        <div class="newMainContainer">
+            
+            <div id="ctl00_mainContent" class="newRightContent&#32;rightContentWithoutNavigation">
+                
+
+<div id="divNoScriptWarning" class="ctlNoScriptWarning">
+    <span id="ctl00_shellNoScriptWarning_lblDescription">The HealthVault website uses scripting to display its pages. You must enable scripting in your browser. See your browser's Help for information about enabling scripting.</span>
+</div>
+
+<script type="text/javascript">
+    document.getElementById('divNoScriptWarning').style.display = "none";
+</script>
+                <div id="browserWarning" class="alertBox">
+                    Note: HealthVault does not support Internet Explorer 6 or earlier. To get the best experience using HealthVault, we recommend that you upgrade to a newer version of <a href="http://go.microsoft.com/fwlink/?LinkID=223629" target="_blank">Internet Explorer</a>.
+                </div>
+                <div id="mainContentContainer" class="mainContentContainer">
+                    <div id="formContainer" class="renderBodyContainerNoNav">
+                        <div class="renderBodyContainerContent">
+                            
+    <script type="text/javascript">
+        // this page should never show up inside an iframe
+        if (top.location != self.location) {
+            top.location = "https://account.healthvault.co.uk:443/status.aspx?code=CookiesDisabled";
+        }
+    </script>
+    <h1 id="ctl00_cphMainBody_genHeading">Your browser does not have cookies enabled.</h1>
+    <span id="ctl00_cphMainBody_lblDescription">Please enable cookies in your browser and try again. See your browser's Help for information about enabling cookies.</span>
+    <br />
+    <br />
+    <a href="https://account.healthvault.co.uk/" id="ctl00_cphMainBody_lnkReturn" class="button">HealthVault home</a>
+    
+    <div class="cmnFooterPadding"></div>
+
+                        </div>
+                    </div>
+                    <div id="editorContainer" class="hide editorContainer"></div>
+                </div>
+                
+                <div class="newPageFooter">
+                    
+
+<div class="footer">
+    <div class="linkContainer">
+        <div class="left links">
+            © 2015 Microsoft
+        </div>
+        
+            <a class="left links" id="showhelpfooter" target="_blank" href="https://account.healthvault.co.uk/help/en-GB/default.htm">
+                Help</a>
+        
+            <a class="left links" href="https://www.healthvault.com/feedback/?culture=en-GB" target="_blank">
+                Feedback</a>
+         
+            <a class="left links" href="https://account.healthvault.co.uk/help.aspx?topicid=PrivacyPolicy&culture=en-GB" target="_blank">
+                Privacy & Cookies</a>
+        
+            <a class="left links" href="https://account.healthvault.co.uk/help.aspx?topicid=ServiceAgreement&culture=en-GB" target="_blank">
+                Legal</a>
+        
+            <a class="left links" href="https://account.healthvault.co.uk:443/?mobile=true">
+                Mobile site</a>
+        
+            <a class="left links" href="https://account.healthvault.co.uk/help.aspx?topicid=CodeofConduct&culture=en-GB" target="_blank">
+                Code of Conduct</a>
+        
+            <a class="left links" href="http://msdn.microsoft.com/healthvault" target="_blank">Developers</a>
+        
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+";i:2;s:4:"7864";}

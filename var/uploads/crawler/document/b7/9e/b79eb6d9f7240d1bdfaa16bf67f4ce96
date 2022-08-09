@@ -1,0 +1,480 @@
+a:3:{i:0;s:29:"http://quickrecipesearch.com/";i:1;s:15329:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Quick Recipe Search</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- BEGIN INSTALL JS/CSS -->
+<link type="text/css" rel="stylesheet" href="http://download.totalrecipesearch.com/install_css.jhtml?v=3" />
+<script src="jquery-1.2.6.pack.js"></script>
+<script type="text/javascript">
+	String.prototype.startsWith = function(str){
+		return (this.indexOf(str) === 0);
+	}
+
+	var sDefaultPID = "YKxdm224";
+	var pID = getParam(window.location.href, 'partner');	
+	if (pID == '')
+		pID = sDefaultPID;		
+
+	function getParam(url, name ){
+	  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+	  var regexS = "[\\?&]"+name+"=([^&#]*)";
+	  var regex = new RegExp( regexS );
+	  var results = regex.exec(url);
+	  if( results == null )
+		return "";
+	  else
+		return results[1];
+	}
+	$(document).ready(function(){
+		$.getScript('http://download.totalrecipesearch.com/install_js.jhtml?v=3&userType=internal&product=totalrecipesearch&partner='+pID);
+		if (navigator.userAgent.toLowerCase().indexOf("chrome") > -1) {
+			$("#installsOnImage").addClass("chromeIcon");
+		} else if (!(navigator.userAgent.toLowerCase().indexOf("firefox") > -1 || navigator.userAgent.toLowerCase().indexOf("msie") > -1)) {
+			$("#installsOnImage").css("display","none");
+		}		
+	});
+	
+	//AC_OETags minified START
+	var isIE=(navigator.appVersion.indexOf("MSIE")!=-1)?true:false;var isWin=(navigator.appVersion.toLowerCase().indexOf("win")!=-1)?true:false;var isOpera=(navigator.userAgent.indexOf("Opera")!=-1)?true:false;var currentFlashVersion=0;function ControlVersion()
+	{var version;var axo;var e;try{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");version=axo.GetVariable("$version");}catch(e){}
+	if(!version)
+	{try{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");version="WIN 6,0,21,0";axo.AllowScriptAccess="always";version=axo.GetVariable("$version");}catch(e){}}
+	if(!version)
+	{try{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");version=axo.GetVariable("$version");}catch(e){}}
+	if(!version)
+	{try{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");version="WIN 3,0,18,0";}catch(e){}}
+	if(!version)
+	{try{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash");version="WIN 2,0,0,11";}catch(e){version=-1;}}
+	return version;}
+	function AC_AddExtension(src,ext)
+	{if(src.indexOf('?')!=-1)
+	return src.replace(/\?/,ext+'?');else
+	return src+ext;}
+	function AC_Generateobj(objAttrs,params,embedAttrs)
+	{var str='';if(isIE&&isWin&&!isOpera)
+	{str+='<object ';for(var i in objAttrs)
+	str+=i+'="'+objAttrs[i]+'" ';str+='>';for(var i in params)
+	str+='<param name="'+i+'" value="'+params[i]+'" /> ';str+='</object>';}else{str+='<embed ';for(var i in embedAttrs)
+	str+=i+'="'+embedAttrs[i]+'" ';str+='> </embed>';}
+	return str;}
+	function AC_FL_RunContent(){var ret=AC_GetArgs
+	(arguments,".swf","movie","clsid:d27cdb6e-ae6d-11cf-96b8-444553540000","application/x-shockwave-flash");return AC_Generateobj(ret.objAttrs,ret.params,ret.embedAttrs);}
+	function AC_SW_RunContent(){var ret=AC_GetArgs
+	(arguments,".dcr","SRC","clsid:166b1bca-3f9c-11cf-8075-444553540000","application/x-director");return AC_Generateobj(ret.objAttrs,ret.params,ret.embedAttrs);}
+	function AC_GetArgs(args,ext,srcParamName,classid,mimeType){var ret=new Object();ret.embedAttrs=new Object();ret.params=new Object();ret.objAttrs=new Object();for(var i=0;i<args.length;i=i+2){var currArg=args[i].toLowerCase();switch(currArg){case"classid":break;case"pluginspage":ret.embedAttrs[args[i]]=args[i+1];break;case"src":case"movie":args[i+1]=AC_AddExtension(args[i+1],ext);ret.embedAttrs["src"]=args[i+1];ret.params[srcParamName]=args[i+1];break;case"onafterupdate":case"onbeforeupdate":case"onblur":case"oncellchange":case"onclick":case"ondblClick":case"ondrag":case"ondragend":case"ondragenter":case"ondragleave":case"ondragover":case"ondrop":case"onfinish":case"onfocus":case"onhelp":case"onmousedown":case"onmouseup":case"onmouseover":case"onmousemove":case"onmouseout":case"onkeypress":case"onkeydown":case"onkeyup":case"onload":case"onlosecapture":case"onpropertychange":case"onreadystatechange":case"onrowsdelete":case"onrowenter":case"onrowexit":case"onrowsinserted":case"onstart":case"onscroll":case"onbeforeeditfocus":case"onactivate":case"onbeforedeactivate":case"ondeactivate":case"type":case"codebase":ret.objAttrs[args[i]]=args[i+1];break;case"id":case"width":case"height":case"align":case"vspace":case"hspace":case"class":case"title":case"accesskey":case"name":case"tabindex":ret.embedAttrs[args[i]]=ret.objAttrs[args[i]]=args[i+1];break;default:ret.embedAttrs[args[i]]=ret.params[args[i]]=args[i+1];}}
+	ret.objAttrs["classid"]=classid;if(mimeType)ret.embedAttrs["type"]=mimeType;return ret;}
+	//AC_OETags min END
+	
+	function generateFlash(_id, _url, _opts){
+		var a_height = (_opts==null || _opts.height == null) ? "100%" : _opts.height;
+		var a_width = (_opts==null || _opts.width == null) ? "100%" : _opts.width;
+		
+		var sWmode="opaque";
+		if(null!=_opts && _opts.wmode){
+			sWmode=_opts.wmode;
+		}
+		if(_url.indexOf(".swf")!=-1){
+			_url=_url.replace(".swf","");
+		}
+		var ss=AC_FL_RunContent(
+		        "src", _url,
+		        "FlashVars", window.location.search.substring(1),
+		        "width", a_width,
+		        "height", a_height,
+		        "id", _id,
+		        "name", _id,
+		        "align", "middle",
+		        "quality", "high",
+		        "allowScriptAccess","always",
+		        "type", "application/x-shockwave-flash",
+		        "pluginspage", "http://www.adobe.com/go/getflashplayer",
+		        "wmode", sWmode
+		    );
+		
+	    if(null!=_opts && _opts.nowrite){
+	    	return ss;
+	    }else{
+	    	document.write(ss);
+	    }
+	}
+</script>
+<style type="text/css">
+	/* General */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font: 12px Arial, Helvetica, sans-serif;
+}
+
+#coordAnchor {
+	position:relative;
+	width:750px;
+	margin:0px auto;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
+.clear {
+    clear: both;
+    float: none;
+}
+
+.right {
+    width: 340px;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.left {
+    width: 400px;
+    text-align: right;
+}
+
+.brand {
+    color: #0072bb;
+    text-decoration: none;
+}
+
+sup {
+    font-size: 9px;
+}
+
+/* DSP Elements */
+
+#contentContainer {
+	position: relative;
+    width: 792px;
+    height: 618px;
+    margin: 0 auto;
+	overflow: hidden;
+	clear:both;
+}
+
+.textClass {
+	font-size: 15px;
+}
+
+.assetClass {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.buttonClass {
+	position: absolute;
+}
+
+#sSEMText {
+    margin-top: 10px;
+    overflow-x: hidden;
+	clear:both;
+	text-align:center;
+}
+
+#bullets {
+	position: absolute;
+	top: 230px;			/* sBulletsTopCoord */
+	left: 380px;		/* sBulletsLeftCoord */
+}
+
+#bullets ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+#bullets li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#footer {
+	position:absolute;
+	top:500px; 			/* sFooterTopCoord */
+	left:0px;			/* sFooterLeftCoord */
+	margin:0px auto;
+	width:100%;
+    padding-top: 25px;
+    color: #000;		/* FooterColorColor */
+    text-align: center; /* sFooterTextAlign */
+    padding-bottom: 15px;
+    font: 12px Arial, Helvetica, sans-serif;
+}
+
+#footer a {
+    text-decoration: underline;
+    color: #000;
+    padding: 2px;
+}
+
+/* Ancillary Template */
+
+#content_header, .textHeaderClass {
+    font-weight: bold;
+    font-size: 20px;
+	margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+/* RUN RUN Template */
+
+#main_rr {
+    position: relative;
+    overflow: hidden;
+    clear: both;
+    margin: 0 auto;
+    width: 750px;
+    height: 500px;
+    background-color: transparent;
+}
+
+.hotzoneDiv {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    background-color: #ccc;
+    width: 0px;
+    height: 0px;
+    filter: alpha(opacity = 50);
+    opacity: .5;
+    display: none;
+    cursor: pointer;
+    cursor: hand;
+    border: 1px dotted #000;
+}
+	
+		</style>
+	
+	<style type="text/css">
+		/* DSP Elements */
+
+		/* Background */
+		body {
+						background-image: url(http://ak.imgfarm.com/images/vicinio/dsp-images/jason.pepping/background/1340047345153.jpg);
+									background-repeat: repeat-x;
+									background-color: #DFD6CA;
+									background-position: top left;
+					}
+
+		/* Page Background */
+		#coordAnchor {
+						width: 1200px;
+					}
+
+		#contentContainer {
+						background-image: url(http://ak.imgfarm.com/images/vicinio/dsp-images/jason.pepping/background999/1340047961351.png);
+									background-repeat: no-repeat;
+									background-position: top center;
+												width: 1200px;
+									height: 1000px;
+					}
+
+		/* Text */
+		            
+            		            
+            		            
+            		            
+            		            
+            		            
+            		
+		/* Checkbox Text */
+		            
+            		            
+            		            
+            		            
+            		            
+            		            
+            		
+		/* Asset */
+								
+			#asset1 {
+								width: 480px;
+												height: 350px;
+												top: 152px;
+												left: 143px;
+							}
+							
+			#asset2 {
+								width: 254px;
+												height: 71px;
+												top: 400px;
+												left: 700px;
+							}
+							
+			#asset3 {
+								width: 1200px;
+												height: 1000px;
+												top: 0px;
+												left: 0px;
+							}
+													
+		/* Button */
+																										
+																																
+		/* Bullet */
+		#bullets {
+						top: 250px;
+									left: 650px;
+					}
+
+		#bullets, #bullets a {
+									color: #FFFFFF;
+									font-family: Arial;
+									font-size: 16px;
+					}
+
+		#bullets li {
+						list-style-type: disc;
+									font-weight: normal;
+									font-style: normal;
+									text-decoration: normal;
+								}
+
+		/* Text Coords */
+		#TextCoords {
+																			font-family: Arial;
+										font-size: 8px;
+										font-weight: normal;
+													text-decoration: normal;
+			            		}
+
+		/* Html Coords */
+		#Html1Coords {
+								}
+
+		/* Footer SEM-SEO */
+		#footer {
+						top: 900px;
+								}
+
+		#footer, #footer a {
+						font-family: Arial;
+			            
+						color: #1F1F1F;
+					}
+
+		#sSEMText{
+						font-family: Arial;
+									color: #1F1F1F;
+			            		}
+
+				#main_rr{
+							background-image: url(http://ak.imgfarm.com/images/vicinio/dsp-images/jason.pepping/background999/1340047961351.png);
+										background-repeat: no-repeat;
+													background-position: top center;
+										width: 1200px;
+										height: 1000px;
+					}
+
+			#hotzoneDiv_main {
+				display:block;
+				width: 254px;
+				height: 67px;
+				top: 400px;
+				left: 700px;
+				background-color: #fff;
+				z-index: 1000;
+			}
+			#hotzoneDiv_main, #hotzoneDiv_asset1, #hotzoneDiv_asset2{
+				border: none;
+				opacity: 0;
+				filter: alpha(opacity=0);
+			}
+		#toolbarImage {
+			width: 100%;
+			text-align: center;
+			clear: both;
+			position: absolute;
+			top: 845px;
+			left: 0px;
+		}	
+		#installsOnImage {
+			background: transparent url(http://ak.imgfarm.com/images/download/global/cw_dark_bg.png) no-repeat top center;
+			width: 90px;
+			height: 80px;
+			display: block;
+			position: absolute;
+			right: 155px;
+			top: 395px;
+		}		
+		#installsOnImage.chromeIcon {
+			background: transparent url(http://ak.imgfarm.com/images/download/global/pba_dark_bg.png) no-repeat top center;
+			top: 110px;
+			left: 550px;
+		}
+#asset4 {
+width: 800px;
+height: 70px;
+clear: both;
+			position: absolute;
+			top: 845px;
+			left: 200px;
+}
+#Asset4Text {
+position: absolute;
+top: 46px;
+left: 75px;
+color: #000;
+font-family: Verdana;
+font-size: 12px;
+font-weight: bold;
+font-style: normal;
+text-decoration: none;
+text-align: center;
+}		
+	</style>
+</head>
+<body>
+	<div id="coordAnchor">
+		<div id="main_rr">
+			<div id="asset1" class="assetClass">
+				<script type="text/javascript">
+					generateFlash("asset1swf","http://ak.imgfarm.com/images/vicinio/dsp-images/jason.pepping/asset1/1340047470883.swf",{ width:480,  height:350, allowScriptAccess:"never",allowNetworking:"internal",wmode:"transparent"});
+			    </script>
+				<div id="hotzoneDiv_asset1" class="hotzoneDiv" onclick="installToolbar();">&nbsp;</div>
+			</div>
+			<div id="asset2" class="assetClass">
+	    		<img id="asset2Image" src="http://ak.imgfarm.com/images/vicinio/dsp-images/jason.pepping/asset2/1340048105449.gif"  width="254"  height="71" />
+				<div id="hotzoneDiv_asset2" class="hotzoneDiv" onclick="installToolbar();">&nbsp;</div>
+			</div>
+			<div id="asset3" class="assetClass">
+		    	<img id="asset3Image" src="http://ak.imgfarm.com/images/download/totalrecipesearch/quickrecipesearch/logo_header_1200x1000.png"  width="1200"  height="1000" />
+   			</div>
+			<div id="installsOnImage"></div>				
+			<div id="bullets" class="bullets_rr">
+				<ul>
+					<li>One-click access to delicious dishes for <br />breakfast, lunch, dinner, and dessert!</li>				<li>Continuously updated with fresh meal ideas<br />at your fingertips!</li>				<li>No registration required! It&rsquo;s totally free!</li>			
+				</ul>
+			</div>	
+			<div id="hotzoneDiv_main" class="hotzoneDiv" onclick="installToolbar();">&nbsp;</div>
+		</div>
+<DIV style="BACKGROUND-IMAGE: url(http://ak.imgfarm.com/images/vicinio/dsp-images/jason.pepping/asset3/1353093489654.png)" id=asset4 class=assetClass><DIV id=Asset4Text class=assetClass>The TotalRecipeSearch toolbar offers convenient web search, homepage, and default search. <A href="http://eula.mindspark.com/ask/uninstall/" target=_blank>More info.</A> </DIV></DIV>
+		<div id="footer">
+			<a id="HelpLink" href="http://support.mindspark.com/" target="blank">Help & Feedback</a> | 
+			<a id="PoliciesLink" href="http://eula.mindspark.com/ask/pp.html" target="blank">Policies </a> |		 
+			<a id="HiringLink" href="http://www.mindspark.com/careers" target="blank">We're Hiring</a> | 
+			<a id="UninstallLink" href="http://support.mindspark.com/link/portal/30028/30031/Article/222/Uninstalling-Mindspark-toolbar" target="blank">Uninstall</a> | 
+			<a id="ContactLink" href="http://support.mindspark.com/ics/support/ticketnewwizard.asp?style=classic" target="blank">Contact Us</a>
+			<br/>
+			&trade;, &reg; + &copy; <script>document.write((new Date()).getFullYear());</script> Mindspark Interactive Network, Inc. All rights reserved. An IAC Company.
+			<br/>
+			Mindspark Interactive Network, Inc. is the source of the Total Recipe Search application. <br/>
+			Any third party products, brands or trademarks listed above are the sole property of their respective owner.
+			<br/>
+			No affiliation or endorsement is intended or implied.
+			<br/>
+			<div id="sSEMText"></div>
+		</div>
+	</div>
+</body>
+</html>";i:2;s:4:"7293";}

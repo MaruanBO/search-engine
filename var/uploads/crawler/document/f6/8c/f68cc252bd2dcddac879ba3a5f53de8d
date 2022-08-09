@@ -1,0 +1,568 @@
+a:3:{i:0;s:34:"http://libertyellisfoundation.org/";i:1;s:47120:"<!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgYBVldaGwcJVVNRDwk="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:18,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:18,2:19,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:19,2:18,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:19,2:18,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:19,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){p.proto="https"===d.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=p.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=window,c=s.document,u="addEventListener",f="attachEvent",d=(""+location).split("?")[0],p=e.exports={offset:i(),origin:d,features:{}};c[u]?(c[u]("DOMContentLoaded",o,!1),s[u]("load",n,!1)):(c[f]("onreadystatechange",r),s[f]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}],18:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],19:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:18,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+
+        <title>The Statue of Liberty &amp; Ellis Island</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="p:domain_ain_verify" content="b5dd844bd5db0a2b25715e8013df4ae7">        <!-- styles -->
+        <link href="http://libertyellisfoundation.org/css/menu-css.css?v=61" media="screen" rel="stylesheet" type="text/css">
+<link href="http://libertyellisfoundation.org/css/scroll.css?v=61" media="screen" rel="stylesheet" type="text/css">
+<link href="http://libertyellisfoundation.org/css/select2-front.css?v=61" media="screen" rel="stylesheet" type="text/css">
+<link href="http://libertyellisfoundation.org/css/autosuggest.search.css?v=61" media="screen" rel="stylesheet" type="text/css">
+<link href="http://libertyellisfoundation.org/css/web-colorbox.css?v=61" media="screen" rel="stylesheet" type="text/css">
+<link href="http://libertyellisfoundation.org/css/jquery-ui.css?v=61" media="screen" rel="stylesheet" type="text/css">
+<link href="http://libertyellisfoundation.org/css/screen.css?v=61" media="screen" rel="stylesheet" type="text/css">
+<link href="http://libertyellisfoundation.org/images/solief-favicon.ico" rel="shortcut icon" type="image/solief-favicon.ico"><script type="text/javascript" src="http://libertyellisfoundation.org/js/jquery-1.9.0.min.js?v=61"></script>
+<script type="text/javascript" src="http://libertyellisfoundation.org/js/web-common.js?v=61"></script>
+<script type="text/javascript" src="http://libertyellisfoundation.org/js/jquery.validate.min.js?v=61"></script>        <script>
+        </script>
+        <script type="text/javascript">
+            WebFontConfig = {
+                google: { families: [ 'Source+Sans+Pro::latin', 'Oswald::latin' ] }
+            };
+            (function() {
+                var wf = document.createElement('script');
+                wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+            })(); 
+        </script>
+                <script type="text/text/javascript">
+var united_state_country_id='228';var domestic_pb_id='1';var apo_po_pb_id='2';var internation_pb_id='3';var internation_less_than_lbs_id='8';var internation_greater_than_lbs_id='7';        </script>
+    </head>
+    <body class="front">
+        <script>
+var SITE_URL = 'http://libertyellisfoundation.org';
+</script>
+<div class="outer-header">
+    <header class="header container">
+        <div class="page-top">
+            <div class="announcement"> 
+                                
+            </div>
+            <div class="links">
+                <div id="hidden-login-popup" onclick="loginPopup();"></div>
+                <span id="welcome-div">
+                    <a href="javascript:void(0);" onclick="signupPopup();">Be a part of history - Register now!</a> 
+                        <a id="login-popup" href="javascript:void(0);" onClick="checkUserLogin('0');">Login</a>                    
+                                    </div>
+
+            
+            <div class="cart-items" id="cart-details-div">
+                <span class="items" id="items_tot_count">0</span>
+                            </div>
+
+        </div>
+        <a class="logo" href="http://libertyellisfoundation.org">SOLEIF</a> 
+
+        <div class="float-right">
+
+
+                            <a id="passSearchHomePage" class="button passSearch">Passenger Search</a>
+                
+                
+                   
+                        
+            <a href="http://libertyellisfoundation.org/donate" class="donate">
+            <span class="callout">Donate now!</span></a>
+
+
+
+    </header>
+    <div style='display:none'>
+        <div id='deletecart' class="pop-container comfirm-alert-popup">
+            <a href="javascript:void(0);" class="pop_close_btn"></a> <a class="pop_show_btn" href="javascript:void(0);"></a>
+            <h2 class="no-margin">Are you sure you want to remove product from cart?</h2>
+            <p style="display:none;" id="delete_cart_woh" class="no-margin">(Note: If you remove this Wall Of Honor then associated Duplicate Certificate will also be removed)</p>
+            <div class="button-row" style="width:150px !important">
+                <div class="">
+                    <input type="button" value="Yes" name="yes" id="yes_delete_cart" class="button semibold">
+                    <input type="button" value="No" name="no" id="no_delete_cart" class="button semibold">
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div style='display:none'>
+							
+                                
+        <div id='addedToCart' class="inner-popup-detail">
+            <h1>Add To Cart</h1>
+            <p>Item has been added to your cart.</p>
+            <input type="button" value="Continue" name="close" class="button green semibold" id="hide_add_to_card" onclick="javascript:$.colorbox.close();">
+            
+                       <input type="button" value="Checkout" name="checkout" class="button semibold" id="CHECKOUT_BUTTON2" onClick="checkUserLogin('czo0MzoiaHR0cHM6Ly9saWJlcnR5ZWxsaXNmb3VuZGF0aW9uLm9yZy9jaGVja291dCI7');">
+                  </div>
+    </div>        
+    <div style='display:none'>
+        <div id='addedToWishlist' class="inner-popup-detail">
+            <h1>Add To Wishlist</h1>
+            <p>Record has been added to your wishlist.</p>
+            <input type="button" value="Continue shopping" name="close" class="button green semibold" id="hide_add_to_card" onclick="javascript:$.colorbox.close();">
+        </div>
+    </div>                <script>
+//    jQuery(document).ready(function($) {
+//        // Please note that autoHeight option has some conflicts with options like imageScaleMode, imageAlignCenter and autoScaleSlider
+//        // it's recommended to disable them when using autoHeight module
+//        $('#content-slider-1').royalSlider({
+//            autoHeight: true,
+//            arrowsNav: false,
+//            fadeinLoadedSlide: false,
+//            controlNavigationSpacing: 0,
+//            controlNavigation: 'tabs',
+//            imageScaleMode: 'none',
+//            imageAlignCenter:false,
+//            loop: true,
+//            loopRewind: true,
+//            numImagesToPreload: 6,
+//            keyboardNavEnabled: true,
+//            usePreloader: false,
+//            arrowsNav : true,
+//            autoScaleSlider: false,
+//            autoPlay: {
+//                // autoplay options go gere
+//                enabled: true,
+//                pauseOnHover: true,
+//                delay: 4000
+//            }
+//        });
+//        
+//    });
+	/*
+    function setNavigationWidth(){
+        $(".menu >li").each(function(){
+            var colLength = $(this).find('.col-left').length;
+            if(colLength >= 2){
+                $(this).find('.drop-down').css({width:650});
+            }
+        });
+    }
+    $(function(){
+        setNavigationWidth();
+    });*/
+</script>
+
+<nav class="adown">
+            <ul class="menu">
+                            <li class="expanded">
+                                            <a href="javascript:void(0);">About<small></small></a>
+                                                <ul>
+                            <div class="drop-down">						
+                                <div class="col-left"><ul><li><a href="http://libertyellisfoundation.org/about-the-foundation">About The Foundation</a></li><li><a href="http://libertyellisfoundation.org/governance">Governance</a></li><li><a href="http://libertyellisfoundation.org/Major-Donors">Major Donors</a></li><li><a href="http://libertyellisfoundation.org/projects">Projects</a></li><li><a href="http://libertyellisfoundation.org/member-benefit">Membership</a></li><li><a href="http://libertyellisfoundation.org/the-board-of-directors">Board Of Directors</a></li><li><a href="http://libertyellisfoundation.org/press">In The News</a></li><li><a href="http://libertyellisfoundation.org/faq">FAQ</a></li><li><a href="http://libertyellisfoundation.org/contact-us">Contact Us</a></li>							
+                            </div> 
+                        </ul>
+                              </li>
+                                <li class="expanded">
+                                            <a href="javascript:void(0);">Honor Your Family<small></small></a>
+                                                <ul>
+                            <div class="drop-down">						
+                                <div class='full'><div class="col-left"><span class="head">Wall Of Honor</span><ul><li><a href="http://libertyellisfoundation.org/about-the-wall-of-honor">About The Wall</a></li><li><a href="http://libertyellisfoundation.org/add-woh">Add a Name</a></li><li><a href="http://libertyellisfoundation.org/search-woh">Search Wall</a></li></ul></div></div><div class='full'><div class="col-left"><span class="head">Flag Of Faces</span><ul><li><a href="http://libertyellisfoundation.org/about-the-flag-of-faces">About The Flag</a></li><li><a href="http://libertyellisfoundation.org/add-fof-image">Add Your Photo</a></li><li><a href="http://libertyellisfoundation.org/search-fof">Search The Flag</a></li></ul></div></div><div class='full'><div class="col-left"><span class="head">Family History</span><ul><li><a href="http://libertyellisfoundation.org/family-histories">View Stories</a></li></ul></div></div>							
+                            </div> 
+                        </ul>
+                              </li>
+                                <li class="expanded">
+                                            <a href="javascript:void(0);">Statue of Liberty<small></small></a>
+                                                <ul>
+                            <div class="drop-down">						
+                                <div class='full'><div class="col-left"><span class="head">Essentials</span><ul><li><a href="http://libertyellisfoundation.org/about-the-statue-of-liberty">About The Statue</a></li><li><a href="http://libertyellisfoundation.org/photo-gallery">Statue Gallery</a></li><li><a href="http://libertyellisfoundation.org/statue-history">Statue History</a></li><li><a href="http://libertyellisfoundation.org/statue-of-liberty-timeline">Statue Timeline</a></li></ul></div></div><div class='full'><div class="col-left"><span class="head">Learn More</span><ul><li><a href="http://libertyellisfoundation.org/stamps-coins">Stamps & Coins</a></li><li><a href="http://libertyellisfoundation.org/statue-facts">Statue Facts</a></li><li><a href="http://libertyellisfoundation.org/the-new-colossus">The New Colossus</a></li><li><a href="http://libertyellisfoundation.org/torchcam">Torch Cam</a></li></ul></div></div>							
+                            </div> 
+                        </ul>
+                              </li>
+                                <li class="expanded">
+                                            <a href="javascript:void(0);">Ellis Island<small></small></a>
+                                                <ul>
+                            <div class="drop-down">						
+                                <div class='full'><div class="col-left"><span class="head">Essentials</span><ul><li><a href="http://libertyellisfoundation.org/photo-albums">Ellis Island Gallery</a></li><li><a href="http://libertyellisfoundation.org/immigration-museum">Immigration Museum</a></li><li><a href="http://libertyellisfoundation.org/peopling-of-america-center">Peopling Center</a></li><li><a href="http://libertyellisfoundation.org/family-history-center">Family History Center</a></li><li><a href="http://libertyellisfoundation.org/ellis-island-history">Ellis Island History</a></li><li><a href="http://libertyellisfoundation.org/about-the-ellis-island">About The Island</a></li><li><a href="http://libertyellisfoundation.org/ellis-timeline">Ellis Timeline </a></li><li><a href="http://libertyellisfoundation.org/about-the-wall-of-honor">About The Wall</a></li></ul></div></div><div class='full'><div class="col-left"><span class="head">Learn More</span><ul><li><a href="http://libertyellisfoundation.org/genealogy">Genealogy Tips</a></li><li><a href="http://libertyellisfoundation.org/immigration-timeline">Immigration Timeline</a></li><li><a href="http://libertyellisfoundation.org/quizzes">Quizzes</a></li><li><a href="http://libertyellisfoundation.org/oral-histories">Oral Histories</a></li><li><a href="http://libertyellisfoundation.org/annie-moore">Annie Moore</a></li></ul></div></div><div class='full'><div class="col-left"><span class="head">Search Ellis</span><ul><li><a href="http://libertyellisfoundation.org/passenger">Passenger Search</a></li><li><a href="http://libertyellisfoundation.org/famous-passengers">Famous Passengers</a></li><li><a href="http://libertyellisfoundation.org/ship">Ship Search</a></li></ul></div></div>							
+                            </div> 
+                        </ul>
+                              </li>
+                                <li class="expanded">
+                                            <a href="javascript:void(0);">Heritage Awards<small></small></a>
+                                                <ul>
+                            <div class="drop-down">						
+                                <div class="col-left"><ul><li><a href="http://libertyellisfoundation.org/about-heritage-award">About Heritage Awards</a></li><li><a href="http://libertyellisfoundation.org/heritage-awards">Heritage Awards</a></li>							
+                            </div> 
+                        </ul>
+                              </li>
+                                <li class="expanded">
+                                            <a href="javascript:void(0);">Plan Your Visit<small></small></a>
+                                                <ul>
+                            <div class="drop-down">						
+                                <div class="col-left"><ul><li><a href="http://libertyellisfoundation.org/ferry-tickets">Getting Tickets</a></li><li><a href="http://libertyellisfoundation.org/visiting-ellis-island">Visiting Ellis Island</a></li><li><a href="http://libertyellisfoundation.org/visiting-liberty-island">Visiting Liberty Island</a></li><li><a href="http://libertyellisfoundation.org/contact-us">Contact Us</a></li>							
+                            </div> 
+                        </ul>
+                              </li>
+                                <li class="leaf">
+                                            <a href="http://libertyellisfoundation.org/shop">Shop<small></small></a>
+                              </li>
+                        </ul>
+    </nav>
+</div>		
+        <div id="content-slider-1" class="royalSlider contentSlider rsDefault" style="width:100%; margin:0px auto; ">
+                    <div class="sliderImage alignCenter"><img src="http://assets.libertyellisfoundation.org/homeslider/BX78GKX9-BKJ3-MLBJI34DLNY5.jpg" alt="">
+                    <section class="slider-content ">
+                        <h1>Welcome to our New Site!</h1>
+                        <p>Our website is still in Beta, so we are continually making improvements.</p>
+                                                    <a href="http://libertyellisfoundation.org/beta"  class="button outline">Read more</a> 
+                                            </section>
+                </div>
+                                <div class="sliderImage alignCenter"><img src="http://assets.libertyellisfoundation.org/homeslider/94652ZPV-GJD0-QE2345MRPYZJ.jpg" alt="">
+                    <section class="slider-content ">
+                        <h1>Lady Liberty</h1>
+                        <p>Discover the rich history of the Statue of Liberty and plan your visit.</p>
+                                                    <a href="http://libertyellisfoundation.org/about-the-statue-of-liberty"  target="_blank"  class="button outline">Read more</a> 
+                                            </section>
+                </div>
+                                <div class="sliderImage alignCenter"><img src="http://assets.libertyellisfoundation.org/homeslider/XC0993V6-ESIS-NB7EM0FJLLM4.jpg" alt="">
+                    <section class="slider-content ">
+                        <h1>Ellis Island Immigration Museum</h1>
+                        <p>Discover the history of the immigrant experience.</p>
+                                                    <a href="http://libertyellisfoundation.org/immigration-museum"  class="button outline">Read more</a> 
+                                            </section>
+                </div>
+                                <div class="sliderImage alignCenter"><img src="http://assets.libertyellisfoundation.org/homeslider/24VC7DY9-8FGF-16GPPREF1VZT.jpg" alt="">
+                    <section class="slider-content ">
+                        <h1>Ellis Island Passenger Search</h1>
+                        <p>Explore our database of 51+ million Immigrant Arrival Records.</p>
+                                                    <a href="http://libertyellisfoundation.org/passenger"  class="button outline">Read more</a> 
+                                            </section>
+                </div>
+                                <div class="sliderImage alignCenter"><img src="http://assets.libertyellisfoundation.org/homeslider/B315DUTA-VQ1A-8UK9UFOI1KUX.jpg" alt="">
+                    <section class="slider-content ">
+                        <h1>Wall of Honor</h1>
+                        <p>Celebrate your family heritage with an inscription on the Wall at  Ellis Island.</p>
+                                                    <a href="http://libertyellisfoundation.org/about-the-wall-of-honor"  target="_blank"  class="button outline">Read more</a> 
+                                            </section>
+                </div>
+                                <div class="sliderImage alignCenter"><img src="http://assets.libertyellisfoundation.org/homeslider/4O5JW31L-KR1Z-0KGDE9XXZH6K.jpg" alt="">
+                    <section class="slider-content ">
+                        <h1>Welcome to our New Site!</h1>
+                        <p>We are excited to announce the launch of our redesigned website! It is still in BETA so please send us your feedback!</p>
+                                                    <a href="http://libertyellisfoundation.org/beta"  class="button outline">Read more</a> 
+                                            </section>
+                </div>
+                                <div class="sliderImage alignCenter"><img src="http://assets.libertyellisfoundation.org/homeslider/PBO95WA9-R0AH-0MCQEY24CP5A.jpg" alt="">
+                    <section class="slider-content ">
+                        <h1>The Torch Exhibit</h1>
+                        <p>The Pedestal Museum includes the original 1886 torch and more!</p>
+                                                    <a href="http://libertyellisfoundation.org/about-the-statue-of-liberty"  class="button outline">Read more</a> 
+                                            </section>
+                </div>
+                                <div class="sliderImage alignCenter"><img src="http://assets.libertyellisfoundation.org/homeslider/T5AVY51B-IC08-BT7WTPVY5W4O.jpg" alt="">
+                    <section class="slider-content ">
+                        <h1>Flag of Faces</h1>
+                        <p>Add your family photo to the American Flag of Faces.</p>
+                                                    <a href="http://libertyellisfoundation.org/about-the-flag-of-faces"  target="_blank"  class="button outline">Read more</a> 
+                                            </section>
+                </div>
+                                <div class="sliderImage alignCenter"><img src="http://assets.libertyellisfoundation.org/homeslider/UMKFX6AI-P7GW-NKHGFZQRODWN.jpg" alt="">
+                    <section class="slider-content ">
+                        <h1>Ellis Island</h1>
+                        <p>The immigrant experience comes alive at Ellis Island.</p>
+                                                    <a href="http://libertyellisfoundation.org/about-the-ellis-island"  class="button outline">Read more</a> 
+                                            </section>
+                </div>
+                                <div class="sliderImage alignCenter"><img src="http://assets.libertyellisfoundation.org/homeslider/MBKHHSKI-S73Q-53F4RHVMDMIU.jpg" alt="">
+                    <section class="slider-content ">
+                        <h1>Liberty's Torch Cam</h1>
+                        <p>Experience Lady Liberty's LIVE view  of NYC!</p>
+                                                    <a href="http://www.libertyellisfoundation.org/torchcam"  class="button outline">Read more</a> 
+                                            </section>
+                </div>
+                </div>
+<section class="main">
+    <div class="container relative-container">
+        <div class="home-right-add-section">
+            
+                       
+        </div>
+        <div class="block none pass-search col6 aplha passenger-search-homepage">
+            <div class="content">
+                <h1>Passenger Record Search</h1>
+                <p>Search through our vast database of over 51 million passenger records...</p>
+                <label>Find someone :</label>
+                <form name="homePassengerSearchFrm" id="homePassengerSearchFrm" method="post" action="/passenger-result">
+                    <input type="text" placeholder="First Name or Initial" value="" class="small" name="initital_name" id="initital_name">
+                    <div class="float-right"> <input type="text" placeholder="Last Name" value="" name="last_name" id="last_name"> </div>
+                    <input type="submit" class="button green search" value="Search" id="submitfrm" name="submit">
+                </form>
+            </div>
+        </div>
+
+                    <div class="block member col5">
+                <div class="content">
+                    <h1>Become a member</h1>
+                    <p>Create a free account to search for family arrival records and learn more about Lady Liberty and Ellis Island.</p>
+                    <h3>BE A PART OF HISTORY!</h3>
+                    <a class="button green" href="javascript:void(0);" onClick="checkUserLogin('0');">Login</a> <a class="button" href="javascript:void(0);" onclick="signupPopup();">Join us!</a> </div>
+            </div>
+            
+        <!-- <div class="block visit col5 omega float-left"> <img class="image" alt="" src="http://libertyellisfoundation.org/images/ellis-statue.jpg">
+            <div class="content">
+                <h1>Visit The Islands</h1>
+                <p>Plan your trip to the Statue &amp; Ellis Island!</p>
+                <a class="more" href="http://libertyellisfoundation.org/ferry-tickets">Plan your trip</a> </div>
+        </div> -->
+		<div class="mar-top-30 visit col5 omega float-left  home-add btm-no-mar col5 omega"> 
+            
+        </div>
+        <div class="block col8 alpha build center"> 
+            <img class="image" alt="" src="http://libertyellisfoundation.org/images/pic1.jpg">
+            <div class="content">
+                <ul class="home-three-box">
+                    <li>
+                        <a href="/about-the-flag-of-faces">
+                            <img class="image" alt="" src="http://libertyellisfoundation.org/images/home-thumb.jpg">
+                            <span>Flag of Faces</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about-the-wall-of-honor">
+                            <img class="image" alt="" src="http://libertyellisfoundation.org/images/home-thumb1.jpg">
+                            <span>Wall of Honor</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about-passenger-search">
+                            <img class="image" alt="" src="http://libertyellisfoundation.org/images/home-thumb2.jpg">
+                            <span>Passenger Search</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+                    <div class="block col8 omega featured center familyhistory-homepage">
+                <div class="header-part">
+                    <a href="/view-user-familyhistory/czoyOiIyNiI7"><img class="image" src="http://assets.libertyellisfoundation.org/familyhistory/extralarge/8I7D2XWX-SXYM-LZB7K8I4VLW0.jpg"></a><div class="right-col"> 
+                        <h1>Featured Story</h1>
+                        <div class="right-detail">
+                            <h2><a href="/view-user-familyhistory/czoyOiIyNiI7">Millie Libman</a></h2>
+                             </div>
+                    </div>
+                </div>				
+                <div class="content">
+
+                    <p> Millie Libman, who is 93 years young and a resident of the Seasons at Glenview Place in Northbrook, Illinois, always shared a special bond with her mother as the youngest of nine children. In 1902, well before Millie&rsquo;s birth, her mother left Russia with two young children to reunite with her husband and embark on a new life in Detroit. Growing up, Millie&rsquo;s mother would tell her stories of how she traveled to America and was amazed at seeing the Statue of Liberty as their ship approached Ellis Island after 14 days at sea. These stories fueled Millie&rsquo;s quest to relive her mother&rsquo;s experience.&nbsp;  Last April, her dream came true ....</p>
+                    Do you have an Ellis story? Learn more on how to add yours!&nbsp;<a href="/family-history-about" class="more">More Info</a> 
+
+                </div>
+            </div>
+            
+        <div class="block col11 alpha shop clearfix">
+            <div class="content clearfix">
+                <h1>Shop</h1>
+                <ul class="home-shop-listing">                <li class=''>
+                    <div class="product-img">
+                        <a href="/shop/aTowOw==/czo0OiIzOTc0Ijs=">
+                            <img src="http://assets.libertyellisfoundation.org/product/thumbnail/078OYBW2-5ATM-40ETJLQD6EC8.jpg">                        </a>
+                    </div>
+                    <h3><a href="/shop/aTowOw==/czo0OiIzOTc0Ijs=">Young Adult's Journal</a></h3>
+
+                                            <p>
+                            A  journal for young adults to...                        </p>
+        
+
+                    <input type="hidden" id="quantity_3974" value="1" />
+                    <strong>Price $22.00</strong> 
+                                            <a href="javascript:void(0);" onclick="addtocart('3974')"class="more">ADD TO CART</a> 
+             
+
+                </li>
+                                <li class=''>
+                    <div class="product-img">
+                        <a href="/shop/aTowOw==/czo0OiIzOTMyIjs=">
+                            <img src="http://assets.libertyellisfoundation.org/product/thumbnail/Q9GROGTF-5OCQ-R5GZ478ZX600.jpg">                        </a>
+                    </div>
+                    <h3><a href="/shop/aTowOw==/czo0OiIzOTMyIjs=">SPECIAL OFFER # 1</a></h3>
+
+                                            <p>
+                            Combines our popular new Statu...                        </p>
+        
+
+                    <input type="hidden" id="quantity_3932" value="1" />
+                    <strong>Price $57.00</strong> 
+                                            <a href="javascript:void(0);" onclick="addtocart('3932')"class="more">ADD TO CART</a> 
+             
+
+                </li>
+                                <li class='last'>
+                    <div class="product-img">
+                        <a href="/shop/aTowOw==/czo0OiIzMzE5Ijs=">
+                            <img src="http://assets.libertyellisfoundation.org/product/thumbnail/A7XPJQ2W-4OGJ-OM91BX33TED8.jpg">                        </a>
+                    </div>
+                    <h3><a href="/shop/aTowOw==/czo0OiIzMzE5Ijs=">Spangled Liberty - 2013</a></h3>
+
+                                            <p>
+                            This Ornament features the Sta...                        </p>
+        
+
+                    <input type="hidden" id="quantity_3319" value="1" />
+                    <strong>Price $31.00</strong> 
+                                            <a href="javascript:void(0);" onclick="addtocart('3319')"class="more">ADD TO CART</a> 
+             
+
+                </li>
+                </ul>
+            </div>
+        </div>        
+        
+    </div>
+</section>
+		
+        <!-- N- Start -->
+<div style='display:none'>
+    <div id='addedToCartWoh' class="inner-popup-detail"> 
+        <h1>Add To Cart</h1>
+        <p>Item has been added to your cart.</p>
+            <input type="button" value="Continue" name="close" class="button green semibold"  onclick="javascript:location.href='/search-woh';">
+            
+            <a style="text-decoration: none;"  href="https://libertyellisfoundation.org/checkout" onClick="disableCheckoutButton('CHECKOUT_BUTTON1')">
+            <input type="button" value="Checkout" id="CHECKOUT_BUTTON1" name="checkout" class="button semibold"> 
+    </div>
+</div>
+<!-- N - End -->
+
+<footer class="footer">
+    <div class="container"> 
+        <div class="col10">
+            <ul><li><a href="http://libertyellisfoundation.org/terms-of-use">Terms</a></li><li><a href="http://libertyellisfoundation.org/privacy-policy">Privacy</a></li><li><a href="http://libertyellisfoundation.org/Copyright-Policy">Copyright </a></li><li><a href="http://libertyellisfoundation.org/sitemap">Site Map</a></li><li><a href="http://libertyellisfoundation.org/contact-us">Contact Us</a></li></ul>
+            <div class="add-box">        <iframe width="722" height="122" scrolling="no" src="/front-ads/czoxOiIvIjs=/aToyOw==/aTowOw=="></iframe>
+                </div>
+        </div>  
+        <div class="social-section">
+            <ul>
+                <li><a class="facebook" href="http://www.facebook.com/pages/The-Statue-of-Liberty-Ellis-Island-Foundation-Inc/116541691900" target="_blank"></a></li>
+                <li><a class="twitter" href="http://www.twitter.com/ellisisland" target="_blank"></a></li>
+                <li><a class="youtube" href="http://www.youtube.com/user/statuellisfdn" target="_blank"></a></li>
+            </ul>
+            <em>Dedicated to the Restoration and Preservation of the Statue of Liberty and Ellis Island </em> <a rel="nofollow"><img alt="" src="http://libertyellisfoundation.org/images/pic4.png"></a> 
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container"> Copyright &copy;2015 The Statue of Liberty - Ellis Island Foundation, Inc. All Rights Reserved. 
+		
+		<span>Designed &amp; Developed by <a href="http://www.icreon.us/" rel="dofollow"  target="_blank">Icreon Tech</a></span>
+		
+		</div>		
+    </div>
+</footer>
+<script type='text/javascript'>
+    var visitortime = new Date();
+	var visitortimezone = -visitortime.getTimezoneOffset();
+       
+        $.ajax
+        ({
+            type: 'POST',
+            data:{
+                visitortimezone:visitortimezone
+            },
+            url: '/set-user-timezone',
+            success: function(response)
+            {
+                //$("#gallery").html(response);
+            }
+        }); 
+</script>
+        <div id="ajx_loader" class="main-loader">
+            <img src="http://libertyellisfoundation.org/img/loading.gif" id="ajx_loader_image"/>
+        </div>
+        <div id="fb-root"></div>
+  <script type="text/javascript">
+            //<!--
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-521296-5', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+ //-->
+ </script>
+ <script type="text/javascript" src="http://libertyellisfoundation.org/js/product/shop.fe.js?v=61"></script>
+<script type="text/javascript" src="http://libertyellisfoundation.org/js/home.js?v=61"></script>
+<script type="text/javascript">
+    //<!--
+    jQuery(document).ready(function($) {
+        
+        $('#passSearchHomePage').click(function(){
+            $('html, body').animate({ scrollTop: $(".passenger-search-homepage").offset().top}, 2000);
+        });
+        
+        // Please note that autoHeight option has some conflicts with options like imageScaleMode, imageAlignCenter and autoScaleSlider
+        // it's recommended to disable them when using autoHeight module
+        $('#content-slider-1').royalSlider({
+            autoHeight: true,
+            arrowsNav: false,
+            fadeinLoadedSlide: false,
+            controlNavigationSpacing: 0,
+            controlNavigation: 'tabs',
+            imageScaleMode: 'none',
+            imageAlignCenter:false,
+            loop: true,
+            loopRewind: true,
+            numImagesToPreload: 6,
+            keyboardNavEnabled: true,
+            usePreloader: false,
+            arrowsNav : true,
+            autoPlay: {
+              enabled: true,
+              pauseOnHover: true
+            }
+        });
+    });
+    //-->
+</script>
+<script type="text/javascript" src="http://libertyellisfoundation.org/js/jquery.royalslider.min.js?v=61"></script>
+<script type="text/javascript" src="https://connect.facebook.net/en_US/all.js"></script>
+<script type="text/javascript" src="http://libertyellisfoundation.org/js/jquery.colorbox.js?v=61"></script>
+<script type="text/javascript" src="http://libertyellisfoundation.org/js/jquery-ui.js?v=61"></script>
+<script type="text/javascript" src="http://libertyellisfoundation.org/js/select2.min.js?v=61"></script>
+<script type="text/javascript" src="http://libertyellisfoundation.org/js/index.js?v=61"></script>
+<script type="text/javascript" src="http://libertyellisfoundation.org/js/jquery.jscrollpane.min.js?v=61"></script>
+<script type="text/javascript" src="http://libertyellisfoundation.org/js/all.js?v=61"></script>
+<script type="text/javascript">
+    //<!--
+    $(function() {
+                var url = document.URL.replace('http://'+window.location.hostname+'','');
+                var _menu = $("#sub-menu a[href='"+url+"']");
+                var _menu_root = _menu.parents().parents();
+                _menu_root.addClass('active');
+            });
+			function loginPopup(){                
+                $.colorbox({
+                    width:"650px", 
+                    height:"460px",
+                    iframe : true,
+                    href:"/login"
+                });
+            }
+            function signupPopup(){
+                $.colorbox({
+                    width:"730px", 
+                    height:"920px",
+                    iframe : true,
+                    href:"/signup"
+                });
+            }
+            
+            function signupPopupReferal(referUrlSignup){
+                 $.colorbox({
+                    width:"730px", 
+                    height:"920px",
+                    iframe : true,
+                    href:"/signup/"+referUrlSignup
+                }); 
+            }
+            
+            function getUrlKey(src, rep) {
+                return document.URL.replace(src,rep);
+            }
+    //-->
+</script>    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-4.newrelic.com","licenseKey":"af52d523de","applicationID":"4912388","transactionName":"ZwcGZURQDUFUWkVcXV5NMUNfHgpcUVxJG0JYEg==","queueTime":0,"applicationTime":128,"ttGuid":"","agentToken":"","atts":"S0AFEwxKHk8=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-476.min.js"}</script></body>
+</html>";i:2;s:4:"6760";}

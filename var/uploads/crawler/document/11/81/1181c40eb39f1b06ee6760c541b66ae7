@@ -1,0 +1,1639 @@
+a:3:{i:0;s:20:"http://statmilk.com/";i:1;s:194386:"<!DOCTYPE html>
+<html>
+<head>
+    <title>NFL - @StatMilk</title>
+    <meta name="description" content="Football statistics visualized.  Pour over your favorite college football teams, players and matchups." />
+<meta name="keywords" content="college football, ncaa football, football stats, 2012 college football statistics, 2012 ncaa football statistics, 2012 college football stats, 2012 ncaa football stats" />
+     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href="/Content/css/statmilk.css" rel="stylesheet" type="text/css" />
+    <link href="http://statmilk-content-01.s3.amazonaws.com/20121018/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript" src="//connect.facebook.net/en_US/all.js#xfbml=1"></script>
+     
+     <script src="/Scripts/sm.nfl.compiled.js" type="text/javascript"></script>
+     <script src="http://statmilk-content-01.s3.amazonaws.com/20121018/scripts/jquery.cookie.js" type="text/javascript"></script>
+     <script type="text/javascript">         var _sf_startpt = (new Date()).getTime()</script>
+    
+ </head>
+    <body>
+        <div class="gbl-nav-bg">
+            <div class="gbl-nav-cont">
+                <div class="gbl-nav"><div class="gbl-sport-badge"><a href="http://www.statmilk.com/NFL/"><li class="gbl-sport-nfl sel"></li></a></div><a href="http://www.statmilk.com/NCAAF/"><li class="gbl-sport-ncaa"></li></a>
+                    <a href="http://goo.gl/gxDWv" alt="Get StatMilk for iPhone"  target="_blank"><li class="gbl-nav-iphone" style="float:right;"></li></a> <a href="http://twitter.com/statmilk" target="_blank" alt="Follow &amp;StatMilk on Twitter"><li class="gbl-nav-follow" style="float:right;"></li></a>
+                </div>
+                </div>
+        </div>
+        <div class="pri-nav-bg">
+<div class="pri-nav">
+    <a href="/"><div class="sm-logo"></div></a>
+    <div class="nav-items">
+        <ul class="nav-ul">
+            <li><a href="/NFL/Team" class="nav-item nav-item-teams sel"></a></li>
+            <li><a href="/NFL/MatchUp" class="nav-item nav-item-matchups"></a></li>
+             <li><a href="/NFL/Player/Search" class="nav-item nav-item-players"></a></li>
+            
+            <li><a href="/NFL/Rankings" class="nav-item nav-item-rankings"></a></li>
+        </ul>
+    </div>
+    <div class="search-container">
+        <input type="Text" class="site-search" id="search-term"/>
+        <a href="#" class="nav-item nav-item-search" id="search-btn" style="margin-right: 0;"></a>
+    </div>
+</div>
+        </div>
+        <div class="filter-bg">
+             
+    <div class="filter-container" id="filter-selection-display">
+        <ul class="filter-ul" id="filter-ul">
+            <li class="subject-team" id="subject-team">
+                 <div class="down-icon" style="position: relative; top: 2px; margin-right: 6px;"></div>
+                <h1 id="subject-name">
+                </h1>
+            </li>
+            <li class="arrow"></li>
+        </ul>
+        <a style="position: relative; top: 5px;" class="btn-filters pull-right" id="filter-open"><i class="icon-list-alt icon-white"></i>Show Filters</a>
+    </div>
+       <div class="filter-container filter-controls" id="filter-controls">
+        <div class="tabbable tabs-left">
+            <ul class="nav nav-tabs" style="margin-top: 8px;">
+                <li class="active"><a href="#FILTERS-GENERAL" data-toggle="tab"><span class="filter-icon-ball"></span>General</a></li>
+                <li><a href="#FILTERS-SCORING" data-toggle="tab"><span class="filter-icon-good"></span>Scoring</a></li>
+                <li><a href="#FILTERS-OFFENSE" data-toggle="tab"><span class="filter-icon-run"></span>Offense</a></li>
+                <li><a href="#FILTERS-DEFENSE" data-toggle="tab"><span class="filter-icon-catch"></span>Defense</a></li>
+                <li><a href="#FILTERS-TURNOVERS" data-toggle="tab"><span class="filter-icon-throw"></span>Turnovers</a></li>
+                <li><a href="#FILTERS-SPECIAL" data-toggle="tab"><span class="filter-icon-goal"></span>Special Teams</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="FILTERS-GENERAL">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Season</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-season-range-display">
+                                            2014</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-season-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 5px;">2001&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;2014</div>
+                                        <ul class="filter-quick-sel">
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2014, 2014, 'FALSE');">'14 (Current)</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2013, 2013, 'FALSE');">'13 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2012, 2012, 'FALSE');">'12 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2011, 2011, 'FALSE');">'11 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2010, 2010, 'FALSE');">'10 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2009, 2009, 'FALSE');">'09 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2008, 2008, 'FALSE');">'08 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2007, 2007, 'FALSE');">'07 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2006, 2006, 'FALSE');">'06 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2005, 2005, 'FALSE');">'05 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2004, 2004, 'FALSE');">'04 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2003, 2003, 'FALSE');">'03 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2002, 2002, 'FALSE');">'02 Season</li>
+                                            <li onclick="SetRangeFilterValue('#slider-season-range', 2001, 2001, 'FALSE');">'01 Season</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                     <title>Game Result</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="game-result-display">Won and Lost</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div>
+                                        <ul class="filter-quick-sel">
+                                            <li onclick="SetResultFilterValue('TRUE','TRUE','FALSE');">All (Won & Lost)</li>
+                                            <li onclick="SetResultFilterValue('TRUE','FALSE','FALSE');">Won</li>
+                                            <li onclick="SetResultFilterValue('FALSE','TRUE','FALSE');">Lost</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                 <div class="fieldset x2">
+                                    <div class="pad">
+                                    <title>Opponent Team</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="opp-team-display" style="width: 330px;">All Opponents</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div>
+                                        <ul class="filter-quick-sel">
+                                             <li onclick="SetOppTeamFilterValue(0, 'FALSE');">All Opponents</li>
+                                             <li onclick="SetOppTeamFilterValue(4541, 'FALSE');">Arizona Cardinals</li>
+                                             <li onclick="SetOppTeamFilterValue(4952, 'FALSE');">Atlanta Falcons</li>
+                                             <li onclick="SetOppTeamFilterValue(5363, 'FALSE');">Baltimore Ravens</li>
+                                             <li onclick="SetOppTeamFilterValue(5774, 'FALSE');">Buffalo Bills</li>
+                                             <li onclick="SetOppTeamFilterValue(6185, 'FALSE');">Carolina Panthers</li>
+                                             <li onclick="SetOppTeamFilterValue(6596, 'FALSE');">Chicago Bears</li>
+                                             <li onclick="SetOppTeamFilterValue(7007, 'FALSE');">Cincinnati Bengals</li>
+                                             <li onclick="SetOppTeamFilterValue(7418, 'FALSE');">Cleveland Browns</li>
+                                             <li onclick="SetOppTeamFilterValue(7829, 'FALSE');">Dallas Cowboys</li>
+                                             <li onclick="SetOppTeamFilterValue(8240, 'FALSE');">Denver Broncos</li>
+                                             <li onclick="SetOppTeamFilterValue(8651, 'FALSE');">Detroit Lions</li>
+                                             <li onclick="SetOppTeamFilterValue(9062, 'FALSE');">Green Bay Packers</li>
+                                             <li onclick="SetOppTeamFilterValue(9473, 'FALSE');">Houston Texans</li>
+                                             <li onclick="SetOppTeamFilterValue(9884, 'FALSE');">Indianapolis Colts</li>
+                                             <li onclick="SetOppTeamFilterValue(10295, 'FALSE');">Jacksonville Jaguars</li>
+                                             <li onclick="SetOppTeamFilterValue(10706, 'FALSE');">Kansas City Chiefs</li>
+                                             <li onclick="SetOppTeamFilterValue(11117, 'FALSE');">Miami Dolphins</li>
+                                             <li onclick="SetOppTeamFilterValue(11528, 'FALSE');">Minnesota Vikings</li>
+                                             <li onclick="SetOppTeamFilterValue(11939, 'FALSE');">New England Patriots</li>
+                                             <li onclick="SetOppTeamFilterValue(12350, 'FALSE');">New Orleans Saints</li>
+                                             <li onclick="SetOppTeamFilterValue(12761, 'FALSE');">New York Giants</li>
+                                             <li onclick="SetOppTeamFilterValue(13172, 'FALSE');">New York Jets</li>
+                                             <li onclick="SetOppTeamFilterValue(13583, 'FALSE');">Oakland Raiders</li>
+                                             <li onclick="SetOppTeamFilterValue(13994, 'FALSE');">Philadelphia Eagles</li>
+                                             <li onclick="SetOppTeamFilterValue(14405, 'FALSE');">Pittsburgh Steelers</li>
+                                             <li onclick="SetOppTeamFilterValue(14816, 'FALSE');">San Diego Chargers</li>
+                                             <li onclick="SetOppTeamFilterValue(15227, 'FALSE');">Seattle Seahawks</li>
+                                             <li onclick="SetOppTeamFilterValue(15638, 'FALSE');">San Francisco 49ers</li>
+                                             <li onclick="SetOppTeamFilterValue(16049, 'FALSE');">St. Louis Rams</li>
+                                             <li onclick="SetOppTeamFilterValue(16460, 'FALSE');">Tampa Bay Buccaneers</li>
+                                             <li onclick="SetOppTeamFilterValue(16871, 'FALSE');">Tennessee Titans</li>
+                                             <li onclick="SetOppTeamFilterValue(17282, 'FALSE');">Washington Redskins</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Season Type</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="game-post-season-display">Regular and Playoffs</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div>
+                                        <ul class="filter-quick-sel">
+                                            <li onclick="SetSeasonTypeFilterValue('TRUE','TRUE','FALSE');">Both</li>
+                                            <li onclick="SetSeasonTypeFilterValue('TRUE','FALSE','FALSE');">Regular Season</li>
+                                            <li onclick="SetSeasonTypeFilterValue('FALSE','TRUE','FALSE');">Playoffs</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                        <title>Week</title>
+                                        <div class="filter" style="width: 150px;">
+                                            <div class="filter-board on" id="slider-week-range-display">ALL</div>
+                                            <div class="overlap">
+                                                <hr></hr>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-week-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 7px;">1&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;21</div>
+                                        <ul class="filter-quick-sel">
+                                            <li onclick="SetRangeFilterValue('#slider-week-range', 1, 21, 'FALSE');">All</li>
+                                            <li onclick="SetRangeFilterValue('#slider-week-range', 1, 9, 'FALSE');">First Half (1-9)</li>
+                                            <li onclick="SetRangeFilterValue('#slider-week-range', 10, 17, 'FALSE');">Second Half (10-17)</li>
+                                            <li onclick="SetRangeFilterValue('#slider-week-range', 18, 21, 'FALSE');">Playoffs (18-21)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                            </td>
+                             <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Game Location</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="game-location-display">Home and Away</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div>
+                                        <ul class="filter-quick-sel">
+                                            <li onclick="SetLocFilterValue('TRUE','TRUE','FALSE');">All (Home and Away)</li>
+                                            <li onclick="SetLocFilterValue('TRUE','FALSE','FALSE');">Home</li>
+                                            <li onclick="SetLocFilterValue('FALSE','TRUE','FALSE');">Away</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset">
+                                    <div class="pad">
+                                    <title>Opponent Conference</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="opp-conference-display">All</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div>
+                                        <ul class="filter-quick-sel">
+                                             <li onclick="SetOppConfFilterValue(0, 'FALSE');">Both</li>
+                                            <li onclick="SetOppConfFilterValue(1, 'FALSE');">NFC</li>
+                                            <li onclick="SetOppConfFilterValue(2, 'FALSE');">AFC</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane" id="FILTERS-SCORING">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Points Scored</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-pointsScored-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-pointsScored-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 7px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;90+</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-pointsScored-range', 0, 90, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-pointsScored-range', 30, 90, 'FALSE');">High Scoring (30+ points)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-pointsScored-range', 0, 7, 'FALSE');">Low Scoring (< 7 points)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Total Touchdowns</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-tdsTotal-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-tdsTotal-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;12</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-tdsTotal-range', 0, 12, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-tdsTotal-range', 0, 2, 'FALSE');">Low (< 2 TDs)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-tdsTotal-range', 4, 12, 'FALSE');">High (4+ TDs)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Rushing Touchdowns</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-tdsRushing-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-tdsRushing-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;10</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-tdsRushing-range', 0, 12, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-tdsRushing-range', 0, 0, 'FALSE');">Shutdown (0 TDs)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-tdsRushing-range', 3, 12, 'FALSE');">Unstoppable (3+ TDs)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Passing Touchdowns</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-tdsPassing-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-tdsPassing-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;10</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-tdsPassing-range', 0, 12, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-tdsPassing-range', 0, 0, 'FALSE');">Shutout (0 TDs)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-tdsPassing-range', 3, 12, 'FALSE');">On Fire (3+ TDs)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>1st Quarter Points</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-q1Points-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-q1Points-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;42</div>
+                                        <ul class="filter-quick-sel">
+                                        <li><a onclick="SetRangeFilterValue('#slider-q1Points-range', 0, 42, 'FALSE');">All</li>
+                                        <li><a onclick="SetRangeFilterValue('#slider-q1Points-range', 0, 0, 'FALSE');">Shutout (0 Points)</li>
+                                        <li><a onclick="SetRangeFilterValue('#slider-q1Points-range', 21, 42, 'FALSE');">Blowout (>21 Points)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>2nd Quarter Points</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-q2Points-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-q2Points-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;42</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-q2Points-range', 0, 42, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-q2Points-range', 0, 0, 'FALSE');">Shutout (0 Points)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-q2Points-range', 21, 42, 'FALSE');">Blowout (>21 Points)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>3rd Quarter Points</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-q3Points-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-q3Points-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;42</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-q3Points-range', 0, 42, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-q3Points-range', 0, 0, 'FALSE');">Shutout (0 Points)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-q3Points-range', 21, 42, 'FALSE');">Blowout (>21 Points)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>4th Quarter Points</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-q4Points-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-q4Points-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;42</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-q4Points-range', 0, 42, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-q4Points-range', 0, 0, 'FALSE');">Shutout (0 Points)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-q4Points-range', 21, 42, 'FALSE');">Blowout (>21 Points)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane" id="FILTERS-OFFENSE">
+                    <table>
+                        <tr>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Total Offensive Yards</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-totalOffense-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-totalOffense-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 7px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;900</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-totalOffense-range', 0, 900, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-totalOffense-range', 500, 900, 'FALSE');">Field Day (> 500 Yards)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-totalOffense-range', 0, 200, 'FALSE');">Bad Day (< 200 Yards)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Total First Downs</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-firstDowns-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-firstDowns-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;50</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-firstDowns-range', 0, 42, 'FALSE');">All</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Time of Possession</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-timeOfPossession-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-timeOfPossession-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;60</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-timeOfPossession-range', 0, 60, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-timeOfPossession-range', 34, 60, 'FALSE');">In Control (> 34 Minutes)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-timeOfPossession-range', 0, 25, 'FALSE');">Lost Control (< 25 Minutes)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Rushing Attempts</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-rushingAttempts-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-rushingAttempts-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;100</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-rushingAttempts-range', 0, 100, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-rushingAttempts-range', 40, 100, 'FALSE');">Smash Mouth (> 40 Att)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-rushingAttempts-range', 0, 20, 'FALSE');">Play Action (< 20 Att)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Rushing Yards</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-rushingYards-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-rushingYards-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;800</div>                                        
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-rushingYards-range', 0, 800, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-rushingYards-range', 50, 800, 'FALSE');">Field Day (> 200 Yards)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-rushingYards-range', 0, 50, 'FALSE');">Bad Day (< 50 Yards)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Passing Attempts</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-passingAttempts-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-passingAttempts-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;100</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-passingAttempts-range', 0, 100, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-passingAttempts-range', 30, 100, 'FALSE');">Air It Out (> 30 Att)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-passingAttempts-range', 0, 20, 'FALSE');">Smash Mouth (< 20 Att)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Passing Yards</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-passingYards-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-passingYards-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;800</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-passingYards-range', 0, 800, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-passingYards-range', 300, 800, 'FALSE');">Field Day (> 300 Yards)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-passingYards-range', 0, 75, 'FALSE');">Bad Day (< 75 Yards)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- after here -->
+                <div class="tab-pane" id="FILTERS-DEFENSE">
+                    <table>
+                        <tr>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Total Yards Allowed</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-opponentTotalOffense-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-opponentTotalOffense-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;900</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-opponentTotalOffense-range', 0, 900, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-opponentTotalOffense-range', 0, 200, 'FALSE');">Solid (< 200 Yards)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-opponentTotalOffense-range', 400, 800, 'FALSE');">Soft (> 400 Yards)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Tackles</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-tackles-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-tackles-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;145</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-tackles-range', 0, 145, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-tackles-range', 80, 145, 'FALSE');">Open Season (> 80 Tackles)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-tackles-range', 0, 30, 'FALSE');">Slippery (< 30 Tackles)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Tackles for Loss</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-tacklesForLoss-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-tacklesForLoss-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;30</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-tacklesForLoss-range', 0, 30, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-tacklesForLoss-range', 10, 30, 'FALSE');">Open Season (> 10 Tackles)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-tacklesForLoss-range', 0, 5, 'FALSE');">Slippery (< 5 Tackles)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                     <title>Sacks</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-sacks-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-sacks-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;10</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-sacks-range', 0, 10, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-sacks-range', 5, 10, 'FALSE');">Ouch! (> 5 Sacks)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-sacks-range', 0, 0, 'FALSE');">None (< 1 Sacks)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                     <title>Pass Breakups</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-passBreakup-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-passBreakup-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;20</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-passBreakup-range', 0, 20, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-passBreakup-range', 6, 20, 'FALSE');">Hands Up (> 5 Breakups)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-passBreakup-range', 0, 2, 'FALSE');">Heads Up (< 1 Breakup)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                     <title>Interceptions</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-passInterception-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-passInterception-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;8</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-passInterception-range', 0, 8, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-passInterception-range', 2, 8, 'FALSE');">Shutdown (2+ Int)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-passInterception-range', 0, 0, 'FALSE');">None (< 1 Int)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                     <title>Quarterback Hurries</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-qbHurries-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-qbHurries-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;30</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-qbHurries-range', 0, 30, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-qbHurries-range', 5, 30, 'FALSE');">Long Day (5+ Hurries)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-qbHurries-range', 0, 2, 'FALSE');">All Day (< 1 Hurries)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane" id="FILTERS-TURNOVERS">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                      <title>Interceptions Thrown</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-interceptionsThrown-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-interceptionsThrown-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;8</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-interceptionsThrown-range', 0, 8, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-interceptionsThrown-range', 0, 0, 'FALSE');">None (0 Interceptions)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-interceptionsThrown-range', 1, 8, 'FALSE');">One (1+ Interceptions)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                     <title>Fumbles Lost</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-fumblesLost-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-fumblesLost-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;6</div>
+                                        <ul class="filter-quick-sel">
+                                         <li onclick="SetRangeFilterValue('#slider-fumblesLost-range', 0, 6, 'FALSE');">All</li>
+                                         <li onclick="SetRangeFilterValue('#slider-fumblesLost-range', 0, 0, 'FALSE');">None (0 Fumbles)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-fumblesLost-range', 1, 6, 'FALSE');">Butterfingers (1+ Fumbles)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane" id="FILTERS-SPECIAL">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                     <title>Field Goals Made</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-fieldGoals-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-fieldGoals-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;12</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-fieldGoals-range', 0, 12, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-fieldGoals-range', 2, 12, 'FALSE');">2+ Field Goals</li>
+                                        <li onclick="SetRangeFilterValue('#slider-fieldGoals-range', 4, 12, 'FALSE');">4+ Field Goals</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                     <title>Punts</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-punts-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-punts-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;15</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-punts-range', 0, 15, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-punts-range', 5, 15, 'FALSE');">Long Day (5+ Punts)</li>
+                                        <li onclick="SetRangeFilterValue('#slider-punts-range', 0, 2, 'FALSE');">Low Punting (< 2 Punts)</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                 <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                      <title>Two-Points Conversions</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-extraPoint-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-extraPoint-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;4</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-extraPoint-range', 0, 4, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-extraPoint-range', 1, 4, 'FALSE');">+1 Two-Point Conversion</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                    <title>Punts Returned for TD</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-puntsReturnedForTD-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-puntsReturnedForTD-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;3</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-puntsReturnedForTD-range', 0, 3, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-puntsReturnedForTD-range', 1, 3, 'FALSE');">+1 Return for TD</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                     <title>KO Returned for TD</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-kickoffReturnedForTD-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-kickoffReturnedForTD-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;3</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-kickoffReturnedForTD-range', 0, 3, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-kickoffReturnedForTD-range', 1, 3, 'FALSE');">+1 KO for TD</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="width: 160px;">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fieldset" data-filter-type="std">
+                                    <div class="pad">
+                                      <title>Extra Points</title>
+                                    <div class="filter" style="width: 150px;">
+                                        <div class="filter-board on" id="slider-extraPointKicks-range-display">ALL</div>
+                                        <div class="overlap">
+                                            <hr></hr>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <div id="slider-extraPointKicks-range"></div> 
+                                        <div style="color: #757575; font-size: 12px; width: 150px; text-align: left;margin-left: 9px;">0&nbsp;&nbsp;&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;&nbsp;12</div>
+                                        <ul class="filter-quick-sel">
+                                        <li onclick="SetRangeFilterValue('#slider-extraPointKicks-range', 0, 12, 'FALSE');">All</li>
+                                        <li onclick="SetRangeFilterValue('#slider-extraPointKicks-range', 5, 12, 'FALSE');">+5 Extra Points</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--//tab content-->
+        </div>
+        <div class="filter-container-buttons">
+            <div class="pull-right">
+                <a class="btn btn-primary" id="btn-update-stats" href="#"><i class="icon-refresh icon-white"></i>Update Statistics</a>&nbsp;
+                    <a class="btn"  id="btn-filter-cancel"><i class="icon-arrow-up"></i>Close Filters</a>
+            </div>
+        </div>
+        <!--//tabbable-->
+    </div>
+
+        </div>
+        <div class="container" style="margin-top: 145px;">
+            
+
+<div style="clear: both">
+</div>
+<!-- main content -->
+<div class="main-container">
+        <div class="stats-container" id="stats-container"></div>
+</div>
+<!--//main-content -->
+<div class="help-overlay" id="helpOverlay"></div>
+
+<div class="pop-team-sel cscroll" id="pop-change-team">
+    <table>
+        <tr>
+            <td style="width: 140px;">
+                <ul class="ul-conf"><li class="selected" data-conference="ALL"><a onclick="FilterTeamSelect('ALL');">All Teams</a></li><li></li><li data-conference="AFC+North"><a onclick="FilterTeamSelect('AFC+North');">AFC North</a></li><li data-conference="AFC+East"><a onclick="FilterTeamSelect('AFC+East');">AFC East</a></li><li data-conference="AFC+South"><a onclick="FilterTeamSelect('AFC+South');">AFC South</a></li><li data-conference="AFC+West"><a onclick="FilterTeamSelect('AFC+West');">AFC West</a></li><li></li><li data-conference="NFC+North"><a onclick="FilterTeamSelect('NFC+North');">NFC North</a></li><li data-conference="NFC+East"><a onclick="FilterTeamSelect('NFC+East');">NFC East</a></li><li data-conference="NFC+South"><a onclick="FilterTeamSelect('NFC+South');">NFC South</a></li><li data-conference="NFC+West"><a onclick="FilterTeamSelect('NFC+West');">NFC West</a></li>
+                </ul>
+            </td>
+            <td>
+                <div id="scroll-teams">
+                    <ul class="team-select-list">
+                            <li data-conference="NFC+West"><a onclick="ChangeTeam(4541)" title="Arizona Cardinals" id="4541">
+                                <span class="name" id="subject-team-name">Arizona Cardinals</span></a>
+                                <br />
+                                2012 Overall: <span class="record">11-6</span>, NFC <span class="record">8-5</span>, Streak:
+<span class="red">-3 game</span>                            </li>
+                            <li data-conference="NFC+South"><a onclick="ChangeTeam(4952)" title="Atlanta Falcons" id="4952">
+                                <span class="name" id="subject-team-name">Atlanta Falcons</span></a>
+                                <br />
+                                2012 Overall: <span class="record">6-10</span>, NFC <span class="record">6-6</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="AFC+North"><a onclick="ChangeTeam(5363)" title="Baltimore Ravens" id="5363">
+                                <span class="name" id="subject-team-name">Baltimore Ravens</span></a>
+                                <br />
+                                2012 Overall: <span class="record">11-7</span>, AFC <span class="record">7-7</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="AFC+East"><a onclick="ChangeTeam(5774)" title="Buffalo Bills" id="5774">
+                                <span class="name" id="subject-team-name">Buffalo Bills</span></a>
+                                <br />
+                                2012 Overall: <span class="record">9-7</span>, AFC <span class="record">5-7</span>, Streak:
+<span class="green">+1 game</span>                            </li>
+                            <li data-conference="NFC+South"><a onclick="ChangeTeam(6185)" title="Carolina Panthers" id="6185">
+                                <span class="name" id="subject-team-name">Carolina Panthers</span></a>
+                                <br />
+                                2012 Overall: <span class="record">8-9</span>, NFC <span class="record">7-7</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="NFC+North"><a onclick="ChangeTeam(6596)" title="Chicago Bears" id="6596">
+                                <span class="name" id="subject-team-name">Chicago Bears</span></a>
+                                <br />
+                                2012 Overall: <span class="record">5-11</span>, NFC <span class="record">4-8</span>, Streak:
+<span class="red">-5 game</span>                            </li>
+                            <li data-conference="AFC+North"><a onclick="ChangeTeam(7007)" title="Cincinnati Bengals" id="7007">
+                                <span class="name" id="subject-team-name">Cincinnati Bengals</span></a>
+                                <br />
+                                2012 Overall: <span class="record">10-6</span>, AFC <span class="record">7-6</span>, Streak:
+<span class="red">-2 game</span>                            </li>
+                            <li data-conference="AFC+North"><a onclick="ChangeTeam(7418)" title="Cleveland Browns" id="7418">
+                                <span class="name" id="subject-team-name">Cleveland Browns</span></a>
+                                <br />
+                                2012 Overall: <span class="record">7-9</span>, AFC <span class="record">4-8</span>, Streak:
+<span class="red">-5 game</span>                            </li>
+                            <li data-conference="NFC+East"><a onclick="ChangeTeam(7829)" title="Dallas Cowboys" id="7829">
+                                <span class="name" id="subject-team-name">Dallas Cowboys</span></a>
+                                <br />
+                                2012 Overall: <span class="record">13-5</span>, NFC <span class="record">9-5</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="AFC+West"><a onclick="ChangeTeam(8240)" title="Denver Broncos" id="8240">
+                                <span class="name" id="subject-team-name">Denver Broncos</span></a>
+                                <br />
+                                2012 Overall: <span class="record">12-5</span>, AFC <span class="record">10-3</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="NFC+North"><a onclick="ChangeTeam(8651)" title="Detroit Lions" id="8651">
+                                <span class="name" id="subject-team-name">Detroit Lions</span></a>
+                                <br />
+                                2012 Overall: <span class="record">11-6</span>, NFC <span class="record">9-4</span>, Streak:
+<span class="red">-2 game</span>                            </li>
+                            <li data-conference="NFC+North"><a onclick="ChangeTeam(9062)" title="Green Bay Packers" id="9062">
+                                <span class="name" id="subject-team-name">Green Bay Packers</span></a>
+                                <br />
+                                2012 Overall: <span class="record">13-5</span>, NFC <span class="record">10-4</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="AFC+South"><a onclick="ChangeTeam(9473)" title="Houston Texans" id="9473">
+                                <span class="name" id="subject-team-name">Houston Texans</span></a>
+                                <br />
+                                2012 Overall: <span class="record">9-7</span>, AFC <span class="record">8-4</span>, Streak:
+<span class="green">+2 game</span>                            </li>
+                            <li data-conference="AFC+South"><a onclick="ChangeTeam(9884)" title="Indianapolis Colts" id="9884">
+                                <span class="name" id="subject-team-name">Indianapolis Colts</span></a>
+                                <br />
+                                2012 Overall: <span class="record">13-6</span>, AFC <span class="record">11-4</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="AFC+South"><a onclick="ChangeTeam(10295)" title="Jacksonville Jaguars" id="10295">
+                                <span class="name" id="subject-team-name">Jacksonville Jaguars</span></a>
+                                <br />
+                                2012 Overall: <span class="record">3-13</span>, AFC <span class="record">2-10</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="AFC+West"><a onclick="ChangeTeam(10706)" title="Kansas City Chiefs" id="10706">
+                                <span class="name" id="subject-team-name">Kansas City Chiefs</span></a>
+                                <br />
+                                2012 Overall: <span class="record">9-7</span>, AFC <span class="record">7-5</span>, Streak:
+<span class="green">+1 game</span>                            </li>
+                            <li data-conference="AFC+East"><a onclick="ChangeTeam(11117)" title="Miami Dolphins" id="11117">
+                                <span class="name" id="subject-team-name">Miami Dolphins</span></a>
+                                <br />
+                                2012 Overall: <span class="record">8-8</span>, AFC <span class="record">6-6</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="NFC+North"><a onclick="ChangeTeam(11528)" title="Minnesota Vikings" id="11528">
+                                <span class="name" id="subject-team-name">Minnesota Vikings</span></a>
+                                <br />
+                                2012 Overall: <span class="record">7-9</span>, NFC <span class="record">6-6</span>, Streak:
+<span class="green">+1 game</span>                            </li>
+                            <li data-conference="AFC+East"><a onclick="ChangeTeam(11939)" title="New England Patriots" id="11939">
+                                <span class="name" id="subject-team-name">New England Patriots</span></a>
+                                <br />
+                                2012 Overall: <span class="record">15-4</span>, AFC <span class="record">11-3</span>, Streak:
+<span class="green">+3 game</span>                            </li>
+                            <li data-conference="NFC+South"><a onclick="ChangeTeam(12350)" title="New Orleans Saints" id="12350">
+                                <span class="name" id="subject-team-name">New Orleans Saints</span></a>
+                                <br />
+                                2012 Overall: <span class="record">7-9</span>, NFC <span class="record">6-6</span>, Streak:
+<span class="green">+1 game</span>                            </li>
+                            <li data-conference="NFC+East"><a onclick="ChangeTeam(12761)" title="New York Giants" id="12761">
+                                <span class="name" id="subject-team-name">New York Giants</span></a>
+                                <br />
+                                2012 Overall: <span class="record">6-10</span>, NFC <span class="record">4-8</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="AFC+East"><a onclick="ChangeTeam(13172)" title="New York Jets" id="13172">
+                                <span class="name" id="subject-team-name">New York Jets</span></a>
+                                <br />
+                                2012 Overall: <span class="record">4-12</span>, AFC <span class="record">4-8</span>, Streak:
+<span class="green">+1 game</span>                            </li>
+                            <li data-conference="AFC+West"><a onclick="ChangeTeam(13583)" title="Oakland Raiders" id="13583">
+                                <span class="name" id="subject-team-name">Oakland Raiders</span></a>
+                                <br />
+                                2012 Overall: <span class="record">3-13</span>, AFC <span class="record">2-10</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="NFC+East"><a onclick="ChangeTeam(13994)" title="Philadelphia Eagles" id="13994">
+                                <span class="name" id="subject-team-name">Philadelphia Eagles</span></a>
+                                <br />
+                                2012 Overall: <span class="record">10-6</span>, NFC <span class="record">6-6</span>, Streak:
+<span class="green">+1 game</span>                            </li>
+                            <li data-conference="AFC+North"><a onclick="ChangeTeam(14405)" title="Pittsburgh Steelers" id="14405">
+                                <span class="name" id="subject-team-name">Pittsburgh Steelers</span></a>
+                                <br />
+                                2012 Overall: <span class="record">11-6</span>, AFC <span class="record">9-4</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="AFC+West"><a onclick="ChangeTeam(14816)" title="San Diego Chargers" id="14816">
+                                <span class="name" id="subject-team-name">San Diego Chargers</span></a>
+                                <br />
+                                2012 Overall: <span class="record">9-7</span>, AFC <span class="record">6-6</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="NFC+West"><a onclick="ChangeTeam(15638)" title="San Francisco 49ers" id="15638">
+                                <span class="name" id="subject-team-name">San Francisco 49ers</span></a>
+                                <br />
+                                2012 Overall: <span class="record">8-8</span>, NFC <span class="record">7-5</span>, Streak:
+<span class="green">+1 game</span>                            </li>
+                            <li data-conference="NFC+West"><a onclick="ChangeTeam(15227)" title="Seattle Seahawks" id="15227">
+                                <span class="name" id="subject-team-name">Seattle Seahawks</span></a>
+                                <br />
+                                2012 Overall: <span class="record">14-5</span>, NFC <span class="record">12-2</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                            <li data-conference="NFC+West"><a onclick="ChangeTeam(16049)" title="St. Louis Rams" id="16049">
+                                <span class="name" id="subject-team-name">St. Louis Rams</span></a>
+                                <br />
+                                2012 Overall: <span class="record">6-10</span>, NFC <span class="record">4-8</span>, Streak:
+<span class="red">-3 game</span>                            </li>
+                            <li data-conference="NFC+South"><a onclick="ChangeTeam(16460)" title="Tampa Bay Buccaneers" id="16460">
+                                <span class="name" id="subject-team-name">Tampa Bay Buccaneers</span></a>
+                                <br />
+                                2012 Overall: <span class="record">2-14</span>, NFC <span class="record">1-11</span>, Streak:
+<span class="red">-6 game</span>                            </li>
+                            <li data-conference="AFC+South"><a onclick="ChangeTeam(16871)" title="Tennessee Titans" id="16871">
+                                <span class="name" id="subject-team-name">Tennessee Titans</span></a>
+                                <br />
+                                2012 Overall: <span class="record">2-14</span>, AFC <span class="record">2-10</span>, Streak:
+<span class="red">-10 game</span>                            </li>
+                            <li data-conference="NFC+East"><a onclick="ChangeTeam(17282)" title="Washington Redskins" id="17282">
+                                <span class="name" id="subject-team-name">Washington Redskins</span></a>
+                                <br />
+                                2012 Overall: <span class="record">4-12</span>, NFC <span class="record">2-10</span>, Streak:
+<span class="red">-1 game</span>                            </li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<form action="/Stats/GetTeamStats" method="post">    <input type="checkbox" style="visibility: hidden;" class="game-result" checked  id="game-result-won" value="1" />
+    <input type="checkbox" style="visibility: hidden;" class="game-result" checked id="game-result-lost" value="0" />
+    <input type="checkbox" style="visibility: hidden;" class="game-location" checked id="game-location-home" value="1" />
+    <input type="checkbox" style="visibility: hidden;" class="game-location" checked id="game-location-away" value="0" />
+    <input type="checkbox" style="visibility: hidden;" class="game-post-season" checked id="game-post-season-post" value="1" />
+    <input type="checkbox" style="visibility: hidden;" class="game-post-season" checked id="game-post-season-reg" value="0" />
+<input data-val="true" data-val-number="The field Value must be a number." data-val-required="The Value field is required." id="Query_ConferenceId_Value" name="Query.ConferenceId.Value" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="2014" id="Query_SeasonRange_RangeStart" name="Query.SeasonRange.RangeStart" type="hidden" value="2014" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="2014" id="Query_SeasonRange_RangeEnd" name="Query.SeasonRange.RangeEnd" type="hidden" value="2014" /><input dataValueDefault="1,0" id="Query_GameResult_ValueCollection" name="Query.GameResult.ValueCollection" type="hidden" value="System.String[]" /><input dataValueDefault="1,0" id="Query_GameLocation_ValueCollection" name="Query.GameLocation.ValueCollection" type="hidden" value="System.String[]" /><input dataValueDefault="1,0" id="Query_GamePostSeason_ValueCollection" name="Query.GamePostSeason.ValueCollection" type="hidden" value="System.String[]" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="1" id="Query_WeekRange_RangeStart" name="Query.WeekRange.RangeStart" type="hidden" value="1" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="21" id="Query_WeekRange_RangeEnd" name="Query.WeekRange.RangeEnd" type="hidden" value="21" /><input data-val="true" data-val-number="The field Value must be a number." data-val-required="The Value field is required." id="Query_OpponentTeam_Value" name="Query.OpponentTeam.Value" type="hidden" value="0" /><input data-val="true" data-val-number="The field Value must be a number." data-val-required="The Value field is required." id="Query_OpponentConference_Value" name="Query.OpponentConference.Value" type="hidden" value="0" /><input data-val="true" data-val-number="The field Value must be a number." data-val-required="The Value field is required." id="Query_OpponentDivision_Value" name="Query.OpponentDivision.Value" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_TimeOfPossessionRange_RangeStart" name="Query.TimeOfPossessionRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="60" id="Query_TimeOfPossessionRange_RangeEnd" name="Query.TimeOfPossessionRange.RangeEnd" type="hidden" value="60" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_PassingYardsRange_RangeStart" name="Query.PassingYardsRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="800" id="Query_PassingYardsRange_RangeEnd" name="Query.PassingYardsRange.RangeEnd" type="hidden" value="800" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_RushingYardsRange_RangeStart" name="Query.RushingYardsRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="800" id="Query_RushingYardsRange_RangeEnd" name="Query.RushingYardsRange.RangeEnd" type="hidden" value="800" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_TotalOffenseRange_RangeStart" name="Query.TotalOffenseRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="900" id="Query_TotalOffenseRange_RangeEnd" name="Query.TotalOffenseRange.RangeEnd" type="hidden" value="900" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_PassingAttemptsRange_RangeStart" name="Query.PassingAttemptsRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="100" id="Query_PassingAttemptsRange_RangeEnd" name="Query.PassingAttemptsRange.RangeEnd" type="hidden" value="100" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_RushingAttemptsRange_RangeStart" name="Query.RushingAttemptsRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="100" id="Query_RushingAttemptsRange_RangeEnd" name="Query.RushingAttemptsRange.RangeEnd" type="hidden" value="100" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_FirstDownRange_RangeStart" name="Query.FirstDownRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="50" id="Query_FirstDownRange_RangeEnd" name="Query.FirstDownRange.RangeEnd" type="hidden" value="50" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_PointsScoredRange_RangeStart" name="Query.PointsScoredRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="90" id="Query_PointsScoredRange_RangeEnd" name="Query.PointsScoredRange.RangeEnd" type="hidden" value="90" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_TDsRushingRange_RangeStart" name="Query.TDsRushingRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="10" id="Query_TDsRushingRange_RangeEnd" name="Query.TDsRushingRange.RangeEnd" type="hidden" value="10" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_TDsPassingRange_RangeStart" name="Query.TDsPassingRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="10" id="Query_TDsPassingRange_RangeEnd" name="Query.TDsPassingRange.RangeEnd" type="hidden" value="10" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_TDsTotalRange_RangeStart" name="Query.TDsTotalRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="12" id="Query_TDsTotalRange_RangeEnd" name="Query.TDsTotalRange.RangeEnd" type="hidden" value="12" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_Q1PointsRange_RangeStart" name="Query.Q1PointsRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="42" id="Query_Q1PointsRange_RangeEnd" name="Query.Q1PointsRange.RangeEnd" type="hidden" value="42" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_Q2PointsRange_RangeStart" name="Query.Q2PointsRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="42" id="Query_Q2PointsRange_RangeEnd" name="Query.Q2PointsRange.RangeEnd" type="hidden" value="42" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_Q3PointsRange_RangeStart" name="Query.Q3PointsRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="42" id="Query_Q3PointsRange_RangeEnd" name="Query.Q3PointsRange.RangeEnd" type="hidden" value="42" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_Q4PointsRange_RangeStart" name="Query.Q4PointsRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="42" id="Query_Q4PointsRange_RangeEnd" name="Query.Q4PointsRange.RangeEnd" type="hidden" value="42" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_ExtraPointKicksRange_RangeStart" name="Query.ExtraPointKicksRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="12" id="Query_ExtraPointKicksRange_RangeEnd" name="Query.ExtraPointKicksRange.RangeEnd" type="hidden" value="12" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_ExtraPointConversionsRange_RangeStart" name="Query.ExtraPointConversionsRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="4" id="Query_ExtraPointConversionsRange_RangeEnd" name="Query.ExtraPointConversionsRange.RangeEnd" type="hidden" value="4" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_OpponentTotalOffenseRange_RangeStart" name="Query.OpponentTotalOffenseRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="900" id="Query_OpponentTotalOffenseRange_RangeEnd" name="Query.OpponentTotalOffenseRange.RangeEnd" type="hidden" value="900" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_TacklesRange_RangeStart" name="Query.TacklesRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="145" id="Query_TacklesRange_RangeEnd" name="Query.TacklesRange.RangeEnd" type="hidden" value="145" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_TacklesForLossRange_RangeStart" name="Query.TacklesForLossRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="30" id="Query_TacklesForLossRange_RangeEnd" name="Query.TacklesForLossRange.RangeEnd" type="hidden" value="30" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_SacksRange_RangeStart" name="Query.SacksRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="10" id="Query_SacksRange_RangeEnd" name="Query.SacksRange.RangeEnd" type="hidden" value="10" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_QBHurriesRange_RangeStart" name="Query.QBHurriesRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="30" id="Query_QBHurriesRange_RangeEnd" name="Query.QBHurriesRange.RangeEnd" type="hidden" value="30" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_PassBreakupRange_RangeStart" name="Query.PassBreakupRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="20" id="Query_PassBreakupRange_RangeEnd" name="Query.PassBreakupRange.RangeEnd" type="hidden" value="20" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_PassInterceptionRange_RangeStart" name="Query.PassInterceptionRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="8" id="Query_PassInterceptionRange_RangeEnd" name="Query.PassInterceptionRange.RangeEnd" type="hidden" value="8" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_FumblesLostRange_RangeStart" name="Query.FumblesLostRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="6" id="Query_FumblesLostRange_RangeEnd" name="Query.FumblesLostRange.RangeEnd" type="hidden" value="6" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_InterceptionsThrownRange_RangeStart" name="Query.InterceptionsThrownRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="8" id="Query_InterceptionsThrownRange_RangeEnd" name="Query.InterceptionsThrownRange.RangeEnd" type="hidden" value="8" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_FieldGoalsRange_RangeStart" name="Query.FieldGoalsRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="12" id="Query_FieldGoalsRange_RangeEnd" name="Query.FieldGoalsRange.RangeEnd" type="hidden" value="12" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_PuntsRange_RangeStart" name="Query.PuntsRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="15" id="Query_PuntsRange_RangeEnd" name="Query.PuntsRange.RangeEnd" type="hidden" value="15" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_PuntsReturnedForTDRange_RangeStart" name="Query.PuntsReturnedForTDRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="3" id="Query_PuntsReturnedForTDRange_RangeEnd" name="Query.PuntsReturnedForTDRange.RangeEnd" type="hidden" value="3" /><input data-val="true" data-val-number="The field RangeStart must be a number." data-val-required="The RangeStart field is required." dataValueDefault="0" id="Query_KickoffReturnedForTDRange_RangeStart" name="Query.KickoffReturnedForTDRange.RangeStart" type="hidden" value="0" /><input data-val="true" data-val-number="The field RangeEnd must be a number." data-val-required="The RangeEnd field is required." dataValueDefault="3" id="Query_KickoffReturnedForTDRange_RangeEnd" name="Query.KickoffReturnedForTDRange.RangeEnd" type="hidden" value="3" /></form>
+
+
+
+
+
+<script type="text/javascript">
+    
+        function RefreshStats() {
+            sLog("-------------> RefreshStats");
+            var filterCriteria = GetFilterCriteria();
+            confId = $("#Query_ConferenceId_Value").val();
+            History.pushState({ confId: confId, q: filterCriteria }, "@StatMilk - Fetching Stats..." , "/../NFL/" + confId + "/?" + filterCriteria );
+        }
+
+
+        function ChangeTeam (teamId) {
+            if (teamId > 0)
+            {
+                window.location = "/../NFL/Team/" + teamId;
+            }
+        }
+
+        function ChangeConference (confId) {
+            if (confId >= 0)
+            {
+                var filterCriteria = GetFilterCriteria();
+                History.pushState({ confId: confId, q: filterCriteria }, "@StatMilk - Fetching Stats..."  , "/../NFL/" + confId + "/?" + filterCriteria );
+                $("#pop-change-team").hide();
+                $("#subject-team").attr('class', 'subject-team');
+                return false;
+            }
+        }
+        
+        
+        function FilterTeamSelect(criteria) {
+               $('.team-select-list li').hide();
+               $('.ul-conf li').attr('class', '');
+              $(".ul-conf li[data-conference='" + criteria + "']").attr('class', 'selected');
+              if (criteria == "ALL") {
+                     $('.team-select-list li').show();
+                    } else {
+                  $(".team-select-list li[data-conference='" + criteria + "']").show();
+              }
+               $(".cscroll").mCustomScrollbar("update");
+          }
+    
+
+            function GetFilterCriteria()
+        {
+            var filterArray = [];
+
+            if ($("#Query_OpponentTeam_Value").val() != "0"){filterArray.push("oid=" + $("#Query_OpponentTeam_Value").val())};
+if ($("#Query_OpponentConference_Value").val() != "0"){filterArray.push("ocid=" + $("#Query_OpponentConference_Value").val())};
+if ($("#Query_OpponentDivision_Value").val() != "0"){filterArray.push("od=" + $("#Query_OpponentDivision_Value").val())};
+if (GetCheckBoxValueArray('input:checkbox:checked.game-location') != "1,0"){filterArray.push("gl=" + GetCheckBoxValueArray('input:checkbox:checked.game-location'))};
+if (GetCheckBoxValueArray('input:checkbox:checked.game-result') != "1,0"){filterArray.push("gr=" + GetCheckBoxValueArray('input:checkbox:checked.game-result'))};
+if (GetCheckBoxValueArray('input:checkbox:checked.game-post-season') != "1,0"){filterArray.push("ps=" + GetCheckBoxValueArray('input:checkbox:checked.game-post-season'))};
+if ($("#Query_SeasonRange_RangeStart").val() != $("#Query_SeasonRange_RangeStart").attr("dataValueDefault")|| $("#Query_SeasonRange_RangeEnd").val() != $("#Query_SeasonRange_RangeEnd").attr("dataValueDefault")){filterArray.push("sr=" + $("#Query_SeasonRange_RangeStart").val() + "-" + $("#Query_SeasonRange_RangeEnd").val())};
+if ($("#Query_DayOfWeekRange_RangeStart").val() != $("#Query_DayOfWeekRange_RangeStart").attr("dataValueDefault")|| $("#Query_DayOfWeekRange_RangeEnd").val() != $("#Query_DayOfWeekRange_RangeEnd").attr("dataValueDefault")){filterArray.push("dr=" + $("#Query_DayOfWeekRange_RangeStart").val() + "-" + $("#Query_DayOfWeekRange_RangeEnd").val())};
+if ($("#Query_WeekRange_RangeStart").val() != $("#Query_WeekRange_RangeStart").attr("dataValueDefault")|| $("#Query_WeekRange_RangeEnd").val() != $("#Query_WeekRange_RangeEnd").attr("dataValueDefault")){filterArray.push("w=" + $("#Query_WeekRange_RangeStart").val() + "-" + $("#Query_WeekRange_RangeEnd").val())};
+if ($("#Query_TimeOfPossessionRange_RangeStart").val() != $("#Query_TimeOfPossessionRange_RangeStart").attr("dataValueDefault")|| $("#Query_TimeOfPossessionRange_RangeEnd").val() != $("#Query_TimeOfPossessionRange_RangeEnd").attr("dataValueDefault")){filterArray.push("topr=" + $("#Query_TimeOfPossessionRange_RangeStart").val() + "-" + $("#Query_TimeOfPossessionRange_RangeEnd").val())};
+if ($("#Query_PassingYardsRange_RangeStart").val() != $("#Query_PassingYardsRange_RangeStart").attr("dataValueDefault")|| $("#Query_PassingYardsRange_RangeEnd").val() != $("#Query_PassingYardsRange_RangeEnd").attr("dataValueDefault")){filterArray.push("pyr=" + $("#Query_PassingYardsRange_RangeStart").val() + "-" + $("#Query_PassingYardsRange_RangeEnd").val())};
+if ($("#Query_RushingYardsRange_RangeStart").val() != $("#Query_RushingYardsRange_RangeStart").attr("dataValueDefault")|| $("#Query_RushingYardsRange_RangeEnd").val() != $("#Query_RushingYardsRange_RangeEnd").attr("dataValueDefault")){filterArray.push("ryr=" + $("#Query_RushingYardsRange_RangeStart").val() + "-" + $("#Query_RushingYardsRange_RangeEnd").val())};
+if ($("#Query_TotalOffenseRange_RangeStart").val() != $("#Query_TotalOffenseRange_RangeStart").attr("dataValueDefault")|| $("#Query_TotalOffenseRange_RangeEnd").val() != $("#Query_TotalOffenseRange_RangeEnd").attr("dataValueDefault")){filterArray.push("tor=" + $("#Query_TotalOffenseRange_RangeStart").val() + "-" + $("#Query_TotalOffenseRange_RangeEnd").val())};
+if ($("#Query_PassingAttemptsRange_RangeStart").val() != $("#Query_PassingAttemptsRange_RangeStart").attr("dataValueDefault")|| $("#Query_PassingAttemptsRange_RangeEnd").val() != $("#Query_PassingAttemptsRange_RangeEnd").attr("dataValueDefault")){filterArray.push("par=" + $("#Query_PassingAttemptsRange_RangeStart").val() + "-" + $("#Query_PassingAttemptsRange_RangeEnd").val())};
+if ($("#Query_RushingAttemptsRange_RangeStart").val() != $("#Query_RushingAttemptsRange_RangeStart").attr("dataValueDefault")|| $("#Query_RushingAttemptsRange_RangeEnd").val() != $("#Query_RushingAttemptsRange_RangeEnd").attr("dataValueDefault")){filterArray.push("rar=" + $("#Query_RushingAttemptsRange_RangeStart").val() + "-" + $("#Query_RushingAttemptsRange_RangeEnd").val())};
+if ($("#Query_FirstDownRange_RangeStart").val() != $("#Query_FirstDownRange_RangeStart").attr("dataValueDefault")|| $("#Query_FirstDownRange_RangeEnd").val() != $("#Query_FirstDownRange_RangeEnd").attr("dataValueDefault")){filterArray.push("fdr=" + $("#Query_FirstDownRange_RangeStart").val() + "-" + $("#Query_FirstDownRange_RangeEnd").val())};
+if ($("#Query_PointsScoredRange_RangeStart").val() != $("#Query_PointsScoredRange_RangeStart").attr("dataValueDefault")|| $("#Query_PointsScoredRange_RangeEnd").val() != $("#Query_PointsScoredRange_RangeEnd").attr("dataValueDefault")){filterArray.push("psr=" + $("#Query_PointsScoredRange_RangeStart").val() + "-" + $("#Query_PointsScoredRange_RangeEnd").val())};
+if ($("#Query_TDsRushingRange_RangeStart").val() != $("#Query_TDsRushingRange_RangeStart").attr("dataValueDefault")|| $("#Query_TDsRushingRange_RangeEnd").val() != $("#Query_TDsRushingRange_RangeEnd").attr("dataValueDefault")){filterArray.push("tdrr=" + $("#Query_TDsRushingRange_RangeStart").val() + "-" + $("#Query_TDsRushingRange_RangeEnd").val())};
+if ($("#Query_TDsPassingRange_RangeStart").val() != $("#Query_TDsPassingRange_RangeStart").attr("dataValueDefault")|| $("#Query_TDsPassingRange_RangeEnd").val() != $("#Query_TDsPassingRange_RangeEnd").attr("dataValueDefault")){filterArray.push("tdpr=" + $("#Query_TDsPassingRange_RangeStart").val() + "-" + $("#Query_TDsPassingRange_RangeEnd").val())};
+if ($("#Query_TDsTotalRange_RangeStart").val() != $("#Query_TDsTotalRange_RangeStart").attr("dataValueDefault")|| $("#Query_TDsTotalRange_RangeEnd").val() != $("#Query_TDsTotalRange_RangeEnd").attr("dataValueDefault")){filterArray.push("tdtr=" + $("#Query_TDsTotalRange_RangeStart").val() + "-" + $("#Query_TDsTotalRange_RangeEnd").val())};
+if ($("#Query_Q1PointsRange_RangeStart").val() != $("#Query_Q1PointsRange_RangeStart").attr("dataValueDefault")|| $("#Query_Q1PointsRange_RangeEnd").val() != $("#Query_Q1PointsRange_RangeEnd").attr("dataValueDefault")){filterArray.push("q1r=" + $("#Query_Q1PointsRange_RangeStart").val() + "-" + $("#Query_Q1PointsRange_RangeEnd").val())};
+if ($("#Query_Q2PointsRange_RangeStart").val() != $("#Query_Q2PointsRange_RangeStart").attr("dataValueDefault")|| $("#Query_Q2PointsRange_RangeEnd").val() != $("#Query_Q2PointsRange_RangeEnd").attr("dataValueDefault")){filterArray.push("q2r=" + $("#Query_Q2PointsRange_RangeStart").val() + "-" + $("#Query_Q2PointsRange_RangeEnd").val())};
+if ($("#Query_Q3PointsRange_RangeStart").val() != $("#Query_Q3PointsRange_RangeStart").attr("dataValueDefault")|| $("#Query_Q3PointsRange_RangeEnd").val() != $("#Query_Q3PointsRange_RangeEnd").attr("dataValueDefault")){filterArray.push("q3r=" + $("#Query_Q3PointsRange_RangeStart").val() + "-" + $("#Query_Q3PointsRange_RangeEnd").val())};
+if ($("#Query_Q4PointsRange_RangeStart").val() != $("#Query_Q4PointsRange_RangeStart").attr("dataValueDefault")|| $("#Query_Q4PointsRange_RangeEnd").val() != $("#Query_Q4PointsRange_RangeEnd").attr("dataValueDefault")){filterArray.push("q4r=" + $("#Query_Q4PointsRange_RangeStart").val() + "-" + $("#Query_Q4PointsRange_RangeEnd").val())};
+if ($("#Query_ExtraPointKicksRange_RangeStart").val() != $("#Query_ExtraPointKicksRange_RangeStart").attr("dataValueDefault")|| $("#Query_ExtraPointKicksRange_RangeEnd").val() != $("#Query_ExtraPointKicksRange_RangeEnd").attr("dataValueDefault")){filterArray.push("xpkr=" + $("#Query_ExtraPointKicksRange_RangeStart").val() + "-" + $("#Query_ExtraPointKicksRange_RangeEnd").val())};
+if ($("#Query_ExtraPointConversionsRange_RangeStart").val() != $("#Query_ExtraPointConversionsRange_RangeStart").attr("dataValueDefault")|| $("#Query_ExtraPointConversionsRange_RangeEnd").val() != $("#Query_ExtraPointConversionsRange_RangeEnd").attr("dataValueDefault")){filterArray.push("xpcr=" + $("#Query_ExtraPointConversionsRange_RangeStart").val() + "-" + $("#Query_ExtraPointConversionsRange_RangeEnd").val())};
+if ($("#Query_OpponentTotalOffenseRange_RangeStart").val() != $("#Query_OpponentTotalOffenseRange_RangeStart").attr("dataValueDefault")|| $("#Query_OpponentTotalOffenseRange_RangeEnd").val() != $("#Query_OpponentTotalOffenseRange_RangeEnd").attr("dataValueDefault")){filterArray.push("otor=" + $("#Query_OpponentTotalOffenseRange_RangeStart").val() + "-" + $("#Query_OpponentTotalOffenseRange_RangeEnd").val())};
+if ($("#Query_TacklesRange_RangeStart").val() != $("#Query_TacklesRange_RangeStart").attr("dataValueDefault")|| $("#Query_TacklesRange_RangeEnd").val() != $("#Query_TacklesRange_RangeEnd").attr("dataValueDefault")){filterArray.push("tkr=" + $("#Query_TacklesRange_RangeStart").val() + "-" + $("#Query_TacklesRange_RangeEnd").val())};
+if ($("#Query_TacklesForLossRange_RangeStart").val() != $("#Query_TacklesForLossRange_RangeStart").attr("dataValueDefault")|| $("#Query_TacklesForLossRange_RangeEnd").val() != $("#Query_TacklesForLossRange_RangeEnd").attr("dataValueDefault")){filterArray.push("tklr=" + $("#Query_TacklesForLossRange_RangeStart").val() + "-" + $("#Query_TacklesForLossRange_RangeEnd").val())};
+if ($("#Query_SacksRange_RangeStart").val() != $("#Query_SacksRange_RangeStart").attr("dataValueDefault")|| $("#Query_SacksRange_RangeEnd").val() != $("#Query_SacksRange_RangeEnd").attr("dataValueDefault")){filterArray.push("skr=" + $("#Query_SacksRange_RangeStart").val() + "-" + $("#Query_SacksRange_RangeEnd").val())};
+if ($("#Query_QBHurriesRange_RangeStart").val() != $("#Query_QBHurriesRange_RangeStart").attr("dataValueDefault")|| $("#Query_QBHurriesRange_RangeEnd").val() != $("#Query_QBHurriesRange_RangeEnd").attr("dataValueDefault")){filterArray.push("qbhr=" + $("#Query_QBHurriesRange_RangeStart").val() + "-" + $("#Query_QBHurriesRange_RangeEnd").val())};
+if ($("#Query_PassBreakupRange_RangeStart").val() != $("#Query_PassBreakupRange_RangeStart").attr("dataValueDefault")|| $("#Query_PassBreakupRange_RangeEnd").val() != $("#Query_PassBreakupRange_RangeEnd").attr("dataValueDefault")){filterArray.push("pbr=" + $("#Query_PassBreakupRange_RangeStart").val() + "-" + $("#Query_PassBreakupRange_RangeEnd").val())};
+if ($("#Query_PassInterceptionRange_RangeStart").val() != $("#Query_PassInterceptionRange_RangeStart").attr("dataValueDefault")|| $("#Query_PassInterceptionRange_RangeEnd").val() != $("#Query_PassInterceptionRange_RangeEnd").attr("dataValueDefault")){filterArray.push("pir=" + $("#Query_PassInterceptionRange_RangeStart").val() + "-" + $("#Query_PassInterceptionRange_RangeEnd").val())};
+if ($("#Query_FumblesLostRange_RangeStart").val() != $("#Query_FumblesLostRange_RangeStart").attr("dataValueDefault")|| $("#Query_FumblesLostRange_RangeEnd").val() != $("#Query_FumblesLostRange_RangeEnd").attr("dataValueDefault")){filterArray.push("flr=" + $("#Query_FumblesLostRange_RangeStart").val() + "-" + $("#Query_FumblesLostRange_RangeEnd").val())};
+if ($("#Query_InterceptionsThrownRange_RangeStart").val() != $("#Query_InterceptionsThrownRange_RangeStart").attr("dataValueDefault")|| $("#Query_InterceptionsThrownRange_RangeEnd").val() != $("#Query_InterceptionsThrownRange_RangeEnd").attr("dataValueDefault")){filterArray.push("itr=" + $("#Query_InterceptionsThrownRange_RangeStart").val() + "-" + $("#Query_InterceptionsThrownRange_RangeEnd").val())};
+if ($("#Query_FieldGoalsRange_RangeStart").val() != $("#Query_FieldGoalsRange_RangeStart").attr("dataValueDefault")|| $("#Query_FieldGoalsRange_RangeEnd").val() != $("#Query_FieldGoalsRange_RangeEnd").attr("dataValueDefault")){filterArray.push("fgr=" + $("#Query_FieldGoalsRange_RangeStart").val() + "-" + $("#Query_FieldGoalsRange_RangeEnd").val())};
+if ($("#Query_PuntsRange_RangeStart").val() != $("#Query_PuntsRange_RangeStart").attr("dataValueDefault")|| $("#Query_PuntsRange_RangeEnd").val() != $("#Query_PuntsRange_RangeEnd").attr("dataValueDefault")){filterArray.push("pr=" + $("#Query_PuntsRange_RangeStart").val() + "-" + $("#Query_PuntsRange_RangeEnd").val())};
+if ($("#Query_PuntsReturnedForTDRange_RangeStart").val() != $("#Query_PuntsReturnedForTDRange_RangeStart").attr("dataValueDefault")|| $("#Query_PuntsReturnedForTDRange_RangeEnd").val() != $("#Query_PuntsReturnedForTDRange_RangeEnd").attr("dataValueDefault")){filterArray.push("ptdr=" + $("#Query_PuntsReturnedForTDRange_RangeStart").val() + "-" + $("#Query_PuntsReturnedForTDRange_RangeEnd").val())};
+if ($("#Query_KickoffReturnedForTDRange_RangeStart").val() != $("#Query_KickoffReturnedForTDRange_RangeStart").attr("dataValueDefault")|| $("#Query_KickoffReturnedForTDRange_RangeEnd").val() != $("#Query_KickoffReturnedForTDRange_RangeEnd").attr("dataValueDefault")){filterArray.push("ktdr=" + $("#Query_KickoffReturnedForTDRange_RangeStart").val() + "-" + $("#Query_KickoffReturnedForTDRange_RangeEnd").val())};
+;
+
+            var filterQString = filterArray.join("/");  
+            sLog("[GetFilterCriteria] filterArray = " + filterQString);
+            return (filterQString);
+       
+        }
+        
+
+    $(".fieldset").each(function (i) {
+        var filterName = $(this).attr("data-filter-name");
+        var timerName = "timer_" + filterName;
+            $(this).mouseenter(function(e) {
+                var pos = $(this).offset();
+                $(this).addClass("on");
+            });
+            
+            $(this).mouseleave(function(e) {
+                var $this = jQuery(this);
+                $this.removeClass('on');
+             }
+            );
+
+            $("#" + filterName + "-container").mouseleave(function(e) {
+            },
+             function(){
+                    var $this = jQuery(this);
+                    timerName = setTimeout( function(){ $this.removeClass('on'); }, 50);
+                    }   
+            );
+    });    
+   
+    
+    function FetchStats(isTimeout) {
+           
+            var conferenceId = $("#Query_ConferenceId_Value").val();          
+           if ("FALSE" == isTimeout) {
+               $("#Query_GameResult_ValueCollection").val(GetCheckBoxValueArray('input:checkbox:checked.game-result'));
+               $("#Query_GameLocation_ValueCollection").val(GetCheckBoxValueArray('input:checkbox:checked.game-location'));
+               $("#Query_GamePostSeason_ValueCollection").val(GetCheckBoxValueArray('input:checkbox:checked.game-post-season'));
+           }
+
+        var form = $('form');
+
+            $.ajax({
+                type: 'POST',
+                url: "/Stats/GetConferenceStats",
+                data: form.serialize(),
+                beforeSend: function () {$("#stats-container").fadeTo(200, .2);HideDatasetFilters();},
+                success: function(result) {
+                    if (result.indexOf("[000:DNR]") >= 0) {
+                        setTimeout(function() {
+                            FetchStats("TRUE");
+                        }, 300);
+                    }
+                    else {
+                        sLog(result);
+                        SetConferenceName(conferenceId);
+                        $("#stats-container").fadeTo(100, 1);
+                        $("#stats-container").html(result);
+                        Initialize();
+                        UpdateFilterDisplay($('#filter-ul'));
+                        document.title = GetDatasetDescription();
+                        UpdateSocialButtons;
+                         _gaq.push(['_setAccount', 'UA-27365001-1']);
+                        _gaq.push(['_trackPageview']);
+                    }
+                }
+            });
+        }
+    
+            function SetConferenceName(confId) {
+            var name = conferenceNameHashTable[confId];
+                if (0 == confId) {
+                    name = "NFL";
+                }
+            $('#subject-name').html(name);
+            return name;
+        }
+            
+    ///////////////////////////////////////////Document Ready
+
+
+
+    $(document).ready(function () {
+     
+    $("#filter-open").click(function (e) {
+        ShowDatasetFilters();
+        $(this).hide();
+    });
+
+    $("#btn-edit-filters").click(function (e) {
+        ShowDatasetFilters();
+    });
+
+    $("#btn-filter-cancel").click(function (e) {
+        HideDatasetFilters();
+    });
+      
+                
+    $("#btn-update-stats").click(function (e) {
+        RefreshStats();
+    });     
+
+   
+    
+        //Dynamic javascript
+        $("#slider-season-range").slider({range: true,min:2001,max: 2014,step: 1,values: [2014, 2014],slide: function (event, ui) {if(ui.values){$("#slider-season-range-display").html(ui.values[0] + " - " + ui.values[1] + " ");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-season-range-display").attr('class', 'filter-board')} else {$("#slider-season-range-display").attr('class', 'filter-board-on')}}else{$("#slider-season-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-season-range-display").html(ui.value);$("#Query_SeasonRange_RangeStart").val(ui.value);$("#Query_SeasonRange_RangeEnd").val(ui.value);return;}$("#slider-season-range-display").html(ui.values[0] + " - " + ui.values[1] + " ").attr('class', 'filter-board-on');$("#Query_SeasonRange_RangeStart").val(ui.values[0]);$("#Query_SeasonRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-season-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-season-range-display").attr('class', 'filter-board-on')}}});$("#slider-season-range-display").val($("#slider-season-range").slider("values", 0) + " - " + $("#slider-season-range").slider("values", 1) + " ");$("#Query_SeasonRange_RangeStart").val($("#slider-season-range").slider("values", 0));$("#Query_SeasonRange_RangeEnd").val($("#slider-season-range").slider("values", 1));
+$("#slider-dayOfWeek-range").slider({range: true,min:1,max: 7,step: 1,values: [1, 7],slide: function (event, ui) {if(ui.values){$("#slider-dayOfWeek-range-display").html(ui.values[0] + " - " + ui.values[1] + " ");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-dayOfWeek-range-display").attr('class', 'filter-board')} else {$("#slider-dayOfWeek-range-display").attr('class', 'filter-board-on')}}else{$("#slider-dayOfWeek-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-dayOfWeek-range-display").html(ui.value);$("#Query_DayOfWeekRange_RangeStart").val(ui.value);$("#Query_DayOfWeekRange_RangeEnd").val(ui.value);return;}$("#slider-dayOfWeek-range-display").html(ui.values[0] + " - " + ui.values[1] + " ").attr('class', 'filter-board-on');$("#Query_DayOfWeekRange_RangeStart").val(ui.values[0]);$("#Query_DayOfWeekRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-dayOfWeek-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-dayOfWeek-range-display").attr('class', 'filter-board-on')}}});$("#slider-dayOfWeek-range-display").val($("#slider-dayOfWeek-range").slider("values", 0) + " - " + $("#slider-dayOfWeek-range").slider("values", 1) + " ");$("#Query_DayOfWeekRange_RangeStart").val($("#slider-dayOfWeek-range").slider("values", 0));$("#Query_DayOfWeekRange_RangeEnd").val($("#slider-dayOfWeek-range").slider("values", 1));
+$("#slider-week-range").slider({range: true,min:1,max: 21,step: 1,values: [1, 21],slide: function (event, ui) {if(ui.values){$("#slider-week-range-display").html(ui.values[0] + " - " + ui.values[1] + " ");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-week-range-display").attr('class', 'filter-board')} else {$("#slider-week-range-display").attr('class', 'filter-board-on')}}else{$("#slider-week-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-week-range-display").html(ui.value);$("#Query_WeekRange_RangeStart").val(ui.value);$("#Query_WeekRange_RangeEnd").val(ui.value);return;}$("#slider-week-range-display").html(ui.values[0] + " - " + ui.values[1] + " ").attr('class', 'filter-board-on');$("#Query_WeekRange_RangeStart").val(ui.values[0]);$("#Query_WeekRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-week-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-week-range-display").attr('class', 'filter-board-on')}}});$("#slider-week-range-display").val($("#slider-week-range").slider("values", 0) + " - " + $("#slider-week-range").slider("values", 1) + " ");$("#Query_WeekRange_RangeStart").val($("#slider-week-range").slider("values", 0));$("#Query_WeekRange_RangeEnd").val($("#slider-week-range").slider("values", 1));
+$("#slider-timeOfPossession-range").slider({range: true,min:0,max: 60,step: 1,values: [0, 60],slide: function (event, ui) {if(ui.values){$("#slider-timeOfPossession-range-display").html(ui.values[0] + " - " + ui.values[1] + " minutes");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-timeOfPossession-range-display").attr('class', 'filter-board')} else {$("#slider-timeOfPossession-range-display").attr('class', 'filter-board-on')}}else{$("#slider-timeOfPossession-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-timeOfPossession-range-display").html(ui.value);$("#Query_TimeOfPossessionRange_RangeStart").val(ui.value);$("#Query_TimeOfPossessionRange_RangeEnd").val(ui.value);return;}$("#slider-timeOfPossession-range-display").html(ui.values[0] + " - " + ui.values[1] + " minutes").attr('class', 'filter-board-on');$("#Query_TimeOfPossessionRange_RangeStart").val(ui.values[0]);$("#Query_TimeOfPossessionRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-timeOfPossession-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-timeOfPossession-range-display").attr('class', 'filter-board-on')}}});$("#slider-timeOfPossession-range-display").val($("#slider-timeOfPossession-range").slider("values", 0) + " - " + $("#slider-timeOfPossession-range").slider("values", 1) + " minutes");$("#Query_TimeOfPossessionRange_RangeStart").val($("#slider-timeOfPossession-range").slider("values", 0));$("#Query_TimeOfPossessionRange_RangeEnd").val($("#slider-timeOfPossession-range").slider("values", 1));
+$("#slider-passingYards-range").slider({range: true,min:0,max: 800,step: 10,values: [0, 800],slide: function (event, ui) {if(ui.values){$("#slider-passingYards-range-display").html(ui.values[0] + " - " + ui.values[1] + " yards");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-passingYards-range-display").attr('class', 'filter-board')} else {$("#slider-passingYards-range-display").attr('class', 'filter-board-on')}}else{$("#slider-passingYards-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-passingYards-range-display").html(ui.value);$("#Query_PassingYardsRange_RangeStart").val(ui.value);$("#Query_PassingYardsRange_RangeEnd").val(ui.value);return;}$("#slider-passingYards-range-display").html(ui.values[0] + " - " + ui.values[1] + " yards").attr('class', 'filter-board-on');$("#Query_PassingYardsRange_RangeStart").val(ui.values[0]);$("#Query_PassingYardsRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-passingYards-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-passingYards-range-display").attr('class', 'filter-board-on')}}});$("#slider-passingYards-range-display").val($("#slider-passingYards-range").slider("values", 0) + " - " + $("#slider-passingYards-range").slider("values", 1) + " yards");$("#Query_PassingYardsRange_RangeStart").val($("#slider-passingYards-range").slider("values", 0));$("#Query_PassingYardsRange_RangeEnd").val($("#slider-passingYards-range").slider("values", 1));
+$("#slider-rushingYards-range").slider({range: true,min:0,max: 800,step: 10,values: [0, 800],slide: function (event, ui) {if(ui.values){$("#slider-rushingYards-range-display").html(ui.values[0] + " - " + ui.values[1] + " yards");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-rushingYards-range-display").attr('class', 'filter-board')} else {$("#slider-rushingYards-range-display").attr('class', 'filter-board-on')}}else{$("#slider-rushingYards-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-rushingYards-range-display").html(ui.value);$("#Query_RushingYardsRange_RangeStart").val(ui.value);$("#Query_RushingYardsRange_RangeEnd").val(ui.value);return;}$("#slider-rushingYards-range-display").html(ui.values[0] + " - " + ui.values[1] + " yards").attr('class', 'filter-board-on');$("#Query_RushingYardsRange_RangeStart").val(ui.values[0]);$("#Query_RushingYardsRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-rushingYards-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-rushingYards-range-display").attr('class', 'filter-board-on')}}});$("#slider-rushingYards-range-display").val($("#slider-rushingYards-range").slider("values", 0) + " - " + $("#slider-rushingYards-range").slider("values", 1) + " yards");$("#Query_RushingYardsRange_RangeStart").val($("#slider-rushingYards-range").slider("values", 0));$("#Query_RushingYardsRange_RangeEnd").val($("#slider-rushingYards-range").slider("values", 1));
+$("#slider-totalOffense-range").slider({range: true,min:0,max: 900,step: 10,values: [0, 900],slide: function (event, ui) {if(ui.values){$("#slider-totalOffense-range-display").html(ui.values[0] + " - " + ui.values[1] + " yards");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-totalOffense-range-display").attr('class', 'filter-board')} else {$("#slider-totalOffense-range-display").attr('class', 'filter-board-on')}}else{$("#slider-totalOffense-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-totalOffense-range-display").html(ui.value);$("#Query_TotalOffenseRange_RangeStart").val(ui.value);$("#Query_TotalOffenseRange_RangeEnd").val(ui.value);return;}$("#slider-totalOffense-range-display").html(ui.values[0] + " - " + ui.values[1] + " yards").attr('class', 'filter-board-on');$("#Query_TotalOffenseRange_RangeStart").val(ui.values[0]);$("#Query_TotalOffenseRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-totalOffense-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-totalOffense-range-display").attr('class', 'filter-board-on')}}});$("#slider-totalOffense-range-display").val($("#slider-totalOffense-range").slider("values", 0) + " - " + $("#slider-totalOffense-range").slider("values", 1) + " yards");$("#Query_TotalOffenseRange_RangeStart").val($("#slider-totalOffense-range").slider("values", 0));$("#Query_TotalOffenseRange_RangeEnd").val($("#slider-totalOffense-range").slider("values", 1));
+$("#slider-passingAttempts-range").slider({range: true,min:0,max: 100,step: 5,values: [0, 100],slide: function (event, ui) {if(ui.values){$("#slider-passingAttempts-range-display").html(ui.values[0] + " - " + ui.values[1] + " attempts");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-passingAttempts-range-display").attr('class', 'filter-board')} else {$("#slider-passingAttempts-range-display").attr('class', 'filter-board-on')}}else{$("#slider-passingAttempts-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-passingAttempts-range-display").html(ui.value);$("#Query_PassingAttemptsRange_RangeStart").val(ui.value);$("#Query_PassingAttemptsRange_RangeEnd").val(ui.value);return;}$("#slider-passingAttempts-range-display").html(ui.values[0] + " - " + ui.values[1] + " attempts").attr('class', 'filter-board-on');$("#Query_PassingAttemptsRange_RangeStart").val(ui.values[0]);$("#Query_PassingAttemptsRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-passingAttempts-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-passingAttempts-range-display").attr('class', 'filter-board-on')}}});$("#slider-passingAttempts-range-display").val($("#slider-passingAttempts-range").slider("values", 0) + " - " + $("#slider-passingAttempts-range").slider("values", 1) + " attempts");$("#Query_PassingAttemptsRange_RangeStart").val($("#slider-passingAttempts-range").slider("values", 0));$("#Query_PassingAttemptsRange_RangeEnd").val($("#slider-passingAttempts-range").slider("values", 1));
+$("#slider-rushingAttempts-range").slider({range: true,min:0,max: 100,step: 5,values: [0, 100],slide: function (event, ui) {if(ui.values){$("#slider-rushingAttempts-range-display").html(ui.values[0] + " - " + ui.values[1] + " attempts");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-rushingAttempts-range-display").attr('class', 'filter-board')} else {$("#slider-rushingAttempts-range-display").attr('class', 'filter-board-on')}}else{$("#slider-rushingAttempts-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-rushingAttempts-range-display").html(ui.value);$("#Query_RushingAttemptsRange_RangeStart").val(ui.value);$("#Query_RushingAttemptsRange_RangeEnd").val(ui.value);return;}$("#slider-rushingAttempts-range-display").html(ui.values[0] + " - " + ui.values[1] + " attempts").attr('class', 'filter-board-on');$("#Query_RushingAttemptsRange_RangeStart").val(ui.values[0]);$("#Query_RushingAttemptsRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-rushingAttempts-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-rushingAttempts-range-display").attr('class', 'filter-board-on')}}});$("#slider-rushingAttempts-range-display").val($("#slider-rushingAttempts-range").slider("values", 0) + " - " + $("#slider-rushingAttempts-range").slider("values", 1) + " attempts");$("#Query_RushingAttemptsRange_RangeStart").val($("#slider-rushingAttempts-range").slider("values", 0));$("#Query_RushingAttemptsRange_RangeEnd").val($("#slider-rushingAttempts-range").slider("values", 1));
+$("#slider-firstDowns-range").slider({range: true,min:0,max: 50,step: 1,values: [0, 50],slide: function (event, ui) {if(ui.values){$("#slider-firstDowns-range-display").html(ui.values[0] + " - " + ui.values[1] + " total");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-firstDowns-range-display").attr('class', 'filter-board')} else {$("#slider-firstDowns-range-display").attr('class', 'filter-board-on')}}else{$("#slider-firstDowns-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-firstDowns-range-display").html(ui.value);$("#Query_FirstDownRange_RangeStart").val(ui.value);$("#Query_FirstDownRange_RangeEnd").val(ui.value);return;}$("#slider-firstDowns-range-display").html(ui.values[0] + " - " + ui.values[1] + " total").attr('class', 'filter-board-on');$("#Query_FirstDownRange_RangeStart").val(ui.values[0]);$("#Query_FirstDownRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-firstDowns-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-firstDowns-range-display").attr('class', 'filter-board-on')}}});$("#slider-firstDowns-range-display").val($("#slider-firstDowns-range").slider("values", 0) + " - " + $("#slider-firstDowns-range").slider("values", 1) + " total");$("#Query_FirstDownRange_RangeStart").val($("#slider-firstDowns-range").slider("values", 0));$("#Query_FirstDownRange_RangeEnd").val($("#slider-firstDowns-range").slider("values", 1));
+$("#slider-pointsScored-range").slider({range: true,min:0,max: 90,step: 1,values: [0, 90],slide: function (event, ui) {if(ui.values){$("#slider-pointsScored-range-display").html(ui.values[0] + " - " + ui.values[1] + " points");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-pointsScored-range-display").attr('class', 'filter-board')} else {$("#slider-pointsScored-range-display").attr('class', 'filter-board-on')}}else{$("#slider-pointsScored-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-pointsScored-range-display").html(ui.value);$("#Query_PointsScoredRange_RangeStart").val(ui.value);$("#Query_PointsScoredRange_RangeEnd").val(ui.value);return;}$("#slider-pointsScored-range-display").html(ui.values[0] + " - " + ui.values[1] + " points").attr('class', 'filter-board-on');$("#Query_PointsScoredRange_RangeStart").val(ui.values[0]);$("#Query_PointsScoredRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-pointsScored-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-pointsScored-range-display").attr('class', 'filter-board-on')}}});$("#slider-pointsScored-range-display").val($("#slider-pointsScored-range").slider("values", 0) + " - " + $("#slider-pointsScored-range").slider("values", 1) + " points");$("#Query_PointsScoredRange_RangeStart").val($("#slider-pointsScored-range").slider("values", 0));$("#Query_PointsScoredRange_RangeEnd").val($("#slider-pointsScored-range").slider("values", 1));
+$("#slider-tdsRushing-range").slider({range: true,min:0,max: 10,step: 1,values: [0, 10],slide: function (event, ui) {if(ui.values){$("#slider-tdsRushing-range-display").html(ui.values[0] + " - " + ui.values[1] + " TDs");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-tdsRushing-range-display").attr('class', 'filter-board')} else {$("#slider-tdsRushing-range-display").attr('class', 'filter-board-on')}}else{$("#slider-tdsRushing-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-tdsRushing-range-display").html(ui.value);$("#Query_TDsRushingRange_RangeStart").val(ui.value);$("#Query_TDsRushingRange_RangeEnd").val(ui.value);return;}$("#slider-tdsRushing-range-display").html(ui.values[0] + " - " + ui.values[1] + " TDs").attr('class', 'filter-board-on');$("#Query_TDsRushingRange_RangeStart").val(ui.values[0]);$("#Query_TDsRushingRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-tdsRushing-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-tdsRushing-range-display").attr('class', 'filter-board-on')}}});$("#slider-tdsRushing-range-display").val($("#slider-tdsRushing-range").slider("values", 0) + " - " + $("#slider-tdsRushing-range").slider("values", 1) + " TDs");$("#Query_TDsRushingRange_RangeStart").val($("#slider-tdsRushing-range").slider("values", 0));$("#Query_TDsRushingRange_RangeEnd").val($("#slider-tdsRushing-range").slider("values", 1));
+$("#slider-tdsPassing-range").slider({range: true,min:0,max: 10,step: 1,values: [0, 10],slide: function (event, ui) {if(ui.values){$("#slider-tdsPassing-range-display").html(ui.values[0] + " - " + ui.values[1] + " TDs");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-tdsPassing-range-display").attr('class', 'filter-board')} else {$("#slider-tdsPassing-range-display").attr('class', 'filter-board-on')}}else{$("#slider-tdsPassing-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-tdsPassing-range-display").html(ui.value);$("#Query_TDsPassingRange_RangeStart").val(ui.value);$("#Query_TDsPassingRange_RangeEnd").val(ui.value);return;}$("#slider-tdsPassing-range-display").html(ui.values[0] + " - " + ui.values[1] + " TDs").attr('class', 'filter-board-on');$("#Query_TDsPassingRange_RangeStart").val(ui.values[0]);$("#Query_TDsPassingRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-tdsPassing-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-tdsPassing-range-display").attr('class', 'filter-board-on')}}});$("#slider-tdsPassing-range-display").val($("#slider-tdsPassing-range").slider("values", 0) + " - " + $("#slider-tdsPassing-range").slider("values", 1) + " TDs");$("#Query_TDsPassingRange_RangeStart").val($("#slider-tdsPassing-range").slider("values", 0));$("#Query_TDsPassingRange_RangeEnd").val($("#slider-tdsPassing-range").slider("values", 1));
+$("#slider-tdsTotal-range").slider({range: true,min:0,max: 12,step: 1,values: [0, 12],slide: function (event, ui) {if(ui.values){$("#slider-tdsTotal-range-display").html(ui.values[0] + " - " + ui.values[1] + " TDs");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-tdsTotal-range-display").attr('class', 'filter-board')} else {$("#slider-tdsTotal-range-display").attr('class', 'filter-board-on')}}else{$("#slider-tdsTotal-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-tdsTotal-range-display").html(ui.value);$("#Query_TDsTotalRange_RangeStart").val(ui.value);$("#Query_TDsTotalRange_RangeEnd").val(ui.value);return;}$("#slider-tdsTotal-range-display").html(ui.values[0] + " - " + ui.values[1] + " TDs").attr('class', 'filter-board-on');$("#Query_TDsTotalRange_RangeStart").val(ui.values[0]);$("#Query_TDsTotalRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-tdsTotal-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-tdsTotal-range-display").attr('class', 'filter-board-on')}}});$("#slider-tdsTotal-range-display").val($("#slider-tdsTotal-range").slider("values", 0) + " - " + $("#slider-tdsTotal-range").slider("values", 1) + " TDs");$("#Query_TDsTotalRange_RangeStart").val($("#slider-tdsTotal-range").slider("values", 0));$("#Query_TDsTotalRange_RangeEnd").val($("#slider-tdsTotal-range").slider("values", 1));
+$("#slider-q1Points-range").slider({range: true,min:0,max: 42,step: 1,values: [0, 42],slide: function (event, ui) {if(ui.values){$("#slider-q1Points-range-display").html(ui.values[0] + " - " + ui.values[1] + " points");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-q1Points-range-display").attr('class', 'filter-board')} else {$("#slider-q1Points-range-display").attr('class', 'filter-board-on')}}else{$("#slider-q1Points-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-q1Points-range-display").html(ui.value);$("#Query_Q1PointsRange_RangeStart").val(ui.value);$("#Query_Q1PointsRange_RangeEnd").val(ui.value);return;}$("#slider-q1Points-range-display").html(ui.values[0] + " - " + ui.values[1] + " points").attr('class', 'filter-board-on');$("#Query_Q1PointsRange_RangeStart").val(ui.values[0]);$("#Query_Q1PointsRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-q1Points-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-q1Points-range-display").attr('class', 'filter-board-on')}}});$("#slider-q1Points-range-display").val($("#slider-q1Points-range").slider("values", 0) + " - " + $("#slider-q1Points-range").slider("values", 1) + " points");$("#Query_Q1PointsRange_RangeStart").val($("#slider-q1Points-range").slider("values", 0));$("#Query_Q1PointsRange_RangeEnd").val($("#slider-q1Points-range").slider("values", 1));
+$("#slider-q2Points-range").slider({range: true,min:0,max: 42,step: 1,values: [0, 42],slide: function (event, ui) {if(ui.values){$("#slider-q2Points-range-display").html(ui.values[0] + " - " + ui.values[1] + " points");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-q2Points-range-display").attr('class', 'filter-board')} else {$("#slider-q2Points-range-display").attr('class', 'filter-board-on')}}else{$("#slider-q2Points-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-q2Points-range-display").html(ui.value);$("#Query_Q2PointsRange_RangeStart").val(ui.value);$("#Query_Q2PointsRange_RangeEnd").val(ui.value);return;}$("#slider-q2Points-range-display").html(ui.values[0] + " - " + ui.values[1] + " points").attr('class', 'filter-board-on');$("#Query_Q2PointsRange_RangeStart").val(ui.values[0]);$("#Query_Q2PointsRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-q2Points-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-q2Points-range-display").attr('class', 'filter-board-on')}}});$("#slider-q2Points-range-display").val($("#slider-q2Points-range").slider("values", 0) + " - " + $("#slider-q2Points-range").slider("values", 1) + " points");$("#Query_Q2PointsRange_RangeStart").val($("#slider-q2Points-range").slider("values", 0));$("#Query_Q2PointsRange_RangeEnd").val($("#slider-q2Points-range").slider("values", 1));
+$("#slider-q3Points-range").slider({range: true,min:0,max: 42,step: 1,values: [0, 42],slide: function (event, ui) {if(ui.values){$("#slider-q3Points-range-display").html(ui.values[0] + " - " + ui.values[1] + " points");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-q3Points-range-display").attr('class', 'filter-board')} else {$("#slider-q3Points-range-display").attr('class', 'filter-board-on')}}else{$("#slider-q3Points-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-q3Points-range-display").html(ui.value);$("#Query_Q3PointsRange_RangeStart").val(ui.value);$("#Query_Q3PointsRange_RangeEnd").val(ui.value);return;}$("#slider-q3Points-range-display").html(ui.values[0] + " - " + ui.values[1] + " points").attr('class', 'filter-board-on');$("#Query_Q3PointsRange_RangeStart").val(ui.values[0]);$("#Query_Q3PointsRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-q3Points-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-q3Points-range-display").attr('class', 'filter-board-on')}}});$("#slider-q3Points-range-display").val($("#slider-q3Points-range").slider("values", 0) + " - " + $("#slider-q3Points-range").slider("values", 1) + " points");$("#Query_Q3PointsRange_RangeStart").val($("#slider-q3Points-range").slider("values", 0));$("#Query_Q3PointsRange_RangeEnd").val($("#slider-q3Points-range").slider("values", 1));
+$("#slider-q4Points-range").slider({range: true,min:0,max: 42,step: 1,values: [0, 42],slide: function (event, ui) {if(ui.values){$("#slider-q4Points-range-display").html(ui.values[0] + " - " + ui.values[1] + " points");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-q4Points-range-display").attr('class', 'filter-board')} else {$("#slider-q4Points-range-display").attr('class', 'filter-board-on')}}else{$("#slider-q4Points-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-q4Points-range-display").html(ui.value);$("#Query_Q4PointsRange_RangeStart").val(ui.value);$("#Query_Q4PointsRange_RangeEnd").val(ui.value);return;}$("#slider-q4Points-range-display").html(ui.values[0] + " - " + ui.values[1] + " points").attr('class', 'filter-board-on');$("#Query_Q4PointsRange_RangeStart").val(ui.values[0]);$("#Query_Q4PointsRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-q4Points-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-q4Points-range-display").attr('class', 'filter-board-on')}}});$("#slider-q4Points-range-display").val($("#slider-q4Points-range").slider("values", 0) + " - " + $("#slider-q4Points-range").slider("values", 1) + " points");$("#Query_Q4PointsRange_RangeStart").val($("#slider-q4Points-range").slider("values", 0));$("#Query_Q4PointsRange_RangeEnd").val($("#slider-q4Points-range").slider("values", 1));
+$("#slider-extraPointKicks-range").slider({range: true,min:0,max: 12,step: 1,values: [0, 12],slide: function (event, ui) {if(ui.values){$("#slider-extraPointKicks-range-display").html(ui.values[0] + " - " + ui.values[1] + " xpt kicks");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-extraPointKicks-range-display").attr('class', 'filter-board')} else {$("#slider-extraPointKicks-range-display").attr('class', 'filter-board-on')}}else{$("#slider-extraPointKicks-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-extraPointKicks-range-display").html(ui.value);$("#Query_ExtraPointKicksRange_RangeStart").val(ui.value);$("#Query_ExtraPointKicksRange_RangeEnd").val(ui.value);return;}$("#slider-extraPointKicks-range-display").html(ui.values[0] + " - " + ui.values[1] + " xpt kicks").attr('class', 'filter-board-on');$("#Query_ExtraPointKicksRange_RangeStart").val(ui.values[0]);$("#Query_ExtraPointKicksRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-extraPointKicks-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-extraPointKicks-range-display").attr('class', 'filter-board-on')}}});$("#slider-extraPointKicks-range-display").val($("#slider-extraPointKicks-range").slider("values", 0) + " - " + $("#slider-extraPointKicks-range").slider("values", 1) + " xpt kicks");$("#Query_ExtraPointKicksRange_RangeStart").val($("#slider-extraPointKicks-range").slider("values", 0));$("#Query_ExtraPointKicksRange_RangeEnd").val($("#slider-extraPointKicks-range").slider("values", 1));
+$("#slider-extraPoint-range").slider({range: true,min:0,max: 4,step: 1,values: [0, 4],slide: function (event, ui) {if(ui.values){$("#slider-extraPoint-range-display").html(ui.values[0] + " - " + ui.values[1] + " xpt conversions");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-extraPoint-range-display").attr('class', 'filter-board')} else {$("#slider-extraPoint-range-display").attr('class', 'filter-board-on')}}else{$("#slider-extraPoint-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-extraPoint-range-display").html(ui.value);$("#Query_ExtraPointConversionsRange_RangeStart").val(ui.value);$("#Query_ExtraPointConversionsRange_RangeEnd").val(ui.value);return;}$("#slider-extraPoint-range-display").html(ui.values[0] + " - " + ui.values[1] + " xpt conversions").attr('class', 'filter-board-on');$("#Query_ExtraPointConversionsRange_RangeStart").val(ui.values[0]);$("#Query_ExtraPointConversionsRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-extraPoint-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-extraPoint-range-display").attr('class', 'filter-board-on')}}});$("#slider-extraPoint-range-display").val($("#slider-extraPoint-range").slider("values", 0) + " - " + $("#slider-extraPoint-range").slider("values", 1) + " xpt conversions");$("#Query_ExtraPointConversionsRange_RangeStart").val($("#slider-extraPoint-range").slider("values", 0));$("#Query_ExtraPointConversionsRange_RangeEnd").val($("#slider-extraPoint-range").slider("values", 1));
+$("#slider-opponentTotalOffense-range").slider({range: true,min:0,max: 900,step: 10,values: [0, 900],slide: function (event, ui) {if(ui.values){$("#slider-opponentTotalOffense-range-display").html(ui.values[0] + " - " + ui.values[1] + " yards");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-opponentTotalOffense-range-display").attr('class', 'filter-board')} else {$("#slider-opponentTotalOffense-range-display").attr('class', 'filter-board-on')}}else{$("#slider-opponentTotalOffense-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-opponentTotalOffense-range-display").html(ui.value);$("#Query_OpponentTotalOffenseRange_RangeStart").val(ui.value);$("#Query_OpponentTotalOffenseRange_RangeEnd").val(ui.value);return;}$("#slider-opponentTotalOffense-range-display").html(ui.values[0] + " - " + ui.values[1] + " yards").attr('class', 'filter-board-on');$("#Query_OpponentTotalOffenseRange_RangeStart").val(ui.values[0]);$("#Query_OpponentTotalOffenseRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-opponentTotalOffense-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-opponentTotalOffense-range-display").attr('class', 'filter-board-on')}}});$("#slider-opponentTotalOffense-range-display").val($("#slider-opponentTotalOffense-range").slider("values", 0) + " - " + $("#slider-opponentTotalOffense-range").slider("values", 1) + " yards");$("#Query_OpponentTotalOffenseRange_RangeStart").val($("#slider-opponentTotalOffense-range").slider("values", 0));$("#Query_OpponentTotalOffenseRange_RangeEnd").val($("#slider-opponentTotalOffense-range").slider("values", 1));
+$("#slider-tackles-range").slider({range: true,min:0,max: 145,step: 5,values: [0, 145],slide: function (event, ui) {if(ui.values){$("#slider-tackles-range-display").html(ui.values[0] + " - " + ui.values[1] + " tackles");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-tackles-range-display").attr('class', 'filter-board')} else {$("#slider-tackles-range-display").attr('class', 'filter-board-on')}}else{$("#slider-tackles-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-tackles-range-display").html(ui.value);$("#Query_TacklesRange_RangeStart").val(ui.value);$("#Query_TacklesRange_RangeEnd").val(ui.value);return;}$("#slider-tackles-range-display").html(ui.values[0] + " - " + ui.values[1] + " tackles").attr('class', 'filter-board-on');$("#Query_TacklesRange_RangeStart").val(ui.values[0]);$("#Query_TacklesRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-tackles-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-tackles-range-display").attr('class', 'filter-board-on')}}});$("#slider-tackles-range-display").val($("#slider-tackles-range").slider("values", 0) + " - " + $("#slider-tackles-range").slider("values", 1) + " tackles");$("#Query_TacklesRange_RangeStart").val($("#slider-tackles-range").slider("values", 0));$("#Query_TacklesRange_RangeEnd").val($("#slider-tackles-range").slider("values", 1));
+$("#slider-tacklesForLoss-range").slider({range: true,min:0,max: 30,step: 1,values: [0, 30],slide: function (event, ui) {if(ui.values){$("#slider-tacklesForLoss-range-display").html(ui.values[0] + " - " + ui.values[1] + " tackles");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-tacklesForLoss-range-display").attr('class', 'filter-board')} else {$("#slider-tacklesForLoss-range-display").attr('class', 'filter-board-on')}}else{$("#slider-tacklesForLoss-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-tacklesForLoss-range-display").html(ui.value);$("#Query_TacklesForLossRange_RangeStart").val(ui.value);$("#Query_TacklesForLossRange_RangeEnd").val(ui.value);return;}$("#slider-tacklesForLoss-range-display").html(ui.values[0] + " - " + ui.values[1] + " tackles").attr('class', 'filter-board-on');$("#Query_TacklesForLossRange_RangeStart").val(ui.values[0]);$("#Query_TacklesForLossRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-tacklesForLoss-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-tacklesForLoss-range-display").attr('class', 'filter-board-on')}}});$("#slider-tacklesForLoss-range-display").val($("#slider-tacklesForLoss-range").slider("values", 0) + " - " + $("#slider-tacklesForLoss-range").slider("values", 1) + " tackles");$("#Query_TacklesForLossRange_RangeStart").val($("#slider-tacklesForLoss-range").slider("values", 0));$("#Query_TacklesForLossRange_RangeEnd").val($("#slider-tacklesForLoss-range").slider("values", 1));
+$("#slider-sacks-range").slider({range: true,min:0,max: 10,step: 1,values: [0, 10],slide: function (event, ui) {if(ui.values){$("#slider-sacks-range-display").html(ui.values[0] + " - " + ui.values[1] + " sacks");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-sacks-range-display").attr('class', 'filter-board')} else {$("#slider-sacks-range-display").attr('class', 'filter-board-on')}}else{$("#slider-sacks-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-sacks-range-display").html(ui.value);$("#Query_SacksRange_RangeStart").val(ui.value);$("#Query_SacksRange_RangeEnd").val(ui.value);return;}$("#slider-sacks-range-display").html(ui.values[0] + " - " + ui.values[1] + " sacks").attr('class', 'filter-board-on');$("#Query_SacksRange_RangeStart").val(ui.values[0]);$("#Query_SacksRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-sacks-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-sacks-range-display").attr('class', 'filter-board-on')}}});$("#slider-sacks-range-display").val($("#slider-sacks-range").slider("values", 0) + " - " + $("#slider-sacks-range").slider("values", 1) + " sacks");$("#Query_SacksRange_RangeStart").val($("#slider-sacks-range").slider("values", 0));$("#Query_SacksRange_RangeEnd").val($("#slider-sacks-range").slider("values", 1));
+$("#slider-qbHurries-range").slider({range: true,min:0,max: 30,step: 1,values: [0, 30],slide: function (event, ui) {if(ui.values){$("#slider-qbHurries-range-display").html(ui.values[0] + " - " + ui.values[1] + " hurries");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-qbHurries-range-display").attr('class', 'filter-board')} else {$("#slider-qbHurries-range-display").attr('class', 'filter-board-on')}}else{$("#slider-qbHurries-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-qbHurries-range-display").html(ui.value);$("#Query_QBHurriesRange_RangeStart").val(ui.value);$("#Query_QBHurriesRange_RangeEnd").val(ui.value);return;}$("#slider-qbHurries-range-display").html(ui.values[0] + " - " + ui.values[1] + " hurries").attr('class', 'filter-board-on');$("#Query_QBHurriesRange_RangeStart").val(ui.values[0]);$("#Query_QBHurriesRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-qbHurries-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-qbHurries-range-display").attr('class', 'filter-board-on')}}});$("#slider-qbHurries-range-display").val($("#slider-qbHurries-range").slider("values", 0) + " - " + $("#slider-qbHurries-range").slider("values", 1) + " hurries");$("#Query_QBHurriesRange_RangeStart").val($("#slider-qbHurries-range").slider("values", 0));$("#Query_QBHurriesRange_RangeEnd").val($("#slider-qbHurries-range").slider("values", 1));
+$("#slider-passBreakup-range").slider({range: true,min:0,max: 20,step: 1,values: [0, 20],slide: function (event, ui) {if(ui.values){$("#slider-passBreakup-range-display").html(ui.values[0] + " - " + ui.values[1] + " pass breakups");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-passBreakup-range-display").attr('class', 'filter-board')} else {$("#slider-passBreakup-range-display").attr('class', 'filter-board-on')}}else{$("#slider-passBreakup-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-passBreakup-range-display").html(ui.value);$("#Query_PassBreakupRange_RangeStart").val(ui.value);$("#Query_PassBreakupRange_RangeEnd").val(ui.value);return;}$("#slider-passBreakup-range-display").html(ui.values[0] + " - " + ui.values[1] + " pass breakups").attr('class', 'filter-board-on');$("#Query_PassBreakupRange_RangeStart").val(ui.values[0]);$("#Query_PassBreakupRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-passBreakup-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-passBreakup-range-display").attr('class', 'filter-board-on')}}});$("#slider-passBreakup-range-display").val($("#slider-passBreakup-range").slider("values", 0) + " - " + $("#slider-passBreakup-range").slider("values", 1) + " pass breakups");$("#Query_PassBreakupRange_RangeStart").val($("#slider-passBreakup-range").slider("values", 0));$("#Query_PassBreakupRange_RangeEnd").val($("#slider-passBreakup-range").slider("values", 1));
+$("#slider-passInterception-range").slider({range: true,min:0,max: 8,step: 1,values: [0, 8],slide: function (event, ui) {if(ui.values){$("#slider-passInterception-range-display").html(ui.values[0] + " - " + ui.values[1] + " interceptions");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-passInterception-range-display").attr('class', 'filter-board')} else {$("#slider-passInterception-range-display").attr('class', 'filter-board-on')}}else{$("#slider-passInterception-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-passInterception-range-display").html(ui.value);$("#Query_PassInterceptionRange_RangeStart").val(ui.value);$("#Query_PassInterceptionRange_RangeEnd").val(ui.value);return;}$("#slider-passInterception-range-display").html(ui.values[0] + " - " + ui.values[1] + " interceptions").attr('class', 'filter-board-on');$("#Query_PassInterceptionRange_RangeStart").val(ui.values[0]);$("#Query_PassInterceptionRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-passInterception-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-passInterception-range-display").attr('class', 'filter-board-on')}}});$("#slider-passInterception-range-display").val($("#slider-passInterception-range").slider("values", 0) + " - " + $("#slider-passInterception-range").slider("values", 1) + " interceptions");$("#Query_PassInterceptionRange_RangeStart").val($("#slider-passInterception-range").slider("values", 0));$("#Query_PassInterceptionRange_RangeEnd").val($("#slider-passInterception-range").slider("values", 1));
+$("#slider-fumblesLost-range").slider({range: true,min:0,max: 6,step: 1,values: [0, 6],slide: function (event, ui) {if(ui.values){$("#slider-fumblesLost-range-display").html(ui.values[0] + " - " + ui.values[1] + " fumbles lost");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-fumblesLost-range-display").attr('class', 'filter-board')} else {$("#slider-fumblesLost-range-display").attr('class', 'filter-board-on')}}else{$("#slider-fumblesLost-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-fumblesLost-range-display").html(ui.value);$("#Query_FumblesLostRange_RangeStart").val(ui.value);$("#Query_FumblesLostRange_RangeEnd").val(ui.value);return;}$("#slider-fumblesLost-range-display").html(ui.values[0] + " - " + ui.values[1] + " fumbles lost").attr('class', 'filter-board-on');$("#Query_FumblesLostRange_RangeStart").val(ui.values[0]);$("#Query_FumblesLostRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-fumblesLost-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-fumblesLost-range-display").attr('class', 'filter-board-on')}}});$("#slider-fumblesLost-range-display").val($("#slider-fumblesLost-range").slider("values", 0) + " - " + $("#slider-fumblesLost-range").slider("values", 1) + " fumbles lost");$("#Query_FumblesLostRange_RangeStart").val($("#slider-fumblesLost-range").slider("values", 0));$("#Query_FumblesLostRange_RangeEnd").val($("#slider-fumblesLost-range").slider("values", 1));
+$("#slider-interceptionsThrown-range").slider({range: true,min:0,max: 8,step: 1,values: [0, 8],slide: function (event, ui) {if(ui.values){$("#slider-interceptionsThrown-range-display").html(ui.values[0] + " - " + ui.values[1] + " int thrown");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-interceptionsThrown-range-display").attr('class', 'filter-board')} else {$("#slider-interceptionsThrown-range-display").attr('class', 'filter-board-on')}}else{$("#slider-interceptionsThrown-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-interceptionsThrown-range-display").html(ui.value);$("#Query_InterceptionsThrownRange_RangeStart").val(ui.value);$("#Query_InterceptionsThrownRange_RangeEnd").val(ui.value);return;}$("#slider-interceptionsThrown-range-display").html(ui.values[0] + " - " + ui.values[1] + " int thrown").attr('class', 'filter-board-on');$("#Query_InterceptionsThrownRange_RangeStart").val(ui.values[0]);$("#Query_InterceptionsThrownRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-interceptionsThrown-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-interceptionsThrown-range-display").attr('class', 'filter-board-on')}}});$("#slider-interceptionsThrown-range-display").val($("#slider-interceptionsThrown-range").slider("values", 0) + " - " + $("#slider-interceptionsThrown-range").slider("values", 1) + " int thrown");$("#Query_InterceptionsThrownRange_RangeStart").val($("#slider-interceptionsThrown-range").slider("values", 0));$("#Query_InterceptionsThrownRange_RangeEnd").val($("#slider-interceptionsThrown-range").slider("values", 1));
+$("#slider-fieldGoals-range").slider({range: true,min:0,max: 12,step: 1,values: [0, 12],slide: function (event, ui) {if(ui.values){$("#slider-fieldGoals-range-display").html(ui.values[0] + " - " + ui.values[1] + " field goals");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-fieldGoals-range-display").attr('class', 'filter-board')} else {$("#slider-fieldGoals-range-display").attr('class', 'filter-board-on')}}else{$("#slider-fieldGoals-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-fieldGoals-range-display").html(ui.value);$("#Query_FieldGoalsRange_RangeStart").val(ui.value);$("#Query_FieldGoalsRange_RangeEnd").val(ui.value);return;}$("#slider-fieldGoals-range-display").html(ui.values[0] + " - " + ui.values[1] + " field goals").attr('class', 'filter-board-on');$("#Query_FieldGoalsRange_RangeStart").val(ui.values[0]);$("#Query_FieldGoalsRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-fieldGoals-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-fieldGoals-range-display").attr('class', 'filter-board-on')}}});$("#slider-fieldGoals-range-display").val($("#slider-fieldGoals-range").slider("values", 0) + " - " + $("#slider-fieldGoals-range").slider("values", 1) + " field goals");$("#Query_FieldGoalsRange_RangeStart").val($("#slider-fieldGoals-range").slider("values", 0));$("#Query_FieldGoalsRange_RangeEnd").val($("#slider-fieldGoals-range").slider("values", 1));
+$("#slider-punts-range").slider({range: true,min:0,max: 15,step: 1,values: [0, 15],slide: function (event, ui) {if(ui.values){$("#slider-punts-range-display").html(ui.values[0] + " - " + ui.values[1] + " punts");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-punts-range-display").attr('class', 'filter-board')} else {$("#slider-punts-range-display").attr('class', 'filter-board-on')}}else{$("#slider-punts-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-punts-range-display").html(ui.value);$("#Query_PuntsRange_RangeStart").val(ui.value);$("#Query_PuntsRange_RangeEnd").val(ui.value);return;}$("#slider-punts-range-display").html(ui.values[0] + " - " + ui.values[1] + " punts").attr('class', 'filter-board-on');$("#Query_PuntsRange_RangeStart").val(ui.values[0]);$("#Query_PuntsRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-punts-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-punts-range-display").attr('class', 'filter-board-on')}}});$("#slider-punts-range-display").val($("#slider-punts-range").slider("values", 0) + " - " + $("#slider-punts-range").slider("values", 1) + " punts");$("#Query_PuntsRange_RangeStart").val($("#slider-punts-range").slider("values", 0));$("#Query_PuntsRange_RangeEnd").val($("#slider-punts-range").slider("values", 1));
+$("#slider-puntsReturnedForTD-range").slider({range: true,min:0,max: 3,step: 1,values: [0, 3],slide: function (event, ui) {if(ui.values){$("#slider-puntsReturnedForTD-range-display").html(ui.values[0] + " - " + ui.values[1] + " punts returned");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-puntsReturnedForTD-range-display").attr('class', 'filter-board')} else {$("#slider-puntsReturnedForTD-range-display").attr('class', 'filter-board-on')}}else{$("#slider-puntsReturnedForTD-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-puntsReturnedForTD-range-display").html(ui.value);$("#Query_PuntsReturnedForTDRange_RangeStart").val(ui.value);$("#Query_PuntsReturnedForTDRange_RangeEnd").val(ui.value);return;}$("#slider-puntsReturnedForTD-range-display").html(ui.values[0] + " - " + ui.values[1] + " punts returned").attr('class', 'filter-board-on');$("#Query_PuntsReturnedForTDRange_RangeStart").val(ui.values[0]);$("#Query_PuntsReturnedForTDRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-puntsReturnedForTD-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-puntsReturnedForTD-range-display").attr('class', 'filter-board-on')}}});$("#slider-puntsReturnedForTD-range-display").val($("#slider-puntsReturnedForTD-range").slider("values", 0) + " - " + $("#slider-puntsReturnedForTD-range").slider("values", 1) + " punts returned");$("#Query_PuntsReturnedForTDRange_RangeStart").val($("#slider-puntsReturnedForTD-range").slider("values", 0));$("#Query_PuntsReturnedForTDRange_RangeEnd").val($("#slider-puntsReturnedForTD-range").slider("values", 1));
+$("#slider-kickoffReturnedForTD-range").slider({range: true,min:0,max: 3,step: 1,values: [0, 3],slide: function (event, ui) {if(ui.values){$("#slider-kickoffReturnedForTD-range-display").html(ui.values[0] + " - " + ui.values[1] + " kickoffs returned");if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-kickoffReturnedForTD-range-display").attr('class', 'filter-board')} else {$("#slider-kickoffReturnedForTD-range-display").attr('class', 'filter-board-on')}}else{$("#slider-kickoffReturnedForTD-range-display").html(ui.value);}},change: function (event, ui) {if(!ui.values){$("#slider-kickoffReturnedForTD-range-display").html(ui.value);$("#Query_KickoffReturnedForTDRange_RangeStart").val(ui.value);$("#Query_KickoffReturnedForTDRange_RangeEnd").val(ui.value);return;}$("#slider-kickoffReturnedForTD-range-display").html(ui.values[0] + " - " + ui.values[1] + " kickoffs returned").attr('class', 'filter-board-on');$("#Query_KickoffReturnedForTDRange_RangeStart").val(ui.values[0]);$("#Query_KickoffReturnedForTDRange_RangeEnd").val(ui.values[1]);if (ui.values[0] == $(this).slider( "option", "min" ) &&  ui.values[1] == $(this).slider( "option", "max" )){$("#slider-kickoffReturnedForTD-range-display").attr('class', 'filter-board').val("ALL")} else {$("#slider-kickoffReturnedForTD-range-display").attr('class', 'filter-board-on')}}});$("#slider-kickoffReturnedForTD-range-display").val($("#slider-kickoffReturnedForTD-range").slider("values", 0) + " - " + $("#slider-kickoffReturnedForTD-range").slider("values", 1) + " kickoffs returned");$("#Query_KickoffReturnedForTDRange_RangeStart").val($("#slider-kickoffReturnedForTD-range").slider("values", 0));$("#Query_KickoffReturnedForTDRange_RangeEnd").val($("#slider-kickoffReturnedForTD-range").slider("values", 1));
+
+        var History = window.History; // Note: We are using a capital H instead of a lower h
+        sLog("[History Object Initialized] = " + History);
+        var State = History.getState();
+
+        // Bind to StateChange Event
+        History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+            var State = History.getState(); // Note: We are using History.getState() instead of event.state
+            sLog("**History State Changed**")
+            //History.log(State.data, State.title, State.url);
+        
+            var now = new Date();
+            var confId = State.data["confId"];
+            var query = State.data["q"];
+            sLog("[History].Adapter] " + query);
+            sLog("[History] Hash Changed = "  + " (" + now.getMinutes() + ":" + + now.getSeconds() + ") Conference " + confId);
+                
+            if (confId >= 0)
+            {
+                $("#Query_ConferenceId_Value").val(confId);
+                sLog("[History] Query = " + query);
+                    
+                if (query.length > 0)
+                {
+                    var qObj = $.deparam.querystring(query.replace("/","&"));
+                    sLog("qObj=" + qObj);
+                    sLog(qObj);
+                    
+//                    if (qObj.hasOwnProperty("orr")) {
+//                        SetRangeFilterValue('#slider-opponentRank-range', startVal, endVal, 'FALSE');
+//                    } else {
+//                        SetRangeFilterValue('#slider-opponentRank-range', 0, 26, 'FALSE'); 
+//                    }
+                    
+                    $.each(
+                        qObj,
+                        function(key, values){
+                            sLog("Processing key [" + key + "] values = [" + values + "]");
+                            var valueArray = values.split("-"); 
+
+                            if (2 == valueArray.length) {
+                                var startVal = valueArray[0];
+                                var endVal = valueArray[1];
+                                
+                                if (IsNumber(startVal) && IsNumber(endVal)) {
+                                     if (key == "orr") {
+                                           SetRangeFilterValue('#slider-opponentRank-range', startVal, endVal, 'FALSE');
+                                        } else if (false == qObj.hasOwnProperty("orr")) {
+                                            SetRangeFilterValue('#slider-opponentRank-range', 0, 26, 'FALSE');
+                                     }
+                                    if (key == "psr") {
+                                           SetRangeFilterValue('#slider-pointsScored-range', startVal, endVal, 'FALSE');
+                                        } else {
+                                        SetRangeFilterValue('#slider-pointsScored-range', 0, 90, 'FALSE');
+                                     }
+                                }
+                                else {
+                                    "Alert: startVal or endVal isNumber = false";
+                                }
+                            }
+                            else {
+                                sLog("**valueArray.length == " + valueArray.length);
+                            }
+                        }
+                        );
+
+                }
+                FetchStats("FALSE");
+            } else {
+                sLog("[History] confId < 0 (History.Adapter.bind)");
+            }
+
+        });
+                        
+
+        var filterCriteria = GetFilterCriteria();
+        History.replaceState({ confId: $("#Query_ConferenceId_Value").val(), q: filterCriteria }, SetConferenceName($("#Query_ConferenceId_Value").val()) , "/../NFL/" + $("#Query_ConferenceId_Value").val() + "/?" + filterCriteria);       
+        //RefreshStats();
+            }); //Ready        function Initialize() {
+        var popChangeTeamHideTimer = "t_pctHide";
+        var popChangeTeamShowTimer = "t_pctShow";                 $("#subject-team").click(function() {
+             ShowSubjectSelect();
+        });        
+        $("#pop-change-team").mouseenter(function(e) {
+            clearTimeout(popChangeTeamHideTimer);
+             //popChangeTeamShowTimer = setTimeout(function() { ShowSubjectSelect();}, 250);
+        });        $("#subject-team").hover(function() {
+            clearTimeout(popChangeTeamHideTimer);
+            // popChangeTeamShowTimer = setTimeout(function() { ShowSubjectSelect();}, 250);
+        });
+        
+        $("#subject-team").mouseleave(function(e) {
+             clearTimeout(popChangeTeamShowTimer);
+            popChangeTeamHideTimer = setTimeout(function() { HideSubjectSelect();}, 500);
+        });
+        
+        $("#change-team-cancel").click(function() {
+           HideSubjectSelect();
+        });
+            
+        $("#pop-change-team").mouseleave(function(e) {
+            clearTimeout(popChangeTeamShowTimer);
+            popChangeTeamHideTimer = setTimeout(function() { HideSubjectSelect(); }, 500);
+        });
+
+        
+        function ShowSubjectSelect() {
+            var pos = $("#subject-team").offset();
+            $("#pop-change-team").css( { "left": (pos.left - 2) + "px"} );
+            $("#pop-change-team").css( { "top": ($("#subject-team").scrollTop() + 128) + "px"} );
+            $("#pop-change-team").show();
+            $(".cscroll").mCustomScrollbar("update");
+            $("#subject-team").attr('class', 'subject-team-sel');
+        }
+
+        function HideSubjectSelect() {
+            $("#pop-change-team").hide();
+            $("#subject-team").attr('class', 'subject-team');
+        }
+
+    }
+
+</script>
+        </div>
+        <div class="clear"></div>
+        <footer style="margin: 0 auto; width: 990px; margin-top: 30px; text-align: right; color: #555;">
+            <p>&copy; 2015 StatMilk Inc.  All Rights Reserved  |  <u>Privacy Policy</u>  |  <u>Terms &amp; Conditions</u> | v1216.1 | Contact: <a href="mailto:info@StatMilk.com"class="blue">info@StatMilk.com</a> |  Follow Us <a href="https://twitter.com/statmilk" target="_blank" class="blue">@StatMilk</a>  |  Get <a href="https://itunes.apple.com/us/app/statmilk-college-football/id576067008?ls=1&mt=8" target="_blank" class="blue">StatMilk for <strong>iPhone</strong></a></p>
+        </footer>
+        <div id="fb-root"></div>
+        <div id="screenBlock"></div>
+        <script type="text/javascript">
+            var _sf_async_config = { uid: 42142, domain: 'statmilk.com' };
+            (function () {
+                function loadChartbeat() {
+                    window._sf_endpt = (new Date()).getTime();
+                    var e = document.createElement('script');
+                    e.setAttribute('language', 'javascript');
+                    e.setAttribute('type', 'text/javascript');
+                    e.setAttribute('src',
+                        (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+                            "js/chartbeat.js");
+                    document.body.appendChild(e);
+                };
+                var oldonload = window.onload;
+                window.onload = (typeof window.onload != 'function') ?
+                    loadChartbeat : function () { oldonload(); loadChartbeat(); };
+            })();
+        </script>
+
+    </body>
+    
+     <script src="http://statmilk-content-01.s3.amazonaws.com/20121018/scripts/jquery.custom.scrollbar.js" type="text/javascript"></script>
+    <script src="http://statmilk-content-01.s3.amazonaws.com/20121018/scripts/jquery.mousewheel.min.js" type="text/javascript"></script>
+     <script src="http://statmilk-content-01.s3.amazonaws.com/20121018/scripts/jquery.tablesorter.min.js" type="text/javascript"></script>
+    <script src="http://statmilk-content-01.s3.amazonaws.com/20121018/scripts/jquery.history.js" type="text/javascript"></script>
+    <script src="http://statmilk-content-01.s3.amazonaws.com/20121018/scripts/jquery.ba-bbq.min.js" type="text/javascript"></script>
+      <script src="http://statmilk-content-01.s3.amazonaws.com/20121018/scripts/bootstrap.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+        (function ($) {
+            $(window).load(function () {
+                $(".cscroll").mCustomScrollbar();
+
+                if ($.cookie('hide_help') != "1") {
+                    ShowHelp();
+                }
+
+                $("#search-btn").mouseenter(function (e) {
+                    ShowSearch();
+                });
+
+                $("#search-btn").click(function (e) {
+                    ExecuteSearch();
+                });
+                var searchShowHideSearchTimer = "t_pctShowHideSearch";
+                $('#search-term').blur(function (e) {
+                    searchShowHideSearchTimer = setTimeout(function () { HideSearch(); }, 500);
+                });
+
+                function HideSearch() {
+                    $('#search-term').animate({ "right": "0px", "width": "0px" }, 400, function () { $('#search-term').val('').hide(); });
+                }
+
+                function ShowSearch() {
+                    clearTimeout(searchShowHideSearchTimer);
+                    $('#search-term').val('').show().animate({ "right": "115px", "width": "150px" }, 500, function () { $('#search-term').focus(); });
+                }
+
+                $('#search-term').keypress(function (e) {
+                    if (e.which == 13) {
+                        jQuery(this).blur();
+                        ExecuteSearch();
+                    }
+                });
+
+                function ExecuteSearch() {
+                    window.location.href = "/NFL/Search/" + $('#search-term').val();
+                }
+
+                function ShowHelp() {
+                    $('#screenBlock').fadeIn("fast");
+                    $('#helpOverlay').fadeIn("fast");
+                }
+
+                function HideHelp() {
+                    $('#screenBlock').fadeOut("fast");
+                    $('#helpOverlay').fadeOut("fast");
+                    $.cookie('hide_help', '1', { expires: 365, path: '/' });
+                }
+
+                $("#screenBlock").click(function (e) {
+                    HideHelp();
+                });
+
+                $("#helpOverlay").click(function (e) {
+                    HideHelp();
+                });
+
+            });
+        })(jQuery);
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27365001-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+        
+</script>
+
+</html>
+";i:2;s:4:"8378";}

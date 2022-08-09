@@ -1,0 +1,193 @@
+a:3:{i:0;s:27:"http://weather-forecast.us/";i:1;s:7342:"<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script><title>Local Weather Forecast, Road Conditions, &amp; Radar | Weather-Forecast.us </title>
+        <meta name="description" content="Get your local weather forecast, road conditions, radar maps, allergy reports, weather news, and more! It&#39;s free and easy to get started!">
+        <meta name="keywords" content="weather, weather forecast, tracker, forecasts, free, radar, doppler, prediction, storms, precipitation, storm, temperatures, clouds, weather channel, the weather channel, weather.com, accuweather, underground weather, national weather service, twc">
+        <meta name="HandheldFriendly" content="True"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="cleartype" content="on"/>
+        <link href="css/common.css" rel="stylesheet" type="text/css"/>
+        <link href="css/main.css" rel="stylesheet" type="text/css"/>
+        <link href='css/legal2.css' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=visualization,places&key=AIzaSyC8jvUZ2_hej8CfVZu2Iq5u1kloWDP-qnw&sensor=false"></script>
+
+
+    </head>
+    <body>    <div class="black_overlay"></div>
+    <div class="popup-wrap" >
+    	<div class="popup">
+    		<h1>Enter Your Location <span class="close" onclick="closePop();"></span></h1>
+    		<div class="search-location section "  >
+    			<p>Please Enter the location of the Radar Map you would like.</p>
+    			<div class="input-wrap">
+    				<img src="images/search-icon.png" class="search-icon"/>
+    				<input type="text" placeholder="Search Zip, City, or Place" id="addr" class="search autocomplete" />
+    			</div>
+
+    			<a href="#" class="get-radar-btn" onclick="return searchForecast()"></a>
+    		</div>
+    		
+    		<div class="loader section" style="display:none;">
+    			<img src="images/loader.gif"/>
+    		</div>
+    		
+    		<div class="install section" style="display:none;">
+    			<p>
+					Please install the WeatherBlink Toolbar&copy;  <br/>
+					to experience the Below Weather Features
+				</p>
+				<a href="#" class="install-btn" onclick="return forecast();"></a>
+				<ul class="features">
+					<li>Access Local Forecasts &amp; Radar</li>
+					<li>Up to date Weather News from Weather.com</li>
+					<li>Daily Weather Forecasts Right in Your Browser</li>
+					<li>Free Safe &amp; Easy</li>
+
+				</ul>
+
+    		</div>
+
+    	</div>
+
+
+    </div>
+
+    <div class="header">
+    	<div class="logo">
+    		<img src="images/radar-logo.png"/>
+	    	<div class="header-ad ad">
+	    		<img src="images/728x90_banner.jpg"/>
+
+	    	</div>
+	    	<div class="search-again">
+	    		<a href="#" onclick="return searchAgain();">Search</a>
+	    	</div>
+	    	<div class="clearfix"></div>
+    	</div>
+
+    </div>
+
+    <div class="map-container">
+    	<div class="ad map-left-bar">
+    		<img src="images/300x250_banner.jpg"/>
+    	</div>
+    	<div id="map-gif"></div>
+    	<div id="map-canvas" style="display:none"></div>
+    </div>
+
+
+
+
+	<div class="footer">
+        <div class="divider"></div>
+        <p>
+            Get instant access to today's local weather in any city and weather radar in any city, 5, 7 and 10 day weather forecast, severe weather alerts, local doppler weather radar, noaa weather radar, weather news, allergy reports, and more! Similar to Weather Underground, you can quickly and easily check the weather and channel in to a forecast anytime, anywhere from your desktop. Make sure you always know what's going on with the weather so that you can avoid bad weather and storms. Simply click on the download button to get started right now!
+        <div class="toolbar">
+            <img src="images/toolbar.png"/>
+            <span>The WeatherBlink toolbar offers convenient web search, homepage, and default search <a href="#" target="_blank">More Info</a>.</span>
+        </div>
+        <p>
+        AAny third party products, brands or trademarks listed above are the sole properly of their respective owner. No affiliation or endorsement of The Weather Channel, The Weatherchannel.com, TWC weather, Accuweather, NOAA, Weather Underground or the National Weather Service is intended or implied. Mindspark Interactive Network, Inc. is the source of the WeatherBlink&trade; application.
+        </p>
+
+        <div id="legal" >
+            <a href="http://support.mindspark.com/link/portal/30028/30031/Article/222/Uninstalling-Mindspark-Toolbar" target="_blank"> Uninstall</a> | <a href="http://eula.mindspark.com/eula/" target="_blank">EULA</a> | 
+        </div>
+    </div>
+
+
+
+
+        <script src="js/jquery.min.js"></script>
+        <link href='css/legal.css' rel='stylesheet' type='text/css'>
+        <script src="js/legal.js"></script>
+        <script src="js/weather.js"></script>
+        <script src="js/tools.js"></script>
+
+
+        <script type="text/javascript">
+	        var lat=33.5248;
+	        var lng=-86.8127;
+	        var jumplink = 'http://weather-forecast.us/ad/base2.php';
+	        var type="radar";
+	        var map=null;
+	        var img = new Image(),
+			url = "http://weather-forecast.us/NatLoop.gif",
+			container = document.getElementById("map-gif");
+
+			img.onload = function () { container.appendChild(img); };
+			img.src = url;
+
+
+			function searchAgain(){
+				$('.black_overlay').show();
+	        	$('.popup-wrap').show();
+	        	$('.popup').show();
+	        	$('.section').hide();
+	        	$('.search-location').show();
+	        	$('.popup h1').html('Enter Your Location <span class="close" onclick="closePop();"></span>');
+			}
+
+
+	        $(document).ready(function(){
+	            getCurrentWeather(lat,lng);
+	            $('.autocomplete').each(function(){
+	                loadAutoComplete(this.id)
+	            })
+
+	            var browser_name = getBrowserName();
+	            $('.browser').html(browser_name);
+	            
+	            $('#addr').focus();
+
+	            $('#addr').keydown(function (e){
+				    if(e.keyCode == 13){
+				        searchForecast();
+				    }
+				})
+	            
+	        });
+
+	        function forecast(){
+	        	$('#map-gif').hide();
+	        	
+	        	$('#map-canvas').show();
+	        	loadGoogleMap(lat,lng);
+	        	install();
+	        	$('.ad').show();
+	        	closePop();
+	        }
+
+
+
+	        function searchForecast(current_location){
+	        	if( typeof current_location !=='undefined'){
+	        		$('#addr').val(current_location);
+	        	}
+	        	$('.location').html($('#addr').val());
+	        	$('.black_overlay').show();
+	        	$('.popup-wrap').show();
+	        	$('.popup').show();
+	        	$('.section').hide();
+	        	$('.loader').show();
+	        	$('.popup h1').html('Searching Radar Maps');
+	        	
+
+	        	setTimeout(function(){
+	        		$('.popup h1').html('Download Required! <span class="close" onclick="closePop();"></span>');
+	        		$('.section').hide();
+	        		$('.install').show();
+
+	        	} , 1000)
+	        }
+
+        </script>
+
+
+
+   </body>
+<input type="hidden" id="hidLocation" value="http://weather-forecast.us/ad/" />
+<script type="text/javascript" src="http://weather-forecast.us/ad/landing.js"></script>
+</html>";i:2;s:4:"4279";}

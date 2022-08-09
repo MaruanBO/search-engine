@@ -1,0 +1,91 @@
+a:3:{i:0;s:20:"http://360yield.com/";i:1;s:3588:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="title" content="360 Yield Platform 4.21" />
+<title>360 Yield Platform 4.21</title>
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" type="text/css" media="screen" href="/ext/resources/css/ext-all-notheme.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/app.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/id-menu.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/dashboard.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/theme.css" />
+<script type="text/javascript" src="/ext/adapter/ext/ext-base.min.js"></script>
+<script type="text/javascript" src="/ext/ext-all.min.js"></script>
+<script type="text/javascript" src="/ext/src/locale/ext-lang-en.js"></script>
+<script type="text/javascript" src="/lang.js?_dc=1424381703"></script>
+<script type="text/javascript" src="/assets/js/app/App.utils.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+  Ext.onReady(function()
+  {
+  
+    var win = new Ext.Window({
+      closable        : false,
+      cls             : 'loginWindow',
+      draggable       : false,
+      resizable       : false,
+      header          : false,
+      defaultButton   : 'email',
+      width           : 320,
+      title           : '',
+      items           : [{
+          xtype         : 'form',
+          url           : '/login',
+          standardSubmit: true,
+          id            : 'loginForm',
+          padding       : '20px 14px 0 14px',
+          border        : false,
+          defaults: {
+            allowBlank  : false,
+            labelSeparator: '',
+            anchor      : '0'
+          },
+          defaultType: 'textfield',
+          items: [{
+              xtype       : 'label',
+              html        : '<img src=\"/images/theme/id-logo.png\" />'
+            },
+                        {
+              fieldLabel  : "Email",
+              name        : 'email',
+              id          : 'email',
+              autoCreate  : {tag: 'input', type: 'text', size: '20', autocomplete: 'on'}
+            },{
+              inputType   : 'password',
+              name        : 'password',
+              fieldLabel  : "Password",
+              autoCreate  : {tag: 'input', type: 'password', size: '20', autocomplete: 'on'}
+            },{
+              xtype       : 'combo',
+              fieldLabel  : "Language",
+              name        : 'culture',
+              hiddenName  : 'culture',
+              mode        : 'local',
+              store       : [["en_GB","English"],["de_DE","Deutsch"],["fr_FR","Fran\u00e7ais"],["nl_NL","Nederlands"],["fi_FI","Finnish"]],
+              forceSelection: true,
+              triggerAction: 'all',
+              value       : "English"            }]
+                    }],
+      keys: {
+        key           : Ext.EventObject.ENTER,
+        handler     :  function() {
+          Ext.getCmp('loginForm').getForm().submit();
+        }
+      },
+      buttons         : [{
+          text          : "Login",
+          width         : 80,
+          style         : 'margin: 0 4px 4px auto',
+          handler       : function() {
+            Ext.getCmp('loginForm').getForm().submit();
+          }
+        }]
+    });
+
+    win.show();
+  })
+</script>
+<div id="msgpanel"></div></body>
+</html>";i:2;s:4:"2654";}

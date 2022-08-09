@@ -1,0 +1,968 @@
+a:3:{i:0;s:20:"http://youravon.com/";i:1;s:41454:"
+
+
+
+<html>
+<head>
+<title>AVON Representative Log in | yourAVON</title>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META name="Author" content="Avon Products Inc."> 
+<META name="Description" content="Log in to your AVON Representative page or register to join our online community. Sell AVON to create your own hours and become your own boss!"> 
+<META name="Keywords" content="Avon representative, AVON representatives, AVON representatives login, representative login, sell AVON, selling AVON"> 
+<LINK href="/REPSuite/static/css/usec.css" type=text/css rel=stylesheet>
+<script language="JavaScript" src="/REPSuite/static/js/scroll.js"></script>
+<script language="JavaScript" src="/REPSuite/static/js/dhtml.js"></script>
+
+
+
+
+
+
+
+
+<script type='text/javascript'><!--
+
+    function isEmpty(str) { return str==null || str.length==0 }
+    function isNotEmpty(str) { return !isEmpty(str) }
+    
+    function isBlank(str) { return str==null || /^\s*$/.test(str) }
+    function isNotBlank(str) { return !isBlank(str) }
+
+    function isAlpha(str) {
+        if (str==null) return false;
+        return /^[A-Za-z]+?[A-Za-z\s]*$/.test(str);
+    }
+    
+    function isMoneyAmount(srcNumber){
+      var txtNumber = '' + srcNumber;
+	  var arrNumber = txtNumber.split('.');
+
+	  if (isNaN(txtNumber) || txtNumber == "" || (arrNumber.length == 2 && arrNumber[1].length >2 )) {
+		return false;
+	  }
+	  
+	  return true;
+	}  
+          
+
+    function isDigits(str) {
+        if (str==null) return false;
+        return /^[0-9]+$/.test(str);
+    }
+
+    function isNumber(str) {
+        if (str==null) return false;
+        return /^[0-9]+\.?[0-9]*$/.test(str);
+    }
+
+    function isRange(low, high, str) {
+        if (!isDigits(str)) return false;
+        var val = parseInt(str);
+        return low<=val && val<=high;
+    }
+    function isRangeFun(low, high) {
+        return function(str) {
+            return isRange(low, high, str);
+        }
+    }
+    
+    function isGreater(low, str) {
+        if (!isNumber(str)) return true;
+        var val = parseFloat(str);
+        return low<=val;
+    }
+
+    function isLower(high, str) {
+        if (!isNumber(str)) return true;
+        return parseFloat(str)<=parseFloat(high);
+    }
+    
+    function isDoubleRange(low, high, str) {
+        if (!isNumber(str)) return false;
+        var val = parseFloat(str);
+        return low<=val && val<=high;
+    }
+    function isDoubleRangeFun(low, high) {
+        return function(str) {
+            return isDoubleRange(low, high, str);
+        }
+    }
+
+    function isLengthRange(low, high, str) {
+        if (low!=null && str.length<low) return false;
+        if (high!=null && str.length>high) return false;
+        return true;
+    }
+    function isLengthRangeFun(low, high) {
+        return function(str) {
+            return isLengthRange(low, high, str);
+        }
+    }
+    
+    function isEmail(str) {
+        return _isUsecEmail(str);
+    }
+    
+    function _isUsecEmail(str) { // USEC-specific validation
+        if (!_isPh2Email(str)) return false;
+        if (!/@/.test(str)) return false; // must have an @
+        if (/@.*@/.test(str)) return false; // address cannot have multiple @s
+        if(/.*[\(\)\<\>\,\;\:\/\'\"\[\]].*/.test(str)) return false; // cannot have embedded ()<>,;:\/"''[]
+        if (!/\./.test(str)) return false; // must have a "."
+        if (/\.(000|ooo|OOO)$/.test(str)) return false; // E-mail address cannot have extenstions that contain:
+                                                             // Numeric 0: @avon.000, @AVON.000, Alpha o: @avon.ooo, @avon.OOO
+		var localPart = str.substr(0, str.indexOf("@"));
+        if(localPart.length==0)return false;
+        if(localPart.search(/[^A-Za-z0-9\.\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|\}\~]/)!=-1) return false; // any other characters are forbidden in localpart
+        return true;
+    }
+    
+    function _isPh2Email(str) { // Phase 2 email validation
+        // (this is not a restriction): // There can be any number of dots or dashes in the first segment.
+        if(str.search(/^[-.]|[-.]$/)!=-1) return false; // Cannot be started or ended by dot or dash.
+        if(str.search(/[-.][-.]/)!=-1) return false; // There cannot be two or more dots or dashes next to each other.
+        if(str.search(/\.@|@\./)!=-1) return false; // There cannot be a dot before or after the @.
+        if(str.search(/\.[A-Za-z]{2,6}$/)==-1) return false; // The last segment check. can be 2-6 char
+        if(str.search(/''/)!=-1) return false; // ' accepted but cannot be duplicated.
+        // (this is not a restriction): // Numbers are also accepted.
+        if(str.search(/@.*@/)!=-1) return false; // There can be only one @ sign.
+        if(str.search(/\s/)!=-1) return false; // Cannot contain any SPACE characters.
+        return true;
+    }
+    
+    function isConfirmEmail(str) {
+        if (str == null) return false;
+        return /@(avon.com|youravon.com|avon.net)$/.test(str);
+    }
+
+    function isAlphanumeric(str) { 
+        if (str==null) return false;
+        return /^[A-Za-z0-9]+$/.test(str) && !/^[ *]+$/.test(str); // any other characters are forbidden
+    }
+    
+    function isAlphanumericWS(str) { 
+        if (str==null) return false;
+        return /^[A-Za-z0-9\s]+$/.test(str) && !/^[\s]+$/.test(str); // any other characters are forbidden
+    }
+
+    function isAllowedChar(str) { 
+        if (str==null) return false;
+        return /^[A-Za-z0-9-#.\'\s\u00D3\u00E1\u00E9\u00ED\u00F3\u00F6\u00FA\u00FC\u00C1\u00DA\u00CD\u00DC\u00C9\u00F1\u00D1]+$/.test(str); // any other characters are forbidden
+    }
+
+    
+    function _focusFun(ctl) {
+		if (ctl.focus) ctl.focus();
+    }
+    function eventFocus(ctl) {
+        setTimeout('_focusFun(document.' + ctl.form.name + '["' + ctl.name + '"])', 1);
+    }
+
+    // check Esc, Tab, Backspace, Ins, Del, Home, ..., F1, ..., arrow, win, etc. keys
+    function isSpecialKey(k)
+    {
+        return k==8 || k==9 || k==27 || k==91 || k==93 || (111<=k && k<=123) || (33<=k && k<=40) || k==45 || k==46;
+    }
+    
+	function isCreditCard(cards, cardType, cardNumber) {
+		for(var i=0; i<cards.length; i++) {
+			var card = cards[i];
+			if(card.vendor == cardType) {
+				for(var j=0; j<card.ranges.length; j++) {
+					var range = card.ranges[j]
+					if(range.low <= cardNumber && range.high >= cardNumber) {
+						var mod10 = true;
+						if(range.mod10) {
+							mod10 = checkMod10(cardNumber);
+						}
+						return mod10 && cardNumber.length == range.length;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	function z(digit) {
+		if (digit == 0) return 0;
+		return (digit*2-1) % 9 + 1;
+	}
+
+	function checkMod10(number) {
+		checksum = 0;
+		for (place = 0; place < 16; place++) {
+			digit = number % 10;
+			number = Math.floor(number/10);
+	
+			if ((place & 1) == 0) // even position, just add digit
+				checksum += digit;
+			else // odd position, must double and add
+				checksum += z(digit);
+
+			if (number == 0)
+				break;
+		}
+
+		// good checksum should be 0 mod 10
+		return ((checksum % 10) == 0);
+	}
+    
+//--></script>
+
+
+<script type='text/javascript'><!--
+
+    var formManagers = {}
+    function FormManager(formName) {
+        formManagers[formName] = this;
+        this.formHandlers = [];
+        this.ctlHandlers = {};
+        this.ctlPostChgHandlers = {};
+        this.fieldErrorArea= undefined;
+        this.fieldErrorShowType= 1;
+        this.formErrorArea= 'errors';
+        this.formErrorShowType= 2;
+        
+    }
+    FormManager.prototype = {
+
+        addFormHandler: function(props) {
+            this.formHandlers.push(new DefaultFormHandler(props));
+        },
+        
+        addCtlHandler: function(ctlName, props) {
+            if (!this.ctlHandlers[ctlName]) this.ctlHandlers[ctlName] = [];
+            var ctlHandler = new DefaultCtlHandler(props);
+            this.ctlHandlers[ctlName].push(ctlHandler);
+        },
+        
+        setCtlPostChgHandler: function(ctlName, fun) {
+            this.ctlPostChgHandlers[ctlName] = fun;
+        },
+        
+        setFieldErrorHandling: function(fieldErrorArea, fieldErrorShowType) {
+            this.fieldErrorArea = fieldErrorArea;
+            this.fieldErrorShowType = fieldErrorShowType;
+        },
+
+        setFormErrorHandling: function(formErrorArea, formErrorShowType) {
+            this.formErrorArea = formErrorArea;
+            this.formErrorShowType = formErrorShowType;
+        },
+
+        arg_ctlValue: function(ctl) {return ctl.value},
+
+        afterErrorCleanCtl: function(ctl) {
+           if (ctl.focus) eventFocus(ctl);
+           if (ctl.value!=null) ctl.value = "";
+        }
+    };
+    
+    function onEventHandler(ctl, ev, type) {
+        var formHandler = formManagers[ctl.form.name];
+        ev = ev || window.event;
+        var ctlHandlerArr = formHandler.ctlHandlers[ctl.name];
+        if (!ctlHandlerArr) return true;
+        var success = true;
+        var failedHandlers = [];
+        for (i in ctlHandlerArr) {
+            var actCtlHandler = ctlHandlerArr[i];
+            if (actCtlHandler[type]) {
+                var ret =  actCtlHandler[type](ctl, ev);
+                success = ret && success;
+                if(!ret) {
+                	failedHandlers.push(actCtlHandler);
+            	}
+            }
+        }
+        var errorDiv = document.getElementById(formHandler.fieldErrorArea);
+        handleErrorMessage(errorDiv, formHandler.fieldErrorShowType, failedHandlers);
+        return success;
+    }
+    function onChangeHandler(ctl, ev) {
+         this.inChg = true;
+         var success = onEventHandler(ctl, ev, 'onchange');
+         var formHandler = formManagers[ctl.form.name];
+         if (formHandler.ctlPostChgHandlers[ctl.name]) {
+             success = formHandler.ctlPostChgHandlers[ctl.name](ctl, success);
+         }
+         this.inChg = false;
+         return success;
+    }
+
+    function onSubmitHandler(form, ev) {
+        if (this.inChg) return false;
+        var formHandler = formManagers[form.name];
+        var errorDiv = document.getElementById(formHandler.formErrorArea);
+        if(errorDiv) errorDiv.innerHTML = "";
+
+        var success = true;
+        var failedHandlers = [];
+        for (ctlName in formHandler.ctlHandlers) {
+            var ctl = form[ctlName];
+            var ctlHandlerArr = formHandler.ctlHandlers[ctlName];
+            if (!ctlHandlerArr) return true;
+            var ctlOk=true;
+            for (i in ctlHandlerArr) {
+                var actCtlHandler = ctlHandlerArr[i];
+                if (actCtlHandler.onsubmit) {
+						var ret = actCtlHandler.onsubmit(ctl, ev);
+                  ctlOk = ret && ctlOk;
+                  if(!ret) {
+                    	failedHandlers.push(actCtlHandler);
+                	}
+                }
+            }
+           	var highlight=document.getElementById(ctlName+"_highlight");
+            if (ctlOk) {
+              	if (highlight!=null) {
+              		highlight.style.display="none";
+              	}
+            }
+            else {
+              	if (highlight!=null) {
+              		highlight.style.display="";
+              	}
+            }
+            success=ctlOk && success;
+        }
+        for (i in formHandler.formHandlers) {
+        	var actFormHandler = formHandler.formHandlers[i];
+            if (actFormHandler.onsubmit) {
+				var ret = actFormHandler.onsubmit(form, ev);
+                success = ret && success;
+                if(!ret) {
+               		failedHandlers.push(actFormHandler);
+               	}
+            }
+        }
+        handleErrorMessage(errorDiv, formHandler.formErrorShowType, failedHandlers);
+        return success;
+    }
+    
+    function msgSubst(ctx, msg, args) {
+        if (args) {
+            for(i in args) {
+                var val = (typeof args[i] == "function") ? args[i](ctx) : args[i];
+                msg = msg.replace(new RegExp("\\{"+i+"\\}"), val);
+            }
+        }
+        return msg;
+    }
+    
+    function handleErrorMessage(div, type, failedHandlers) {
+        var msg2show = "";
+        var firstCtl;
+        var firstHandler;
+        for (var i in failedHandlers) {
+            errMsg = failedHandlers[i].errorMessage;
+            msg2show += errMsg.message + "\n";
+            if(!firstCtl) {
+            	firstCtl = errMsg.ctl;
+            	firstHandler = failedHandlers[i];
+            }
+            if(type==1) break;
+        }
+
+		if(msg2show.length>0) {        
+	        if(div) {
+		        div.innerHTML = msg2show.replace(/\n/g, "<br>");
+	        }
+	        else {
+	            alert(msg2show);
+	        }
+	        
+	        if(firstCtl) {
+	            if (firstHandler.afterError) {
+	                firstHandler.afterError(firstCtl);
+	            } else {
+	                if (firstCtl.focus) eventFocus(firstCtl);
+    	            if (firstCtl.select) firstCtl.select();
+    	        }
+	        }
+	    }
+    }
+    
+    function checkMandatory(str) {
+        return isNotBlank(str);
+    }
+
+    function DefaultCtlHandler(props) {
+        this.cond = props.cond;
+        if (this.cond==isNotEmpty) this.cond = checkMandatory;
+        this.when = props.when;
+        this.msg = props.msg;
+        this.msgArgs = props.msgArgs;
+        this.afterError = props.afterError;
+        this.errorMessage = [];
+    }
+    DefaultCtlHandler.prototype = {
+        handleChangeError: function(ctl, msg, args) {
+            this.errorMessage["message"] = msgSubst(ctl, msg, args);
+            this.errorMessage["ctl"] = ctl;
+        },
+        handleChange: function(ctl, isFinal) {
+            if (isFinal && this.when=="field") return true;
+            if (!isFinal && this.when=="form") return true;
+            if (this.cond!=checkMandatory && isEmpty(ctl.value)) return true;
+            if (!this.cond(ctl.value, ctl)) {
+                this.handleChangeError(ctl, this.msg, this.msgArgs);
+                return false;
+            }
+            return true;
+        },
+        
+        onchange: function(ctl, ev) { return this.handleChange(ctl, false) },
+        onsubmit: function(ctl, ev) { return this.handleChange(ctl, true) }
+    };
+    
+    function DefaultFormHandler(props) {
+        this.cond = props.cond;
+        this.msg = props.msg;
+        this.msgArgs = props.msgArgs;
+        this.ctl = props.ctl;
+        this.errorMessage = [];
+    }
+    DefaultFormHandler.prototype = {
+        handleSubmitError: function(form, msg, args) {
+            this.errorMessage["message"] = msgSubst(form, msg, args);
+            this.errorMessage["ctl"] = eval(this.ctl);
+        },
+        
+        onsubmit: function(form, ev) {
+            if (!this.cond(form)) {
+                this.handleSubmitError(form, this.msg, this.msgArgs);
+                return false;
+            }
+            return true;
+        }
+    };
+    
+    function confirmEmail(ctl, msg, msgArgs) {
+        if (isConfirmEmail(ctl.value)) {
+            if (confirm(msgSubst(ctl, msg, msgArgs))) {
+                ctl.select();
+                eventFocus(ctl);
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return true;
+    }
+    
+    function disablePaste(event) {
+
+	 var pressedKey = String.fromCharCode(event.keyCode).toLowerCase();
+
+	  if (event.ctrlKey && (pressedKey == "v" ||pressedKey == "c")) {
+	    // disable key press porcessing
+    	 event.returnValue = false;
+    	 return false;
+	  }
+
+	}
+	
+	function correctEmail(element){
+	  var email = element.value;
+	  email = email.replace(/[@]+[@]*/g,"@");
+	  email = email.replace(/[.]+[.]*/g,".");
+ 	  email = email.replace(",com",".com");
+ 	  if(email.indexOf('@')>0 &&  email.indexOf('.',email.indexOf('@')+1)<0){
+ 	    email = email+".com";
+ 	  }
+ 	  
+
+ 	  element.value =email;
+ 	  return true;
+	}
+	
+
+    
+//--></script>
+
+
+
+
+
+
+<script type='text/javascript'><!--
+
+    var loginFormManager = new FormManager("loginForm");
+	    
+    loginFormManager.addCtlHandler("accountNumber", {
+        cond: isNotEmpty,
+        when: "form",
+        msg: 'Field {0} is mandatory, please fill it in.',
+        msgArgs: ['Account number']
+    });
+  	
+
+     // The addCtlHandler("accountNumber" is commented out for the project USEC Onboarding Simplification Clarity Project ID#: 33887
+    //loginFormManager.addCtlHandler("accountNumber", {
+		//cond: isLengthRangeFun(8, 40),
+       // when: "field",
+       // msg: 'Account number must be eight (8) digits.',
+       // msgArgs: ['Account number', '8']
+   // });
+
+    loginFormManager.addCtlHandler("accountNumber", {
+        cond: isDigits,
+        msg: 'Field {0} must be numeric only. The value you entered is {1}, so is incorrect.',
+        msgArgs: ['Account number', loginFormManager.arg_ctlValue ]
+    });
+ 
+
+
+//--></script>
+
+</head>
+<body bgcolor="#FFFFFF" text="#000000" class=margins > 
+<script language="JavaScript">
+
+
+
+</script>
+
+
+<div style="display: none" id="omniture_site_catalyst">
+
+
+<!-- SiteCatalyst code version: H.10.
+Copyright 1997-2007 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script language="JavaScript" src="/REPSuite/static/js/s_code.js"></script>
+<script language="JavaScript">
+
+function getParamValue(url,param){
+   	if (url.indexOf(param+"=")>-1){
+		startIndex=url.indexOf(param+"=")+param.length+1;
+    	endIndex=url.indexOf("&",startIndex);
+    	if (endIndex<0){
+    		endIndex=url.length;
+    	}
+    	return url.substring(startIndex,endIndex);
+   	}
+   	return "";//"Param '"+param+"' doesn't exists in the url:'"+url+"'!";
+}
+
+s.pageName = window.location.pathname.replace(/.*\//, "");
+s.prop1=""			// previous_page_url
+s.prop2=""   		// last_page_downloaded
+s.prop3=""			// timeout_happened
+s.prop4=""			// pagename
+s.prop5=""
+
+
+s.prop11="";
+s.prop15="YourAvon";
+s.prop18="null"; //page language
+
+if (s.pageName=="login.page" && location.search!=null && location.search.indexOf("timeout=yes")!=-1) {
+    if (location.search.indexOf("realtimeout=yes")!=-1) {
+        s.pageName = "login_real_timeout.page"
+        if (location.search.indexOf("starcount")!=-1 && location.search.indexOf("endcount")!=-1 &&location.search.indexOf("pagename")!=-1){
+        	s.prop2=getParamValue(location.search,"starcount");
+        	s.prop3=getParamValue(location.search,"endcount"); 
+       		s.prop4=getParamValue(location.search,"pagename");        
+        }  
+    } if (location.search.indexOf("collision=yes")!=-1) {
+     	s.pageName = "login_session_timeout_collision.page";
+    } else if (location.search.indexOf("not_ya=yes")!=-1){ 
+        s.pageName = "login_session_timeout_previous_not_ya.page";
+    	s.prop1=getParamValue(location.search,"previous_page");
+    } else { //(location.search.indexOf("unknown=yes")!=-1)
+        s.pageName = "login_session_timeout_unknown.page";
+    	s.prop1=getParamValue(location.search,"previous_page");
+    }
+}
+
+
+s.server="172.18.1.197";
+s.channel="";
+s.pageType="";
+s.purchaseID="";
+s.campaign="";
+s.eVar2="";
+s.eVar3="";
+s.eVar4="";
+s.eVar5="";
+</script>
+
+
+
+<script language="JavaScript">
+s.events ="";
+s.products ="";
+</script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+if (window.omniture_s_callback) omniture_s_callback(s);
+</script>
+<script language="JavaScript">
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script><noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+src="http://avon.112.2O7.net/b/ss/avon/1/H.10--NS/0"
+height="1" width="1" border="0" alt="" /></a></noscript><!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.10. -->
+
+</div>
+ 
+<table width="800" height="568" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#FFFFFF"> 
+  <tr> 
+    <td width="14"></td> 
+    <td align="left" valign="top"><table width="770" border="0" cellspacing="0" cellpadding="0"> 
+        <tr> 
+          <td valign="top"> <div style="width: 770px" class="flexTile">
+
+
+
+            <table width="770" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="28"></td>
+              </tr>
+              <tr>
+                <td>
+                <map name="map1">
+					<area name="area1" coords="0,0,210,45" href="#">
+				</map>
+                <img src="/REPSuite/static/images/login/toplogo.jpg" usemap="#map1"  width="770" height="45" border="0" alt="home page">
+                </td>
+              </tr>
+			   <tr>
+                <td height="20"></td>
+              </tr>
+            </table>
+</div></td> 
+        </tr> 
+        <tr> 
+          <td> <table width="770" border="0" cellspacing="0" cellpadding="0"> 
+              <tr> 
+                <td width="496" valign="top"> <div style="width: 496px" class="flexTile">
+
+
+
+
+<img src="/REPSuite/static/images/login/promo_login_c6_2015_ani.gif" alt=""/>
+
+
+
+
+
+
+
+</div></td> 
+                <td width="14"></td> 
+                <td width="260" valign="top"> <div style="width: 260px" class="flexTile"> 
+
+
+
+
+
+
+
+
+<div id="loginDiv" style="display:none">
+<script>
+	if(top != self) top.location = self.location;
+	document.getElementById("loginDiv").style.display = "";
+	
+</script>
+
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+
+						<img src="/REPSuite/static/images/login/login260x30.gif" width="100%" height="30" alt="top alt">
+
+					  </td>
+                    </tr>
+                    <!--tr>
+                      <td height="3"></td>
+                    </tr-->
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class=loginBoxBG>
+                          <tr>
+                            <td width="7"></td>
+                            <td width="244">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+                                <tr>
+                                  <td height="6"></td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr align="left">
+										<td></td>                                      
+
+                                        <td><img src="/REPSuite/static/images/login/language_en.gif"  alt="Language"></td>
+                                        
+<script type="text/javascript">
+	function setLangCookieVaue(strLangValue)
+	{
+		document.cookie = "languagecode="+strLangValue+"; max-age="+60*60*24*30+"; path=/;domain=youravon.com";
+	}
+
+</script>
+
+
+                       <form name="langForm" method="GET" action="chlang.page">
+                       <td class="smallfieldcellLogin" align="left">
+                       		<input name="ret" type="hidden" value="/login.page"/>
+
+    <input type="radio" name="langCd" id="langCd0" checked='checked' value="en_US" onclick="if (this.checked!=this.defaultChecked){setLangCookieVaue(this.value);this.form.submit();}"
+    ><label for="langCd0">English</label>
+
+    <input type="radio" name="langCd" id="langCd1"  value="es_US" onclick="if (this.checked!=this.defaultChecked){setLangCookieVaue(this.value);this.form.submit();}"
+    ><label for="langCd1">Español</label>
+
+<script language="Javascript">
+	setLangCookieVaue("en_US");
+</Script>
+                       </td>
+                       </form>
+
+
+										<td></td>
+                                      </tr>
+                                   
+                                    </table>
+                                  </td>
+                                </tr>                                
+                                <tr>
+                                  <td height="4"></td>
+                                </tr>
+			   <form name="loginForm" method="post" action="https://www.youravon.com/REPSuite/login.page" onsubmit="return onSubmitHandler(this, event)&&checkJavascript()">
+			     <input type="hidden" name="jsEnabled" value="no">
+			     <input type="hidden" name="actionName">
+			     <input type="hidden" name="ret_view" value="login">
+                                <tr>
+                                  <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr> 
+
+                                        <td width="125"><img src="/REPSuite/static/images/login/account_number_en.gif" alt="Account number"></td>
+
+                                        <td>
+                                          
+      													<span id="accountNumber_highlight" class="error"
+  		         		  									
+  		      		     										style="display:none"
+		   		        									 
+      		        									>
+   		           										*
+				   										</span>
+                                          <input type="text" name="accountNumber"
+                                                value="" id="focusElem"
+			maxlength="8" class=pinkTBlogin size="16"
+                                                onchange="return onChangeHandler(this, event)" />
+                                          
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td height="4"></td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr> 
+
+                                		<td width="125"><img src="/REPSuite/static/images/login/password_en.gif" height="17" alt="Password"></td>
+
+                                        <td >
+                                          
+      													<span id="password_highlight" class="error"
+  		         		  									
+  		      		     										style="display:none"
+		   		        									 
+      		        									>
+   		           										*
+				   										</span>
+                                          <input type="password" name="password" class=pinkTBlogin maxlength="16" size="16"/><!--size="18"-->
+                                          
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td height="8"></td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div>
+                                      <div style="float: right">
+                                        <input type="image" src="/REPSuite/static/images/buttons/btn_login_en.gif"
+                                                            alt="Login" border="0" name="login">
+                                      </div>
+                                      <div style="margin-left: 6px">
+                                        <input type="image" src="/REPSuite/static/images/login/forgot_your_password_en.gif"
+                                                            alt="Forgot your password?" border="0" id="remind" name="remind">
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td height="6"></td>
+                                </tr>
+                                <tr>
+                                  <td  class=error>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                        <td width="6"></td>
+                                        <td height="14" class=error><div id="errors">
+					
+						
+				       
+                                        </div></td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                       
+			      </form>
+                              </table>
+                            </td>
+                            <td width="9"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    
+
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td valign="top"><img src="/REPSuite/static/images/login/not_registered_en.gif" width="100%" alt="Not registered?"></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td align="right"><a target="_parent" href="newRegistrationStep1.page">
+                                  <img src="/REPSuite/static/images/buttons/btn_register_now_en.gif" 
+                                  alt="Register now" border="0"></a></td>
+                                  <td width="9"></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>                  
+
+                  </table>
+</div>
+<script>
+	function checkJavascript() {
+		document.loginForm.jsEnabled.value = "yes";
+	}
+	var focusElem=document.getElementById('focusElem');
+	focusElem.focus();
+</script>
+<noscript>
+	<table style="height: 230px;" border="0" cellspacing="0" cellpadding="0" width="214">
+</noscript>
+
+ </div></td> 
+              </tr> 
+              <tr> 
+                <td height="13"></td> 
+              </tr> 
+              <tr> 
+                <td colspan="2"><table width="496" border="0" cellspacing="0" cellpadding="0"> 
+                    <tr> 
+                      <td width="266"> <div style="width: 266px" class="flexTile"> 
+<span class="body"><!-- english --> <!--<div id="login" style="width: 260px; height: 230px;"><h1>Avon Achievers</h1><A href="/REPSuite/news_rep_lead_marco_paniagua.page" mce_href="/REPSuite/news_rep_lead_marco_paniagua.page"><img src="/REPSuite/static/images/login/promo_login_marco_paniagua.gif" mce_src="/REPSuite/static/images/login/promo_login_marco_paniagua.gif" border="0" alt="Stick with your Avon business. You&rsquo;ll get there and enjoy the rewards of success." width="260" /></A></div>-->     <!-- english --><div id="login" style="width: 260px; height: 230px;"><h1>Avon Achievers</h1><A href="/REPSuite/news_rep_lead_laura_douglas_robinson.page"><img src="/REPSuite/static/images/login/promo_login_laura_douglas_robinson.gif" border="0" alt="Don&rsquo;t try to make a goal you can&rsquo;t achieve. You start with a small goal and move on from there." width="260" /></A></div></span> </div></td> 
+                      <td width="30">&nbsp;</td> 
+                      <td width="200" valign="top"> <div style="width: 200px" class="flexTile"> 
+<span class="body"><script type="text/javascript" src="/REPSuite/static/js/jquery-1.3.2.min.js"></script><script type="text/javascript">	$(document).ready(function(){		$('.socialMenuItem img').animate({width: 25}, 0);		$('.socialMenuItem').mouseover(function(){				gridimage = $(this).find('img');				gridimage.stop().animate({width: 36}, 150);			}).mouseout(function(){				gridimage.stop().animate({width: 25}, 150);		});	});</script><table id="login" class="body" border="0" cellspacing="0" cellpadding="0" width="200">		<tbody>				<tr>						<td colspan="2" valign="top">								<h1>										Our Company								</h1>						</td>				</tr>					<!--  	<tr>						<td width="10" height="1" valign="top"><span class="body"><img src="/REPSuite/static/images/buttons/articles_arrow.gif" mce_src="/REPSuite/static/images/buttons/articles_arrow.gif" alt="" vspace="4" width="7" height="8" /></span></td>				<td class="body"><A class="magenta" href="/REPSuite/04_27_maintenance.page" mce_href="/REPSuite/04_27_maintenance.page"><b>Upcoming Scheduled System Maintenance</b></A></td>				</tr>-->				<tr>						<td width="10" height="1" valign="top">								<span class="body"><img src="/REPSuite/static/images/buttons/articles_arrow.gif" alt="" vspace="4" width="7" height="8"></span>						</td>						<td class="body">								<A href="http://www.pinterest.com/avoninsider/in-the-news/" onClick="s_objectID='Login_Pinterest_In_the_News_en';var s=s_gi(s_account);s.linkTrackVars='prop17';s.prop17='Login_Pinterest_In_the_News_en';s.tl(this,'o','Login_Pinterest_In_the_News_en click');" target="_blank">Avon in the News</A>						</td>				</tr>				<tr>						<td width="10" height="1" valign="top">								<span class="body"><img src="/REPSuite/static/images/buttons/articles_arrow.gif" alt="" vspace="4" width="7" height="8"></span>						</td>						<td class="body">								<A href="http://www.avoncompany.com/" target="_blank">About the Avon Company</A>						</td>				</tr>				<tr>						<td width="10" height="1" valign="top">								<span class="body"><img src="/REPSuite/static/images/buttons/articles_arrow.gif" alt="" vspace="4" width="7" height="8"></span>						</td>						<td class="body">								<A href="http://www.avonfoundation.org/" target="_blank">About the Avon Foundation</A>						</td>				</tr>				<tr>						<td class="body" style="padding-top:15px;" valign="top" cellspacing="0" cellpadding="0" width="200" colspan="2">								<h1>Connect With Us</h1>								<div id="login-social-mediaContainer">									<div id="login-social-media">										<ul id="login-social-media_menu" class="socialMenuNavigation">											<li style="list-style: none">												<A class="socialMenuItem" href="https://www.facebook.com/Avon" target="_blank" onClick="s_objectID='Social_Media_Icons_Login_Facebook';var s=s_gi(s_account);s.linkTrackVars='prop17';s.prop17='Social_Media_Icons_Login_Facebook';s.tl(this,'o','Social_Media_Icons_Login_Facebook click');"><img src="/REPSuite/static/images/login/fb.png" alt="Facebook"></A>												<A class="socialMenuItem" href="https://twitter.com/AvonInsider" target="_blank" onClick="s_objectID='Social_Media_Icons_Login_Twitter';var s=s_gi(s_account);s.linkTrackVars='prop17';s.prop17='Social_Media_Icons_Login_Twitter';s.tl(this,'o','Social_Media_Icons_Login_Twitter click');"><img src="/REPSuite/static/images/login/twitter.png" alt="Twitter"></A>												<A class="socialMenuItem" href="http://www.youtube.com/Avon" target="_blank" onClick="s_objectID='Social_Media_Icons_Login_Youtube';var s=s_gi(s_account);s.linkTrackVars='prop17';s.prop17='Social_Media_Icons_Login_Youtube';s.tl(this,'o','Social_Media_Icons_Login_Youtube click');"><img src="/REPSuite/static/images/login/youTube.png" alt="YouTube" ></A>																								<A class="socialMenuItem" href="http://instagram.com/avoninsider" target="_blank" onClick="s_objectID='Social_Media_Icons_Login_Instagram';var s=s_gi(s_account);s.linkTrackVars='prop17';s.prop17='Social_Media_Icons_Login_Instagram';s.tl(this,'o','Social_Media_Icons_Login_Instagram click');"><img src="/REPSuite/static/images/login/insta.png" alt="Instagram"></A>												<A class="socialMenuItem" href="http://avoninsider.tumblr.com/" target="_blank" onClick="s_objectID='Social_Media_Icons_Login_Tumblr';var s=s_gi(s_account);s.linkTrackVars='prop17';s.prop17='Social_Media_Icons_Login_Tumblr';s.tl(this,'o','Social_Media_Icons_Login_Tumblr click');">												<img src="/REPSuite/static/images/login/tumblr.png" alt="Tumblr" ></A>												<A class="socialMenuItem" href="http://pinterest.com/avoninsider/" target="_blank" onClick="s_objectID='Social_Media_Icons_Login_Pinterest';var s=s_gi(s_account);s.linkTrackVars='prop17';s.prop17='Social_Media_Icons_Login_Pinterest';s.tl(this,'o','Social_Media_Icons_Login_Pinterest click');"><img src="/REPSuite/static/images/login/pinterest.png" alt="Pinterest" ></A>											</li>										</ul><!-- login-social-media_menu -->									</div><!-- login-social-media -->								</div><!-- login-social-mediaContainer -->						</td>				</tr>		</tbody></table><!-- --></span> </div></td> 
+                      <td width="14"></td> 
+                    </tr> 
+                  </table></td> 
+                <td align="right" valign="top"><div style="width: 260px" class="flexTile">
+<span class="body"><table id="login" border="0" cellspacing="0" cellpadding="0" width="260"><tbody><tr><td valign="top"><h1>Not An Avon Representative?</h1></td></tr><tr><td valign="top"><A onclick="s_objectID='ya_login_become_a_rep_promo_en';var s=s_gi(s_account);s.linkTrackVars='prop17';s.prop17='ya_login_become_a_rep_promo_en';s.tl(this,'o','ya_login_become_a_rep_promo_en click');" href="/REPSuite/become_a_rep.page?p=youravon&amp;c=youravon"><img src="/REPSuite/static/images/login/promo_become_a_rep_en.jpg" border="0" alt="Start selling Avon to create your own hours and be your own boss! Find Out More!" /></A></td></tr></tbody></table></span></div></td> 
+              </tr> 
+              <tr> 
+                <td valign="top" height="51"></td> 
+              </tr> 
+            </table></td> 
+        </tr> 
+        <tr> 
+          <td height="33" valign="bottom"> <div style="width: 770px" class="flexTile"> 
+
+
+
+            <table width="770" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="right">
+                  <table width="770" border="0" cellspacing="0" cellpadding="0" >
+                    <tr class="footerText">
+                      <td align="left" width="60%"><a href="login.page"><img src="/REPSuite/static/images/login/small_logo.jpg"></a></td>
+
+
+
+					<td nowrap><a href="#" onclick="javascript: window.open('preLoginHelp.page?id=login', 'help', 'width=658,height=580,toolbar=no,location=no,status=yes,scrollbars=yes,menubar=no,resizable=no,resize=no');" class="footerText">Help</a></td>
+
+
+                      <td width="7" align="center">&nbsp;|&nbsp;</td>
+
+
+                      <td nowrap  ><a href="#" onclick="javascript:window.open('http://www.youravon.com/REPSuite/security_and_privacy.page', 'popupWindow', 'width=640, height=550, resizable=1, status=1, toolbar=0, menubar=0, scrollbars=1, top=50, left=40');return false" class="footerText">Privacy Statement</a></td>
+
+
+                      <td width="7" align="center">&nbsp;|&nbsp;</td>
+
+
+                      <td nowrap  ><a href="#" onclick="javascript:window.open('http://www.youravon.com/REPSuite/terms_and_conditions.page', 'popupWindow', 'width=640, height=550, resizable=1, status=1, toolbar=0, menubar=0, scrollbars=1, top=50, left=40');return false" class="footerText">Conditions&nbsp;of&nbsp;Use</a></td>
+
+
+                      <td width="7" align="center">&nbsp;|&nbsp;</td>
+
+
+                      <td nowrap  ><a href="#" onclick="javascript:window.open('http://www.youravon.com/REPSuite/product_recall.page', 'popupWindow', 'width=640, height=550, resizable=1, status=1, toolbar=0, menubar=0, scrollbars=1, top=50, left=40');return false" class="footerText">Product Recall</a></td>
+
+
+                      <td width="7" align="center">&nbsp;|&nbsp;</td>
+
+
+                      <td nowrap  ><a href="#" onclick="javascript:window.open('http://www.youravon.com/REPSuite/safetycertificate.page', 'popupWindow', 'width=900, height=550, resizable=1, status=1, toolbar=0, menubar=0, scrollbars=1, top=50, left=40');return false" class="footerText">Safety Certificate</a></td>
+
+
+                      <td width="7" align="center">&nbsp;|&nbsp;</td>
+
+
+                      <td nowrap  >&copy;&nbsp;2015,&nbsp;Avon&nbsp;Products&nbsp;Inc.</td>
+
+
+
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+ </div></td> 
+        </tr> 
+      </table></td> 
+    <td width="14"></td> 
+  </tr> 
+</table> 
+</body>
+</html>
+";i:2;s:4:"3317";}

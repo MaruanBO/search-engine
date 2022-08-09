@@ -1,0 +1,1319 @@
+a:3:{i:0;s:20:"http://reviewed.com/";i:1;s:88520:"<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-2.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"d0a1d361ac","applicationID":"2130988","transactionName":"cl8NTEZaDVlUEU0VVlZVEBdcWgxQ","queueTime":8,"applicationTime":880,"agentToken":null,"agent":"js-agent.newrelic.com/nr-536.min.js","ttGuid":"71619f4d560c231e"}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwIOVlBTGwEBV1FbDwk="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(5),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e;try{throw new Error}catch(f){"stack"in f&&(t(1),t(4),"addEventListener"in window&&t(2),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(3),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:8,2:5,3:9,4:7,5:22,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1);t("loader").features.stn=!0,t(2),n.on("fn-start",function(t){var e=t[0];e instanceof Event&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof Event&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:8,2:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:22,2:23,ee:"QJf3ax",gos:"7eSDFh"}],6:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState"],"-")},{1:23,2:22,ee:"QJf3ax"}],7:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:23,2:22,ee:"QJf3ax"}],8:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:23,2:22,ee:"QJf3ax"}],9:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),f=s(a),u=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new u(t);try{i.emit("new-xhr",[],e),f.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=u.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:5,2:23,ee:"QJf3ax"}],10:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=e(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=e(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var u=0;c>u;u++)n.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:11,3:9,4:5,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],11:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],12:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","trackUserAction","finished","traceEvent","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:21,2:22,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&f&&f.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=f.createElement("script");e.src=l.proto+t.agent,f.body.appendChild(e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=(t(2),window),f=c.document,u="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-536.min.js"},l=e.exports={offset:i(),origin:p,features:{}};f[u]?(f[u]("DOMContentLoaded",o,!1),c[u]("load",n,!1)):(f[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:21,2:12,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],21:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],22:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],23:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:22,ee:"QJf3ax"}]},{},["G9z0Bl",3,10,4]);</script>
+  <title>
+      Consumer Electronics and Appliance Reviews, Ratings and Buying Guides - Reviewed.com
+  </title>
+
+
+    <script src="//cdn.optimizely.com/js/235651488.js"></script>
+
+  <script>
+//<![CDATA[
+
+    window.js_vars = {"gtmVersion":21,"website_id":"","env":"production","search_es_url":"http://cerebro-production.herokuapp.com:80","search_es_env":"production","niche_tracking_id":"UA-4008079-1","number_of_image_shards":"3","suppress_async_includes":false,"page_action_ids":"pages.home"}
+
+//]]>
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="reviews" name="keywords" />
+  <meta name="surrogate-key" value="1e2c0261e8b447f6ede90e4f9607540c627634e9 reviewed/pages/home pages/home reviewed" />
+  
+  
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="I7DhAV1LQWP91e3WargGz9MMo+kR1g4rjI4EPcfxfPU=" name="csrf-token" />
+  <meta content="brand_value" name="brand" data-gad-target="true" >
+<meta content="home" name="page_type" data-gad-target="true" >
+<meta content="rvw" name="website" data-gad-target="true" >
+<meta content="false" name="is_search" data-gad-target="true" >
+<meta content="NA" name="prod_id" data-gad-target="true" >
+<meta content="1e2c0261e8b447f6ede90e4f9607540c627634e9" name="url_hash" data-gad-target="true" >
+<meta content="tbd" name="campaign" data-gad-target="true" >
+<meta content="" name="utm_source" data-gad-target="true" >
+
+  <meta content="The most comprehensive source for unbiased, trustworthy, and lab tested reviews. Reviewed.com is a division of USA TODAY." name="description"></meta>
+
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,400,300,600,700" media="screen" rel="stylesheet" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" media="screen" rel="stylesheet" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" media="screen" rel="stylesheet" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.0.2/css/font-awesome.min.css" media="screen" rel="stylesheet" />
+  <link href="http://dhwmuj7cndz3k.cloudfront.net/assets/vendored-4578a20c6db843a9edd614a84476afdd.css" media="screen" rel="stylesheet" />
+  <link href="http://dhwmuj7cndz3k.cloudfront.net/assets/application-51bd6986d92ec57eb9e0c380fa609c51.css" media="screen" rel="stylesheet" />
+  
+
+  <link href="http://dhwmuj7cndz3k.cloudfront.net/assets/pages-da5906a591d3c5fa61028de345e1671b.css" media="screen" rel="stylesheet" /><link href="http://dhwmuj7cndz3k.cloudfront.net/assets/home-3a340b8ca0c4bc00853c2340bdb02d4b.css" media="screen" rel="stylesheet" />
+
+  <link href="http://dhwmuj7cndz3k.cloudfront.net/assets/categories/reviewed/reviewed-ed58020a5760e0d509c98a0a04c54ee1.css" media="screen" rel="stylesheet" />
+  
+
+  <link rel="shortcut icon" href=http://dhwmuj7cndz3k.cloudfront.net/assets/categories/reviewed/favicon-7cb356651204e140e8c21acde8153a23.ico />
+  <link rel="alternate" type="application/atom+xml" title="Reviewed.com Atom" href="/articles.atom" />
+  <link rel="alternate" type="application/atom+xml" title="Reviewed.com Deals Atom" href="/deals.atom" />
+  <link rel="alternate" type="application/atom+xml" title="Reviewed.com Science Atom" href="http://www.reviewed.com/science.atom" />
+  <link rel="canonical" href="http://www.reviewed.com/">
+
+  <meta name="apple-mobile-web-app-title" content="Reviewed.com">
+  <link rel="apple-touch-icon" href="http://dhwmuj7cndz3k.cloudfront.net/assets/mobile/touch-icon-iphone-59d6aaec94c424233ead855acf7cf8d6.png">
+  <link rel="apple-touch-icon" sizes="36x36" href="http://dhwmuj7cndz3k.cloudfront.net/assets/mobile/launcher-icon-0-75x-5b4856ff9dbea63e57bf4e73132d4e05.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="http://dhwmuj7cndz3k.cloudfront.net/assets/mobile/launcher-icon-1x-0ded537c6d96b9b7d58a594430205dc3.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="http://dhwmuj7cndz3k.cloudfront.net/assets/mobile/touch-icon-iphone-59d6aaec94c424233ead855acf7cf8d6.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="http://dhwmuj7cndz3k.cloudfront.net/assets/mobile/launcher-icon-1-5x-63e5e0d7015666c289c10aa10ffc326d.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="http://dhwmuj7cndz3k.cloudfront.net/assets/mobile/touch-icon-ipad-9e4fa9d8644466938d2b92938e0f12df.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="http://dhwmuj7cndz3k.cloudfront.net/assets/mobile/launcher-icon-2x-837447a14970a08d9d64775d53b0d4dc.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="http://dhwmuj7cndz3k.cloudfront.net/assets/mobile/touch-icon-iphone-retina-9ceddb514a29f9a9c68c0097950aeba1.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="http://dhwmuj7cndz3k.cloudfront.net/assets/mobile/launcher-icon-3x-f2c21d80e55e94679c04d4ac0dc1c19e.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="http://dhwmuj7cndz3k.cloudfront.net/assets/mobile/touch-icon-ipad-retina-387f69ca5e2beb73d8771b858842fe0d.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="http://dhwmuj7cndz3k.cloudfront.net/assets/mobile/launcher-icon-4x-ce2b23826fbe66390d886077e5e3fdb9.png">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+  <script src="http://dhwmuj7cndz3k.cloudfront.net/assets/head-e91599692c678c5db88f882af8a1da53.js"></script>
+
+  
+  
+  
+  <script type="text/javascript">     
+  window._taboola = window._taboola || [];
+  _taboola.push({article:'auto'});
+  !function (e, f, u) {
+    e.async = 1;
+    e.src = u;
+    f.parentNode.insertBefore(e, f);
+  }(document.createElement('script'), document.getElementsByTagName('script')[0], 'http://cdn.taboola.com/libtrc/reviewedcom/loader.js');      
+</script>
+
+</head>
+
+<body class="body-reviewed ctrl-pages">    <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KB4CSW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KB4CSW');</script>
+<!-- End Google Tag Manager -->
+
+  <link href="https://plus.google.com/+Reviewedcom/" rel="publisher" />
+
+  <!-- rev_rvw_home_background_1 -->
+<div id='rev_rvw_home_background_1' class='ad_background_1' data-gad-mobile='false' data-gad-unit='true' data-gad-sizes='[[1440,1000]]'></div>
+
+
+  <!-- rev_rvw_home_interstitialtoggle_1 -->
+<div id='rev_rvw_home_interstitialtoggle_1' class='ad_interstitialtoggle_1' data-gad-mobile='false' data-gad-unit='true' data-gad-sizes='[[1,1]]'></div>
+
+  <div id="interstitialtoggle_1_modal" class="modal hide" data-gad-height="400" data-gad-width="600" data-backdrop="static">
+  <div class="modal-header">
+    <div class="content">
+      <img alt="Logo" src="http://dhwmuj7cndz3k.cloudfront.net/assets/logo-c4f806884ffef757deb73fd81d8f15ef.png" />
+
+      <a id="skip-interstitial" class="close hidden" data-dismiss="modal" aria-hidden="true">
+        <i class="icon-remove-sign"></i>
+        <span>Skip this ad</span>
+      </a>
+
+      <div class="adlabel">
+        <p><strong>Advertisement.</strong>
+        The page you requested will display in <span id="adtimer"></span> seconds.</p>
+      </div>
+    </div>
+  </div>
+  <div id="interstitial_body" class="modal-body" gad-interstitial-name='interstitial_1'>
+  </div>
+</div>
+
+
+
+
+  <!-- begin Nav -->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div id="admin_bar"></div>
+    <div class="container hidden-desktop">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">Menu</a>
+
+      <a class="brand logo" href="http://www.reviewed.com">Reviewed.com</a>
+      
+
+      <div id="globalnav" class="navtop nav-collapse collapse">
+        <div class="inner">
+          <ul class="nav hidden-phone">
+            <li><span>Electronics:</span>
+              <ul>
+                  <li><a href="http://cameras.reviewed.com">Cameras</a></li>
+                  <li><a href="http://televisions.reviewed.com">Televisions</a></li>
+                  <li><a href="http://smartphones.reviewed.com">Smartphones</a></li>
+                  <li><a href="http://laptops.reviewed.com">Laptops</a></li>
+                  <li><a href="http://tablets.reviewed.com">Tablets</a></li>
+                  <li><a href="http://camcorders.reviewed.com">Camcorders</a></li>
+                  <li><a href="http://headphones.reviewed.com">Headphones</a></li>
+                  <li><a href="http://wearables.reviewed.com">Wearables</a></li>
+                  <li><a href="http://printers.reviewed.com">Printers</a></li>
+                  <li><a href="http://monitors.reviewed.com">Computer Monitors</a></li>
+              </ul>
+            </li>
+            <li><span>Appliances:</span>
+              <ul>
+                  <li><a href="http://ovens.reviewed.com">Ovens</a></li>
+                  <li><a href="http://laundry.reviewed.com">Laundry</a></li>
+                  <li><a href="http://dishwashers.reviewed.com">Dishwashers</a></li>
+                  <li><a href="http://refrigerators.reviewed.com">Refrigerators</a></li>
+                  <li><a href="http://vacuums.reviewed.com">Vacuums</a></li>
+                  <li><a href="http://freezers.reviewed.com">Freezers</a></li>
+                  <li><a href="http://microwaves.reviewed.com">Microwaves</a></li>
+                  <li><a href="http://smarthome.reviewed.com">Smart Home</a></li>
+                  <li><a href="http://espresso.reviewed.com">Espresso</a></li>
+                  <li><a href="http://grills.reviewed.com">Grills</a></li>
+                  <li><a href="http://coffee.reviewed.com">Coffee</a></li>
+              </ul>
+            </li>
+              <li><a href="http://cars.reviewed.com">Cars</a></li>
+          </ul>
+
+          <ul class="nav visible-phone">
+            <li><a href="/reviews">Reviews</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/how_we_test">How We Test</a></li>
+            <li><a href="/video">Video</a></li>
+            <li><a href="http://www.reviewed.com/ethics">Ethics</a></li>
+            <li class="dropdown reviewed"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Electronics<i class="icon-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                  <li><a href="http://cameras.reviewed.com">Cameras</a></li>
+                  <li><a href="http://televisions.reviewed.com">Televisions</a></li>
+                  <li><a href="http://smartphones.reviewed.com">Smartphones</a></li>
+                  <li><a href="http://laptops.reviewed.com">Laptops</a></li>
+                  <li><a href="http://tablets.reviewed.com">Tablets</a></li>
+                  <li><a href="http://camcorders.reviewed.com">Camcorders</a></li>
+                  <li><a href="http://headphones.reviewed.com">Headphones</a></li>
+                  <li><a href="http://wearables.reviewed.com">Wearables</a></li>
+                  <li><a href="http://printers.reviewed.com">Printers</a></li>
+                  <li><a href="http://monitors.reviewed.com">Computer Monitors</a></li>
+              </ul>
+            </li>
+            <li class="dropdown reviewed"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Appliances<i class="icon-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                  <li><a href="http://ovens.reviewed.com">Ovens</a></li>
+                  <li><a href="http://laundry.reviewed.com">Laundry</a></li>
+                  <li><a href="http://dishwashers.reviewed.com">Dishwashers</a></li>
+                  <li><a href="http://refrigerators.reviewed.com">Refrigerators</a></li>
+                  <li><a href="http://vacuums.reviewed.com">Vacuums</a></li>
+                  <li><a href="http://freezers.reviewed.com">Freezers</a></li>
+                  <li><a href="http://microwaves.reviewed.com">Microwaves</a></li>
+                  <li><a href="http://smarthome.reviewed.com">Smart Home</a></li>
+                  <li><a href="http://espresso.reviewed.com">Espresso</a></li>
+                  <li><a href="http://grills.reviewed.com">Grills</a></li>
+                  <li><a href="http://coffee.reviewed.com">Coffee</a></li>
+              </ul>
+            </li>
+              <li class="dropdown reviewed"><a href="http://cars.reviewed.com">Cars</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div id="ad_preheader" class="hidden-phone"><!-- rev_rvw_home_728x90_1 -->
+<div id='rev_rvw_home_728x90_1' class='ad_728x90_1' data-gad-mobile='false' data-gad-unit='true' data-gad-sizes='[[728,90]]'></div>
+
+</div>
+  <header>
+  <div id="top">
+    <div id="logo">
+      <div class="pull-left visible-desktop">
+        <a href="http://www.reviewed.com">
+          <img alt="Logo" src="http://dhwmuj7cndz3k.cloudfront.net/assets/logo-c4f806884ffef757deb73fd81d8f15ef.png" />
+        </a>
+        
+      </div>
+
+      <div class="pull-right searchbox dropdown" id="search-top">
+        <typeahead placeholder="Search (brand, feature, etc.)" category="reviewed" algolia-app-id="M5OIGTW601" algolia-search-key="a98afffe5a350b389f931e5ed811c546" algolia-env="production">
+      </div>
+    </div>
+  </div>
+
+  <div class="globalnav visible-desktop">
+  <div>
+    <ul class="unstyled inline">
+        <li><a href="http://cameras.reviewed.com">Cameras</a></li>
+        <li><a href="http://televisions.reviewed.com">Televisions</a></li>
+        <li><a href="http://ovens.reviewed.com">Ovens</a></li>
+        <li><a href="http://laundry.reviewed.com">Laundry</a></li>
+        <li><a href="http://dishwashers.reviewed.com">Dishwashers</a></li>
+        <li><a href="http://refrigerators.reviewed.com">Refrigerators</a></li>
+        <li><a href="http://vacuums.reviewed.com">Vacuums</a></li>
+        <li><a href="http://smartphones.reviewed.com">Smartphones</a></li>
+        <li><a href="http://laptops.reviewed.com">Laptops</a></li>
+        <li><a href="http://tablets.reviewed.com">Tablets</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">More <i class="icon-chevron-down"></i></a>
+        <ul class="dropdown-menu pull-right">
+            <li><a href="http://freezers.reviewed.com">Freezers</a></li>
+            <li><a href="http://microwaves.reviewed.com">Microwaves</a></li>
+            <li><a href="http://camcorders.reviewed.com">Camcorders</a></li>
+            <li><a href="http://smarthome.reviewed.com">Smart Home</a></li>
+            <li><a href="http://headphones.reviewed.com">Headphones</a></li>
+            <li><a href="http://wearables.reviewed.com">Wearables</a></li>
+            <li><a href="http://printers.reviewed.com">Printers</a></li>
+            <li><a href="http://monitors.reviewed.com">Computer Monitors</a></li>
+            <li><a href="http://espresso.reviewed.com">Espresso</a></li>
+            <li><a href="http://grills.reviewed.com">Grills</a></li>
+            <li><a href="http://coffee.reviewed.com">Coffee</a></li>
+            <li><a href="http://cars.reviewed.com">Cars</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+  <div class="main-nav hidden-phone">
+    <div>
+      <ul class="inline">
+        <li class="dropdown">
+          <a class="dropdown-toggle disabled" data-toggle="dropdown" href="/reviews">Reviews <i class="icon-chevron-down visible-desktop"></i></a>
+          <div class="dropdown-menu reviews">
+            <ul class="unstyled pull-left sites">
+                <li id="reviews-Ovens"><a href="http://ovens.reviewed.com/reviews">Ovens</a></li>
+                <li id="reviews-Refrigerators"><a href="http://refrigerators.reviewed.com/reviews">Refrigerators</a></li>
+                <li id="reviews-Laundry"><a href="http://laundry.reviewed.com/reviews">Laundry</a></li>
+                <li id="reviews-Dishwashers"><a href="http://dishwashers.reviewed.com/reviews">Dishwashers</a></li>
+                <li id="reviews-Cameras"><a href="http://cameras.reviewed.com/reviews">Cameras</a></li>
+                <li id="reviews-Televisions"><a href="http://televisions.reviewed.com/reviews">Televisions</a></li>
+                <li id="reviews-Tablets"><a href="http://tablets.reviewed.com/reviews">Tablets</a></li>
+                <li id="reviews-Headphones"><a href="http://headphones.reviewed.com/reviews">Headphones</a></li>
+                <li id="reviews-Laptops"><a href="http://laptops.reviewed.com/reviews">Laptops</a></li>
+            </ul>
+            <div class="site-drawer">
+              <div class="xhr-include" data-src="/includes/nav_item/reviews" data-breakpoint="desktop"><div class="spinner"></div></div>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle disabled" data-toggle="dropdown" href="/news">News <i class="icon-chevron-down visible-desktop"></i></a>
+          <div class="dropdown-menu news">
+            <ul class="unstyled pull-left sites">
+                <li id="news-Ovens"><a href="http://ovens.reviewed.com/news">Ovens</a></li>
+                <li id="news-Refrigerators"><a href="http://refrigerators.reviewed.com/news">Refrigerators</a></li>
+                <li id="news-Laundry"><a href="http://laundry.reviewed.com/news">Laundry</a></li>
+                <li id="news-Dishwashers"><a href="http://dishwashers.reviewed.com/news">Dishwashers</a></li>
+                <li id="news-Cameras"><a href="http://cameras.reviewed.com/news">Cameras</a></li>
+                <li id="news-Televisions"><a href="http://televisions.reviewed.com/news">Televisions</a></li>
+                <li id="news-Tablets"><a href="http://tablets.reviewed.com/news">Tablets</a></li>
+                <li id="news-Headphones"><a href="http://headphones.reviewed.com/news">Headphones</a></li>
+                <li id="news-Laptops"><a href="http://laptops.reviewed.com/news">Laptops</a></li>
+            </ul>
+            <div class="site-drawer">
+              <div class="xhr-include" data-src="/includes/nav_item/news" data-breakpoint="desktop"><div class="spinner"></div></div>
+            </div>
+          </div>
+        </li>
+        <li><a href="/how_we_test">How We Test</a></li>
+        <li><a href="/video">Video</a></li>
+        <li><a href="/ethics">Ethics</a></li>
+      </ul>
+
+      <div class="social visible-desktop">
+        <div class="dropdown">
+          <a class="facebook dropdown-toggle" data-toggle="dropdown"></a>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="https://www.facebook.com/Reviewedcom">Reviewed.com Facebook</a></li>
+            <li><a href="https://www.facebook.com/reviewedcameras">Reviewed.com Cameras Facebook</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <a class="twitter dropdown-toggle" data-toggle="dropdown"></a>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="https://twitter.com/revieweddotcom">Reviewed.com Twitter</a></li>
+            <li><a href="https://twitter.com/reviewedcameras">Reviewed.com Cameras Twitter</a></li>
+            <li><a href="https://twitter.com/reviewedhome">Reviewed.com Home Twitter</a></li>
+            <li><a href="https://twitter.com/reviewedtech">Reviewed.com Tech Twitter</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <a class="youtube dropdown-toggle" data-toggle="dropdown"></a>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="http://www.youtube.com/revieweddotcom">Reviewed.com YouTube</a></li>
+            <li><a href="http://www.youtube.com/digitalcamerainfocom">Reviewed.com Cameras YouTube</a></li>
+            <li><a href="http://www.youtube.com/camcorderinfodotcom">Reviewed.com Camcorders YouTube</a></li>
+          </ul>
+        </div>
+        <a class="google" href="https://plus.google.com/+Reviewedcom/"></a>
+        <a class="pinterest" href="http://pinterest.com/revieweddotcom/"></a>
+        <!-- <a class="email" data-toggle="collapse" data-target="#email-signup-form"></a> -->
+        <div class="email-signup accordion" id="email-signup">
+          <a data-toggle="collapse" data-target="#email-signup-form"></a>
+
+          <div id="email-signup-form" class="collapse" data-category="reviewed"><div>
+            <p>Sign up to get updates on our<br /> <strong>latest news &amp; deals</strong></p>
+
+            
+<form>
+  <input id="website_group_name" name="website_group_name" type="hidden" value="Reviewed.com"></input>
+  <input type="email" autocapitalize="off" autocorrect="off" name="email" id="email" placeholder="email address" size="25">
+  <input class="btn btn-primary list-conversion"  type="submit" value="subscribe" />
+</form>
+          </div></div>
+
+          <div class="email-signup-success collapse">
+            <p>Thank you for<br /> subscribing!</p>
+          </div>
+        </div>
+        <span>Tested by Experts</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- end Nav -->
+
+  <!-- begin Main Content -->
+  <div class="main container">
+      <div class="xhr-include" data-src="/includes/notifications"></div>
+
+    <div class="row">
+        <div class="span16">
+          <div id="content" class="pages home"><script type="text/javascript">
+  $("body").append("<input type='hidden' id='optimizely-info' value='optimizely-new-reviewed-home:variation-1'>");
+</script>
+
+<div class="rvw-row">
+  <div class="rvw-left">
+    <div class="showcase showcase-inline">
+  <div class="photogallery">
+    <div class="flexslider slider">
+      <ul class="slides photos">
+          <li>
+            <a href="http://smartphones.reviewed.com/content/samsung-galaxy-note-4-smartphone-review">
+              <img alt="Samsung Galaxy Note 4 Smartphone Review" src="http://a3.images.reviewed.com/image/fetch/s--HLL2cKLs--/c_fill,cs_srgb,f_auto,fl_progressive,g_xy_center,h_310,q_jpegmini,w_620,x_667,y_288/https://reviewed-production.s3.amazonaws.com/1423675814000/samsung-galaxy-note-4-review-hero.jpg" />
+                <span>Samsung Galaxy Note 4 Smartphone Review</span>
+</a>          </li>
+          <li>
+            <a href="http://laundry.reviewed.com/features/dolfi-uses-the-power-of-sound-to-clean-your-delicates">
+              <img alt="Dolfi Uses The Power Of Sound To Clean Your Delicates" src="http://a4.images.reviewed.com/image/fetch/s--CvcFx9HO--/c_fill,cs_srgb,f_auto,fl_progressive,g_xy_center,h_310,q_jpegmini,w_620,x_975,y_453/https://reviewed-production.s3.amazonaws.com/1422475185000/Dolfi-Hero.jpg" />
+                <span>Dolfi Uses The Power Of Sound To Clean Your Delicates</span>
+</a>          </li>
+          <li>
+            <a href="http://cameras.reviewed.com/content/canon-ef-11-24mm-f4l-usm-first-impressions-review">
+              <img alt="Hands-on With Canon&#39;s Ultra-Wide, Ultra-Pricey New Zoom" src="http://a3.images.reviewed.com/image/fetch/s--JeqKkrhT--/c_fill,cs_srgb,f_auto,fl_progressive,g_xy_center,h_310,q_jpegmini,w_620,x_1953,y_1172/https://reviewed-production.s3.amazonaws.com/1423980131000/CANON-11-24-F4L-HERO.jpg" />
+                <span>Hands-on With Canon&#39;s Ultra-Wide, Ultra-Pricey New Zoom</span>
+</a>          </li>
+          <li>
+            <a href="http://ovens.reviewed.com/features/ge-crowdfunds-its-upcoming-induction-cooktop-2">
+              <img alt="GE Crowdfunds its Upcoming Induction Cooktop" src="http://a3.images.reviewed.com/image/fetch/s--EfKW2XiW--/c_fill,cs_srgb,f_auto,fl_progressive,g_center,h_310,q_jpegmini,w_620/https://reviewed-production.s3.amazonaws.com/1423350016000/Sous-Vide-Thermometer-Hero.jpg" />
+                <span>GE Crowdfunds its Upcoming Induction Cooktop</span>
+</a>          </li>
+          <li>
+            <a href="http://cameras.reviewed.com/content/fujifilm-xm-fl-24mm-f8-first-impressions-review">
+              <img alt="Fujifilm XM-FL 24mm f/8 First Impressions Review" src="http://a1.images.reviewed.com/image/fetch/s--HNBSN6vm--/c_fill,cs_srgb,f_auto,fl_progressive,g_center,h_310,q_jpegmini,w_620/https://reviewed-production.s3.amazonaws.com/1423968737000/fujifilm-xf-fl-hero.jpg" />
+                <span>Fujifilm XM-FL 24mm f/8 First Impressions Review</span>
+</a>          </li>
+          <li>
+            <a href="http://dishwashers.reviewed.com/features/kitchen-and-bath-design-in-2015-whats-hot-whats-not">
+              <img alt="Kitchen and Bath Design in 2015—What’s Hot, What’s Not" src="http://a4.images.reviewed.com/image/fetch/s--Qkwoccfn--/c_fill,cs_srgb,f_auto,fl_progressive,g_xy_center,h_310,q_jpegmini,w_620,x_1160,y_860/https://reviewed-production.s3.amazonaws.com/1423676962000/NKBA-design-trends-2015-hero.jpg" />
+                <span>Kitchen and Bath Design in 2015—What’s Hot, What’s Not</span>
+</a>          </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="latest-reviews">
+  <p class="banner">
+    <a href="/reviews">
+      <span>Latest Reviews</span>
+      <span class="hidden-phone">Lab Tested by Experts</span>
+      <span class="pull-right">More <i class="icon-chevron-right"></i></span>
+</a>  </p>
+
+  <div class="row">
+      
+  <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+    <a href="http://dishwashers.reviewed.com/content/kenmore-13202-dishwasher-review" itemprop="url">
+      <img alt="Product Image - Kenmore 13202" itemprop="image" src="http://a1.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/1423512717000/Kenmore-13202-Front.jpg" />
+      
+      <div class="rank" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+  <span class="value" itemprop="ratingValue">5.8</span>
+  <meta itemprop="worstRating" content="0" />
+  <meta itemprop="bestRating" content="10" />
+  <div class="progress hidden-phone"><div class="bar" style="width: 58%"></div></div>
+</div>
+
+      <span>
+        Kenmore 13202 Dishwasher Review<br />
+        <span class="schema-product-name" itemprop="name">Kenmore 13202</span>
+        <span>$449.99</span>
+      </span>
+</a>  </span>
+
+      
+  <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+    <a href="http://dishwashers.reviewed.com/content/kitchenaid-kdte204dss-dishwasher-review" itemprop="url">
+      <img alt="Product Image - KitchenAid KDTE204DSS" itemprop="image" src="http://a2.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/attachment/36b88b09a7e74420/KitchenAid-KDTE204DSS.jpg" />
+      
+      <div class="rank" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+  <span class="value" itemprop="ratingValue">5.6</span>
+  <meta itemprop="worstRating" content="0" />
+  <meta itemprop="bestRating" content="10" />
+  <div class="progress hidden-phone"><div class="bar" style="width: 56%"></div></div>
+</div>
+
+      <span>
+        KitchenAid KDTE204DSS Dishwasher Review<br />
+        <span class="schema-product-name" itemprop="name">KitchenAid KDTE204DSS</span>
+        <span>$1,049.00</span>
+      </span>
+</a>  </span>
+
+      
+  <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+    <a href="http://dishwashers.reviewed.com/content/kitchenaid-kdfe104dss-dishwasher-review" itemprop="url">
+      <img alt="Product Image - KitchenAid KDFE104DSS" itemprop="image" src="http://a2.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/product/6409/KitchenAid-KDFE104DSS-Front.jpg" />
+      
+      <div class="rank" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+  <span class="value" itemprop="ratingValue">5.6</span>
+  <meta itemprop="worstRating" content="0" />
+  <meta itemprop="bestRating" content="10" />
+  <div class="progress hidden-phone"><div class="bar" style="width: 56%"></div></div>
+</div>
+
+      <span>
+        KitchenAid KDFE104DSS Dishwasher Review<br />
+        <span class="schema-product-name" itemprop="name">KitchenAid KDFE104DSS</span>
+        <span>$849.00</span>
+      </span>
+</a>  </span>
+
+      
+  <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+    <a href="http://laundry.reviewed.com/content/whirlpool-wfw72hedw-washing-machine-review" itemprop="url">
+      <img alt="Product Image - Whirlpool WFW72HEDW" itemprop="image" src="http://a3.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/1423664741000/Whirlpool-WFW72HEDW-front.jpg" />
+      
+      <div class="rank" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+  <span class="value" itemprop="ratingValue">6.9</span>
+  <meta itemprop="worstRating" content="0" />
+  <meta itemprop="bestRating" content="10" />
+  <div class="progress hidden-phone"><div class="bar" style="width: 69%"></div></div>
+</div>
+
+      <span>
+        Whirlpool Duet WFW72HEDW Washing Machine Review<br />
+        <span class="schema-product-name" itemprop="name">Whirlpool WFW72HEDW</span>
+        <span>$849.00</span>
+      </span>
+</a>  </span>
+
+      
+  <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+    <a href="http://dishwashers.reviewed.com/content/miele-futura-classic-series-g4225scu-dishwasher-review" itemprop="url">
+      <img alt="Product Image - Miele Futura Classic G4225SCU" itemprop="image" src="http://a3.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/product/20585/Miele-G4225SCU-Front.jpg" />
+      
+      <div class="rank" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+  <span class="value" itemprop="ratingValue">7.3</span>
+  <meta itemprop="worstRating" content="0" />
+  <meta itemprop="bestRating" content="10" />
+  <div class="progress hidden-phone"><div class="bar" style="width: 73%"></div></div>
+</div>
+
+      <span>
+        Miele Futura Classic Series G4225SCU Dishwasher Review<br />
+        <span class="schema-product-name" itemprop="name">Miele Futura Classic G4225SCU</span>
+        <span>$1,599.00</span>
+      </span>
+</a>  </span>
+
+      
+  <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+    <a href="http://televisions.reviewed.com/content/seiki-se24fe01-led-tv-review" itemprop="url">
+      <img alt="Product Image - Seiki SE24FE01" itemprop="image" src="http://a2.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/1423671133000/Seiki-SE24FE01-Vanity.jpg" />
+      
+      <div class="rank" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+  <span class="value" itemprop="ratingValue">4.7</span>
+  <meta itemprop="worstRating" content="0" />
+  <meta itemprop="bestRating" content="10" />
+  <div class="progress hidden-phone"><div class="bar" style="width: 47%"></div></div>
+</div>
+
+      <span>
+        Seiki SE24FE01 LED TV Review<br />
+        <span class="schema-product-name" itemprop="name">Seiki SE24FE01</span>
+        <span>$169.99</span>
+      </span>
+</a>  </span>
+
+  </div>
+</div>
+
+    <div class="top-stories">
+  <p class="banner">
+    <a href="/news">
+      <span>Top Stories</span>
+      <span class="pull-right">More <i class="icon-chevron-right"></i></span>
+</a>  </p>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://cameras.reviewed.com/news/photoshop-turns-25-today-adobe-is-celebrating"><img alt="Adobe ps25anniv toolbars va" class="media-object" src="http://a1.images.reviewed.com/image/fetch/s--Tkkpn70J--/c_fill,cs_srgb,f_auto,fl_progressive,g_xy_center,h_110,q_jpegmini,w_250,x_609,y_317/https://reviewed-production.s3.amazonaws.com/1424359378000/Adobe_PS25Anniv_Toolbars_vA.jpeg" /></a>
+  <div class="media-body">
+    <p><a href="http://cameras.reviewed.com/news/photoshop-turns-25-today-adobe-is-celebrating">Photoshop Turns 25 Today, and Adobe Is Celebrating</a></p>
+    <p class="byline"><strong></strong> February 19, 2015</p>
+    <p>It&#39;s a big birthday bash for the industry-standard image editing app</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://cameras.reviewed.com/news/how-a-hacker-saved-your-facebook-photos"><img alt="Facebook logo hero 2" class="media-object" src="http://a1.images.reviewed.com/image/fetch/s--VQUAwNpo--/c_fill,cs_srgb,f_auto,fl_progressive,g_xy_center,h_110,q_jpegmini,w_250,x_1758,y_1176/https://reviewed-production.s3.amazonaws.com/1424304125000/Facebook-Logo-Hero-2.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://cameras.reviewed.com/news/how-a-hacker-saved-your-facebook-photos">How a White Hat Hacker Saved Your Facebook Photos</a></p>
+    <p class="byline"><strong></strong> February 19, 2015</p>
+    <p>Thanks to a hacker with a heart of gold, your photo albums are safe.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://cameras.reviewed.com/features/new-faa-rules-pave-way-for-commercial-drone-photography"><img alt="Drone hero" class="media-object" src="http://a3.images.reviewed.com/image/fetch/s--KAx8uoc---/c_fill,cs_srgb,f_auto,fl_progressive,g_xy_center,h_110,q_jpegmini,w_250,x_2206,y_837/https://reviewed-production.s3.amazonaws.com/1424208501000/drone-hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://cameras.reviewed.com/features/new-faa-rules-pave-way-for-commercial-drone-photography">New FAA Rules Pave Way for Commercial Drone Photography</a></p>
+    <p class="byline"><strong></strong> February 18, 2015</p>
+    <p>Aspiring commercial drone photographers, get ready.</p>
+  </div>
+</div>
+
+</div>
+
+    <div class="editors-choice">
+  <p class="banner">
+    <a href="/awards/editors-choice">
+      <span>Editors' Choice</span> 
+      <span class="hidden-phone">some of our favorite products</span>
+      <span class="pull-right">More <i class="icon-chevron-right"></i></span>
+</a>  </p>
+
+  <div class="row">
+      <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+        <a href="http://smartphones.reviewed.com/content/samsung-galaxy-note-4-smartphone-review" itemprop="url">
+          <img alt="Product Image - Samsung Galaxy Note 4" itemprop="image" src="http://a4.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/product/20789/samsung-galaxy-note-4-review-vanity.jpg" />
+            <ul class="awards small">
+    <li><img alt="Best of Year 2014" src="http://a4.images.reviewed.com/image/fetch/c_fill,f_auto,g_center,h_65,q_85,w_40/https://reviewed-production.s3.amazonaws.com/award/4/best-of-year-noribbon.png" /></li>
+  </ul>
+
+          <div class="rank" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+  <span class="value" itemprop="ratingValue">9.7</span>
+  <meta itemprop="worstRating" content="0" />
+  <meta itemprop="bestRating" content="10" />
+  <div class="progress hidden-phone"><div class="bar" style="width: 97%"></div></div>
+</div>
+
+          <span>
+            Samsung Galaxy Note 4<br />
+            <span class="schema-product-name" itemprop="name">Samsung Galaxy Note 4</span>
+            <span>$299.99</span>
+          </span>
+</a>      </span>
+      <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+        <a href="http://ovens.reviewed.com/content/samsung-chef-collection-nx58h9950ws-slide-in-gas-range-review" itemprop="url">
+          <img alt="Product Image - Samsung Chef Collection NX58H9950WS" itemprop="image" src="http://a2.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/product/2014-10-03T15:23:47.742Z/Samsung-NX58H9950WS.jpg" />
+            <ul class="awards small">
+    <li><img alt="Editors&#39; Choice " src="http://a5.images.reviewed.com/image/fetch/c_fill,f_auto,g_center,h_65,q_85,w_40/https://reviewed-production.s3.amazonaws.com/award/510c02a7669f61ba4b001044/editors-choice-noribbon.png" /></li>
+  </ul>
+
+          <div class="rank" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+  <span class="value" itemprop="ratingValue">8.6</span>
+  <meta itemprop="worstRating" content="0" />
+  <meta itemprop="bestRating" content="10" />
+  <div class="progress hidden-phone"><div class="bar" style="width: 86%"></div></div>
+</div>
+
+          <span>
+            Samsung Chef Collection NX58H9950WS<br />
+            <span class="schema-product-name" itemprop="name">Samsung Chef Collection NX58H9950WS</span>
+            <span>$2,799.00</span>
+          </span>
+</a>      </span>
+      <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+        <a href="http://smartphones.reviewed.com/content/motorola-moto-x-2014-smartphone-review" itemprop="url">
+          <img alt="Product Image - Motorola Moto X (2014)" itemprop="image" src="http://a5.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/1423084260000/motorola-moto-x-2014-review-vanity.jpg" />
+            <ul class="awards small">
+    <li><img alt="Editors&#39; Choice " src="http://a5.images.reviewed.com/image/fetch/c_fill,f_auto,g_center,h_65,q_85,w_40/https://reviewed-production.s3.amazonaws.com/award/510c02a7669f61ba4b001044/editors-choice-noribbon.png" /></li>
+  </ul>
+
+          <div class="rank" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+  <span class="value" itemprop="ratingValue">9.0</span>
+  <meta itemprop="worstRating" content="0" />
+  <meta itemprop="bestRating" content="10" />
+  <div class="progress hidden-phone"><div class="bar" style="width: 90%"></div></div>
+</div>
+
+          <span>
+            Motorola Moto X (2014)<br />
+            <span class="schema-product-name" itemprop="name">Motorola Moto X (2014)</span>
+            <span>$499.99</span>
+          </span>
+</a>      </span>
+  </div>
+</div>
+
+    <div class="first-impressions">
+  <p class="banner">
+    <span>First Impressions</span>
+    <span class="hidden-phone">our early take on the latest stuff</span>
+  </p>
+
+    <div class="row">
+          
+  <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+    <a href="http://cameras.reviewed.com/content/ricoh-wg-5-gps-first-impressions-review" itemprop="url">
+      <img alt="Product Image - Ricoh WG-5 GPS" itemprop="image" src="http://a3.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/1423968625000/Ricoh-WG-5%20GPS.jpg" />
+      
+      
+      <span>
+        Ricoh WG-5 GPS First Impressions Review<br />
+        <span class="schema-product-name" itemprop="name">Ricoh WG-5 GPS</span>
+        <span>$299.95</span>
+      </span>
+</a>  </span>
+
+          
+  <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+    <a href="http://cameras.reviewed.com/content/canon-eos-5ds-r-first-impressions-review" itemprop="url">
+      <img alt="Product Image - Canon 5DS R" itemprop="image" src="http://a4.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/1423777348000/5DSR.jpg" />
+      
+      
+      <span>
+        Canon EOS 5DS R First Impressions Review<br />
+        <span class="schema-product-name" itemprop="name">Canon 5DS R</span>
+        <span>$3,899.00</span>
+      </span>
+</a>  </span>
+
+          
+  <span class="product column-one-third" itemscope itemtype="http://schema.org/Product">
+    <a href="http://cameras.reviewed.com/content/fujifilm-x-a2-first-impressions-review" itemprop="url">
+      <img alt="Product Image - Fujifilm X-A2" itemprop="image" src="http://a2.images.reviewed.com/image/fetch/c_pad,f_auto,g_center,h_150,q_85,w_150/https://reviewed-production.s3.amazonaws.com/1423895775000/Fujifilm%20X-A2.jpg" />
+      
+      
+      <span>
+        Fujifilm X-A2 First Impressions Review<br />
+        <span class="schema-product-name" itemprop="name">Fujifilm X-A2</span>
+        <span>$549.95</span>
+      </span>
+</a>  </span>
+
+    </div>
+  </div>
+
+    <div class="news-features">
+  <p class="banner">
+    <a href="/news">
+      <span>News and Features</span>
+      <span class="pull-right">More <i class="icon-chevron-right"></i></span>
+</a>  </p>
+
+  <div class="row">
+      <div class="column-one-third">
+          <div class="story-cube">
+  <a href="http://laptops.reviewed.com/features/is-eero-the-answer-to-everyones-wifi-problems">
+    <img alt="Eero heero" src="http://a3.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_192,q_85,w_192,x_343,y_186/https://reviewed-production.s3.amazonaws.com/1423863657000/eero-heero.jpg" />
+    <span class="title">Is Eero the Answer to Everyone&#39;s WiFi Problems?</span>
+</a>  <p class="summary">Will eero finally put an end to our WiFi woes?</p>
+</div>
+
+          <div class="story-cube">
+  <a href="http://cameras.reviewed.com/features/wickr-app-promises-secure-messaging-via-cat-photos">
+    <img alt="Wickr app hero" src="http://a4.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_192,q_85,w_192,x_1840,y_1133/https://reviewed-production.s3.amazonaws.com/1422386268000/Wickr-App-Hero.jpg" />
+    <span class="title">Wickr App Promises Secure Messaging Via Cat Photos</span>
+</a>  <p class="summary">Wickr lures privacy gurus with encryption and a self-destruct feature.</p>
+</div>
+
+          <div class="story-cube">
+  <a href="http://cameras.reviewed.com/news/facebook-inches-closer-to-automatic-facial-recognition">
+    <img alt="Facial recognition hero" src="http://a5.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_192,q_85,w_192,x_430,y_281/https://reviewed-production.s3.amazonaws.com/1423603986000/Facial-recognition-hero.jpg" />
+    <span class="title">Facebook Inches Closer to Automatic Facial Recognition</span>
+</a>  <p class="summary">Facebook&#39;s facial recognition program is super accurate, and inevitable.</p>
+</div>
+
+      </div>
+      <div class="column-one-third">
+          <div class="story-cube">
+  <a href="http://microwaves.reviewed.com/news/this-former-nasa-engineer-just-built-a-better-microwave">
+    <img alt="Thermal microwave hero" src="http://a3.images.reviewed.com/image/fetch/c_fill,f_auto,g_center,h_192,q_85,w_192/https://reviewed-production.s3.amazonaws.com/1423862053000/Thermal-Microwave-Hero.png" />
+    <span class="title">This Former NASA Engineer Just Built A Better Microwave</span>
+</a>  <p class="summary">A new prototype lets you watch your food cook in realtime.</p>
+</div>
+
+          <div class="story-cube">
+  <a href="http://vacuums.reviewed.com/news/dyson-unveils-new-vacuums-and-a-hot-cool-fan-heater">
+    <img alt="Dyson big ball hero" src="http://a3.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_192,q_85,w_192,x_254,y_258/https://reviewed-production.s3.amazonaws.com/1423677434000/Dyson-Big-Ball-hero.jpg" />
+    <span class="title">Dyson Unveils New Vacuums and a Hot + Cool Fan Heater</span>
+</a>  <p class="summary">Dyson&#39;s product lineup is evolving in a big way.</p>
+</div>
+
+          <div class="story-cube">
+  <a href="http://cameras.reviewed.com/news/sigma-takes-art-lens-series-dp-quattro-wider-than-ever">
+    <img alt="Sigma cp plus 2015 hero" src="http://a4.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_192,q_85,w_192,x_599,y_325/https://reviewed-production.s3.amazonaws.com/1423518427000/SIGMA-CP-PLUS-2015-HERO.jpg" />
+    <span class="title">Sigma Takes Art Lens Series, dp Quattro Wider Than Ever</span>
+</a>  <p class="summary">Sigma&#39;s at it again, releasing a new Art-class lens and a new camera.</p>
+</div>
+
+      </div>
+      <div class="column-one-third">
+          <div class="story-cube">
+  <a href="http://cameras.reviewed.com/features/the-nikon-d750-filmmakers-kit-is-it-worth-it">
+    <img alt="Nikon filmmakers kit" src="http://a3.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_192,q_85,w_192,x_1094,y_478/https://reviewed-production.s3.amazonaws.com/1423889963000/Nikon-Filmmakers-Kit.jpg" />
+    <span class="title">The Nikon D750 Filmmaker&#39;s Kit: Is It Worth It?</span>
+</a>  <p class="summary">The Filmmaker&#39;s Kit includes some great items, but at $4,000 it&#39;s not cheap.</p>
+</div>
+
+          <div class="story-cube">
+  <a href="http://cameras.reviewed.com/news/live-from-the-2015-cp-photography-show-in-yokohama-japan">
+    <img alt="Cp plus intro hero" src="http://a3.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_192,q_85,w_192,x_678,y_466/https://reviewed-production.s3.amazonaws.com/1423713811000/CP-Plus-Intro-Hero.jpg" />
+    <span class="title">Live from Yokohama, Japan for the 2015 CP+ Show</span>
+</a>  <p class="summary">With more than 40 marquee cameras and lenses debuting, it&#39;s the biggest CP+ yet!</p>
+</div>
+
+          <div class="story-cube">
+  <a href="http://cameras.reviewed.com/features/daredevil-photo-shoot-makes-vegas-look-miniature">
+    <img alt="Vegas photo shoot hero" src="http://a5.images.reviewed.com/image/fetch/c_fill,f_auto,g_center,h_192,q_85,w_192/https://reviewed-production.s3.amazonaws.com/1423521445000/Vegas-photo-shoot-HERO.jpg" />
+    <span class="title">Daredevil Photo Shoot Makes Vegas Look Miniature</span>
+</a>  <p class="summary">Vincent Laforet&#39;s sky-high photo shoot puts Las Vegas in a new light.</p>
+</div>
+
+      </div>
+  </div>
+</div>
+
+
+      <div class="full">
+    <p class="banner">
+      <a href="http://dishwashers.reviewed.com">
+          <span>Spotlight on Dishwashers</span>
+          <span class="pull-right">More <i class="icon-chevron-right"></i></span>
+</a>    </p>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://dishwashers.reviewed.com/content/kenmore-13202-dishwasher-review"><img alt="Kenmore 13202 hero" class="media-object" src="http://a5.images.reviewed.com/image/fetch/s--5rtsy491--/c_fill,cs_srgb,f_auto,fl_progressive,g_xy_center,h_110,q_jpegmini,w_250,x_539,y_389/https://reviewed-production.s3.amazonaws.com/1423847000000/Kenmore-13202-Hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://dishwashers.reviewed.com/content/kenmore-13202-dishwasher-review">Kenmore 13202 Dishwasher Review</a></p>
+    
+    <p>The Kenmore 13202 is affordable and effective, but lacks flexibility and style.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://dishwashers.reviewed.com/content/kitchenaid-kdte204dss-dishwasher-review"><img alt="Kitchenaid kdte204dss final hero" class="media-object" src="http://a2.images.reviewed.com/image/fetch/s--raAhHWYE--/c_fill,cs_srgb,f_auto,fl_progressive,g_center,h_110,q_jpegmini,w_250/https://reviewed-production.s3.amazonaws.com/article/2014-11-26T20:49:36.943Z/KitchenAid-KDTE204DSS-final-hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://dishwashers.reviewed.com/content/kitchenaid-kdte204dss-dishwasher-review">KitchenAid KDTE204DSS Dishwasher Review</a></p>
+    
+    <p>You should move up the KitchenAid lineup for better cleaning performance.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://dishwashers.reviewed.com/content/kitchenaid-kdfe104dss-dishwasher-review"><img alt="Kitchenaid kdfe104dss hero" class="media-object" src="http://a3.images.reviewed.com/image/fetch/s--3jdM-6_L--/c_fill,cs_srgb,f_auto,fl_progressive,g_center,h_110,q_jpegmini,w_250/https://reviewed-production.s3.amazonaws.com/1414506388000/KitchenAid-KDFE104DSS-Hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://dishwashers.reviewed.com/content/kitchenaid-kdfe104dss-dishwasher-review">KitchenAid KDFE104DSS Dishwasher Review</a></p>
+    
+    <p>Poor cleaning performance drags this sleek, mid-range KitchenAid&#39;s test scores way down.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://dishwashers.reviewed.com/content/miele-futura-classic-series-g4225scu-dishwasher-review"><img alt="Miele g4225scu hero" class="media-object" src="http://a4.images.reviewed.com/image/fetch/s--MoX1UfMT--/c_fill,cs_srgb,f_auto,fl_progressive,g_xy_center,h_110,q_jpegmini,w_250,x_1007,y_375/https://reviewed-production.s3.amazonaws.com/1423670504000/Miele-G4225SCU-Hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://dishwashers.reviewed.com/content/miele-futura-classic-series-g4225scu-dishwasher-review">Miele Futura Classic Series G4225SCU Dishwasher Review</a></p>
+    
+    <p>Powerful cleaning from a dishwasher that&#39;s built like a tank.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://dishwashers.reviewed.com/content/kenmore-13693-dishwasher-review"><img alt="Kenmore 13693 hero1" class="media-object" src="http://a3.images.reviewed.com/image/fetch/s--mWMIAjco--/c_fill,cs_srgb,f_auto,fl_progressive,g_center,h_110,q_jpegmini,w_250/https://reviewed-production.s3.amazonaws.com/1422042044000/Kenmore-13693-Hero1.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://dishwashers.reviewed.com/content/kenmore-13693-dishwasher-review">Kenmore 13693 Dishwasher Review</a></p>
+    
+    <p>Even with the extra-wide PowerWave spray arm, this Kenmore still had issues with water coverage.</p>
+  </div>
+</div>
+
+</div>
+
+      <div class="half">
+    <p class="section-header">
+      <a href="http://refrigerators.reviewed.com">
+          Refrigerators
+</a>    </p>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://refrigerators.reviewed.com/content/frigidaire-gallery-fght2046qf-refrigerator-review"><img alt="Frigidaire gallery fght2046qf hero" class="media-object" src="http://a2.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_2491,y_796/https://reviewed-production.s3.amazonaws.com/1422563221000/Frigidaire-Gallery-FGHT2046QF-hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://refrigerators.reviewed.com/content/frigidaire-gallery-fght2046qf-refrigerator-review">Frigidaire Gallery FGHT2046QF Refrigerator Review</a></p>
+    
+    <p>A high-end top freezer with elegant design, superb efficiency, and uncommonly customizable storage.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://refrigerators.reviewed.com/content/frigidaire-ffht2131qp-refrigerator-review"><img alt="Frigidaire ffht2131qp hero" class="media-object" src="http://a1.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_1779,y_614/https://reviewed-production.s3.amazonaws.com/1422471850000/Frigidaire-FFHT2131QP-hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://refrigerators.reviewed.com/content/frigidaire-ffht2131qp-refrigerator-review">Frigidaire FFHT2131QP Refrigerator Review</a></p>
+    
+    <p>A basic, budget-friendly top freezer with plenty of usable space and excellent energy efficiency.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://refrigerators.reviewed.com/content/frigidaire-gallery-fghi2164qf-refrigerator-review"><img alt="Frigidaire gallery fghi2164qf hero" class="media-object" src="http://a4.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_2539,y_941/https://reviewed-production.s3.amazonaws.com/1421941796000/Frigidaire-Gallery-FGHI2164QF-hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://refrigerators.reviewed.com/content/frigidaire-gallery-fghi2164qf-refrigerator-review">Frigidaire Gallery FGHI2164QF Refrigerator Review</a></p>
+    
+    <p>Unparalleled storage flexibility and excellent performance for a top freezer.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://refrigerators.reviewed.com/news/sub-zeros-new-fridge-targets-the-four-enemies-of-wine"><img alt="Sub zero wine hero" class="media-object" src="http://a1.images.reviewed.com/image/fetch/c_fill,f_auto,g_center,h_100,q_85,w_100/https://reviewed-production.s3.amazonaws.com/1421892583000/sub-zero-wine-hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://refrigerators.reviewed.com/news/sub-zeros-new-fridge-targets-the-four-enemies-of-wine">Sub-Zero&#39;s New Fridges Target the “Four Enemies of Wine”</a></p>
+    
+    <p>Temperature, UV light, humidity, and vibration are on notice.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://refrigerators.reviewed.com/content/ge-cafe-cfe28ushss-coffee-fridge-first-impressions-review"><img alt="Ge cafe keurig hero" class="media-object" src="http://a5.images.reviewed.com/image/fetch/c_fill,f_auto,g_center,h_100,q_85,w_100/https://reviewed-production.s3.amazonaws.com/1421787370000/ge-cafe-keurig-hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://refrigerators.reviewed.com/content/ge-cafe-cfe28ushss-coffee-fridge-first-impressions-review">GE Café CFE28USHSS Coffee Fridge First Impressions Review</a></p>
+    
+    <p>A GE Café that can serve you café.</p>
+  </div>
+</div>
+
+</div>
+
+      <div class="half">
+    <p class="section-header">
+      <a href="http://cameras.reviewed.com">
+          Cameras
+</a>    </p>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://cameras.reviewed.com/news/photoshop-turns-25-today-adobe-is-celebrating"><img alt="Adobe ps25anniv toolbars va" class="media-object" src="http://a1.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_609,y_317/https://reviewed-production.s3.amazonaws.com/1424359378000/Adobe_PS25Anniv_Toolbars_vA.jpeg" /></a>
+  <div class="media-body">
+    <p><a href="http://cameras.reviewed.com/news/photoshop-turns-25-today-adobe-is-celebrating">Photoshop Turns 25 Today, and Adobe Is Celebrating</a></p>
+    
+    <p>It&#39;s a big birthday bash for the industry-standard image editing app</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://cameras.reviewed.com/news/how-a-hacker-saved-your-facebook-photos"><img alt="Facebook logo hero 2" class="media-object" src="http://a1.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_1758,y_1176/https://reviewed-production.s3.amazonaws.com/1424304125000/Facebook-Logo-Hero-2.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://cameras.reviewed.com/news/how-a-hacker-saved-your-facebook-photos">How a White Hat Hacker Saved Your Facebook Photos</a></p>
+    
+    <p>Thanks to a hacker with a heart of gold, your photo albums are safe.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://cameras.reviewed.com/features/new-faa-rules-pave-way-for-commercial-drone-photography"><img alt="Drone hero" class="media-object" src="http://a3.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_2206,y_837/https://reviewed-production.s3.amazonaws.com/1424208501000/drone-hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://cameras.reviewed.com/features/new-faa-rules-pave-way-for-commercial-drone-photography">New FAA Rules Pave Way for Commercial Drone Photography</a></p>
+    
+    <p>Aspiring commercial drone photographers, get ready.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://cameras.reviewed.com/content/samyang-135mm-f2-ed-umc-first-impressions-review"><img alt="Samyang 135mm f2 hero" class="media-object" src="http://a1.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_1772,y_696/https://reviewed-production.s3.amazonaws.com/1423968857000/samyang-135mm-f2-hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://cameras.reviewed.com/content/samyang-135mm-f2-ed-umc-first-impressions-review">Samyang 135mm f/2 ED UMC First Impressions Review</a></p>
+    
+    <p>This budget telephoto shows sometimes you get more than you pay for.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://cameras.reviewed.com/features/the-nikon-d750-filmmakers-kit-is-it-worth-it"><img alt="Nikon filmmakers kit" class="media-object" src="http://a3.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_1094,y_478/https://reviewed-production.s3.amazonaws.com/1423889963000/Nikon-Filmmakers-Kit.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://cameras.reviewed.com/features/the-nikon-d750-filmmakers-kit-is-it-worth-it">The Nikon D750 Filmmaker&#39;s Kit: Is It Worth It?</a></p>
+    
+    <p>The Filmmaker&#39;s Kit includes some great items, but at $4,000 it&#39;s not cheap.</p>
+  </div>
+</div>
+
+</div>
+
+      <div class="half">
+    <p class="section-header">
+      <a href="http://televisions.reviewed.com">
+          Televisions
+</a>    </p>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://televisions.reviewed.com/content/seiki-se24fe01-led-tv-review"><img alt="Seiki se24fe01 hero" class="media-object" src="http://a2.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_1341,y_637/https://reviewed-production.s3.amazonaws.com/1423669301000/Seiki-SE24FE01-HERO.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://televisions.reviewed.com/content/seiki-se24fe01-led-tv-review">Seiki SE24FE01 LED TV Review</a></p>
+    
+    <p>Poor contrast and a shoddy build bolstered by an attractive design and a killer price-tag.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://televisions.reviewed.com/content/lending-an-ear-to-klipschs-reference-premiere"><img alt="Klipsch hero" class="media-object" src="http://a1.images.reviewed.com/image/fetch/c_fill,f_auto,g_center,h_100,q_85,w_100/https://reviewed-production.s3.amazonaws.com/1420820317000/klipsch_hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://televisions.reviewed.com/content/lending-an-ear-to-klipschs-reference-premiere">Lending an Ear to Klipsch&#39;s Reference Premiere</a></p>
+    
+    <p>The brand new Reference Premiere line by Klipsch will blow you away.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://televisions.reviewed.com/content/lg-32lb560b-led-tv-review"><img alt="Lg lb560b hero2" class="media-object" src="http://a5.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_921,y_1028/https://reviewed-production.s3.amazonaws.com/1423256273000/LG-LB560B-Hero2.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://televisions.reviewed.com/content/lg-32lb560b-led-tv-review">LG 32LB560B LED TV Review</a></p>
+    
+    <p>Lower your expectations and this TV could treat you well.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://televisions.reviewed.com/content/vizio-e241-b1-e-series-2014-led-tv-review"><img alt="Vizio e24i hero 2" class="media-object" src="http://a1.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_2171,y_871/https://reviewed-production.s3.amazonaws.com/1423154760000/Vizio-E24i-HERO-2.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://televisions.reviewed.com/content/vizio-e241-b1-e-series-2014-led-tv-review">Vizio E241-B1 E Series (2014) LED TV Review</a></p>
+    
+    <p>If you&#39;re a cinephile, or want the best quality without an expensive calibration, keep looking.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://televisions.reviewed.com/features/sling-tv-review"><img alt="Hero 1" class="media-object" src="http://a3.images.reviewed.com/image/fetch/c_fill,f_auto,g_center,h_100,q_85,w_100/https://reviewed-production.s3.amazonaws.com/1422033001000/hero-1.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://televisions.reviewed.com/features/sling-tv-review">Sling TV Review</a></p>
+    
+    <p>Cord cutters rejoice: the outrageous fortune of Sling TV is here.</p>
+  </div>
+</div>
+
+</div>
+
+      <div class="half">
+    <p class="section-header">
+      <a href="http://ovens.reviewed.com">
+          Ovens
+</a>    </p>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://ovens.reviewed.com/content/samsung-chef-collection-nx58h9950ws-slide-in-gas-range-review"><img alt="Samsung nx58h9950 hero" class="media-object" src="http://a3.images.reviewed.com/image/fetch/c_fill,f_auto,g_center,h_100,q_85,w_100/https://reviewed-production.s3.amazonaws.com/1422470519000/Samsung-NX58H9950-hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://ovens.reviewed.com/content/samsung-chef-collection-nx58h9950ws-slide-in-gas-range-review">Samsung Chef Collection NX58H9950WS Slide-In Gas Range Review</a></p>
+    
+    <p>The NX58H9950WS is a beautiful range that sure can cook.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://ovens.reviewed.com/features/the-cookware-conundrum-will-it-work-with-induction"><img alt="Flickr dinnerseries induction cookware hero" class="media-object" src="http://a1.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_925,y_530/https://reviewed-production.s3.amazonaws.com/1422650861000/flickr-dinnerseries-induction-cookware-hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://ovens.reviewed.com/features/the-cookware-conundrum-will-it-work-with-induction">The Cookware Conundrum: Will It Work With Induction?</a></p>
+    
+    <p>From cast iron to ceramic, we&#39;ll tell you what works and what won&#39;t.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://ovens.reviewed.com/content/frigidaire-fggf3032mf-freestanding-gas-range-review"><img alt="Frigidaire fggf3032mf temp hero" class="media-object" src="http://a3.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_1104,y_319/https://reviewed-production.s3.amazonaws.com/1422379089000/Frigidaire-FGGF3032MF-Temp-Hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://ovens.reviewed.com/content/frigidaire-fggf3032mf-freestanding-gas-range-review">Frigidaire FGGF3032MF Freestanding Gas Range Review</a></p>
+    
+    <p>Superlative gas cooking  performance makes up for the Frigidaire FGGF3032MF&#39;s dearth of features.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://ovens.reviewed.com/news/kitchenaid-has-a-new-flame"><img alt="Kitchenaid cooktop hero" class="media-object" src="http://a5.images.reviewed.com/image/fetch/c_fill,f_auto,g_xy_center,h_100,q_85,w_100,x_880,y_372/https://reviewed-production.s3.amazonaws.com/1422577672000/KitchenAid-Cooktop-Hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://ovens.reviewed.com/news/kitchenaid-has-a-new-flame">KitchenAid Has a New Flame</a></p>
+    
+    <p>KitchenAid&#39;s new cooktop burner promises even heating.</p>
+  </div>
+</div>
+
+    
+<div class="media">
+  <a class="pull-left" href="http://ovens.reviewed.com/news/no-vent-required-kitchenaid-offers-new-downdraft-ranges"><img alt="Kitchenaid downdraft hero" class="media-object" src="http://a4.images.reviewed.com/image/fetch/c_fill,f_auto,g_center,h_100,q_85,w_100/https://reviewed-production.s3.amazonaws.com/1422577640000/KitchenAid-Downdraft-Hero.jpg" /></a>
+  <div class="media-body">
+    <p><a href="http://ovens.reviewed.com/news/no-vent-required-kitchenaid-offers-new-downdraft-ranges">No Vent Required: KitchenAid Offers New Downdraft Ranges</a></p>
+    
+    <p>These new KitchenAids will do the trick where a range hood won&#39;t fit.</p>
+  </div>
+</div>
+
+</div>
+
+  </div>
+
+  <div class="rvw-right">
+    <div class="xhr-include" data-src="/includes/sidebar/home_trending_articles" data-breakpoint="tablet"></div>
+
+    <div class="adwrap">
+      <div class="adlabel">Advertisement</div>
+      <!-- rev_rvw_home_336xflex_right_1 -->
+<div id='rev_rvw_home_336xflex_right_1' class='ad_336xflex_right_1' data-gad-mobile='true' data-gad-unit='true' data-gad-sizes='[[336,280],[300,250],[300,600]]'></div>
+
+
+    </div>
+
+    <div class="home-latest-videos">
+      <p class="section-header">
+        <a href="/video">
+          Latest Videos
+          <span>More Video</span>
+</a>      </p>
+
+      <ul class="unstyled">
+          <li>
+            <a class="video-thumbnail" href="/video/4056087989001"><img alt="1242911077001 4056052553001 pentax collapsable kit lens" src="http://a3.images.reviewed.com/image/fetch/s--BBulDg8O--/c_fill,cs_srgb,f_auto,fl_progressive,g_center,h_198,q_jpegmini,w_352/http://videos.usatoday.net/Brightcove2/1242911077001/2015/02/1242911077001_4056052553001_Pentax-Collapsable-Kit-Lens.jpg" /><i class="icon-play-circle"></i></a>
+            <p><strong><a href="/video/4056087989001">Pentax DA-L 18–50mm f/4–5.6 DC WR RE First Impressions Review</a></strong></p>
+            <p>Pentax announced a new kit lens for the K-S2 DSLR. It&#39;s an 18-50mm zoom, it&#39;s weather resistant, and it&#39;s retractable.</p>
+          </li>
+          <li>
+            <a class="video-thumbnail" href="/video/4055378046001"><img alt="1242911077001 4055660706001 sigma art lens" src="http://a5.images.reviewed.com/image/fetch/s--yIkDHwj3--/c_fill,cs_srgb,f_auto,fl_progressive,g_center,h_198,q_jpegmini,w_352/http://videos.usatoday.net/Brightcove2/1242911077001/2015/02/1242911077001_4055660706001_Sigma-Art-Lens.jpg" /><i class="icon-play-circle"></i></a>
+            <p><strong><a href="/video/4055378046001">Hands-On With the Sigma 24mm f/1.4 Art Lens</a></strong></p>
+            <p>Sigma&#39;s new lens is the widest of its full frame Art lenses—and we got hands-on time with the new glass at CP+ in Japan.</p>
+          </li>
+          <li>
+            <a class="video-thumbnail" href="/video/4053640400001"><img alt="1242911077001 4053712254001 ricoh wg 5" src="http://a1.images.reviewed.com/image/fetch/s--fuqPJbQI--/c_fill,cs_srgb,f_auto,fl_progressive,g_center,h_198,q_jpegmini,w_352/http://videos.usatoday.net/Brightcove2/1242911077001/2015/02/1242911077001_4053712254001_Ricoh-WG-5.jpg" /><i class="icon-play-circle"></i></a>
+            <p><strong><a href="/video/4053640400001">Hands-On With the WG-5 GPS, Ricoh&#39;s Latest Waterproof Camera</a></strong></p>
+            <p>The WG-5 has the same guts as the WG-3 that came out in 2013, and it’s nearly identical to the WG-4 from last year.</p>
+          </li>
+          <li>
+            <a class="video-thumbnail" href="/video/4053540381001"><img alt="1242911077001 4053544761001 nikon filmmakers kit" src="http://a2.images.reviewed.com/image/fetch/s--MtoG91FC--/c_fill,cs_srgb,f_auto,fl_progressive,g_center,h_198,q_jpegmini,w_352/http://videos.usatoday.net/Brightcove2/1242911077001/2015/02/1242911077001_4053544761001_Nikon-Filmmakers-Kit.jpg" /><i class="icon-play-circle"></i></a>
+            <p><strong><a href="/video/4053540381001">The Nikon D750 DSLR Filmmaker&#39;s Kit</a></strong></p>
+            <p>Nikon probably isn’t the first camera company you think of when it comes to filmmaking, but with the new D750 Filmmaker&#39;s Kit Nikon is trying to appeal to videographers.</p>
+          </li>
+      </ul>
+    </div>
+
+    <div class="adwrap">
+      <div class="adlabel">Advertisement</div>
+      <!-- rev_rvw_home_336xflex_right_2 -->
+<div id='rev_rvw_home_336xflex_right_2' class='ad_336xflex_right_2' data-gad-mobile='true' data-gad-unit='true' data-gad-sizes='[[336,280],[300,250],[300,600]]'></div>
+
+
+    </div>
+  </div>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="ad-cubes">
+  <div><!-- rev_rvw_home_125x125_1 -->
+<div id='rev_rvw_home_125x125_1' class='ad_125x125_1' data-gad-mobile='true' data-gad-unit='true' data-gad-sizes='[[125,125]]'></div>
+
+</div>
+  <div><!-- rev_rvw_home_125x125_2 -->
+<div id='rev_rvw_home_125x125_2' class='ad_125x125_2' data-gad-mobile='true' data-gad-unit='true' data-gad-sizes='[[125,125]]'></div>
+
+</div>
+  <div><!-- rev_rvw_home_125x125_3 -->
+<div id='rev_rvw_home_125x125_3' class='ad_125x125_3' data-gad-mobile='true' data-gad-unit='true' data-gad-sizes='[[125,125]]'></div>
+
+</div>
+  <div><!-- rev_rvw_home_125x125_4 -->
+<div id='rev_rvw_home_125x125_4' class='ad_125x125_4' data-gad-mobile='true' data-gad-unit='true' data-gad-sizes='[[125,125]]'></div>
+
+</div>
+  <div><!-- rev_rvw_home_125x125_5 -->
+<div id='rev_rvw_home_125x125_5' class='ad_125x125_5' data-gad-mobile='true' data-gad-unit='true' data-gad-sizes='[[125,125]]'></div>
+
+</div>
+  <div><!-- rev_rvw_home_125x125_6 -->
+<div id='rev_rvw_home_125x125_6' class='ad_125x125_6' data-gad-mobile='true' data-gad-unit='true' data-gad-sizes='[[125,125]]'></div>
+
+</div>
+</div>
+  </div>
+  <!-- begin Main Content -->
+
+  <!-- begin Footer -->
+  <footer>
+  <div class="row">
+    <div class="span4">
+      <p><strong>Copyright</strong></p>
+
+      <p><strong>Copyright &copy; 2015 Reviewed.com.</strong> All rights reserved. All trademarks and product names are the property of their respective owners. We make no guarantees regarding any of the advice offered on this web site or by its staff or users. User comments and postings are not the responsibility of Reviewed.com. </p>
+    </div>
+
+    <div class="span7">
+      <div class="row">
+        <div class="span2">
+          <p><strong>About Us</strong></p>
+
+          <ul class="unstyled">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/advertising">Advertising</a></li>
+            <li><a href="/how_we_test">How We Test</a></li>
+            <li><a href="/how_we_score">How We Score</a></li>
+            <li><a href="/how_we_award">How We Award</a></li>
+            <li><a href="/ethics">Ethics</a></li>
+            <li><a href="http://www.reviewed.com/science">Science Blog</a></li>
+            <li><a href="/privacy_policy">Privacy Policy</a></li>
+            <li><a href="/sitemap">Sitemap</a></li>
+            <li><a href="/send_feedback">Send Feedback</a></li>
+          </ul>
+        </div>
+
+        <div class="span5">
+          <p><strong>Our Sites</strong></p>
+
+          <div class="row">
+            <div class="span2">
+              <p>Appliances</p>
+
+              <ul class="unstyled">
+                  <li><a href="http://ovens.reviewed.com">Ovens</a></li>
+                  <li><a href="http://laundry.reviewed.com">Laundry</a></li>
+                  <li><a href="http://dishwashers.reviewed.com">Dishwashers</a></li>
+                  <li><a href="http://refrigerators.reviewed.com">Refrigerators</a></li>
+                  <li><a href="http://vacuums.reviewed.com">Vacuums</a></li>
+                  <li><a href="http://freezers.reviewed.com">Freezers</a></li>
+                  <li><a href="http://microwaves.reviewed.com">Microwaves</a></li>
+                  <li><a href="http://smarthome.reviewed.com">Smart Home</a></li>
+                  <li><a href="http://espresso.reviewed.com">Espresso</a></li>
+                  <li><a href="http://grills.reviewed.com">Grills</a></li>
+                  <li><a href="http://coffee.reviewed.com">Coffee</a></li>
+              </ul>
+            </div>
+
+            <div class="span2">
+              <p>Electronics</p>
+
+              <ul class="unstyled">
+                  <li><a href="http://cameras.reviewed.com">Cameras</a></li>
+                  <li><a href="http://televisions.reviewed.com">Televisions</a></li>
+                  <li><a href="http://smartphones.reviewed.com">Smartphones</a></li>
+                  <li><a href="http://laptops.reviewed.com">Laptops</a></li>
+                  <li><a href="http://tablets.reviewed.com">Tablets</a></li>
+                  <li><a href="http://camcorders.reviewed.com">Camcorders</a></li>
+                  <li><a href="http://headphones.reviewed.com">Headphones</a></li>
+                  <li><a href="http://wearables.reviewed.com">Wearables</a></li>
+                  <li><a href="http://printers.reviewed.com">Printers</a></li>
+                  <li><a href="http://monitors.reviewed.com">Computer Monitors</a></li>
+              </ul>
+
+                <p><a href="http://cars.reviewed.com">Cars</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="span5 mailchimp">
+      <p><strong>Be in the know! Get Reviewed.com news and reviews straight to your inbox.</strong></p>
+
+      
+<form>
+  <input id="website_group_name" name="website_group_name" type="hidden" value="Reviewed.com"></input>
+  <input type="email" autocapitalize="off" autocorrect="off" name="email" id="email" placeholder="email address" size="25">
+  <input class="btn btn-primary list-conversion"  type="submit" value="Sign Up" />
+</form>
+
+      <p class="hide pull-left">Thanks for signing up!</p>
+    </div>
+  </div>
+
+  <div>
+    <p>
+      <a href="http://www.reviewed.com">
+        <img alt="Logo small" src="http://dhwmuj7cndz3k.cloudfront.net/assets/categories/reviewed/logo-small-9201c03436680aa16b4f357ef5acde82.png" />
+        Member of Reviewed.com Publications
+      </a>
+    </p>
+  </div>
+</footer>
+
+  <!-- end Footer -->
+
+  <!-- begin Modals -->
+    <div class="modal hide fade email-modal original">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3><img alt="Logo small" src="http://dhwmuj7cndz3k.cloudfront.net/assets/logo-small-79540b14569fb559e36ae42b490c3744.png" /></h3>
+  </div>
+  <div class="modal-body">
+    <p>Sign up to get the <strong>latest news, reviews and deals</strong> only available to our email subscribers</p>
+
+    
+<form>
+  <input id="website_group_name" name="website_group_name" type="hidden" value="Reviewed.com"></input>
+  <input type="email" autocapitalize="off" autocorrect="off" name="email" id="email" placeholder="email address" size="25">
+  <input class="btn btn-primary list-conversion"  type="submit" value="subscribe" />
+</form>
+  </div>
+
+  <div class="fade hide thank-you">
+    <p>Thank you for subscribing!</p>
+    <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+  <!-- end Modals -->
+
+  <!-- begin Javascript Footer -->
+  <script src="http://dhwmuj7cndz3k.cloudfront.net/assets/vendored-ea344132e30fafc16651dc878ffa317a.js"></script>
+  <script src="http://dhwmuj7cndz3k.cloudfront.net/assets/application-2fc444751994ac7af8e9af58bc77310b.js"></script>
+  <script src="http://dhwmuj7cndz3k.cloudfront.net/assets/categories/reviewed/reviewed-e13bf1f925442ab0b6e5b6384b1dbb22.js"></script>
+  <script src="http://dhwmuj7cndz3k.cloudfront.net/assets/pages-436391a0396e479a8e5a2988f460d145.js"></script>
+      <script type='text/javascript'>
+      var _sf_async_config={};
+      _sf_async_config.uid = 53961;
+      _sf_async_config.useCanonical = true;
+      _sf_async_config.domain = 'reviewed.com';
+        _sf_async_config.sections = 'reviewed';
+      (function(){
+        function loadChartbeat() {
+          window._sf_endpt=(new Date()).getTime();
+          var e = document.createElement('script');
+          e.setAttribute('language', 'javascript');
+          e.setAttribute('type', 'text/javascript');
+          e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+          document.body.appendChild(e);
+        }
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != 'function') ?
+           loadChartbeat : function() { oldonload(); loadChartbeat(); };
+      })();
+    </script>
+
+  <!-- end Javascript Footer -->
+</body></html>
+";i:2;s:4:"1225";}

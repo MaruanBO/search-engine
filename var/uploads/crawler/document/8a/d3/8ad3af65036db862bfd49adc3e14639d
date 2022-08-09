@@ -1,0 +1,546 @@
+a:3:{i:0;s:28:"http://togetherweserved.com/";i:1;s:24373:"
+
+
+
+<!-- HEADER -->
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TogetherWeServed - Connecting US Marines, Sailors, Soldiers, Airmen, Coast Guardsmen and Police Officers</title>
+    <meta name="keywords"
+      content="us marine corps, us navy, us army, us airforce, us coastguard, police" />
+    <meta name="description"
+      content="Togetherweserved.com has produced a series of US Military community heritage websites to enable current or former serving US Servicemen and women to reconnect with old friends & create a lasting legacy of their service." />
+    <meta name="contact_addr"
+      content="Togetherweserved.com Inc. State of California Chatsworth, Los Angeles | Tel : 1-888-398-3262 | Email: info@togetherweserved.com" />
+    <link rel="shortcut icon" href="twsportal/img/favicon.ico" type="image/x-icon" />
+    <link href="//fonts.googleapis.com/css?family=PT+Sans%3A400%2C400italic%2C700%2C700italic" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Quantico%3A400%2C400italic%2C700%2C700italic" rel="stylesheet">
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="/zehnerlanding/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/zehnerlanding/static/css/main.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://togetherweserved.com/twsportal/js/jquery.validate.min.js"></script>
+    <script>window.jQuery || document.write('<script src="static/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+    <script src="/zehnerlanding/static/js/vendor/modernizr-2.6.2.min.js"></script>    
+  </head>
+
+  <body class="layout default">
+<script>
+(function (a, b, c, d) {
+a='//tms.usaa.com/affinity/prod/utag.js';
+b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+})();
+</script>
+    <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NMWN97"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NMWN97');</script>
+<!-- End Google Tag Manager -->
+    <div class="main-bg">
+      <div class="wrapper">
+      <script type="text/javascript">
+		    window.fbAsyncInit = function() {
+		        FB.init({
+		            appId: '553298544765873', 
+		            channelURL : '/channel.html', // Channel File
+		            status: false, // check login status
+		            cookie: true // enable cookies to allow the server to access the session
+		        });
+		
+		    };
+		
+			// Load the SDK Asynchronously
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		
+			jQuery(document).ready(function($){
+				$('#signUpForm').validate({
+					ignore: "",
+					rules:{
+						_F_FirstName: "required",
+						_F_LastName: "required",
+						serviceBranch: "required",		
+						_F_Email: {
+							required: true,
+							email: true
+						}
+					},
+					errorPlacement: function(error, element) {},
+					errorContainer: $('#errormessage')
+				}),				
+				$('#loginForm').validate({
+					ignore: "",
+					rules:{
+						"cw.login.CmdLogin.Password": "required",
+						"cw.login.CmdLogin.UserName": "required",
+						serviceBranch: "required",				
+					},
+					errorPlacement: function(error, element) {},
+					errorContainer: $('#errormessagelogin')
+				}),
+				$('#invitebtn').click(function(event){
+					$('#inviteForm').validate({
+						ignore: "",
+						rules:{
+							_F_FirstName: "required",
+							_F_LastName: "required",							
+							_F_SenderFirstName: "required",
+							_F_SenderLastName: "required",
+							serviceBranch: "required",
+							_F_Email: {
+								required: true,
+								email: true
+							},
+							_F_SenderEmail: {
+								required: true,
+								email: true
+							}			
+						},
+						errorPlacement: function(error, element) {},
+						errorContainer: $('#errormessageinvite')
+					});
+					if($('#inviteForm').valid()){
+						$('.loadinggif').show();
+						var url = $('#inviteForm').attr('action');
+						var xhr = $.ajax({
+		                        type		: "POST",
+		                        cache       : false,
+		                        dataType	: "text",
+		                        data		: $('#inviteForm').serialize(),
+		                        url         : url,                  
+		                        complete	: function(){		                        
+		                        	if(xhr.getResponseHeader('X_INVITE') === 'OK'){
+		                                console.log('success');		                               
+		                            }
+		                            $('.loadinggif').hide();
+		                            $('#messageboxinvite').show();
+		                            $('#errormessageinvite').hide()
+									$('#inviteForm')[0].reset();									
+		                        }
+		                    });						
+				  	} else {
+				  		$('#messageboxinvite').hide();
+				  		$('.loadinggif').hide();
+				  	}
+				  							
+				}),
+				$('#bookmarktxt').click(function(event){
+					if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+		                window.sidebar.addPanel(document.title,window.location.href,'');
+		            } else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
+		                window.external.AddFavorite(location.href,document.title); 
+		            } else if(window.opera && window.print) { // Opera Hotlist
+		                this.title=document.title;
+		                return true;
+		            } else { // webkit - safari/chrome
+		                alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+		            }
+				}),
+				$('#resetPassword').click(function(event){
+					var selectedBranch = $("input[name=serviceBranch]").val();			
+					if(selectedBranch==""){
+						alert('Please select your Service Branch first, then click on the Forgot Your Login link');
+						$("#resetPassword").attr("href","#login");
+					}
+				}),
+				$('#signupBtnYellow').click(function(event){		
+					$('#login-tcontainer').toggleClass('active');
+					$('#signup-tcontainer').toggleClass('active');		
+				})
+			});
+			
+		</script>
+        <header>
+          <div class="row">
+            <div class="col-md-5 logo"><div></div></div>
+            <div class="col-md-7 text">
+              <p class="header-text">The Largest online Community <span>Exclusively for Veterans</span></p>
+              <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+                  <div class="collapse navbar-collapse" id="primary-navbar">
+                    <ul class="nav navbar-nav">
+                      <li><a href="http://army.togetherweserved.com/army/">U.S. Army</a></li>
+                      <li><a href="http://navy.togetherweserved.com/usn/">U.S. Navy</a></li>
+                      <li><a href="http://marines.togetherweserved.com/usmc/">U.S. Marine Corps</a></li>
+                      <li><a href="http://airforce.togetherweserved.com/usaf/">U.S. Air Force</a></li>
+                      <li><a href="http://coastguard.togetherweserved.com/uscg/">U.S. Coast Guard</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </header>
+<!-- MAIN -->
+				<div class="main">
+				  <div class="row">
+
+				    <!-- Page Content -->
+				    <section class="col-md-8 images-panel">
+				      <div class="clearfix">
+				        <img src="/zehnerlanding/static/img/tmp/portal-login-1.jpg" />
+				        <img src="/zehnerlanding/static/img/tmp/portal-login-2.jpg" />
+				      </div>
+				      <div class="clearfix">
+				        <img src="/zehnerlanding/static/img/tmp/portal-login-3.jpg" />
+				        <img src="/zehnerlanding/static/img/tmp/portal-login-5.jpg" />
+				      </div>
+				      <div class="container-fluid">
+				        <div class="row">
+				          <div class="col-sm-6 title">
+				            <p>Join Your Brothers in Arms!</p>
+				            <span>1,543,167 Veterans on Board<br/>From WW2 to Present Day</span>
+				          </div>
+				          <div class="col-sm-6 comment">
+				            <p>"No one, anywhere, has come up with a plan of attack for reconnecting with long lost Marine brothers that is as effective as what you've given us."<br/><span>John Perron, Sgt</span></p>
+				          </div>
+				        </div>
+				      </div>
+				    </section>
+
+				    <!-- Sidebar: Login/Signup -->
+				    <aside class="col-md-4 sidebar-login-signup">
+				      <div class="top">
+				        <p class="header-text">You Served YOur Country Side by Side. Here is where <span>We Keep you Connected...</span></p>
+				      </div>
+				      <div class="login">
+				        <ul class="nav nav-tabs" role="tablist">
+				          <li id="login-tcontainer" class="active"><a href="#login" role="tab" data-toggle="tab">Login</a></li>
+          		  		  <li id="signup-tcontainer"><a href="#signUp" role="tab" data-toggle="tab">Sign Up</a></li>
+				          <li class="right-link"><a href="/zehnerlanding/about-tws.jsp">About TWS</a></li>
+				        </ul>
+				        <div class="tab-content">
+				          
+
+
+
+<script type="text/javascript">	
+jQuery(document).ready(function($){
+
+});
+</script>
+<script>
+			function checkFB() {
+				var isLDAP = new Boolean();
+				emailObj = document.getElementById('preferredEmail');
+	
+				//function to update email fields
+				var updateFields = function(response){
+					document.getElementById('firstname').value = response.first_name;
+					document.getElementById('lastname').value = response.last_name;
+					emailObj.value = response.email;
+				};
+	
+				//function to reset email fields
+				var resetEmailField = function(){
+					
+				};
+				
+				FB.login(function(response) {
+					if (response.status=="connected" && response.authResponse) {
+						//get the email
+						FB.api('/me', function(response) {
+							updateFields(response);
+							
+							_gaq.push(['_trackEvent', 'LandingSignUp', 'Click', 'Facebook']);
+							
+							isLDAP = true;
+							document.getElementById("LDAP").value = isLDAP;
+							document.getElementById("signUpForm").submit();
+						});
+					} else {//login fail
+						isLDAP = false;
+						document.getElementById("LDAP").value = isLDAP;
+						resetEmailField();
+					}
+				},  {scope:'email, publish_actions, user_photos'});
+				
+			}		
+		</script> 
+<!-- Login Content -->
+<div class="tab-pane active" id="login">
+  <form name="loginForm" id="loginForm" class="form-inline" role="form" action="" method="post">
+    <input type="hidden" name="cmd" value="Login" />
+    <input type="hidden" name="serviceBranch" value="" onchange="changeBranchOptions(this.value);" />
+    
+   	<div id="errormessagelogin" class="alert alert-danger alert-dismissable alert-box" style="display:none;">
+		*All fields are required
+	</div>
+    
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-tag"></i></div>
+        <select id="service-select-login" class="form-control" type="text">
+          <option value="">Select Service</option>          
+        </select>
+      </div>
+    </div>
+    
+    <div class="form-group half-width">
+      <div class="input-group first-field">
+        <div class="input-group-addon"><i class="fa fa-user"></i></div>
+        <label class="sr-only" for="username">Username</label>
+        <input id="username" class="form-control" type="text" placeholder="Username" name="cw.login.CmdLogin.UserName" />
+      </div>
+    </div>
+    
+    <div class="form-group half-width">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-key"></i></div>
+        <label class="sr-only" for="password">Password</label>
+        <input id="password" type="password" class="form-control" placeholder="Password" name="cw.login.CmdLogin.Password" />
+      </div>
+    </div>
+
+    <div class="form-group half-width">
+      <button id="loginbtn" type="submit" class="btn btn-default first-field">Login</button>
+    </div>
+    <div class="form-group half-width">
+      <div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="" id="remember_me" value="1"> Keep me logged in
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="stayOnSecure" id="SecureBrowse" value="true" > Secure browsing
+          </label>
+        </div>
+      </div>
+    </div>
+    <a href="" class="small text-uppercase forgot" id="resetPassword">Forgot your login?</a>
+    <div class="signup text-uppercase">
+      <span>Not a member yet?</span>
+      <a href="#signUp" role="tab" data-toggle="tab" type="button" id="signupBtnYellow">Sign Up</a>
+    </div>
+    <div class="privacy">
+      <i class="fa fa-lock"></i>
+      <span>Your privacy is protected</span>
+    </div>
+    <div class="text-center text-uppercase roh" style="margin: 8px 0 0;">
+      <a href="http://togetherweserved.com/kiosk/index.html">View our remembrance roll of honor</a>
+    </div>
+  </form>
+</div>
+
+<!-- Sign Up Content -->
+<div class="tab-pane " id="signUp">
+  
+  <form name="signUpForm" id="signUpForm" class="form-inline" role="form" action="" method="post">
+  	<input type="hidden" name="type" value="ProspectPerson" />
+	<input type="hidden" name="cmd" value="MCAJoinNow" />
+	<input type="hidden" name="source" value="zehnerlanding01">
+	<input type="hidden" name="landingPageMode" value="true" />
+	<input type="hidden" name="_C_PageNum" value="1" />				
+	<input type="hidden" name="memberTypeFromLandingPage" value="" />
+	<input type="hidden" name="_F_Status" value="" />
+  	
+  	<input type="hidden" name="memberTypeFromLandingPage" value="" />
+	<input type="hidden" name="serviceBranch" value="" onchange="changeBranchOptions(this.value);" />
+  	
+	
+	<div id="errormessage" class="alert alert-danger alert-dismissable alert-box" style="display:none;">
+		*All fields are required
+	</div>
+  	
+    <p>Please register your contact information to activate your FREE Membership to Together We Served.</p>
+    <div class="form-group half-width">
+      <div class="input-group first-field">
+        <div class="input-group-addon"><i class="fa fa-tag"></i></div>
+        <label class="sr-only" for="firstname">Firstname</label>
+        <input id="firstname" class="form-control" type="text" placeholder="Firstname" name="_F_FirstName" />
+      </div>
+    </div>
+    <div class="form-group half-width">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-tags"></i></div>
+        <label class="sr-only" for="firstname">Lastname</label>
+        <input id="lastname" class="form-control" type="text" placeholder="Lastname" name="_F_LastName" />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-tag"></i></div>
+        <label class="sr-only" for="firstname">Lastname</label>
+        <select id="service-select-signup" class="form-control" type="text">
+          <option value="">Select Service</option>          
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+        <label class="sr-only" for="preferredEmail">Preferred Email</label>
+        <input id="preferredEmail" class="form-control" type="text" placeholder="Preferred Email" name="_F_Email" />
+        <input type="hidden" name="_F_LDAP" id="LDAP" />
+      </div>
+    </div>   
+                
+    <div class="form-group half-width">
+      <button id="signupbtn" type="submit" class="btn btn-primary btn-lg first-field" onclick="dataLayer.push({'event':'portaljoinclick', 'eventLabel':'btn-joinnow'});">Get started</button>
+    </div>
+    <div class="form-group half-width">
+      <button type="button" class="btn btn-default btn-lg facebook" onclick="checkFB();">Facebook sign-in</button>
+    </div>
+    <div class="signup-separator"></div>
+    <div class="privacy">
+      <i class="fa fa-lock"></i>
+      <span>Your privacy is protected</span>
+    </div>
+  </form>
+
+</div>
+				        </div>
+				      </div>
+				      <div class="bottom bg-color-brand-primary triangle-right-bottom">
+				        <p class="title" id="bookmarktxt" style="cursor:pointer;">TOGETHERWESERVED.COM - <i class="fa fa-bookmark"></i></p>
+				        <p>This website is for all Servicemen and women who served or who are currently serving. Here is where you can reconnect with former brothers and sisters-in-arms, network with other veterans, and create an online record of your military service you can share.</p>
+				      </div>
+				    </aside>
+
+				  </div>
+				</div>
+
+<!-- FOOTER -->
+      </div>
+    </div>
+    <footer>
+      <div class="wrapper">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-2 logo"><img src="/zehnerlanding/static/img/footer-logo.png" alt="Togheter we served - no stronger bond" /></div>
+          <div class="col-md-9 copy">
+            <p>Copyright &copy; 2003-2014 TogetherWeServed All Rights Reserved | Not a U.S. Government Website, <a href="/zehnerlanding/download/TWSPrivacyPolicy.html">Privacy Policy</a> and <a href="/zehnerlanding/download/TWSTermsOfService.html">Terms of Service</a>.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/zehnerlanding/static/js/vendor/bootstrap.min.js"></script>
+    <!-- <script src="static/js/plugins.js"></script> -->
+    <script src="/zehnerlanding/static/js/main.js"></script>
+	<script>
+		jQuery(document).ready(function($){
+			$('a.privacy-link').click(function(){ $('.hover').toggle(); return false;});			
+			$.getJSON('/script/sitevariables.data', function(data){				
+				$.each(data.sites, function(i, data){								
+					//service branch
+					var serviceBranch = '<option value="'+data.SiteName+'">'+data.SiteName+'</option>'
+					$('#service-select-login').append(serviceBranch);
+					$('#service-select-signup').append(serviceBranch);
+					$('#service-select-invite').append(serviceBranch);
+					});					
+				});			
+			
+			$('#service-select-signup').change(function(){
+				var status = $('#service-select-signup option:selected').val();
+				$("input[name=serviceBranch]").attr("value",status);
+				changeBranchOptions(status);
+			});			
+			
+			$('#service-select-login').change(function(){
+				var status = $('#service-select-login option:selected').val();
+				$("input[name=serviceBranch]").attr("value",status);
+				changeBranchOptions(status);
+			});
+			
+			$('#service-select-invite').change(function(){
+				var status = $('#service-select-invite option:selected').val();
+				$("input[name=serviceBranch]").attr("value",status);
+				changeBranchOptions(status);
+			});
+			
+		});
+			
+		function changeBranchOptions(service){
+			if(service=="Navy"){
+				$("#signUpForm").attr("action","http://navy.togetherweserved.com/usn/servlet/tws.webapp.WebApp");			   		
+				$("#loginForm").attr("action","http://navy.togetherweserved.com/usn/servlet/tws.webapp.WebApp");
+				$("#resetPassword").attr("href","http://navy.togetherweserved.com/usn/ResetPassword");
+				$("#inviteForm").attr("action","http://navy.togetherweserved.com/usn/servlet/tws.webapp.WebApp?cmd=PublicInvite&type=PublicInvitation");
+			}else if(service=="Marines"){
+				$("#signUpForm").attr("action","http://marines.togetherweserved.com/usmc/servlet/tws.webapp.WebApp");
+				$("#loginForm").attr("action","http://marines.togetherweserved.com/usmc/servlet/tws.webapp.WebApp");
+				$("#resetPassword").attr("href","http://marines.togetherweserved.com/usmc/ResetPassword");
+				$("#inviteForm").attr("action","http://marines.togetherweserved.com/usmc/servlet/tws.webapp.WebApp?cmd=PublicInvite&type=PublicInvitation");
+			}else if(service=="Air Force"){
+				$("#signUpForm").attr("action","http://airforce.togetherweserved.com/usaf/servlet/tws.webapp.WebApp");
+				$("#loginForm").attr("action","http://airforce.togetherweserved.com/usaf/servlet/tws.webapp.WebApp");
+				$("#resetPassword").attr("href","http://airforce.togetherweserved.com/usaf/ResetPassword");
+				$("#inviteForm").attr("action","http://airforce.togetherweserved.com/usaf/servlet/tws.webapp.WebApp?cmd=PublicInvite&type=PublicInvitation");
+			}else if(service=="Army"){
+				$("#signUpForm").attr("action","http://army.togetherweserved.com/army/servlet/tws.webapp.WebApp");
+				$("#loginForm").attr("action","http://army.togetherweserved.com/army/servlet/tws.webapp.WebApp");
+				$("#resetPassword").attr("href","http://army.togetherweserved.com/army/ResetPassword");
+				$("#inviteForm").attr("action","http://army.togetherweserved.com/army/servlet/tws.webapp.WebApp?cmd=PublicInvite&type=PublicInvitation");
+			}else if(service=="Coast Guard"){
+				$("#signUpForm").attr("action","http://coastguard.togetherweserved.com/uscg/servlet/tws.webapp.WebApp");
+				$("#loginForm").attr("action","http://coastguard.togetherweserved.com/uscg/servlet/tws.webapp.WebApp");
+				$("#resetPassword").attr("href","http://coastguard.togetherweserved.com/uscg/ResetPassword");
+				$("#inviteForm").attr("action","http://coastguard.togetherweserved.com/uscg/servlet/tws.webapp.WebApp?cmd=PublicInvite&type=PublicInvitation");
+			}  
+			
+			jQuery.get('../servlet/tws.webapp.WebApp?landingPage=true&memberStatus=true&service='+service, function(data){
+					$('#status-select').html(data);
+			});
+		}	
+	</script>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!--script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script-->
+
+    <!--Start of Zopim Live Chat Script-->
+    <script type="text/javascript">
+      window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+      d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+      _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+      $.src='//cdn.zopim.com/?154botRViCSDPlIDmdggWrLmK7UAOcz8';z.t=+new Date;$.
+      type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+    </script>
+    <!--End of Zopim Live Chat Script-->
+    <script type="text/javascript">
+      var joinnowbtn = document.getElementById('btn-joinnow');
+      joinnowbtn.onclick = function(){
+        _gaq.push(['_trackEvent', 'Portal', 'Join', 'btn-joinnow']);
+      }
+    </script>
+
+  </body>
+</html>
+
+";i:2;s:4:"9283";}

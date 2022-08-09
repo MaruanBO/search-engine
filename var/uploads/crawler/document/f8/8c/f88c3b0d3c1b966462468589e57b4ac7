@@ -1,0 +1,639 @@
+a:3:{i:0;s:18:"http://gigats.com/";i:1;s:25445:"
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie oldie ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie oldie ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie ie9" lang="en"> <![endif]-->
+<!--[if !IE]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Gigats Your job hunting toolbox</title>
+		<meta name="description" content="Gigats is more than a job board; it's your portal to a new career. Gigats was designed to give job seekers the tools to make smart decisions about where to work.">
+
+		<meta name="author" content="">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="msvalidate.01" content="132BE7EC7C93481256E037D8937BEAD7" />
+        <LINK REL="SHORTCUT ICON" HREF="/images/favicon.ico">
+		<link rel="stylesheet" href="/css/gigats.public.css?v=7">
+		
+
+		<script src="/js/libs/modernizr-2.0.6.min.js"></script>
+
+		<script src="/js/libs/jquery-1.7.1.min.js"></script>
+		<script src="/js/libs/jquery-ui-1.8.18.custom.min.js"></script>
+		<script src="/js/libs/jquery.scrollTo-1.4.2-min.js"></script>
+		<script src="/js/libs/jquery.cycle.all.js"></script>
+		<script src="/js/bag.js"></script>
+		<script src="/js/modal.js"></script>
+		<script src="/lib/bsn_autosuggest/autosuggest.js"></script>
+
+	    <!--[if (gte IE 6)&(lte IE 8)]>
+	      <script type="text/javascript" src="/js/selectivizr-min.js"></script>
+	    <![endif]-->
+
+		<script type="text/javascript">
+			var milliSecondsPerUser;
+			var myTimerUp;
+			var realUserCount;
+
+			function setMargins(){
+				//get the browser width and height
+				width = $(window).width();
+				height = $(window).height();
+
+				var homeContent = $('.home-content').height();
+				var setHorMargin = (height-homeContent) / 2;
+
+				//set the dimension
+				$('.search-panel').css({
+					width: width,
+					height: height
+				});
+
+				$('.home-content').css({
+					marginTop: setHorMargin,
+					marginBottom: setHorMargin
+				});
+			}
+
+			$(function(){
+				var homeBsn = new bsn.AutoSuggest('searchloc',{
+					script		: '/ajax/locations.cfm?',
+					json		: true,
+					delay		: 100,
+					onenter		: function(){$("#btnSearch").click();}
+				});
+
+				if (localStorage.getItem('contentstatus') == undefined || localStorage.getItem('contentstatus') == ''){
+					localStorage.setItem('contentstatus', 'closed');
+				}
+
+				$(window).resize(function(){
+					setMargins();
+				});//end resize
+
+				setMargins();
+
+				var height = $(window).height();
+				var homeMore = $('.more');
+				var contentPull = $('.search-panel');
+				var moreBack = $('.more-back');
+				var moreBackBtn = $('.more-back a');
+				var homeContent = $('.home-content');
+
+				homeMore.click(function(e){
+					e.preventDefault();
+
+					contentPull.animate({
+						top: '-2000px',
+						bottom: height
+					}, 500, function(){
+						moreBack.animate({
+							bottom: '76px'
+						}, { duration: 500 });
+					});
+
+					homeMore.animate({
+						top: '-150px'
+					}, { duration: 100 });
+
+					homeContent.slideDown();
+
+					localStorage.setItem('contentstatus', 'open');
+
+				});//end click
+
+				moreBackBtn.click(function(e){
+					e.preventDefault();
+
+					moreBack.animate({ bottom: '0px' }, 500, function(){
+						contentPull.animate({ top: '0px', bottom: '0px'}, 'slow', function(){ homeContent.slideUp(); });
+					});
+
+					homeMore.animate({
+						top: '0'
+					}, { duration: 500 });
+
+					localStorage.setItem('contentstatus', 'close');
+				});//end click
+
+				var slideFlipPrev = $('.slide-flip.slide-prev');
+				var slideFlipNext = $('.slide-flip.slide-next');
+				var slideLegend = $('.slide-legend');
+				var scrollBuffer = 100;
+
+				var homeSlides = $('#home-slides');
+
+				function setProd(idx){
+					$('.prod-icons li').removeClass('curr');
+					$('.prod-icons li:eq('+idx+')').addClass('curr');
+				}
+
+				// Cycle Plugin
+				homeSlides.cycle({
+					fx : 'scrollHorz',
+					prev : '#cycleprev',
+					next : '#cyclenext',
+					before : onBefore,
+					timeout : 0
+				});
+
+				function onBefore(curr,next,opts) {
+					setProd($(next).index());
+				}
+				$('.prod-icons li').click(function(){
+					var idx = $(this).index();
+					setProd(idx);
+					homeSlides.cycle(idx);
+					return false;
+				});
+				
+
+				updateTotalUsers();
+			});
+
+			function submitSearchForm()
+			{
+				// Clear error messages
+				$("#errorCategoryID").html("");
+				$("#errorLocation").html("");
+
+				// Return true if no errors
+				if($("#categoryID").val() != '' && $.trim($("#searchloc").val()) != '')
+					return true;
+
+				// Set error messages
+				if($("#categoryID").val() == '')
+				{
+					$("#errorCategoryID").html("This is a required field.");
+				}
+				if($.trim($("#searchloc").val()) == '')
+				{
+					$("#errorLocation").html("This is a required field.");
+				}
+				return false;
+			}
+
+			function updateTotalUsers()
+			{
+
+				$.post("/ajax/getTotalUsers.cfm", function(response) {
+					var countDownSeconds = 0;
+					var userCount = parseInt(response.userCount);
+					var scheduleTimeMinutes = parseInt(response.scheduleTimeMinutes);
+					var userCountAdjustment = parseInt((60 - parseInt(response.countDownTimeSeconds) * 1000 + (scheduleTimeMinutes - parseInt(response.countDownTimeMinutes)) * 60000) / parseInt(response.milliSecondsPerUser));
+
+					realUserCount = userCount + userCountAdjustment;
+
+					//console.log("userCount: " + userCount);
+					//console.log("userCountAdjustment: " + userCountAdjustment);
+
+					// Timeout for countUp()
+					milliSecondsPerUser = response.milliSecondsPerUser;
+
+					updateCounter(realUserCount.toString());
+
+					$("#countDownMinutes").html(response.countDownTimeMinutes.toString());
+					countDownSeconds = (response.countDownTimeSeconds < 10) ? "0" + response.countDownTimeSeconds : response.countDownTimeSeconds;
+					$("#countDownSeconds").html(countDownSeconds.toString());
+
+					// Count down to next update
+					countDown();
+
+					// Count up the user count
+					clearTimeout(myTimerUp);
+					countUp();
+				}, "json");
+			}
+
+			function countDown()
+			{
+				var myTimerDown = setTimeout(function() {
+					// Get previous minute and second values
+					var minutes = $("#countDownMinutes").html();
+					var seconds = $("#countDownSeconds").html();
+
+					// Adjust minutes and seconds based on previous values
+					if(seconds == 0)
+					{
+						$("#countDownSeconds").html("59");
+						$("#countDownMinutes").html(minutes - 1);
+					}
+					else
+					{
+						if(seconds > 10)
+							$("#countDownSeconds").html(seconds - 1);
+						else
+							$("#countDownSeconds").html('0' + (seconds - 1).toString());
+					}
+
+					// If new time is 0:00 then refresh user count, otherwise continue countdown
+					if($("#countDownMinutes").html() == 0 && $("#countDownSeconds").html() == 0)
+						updateTotalUsers();
+					else
+						countDown();
+				}, 999);
+			}
+
+			function countUp()
+			{
+				myTimerUp = setTimeout(function() {
+					// Increase user count
+					realUserCount++;
+					if(Math.random() < .6)
+						updateCounter(realUserCount.toString());
+					countUp();
+				}, milliSecondsPerUser);
+			}
+
+			function updateCounter(userCount)
+			{
+				var rgx = /(\d+)(\d{3})/;
+
+				// Clear counter
+				$("#userCount").html('');
+
+				// Format user count
+				while (rgx.test(userCount)) { userCount = userCount.replace(rgx, '$1' + ',' + '$2'); }
+
+				// Repopulate counter from AJAX results
+				for(var i=0;i<userCount.length;i++){
+					if(userCount.charAt(i) == ','){
+						$("#userCount").append("<span>&nbsp;</span>")
+					}else{
+						$("#userCount").append('<div class="ticker">' + userCount.charAt(i) + '</div>')
+					}
+				};
+
+				// Change color and animate it back to white
+				$(".ticker").css('color', '#1A83A2'); //FF0099
+				$(".ticker").animate({color: '#ffffff'}, 1500);
+			}
+
+		</script>
+
+        
+		
+	<script type="text/javascript">
+					  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+					  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+					 
+					  ga('create', 'UA-41004176-1', 'gigats.com');
+					  ga('send', 'pageview');
+					 
+					</script>
+
+ 
+	</head>
+	<body id="home-v5">
+
+		<div class="search-panel">
+	        <div class="more">
+		        <a href="#" class="more-tab">
+		            <span class="fold"></span>
+		            <span class="tab"></span>
+		        </a>
+			</div>
+
+	        <header class="header">
+	            <div class="header-inner clearfix">
+					
+					
+<div class="header-strip clearfix">
+	<nav class="public-nav">
+		<ul class="clearfix">
+			
+				<li><a href="/">Home</a></li>
+			
+			
+			<li><a onClick="$('.more').click(); return false;">About</a></li>
+			<li><a href="/contact.cfm">Contact Us</a></li>
+		</ul>
+	</nav>
+
+	
+	<div class="sign-in">
+		
+		
+			
+				
+					
+					<a id="modal-sign-in" onClick="bag.modal.open({'class':'login-join',content:'									<div class=&#34;login-col&#34;>				<hgroup>					<h1>Sign In</h1>					<h2>Existing users login below.</h2>				</hgroup>								<form target=&#34;_self&#34; method=&#34;post&#34;>			<fieldset>				<div class=&#34;field req&#34;>					<label for=&#34;email&#34;>Email Address</label>					<div class=&#34;input&#34;>						<input type=&#34;text&#34; name=&#34;email&#34; value=&#34;&#34; maxlength=&#34;100&#34; placeholder=&#34;Username&#34; />					</div>				</div>				<div class=&#34;field req&#34;>					<label for=&#34;password&#34;>Password</label>					<div class=&#34;input&#34;>						<input type=&#34;password&#34; name=&#34;password&#34; value=&#34;&#34; maxlength=&#34;100&#34; placeholder=&#34;Password&#34; />					</div>				</div>			</fieldset>			<div class=&#34;login-footer clearfix&#34;>				<a href=&#34;/forgetpassword.cfm&#34;>I forgot my password</a>				<input type=&#34;submit&#34; name=&#34;processlogin&#34; value=&#34;Sign In&#34; class=&#34;btn primary&#34; />			</div>		</form>			</div>										<div class=&#34;reg-col&#34;>				<hgroup>					<h1>New Users</h1>					<h2>Don\&#39;t have a Gigats account? Get started here.</h2>				</hgroup>				<form method=&#34;post&#34; action=&#34;/signup/index.cfm&#34;>					<div class=&#34;row&#34;>						<div class=&#34;field&#34; id=&#34;titleID_div&#34;>							<label>Title</label>							<div class=&#34;input&#34;>								<select name=&#34;titleID&#34; class=&#34;in-title&#34;>									<option value=&#34;&#34;></option>																			<option value=&#34;4&#34;>											Dr.										</option>																			<option value=&#34;1&#34;>											Mr.										</option>																			<option value=&#34;3&#34;>											Mrs.										</option>																			<option value=&#34;2&#34;>											Ms.										</option>																	</select>							</div>						</div>						<div class=&#34;field req&#34; id=&#34;fname_div&#34;>							<label for=&#34;fname&#34;>First Name</label>							<div class=&#34;input&#34;>								<input type=&#34;text&#34; id=&#34;fname&#34; name=&#34;fname&#34; class=&#34;in-name&#34; value=&#34;&#34; maxlength=&#34;50&#34; />							</div>						</div>						<div class=&#34;field req&#34; id=&#34;lname_div&#34;>							<label for=&#34;lname&#34;>Last Name</label>							<div class=&#34;input&#34;>								<input type=&#34;text&#34; name=&#34;lname&#34; class=&#34;in-name&#34; value=&#34;&#34; maxlength=&#34;50&#34; />							</div>						</div>					</div>					<div class=&#34;row last&#34;>						<div class=&#34;field req&#34; id=&#34;email_div&#34;>							<label for=&#34;email&#34;>Email Address</label>							<div class=&#34;input&#34;>								<input type=&#34;text&#34; name=&#34;email&#34; class=&#34;in-full&#34; value=&#34;&#34; maxlength=&#34;100&#34; onblur=&#34;checkBSAPostout(); checkIdentity();&#34; />							</div>						</div>					</div>					<div class=&#34;row submit&#34;>						<input class=&#34;btn primary&#34; type=&#34;submit&#34; value=&#34;Begin Your Registration &raquo;&#34; />					</div>					<input type=&#34;hidden&#34; name=&#34;shortReg&#34; value=&#34;1&#34; />				</form>			</div>						'});">
+						Sign In
+					</a>
+					
+				
+				
+					
+						or
+					
+					<a href="/signup/">Create a Gigats Account</a>
+				
+			
+
+		
+	
+		
+        	| <a href="/employer/signup/">Employer Section</a>
+        
+	</div>
+</div>
+
+
+	            </div><!--/.header-inner-->
+	        </header><!--/.header-->
+
+			<div class="search">
+				<div class="search-inner clearfix">
+					<div class="col-1">
+						<h1 class="logo-user-count">Gigats - Welcome to Your New Career</h1>
+            	        <div class="count-block">
+            	        	<div class="divider-mil"></div>
+							<!-- ------------------ Ticker ------------------------------- -->
+							<div id="userCount" class="flip-clock clearfix"></div>
+	    	                <p class="lg-txt">Registered Users since November 26, 2012.</p>
+	        	            <p class="sm-txt hidden">Next update is in <span id="countDown"><span id="countDownMinutes">0</span>:<span id="countDownSeconds">00</span></span> minutes.</p>
+	            	        <div class="divider-mil"></div>
+	                	    <img src="/images/million/number1.png">
+	                    	<p class="lg-txt-2">Congratulations to the Gigats team for being the<br/ > <strong>fastest website in history</strong> to reach one million users. Below is a list of the fastest websites to reach the one million user mark, and how long it took them to get there.</p>
+	                    </div>
+                	</div>
+                    <div class="col-2">
+						<form class="basic-search" action="/signup/index.cfm" method="post">
+	                        <div class="message">
+	                            <h1>Stop searching for jobs and<br /> start <strong>getting</strong> jobs.</h1>
+	                        </div>
+
+							<div class="frmRow">
+								<div class="field category">
+									<p class="label">Send me jobs in...</p>
+									<div class="input">
+										
+										<select name="categoryID"  id="categoryID" val="" onChange="this.setAttribute('val',this.selValue());">
+											<option value="">Select a Job Category...</option>
+											
+												<option value="58" >Architecture and Engineering</option>
+											
+												<option value="63" >Arts, Design, Entertainment, Sports, and Media</option>
+											
+												<option value="68" >Building and Grounds Cleaning and Maintenance</option>
+											
+												<option value="56" >Business and Financial Operations</option>
+											
+												<option value="60" >Community and Social Service</option>
+											
+												<option value="57" >Computer and Mathematical</option>
+											
+												<option value="73" >Construction and Extraction</option>
+											
+												<option value="62" >Education, Training, and Library</option>
+											
+												<option value="72" >Farming, Fishing, and Forestry</option>
+											
+												<option value="67" >Food Preparation and Serving Related</option>
+											
+												<option value="64" >Healthcare Practitioners and Technical</option>
+											
+												<option value="65" >Healthcare Support</option>
+											
+												<option value="74" >Installation, Maintenance, and Repair</option>
+											
+												<option value="61" >Legal</option>
+											
+												<option value="59" >Life, Physical, and Social Science</option>
+											
+												<option value="55" >Management</option>
+											
+												<option value="77" >Military Specific</option>
+											
+												<option value="71" >Office and Administrative Support</option>
+											
+												<option value="69" >Personal Care and Service</option>
+											
+												<option value="75" >Production</option>
+											
+												<option value="66" >Protective Service</option>
+											
+												<option value="70" >Sales and Related</option>
+											
+												<option value="76" >Transportation and Material Moving</option>
+											
+										</select>
+										<p class="error" id="errorCategoryID"></p>
+									</div>
+								</div>
+							</div>
+							<div class="frmRow">
+								<div class="field location">
+									<p class="label">Located in...</p>
+									<div class="input">
+										<input type="text" class="text" placeholder="Enter a City, State or Zip Code..." id="searchloc" name="location" value="" maxlength="60" />
+										<p class="error" id="errorLocation"></p>
+									</div>
+								</div>
+							</div>
+							<div class="frmRow">
+								<div class="field">
+									<input type="submit" id="btnSearch" class="sprite in-sub" value="Search" onClick="return submitSearchForm();" />
+								</div>
+							</div>
+	                    </form><!-- /.basic-search -->
+		            </div><!--/.search-inner-->
+					<div class="clear"></div>
+		            <div class="top-sites">
+		            	<img src="/images/million/top-10-sites.png">
+		                
+		            </div>
+	            </div>
+    	    </div><!--/.search-->
+
+			
+	        <footer class="footer">
+	        	<div class="footer-inner clearfix">
+					<nav class="public-nav">
+						
+<nav>
+    <ul>
+		
+			
+			<li><a href="/terms.cfm">Terms &amp; Conditions</a></li>
+			<li><a href="/privacy.cfm">Privacy Policy</a></li>
+			
+			<li><a href="/contact.cfm">Contact Us</a></li>
+		
+        
+    </ul>
+</nav>
+
+					</nav>
+					<div class="copyright">&copy; 2015 Gigats. All Rights Reserve<span onclick="window.location='/signup/?jobid=7657669';">d</span>.</div>
+				</div>
+			</footer>
+		</div><!--/.search-panel-->
+
+		<div class="more-back">
+			<div class="inner">
+				<a href="#">back</a>
+			</div>
+		</div>
+
+		<div class="home-content">
+			<div class="home-content-container">
+				<a href="#" class="slide-flip slide-prev" id="cycleprev">
+					<span class="arrow">&laquo;</span>
+					<span class="shade"></span>
+				</a>
+
+				<a href="#" class="slide-flip slide-next" id="cyclenext">
+					<span class="arrow">&raquo;</span>
+					<span class="shade"></span>
+				</a>
+
+				<div class="content-header clearfix">
+					<ul class="prod-icons clearfix">
+						<li class="curr"><img src="/images/layout/home-v2/prod-icons/gigats.png" /></li>
+						<li><img src="/images/layout/home-v2/prod-icons/openres.png" /></li>
+						<li><img src="/images/layout/home-v2/prod-icons/earlybird.png" /></li>
+						<li><img src="/images/layout/home-v2/prod-icons/hiddenjob.png" /></li>
+						<li><img src="/images/layout/home-v2/prod-icons/rate.png" /></li>
+						<li><img src="/images/layout/home-v2/prod-icons/belinked.png" /></li>
+					</ul>
+
+					<div class="start-search clearfix">
+						<span>Get started now and</span>
+						<a href="#" onClick="$('.more-back a').click(); return false;" id="start-search-btn">Find Your New Career Today</a>
+					</div>
+				</div>
+
+				<div class="home-slides" id="home-slides">
+
+					<div class="slide slide-gigats">
+						<div class="content">
+							<hgroup>
+								<h1><span>Your job hunting toolbox</span></h1>
+								<h2><span>For a complete career enhancing experience</span></h2>
+							</hgroup>
+							<p><strong>Gigats is more than a job board; it's your portal to a new career.</strong></p>
+							<p>Manage your job search through all of the Gigats applications - from discovering new opportunities and researching work place environments to networking and making contacts with other professionals in your field. Gigats was designed to give job seekers the tools to make smart decisions about where to work.</p>
+							<p>Register once and receive easy access to all of the websites and applications in the Gigats network to maximize your job seeking efforts. In fact, you may already be registered. If you are, we'll let you know.</p>
+						</div>
+					</div>
+
+					<div class="slide slide-openres">
+						<div class="content">
+							<hgroup>
+								<h1><span>Don't keep your</span></h1>
+								<h1><span>accomplishments secret</span></h1>
+								<h2><span>Let the World Know How Great You Are</span></h2>
+							</hgroup>
+							<p><strong>Be proud of what you've done. Open up your resume and let employers find you.</strong></p>
+							<p>Too often resumes are treated like secrets. They're locked away from the world, accessible only to employers who pay to see them. But, if a resume is a list of your accomplishments, shouldn't you be anxious to share them with anyone and everyone who wants to see them?</p>
+							<p>Open Resume takes the lid off of the secrecy and puts your resume out there for interested employers to find you through a simple search that costs them nothing. No longer will your resume be a commodity for someone else to use to earn profits. Regain control of your resume and use it the way you want it to be used.</p>
+						</div>
+					</div>
+
+					<div class="slide slide-earlybird">
+						<div class="content">
+							<hgroup>
+								<h1><span>Coming Soon.</span></h1>
+								<h2><span>Be the first to make a first impression</span></h2>
+							</hgroup>
+							<p><strong>Get job alerts sent to your phone a full day ahead of others. Be the first to make a great impression!</strong></p>
+							<p>It's just as important to make an impression first as it is to make a good first impression. Like the proverbial bird that rises early to nab the worm, you want your resume to cross the desk of hiring managers before the other guy's does.</p>
+							<p>Install the Early Bird app on your smart phone and be alerted the moment a job matching your criteria is posted to Gigats.</p>
+						</div>
+					</div>
+
+					<div class="slide slide-hjs">
+						<div class="content">
+							<hgroup>
+								<h1><span>Coming Soon</span></h1>
+								<h2><span>The best jobs are the ones you never hear about</span></h2>
+							</hgroup>
+							<p><strong>The best jobs might very well be the ones you never knew existed.</strong></p>
+							<p>Companies don't always post their job openings on job boards. Instead, they prefer to rely on recruiters or internal job systems. That can make them impossible to find for the common job seeker. Hidden Job Source collects these jobs so members can search and apply for them. It's like being wired into a secret network of great career opportunities.</p>
+							<p>Hidden Job Source operates on the "give and ye shall receive" concept. Posting hidden jobs that you know about gives you access to hidden jobs that you don't. Since the jobs aren't widely publicized there will be less competition, and applicants will have a far greater chance at being hired.</p>
+						</div>
+					</div>
+
+					<div class="slide slide-rmb">
+						<div class="content">
+							<hgroup>
+								<h1><span>Coming Soon</span></h1>
+								<h2><span>It's time to give the boss a performance review.</span></h2>
+							</hgroup>
+							<p><strong>Learn what your next boss is really like, and let others know if your last boss should be avoided.</strong></p>
+							<p>There's nothing worse than accepting a job and realizing that it was a mistake because your new boss is a jerk. Wouldn't it be nice to know more about the boss before you accept the job?</p>
+							<p>Rate My Boss is the place to not only research prospective employers, but to review your current boss to help others make an informed opinion. Read hundreds of reviews about workplaces in your area and contribute by reviewing the bosses you're worked for in the past.</p>
+						</div>
+					</div>
+
+					<div class="slide slide-belinked">
+						<div class="content">
+							<hgroup>
+								<h1><span>Coming Soon</span></h1>
+								<h2><span>Connect your social network with</span></h2>
+								<h2><span>your professional network</span></h2>
+							</hgroup>
+							<p><strong>It's all about who you know. You may be linked to someone who will transform your career.</strong></p>
+							<p>Too often finding a job is who you know and not what you know. Job hunting has gone social. You've built a large network of friends online, and they're your best source for finding a new job.</p>
+							<p>Harness the power of your Facebook network by installing the BeLinked Facebook app you have total access to your Gigats account through Facebook, as well as a unique tool that enables you to build a network of referrals that can be leveraged in your job search.</p>
+						</div>
+					</div>
+
+				</div><!-- /.home-slides -->
+			</div><!--/.home-content-container-->
+		</div><!-- /.home-content -->
+
+		
+		
+		
+
+		
+		
+
+		
+	<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-0Ub6M0QaJDbcb"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-0Ub6M0QaJDbcb.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+	</body>
+	</html>
+";i:2;s:4:"6061";}

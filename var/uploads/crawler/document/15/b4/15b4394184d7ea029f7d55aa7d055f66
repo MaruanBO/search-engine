@@ -1,0 +1,670 @@
+a:3:{i:0;s:19:"http://appsbar.com/";i:1;s:29319:"<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>Rated Best App Maker, The Easiest Way to Create an App - appsbar</title>
+<meta name="description" content="Free app builder - the fast, easy way for anyone to create a Android app, iPhone app, Blackberry app and Windows Phone app. The only totally free app creator.">
+<meta name="title" content="Rated Best App Maker, The Easiest Way to Create an App - appsbar" />
+<meta name="keywords" content="android app builder, how to create an app, app maker, diy apps, mobile app builder, free app builder" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- SITE TITLE -->
+
+<!-- =========================
+      FAV AND TOUCH ICONS  
+============================== -->
+<link rel="shortcut icon" href="images/appsbar_favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+<!-- =========================
+     STYLESHEETS   
+============================== -->
+<!-- BOOTSTRAP -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- FONT ICONS -->
+<link rel="stylesheet" href="assets/elegant-icons/style.css">
+<link rel="stylesheet" href="assets/app-icons/styles.css">
+<!--[if lte IE 7]><script src="lte-ie7.js"></script><![endif]-->
+<!-- WEB FONTS -->
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
+<!-- CAROUSEL AND LIGHTBOX -->
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/nivo-lightbox.css">
+<link rel="stylesheet" href="css/nivo_themes/default/default.css">
+<!-- ANIMATIONS -->
+<link rel="stylesheet" href="css/animate.min.css">
+<!-- CUSTOM STYLESHEETS -->
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/responsive.css">
+<!-- COLORS -->
+<link rel="stylesheet" href="css/colors/blue.css"> <!-- DEFAULT COLOR/ CURRENTLY USING -->
+<!-- <link rel="stylesheet" href="css/colors/red.css"> --> 
+<!-- <link rel="stylesheet" href="css/colors/green.css"> --> 
+<!-- <link rel="stylesheet" href="css/colors/purple.css"> --> 
+<!-- <link rel="stylesheet" href="css/colors/orange.css"> --> 
+<!-- <link rel="stylesheet" href="css/colors/blue-munsell.css"> --> 
+<!-- <link rel="stylesheet" href="css/colors/slate.css"> --> 
+<!-- <link rel="stylesheet" href="css/colors/yellow.css"> -->
+<!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<script src="js/respond.min.js"></script>
+<![endif]-->
+<!-- JQUERY -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+$( document ).ready(function() {
+   $('#ab_sign_up').click(function() {
+		$('#ab_signup_form').toggle();
+		goToByScroll('ab_contact');
+	}); 
+	$('#ab_digi').click(function() {
+		goToByScroll('ab_contact');
+	}); 
+	$('#ab_login').click(function() {
+		appsbarLogin();
+	}); 
+});
+
+function appsbarLogin()
+{
+	
+	var username = $('#ab_username').val();
+	var password = $('#ab_password').val();
+	var prefix = 'login_d';
+	
+	if (username == '' || password == '') {
+		alert('Please enter a Username and Password.');
+		return false;	
+	}
+	
+	$.ajax({
+		url: '/System/ajax_calls/login_ajax.php?'+
+			'username='+encodeURIComponent(username)+
+			'&password='+encodeURIComponent(password),
+		type: 'GET',
+		timeout: 5000,
+		success: function(data){
+			if (data == "SUCCESS")
+			{
+				if (true)
+				{
+					window.location = '/AppManager/';
+				}
+				else
+				{			
+					window.location = '/m/';
+				}
+			}
+			else
+			{
+				data = data.split("|");
+				alert('login failed: '+data[2]);
+			}
+		}
+	});	
+}
+
+function appsbarSignup()
+{
+	var signup_firstname = $('#ab_s_firstname').val();
+	var signup_lastname = $('#ab_s_lastname').val();
+	var signup_email = $('#ab_s_email').val();
+	var signup_username = $('#ab_s_username').val();
+	var signup_password = $('#ab_s_password').val();
+	var dob_month = $('#ab_s_dob_month').val();
+	var dob_day = $('#ab_s_dob_day').val();
+	var dob_year = $('#ab_s_dob_year').val();
+	
+	var prefix = 'signup_d';
+	
+	$('#ab_error').hide();
+
+	$.ajax({
+		type: "POST",
+		url: "/System/ajax_calls/signup_v3.php",
+		data: {
+			signup_firstname:signup_firstname,
+			signup_lastname:signup_lastname,
+			signup_email:signup_email,
+			signup_username:signup_username,
+			signup_password:signup_password,
+			dob_month:dob_month,
+			dob_day:dob_day,
+			dob_year:dob_year
+		},
+		success: function (data) {
+			if (data == "SUCCESS")
+			{
+				if (true)
+				{
+					window.location = '/AppManager/';
+				}
+				else
+				{
+					window.location = '/newUser.php';	
+				}
+			}
+			else
+			{
+				if (true)
+				{
+					//alert('ERROR: '+data);
+					$('#ab_error_msg').html(data);
+					$('#ab_error').show('slow');
+				}
+				else
+				{
+					alert('ERROR: '+data);
+				}
+			}
+		}
+	});
+
+}
+
+function socialRegistration(t,ID){
+	
+	modalOverlay('/SocialLogins/SocialCombine.php?t='+t+'&ID='+ID,600,350,false);
+}
+
+function socialRegistration_m(t,ID){
+	document.location = '/SocialLogins/SocialCombine_m.php?t='+t+'&ID='+ID;
+}
+
+function forgotPassword() {
+	//window.open ("/ForgotPassword.php", "mywindow","height=230,width=530,status=1,toolbar=0,location=0,menubar=0");
+	modalOverlay("/ForgotPassword.php",550,250,true);
+}
+
+function modalOverlay(doc,w,h,closeButton)
+{
+	var extraHeight = 20;
+	
+	if (!closeButton)
+	{
+		extraHeight = 0;
+		$('#modalOverlayClose').hide();
+	}
+	
+	//alert('modalOverlay('+doc+')');
+	$('#modalOverlayFrame').height(h);
+	$('#modalOverlayFrame').width(w);
+	$('#modalOverlayFrame').attr('src',doc);
+	$('#modalOverlayData').height(h+extraHeight);
+	$('#modalOverlayData').width(w);
+	
+	$('#modalOverlay').show();	
+}
+
+function closeModal()
+{
+	$('#modalOverlay').hide();
+	$('#modalOverlayFrame').attr('src','');	
+}
+
+function goToByScroll(id){
+      // Remove "link" from the ID
+    id = id.replace("link", "");
+      // Scroll
+    $('html,body').animate({
+        scrollTop: $("#"+id).offset().top-20},
+		'slow');
+}
+
+</script>
+<script src="/javascripts/social_login.js"></script>  
+
+<!--Modal Ajax Window-->
+
+<style>
+#modalOverlay{
+	display: none;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     width:100%;
+     height:2000px;
+     text-align:center;
+     z-index: 1000;
+	 background: rgba(0,0,0,.8);
+	 opacity: 1;
+}
+#modalOverlayData {
+     margin: 200px auto;
+     background-color: transparent;
+     border:none;
+     padding:0px;
+}
+#modalOverlayClose {
+     height:20px;
+	 background-color: transparent;
+     padding:0px;
+     text-align:right;
+}
+html {
+	-ms-zoom:100% !important; 
+}
+</style>
+
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript" src="https://d31qbv1cthcecs.cloudfront.net/atrk.js"></script><script type="text/javascript">_atrk_opts = { atrk_acct: "00O7f1a0Ix00oB", domain:"appsbar.com"}; atrk ();</script><noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=00O7f1a0Ix00oB" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-d2kW2RkD_xUEP"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-d2kW2RkD_xUEP.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+<!-- Google Analytics Start -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-22762735-1', 'appsbar.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- Google Analytics End -->
+
+</head>
+<body>
+<div id="modalOverlay">
+	<div id="modalOverlayData">
+    	<div id="modalOverlayClose"><div class="closeLogin" onClick="closeModal();" style="cursor:pointer; font-size:12px;padding-top:0px;color:red;" data-icon="6">close</div></div>
+        <iframe src="" id="modalOverlayFrame" frameborder="0" style="height:100px;width:100px" scrolling="no"></iframe>
+    </div>
+</div>
+<!--
+<div class="preloader">
+  <div class="status">&nbsp;</div>
+</div>
+-->
+<div class="container">
+  <div class="col-lg-4"><img src="images/logo.png" width="300" height="53" align="left"></div>
+  
+  <div class="contact-box wow rotateIn animated" data-wow-offset="10" data-wow-duration="1.5s"> 
+    <div align="right"><span class="col-lg-4"></span>
+      <!-- CONTACT BUTTON TO EXPAND OR COLLAPSE FORM -->
+      
+      <a class="btn contact-button expand-form btn-info">login</a>
+      
+      <!-- EXPANDED CONTACT FORM -->
+    </div>
+    <div class="row expanded-contact-form" id="ab_login_form">
+			
+			<div class="col-md-8 col-md-offset-2">
+				
+				<div align="right">
+				  <!-- FORM -->
+			  </div>
+				<form class="contact-form" id="contact" role="form">
+                    <div class="col-md-6">
+						<div align="right">
+						  <input class="form-control input-box" id="ab_username" type="text" name="name" placeholder="Username">
+					  </div>
+                    </div>
+                    <div class="col-md-6">
+						<div align="right">
+						  <input class="form-control input-box" id="ab_password" type="password" name="name" placeholder="Password">
+					</div>
+					</div>
+                  <div align="center">
+                      <button class="btn btn-primary standard-button2 ladda-button" type="submit" id="ab_login" name="submit" data-style="expand-left">Login </button>
+                  </div>
+                  <div align="center">
+                      <a href="javascript:void(0);" onClick="forgotPassword();" >Forgot Password</a>
+                  </div>
+				</form>
+                <div align="right"><br>
+                </div>
+              <div class="col-md-12">
+                <div align="center">Sign in using social network:<br/><br/>
+                  <img src="images/twitter.png" width="142" height="26" alt="" style="cursor:pointer;" onClick="window.location='/SocialLogins/twitter/login.php'" />
+                  <img src="images/facebook.png" width="142" height="26" alt="" style="cursor:pointer" onClick="fbLogin();" />	   
+                  <img src="images/google.png" width="142" height="26" alt="" style="cursor:pointer;" onClick="window.location='https://accounts.google.com/o/oauth2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&state=%2Fprofile&redirect_uri=http%3A%2F%2Fwww.appsbar.com%2FSocialLogins%2Fgoogle%2Fcallback.php&response_type=code&client_id=590821956952.apps.googleusercontent.com'" />       </div>
+              </div>
+				<div align="right">
+				  <!-- /END FORM -->
+				  
+			  </div>
+	  </div>
+			
+    </div>
+		<div align="right">
+		  <!-- /END EXPANDED CONTACT FORM -->
+		  
+    </div>
+  </div>
+  
+</div> 
+</div>
+</div>
+  
+	
+<!-- /END CONTAINER -->
+
+<!-- /END SCREENSHOTS SECTION -->
+<!-- =========================
+     DOWNLOAD NOW 
+============================== -->
+<section class="download" id="download">
+<div class="color-overlay">
+	
+	<div class="container">
+	  <div class="col-md-5 wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s">
+	    <div class="phone-image">
+	      <div class="col-md-4 wow fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s">
+	        <div class="phone-image"><img src="images/os-icons.png" width="283" height="55"  alt=""/><img src="images/2-iphone-left.png" alt="" width="284" height="399">
+            <p></div>
+          </div>
+	    </div>
+	  </div>
+	  <h2 class=" wow fadeInLeft animated" data-wow-offset="10" data-wow-duration="1.5s">Build your <span style="font-weight: bold">FREE APP NOW</span>!</h2>
+      <p class="caption">
+				Appsbar is your free mobile app builder. Free to all app builders and app lovers. Join now and start building your free mobile app today. Apps have become the must-have tech accessory for many people, and a   core part of forward-looking business marketing plans. However, not many   people or small businesses have the know-how or means to create highly   functional and individualized apps that are ready to be published in   popular app stores. Our apps can be made for any operating systems such as Android, Apple, Black Berry and Windows.</p>
+        <ul class="feature-list">
+          <li><i class="icon_check_alt2"></i> <span style="text-align: left"> Free To Use</span></li>
+          <li><i class="icon_check_alt2"></i> <span style="text-align: left"> User Friendly</span></li>
+          <li><i class="icon_check_alt2"></i> <span style="text-align: left"> Video Tutorials</span></li>
+          <li><i class="icon_check_alt2"></i> <span style="text-align: left"> Tech Support</span></li>
+        </ul>
+        	
+            
+   	  <ul class="feature-list">
+      <div class="container">
+		 
+         
+	      <div class="col-sm-pull-3"> <span style="text-align: left"><a href="javascript:void(0);" class="btn btn-default btn-lg standard-button" id="ab_sign_up" style="font-size: 48px; font-weight: 600; padding-right: 30px;  padding-left: 30px; line-height: 1; float: left; text-align: center; ">Sign Up Now!</a></span><span style="text-align: left"></span>	        <span style="text-align: left">
+	        <iframe  width="275" height="190"  src="//www.youtube.com/embed/soJUr5iqIuM"  frameborder="0" allowfullscreen></iframe>
+          </span></div>
+        <span style="text-align: left"></span><span style="text-align: left">          </span></li>
+   	  </ul>
+    </div>
+  
+    
+        
+    
+
+
+<!-- BUTTONS -->
+	
+		<!-- /END BUTTONS -->
+		
+	</div>
+	<!-- /END CONTAINER -->
+	
+
+<!-- /END COLOR OVERLAY -->
+</section>
+<!-- /END DOWNLOAD SECTION -->
+<!-- =========================
+     FOOTER 
+============================== -->
+<footer>
+<div class="container">
+	
+	<div class="contact-box wow rotateIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+		
+		<!-- CONTACT BUTTON TO EXPAND OR COLLAPSE FORM -->
+		
+		<a class="btn contact-button expand-form" id="ab_digi"><img src="images/logo-black.png" width="52" height="38"  alt=""/></i></a>
+		
+		<!-- EXPANDED CONTACT FORM -->
+		<div class="row expanded-contact-form"  id="ab_signup_form">
+			
+			<div class="col-md-8 col-md-offset-2">
+				
+				<!-- FORM -->
+				<form class="contact-form" id="ab_contact" role="form" onSubmit="return false;">
+					
+					<h4 id="ab_error" style="display:none">
+						<i class="icon_error-circle_alt"></i> <div id="ab_error_msg" style="color:#F00"></div>
+					</h4>
+					
+					<div class="col-md-6">
+						<input class="form-control input-box" id="ab_s_firstname" type="text" name="ab_s_firstname" placeholder="First Name">
+					</div>
+                    
+                    <div class="col-md-6">
+						<input class="form-control input-box" id="ab_s_lastname" type="text" name="ab_s_lastname" placeholder="Last Name">
+					</div>
+                    
+                    <div class="col-md-6">
+						<input class="form-control input-box" id="ab_s_username" type="text" name="ab_s_username" placeholder="Username">
+					</div>
+                    
+                    <div class="col-md-6">
+					  <input class="form-control input-box" id="ab_s_password" type="password" name="ab_s_password" placeholder="password">
+					</div>
+					
+                  <div class="col-md-6">
+						<input class="form-control input-box" id="ab_s_email" type="email" name="ab_s_email" placeholder="Your Email">
+					</div>
+                    
+Date of Birth
+					<div class="col-md-6">
+
+                        <div class="col-md-4">
+                            <select name="ab_s_dob_month" id="ab_s_dob_month" class="form-control">
+<option value="0">Month:</option>
+<option value="1">1</option>\n<option value="2">2</option>\n<option value="3">3</option>\n<option value="4">4</option>\n<option value="5">5</option>\n<option value="6">6</option>\n<option value="7">7</option>\n<option value="8">8</option>\n<option value="9">9</option>\n<option value="10">10</option>\n<option value="11">11</option>\n<option value="12">12</option></select>
+  
+                         </div>
+                         <div class="col-md-4">
+                            <select name="ab_s_dob_day" id="ab_s_dob_day" class="form-control">
+<option value="0">Day:</option>
+<option value="1">1</option>\n<option value="2">2</option>\n<option value="3">3</option>\n<option value="4">4</option>\n<option value="5">5</option>\n<option value="6">6</option>\n<option value="7">7</option>\n<option value="8">8</option>\n<option value="9">9</option>\n<option value="10">10</option>\n<option value="11">11</option>\n<option value="12">12</option>\n<option value="13">13</option>\n<option value="14">14</option>\n<option value="15">15</option>\n<option value="16">16</option>\n<option value="17">17</option>\n<option value="18">18</option>\n<option value="19">19</option>\n<option value="20">20</option>\n<option value="21">21</option>\n<option value="22">22</option>\n<option value="23">23</option>\n<option value="24">24</option>\n<option value="25">25</option>\n<option value="26">26</option>\n<option value="27">27</option>\n<option value="28">28</option>\n<option value="29">29</option>\n<option value="30">30</option>\n<option value="31">31</option></select>
+  
+                         </div>
+                         <div class="col-md-4">
+                            <select name="ab_s_dob_year" id="ab_s_dob_year" class="form-control">
+<option value="0">Year:</option>
+<option value="2005">2005</option>\n<option value="2004">2004</option>\n<option value="2003">2003</option>\n<option value="2002">2002</option>\n<option value="2001">2001</option>\n<option value="2000">2000</option>\n<option value="1999">1999</option>\n<option value="1998">1998</option>\n<option value="1997">1997</option>\n<option value="1996">1996</option>\n<option value="1995">1995</option>\n<option value="1994">1994</option>\n<option value="1993">1993</option>\n<option value="1992">1992</option>\n<option value="1991">1991</option>\n<option value="1990">1990</option>\n<option value="1989">1989</option>\n<option value="1988">1988</option>\n<option value="1987">1987</option>\n<option value="1986">1986</option>\n<option value="1985">1985</option>\n<option value="1984">1984</option>\n<option value="1983">1983</option>\n<option value="1982">1982</option>\n<option value="1981">1981</option>\n<option value="1980">1980</option>\n<option value="1979">1979</option>\n<option value="1978">1978</option>\n<option value="1977">1977</option>\n<option value="1976">1976</option>\n<option value="1975">1975</option>\n<option value="1974">1974</option>\n<option value="1973">1973</option>\n<option value="1972">1972</option>\n<option value="1971">1971</option>\n<option value="1970">1970</option>\n<option value="1969">1969</option>\n<option value="1968">1968</option>\n<option value="1967">1967</option>\n<option value="1966">1966</option>\n<option value="1965">1965</option>\n<option value="1964">1964</option>\n<option value="1963">1963</option>\n<option value="1962">1962</option>\n<option value="1961">1961</option>\n<option value="1960">1960</option>\n<option value="1959">1959</option>\n<option value="1958">1958</option>\n<option value="1957">1957</option>\n<option value="1956">1956</option>\n<option value="1955">1955</option>\n<option value="1954">1954</option>\n<option value="1953">1953</option>\n<option value="1952">1952</option>\n<option value="1951">1951</option>\n<option value="1950">1950</option>\n<option value="1949">1949</option>\n<option value="1948">1948</option>\n<option value="1947">1947</option>\n<option value="1946">1946</option>\n<option value="1945">1945</option>\n<option value="1944">1944</option>\n<option value="1943">1943</option>\n<option value="1942">1942</option>\n<option value="1941">1941</option>\n<option value="1940">1940</option>\n<option value="1939">1939</option>\n<option value="1938">1938</option>\n<option value="1937">1937</option>\n<option value="1936">1936</option>\n<option value="1935">1935</option>\n<option value="1934">1934</option>\n<option value="1933">1933</option>\n<option value="1932">1932</option>\n<option value="1931">1931</option>\n<option value="1930">1930</option>\n<option value="1929">1929</option>\n<option value="1928">1928</option>\n<option value="1927">1927</option>\n<option value="1926">1926</option>\n<option value="1925">1925</option>\n<option value="1924">1924</option>\n<option value="1923">1923</option>\n<option value="1922">1922</option>\n<option value="1921">1921</option>\n<option value="1920">1920</option>\n<option value="1919">1919</option>\n<option value="1918">1918</option>\n<option value="1917">1917</option>\n<option value="1916">1916</option>\n<option value="1915">1915</option>\n<option value="1914">1914</option>\n<option value="1913">1913</option>\n<option value="1912">1912</option>\n<option value="1911">1911</option>\n<option value="1910">1910</option>\n<option value="1909">1909</option>\n<option value="1908">1908</option>\n<option value="1907">1907</option>\n<option value="1906">1906</option>\n<option value="1905">1905</option></select>
+  
+                         </div>
+                        
+				  	 </div>
+                    
+   				  <div class="col-md-12">
+                    <button class="btn btn-primary standard-button2 ladda-button" type="submit" id="submit" name="submit" data-style="expand-left" onClick="appsbarSignup()">Submit</button>
+                  </div>
+					
+				</form>
+                <br>
+              <div class="col-md-12">
+	Sign up using social network:<br/><br/>
+	<img src="images/twitter-small.png" width="30" height="30" style="cursor:pointer;" onClick="window.location='/SocialLogins/twitter/login.php'" >
+    <img src="images/facebook-small.png" width="30" height="30" style="cursor:pointer" onClick="fbLogin();" >
+    <img src="images/google-small.png" width="30" height="30" style="cursor:pointer;" onClick="window.location='https://accounts.google.com/o/oauth2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&state=%2Fprofile&redirect_uri=http%3A%2F%2Fwww.appsbar.com%2FSocialLogins%2Fgoogle%2Fcallback.php&response_type=code&client_id=590821956952.apps.googleusercontent.com'" >
+	 </div>
+				<!-- /END FORM -->
+				
+			</div>
+			
+	  </div>
+		<!-- /END EXPANDED CONTACT FORM -->
+		
+	</div>
+	<!-- /END CONTACT BOX -->
+	<div class="container">
+	
+	<!-- SECTION HEADER -->
+	<div class="section-header wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+		
+		<!-- SECTION TITLE -->
+		<div class="colored-line">
+	    </div>
+		<div class="col-md-12">
+		  <div align="center" style="text-align: center; font-size: 24px; font-weight: normal;">Click Digi To Get Started Now!</div>
+		</div>
+		<div class="colored-line">
+		</div>
+		
+	</div>
+	<!-- /END SECTION HEADER -->
+	
+	<div class="row">
+		
+		<!-- SINGLE SERVICE -->
+		<div class="col-md-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+			
+			<div align="center">
+			  
+			  <!-- SERVICE ICON -->
+		  </div>
+			<div>
+			  
+			  <div align="center"><img src="images/app.png" width="118" height="53"  alt=""/></div>
+		    </div>
+			
+			<div align="center">
+			  <!-- SERVICE HEADING -->
+		  </div>
+		  <h3 style="text-align: center">Pick The Type Of App</h3>
+			
+			<!-- SERVICE DESCRIPTION -->
+			<p>Select your app type (business, music, events, and more.) Tons of different options to best suit your personal, business or organization needs</p>
+			
+		</div>
+		<!-- /END SINGLE SERVICE -->
+		
+		<!-- SINGLE SERVICE -->
+		<div class="col-md-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+			
+			<div align="center">
+			  
+			  <!-- SERVICE ICON -->
+		  </div>
+			<div class="service-icon">
+			  
+			  <div align="center"><img src="images/design.png" width="118" height="53"  alt=""/></div>
+		    </div>
+			
+			<div align="center">
+			  <!-- SERVICE HEADING -->
+		  </div>
+		  <h3 style="text-align: center">Get Your Design On!</h3>
+			
+			<!-- SERVICE DESCRIPTION -->
+			<p>Design and preview your app as you go. Try out new features and make changes on the fly. The platform is easier than ever!</p>
+			
+		</div>
+		<!-- /END SINGLE SERVICE -->
+		
+		<!-- SINGLE SERVICE -->
+		<div class="col-md-4 single-service wow fadeIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+			
+			<div align="center">
+			  
+			  <!-- SERVICE ICON -->
+		  </div>
+			<div class="service-icon">
+			  
+			  <div align="center"><img src="images/work.png" width="118" height="53"  alt=""/></div>
+		    </div>
+			
+			<div align="center">
+			  <!-- SERVICE HEADING -->
+		  </div>
+		  <h3 style="text-align: center">Share Your App</h3>
+			
+			<!-- SERVICE DESCRIPTION -->
+			<p>We provide you with the neccesssary tools to build and publish your app with video tutorials along the whole way. It's all at your finger tips!</p>
+			
+		</div>
+		<!-- /END SINGLE SERVICE -->
+		
+	</div>
+	<!-- /END ROW -->
+	
+</div><br><br>
+	<!-- LOGO -->
+		
+	<!-- SOCIAL ICONS -->
+	<ul class="social-icons">
+		<li><a href="https://www.facebook.com/appsbar" target="_blank"><i class="social_facebook_square"></i></a></li>
+		<li><a href="https://twitter.com/appsbar" target="_blank"><i class="social_twitter_square"></i></a></li>
+		<li><a href="http://instagram.com/appsbar#" target="_blank"><i class="social_instagram_square"></i></a></li>
+		<li><a href="http://www.linkedin.com/company/appsbar-inc-" target="_blank"><i class="social_linkedin_square"></i></a></li>
+		<li><a href="https://plus.google.com/100511526378957001917/posts" target="_blank"><i class="social_googleplus_square"></i></a></li>
+		<li><a href="https://www.youtube.com/user/APPSBAR" target="_blank"><i class="social_youtube_square"></i></a></li>
+		<li><a href="http://feeds.feedburner.com/Appsbar" target="_blank"><i class="social_rss_square"></i></a></li>
+	</ul>
+	
+	<!-- COPYRIGHT TEXT -->
+	<p class="copyright" style="text-align: center">
+		<a href="/">Home</a> | <a href="/blog">Blog</a> | <a href="/AboutUs.php">About Us</a> | <a href="/FAQ.php">FAQ</a> | <a href="/Terms.php">Terms of Use</a> | <a href="/AppsGallery">Apps Gallery</a> | <a href="/AppsbarNews">Appsbar News</a> | <a href="/ContactUs.php">Contact Us</a> | <a href="/Privacy.php">Privacy Policy</a> | <a href="/how-to-make-an-app">How to Create an App!</a></p>
+    <p class="copyright" style="text-align: center">
+		©2014 Appsbar, All Rights Reserved
+	</p>
+</div>
+<!-- /END CONTAINER -->
+ 
+</footer>
+<!-- /END FOOTER -->
+<!-- =========================
+     SCRIPTS 
+============================== -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.scrollTo.min.js"></script>
+<script src="js/jquery.localScroll.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/nivo-lightbox.min.js"></script>
+<script src="js/simple-expand.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/retina-1.1.0.min.js"></script>
+<script src="js/custom.js"></script>
+
+<!-- Google Code for Remarketing Tag -->
+<!--------------------------------------------------
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1003822335;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1003822335/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+
+</body>
+</html>";i:2;s:4:"7792";}

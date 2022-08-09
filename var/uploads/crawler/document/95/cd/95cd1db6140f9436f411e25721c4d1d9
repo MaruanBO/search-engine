@@ -1,0 +1,1880 @@
+a:3:{i:0;s:19:"http://optumrx.com/";i:1;s:47748:"<!--// Common Layout for pages with right side functional tools //-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Code Fix [PM10120310] 10/10_release -->
+<HEAD>
+
+<script type="text/javascript">
+	// For iOS touch compatibility for JQuery click events
+	var userAgentLowerCase = navigator.userAgent.toLowerCase();
+   	var iosDetected = userAgentLowerCase.match(/(iphone|ipod|ipad)/);
+   	var touchOrClickEvent = iosDetected?"touchstart":"click";
+   	// Use the following to handle click events: 
+   	// $jq("#mySelector").bind(touchOrClickEvent, function() {
+</script>
+
+
+
+
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE"> 
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<!-- Code Fix [PM10144629] 6/12_release -->
+<script type="text/javascript">
+	function getCookie(name){
+    var pattern = RegExp(name + "=.[^;]*")
+    matched = document.cookie.match(pattern)
+    if(matched){
+        var cookie = matched[0].split('=')
+        return cookie[1]
+    }
+    return false
+}	
+var j="JSESSIONID_OPTUMRX";
+var jsessionId=getCookie(j).split(':');
+
+var a=jsessionId[0].substring(4,jsessionId[0].length);
+	var b='ROLKcrkwidD9rXGlirrexZo';
+	if(a!=b){
+	
+	window.location="/RxSolWeb/mvc/login.do?logOffLogin=yes";
+	
+	}
+	
+		</script>
+</HEAD>
+	<!-- NOTE, the SDCScript isn't a javascript file...its an html include file RMG/Webtrends has bad naming..and causes confusion -->
+	<!-- START OF SDC Advanced Tracking Code -->
+<!-- Copyright (c) 1996-2005 WebTrends Inc.  All rights reserved. -->
+<!-- V7.5 -->
+<!-- $DateTime: 2005/06/02 09:59:59 $ -->
+<SCRIPT LANGUAGE="Javascript"><!--
+var gService = false;
+var gTimeZone = -6;
+// Code section for Enable First-Party Cookie Tracking
+function dcsCookie(){
+	if (typeof(dcsOther)=="function"){
+		dcsOther();
+	}
+	else if (typeof(dcsPlugin)=="function"){
+		dcsPlugin();
+	}
+	else if (typeof(dcsFPC)=="function"){
+		dcsFPC(gTimeZone);
+	}
+}
+function dcsGetCookie(name){
+	var pos=document.cookie.indexOf(name+"=");
+	if (pos!=-1){
+		var start=pos+name.length+1;
+		var end=document.cookie.indexOf(";",start);
+		if (end==-1){
+			end=document.cookie.length;
+		}
+		return unescape(document.cookie.substring(start,end));
+	}
+	return null;
+}
+function dcsGetCrumb(name,crumb){
+	var aCookie=dcsGetCookie(name).split(":");
+	if( aCookie != null ){
+		for (var i=0;i<aCookie.length;i++){
+			if( aCookie[i] != null && aCookie[i].length > 0  ){
+				var aCrumb=aCookie[i].split("=");
+				if( aCrumb != null && aCrumb.length >= 2){
+					if (crumb==aCrumb[0]){
+						return aCrumb[1];
+					}
+				}
+			}
+		}
+	}
+	return null;
+}
+function dcsFPC(offset){
+	if (!offset){
+		return;
+	}
+	var name=gFpc;
+	var dCur=new Date();
+	dCur.setTime(dCur.getTime()+(dCur.getTimezoneOffset()*60000)+(offset*3600000));
+	var dExp=new Date(dCur.getTime()+315360000000);
+	var dSes=new Date(dCur.getTime());
+	if (document.cookie.indexOf(name+"=")!=-1){
+		var id=dcsGetCrumb(name,"id");
+		var lv=parseInt(dcsGetCrumb(name,"lv"));
+		var ss=parseInt(dcsGetCrumb(name,"ss"));
+		if ((id==null)||(id=="null")||isNaN(lv)||isNaN(ss)){
+			return;
+		}
+		WT.co_f=id;
+		WT.vt_f="0";
+		var dLst=new Date(lv);
+		dSes.setTime(ss);
+		if ((dCur.getTime()>(dLst.getTime()+1800000))||(dCur.getTime()>(dSes.getTime()+28800000))){
+			dSes.setTime(dCur.getTime());
+			WT.vt_f_s="1";
+		}
+		if ((dCur.getDay()!=dLst.getDay())||(dCur.getMonth()!=dLst.getMonth())||(dCur.getYear()!=dLst.getYear())){
+			WT.vt_f_d="1";
+		}
+	}
+	else{
+		var tmpname=name+"_TMP=";
+		document.cookie=tmpname+"1";
+		if (document.cookie.indexOf(tmpname)!=-1){
+			document.cookie=tmpname+"; expires=Thu, 01-Jan-1970 00:00:01 GMT";
+			if ((typeof(gWtId)!="undefined")&&(gWtId!="")){
+				WT.co_f=gWtId;
+				WT.vt_f="0";
+			}
+			else{
+				WT.co_f="2";
+				var cur=dCur.getTime().toString();
+				for (var i=2;i<=(32-cur.length);i++){
+					WT.co_f+=Math.floor(Math.random()*16.0).toString(16);
+				}
+				WT.co_f+=cur;
+				WT.vt_f="1";
+			}
+			WT.vt_f_s="1";
+			WT.vt_f_d="1";
+		}
+		else{
+			WT.vt_f="2";
+			return;
+		}
+	}
+	WT.co_f=escape(WT.co_f);
+	WT.vt_sid=WT.co_f+"."+dSes.getTime();
+	var expiry="; expires="+dExp.toGMTString();
+	document.cookie=name+"="+"id="+WT.co_f+":lv="+dCur.getTime().toString()+":ss="+dSes.getTime().toString()+expiry+"; path=/"+(((typeof(gFpcDom)!="undefined")&&(gFpcDom!=""))?("; domain="+gFpcDom):(""));
+}
+
+// Code section for Use the new first-party cookie generated with this tag.
+var gFpc="WT_FPC";
+var gWtId="";
+if (gService){
+	var gConvert=true;
+}
+
+function dcsAdv(){
+	dcsFunc("dcsET");
+	dcsFunc("dcsCookie");
+	dcsFunc("dcsAdSearch");
+}
+
+//-->
+</SCRIPT>
+<!-- END OF SDC Advanced Tracking Code -->
+
+<!-- START OF SmartSource Data Collector TAG -->
+<!-- Copyright (c) 1996-2005 WebTrends Inc.  All rights reserved. -->
+<!-- V7.5 -->
+<!-- $DateTime$ -->
+<SCRIPT LANGUAGE="Javascript"><!--
+gVersion="1.0";
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="Javascript1.1"><!--
+gVersion="1.1";
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="Javascript1.2"><!--
+gVersion="1.2";
+var RE={"%09":/\t/g,"%20":/ /g,"%23":/#/g,"%26":/\&/g,"%2B":/\+/g,"%3F":/\?/g,"%5C":/\\/g};
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="Javascript1.3"><!--
+gVersion="1.3";
+if (window.ActiveXObject){
+	var gFV="";
+	for (var gVer=2;gVer<=10;gVer++){
+		try{
+			var gFlash = eval("new ActiveXObject('ShockwaveFlash.ShockwaveFlash."+gVer+"');");
+			if (gFlash){
+				gFV=gVer+".0";
+				break;
+			}
+		}
+		catch(e){
+		}
+	}
+}
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="Javascript1.4"><!--
+gVersion="1.4";
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="Javascript1.5"><!--
+gVersion="1.5";
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript"><!--
+var gImages=new Array;
+var gIndex=0;
+var DCS=new Object();
+var WT=new Object();
+var DCSext=new Object();
+var gQP=new Array();
+
+var gDomain="jwt-bi-sdc01.jwt.com";
+var gDcsId="dcs45xcei0a8zqbqb0ek5zj1v_3h2h";
+
+if ((typeof(gConvert)!="undefined")&&gConvert&&(document.cookie.indexOf(gFpc+"=")==-1)){
+	// for webtrends tracking by RMG
+	document.write("<SCR"+"IPT Language='JavaScript' SRC='"+"http://"+gDomain+"/"+gDcsId+"/wtid.js"+"'></SCR"+"IPT>");
+	// for webtrends tracking by UHG
+	document.write("<SCR"+"IPT Language='JavaScript' SRC='"+"http://"+wtsdc.uhc.com+"/"+gDcsId+"/wtid.js"+"'></SCR"+"IPT>");
+}
+//--> 
+</SCRIPT>
+<SCRIPT LANGUAGE="Javascript"><!--
+function dcsVar(){
+	var dCurrent=new Date();
+	WT.tz=dCurrent.getTimezoneOffset()/60*-1;
+	if (WT.tz==0){
+		WT.tz="0";
+	}
+	WT.bh=dCurrent.getHours();
+	WT.ul=navigator.appName=="Netscape"?navigator.language:navigator.userLanguage;
+	if (typeof(screen)=="object"){
+		WT.cd=navigator.appName=="Netscape"?screen.pixelDepth:screen.colorDepth;
+		WT.sr=screen.width+"x"+screen.height;
+	}
+	if (typeof(navigator.javaEnabled())=="boolean"){
+		WT.jo=navigator.javaEnabled()?"Yes":"No";
+	}
+	if (document.title){
+		WT.ti=document.title;
+	}
+	WT.js="Yes";
+	if (typeof(gVersion)!="undefined"){
+		WT.jv=gVersion;
+	}
+	if (document.body&&document.body.addBehavior){
+		document.body.addBehavior("#default#clientCaps");
+		if (document.body.connectionType){
+			WT.ct=document.body.connectionType;
+		}
+		document.body.addBehavior("#default#homePage");
+		WT.hp=document.body.isHomePage(location.href)?"1":"0";
+	}
+	if (parseInt(navigator.appVersion)>3){
+		if ((navigator.appName=="Microsoft Internet Explorer")&&document.body){
+			WT.bs=document.body.offsetWidth+"x"+document.body.offsetHeight;
+		}
+		else if (navigator.appName=="Netscape"){
+			WT.bs=window.innerWidth+"x"+window.innerHeight;
+		}
+	}
+	WT.fi="No";
+	if (window.ActiveXObject){
+		if ((typeof(gFV)!="undefined")&&(gFV.length>0)){
+			WT.fi="Yes";
+			WT.fv=gFV;
+		}
+	}
+	else if (navigator.plugins&&navigator.plugins.length){
+		for (var i=0;i<navigator.plugins.length;i++){
+			if (navigator.plugins[i].name.indexOf('Shockwave Flash')!=-1){
+				WT.fi="Yes";
+				var words = navigator.plugins[i].description.split(" ");
+				if( words != null && words.length >= 3 ){
+					WT.fv=words[2];
+				}else{
+					WT.fv="";
+				}
+				break;
+			}
+		}
+	}
+	WT.sp="@@SPLITVALUE@@";
+	DCS.dcsdat=dCurrent.getTime();
+	DCS.dcssip=window.location.hostname;
+	DCS.dcsuri=window.location.pathname;
+	if (window.location.search){
+		DCS.dcsqry=window.location.search;
+		if (gQP.length>0){
+			for (var i=0;i<gQP.length;i++){
+				var pos=DCS.dcsqry.indexOf(gQP[i]);
+				if (pos!=-1){
+					var front=DCS.dcsqry.substring(0,pos);
+					var end=DCS.dcsqry.substring(pos+gQP[i].length,DCS.dcsqry.length);
+					DCS.dcsqry=front+end;
+				}
+			}
+		}
+	}
+	if ((window.document.referrer!="")&&(window.document.referrer!="-")){
+		if (!(navigator.appName=="Microsoft Internet Explorer"&&parseInt(navigator.appVersion)<4)){
+			DCS.dcsref=window.document.referrer;
+		}
+	}
+}
+
+function A(N,V){
+	return "&"+N+"="+dcsEscape(V);
+}
+
+function dcsEscape(S){
+	if (typeof(RE)!="undefined"){
+		var retStr = new String(S);
+		for (R in RE){
+			retStr = retStr.replace(RE[R],R);
+		}
+		return retStr;
+	}
+	else{
+		return escape(S);
+	}
+}
+
+function dcsLoadHref(evt){
+	if ((typeof(gHref)!="undefined")&&(gHref.length>0)){
+		window.location=gHref;
+		gHref="";
+	}
+}
+
+function dcsCreateImage(dcsSrc){
+
+	if ( document.images){
+		gImages[gIndex]=new Image;
+		if ((typeof(gHref)!="undefined")&&(gHref.length>0)){
+			gImages[gIndex].onload=gImages[gIndex].onerror=dcsLoadHref;
+		}
+		// for webtrends tracking by RMG
+		gImages[gIndex].src=dcsSrc;
+		gIndex++;
+		// for webtrends tracking by UHG
+		gImages[gIndex]=new Image;
+		gImages[gIndex].src=dcsSrc.replace("jwt-bi-sdc01.jwt.com","wtsdc.uhc.com");
+		gIndex++;
+	}
+	else{
+		var url = '<IMG BORDER="0" NAME="DCSIMG" WIDTH="1" HEIGHT="1" SRC="'+dcsSrc+'"/>';
+		document.write(url);
+	}
+}
+
+function dcsMeta(){
+	var elems;
+	if (document.all){
+		elems=document.all.tags("meta");
+	}
+	else if (document.documentElement){
+		elems=document.getElementsByTagName("meta");
+	}
+	if (typeof(elems)!="undefined"){
+		for (var i=1;i<=elems.length;i++){
+			var meta=elems.item(i-1);
+			if (meta.name){
+				if (meta.name.indexOf('WT.')==0){
+					WT[meta.name.substring(3)]=meta.content;
+				}
+				else if (meta.name.indexOf('DCSext.')==0){
+					DCSext[meta.name.substring(7)]=meta.content;
+				}
+				else if (meta.name.indexOf('DCS.')==0){
+					DCS[meta.name.substring(4)]=meta.content;
+				}
+			}
+		}
+	}
+}
+
+function createDcsTag(){
+	var P="http"+(window.location.protocol.indexOf('https:')==0?'s':'')+"://"+gDomain+(gDcsId==""?'':'/'+gDcsId)+"/dcs.gif?";
+	for (N in DCS){
+		if (DCS[N]) {
+			P+=A(N,DCS[N]);
+		}
+	}
+	for (N in WT){
+		if (WT[N]) {
+			P+=A("WT."+N,WT[N]);
+		}
+	}
+	for (N in DCSext){
+		if (DCSext[N]) {
+			P+=A(N,DCSext[N]);
+		}
+	}
+	if (P.length>2048&&navigator.userAgent.indexOf('MSIE')>=0){
+		P=P.substring(0,2040)+"&WT.tu=1";
+	}
+	return P;
+}
+
+function dcsTag(){  
+	dcsCreateImage(createDcsTag());
+}
+
+function dcsFunc(func){
+	if (typeof(window[func])=="function"){
+		window[func]();
+	}
+}
+
+dcsVar();
+dcsMeta();
+dcsFunc("dcsAdv");
+//-->
+</SCRIPT>
+
+<!-- END OF SmartSource Data Collector  TAG -->	
+
+
+	
+	
+
+	<script src="https://www.optumrx.com/rxsol/chp/html/ps/js/headIncludes.bundle.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+	jQuery('.over').each(function(){
+	    var t=jQuery(this);
+	   	var src1= t.attr('src');
+	    var newSrc = src1.substring(0, src1.lastIndexOf('.'));; // let's get file name without extension
+	    t.hover(function(){
+			var newSrc1 = newSrc.substring(0, newSrc.length-3)+"_Rollover.png";
+		    jQuery(this).attr('src', newSrc1); //last part is for extension
+	    }, function(){
+	        jQuery(this).attr('src', src1); //removing '-over' from the name
+	    });
+	});
+	});
+</script>
+	<script type="text/javascript">
+		function addMetaTagHeader( name, value ){
+			var meta;
+			if (document.createElement && (meta = document.createElement('meta'))) {
+			    meta.NAME = name; //IE
+			    meta.name = name; //FIREFOX
+			    meta["HTTP-EQUIV"]=name; //IE
+			    meta.content = value;
+				document.getElementsByTagName('head').item(0).appendChild(meta);
+			}
+		}
+	var $jq = jQuery.noConflict();
+	$jq(document).ready(function(){
+		addMetaTagHeader("Last-modified","Thu, 19 Feb 2015 23:38:55 GMT");
+		addMetaTagHeader("Etag","Thu, 19 Feb 2015 23:38:55 GMT");
+		addMetaTagHeader("Expires","-1");
+		addMetaTagHeader("Cache-control","no-cache,no-store,must-revalidate");
+		addMetaTagHeader("Pragma","no-cache");
+		addMetaTagHeader("P3P",'CP="CAO PSA OUR"');
+		});
+	</script>
+	<script type="text/javascript">
+		var var_cobrandPlanName = '';
+		// This variable is used to populate the plan name which is exposed to click to call.
+		var planName = '';
+		// This variable is used to expose client name to click to call feature 
+		var customClientName = 'default';
+		var var_msoUser = ''
+		var var_hasLogo = '';
+		var var_portalHome = 'https://www.optumrx.com';
+		var var_fullname = "";
+		var var_print_logo = 'OptumRx_logo.gif';
+		var var_uhc_logo = 'logo_uhc.png';
+		var var_uhc_optumrx_logo = 'logo_optumrx.png';
+	    var var_customer_service='1.800.788.4863';
+	    var var_customer_service_tty='1.800.498.5428';
+	    var var_window_title = 'OptumRx';
+	    var var_today_date = '02/19/2015';
+	    var var_userClientName = 'default';
+	    var formulary_printPageTitle  ="Formulary Results";
+	    var var_display_mail_order_features = ''
+	</script>
+	
+		
+	
+
+
+ <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<link type="text/css" href="https://www.optumrx.com/rxsol/chp/html/ps/css/portal_home_page.min.css" rel="stylesheet" >
+	<link type="text/css" href="https://www.optumrx.com/rxsol/chp/html/ps/css/modules/medium.min.css" title="medium" rel="alternate stylesheet">
+	<link type="text/css" href="https://www.optumrx.com/rxsol/chp/html/ps/css/modules/large.min.css" title="large" rel="alternate stylesheet">
+	<style type="text/css">
+		#html_content {display:none;}
+	</style>
+	<script src="https://www.optumrx.com/rxsol/chp/html/ps/js/master_Home.js"></script>
+
+
+
+
+<script type="text/javascript">
+    window.name = "parent";
+    var siteWebTagUrl = 'www.OptumRx.com';
+    var $jq = jQuery.noConflict();
+    $jq(document).ready(function() {
+
+    //when brand is chnaged from default to proact or prx , display sitename dynamically
+    $jq("span").each(function(){
+
+        if(($jq(this).text()== "first.dba"))
+       {
+
+		$jq(this).replaceWith("OptumRx");
+	   }
+
+       if(($jq(this).text()== "other.dba"))
+       {
+      	$jq(this).replaceWith("OptumRx");
+       }
+
+
+	});
+
+        // hide awards in footer
+        $jq("#our_awards, #awards_map").hide();
+
+        // Triggers the "?" icon - NH
+        $jq("img#search_help").click(function() {
+            window.location = "/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/CustomerService/HelpTopics/TechnicalQuestions#8"; // set path
+        });
+
+        // CONTEXTUAL HELP
+        // Mouseover text
+      $jq('a.clueTip').cluetip({ activation: 'click' });
+
+        // Click ["I" icons]
+      $jq('img.clueTip').cluetip ({ attribute: 'id', activation: 'click' });
+      $jq('img.clueTip').attr('style','height:14px;width: 14px;');
+
+    });
+var thisSubnav = '';  //  what subsection is this?
+</script>
+
+    
+<meta name="decorator" content="no_header_layout">
+
+<script src="https://www.optumrx.com/rxsol/chp/html/ps/js/jquery-1.5.1.min.js"></script>
+<script src="https://www.optumrx.com/rxsol/chp/html/ps/js/jquery_easing.1.3.js"></script>
+<script src="https://www.optumrx.com/rxsol/chp/html/ps/js/slides.min.jquery.js"></script>
+
+<style type="text/css">
+
+div.footerLine1
+{
+	padding:5px;
+	padding-bottom:5px;
+	text-align:center;
+	clear:both;
+}
+.leftbannertitle h4{
+	padding-right:10px !important
+}
+div.footerLine2
+{
+	margin:0px 18px 2px 45px;
+	padding:5px;
+	padding-bottom:15px;
+	clear:both;
+}
+div.footerLine2Left
+{
+	margin:0;
+	margin-top:0px;
+	padding:2px 0;
+	width:415px;
+	float:left;
+	text-align:left;
+}
+div.footerLine2Right
+{
+	margin:0;
+	padding:2px 0;
+	width:200px;
+	float:right;
+	text-align:right;
+}
+div.footerLine2Right .styleswitch
+{
+	width:17px;
+	margin:0 3px;
+	padding:3px;
+	text-align:center;
+	display:inline;
+}
+
+div.footerLine2Right .text_div{
+	float:right;
+	/*width:60px;*/
+	font-family:arial;
+	font-size:12px;
+	color:#53565A;
+	margin-top:10px;
+}
+
+div.footerLine2Right .bigger_font{
+	color: #888b8d;
+	float:right;
+	font-family: arial;
+	font-size: 30px;
+	font-weight: bold;
+	width: 15px;
+	margin-top: 0px;
+	cursor:pointer;
+}
+
+div.footerLine2Right .smaller_font{
+	color: #ef8a1d;
+	float:right;
+	font-family: arial;
+	font-size: 25px;
+	font-weight: bold;
+	width: 10px;
+	cursor:pointer;
+}
+
+.text_div{color:#53565A;padding-right: 8px;}
+.footerLine2Right{float: right;
+    margin: 13px 0 0;
+    padding: 2px 0;
+    text-align: right;
+    width: 200px;}
+#footer{background-color:white;margin-top:0px!important;*margin-left:0px!important;width:995px}
+
+h4{font-weight:normal!important;}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, font, img, ins, kbd, q, samp,
+small, tt, var, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    /*font-size: 100%;*/
+    font-family: inherit;
+    vertical-align: baseline;
+}
+input {
+	margin: 0;
+	padding: 0;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+	font-size: 14px;
+	line-height: 20px;
+	font-family: Arial, sans-serif;
+	color: #666;
+	background-color: #b1b3b3;
+}
+#wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -20px;
+	background-color: #fff;
+	width: 995px;
+	/*background-image: url(https://www.optumrx.com/rxsol/chp/html/ps/img/default/home/main_content_bg.png);*/
+	background-repeat: repeat-y;
+	padding: 0 0px;
+}
+
+/* Header Styles ************************************/
+
+#header {
+	margin: 0;
+	padding: 0;
+	width: 995px;
+	height: 123px;
+}
+ul
+{
+
+ 	color: #333333;
+ 	line-height: 18px;
+ 	margin: 0;
+ 	padding: 0 5px 10px 40px;
+}
+
+ul li
+{
+	margin: 0;
+ 	padding: 0;
+ 	color: #333333;
+}
+a
+{
+	text-decoration : none !important;
+}
+/* Rotator Styles */
+#sign_in
+{
+	margin: 0;
+	padding: 0;
+	background-color: #d9d9d6;
+	height:267px;
+	width: 255px;
+	float : left;
+}
+
+h5.homepagetitle{padding-left:18px !important;}
+h5.homepagetitle a:hover {
+text-decoration:underline!important;
+font-weight: bold !important;
+}
+#right_content h2{
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
+.gecko #sign_in h6
+{
+	margin: 0;
+	padding: 5px 0 0 !important;
+	background-color: #ef8a1d;
+	height:32px;
+	width: 255px;
+	display: block;
+	text-align: center;
+	font-size: 18px !important;
+	color: #fff;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none !important;
+}
+
+#login {
+	margin: 0;
+	padding: 0;
+	width: 255px;
+	height: 160px;
+}
+p.login {
+	margin-left: 28px;
+	margin-right : 28px;
+	padding: 0;
+	line-height: 18px;
+}
+div#login_titlebar {
+	position: relative;
+	height: 42px;
+	margin-top: 10px;
+	clear: both;
+}
+#sign_in_title {
+	position: absolute;
+	bottom: 10px;
+}
+#optum_id_logo {
+	float: right;
+	width: 115px;
+}
+p#login_message {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	/* font-weight: bold; */
+	padding: 10px 0 0 0;
+	line-height: 18px;
+	color: black;
+}
+p#login_username {
+	padding: 10px 0 0 0;
+	line-height: 18px;
+}
+p#login_password {
+	padding: 6px 0 0 0;
+	line-height: 18px;
+}
+p#login_submit {
+	padding: 8px 0 0 0;
+	line-height: 18px;
+}
+p.login label {
+	margin: 0;
+	padding: 0;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	line-height: 18px;
+}
+#login .login lable{
+ font-family: arial;
+ font-weight: bold;
+ font-size: 16px;
+ color: #333333;
+ }
+ #login .login input{
+ 	font-weight: normal !important;
+ }
+p.login input {
+	margin: 0;
+	padding: 0;
+	width: 196px;
+	height: 19px;
+	line-height: 18px;
+}
+p.login input.login_submit {
+	margin: 0 0 0 51px;
+	padding: 0;
+	width: 88px;
+	height: 26px;
+	line-height: 18px;
+}
+p.help {
+	margin: 0 0 0 86px;
+	padding: 0;
+	line-height: 18px;
+	text-decoration:underline!important;
+	color : #EF8A1D;
+}
+#sign_in_help {
+	width: 60px;
+	margin: auto;
+}
+#sign_in_help a {
+	padding: 0 0 10px 0;
+	width: 60px;
+	line-height: 18px;
+	text-decoration:underline!important;
+	font-size: 11px;
+	color: blue;
+}
+span .help
+{
+	text-decoration:underline!important;
+	color : #EF8A1D;
+}
+#register
+{
+	width: 255px;
+	height: 55px;
+	/* background-color: #888b8d; */
+	text-align: center;
+	padding-top: 15px;
+	margin-top: 10px;
+	border-top: 1px #555 solid;
+}
+
+#login_wrap
+{
+	width: 255px;
+	height: 55px;
+	text-align: center;
+}
+
+.ie #sign_in h6{
+
+    background-color: #EF8A1D;
+    height: 32px;
+    padding: 10px !important;;
+    margin: 0;
+	width: 255px;
+	display: block;
+	text-align: center;
+	font-size: 18px !important;
+	color: #fff;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none !important;
+}
+
+#register p
+{
+	margin: 0;
+	color: #000;
+	font-size: 12px;
+	line-height: 18px;
+	padding-bottom: 5px;
+}
+#btn_sign_in_wrap {
+	width: 170px;
+	margin: auto;
+}
+#btn_sign_in
+{
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+}
+#btn_sign_in img
+{
+	padding: 0;
+	width: 170px;
+}
+#btn_register_wrap {
+	width: 170px;
+	margin: auto;
+}
+#btn_register
+{
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+}
+#btn_register img
+{
+	padding: 0;
+	width: 170px;
+}
+html{#F6FBFE}
+body {background: top left repeat-x #B1B3B3 ;height:101%;}
+#rotator_content {
+	margin: 0;
+	padding: 0;
+	height: 267px;
+	width: 995px;
+	border-top: 5px solid #ef8a1d;
+	border-bottom: 8px solid #53565a;
+}
+#rotator {
+	margin: 0;
+	padding: 0;
+	float: left;
+	height:267px;
+	width: 740px;
+	position:relative;
+}
+
+/* Rotator ************************************/
+
+#slides {
+	position:absolute;
+	top: 0;
+	left: 0;
+	z-index:100;
+}
+.slides_container {
+	width: 740px;
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+.slides_container a {
+	width: 740px;
+	height:267px;
+	display:block;
+}
+.slides_container a img {
+	display:block;
+}
+#slides .next,#slides .prev {
+	position:absolute;
+	top:107px;
+	left: 0;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+}
+#slides .next {
+	left: 716px;
+}
+
+.pagination {
+
+	width:175px;
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 101;
+    padding-left:0px
+}
+.pagination li {
+	float:left;
+	margin:0 5px;
+	list-style:none;
+}
+.pagination li a {
+	display:block;
+	width:25px;
+	height:25px;
+	background-position:0 0;
+	float:left;
+	overflow:hidden;
+	border:1px solid white;
+}
+.pagination li.current a {
+	background-color:white;
+}
+
+.homepage1{
+text-transform:uppercase;
+font-weight:bold;
+font-size:14px !important;
+margin-bottom:14px !important;
+}
+.homepage2
+{
+font-family: Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-size:14px !important;
+line-height:1.3 !important;
+
+}
+
+
+.homepage3{
+width:450px;
+table-layout:fixed;
+}
+.homepage4{
+color:#333333;
+text-decoration: none;
+font-size:18px !important;
+}
+
+
+
+#homepagelinks{
+ 	float: right;
+    font-size: 11px;
+    width: auto;
+    position: relative;
+    padding-right: 30px;
+    *margin-right:30px !important;
+}
+.separator {
+    color: #EF8A1D !important;
+    font-size: 20px !important;
+    padding: 0 5px;
+    }
+a{ color: #EF8A1D; font-family: Arial;}
+
+#header table
+{
+	top : 75px !important;
+}
+#header .logo
+{
+	left: 20px;
+	top : 33px !important;
+}
+#main_content {
+	margin: 0;
+	padding: 0;
+	height: 284px;
+	width: 995px;
+	padding-bottom: 30px;
+}
+
+#slides .next,#slides .prev {
+	position:absolute;
+	top:107px;
+	left: 0;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+}
+#slides .next {
+	left: 716px;
+}
+
+/* Left Content *****************/
+
+#left_content {
+	margin: 0;
+	/*padding: 20px; */
+	float: left;
+	background-color: #d9d9d6;
+	height:auto;
+	width: 740px;
+	padding-bottom: 15px;
+}
+.ie #left_content {width: 739px;}
+
+/* Right Content *****************/
+
+#right_content {
+	margin: 0px 5px;
+	/*padding: 24px 22px; */
+	float: left;
+	background-color: #fff;
+	height:284px;
+	width: 240px;
+}
+
+.ie10 #sign_in h6{padding: 0px !important;}
+ 
+.ie10 #register{padding-top: 8px;} 
+ 
+.ie10 #left_content{padding-bottom:30px;}
+
+</style>
+<script type="text/javascript"
+	src="https://www.optumrx.com/rxsol/chp/html/ps/js/jquery.pngFix.pack.js">
+	</script>
+
+<script type="text/javascript">
+  	var thisTitle = html_entity_decode("OptumRx"); // browser title for this page
+	var minTabHeight = 0;
+	var maxTabHeight;
+	var rotation;
+	var rotation_on = 0;
+	jQuery.noConflict();
+	jQuery(document).ready(function(){
+
+	jQuery('link[rel*=style][title]').each(function(i)
+	{
+		if(this.disabled == false)
+		{
+			if (this.getAttribute('title') == 'medium')
+			{
+				jQuery('#switch2').attr('style','display:visible');
+				jQuery('#switch3').attr('style','display:none');
+				jQuery("div.footerLine2").css('margin-left','40px');
+				if (jQuery.browser.msie) 
+ 				{
+ 				    jQuery('#register').attr('style','height:67Px !important;');
+ 					
+ 				}
+			}
+			else if (this.getAttribute('title') == 'large')
+			{
+				jQuery('#switch3').attr('style','display:visible');
+				jQuery('#switch2').attr('style','display:none');
+				jQuery("div.footerLine2").css('margin-left','20px');
+				if (jQuery.browser.msie) 
+ 				{
+ 					jQuery('#register').attr('style','height:69Px !important;');
+ 				}
+			}
+		}
+	});
+	jQuery('#switch3').click(function(){
+		jQuery('#switch2').attr('style','display:visible');
+        jQuery(this).attr('style','display:none');
+		jQuery("div.footerLine2").css('margin-left','40px');
+		if (jQuery.browser.msie) 
+ 		{
+ 			jQuery('#register').attr('style','height:67Px !important;');
+ 		}
+	});
+	jQuery('#switch2').click(function(){
+		jQuery('#switch3').attr('style','display:visible');
+        jQuery(this).attr('style','display:none');
+		jQuery("div.footerLine2").css('margin-left','20px');
+		if (jQuery.browser.msie) 
+ 		{
+ 			jQuery('#register').attr('style','height:69Px !important;');
+ 		}
+	});
+
+
+
+      	jQuery("#trademark").html("&#8482;");
+		jQuery("#our_awards").css('display','block');
+
+
+
+				jQuery('#slides').slides({
+					preload: true,
+					preloadImage: 'https://www.optumrx.com/rxsol/chp/html/ps/img/default/home/loading2.gif',
+					play: 5000,
+					pause: 2800,
+					hoverPause: true
+			});
+
+
+		});
+
+
+
+	    $jq(document).ready(function(){
+	     $jq("img").each(function(){
+            if($jq(this).attr("src").indexOf("cmsStaticContentPath")>=0){
+             $jq(this).attr("src",$jq(this).attr("src").replace("cmsStaticContentPath","https://www.optumrx.com/vgnlive"));
+
+            }
+      });
+	    });
+</script>
+
+
+<script type="text/javascript">
+	var numberOfColumns = 1;
+
+	var standAlone = "null";
+	var hideFooter = "null";
+	var footerBaseRenderUrl = "null";
+	var sitename = "www.optumrx.com";
+    var brand = "default";
+    var contactus = "null";
+    var aboutus = "null";
+</script>
+
+<script type="text/javascript">
+    if (typeof docUri == 'undefined')
+    {
+    	var docUri = "";
+    }
+
+    if (typeof docInfo == 'undefined')
+    {
+    	var docInfo = "";
+    }
+
+</script>
+
+
+<div id="ddtabs1" />
+
+	     
+	     
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ <!-- [[apsrp0537]] -->
+
+
+
+
+<div id="wrapper">
+<div id="header">
+
+	<table id="homepagelinks"><tbody>
+<tr>
+<td><a href="/RxsolClientWeb/index.html"><font id="homepagelink1" class="homepage4">Clients</font></a></td>
+<td class="separator">&#160;&#160;|&#160;&#160;</td>
+<td><a href="/RxsolHcpWeb/index.html"><font id="homepagelink2" class="homepage4">Health Care Professionals</font></a></td>
+<td class="separator">&#160;&#160;|&#160;&#160;</td>
+<td><a href="/RxsolClientWeb/cmsContent.do?pageUrl=/CLP/Consultants"><font id="homepagelink3" class="homepage4">Consultants</font></a></td>
+</tr>
+
+</tbody></table>
+
+<a href="/RxSolWeb/mvc/home.do"><img
+	src="https://www.optumrx.com/rxsol/chp/html/ps/img/default/logos/OptumRx_logo.gif"
+	class="logo" alt="OptumRx"
+	title="OptumRx"></a></div>
+
+<div id="rotator_content">
+<div id="rotator">
+	<div id="slides">
+		<div class="slides_container">
+		
+			<a
+				href="/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/AboutUs/ConvenientHomeDelivery"> <img
+				style="border: none; _border-top: none;"
+				src="https://www.optumrx.com/vgnlive/CHP/Assets/Images/tab1_mailService.jpg" width="740" height="273" /></a>
+				
+	
+		
+			<a
+				href="/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/CustomerService/HelpTopics/MobileSite/MobileWebsite"> <img
+				style="border: none; _border-top: none;"
+				src="https://www.optumrx.com/vgnlive/CHP/Assets/Images/tab2_mobileSite.jpg" width="740" height="273" /></a>
+				
+	
+		
+			<a
+				href="/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/WhatsNew"> <img
+				style="border: none; _border-top: none;"
+				src="https://www.optumrx.com/vgnlive/CHP/Assets/Images/tab3_whatsNew.jpg" width="740" height="273" /></a>
+				
+	
+		
+			<a
+				href="/RxSolWeb/mvc/houseHoldCareGiver.do"> <img
+				style="border: none; _border-top: none;"
+				src="https://www.optumrx.com/vgnlive/CHP/Assets/Images/tab4_householdCaregiver.jpg" width="740" height="273" /></a>
+				
+	
+		
+		</div>
+			<a href="#" class="prev" style="z-index: 10 !important;display:block !important;top:120px !important;"><img src="https://www.optumrx.com/rxsol/chp/html/ps/img/default/home/arrow-next.png" width="24" height="43" alt="Arrow Prev" title="Arrow Prev"></a>
+			<a href="#" class="next" style="z-index: 10 !important;display:block !important;left:716px !important;top : 120px !important;"><img src="https://www.optumrx.com/rxsol/chp/html/ps/img/default/home/arrow-prev.png" width="24" height="43" alt="Arrow Next" title="Arrow Next"></a>
+
+		</div>
+</div>
+
+<div id="sign_in">
+				<div id="login" style="width: 100%;">
+					<div id="login_titlebar">
+						<h4 id="sign_in_title">Sign In</h4><img id="optum_id_logo" alt="Optum ID" src="https://www.optumrx.com/rxsol/chp/html/ps/img/default/cta/OptumId_logo_sm.png">
+					</div> 
+					<div style="clear: both;">
+					</div>
+					<p class="login" id="login_message">
+						To enhance security we have changed our login experience
+					</p>
+					
+					<div id="login_wrap">
+						<div id="btn_sign_in_wrap">
+							<a href="https://healthid.optum.com/tb/views/login.jsf?relyingAppId=mrx37707&TARGET=https://optumrx.com/RxSolWeb/mvc/optumIdLandingDeleteCookie.do" id="btn_sign_in" tabindex="3"><img src="https://www.optumrx.com/rxsol/chp/html/ps/img/default/cta/SignIn_btn_ON.png" alt="Sign In" title="Sign In" border="0"/></a>
+						</div>
+					</div>
+					</div>
+					<div id="register">
+						<p id="register_message">
+							Don't have an account?
+						</p>
+						<div id="btn_register_wrap">
+							<a href="https://healthid.optum.com/tb/views/userregistration.jsf?TARGET=https://optumrx.com/RxSolWeb/mvc/optumIdLandingDeleteCookie.do&relyingAppId=mrx37707" id="btn_register"><img src="https://www.optumrx.com/rxsol/chp/html/ps/img/default/cta/Register_btn_ON.png"  alt="Register" title="Register" border="0"/></a>
+						</div>
+					</div>
+				</div>
+
+</div>
+
+
+
+<div id="main_content">
+			<div id="left_content">
+				
+					<div class="leftbannercontent">
+<p class="leftbannertitle">Welcome to OPTUM<span style=" font-weight: normal;">Rx</span>
+</div>
+
+<h4><span>OptumRx</span> specializes in the delivery, clinical management and affordability of prescription medications and consumer health products. Our high-quality, integrated services deliver optimal member outcomes, superior savings and outstanding customer service. We are an Optum company - the world's largest provider of integrated health services.</h4>
+
+<div class="lbannertext">
+<h6><a href="/RxSolWeb/mvc/registration/displayRegistrationForm.do"><span style=" float: left;">Register Now</span> <span style=" margin-top: -1px; margin-left: 3px; float: left;">»</span></a><br />
+</h6>
+
+<div class="leftbannercontent">
+<h4>If you're an OptumRx member and haven't registered to use our website, registration is fast and free. As a registered member, you can use this site to manage your prescription drug benefits. Order refills, sign up for text message reminders, track your orders, view the status of your claims, use our mobile website - m.optumrx.com, and &#160;more. Take our <a href="https://www.optumrx.com/vgnlive/CHP/Assets/WMV/Welcome to Optum.wmv" target="_blank">video tour</a> to see how our website works.<br />
+<br />
+Discover the value and benefits of ordering your medications through the OptumRx Mail Service Pharmacy. <a href="https://www.optumrx.com/vgnlive/CHP/Assets/WMV/Optum_RX_Basics FINAL.wmv">Watch the video now</a>.</h4>
+</div>
+</div>
+				
+			</div>
+			<div id="right_content">
+				
+					<h2 style=" padding-left: 18px!important; padding-top: 15px!important;">Already a member?</h2>
+
+<h4>There's no need to re-register. Simply login with your existing User Name and Password.</h4>
+
+<div class="" id="homepagecontent" style=" font-size: 14px; padding-top: 15px!important;"></div>
+				
+				
+						<h5 class="homepagetitle bluetext" id="homepagetitle" style=" font-weight: bold;"><a href="/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/Banners">Enter Website »</a></h5>
+
+<div id="homepagecontent" class="" style=" font-size: 14px;">
+<h4>Even if you haven't registered yet, you can:</h4>
+
+<ul>
+<li style=" list-style-type: disc;">
+<h4 style=" padding-left: 0px!important;">Browse medical supplies</h4>
+</li>
+
+<li style=" list-style-type: disc;">
+<h4 style=" padding-left: 0px!important;">View health information</h4>
+</li>
+
+<li style=" list-style-type: disc;">
+<h4 style=" padding-left: 0px!important;">View Drug recalls and FDA alerts</h4>
+</li>
+
+<li style=" list-style-type: disc;">
+<h4 style=" padding-left: 0px!important;">View information about our Clinical Management Programs</h4>
+</li>
+</ul>
+
+<p style=" margin-left: 30px;"><a href="https://twitter.com/#!/OptumRx"><img src="https://www.optumrx.com/vgnlive/CHP/Assets/Images/twitter_icon.png" alt="Twitter" /></a></p>
+</div>
+				
+			</div>
+			<div class="clearb">&nbsp;</div>
+
+
+
+
+	     
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 	
+
+
+
+
+
+
+
+<!--// PLACE THIS ENTIRE SECTION INTO THE FOOTER - Version 0.3 //-->
+  
+        <div class="clearb">&nbsp;</div>       
+    </div> <!-- end of content -->
+  
+  <div id="footer">
+  
+  <div id="our_awards" style=""> <!-- show only on home page -->        
+        	<table id="our_awards" cellpadding="0" cellspacing="0">
+	          	<tr>           
+					
+					<td>
+						<a href="https://vipps.nabp.net/verify.asp" >			
+							<img src="https://www.optumrx.com/vgnlive/CHP/Assets/Images/Logos/vipps_grayBG.png" alt="Verified Internet Pharmacy Practice Sites" title="Verified Internet Pharmacy Practice Sites"  />
+						</a>
+						
+							
+							
+								<a href="https://vipps.nabp.net/verify.asp" target="_blank">Verified Internet Pharmacy<br>
+Practice Sites</a>
+							
+							
+						
+					</td><td class="gap">&nbsp;</td>
+					
+					<td>
+						<a href="https://secure.comodo.com/ttb_searcher/trustlogo?v_querytype=W&amp;v_shortname=SC5&amp;v_search=https://www.optumrx.com&amp;x=6&amp;y=5" >			
+							<img src="https://www.optumrx.com/vgnlive/CHP/Assets/Images/Logos/comodo_secure_100x85_white.png" alt="Comodo Secure" title="Comodo Secure"  />
+						</a>
+						
+							
+							
+								<a href="https://secure.comodo.com/ttb_searcher/trustlogo?v_querytype=W&amp;v_shortname=SC5&amp;v_search=https://www.optumrx.com&amp;x=6&amp;y=5" target="_blank">Comodo Secure</a>
+							
+							
+						
+					</td><td class="gap">&nbsp;</td>
+					
+					<td>
+						<a href="https://www.optumrx.com/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/AboutUs/News/2013&amp;pageName=eHealthaward" >			
+							<img src="https://www.optumrx.com/vgnlive/CHP/Assets/Images/Logos/2014 Winner 1 1-4 inch.gif" alt="eHealthcare Leadership Awards Winner" title="eHealthcare Leadership Awards Winner"  />
+						</a>
+						
+							 
+								<a href="https://www.optumrx.com/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/AboutUs/News/2013&amp;pageName=eHealthaward" >eHealthcare Leadership<br>
+Awards Winner</a>
+								
+							
+							
+						
+					</td><td class="gap">&nbsp;</td>
+					
+					<td>
+						<a href="https://www.urac.org/directory/CompanyView.aspx?cid=2E2100000016" >			
+							<img src="https://www.optumrx.com/vgnlive/CHP/Assets/Images/URACseal2011.png" alt="" title=""  />
+						</a>
+						
+							
+							
+								<a href="https://www.urac.org/directory/CompanyView.aspx?cid=2E2100000016" target="_blank"></a>
+							
+							
+						
+					</td><td class="gap">&nbsp;</td>
+					
+        		</tr> 
+      		</table>
+    	</div> <!-- end of out_awards -->
+  <!-- Tag to retrieve footer links from vignette	-->
+	
+	<div class="footerLine1">
+		
+			
+				
+				
+				
+					
+					<a href="/RxSolWeb/index.ep">Home&#160;</a>
+				
+			
+		
+			
+				
+				
+				
+					|
+					<a href="/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/AboutUs">About Us</a>
+				
+			
+		
+			
+				
+				
+					|
+					<a href="https://www.optumrx.com/RxsolHcpWeb/index.html">Healthcare Professionals</a>
+				
+				
+			
+		
+			
+				
+				
+					|
+					<a href="https://www.optumrx.com/RxsolClientWeb/index.html">Clients</a>
+				
+				
+			
+		
+			
+				
+				
+					|
+					<a href="https://www.optumrx.com/RxsolClientWeb/cmsContent.do?pageUrl=/CLP/Consultants">Consultants</a>
+				
+				
+			
+		
+			
+				
+				
+				
+					|
+					<a href="/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/Footer/TermsOfUse">Terms of Use</a>
+				
+			
+		
+			
+				
+				
+				
+					|
+					<a href="/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/Footer/PrivacyPolicy">Privacy</a>
+				
+			
+		
+			
+				
+				
+				
+					|
+					<a href="/RxSolWeb/mvc/siteMap.do">Site Map</a>
+				
+			
+		
+			
+				
+				
+				
+					|
+					<a href="/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/AboutUs/News">News</a>
+				
+			
+		
+			
+				
+				
+				
+					|
+					<a href="/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/CustomerService/ContactUs_Generic">Contact Us</a>
+				
+			
+		
+			
+				
+					|
+					<a target="_new" href="http://careers.unitedhealthgroup.com/why-work-here/our-businesses/optumrx.aspx">Careers</a>
+				
+				
+				
+			
+		
+			
+				
+				
+				
+					|
+					<a href="/RxSolWeb/mvc/cmsContent.do?pageUrl=/CHP/CustomerService/HelpTopics">Help Topics</a>
+				
+			
+		
+	</div><!-- end of footerLine1 -->
+	<div class="footerLine2">
+		<div class="footerLine2Left">
+  			&copy; <a href="javascript:alert('BUILD: [r.xxxx-developer-workstation] @ 02/19/2015 05:41:20:434')"  style="text-decoration:none;">2015 OptumRx, Inc.</a>
+  		</div>
+		<div class="footerLine2Right">
+						
+    		<span id="switch3" rel="medium" class="styleswitch smaller_font" style="display:none;"><img id="smallFont" src="https://www.optumrx.com/rxsol/chp/html/ps/img/default/icons/Icon_TextSize.png"/></span>
+			<span id="switch2" rel="large" class="styleswitch bigger_font" style="display:none;"><img id="largeFont" src="https://www.optumrx.com/rxsol/chp/html/ps/img/default/icons/Icon_TextSize.png"/></span>
+			<span class="text_div" style="float:right;">Text Size</span>
+		</div>		
+	</div> <!-- end of footerLine2 -->
+        
+    
+    <div class="clearb">&nbsp;</div>
+  </div> <!-- end of footer -->
+	<div class="clearb">&nbsp;</div>
+  </div> <!--  end of wrapper -->
+  
+ 
+
+
+    <script type="text/javascript">
+		if( typeof ddtabmenu != 'undefined' && document.getElementById("ddtabs1") != null){
+		
+	       		ddtabmenu.definemenu("ddtabs1", "");
+	       }
+          // Sets columns
+          if (numberOfColumns == 2){
+            $jq("#content").removeClass("sppt").addClass("ppt");
+            $jq("#secondaryContent").hide();
+          }
+          else if (numberOfColumns == 1){
+                $jq("#content").removeClass("sppt").addClass("ppp");
+            $jq("#secondaryContent").hide();
+            $jq("#tertiaryContent").hide();
+            }
+            else {
+            //$jq("#content").removeClass("sppt")
+            }
+
+            if (numberOfColumns == 2 || numberOfColumns == 3) {
+            // Drug lookup
+            $jq("#tertiaryContent td.drug_search input[type='text']").focus(function(){
+              $jq(this).parent().addClass('klicked'); $jq(this).val('');
+            });
+            $jq("#tertiaryContent td.drug_search input[type='text']").blur(function(){
+                var checkLookup = $jq(this).val();
+                if (!checkLookup){ $jq(this).parent().removeClass('klicked'); }
+            });
+              
+               $jq(document).ready(function(){
+            // Pharmacy search
+            $jq("#tertiaryContent div.zipCodeTextBoxGoButtonFT div.zipCodeTextBoxDivFT input[type='text']").blur(function(){
+              $jq(this).parent().addClass('klicked'); 
+              var checkSearch = $jq(this).val();
+                if(!checkSearch)
+                {
+                	 $jq(this).val('Enter Zip Code');
+                }
+            });
+            $jq("#tertiaryContent div.zipCodeTextBoxGoButtonFT div.zipCodeTextBoxDivFT input[type='text']").click(function(){
+            $jq(this).parent().addClass('klicked');
+                var checkSearch = $jq(this).val();
+                	$jq(this).val('');
+            });});
+            };
+    
+      $jq(document).ready(function(){
+    
+    		//to fix the search box issue on click of Browser Back button -CTS  
+		  $jq("input.inputboxSearch").attr({'value' : 'Search'});
+		  $jq("td.drug_search input").attr({'value' : ''});
+		  $jq("td.pharmacy_search input").attr({'value' : ''});	       
+
+	      
+//        // Sets browser title
+        $jq(this).attr("title", thisTitle);
+
+        // Nav searchbox
+        $jq("#search div").hide();
+        $jq("input.inputboxSearch").focus(function(){
+          $jq(this).addClass("klicked");          
+          $jq("div#search_options").slideDown();
+          $jq("input.inputboxSearch").attr({'value' : ''});
+          $jq("img.close").click(function(){
+            $jq("input.inputboxSearch").removeClass('klicked').val("");
+            if (jQuery.browser.msie){ $jq('div#search_options').hide("slow");
+            $jq("input.inputboxSearch").attr({'value' : 'Search'});
+             }
+            else { $jq('div#search_options').hide("slow");
+            $jq("input.inputboxSearch").attr({'value' : 'Search'});
+            }
+            $jq("#search_help").focus();
+          });
+        });
+        
+         // Set subnav
+       	
+	       	if(thisSubnav.length > 0){
+		        $jq("li#" + thisSubnav).addClass("current");
+	        }
+	        if(typeof thisTernav != 'undefined'){
+	            $jq("li#" + thisTernav+" a").addClass("current");
+		    }
+	    
+      });
+
+    </script>
+
+
+<!--// END FOOTER //-->
+<!-- START WEBTRENDS ANALYTICS -->
+
+
+<script type="text/javascript"> //START A NEW JAVASCRIPT BLOCK TO TRY TO PROTECT javascript from compilation errors elsewhere
+
+//=============================[ START WINDOW EVENT SUPPORT ]======
+	if( window.addEvent == null ){
+		window.addEvent = function(obj, eventName, func)
+		{
+		      if(obj.addEventListener)
+		            return obj.addEventListener(eventName, func, true);
+		      else if(obj.attachEvent)
+		      {
+		            obj.attachEvent("on" + eventName, func);
+		            return true;
+		      }
+		      return false;
+		}
+	}
+//=============================[ END WINDOW EVENT SUPPORT ]======
+
+
+//=============================[ START IE6 background image fix ]======
+	function fixIE6BackgroundImages(){
+		var agt = navigator.userAgent.toLowerCase();
+		var appVer = navigator.appVersion.toLowerCase();
+		    // *** BROWSER VERSION ***
+		var is_konq = false;
+		var kqPos = agt.indexOf('konqueror');
+		if (kqPos != -1) {
+		    is_konq = true;
+		}
+		var is_safari = ((agt.indexOf('safari') != -1) && (agt.indexOf('mac') != -1));
+		var is_khtml = (is_safari || is_konq);
+		var is_opera = (agt.indexOf("opera") != -1);
+		var iePos = appVer.indexOf('msie');
+		var is_ie = ((iePos != -1) && (!is_opera) && (!is_khtml));
+		if (is_ie)
+		{
+		    try {
+		        document.execCommand('BackgroundImageCache', false, true);
+		    } catch(e) {
+		        // this will fail for IE 6 prior to SP1.
+		    }
+		}
+	}
+	try{
+		fixIE6BackgroundImages();
+	}catch(e){}
+//=============================[ END IE6 background image fix ]======
+</script>
+
+
+<script type="text/javascript"> //START A NEW JAVASCRIPT BLOCK TO TRY TO PROTECT javascript from compilation errors elsewhere
+//=============================[ START WEBTRENDS ANALYTICS ]======
+
+	function doWebtrendsTracking(){ 
+	
+    
+	    if (typeof docInfo == 'undefined')
+	    {
+	    	var docInfo = "";
+	    }
+	    
+	    if (typeof docUri == 'undefined')
+	    {
+	    	docUri = "\x2FRxSolWeb\x2Fmvc\x2Fhome.do";
+	    }
+	
+		if (typeof thisTitle == 'undefined') 
+		{
+			if (docInfo == "")
+			{
+				docInfo = document.title;
+			}
+			if(docUri == ""){
+				docUri = "/" + document.title;
+			}
+		}
+		else
+		{
+			if (docInfo == "")
+			{
+				docInfo = thisTitle;
+			}
+			if(docUri == ""){
+				docUri = "/" + thisTitle;
+			}
+		}
+
+		// this hack fixes the webtrends issue with payment-info.ep for last 3 checkout tabs
+		if (docUri.indexOf("payment-info.ep") >= 0)
+		{
+			var noSpaceDocInfo = docInfo.replace("OptumRx.com - ", "");
+			noSpaceDocInfo = noSpaceDocInfo.replace(/ /gi, "_");
+			docUri += "/" + noSpaceDocInfo;
+		}
+
+		try{
+			var debugLoc = window.location.href;
+			if( debugLoc && debugLoc.indexOf("debug=webtrends") >= 0 ){
+				alert("DCS Site: " + sitename + " :: dcsUri: " + docUri + "  :: WT.ti: " + docInfo);
+			}
+		}catch(e){}
+		
+		//alert("DCS Site: " + sitename + " :: dcsUri: " + docUri + "  ::  dcsInfo: " + docInfo);
+		dcsMultiTrack('DCS.dcssip',siteWebTagUrl,'DCS.dcsuri',docUri,'WT.ti',docInfo,'WT.cg_n','CONSUMER','WT.si_n','','WT.si_p','','WT.si_x','','WT.seg_1','','WT.vhseg_1','','WT.seg_2','','WT.vhseg_2','','WT.pn_sku','','WT.tx_u','','WT.tx_s','','DCSext.client','default')
+	}
+	
+
+	$jq(document).bind("ready", doWebtrendsTracking); 
+
+//	window.addEvent(window,"load", doWebtrendsTracking);
+	
+//=============================[ END WEBTRENDS ANALYTICS ]======
+
+</script>
+
+<script type="text/javascript">
+
+	$jq(document).ready(function(){
+
+		
+        	setTimeout("nonAuthenticatedHit()",840000); 
+        
+    });
+        
+     
+		// this function is used to make AJAX call to emptyContent.html for Non-Authenticated Users 
+	    function nonAuthenticatedHit()
+	    {
+			$jq.get('/RxSolWeb/html/alui/emptyContent.html?' + Math.random());
+	    } 
+    
+</script>
+
+</span>";i:2;s:4:"1870";}

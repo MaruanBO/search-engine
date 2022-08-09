@@ -1,0 +1,30 @@
+a:3:{i:0;s:21:"http://usairways.com/";i:1;s:912:"
+
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript">
+            //pass the querystring and referrer along so we pick it up in Omniture
+            var referrer = document.referrer;
+            var querystring = document.location.search;
+            var redirectURL = 'default.aspx';
+
+            //replace the ? with an & in the referring URL's querystring
+            referrer = referrer.replace('?', '&');
+
+            if (querystring != '') {
+    	        redirectURL = redirectURL + querystring;
+    	        if (referrer != '') {
+		            redirectURL = redirectURL + '&redir=' + referrer;
+	            }
+            }
+            else if (referrer != '') {
+    	        redirectURL = redirectURL + '?redir=' + referrer;
+            }
+
+            window.location.replace(redirectURL);
+        </script>
+    </head>
+    <body></body>
+</html>
+";i:2;s:4:"1372";}

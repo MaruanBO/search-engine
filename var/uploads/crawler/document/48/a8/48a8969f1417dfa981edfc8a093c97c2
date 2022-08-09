@@ -1,0 +1,792 @@
+a:3:{i:0;s:26:"http://naturallycurly.com/";i:1;s:63239:"<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UAYHWVRTGwEAVVhWBwY="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:19,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:19,2:20,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:20,2:19,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:20,2:19,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:20,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:18,handle:"D5DuLP"}],18:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],19:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],20:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:19,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="http://texturemedia.s3.amazonaws.com/2.0/newsletter-popup.css" />
+<link rel="stylesheet" type="text/css" href="http://texturemedia.s3.amazonaws.com/assets/intro.min.v0.9.0.css" />
+<script type="text/javascript">
+/*<![CDATA[*/
+var googletag = googletag || {}; googletag.cmd = googletag.cmd || []; (function(d, s) {
+			var gads = d.createElement(s);
+			gads.async = true; gads.type = 'text/javascript';
+			gads.src = "http://www.googletagservices.com/tag/js/gpt.js";
+			var node = d.getElementsByTagName(s)[0];
+			node.parentNode.insertBefore(gads, node);
+  		})(document, 'script');
+/*]]>*/
+</script>
+<title>Where Curls Come to Life - NaturallyCurly.com</title> 
+
+		<meta name="description" content="Find the latest curly hair styles and products for all hair types. Browse photos, videos and salon reviews from curly, wavy and coily women just like you!">				<meta name="author" content="Gretchen Heber and Michelle Breyer, content">		<!--FOR LINKSTANT.COM -->
+		<meta name="linkstant" content="210777187" />
+				
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		 
+		<link rel="stylesheet" type="text/css" href="http://texturemedia.s3.amazonaws.com/build/frontend.0.1.0.20150219050035.min.css" />
+		
+						<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<link href="http://texturemedia.s3.amazonaws.com/2.0/ie.css" rel="stylesheet" type="text/css" />
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  			<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+    		<link href="//netdna.bootstrapcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+    		<link href="/img/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+    		<script src="http://texturemedia.s3.amazonaws.com/vendor/respond.proxy.js"></script>
+		<![endif]-->	
+		<!-- Begin comScore Tag --> 
+		<script> 
+		    var _comscore = _comscore || []; 
+		    _comscore.push({ c1: "2", c2: "7771992" }); 
+		    (function() { 
+		    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true; 
+		    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js"; 
+		    el.parentNode.insertBefore(s, el); 
+		    })(); 
+		</script> 
+		<script>
+			
+window._gaq = window._gaq || [];
+_gaq.push(['_setAccount', 'UA-477881-3']);
+_gaq.push(['_setDomainName', 'naturallycurly.com']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();					</script>
+
+		<noscript> 
+		    <img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=7771992&amp;cv=2.0&amp;cj=1" alt="scr" /> 
+		</noscript>
+		<!-- End comScore Tag -->
+		<!-- Quantcast Tag --> 
+		<script type="text/javascript">
+			var _qevents = _qevents || [];
+			(function(d, s, l, t) {
+				var elem = d.createElement(s); elem.src = (d.location.protocol == "https:" ? "https://secure" : "http://edge") + l;
+				elem.async = true; elem.type = t; var scpt = document.getElementsByTagName(s)[0]; 
+				scpt.parentNode.insertBefore(elem, scpt);  
+			})(document, "script", ".quantserve.com/quant.js", "text/javascript");
+		</script>
+		<!-- End Quantcast tag -->
+
+        <!-- Begin OneSpot --> 
+        <script type="text/javascript" src="https://d3xl0zyjyljwa.cloudfront.net/px/t/os-167-898.js"></script>
+        <!-- End OneSpot --> 
+		
+	</head>
+	<body>	
+				<nav class="navbar navbar-static-top navbar-inverse hidden-xs" role="navigation">
+			<div class="container">
+				<div class="collapse navbar-collapse pull-right">
+					<ul class="nav navbar-nav" id="yw0">
+<li><a href="http://www.texturemediainc.com/">Texture<span>Media</span></a></li>
+<li><a href="http://www.naturallycurly.com/">Naturally<span>Curly</span></a></li>
+<li><a href="http://www.curlstylist.com/?utm_source=naturallycurly.com&amp;amp;utm_medium=referral&amp;amp;utm_campaign=tab-on-nc">Curl<span>Stylist</span></a></li>
+<li><a href="http://www.curlynikki.com/?utm_source=naturallycurly.com&amp;amp;utm_medium=referral&amp;amp;utm_campaign=tab-on-nc">Curly<span>Nikki</span></a></li>
+<li><a href="http://www.curlmart.com/?utm_source=naturallycurly.com&amp;amp;utm_medium=referral&amp;amp;utm_campaign=tab-on-nc">Shop <span>CurlMart</span></a></li>
+</ul>				</div>
+				<div class="collapse navbar-collapse pull-left navbar-highlight">
+					<ul class="nav navbar-nav">
+												<li class="dropdown">
+							<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">SIGN IN <i class="caret"></i></a>
+							<div class="dropdown-menu dropdown-signin">
+								<div class="container">
+																		<form class="form-horizontal" role="form" action="/login" method="post">
+										<input type="hidden" value="1" name="yform_signin" id="yform_signin">
+										<div class="form-group tc hidden-xs">
+											<a href="/site/fbLogin">Login With Facebook</a>
+										</div>
+										<div class="form-group">
+											<label for="inputEmail1" class="col-md-4 control-label hidden-xs">Username</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control input-sm" name="LoginForm[username]" placeholder="Username">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="inputPassword1" class="col-md-4 control-label hidden-xs">Password</label>
+											<div class="col-md-8">
+												<input type="password" class="form-control input-sm" name="LoginForm[password]" placeholder="Password">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-3 col-xs-4 col-offset-xs-4">
+												<button data-role="none" class="btn btn-primary input-sm" name="login" id="login">Sign In</button>
+											</div>
+											<div class="col-md-9 hidden-xs">
+												<a href="/auth/reset_pw" class="pull-right">Forgot your password?</a>
+											</div>
+										</div>
+									</form>								</div>
+							</div>
+						</li>
+						<li><a href="/user/register">REGISTER</a></li>
+											</ul>
+				</div>
+			</div>
+		</nav>		<div class="container main-container">
+						<!-- Header -->
+			<header data-offset-top="240" data-mobile-offset-top="0">
+				<div class="container">
+					<div class="header-top">
+						<div class="tc header-padding header-banner">
+							<div id="div-gpt-ad-3" data-ad-slot="googletag" class="dfp-ad "></div>						</div>						<div class="tc header-logo">
+													<div class="visible-xs">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-sub-container">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+							<a href="/" class="visible-xs"><img alt="Naturally Curly" src="/themes/twooh/img/assets/nc-logo-white.png"/></a>
+													<div class="hidden-xs logo-default"><a href="/"><img alt="Naturally Curly" src="/themes/twooh/img/assets/nc-logo.gif"/></a></div>
+						</div>
+					</div>
+					<div class="row">
+						<nav class="col-sm-6" role="navigation">
+							<ul class="nav navbar-nav navbar-main">
+								<li><a href="/learn/">Explore</a></li>
+								<li><a href="/videos/">Watch</a></li>
+								<li><a href="/questions/">Ask</a></li>
+								<li><a href="http://www.curlmart.com"><i class="glyphicon glyphicon-cart"></i> Shop</a></li>
+							</ul>
+						</nav>
+						<div class="col-md-6 pull-right tr hidden-xs">
+							<ul class="nav navbar-nav navbar-social pull-right">
+                <li><a href="/stylenook/" class="nav-icon icon-stylenook" title="StyleNook - Explore unique hairstyles. Get inspired. Find your look. Share your style."></a></li>
+								<li><a href="/curltalk/" class="nav-social-link">CurlTalk</a></li>
+								<li>
+									<div class="social">
+										<a href="http://www.facebook.com/naturallycurly?ref=search" target="_blank" title="Facebook" class="icon-facebook icon-large img-circle"></a>
+										<a href="http://www.twitter.com/NaturallyCurly" target="_blank" title="Twitter" class="icon-twitter icon-large img-circle"></a>
+										<a href="http://instagram.com/naturallycurly" target="_blank" title="Instagram" class="icon-instagram icon-large img-circle"></a>
+										<a href="https://plus.google.com/104730723846070393071" target="_blank" title="Google+" class="icon-google-plus icon-large img-circle" rel="publisher"></a>
+										<a href="http://pinterest.com/naturallycurly/" target="_blank" title="Pinterest" class="icon-pinterest icon-large img-circle"></a>
+										<a href="http://www.youtube.com/naturallycurlydotcom" target="_blank" title="YouTube" class="icon-youtube icon-large img-circle"></a>
+										<a href="#newsletter" title="Email Us" class="icon-envelope icon-large img-circle"></a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="row navbar-collapse navbar-sub-container">
+												<div class="visible-xs">
+							<div class="row tc navbar navbar-inverse">
+								<div class="col-xs-6 navbar-highlight"><a href="javascript:;" data-toggle="collapse" data-target=".navbar-sub-login">Sign In <i class="caret"></i></a></div>
+								<div class="col-xs-6 navbar-highlight"><a href="/user/register">Register</a></div>
+							</div>
+							<div class="row navbar-collapse navbar-sub-login">
+																	<form class="form-horizontal" role="form" action="/login" method="post">
+										<input type="hidden" value="1" name="yform_signin" id="yform_signin">
+										<div class="form-group tc hidden-xs">
+											<a href="/site/fbLogin">Login With Facebook</a>
+										</div>
+										<div class="form-group">
+											<label for="inputEmail1" class="col-md-4 control-label hidden-xs">Username</label>
+											<div class="col-md-8">
+												<input type="text" class="form-control input-sm" name="LoginForm[username]" placeholder="Username">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="inputPassword1" class="col-md-4 control-label hidden-xs">Password</label>
+											<div class="col-md-8">
+												<input type="password" class="form-control input-sm" name="LoginForm[password]" placeholder="Password">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-3 col-xs-4 col-offset-xs-4">
+												<button data-role="none" class="btn btn-primary input-sm" name="login" id="login">Sign In</button>
+											</div>
+											<div class="col-md-9 hidden-xs">
+												<a href="/auth/reset_pw" class="pull-right">Forgot your password?</a>
+											</div>
+										</div>
+									</form>							</div>
+						</div>
+												<div class="col-md-offset-0 col-md-4 col-sm-offset-1 col-sm-5 pull-right">
+							
+							<form id="siteSearchForm" action="/search_results" method="GET" data-default-action="/search_results" data-default-method="GET" data-default-placeholder="Search NaturallyCurly" data-default-search-input-name="q" site-search>
+																<div class="input-group input-search">
+									<input type="text" class="form-control input-sm" name="q" placeholder="Search NaturallyCurly" />
+									<span class="input-group-btn">
+																				<button class="btn btn-primary input-sm" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+									</span>
+								</div>
+							</form>						</div>
+						<nav class="col-md-8 col-sm-6" role="navigation">
+							<ul class="nav navbar-nav navbar-sub" id="yw1">
+<li><a href="/curlreading/">Articles</a></li>
+<li><a href="/texture-typing">HairTypes</a></li>
+<li><a href="/curlproducts/search/">Products</a></li>
+<li><a href="/curlsalons/">Salons</a></li>
+<li><a href="/recipes/">Recipes</a></li>
+<li><a href="/curly-hairstyles-pictures/index/">Photos</a></li>
+<li><a href="/giveaways/">Giveaways</a></li>
+<li class="visible-xs"><a href="/curltalk/">CurlTalk</a></li>
+<li class="visible-xs"><a href="/stylenook/"><span class="menu-new">New</span>StyleNook</a></li>
+</ul>						</nav>
+					</div>
+				</div>
+			</header>			<div class="main">
+				 
+				<section class="highlight">
+                    <div class="section-anchor" id="section-highlight"></div>
+					<div id="highlight-mod" class="carousel slide" data-interval="5000" data-ride="carousel">
+						<ol class="carousel-indicators">
+														<li data-target="#highlight-mod" data-slide-to="0" class="active"></li>
+														<li data-target="#highlight-mod" data-slide-to="1" class=""></li>
+														<li data-target="#highlight-mod" data-slide-to="2" class=""></li>
+														<li data-target="#highlight-mod" data-slide-to="3" class=""></li>
+														<li data-target="#highlight-mod" data-slide-to="4" class=""></li>
+													</ol>
+						<div class="carousel-inner">
+														<div class="item active">
+								<a href="http://www.naturallycurly.com/curlreading/kinky-hair-type-4a/3-ways-to-wrap-your-hair-while-you-sleep/?utm_source=naturallycurly&utm_medium=bighighlight&utm_campaign=february "><img src="http://static.naturallycurly.com/homepage/highlights/2015/02/3-ways-to-wrap-your-hair-while-sleeping.jpg" alt="3 WAYS TO WRAP YOUR HAIR WHILE YOU SLEEP"/></a>
+																<a href="http://www.naturallycurly.com/curlreading/kinky-hair-type-4a/3-ways-to-wrap-your-hair-while-you-sleep/?utm_source=naturallycurly&utm_medium=bighighlight&utm_campaign=february "><div class="carousel-caption">
+									<h3>3 WAYS TO WRAP YOUR HAIR WHILE YOU SLEEP</h3>
+																		<p>Wake up without flat hat hair.</p>
+																	</div></a>
+															</div>							<div class="item ">
+								<a href="http://www.naturallycurly.com/curlreading/kinky-hair-type-4a/6-reasons-to-not-buy-that-hair-product/?utm_source=naturallycurly&utm_medium=bighighlight&utm_campaign=february "><img src="http://static.naturallycurly.com/homepage/highlights/2015/02/6-reasons-not-to-buy-that-product-2.jpg" alt="6 REASONS TO NOT BUY THAT HAIR PRODUCT"/></a>
+																<a href="http://www.naturallycurly.com/curlreading/kinky-hair-type-4a/6-reasons-to-not-buy-that-hair-product/?utm_source=naturallycurly&utm_medium=bighighlight&utm_campaign=february "><div class="carousel-caption">
+									<h3>6 REASONS TO NOT BUY THAT HAIR PRODUCT</h3>
+																		<p>You should be using only the best on your hair.</p>
+																	</div></a>
+															</div>							<div class="item ">
+								<a href="http://www.naturallycurly.com/curlreading/kinky-hair-type-4a/5-ways-to-use-aloe-vera-gel/?utm_source=naturallycurly&utm_medium=bighighlight&utm_campaign=february "><img src="http://static.naturallycurly.com/homepage/highlights/2015/02/5-ways-to-use-aloe-vera-gel.jpg" alt="5 WAYS TO USE ALOE VERA GEL"/></a>
+																<a href="http://www.naturallycurly.com/curlreading/kinky-hair-type-4a/5-ways-to-use-aloe-vera-gel/?utm_source=naturallycurly&utm_medium=bighighlight&utm_campaign=february "><div class="carousel-caption">
+									<h3>5 WAYS TO USE ALOE VERA GEL</h3>
+																		<p>How do our curls love aloe vera gel? Let us count the ways!</p>
+																	</div></a>
+															</div>							<div class="item ">
+								<a href="http://www.naturallycurly.com/curlreading/wavy-hair-type-2/how-to-use-a-diffuser/?utm_source=naturallycurly&utm_medium=bighighlight&utm_campaign=february "><img src="http://static.naturallycurly.com/homepage/highlights/2015/02/12-quick-tips-to-use-a-diffuser.jpg" alt="12 QUICK TIPS TO USE A DIFFUSER"/></a>
+																<a href="http://www.naturallycurly.com/curlreading/wavy-hair-type-2/how-to-use-a-diffuser/?utm_source=naturallycurly&utm_medium=bighighlight&utm_campaign=february "><div class="carousel-caption">
+									<h3>12 QUICK TIPS TO USE A DIFFUSER</h3>
+																		<p>Tips and tricks on how to use a hair diffuser for curly hair.</p>
+																	</div></a>
+															</div>							<div class="item ">
+								<a href="http://www.naturallycurly.com/giveaways/NaturallyCurly-28-Day-Love-Fest-Giveaway?utm_source=naturallycurly&utm_medium=bighighlight&utm_campaign=february "><img src="http://static.naturallycurly.com/homepage/highlights/2015/02/February-Giveaway-nc-highlight.jpg" alt=""/></a>
+															</div>						</div>
+					</div>
+					<div class="row featurette hidden-xs">
+						<div class="col-md-8 col-sm-6">
+							<p class="lead">
+								Are you a first time visitor, hopeless product junkie, or a seasoned hair enthusiast? Whoever you are, we encourage you to explore, contribute, and shop.
+								<small>The NaturallyCurly Team</smalL>
+							</p>
+						</div>
+						<div class="col-md-4 col-sm-6 tr hidden-xs"><div id="div-gpt-ad-1" data-ad-slot="googletag" style="width: 300px; height: 250px; margin-left:auto; margin-right:auto;"></div></div>
+					</div>
+				</section>
+				<section class="learn">
+                    <div class="section-anchor" id="section-learn"></div>
+					<h2 class="">
+						<a href="/learn/">Explore</a>
+					</h2>
+										<div class="row">
+                        						                            						<article class="col-sm-4">
+							<figure>
+								<div class="social">
+									<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fkinky-hair-type-4a%2Fworld-of-curls-curlyellabella-from-london%2F&amp;t=World+of+Curls%3A+CurlyEllaBella+From+London" class="icon-facebook icon-large img-circle"></a>
+									<a href="http://twitter.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fkinky-hair-type-4a%2Fworld-of-curls-curlyellabella-from-london%2F&amp;text=World+of+Curls%3A+CurlyEllaBella+From+London" class="icon-twitter icon-large img-circle"></a>
+									<a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fkinky-hair-type-4a%2Fworld-of-curls-curlyellabella-from-london%2F" class="icon-google-plus icon-large img-circle"></a>
+									<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fkinky-hair-type-4a%2Fworld-of-curls-curlyellabella-from-london%2F&amp;media=http://static.naturallycurly.com/wp-content/uploads/2015/02/380x260-2-curlyellabella-.png&amp;description=World+of+Curls%3A+CurlyEllaBella+From+London" class="icon-pinterest icon-large img-circle"></a>
+									<a href="/curlreading/kinky-hair-type-4a/world-of-curls-curlyellabella-from-london/#comments" class="icon-comments icon-large img-circle"></a>
+								</div>
+								<a href="/curlreading/kinky-hair-type-4a/world-of-curls-curlyellabella-from-london/"><img alt="World of Curls: CurlyEllaBella From London" src="http://static.naturallycurly.com/wp-content/uploads/2015/02/380x260-2-curlyellabella-.png" /></a>
+							</figure>
+							<div class="content">
+								<a href="/curlreading/kinky-hair-type-4a/world-of-curls-curlyellabella-from-london/" class="item-title">World of Curls: CurlyEllaBella From London</a>
+								<p>I always tie my hair into a pineapple on the top of my head and I wrap a satin scarf around it. I also have a satin pillow case just in case that satin scarf comes off during the night.</p>
+															</div>
+						</article>
+                            						                            						<article class="col-sm-4">
+							<figure>
+								<div class="social">
+									<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F5-things-i-dont-have-time-for%2F&amp;t=5+Things+I+Don%27t+Have+Time+For..." class="icon-facebook icon-large img-circle"></a>
+									<a href="http://twitter.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F5-things-i-dont-have-time-for%2F&amp;text=5+Things+I+Don%27t+Have+Time+For..." class="icon-twitter icon-large img-circle"></a>
+									<a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F5-things-i-dont-have-time-for%2F" class="icon-google-plus icon-large img-circle"></a>
+									<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F5-things-i-dont-have-time-for%2F&amp;media=http://static.naturallycurly.com/wp-content/uploads/2015/02/Embarrassing-380x260.jpg&amp;description=5+Things+I+Don%27t+Have+Time+For..." class="icon-pinterest icon-large img-circle"></a>
+									<a href="/curlreading/home/5-things-i-dont-have-time-for/#comments" class="icon-comments icon-large img-circle"></a>
+								</div>
+								<a href="/curlreading/home/5-things-i-dont-have-time-for/"><img alt="5 Things I Don&#039;t Have Time For..." src="http://static.naturallycurly.com/wp-content/uploads/2015/02/Embarrassing-380x260.jpg" /></a>
+							</figure>
+							<div class="content">
+								<a href="/curlreading/home/5-things-i-dont-have-time-for/" class="item-title">5 Things I Don't Have Time For...</a>
+								<p>You detangle for how long?</p>
+															</div>
+						</article>
+                            						                            						<article class="col-sm-4">
+							<figure>
+								<div class="social">
+									<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fdoes-anyone-diy-anymore%2F&amp;t=Does+Anyone+DIY+Anymore%3F" class="icon-facebook icon-large img-circle"></a>
+									<a href="http://twitter.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fdoes-anyone-diy-anymore%2F&amp;text=Does+Anyone+DIY+Anymore%3F" class="icon-twitter icon-large img-circle"></a>
+									<a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fdoes-anyone-diy-anymore%2F" class="icon-google-plus icon-large img-circle"></a>
+									<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fdoes-anyone-diy-anymore%2F&amp;media=http://static.naturallycurly.com/wp-content/uploads/2014/09/banana-in-bowl-380x260.jpg&amp;description=Does+Anyone+DIY+Anymore%3F" class="icon-pinterest icon-large img-circle"></a>
+									<a href="/curlreading/home/does-anyone-diy-anymore/#comments" class="icon-comments icon-large img-circle"></a>
+								</div>
+								<a href="/curlreading/home/does-anyone-diy-anymore/"><img alt="Does Anyone DIY Anymore?" src="http://static.naturallycurly.com/wp-content/uploads/2014/09/banana-in-bowl-380x260.jpg" /></a>
+							</figure>
+							<div class="content">
+								<a href="/curlreading/home/does-anyone-diy-anymore/" class="item-title">Does Anyone DIY Anymore?</a>
+								<p>Does anyone still DIY?  Or are all your needs met in the haircare aisle now? </p>
+															</div>
+						</article>
+                            						                                                </div>
+                    <div class="row">						<article class="col-sm-4">
+							<figure>
+								<div class="social">
+									<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fcute-curly-updo-for-short-hair%2F&amp;t=Cute+Curly+Updo+for+Short+Hair" class="icon-facebook icon-large img-circle"></a>
+									<a href="http://twitter.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fcute-curly-updo-for-short-hair%2F&amp;text=Cute+Curly+Updo+for+Short+Hair" class="icon-twitter icon-large img-circle"></a>
+									<a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fcute-curly-updo-for-short-hair%2F" class="icon-google-plus icon-large img-circle"></a>
+									<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fcute-curly-updo-for-short-hair%2F&amp;media=http://static.naturallycurly.com/wp-content/uploads/2015/02/heart-braid-tutorial-380x260.jpg&amp;description=Cute+Curly+Updo+for+Short+Hair" class="icon-pinterest icon-large img-circle"></a>
+									<a href="/curlreading/home/cute-curly-updo-for-short-hair/#comments" class="icon-comments icon-large img-circle"></a>
+								</div>
+								<a href="/curlreading/home/cute-curly-updo-for-short-hair/"><img alt="Cute Curly Updo for Short Hair" src="http://static.naturallycurly.com/wp-content/uploads/2015/02/heart-braid-tutorial-380x260.jpg" /></a>
+							</figure>
+							<div class="content">
+								<a href="/curlreading/home/cute-curly-updo-for-short-hair/" class="item-title">Cute Curly Updo for Short Hair</a>
+								<p>Looking for a professional hairstyle? Try this easy heart braid style for your work week.</p>
+															</div>
+						</article>
+                            						                            						<article class="col-sm-4">
+							<figure>
+								<div class="social">
+									<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F4-diffuser-tricks-every-curly-should-know%2F&amp;t=4+Diffuser+Tricks+Every+Curly+Should+Know" class="icon-facebook icon-large img-circle"></a>
+									<a href="http://twitter.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F4-diffuser-tricks-every-curly-should-know%2F&amp;text=4+Diffuser+Tricks+Every+Curly+Should+Know" class="icon-twitter icon-large img-circle"></a>
+									<a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F4-diffuser-tricks-every-curly-should-know%2F" class="icon-google-plus icon-large img-circle"></a>
+									<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F4-diffuser-tricks-every-curly-should-know%2F&amp;media=http://static.naturallycurly.com/wp-content/uploads/2015/02/diffusing-natural-hair-hacked380x260.jpg&amp;description=4+Diffuser+Tricks+Every+Curly+Should+Know" class="icon-pinterest icon-large img-circle"></a>
+									<a href="/curlreading/home/4-diffuser-tricks-every-curly-should-know/#comments" class="icon-comments icon-large img-circle"></a>
+								</div>
+								<a href="/curlreading/home/4-diffuser-tricks-every-curly-should-know/"><img alt="4 Diffuser Tricks Every Curly Should Know" src="http://static.naturallycurly.com/wp-content/uploads/2015/02/diffusing-natural-hair-hacked380x260.jpg" /></a>
+							</figure>
+							<div class="content">
+								<a href="/curlreading/home/4-diffuser-tricks-every-curly-should-know/" class="item-title">4 Diffuser Tricks Every Curly Should Know</a>
+								<p>There's a common misconception because you use a diffuser, your frizz problems will disappear. Not true.</p>
+															</div>
+						</article>
+                            						                            						<article class="col-sm-4">
+							<figure>
+								<div class="social">
+									<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fare-your-eyeglasses-ruining-your-edges%2F&amp;t=Are+Your+Eyeglasses+Ruining+Your+Edges%3F" class="icon-facebook icon-large img-circle"></a>
+									<a href="http://twitter.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fare-your-eyeglasses-ruining-your-edges%2F&amp;text=Are+Your+Eyeglasses+Ruining+Your+Edges%3F" class="icon-twitter icon-large img-circle"></a>
+									<a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fare-your-eyeglasses-ruining-your-edges%2F" class="icon-google-plus icon-large img-circle"></a>
+									<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2Fare-your-eyeglasses-ruining-your-edges%2F&amp;media=http://static.naturallycurly.com/wp-content/uploads/2015/02/back-of-devris-glasses-1-380x260.jpg&amp;description=Are+Your+Eyeglasses+Ruining+Your+Edges%3F" class="icon-pinterest icon-large img-circle"></a>
+									<a href="/curlreading/home/are-your-eyeglasses-ruining-your-edges/#comments" class="icon-comments icon-large img-circle"></a>
+								</div>
+								<a href="/curlreading/home/are-your-eyeglasses-ruining-your-edges/"><img alt="Are Your Eyeglasses Ruining Your Edges?" src="http://static.naturallycurly.com/wp-content/uploads/2015/02/back-of-devris-glasses-1-380x260.jpg" /></a>
+							</figure>
+							<div class="content">
+								<a href="/curlreading/home/are-your-eyeglasses-ruining-your-edges/" class="item-title">Are Your Eyeglasses Ruining Your Edges?</a>
+								<p>Next time you shop for eyeglasses, keep in mind the metal and the tightness of the frame--if you want to keep your edges. </p>
+															</div>
+						</article>
+                            						                                                </div>
+                    <div class="row">						<article class="col-sm-4">
+							<figure>
+								<div class="social">
+									<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fcurlykids%2Fhow-to-deal-with-mommy-i-want-elsa-hair%2F&amp;t=How+to+Deal+with+%22Mommy%2C+I+want+Elsa+Hair%22" class="icon-facebook icon-large img-circle"></a>
+									<a href="http://twitter.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fcurlykids%2Fhow-to-deal-with-mommy-i-want-elsa-hair%2F&amp;text=How+to+Deal+with+%22Mommy%2C+I+want+Elsa+Hair%22" class="icon-twitter icon-large img-circle"></a>
+									<a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fcurlykids%2Fhow-to-deal-with-mommy-i-want-elsa-hair%2F" class="icon-google-plus icon-large img-circle"></a>
+									<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fcurlykids%2Fhow-to-deal-with-mommy-i-want-elsa-hair%2F&amp;media=http://static.naturallycurly.com/wp-content/uploads/2015/02/curlynikki-gia-braid-hair-380x260.jpg&amp;description=How+to+Deal+with+%22Mommy%2C+I+want+Elsa+Hair%22" class="icon-pinterest icon-large img-circle"></a>
+									<a href="/curlreading/curlykids/how-to-deal-with-mommy-i-want-elsa-hair/#comments" class="icon-comments icon-large img-circle"></a>
+								</div>
+								<a href="/curlreading/curlykids/how-to-deal-with-mommy-i-want-elsa-hair/"><img alt="How to Deal with &quot;Mommy, I want Elsa Hair&quot;" src="http://static.naturallycurly.com/wp-content/uploads/2015/02/curlynikki-gia-braid-hair-380x260.jpg" /></a>
+							</figure>
+							<div class="content">
+								<a href="/curlreading/curlykids/how-to-deal-with-mommy-i-want-elsa-hair/" class="item-title">How to Deal with "Mommy, I want Elsa Hair"</a>
+								<p>CurlyNikki says "your hair is actually way doper it's the ultimate princess hair."</p>
+															</div>
+						</article>
+                            						                            						<article class="col-sm-4">
+							<figure>
+								<div class="social">
+									<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fwavy-hair-type-2%2Fhow-the-tangle-teezer-the-denman-the-wet-brush-work-on-curly-hair%2F&amp;t=How+the+Tangle+Teezer%2C+the+Denman+%26+the+Wet+Brush+Work+on+Curly+Hair" class="icon-facebook icon-large img-circle"></a>
+									<a href="http://twitter.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fwavy-hair-type-2%2Fhow-the-tangle-teezer-the-denman-the-wet-brush-work-on-curly-hair%2F&amp;text=How+the+Tangle+Teezer%2C+the+Denman+%26+the+Wet+Brush+Work+on+Curly+Hair" class="icon-twitter icon-large img-circle"></a>
+									<a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fwavy-hair-type-2%2Fhow-the-tangle-teezer-the-denman-the-wet-brush-work-on-curly-hair%2F" class="icon-google-plus icon-large img-circle"></a>
+									<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fwavy-hair-type-2%2Fhow-the-tangle-teezer-the-denman-the-wet-brush-work-on-curly-hair%2F&amp;media=http://static.naturallycurly.com/wp-content/uploads/2015/02/380x260-denman-review-.png&amp;description=How+the+Tangle+Teezer%2C+the+Denman+%26+the+Wet+Brush+Work+on+Curly+Hair" class="icon-pinterest icon-large img-circle"></a>
+									<a href="/curlreading/wavy-hair-type-2/how-the-tangle-teezer-the-denman-the-wet-brush-work-on-curly-hair/#comments" class="icon-comments icon-large img-circle"></a>
+								</div>
+								<a href="/curlreading/wavy-hair-type-2/how-the-tangle-teezer-the-denman-the-wet-brush-work-on-curly-hair/"><img alt="How the Tangle Teezer, the Denman &amp; the Wet Brush Work on Curly Hair" src="http://static.naturallycurly.com/wp-content/uploads/2015/02/380x260-denman-review-.png" /></a>
+							</figure>
+							<div class="content">
+								<a href="/curlreading/wavy-hair-type-2/how-the-tangle-teezer-the-denman-the-wet-brush-work-on-curly-hair/" class="item-title">How the Tangle Teezer, the Denman & the Wet Brush Work on Curly Hair</a>
+								<p>Not sure if a detangling brush is for you? Here are a few videos you may want to watch  before you shop.</p>
+															</div>
+						</article>
+                            						                            						<article class="col-sm-4">
+							<figure>
+								<div class="social">
+									<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F5-easy-shower-hacks-to-help-you-lose-less-hair%2F&amp;t=5+Easy+Shower+Hacks+to+Help+You+Lose+Less+Hair+" class="icon-facebook icon-large img-circle"></a>
+									<a href="http://twitter.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F5-easy-shower-hacks-to-help-you-lose-less-hair%2F&amp;text=5+Easy+Shower+Hacks+to+Help+You+Lose+Less+Hair+" class="icon-twitter icon-large img-circle"></a>
+									<a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F5-easy-shower-hacks-to-help-you-lose-less-hair%2F" class="icon-google-plus icon-large img-circle"></a>
+									<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.naturallycurly.com%2Fcurlreading%2Fhome%2F5-easy-shower-hacks-to-help-you-lose-less-hair%2F&amp;media=http://static.naturallycurly.com/wp-content/uploads/2015/02/Loss-shower-380x260.jpg&amp;description=5+Easy+Shower+Hacks+to+Help+You+Lose+Less+Hair+" class="icon-pinterest icon-large img-circle"></a>
+									<a href="/curlreading/home/5-easy-shower-hacks-to-help-you-lose-less-hair/#comments" class="icon-comments icon-large img-circle"></a>
+								</div>
+								<a href="/curlreading/home/5-easy-shower-hacks-to-help-you-lose-less-hair/"><img alt="5 Easy Shower Hacks to Help You Lose Less Hair " src="http://static.naturallycurly.com/wp-content/uploads/2015/02/Loss-shower-380x260.jpg" /></a>
+							</figure>
+							<div class="content">
+								<a href="/curlreading/home/5-easy-shower-hacks-to-help-you-lose-less-hair/" class="item-title">5 Easy Shower Hacks to Help You Lose Less Hair </a>
+								<p>Most breakage happens on wash day. Here's how to stop it.</p>
+															</div>
+						</article>
+                            											</div>
+									</section>
+				<section class="watch">
+                    <div class="section-anchor" id="section-watch"></div>
+					<h2 class="">
+						<a href="/videos">Watch</a>
+					</h2>
+	<div class="row">
+						<div class="col-md-6">
+			<figure style="background-image: url('http://img.youtube.com/vi/GQydX4bC9oE/hqdefault.jpg');">
+				<img alt="image" src="http://img.youtube.com/vi/GQydX4bC9oE/hqdefault.jpg" />
+				<div class="play-button img-circle" data-key="GQydX4bC9oE" data-id="nc_video_0"><i class="glyphicon glyphicon-play"></i></div>
+				<div id="nc_video_0"></div>
+			</figure>
+						<a href="javascript:;" data-ghost-click="nc_video_0" class="item-title">How We REALLY Choose The #EditorsChoice Winners</a>
+					</div>
+						<div class="col-md-6">
+			<figure style="background-image: url('http://img.youtube.com/vi/rsiHHHaLO9E/hqdefault.jpg');">
+				<img alt="image" src="http://img.youtube.com/vi/rsiHHHaLO9E/hqdefault.jpg" />
+				<div class="play-button img-circle" data-key="rsiHHHaLO9E" data-id="nc_video_1"><i class="glyphicon glyphicon-play"></i></div>
+				<div id="nc_video_1"></div>
+			</figure>
+						<a href="javascript:;" data-ghost-click="nc_video_1" class="item-title">Natural Hair Transformation Ft. Design Essentials Coconut Monoi</a>
+					</div>
+			</div>
+				</section>
+				<section class="ask">
+                    <div class="section-anchor" id="section-ask"></div>
+					<h2 class="">
+						<a href="/questions">Ask</a>
+					</h2>
+					<div class="row">
+												<div class="col-md-5 col-sm-8">
+							<p class="question">
+								<strong>Losing curl???</strong>
+																<br />
+								<span>September of last year,2014, I went to Italy and stayed for three months. While there my hair lost a lot of curl! I also...</span>
+																<small>Shortlocks</small>
+							</p>
+							<div class="tc">
+								<a href="http://www.naturallycurly.com/questions/second-day-hair/losing-curl-5213/" class="cta-link">View answer</a>
+							</div>
+						</div>
+												<div class="col-sm-4 col-md-2">
+							<div class="tc">
+								<a href="/questions" class="item-title">
+									<img alt="Ask our community your questions!" src="http://static.naturallycurly.com/homepage/QandA-Logo.png" class="img-circle" /><br />
+								Ask our community your questions!</a>
+							</div>
+						</div>
+																		<div class="col-md-5 col-sm-6 visible-xs visible-md visible-lg">
+							<p class="question">
+								<strong>my hair has got white litte balls (mid-hair to the end), what is it and how to make them leave ? :'(</strong>
+																<small>mimouille</small>
+							</p>
+							<div class="tc">
+								<a href="http://www.naturallycurly.com/questions/hair-care/hair-got-white-litte-balls-midhair-end-make-leave--5209/" class="cta-link">View answer</a>
+							</div>
+						</div>
+																	</div>
+				</section>
+				<section class="shop">
+                    <div class="section-anchor" id="section-shop"></div>
+					<h2 class="">
+						<a href="/curlproducts/search">Shop</a>
+					</h2>
+					<div class="row">
+						<div class="col-lg-6 col-md-7">
+														<div class="row">
+								<div class="col-sm-11 col-sm-offset-1 first-product">
+									<div class="row product">
+										<div class="col-xs-4 tc">
+											<a href="http://www.naturallycurly.com/curlproducts/view/10823/curly-hair-solutions-curl-keeper-styling-cream-8-oz/"><img alt="Curly Hair Solutions Curl Keeper Styling Cream" src="http://www.naturallycurly.com/images/products/2014/09/08/phpP2ZlA51410238682.jpg" class="img-rounded" /></a>
+										</div>
+										<div class="col-xs-8">
+											<a href="http://www.naturallycurly.com/curlproducts/view/10823/curly-hair-solutions-curl-keeper-styling-cream-8-oz/" class="item-title">Curly Hair Solutions Curl Keeper Styling Cream</a>
+											<p>Curl Keeper Styling Cream allows easy manipulation of curls into a looser, well defined, frizz-free curl with ultimate softness and a clean shine....</p>
+											<div class="rating">5 out<br />of 5</div>
+											<a href="http://www.naturallycurly.com/curlproducts/view/10823/curly-hair-solutions-curl-keeper-styling-cream-8-oz/" class="cta-link">More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+														<div class="row">
+								<div class="col-sm-11 col-sm-offset-1 ">
+									<div class="row product">
+										<div class="col-xs-4 tc">
+											<a href="http://www.naturallycurly.com/curlproducts/view/3295/eden-body-works-peppermint-tea-tree-shampoo/"><img alt="Eden BodyWorks Peppermint Tea Tree Shampoo" src="http://www.naturallycurly.com/images/products/2014/02/11/phpGynJZ01392148593.jpg" class="img-rounded" /></a>
+										</div>
+										<div class="col-xs-8">
+											<a href="http://www.naturallycurly.com/curlproducts/view/3295/eden-body-works-peppermint-tea-tree-shampoo/" class="item-title">Eden BodyWorks Peppermint Tea Tree Shampoo</a>
+											<p>Eden Body Works Peppermint and Tea Tree All Natural Shampoo is an invigorating shampoo that increases scalp circulation for a refreshed, renewed...</p>
+											<div class="rating">3 out<br />of 5</div>
+											<a href="http://www.naturallycurly.com/curlproducts/view/3295/eden-body-works-peppermint-tea-tree-shampoo/" class="cta-link">More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+													</div>
+						<div class="col-lg-6 col-md-5 shop-promo">			
+							<div id="div-gpt-ad-2" data-ad-slot="googletag" class="dfp-ad "></div>						</div>
+					</div>
+				</section>
+				<section class="tools">
+                    <div class="section-anchor" id="section-tools"></div>
+					<h2 class="">
+						<span>Tools</span>
+					</h2>
+					<div class="row">
+						<div class="col-xs-6 col-sm-3 tc">
+							<a href="/frizz-forecast/" class="tool-icon"><img alt="image" src="http://texturemedia.s3.amazonaws.com/assets/FrizzForecast-Icon.jpg" class="img-circle"></a>
+							<br>
+							<a href="/frizz-forecast/" class="item-title">Frizz Forecast</a>
+						</div>
+						<div class="col-xs-6 col-sm-3 tc">
+							<a href="http://hairtype.naturallycurly.com/?#quiz" class="tool-icon"><img alt="image" src="http://texturemedia.s3.amazonaws.com/assets/Hairtype-Quiz-Icon.jpg" class="img-circle"></a>
+							<br>
+							<a href="http://hairtype.naturallycurly.com/?#quiz" class="item-title">Hairtype Quiz</a>
+						</div>
+						<div class="col-xs-6 col-sm-3 clearleft-xs tc">
+							<a href="/stylenook/" class="tool-icon"><img alt="image" src="http://texturemedia.s3.amazonaws.com/assets/StyleNook-Icon.jpg" class="img-circle"></a>
+							<br>
+							<a href="/stylenook/" class="item-title">StyleNook</a>
+						</div>
+						<div class="col-xs-6 col-sm-3 tc">
+							<a href="/curltalk/" class="tool-icon"><img alt="image" src="http://texturemedia.s3.amazonaws.com/assets/CurlTalk-Icon.jpg" class="img-circle"></a>
+							<br>
+							<a href="/curltalk/" class="item-title">Curltalk</a>
+						</div>
+					</div>
+				</section>				<section class="sponsors">
+					<div class="tc header-padding footer-ad">		
+						<div id="div-gpt-ad-4" data-ad-slot="googletag" class="dfp-ad "></div>					</div>
+				</section>
+			</div>
+			<footer>
+				<div class="row">
+					<div class="col-md-12 email-signup-form clearfix" id="newsletter">
+			<div class="row">
+			<div class="col-sm-6">
+				<p class="tc clearfix">Stay in the know with our newsletters! It’s full of care tips, new products, the latest stories, contests and select product promotions.</p>
+			</div>
+			<div class="col-sm-6">
+				<form class="row" method="post" action="#newsletter">
+				    <input type="hidden" name="viewFile" value="main">
+					<div class="col-xs-1 visible-xs"></div>
+					<div class="col-xs-7 col-sm-offset-0 col-sm-8">
+						<input type="text" class="form-control input-lg" placeholder="E-mail address" name="NewsLetterSignUp[email]" />
+					</div>
+					<div class="col-xs-3 col-sm-4 tl">
+													<button type="submit">GO</button>
+											</div>
+				</form>
+							</div>
+		</div>
+		
+</div>				</div>
+				<nav role="navigation">
+					<ul class="list-inline" id="yw2">
+<li><a target="_blank" href="http://www.texturemediainc.com/">About Us</a></li>
+<li><a target="_blank" href="http://www.texturemediainc.com/press/">Press</a></li>
+<li><a target="_blank" href="http://www.texturemediainc.com/contact/">Contact Us</a></li>
+<li><a target="_blank" href="http://www.texturemediainc.com/privacy/">Privacy Policy</a></li>
+<li><a target="_blank" href="http://www.texturemediainc.com/terms-of-use/">Terms of Use</a></li>
+<li><a target="_blank" href="http://www.texturemediainc.com/community-policy/">Community Policy</a></li>
+<li><a target="_blank" href="http://reviewers.naturallycurly.com/">Reviewer Program</a></li>
+</ul>				</nav>
+				<div class="tc">
+					<p>Copyright 1998-2015 by TextureMedia</p>
+                    <p>TextureMedia, Inc.| 6604 North Lamar | Austin, TX | 78752</p>
+				</div>
+			</footer>
+		</div>
+		<div id="mobileCheck" class="visible-xs"></div>
+		<div id="div-gpt-ad-5" data-ad-slot="googletag" style="width: 1px; height: 1px; margin-left:auto; margin-right:auto;"></div>		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+	
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    	<script src="//cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.6/jquery.hammer.min.js"></script>
+
+		 
+			<script src="http://texturemedia.s3.amazonaws.com/build/frontend.0.1.0.20150219050033.min.js"></script>
+		
+		<!-- Quantcast Tag, part 2 -->
+		<script type="text/javascript">
+			_qevents.push( { qacct:"p-15RtFbCTitz22"} );
+		</script>
+		<noscript>
+		<div style="display: none;"><img src="http://pixel.quantserve.com/pixel/p-15RtFbCTitz22.gif" height="1" width="1" alt="Quantcast"/></div>
+		</noscript>
+		<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1067298743;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1067298743/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript> 
+		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+		chromium.org/developers/how-tos/chrome-frame-getting-started -->
+		<!--[if lt IE 7 ]>
+		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+		<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+		<![endif]-->
+		<div id="newsletter-popup" class="modal">
+
+<div id="newsletter-popup-content">
+			<h4>Don't Miss A Thing!</h4>
+		<div class="options">
+			<input type="submit" value="Join Now &raquo;" class="btn btn-primary"/><br />
+			<a class="no-thanks">No Thanks</a>
+		</div>
+		<p>Sign up now and get the scoop on the hottest new hair care tips, styles and products for your curls, coils and waves.</p>
+		<input type="text" class="form-control" placeholder="E-mail address" name="NewsLetterSignUp[email]" />
+		<a href="http://www.texturemediainc.com/privacy" target="_blank">See Our Privacy Policy</a>
+	</div>
+<div id="newsletter-popup-image"></div></div>
+<script>
+
+  
+
+$(function(){
+	
+	var startTime = 0,
+		signUpComplete = false,
+		hasLocalStorage = false,
+		showPopup = true,
+		nlDate,
+		now = new Date(),
+		threeDays,
+		oneYear,
+		$el = $('#newsletter-popup');
+		
+			if (Modernizr.localstorage) {
+			threeDays = new Date();
+			threeDays.setDate(now.getDate() + 3);
+			//check local storage 
+			nlDate = localStorage.getItem("NC_NEWSLETTER");
+			if(nlDate === null) {
+				//no storage item, create one
+				localStorage.setItem("NC_NEWSLETTER", threeDays.getTime());
+			}
+			else {
+				//item was set, check to see if time has elapsed
+				if (now.getTime() > nlDate) {
+				    //The time now is later then date set in storage - so the time has elapsed
+					localStorage.setItem("NC_NEWSLETTER", threeDays.getTime());
+				}
+				else {
+					showPopup = false;
+				}
+			}
+		}
+		else {
+			showPopup = false;
+		}
+		
+	if(showPopup) {
+		// Show the popup
+		setTimeout(function(){
+			startTime = new Date();
+			_gaq.push(['_trackEvent', 'email-popup','display', "time", startTime.getTime()]);
+
+			$el.modal();
+
+		},15000);
+
+		// Close the popup
+		$el.on('click', '.options > a', function(){
+			$el.modal('hide');
+		}).on('keyup', 'input[type="text"]', function(e){
+			if (e.which == 13) {
+				$('#newsletter-popup input[type="submit"]').trigger('click');
+			}
+		}).on('hide.bs.modal', function() {
+			if (!signUpComplete) {
+				var nowTime = new Date();
+				_gaq.push(['_trackEvent', 'email-popup','close', "time", (nowTime.getTime()-startTime.getTime())]);
+			}
+		}).on('click', 'input[type="submit"]', function(){
+			var email = $('#newsletter-popup input[type="text"]').val(),
+				emailRegex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+			if (emailRegex.test(email)) {
+				$(this)
+					.attr('disabled', true);
+
+				$.post('/newsletter/subscribe', { 'NewsLetterSignUp[email]': email }, function(response) {
+					$el
+						.empty()
+						.html(response.html);
+					setTimeout(function(){
+					$el.modal('hide');
+				}, 4000);
+				nowTime = new Date();
+				_gaq.push(['_trackEvent', 'email-popup','sign-up', 'time', (nowTime.getTime()-startTime.getTime())]);
+				signUpComplete=true;
+				oneYear = new Date();
+				oneYear.setDate(now.getDate() + 365);
+				localStorage.setItem("NC_NEWSLETTER", oneYear.getTime());
+			});
+		}
+		});
+	}
+});
+</script>
+			<script type="text/javascript" src="http://texturemedia.s3.amazonaws.com/JWPlayer/jwplayer.js"></script>
+<script type="text/javascript" src="http://texturemedia.s3.amazonaws.com/assets/intro.min.v0.9.0.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+
+        (function($, window){
+            window.intro = introJs()
+                .setOptions({
+                    steps: []
+                });})(jQuery, window);
+jQuery(function($) {
+googletag.cmd.push(function() { googletag.defineUnit('/1038720/ca-pub-0236582854228735/NC_HomePage_TR_300x250', [300,250], 'div-gpt-ad-1').addService(googletag.pubads());
+var map_div_gpt_ad_2=googletag.sizeMapping().addSize([300,250],[300,250]).addSize([728,350],[530,350]).addSize([990,250],[300,250]).addSize([1200,350],[530,350]).build();
+googletag.defineUnit('/1038720/ca-pub-0236582854228735/NC_HP_Shop_Responsive', [530,350], 'div-gpt-ad-2').defineSizeMapping(map_div_gpt_ad_2).addService(googletag.pubads());
+var map_div_gpt_ad_3=googletag.sizeMapping().addSize([320,50],[320,50]).addSize([728,90],[728,90]).addSize([970,90],[[728,90],[970,90]]).build();
+googletag.defineUnit('/1038720/ca-pub-0236582854228735/NC_HP_Header_Responsive', [728,90], 'div-gpt-ad-3').defineSizeMapping(map_div_gpt_ad_3).addService(googletag.pubads());
+var map_div_gpt_ad_4=googletag.sizeMapping().addSize([320,50],[320,50]).addSize([728,90],[728,90]).addSize([970,90],[[728,90],[970,90]]).build();
+googletag.defineUnit('/1038720/ca-pub-0236582854228735/NC_HP_Footer_Responsive', [728,90], 'div-gpt-ad-4').defineSizeMapping(map_div_gpt_ad_4).addService(googletag.pubads());
+googletag.defineUnit('/1038720/ca-pub-0236582854228735/NC_Homepage_Takeover_1x1', [1,1], 'div-gpt-ad-5').addService(googletag.pubads());
+var targets = localStorage.getItem("NC_DFP_TARGET");
+			if(targets !== null) {
+				//parse and use the json
+				var json = jQuery.parseJSON(targets);
+				jQuery.each(json, function(key, value) {
+					googletag.pubads().setTargeting(key, value);
+				})
+			}googletag.enableServices();
+			$('[data-ad-slot]:hidden').each(function() {
+				$(this).attr('id', $(this).attr('id') + '_notused');
+			});
+			$('[data-ad-slot]:visible').each(function() {
+				googletag.display($(this).attr('id'));
+			}); });
+});
+/*]]>*/
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-4.newrelic.com","licenseKey":"3bee44286e","applicationID":"2019407","transactionName":"MwcEYUYFDUEHUURaVwpNJ1ZADQxcSWFZR10nDQhBRgsPXgNAH1pWAAce","queueTime":0,"applicationTime":279,"ttGuid":"","agentToken":"","atts":"H0AHFw4fHk8=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-515.min.js"}</script></body>
+</html>
+";i:2;s:4:"2315";}

@@ -1,0 +1,810 @@
+a:3:{i:0;s:21:"http://pressjack.com/";i:1;s:72573:"<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<!-- META-DATA -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwEBWFFbGwoDVVNRBwE="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(5),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e;try{throw new Error}catch(u){"stack"in u&&(t(3),t(4),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:6,4:5,5:20,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:20,2:21,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:21,2:20,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:21,2:20,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:21,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],10:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","trackUserAction","finished","traceEvent","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:19,2:20,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=(t(2),window),u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-536.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:19,2:10,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],19:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],20:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],21:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:20,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+<meta http-equiv="cleartype" content="on">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- APPLE TOUCH ICONS -->
+<link rel="apple-touch-icon" sizes="57x57" href="https://static-cdn2.3dissue.com/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://static-cdn1.3dissue.com/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://static-cdn1.3dissue.com/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://static-cdn2.3dissue.com/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://static-cdn2.3dissue.com/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://static-cdn1.3dissue.com/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://static-cdn1.3dissue.com/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://static-cdn2.3dissue.com/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://static-cdn1.3dissue.com/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="https://static-cdn2.3dissue.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://static-cdn2.3dissue.com/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="https://static-cdn1.3dissue.com/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://static-cdn1.3dissue.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://static-cdn2.3dissue.com/android-chrome-manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://static-cdn2.3dissue.com/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title="3D Issue Blog Feed" href="https://www.3dissue.com/feed/"/>
+<script type="text/javascript">var ajaxurl = 'https://www.3dissue.com/wp-admin/admin-ajax.php';var _PAGEID = 29305</script>
+<script type="text/javascript" src="https://static-cdn2.3dissue.com/wp-content/themes/ktwosix/js/global-javascript-min.js"></script>
+<script type="text/javascript" src="/wp-content/themes/ktwosix/scripts/docHead.php"></script>
+<title>Hubs - Content Curation & Aggregation Made Easy! | 3D Issue</title>
+<script pagespeed_no_defer>(function(){var d=window,e=document,f="getItem",n="localStorage",q="indexOf",t="length",u="prototype",v="substring",w=function(b){var a=d;if(a.addEventListener)a.addEventListener("load",b,!1);else if(a.attachEvent)a.attachEvent("onload",b);else{var c=a.onload;a.onload=function(){b.call(this);c&&c.call(this)}}};d.pagespeed=d.pagespeed||{};var x=d.pagespeed,y=function(){this.a=!0};y[u].c=function(b){b=parseInt(b[v](0,b[q](" ")),10);return!isNaN(b)&&b<=Date.now()};y[u].hasExpired=y[u].c;y[u].b=function(b){return b[v](b[q](" ",b[q](" ")+1)+1)};y[u].getData=y[u].b;y[u].d=function(b){var a=e.getElementsByTagName("script"),a=a[a[t]-1];a.parentNode.replaceChild(b,a)};y[u].replaceLastScript=y[u].d;
+y[u].e=function(b){var a=d[n][f]("pagespeed_lsc_url:"+b),c=e.createElement(a?"style":"link");a&&!this.c(a)?(c.type="text/css",c.appendChild(e.createTextNode(this.b(a)))):(c.rel="stylesheet",c.href=b,this.a=!0);this.d(c)};y[u].inlineCss=y[u].e;
+y[u].f=function(b,a){var c=d[n][f]("pagespeed_lsc_url:"+b+" pagespeed_lsc_hash:"+a),h=e.createElement("img");c&&!this.c(c)?h.src=this.b(c):(h.src=b,this.a=!0);for(var c=2,m=arguments[t];c<m;++c){var k=arguments[c][q]("=");h.setAttribute(arguments[c][v](0,k),arguments[c][v](k+1))}this.d(h)};y[u].inlineImg=y[u].f;
+var z=function(b,a,c,h){a=e.getElementsByTagName(a);for(var m=0,k=a[t];m<k;++m){var g=a[m],r=g.getAttribute("pagespeed_lsc_hash"),l=g.getAttribute("pagespeed_lsc_url");if(r&&l){l="pagespeed_lsc_url:"+l;c&&(l+=" pagespeed_lsc_hash:"+r);var p=g.getAttribute("pagespeed_lsc_expiry"),p=p?(new Date(p)).getTime():"",g=h(g);if(!g){var s=d[n][f](l);s&&(g=b.b(s))}g&&(d[n].setItem(l,p+" "+r+" "+g),b.a=!0)}}},A=function(b){z(b,"img",!0,function(a){return a.src});z(b,"style",!1,function(a){return a.firstChild?
+a.firstChild.nodeValue:null})};
+x.g=function(){if(d[n]){var b=new y;x.localStorageCache=b;w(function(){A(b)});w(function(){if(b.a){for(var a=[],c=[],h=0,m=Date.now(),k=0,g=d[n][t];k<g;++k){var r=d[n].key(k);if(!r[q]("pagespeed_lsc_url:")){var l=d[n][f](r),p=l[q](" "),s=parseInt(l[v](0,p),10);if(!isNaN(s))if(s<=m){a.push(r);continue}else if(s<h||0==h)h=s;c.push(l[v](p+1,l[q](" ",p+1)))}}m="";h&&(m="; expires="+(new Date(h)).toUTCString());e.cookie="_GPSLSC="+c.join("!")+m;k=0;for(g=a[t];k<g;++k)d[n].removeItem(a[k]);b.a=!1}})}};
+x.localStorageCacheInit=x.g;})();
+pagespeed.localStorageCacheInit();</script><link rel="stylesheet" href="//www.3dissue.com/wp-content/plugins/sitepress-multilingual-cms/res/css/A.language-selector.css,qv=2.7.1.pagespeed.cf.KO-AklGLZE.css" type="text/css" media="all"/>
+<!-- Facebook Conversion Code - Trial Downloads -->
+<!-- Facebook Conversions Stop -->
+<!-- Adroll -->
+<script type="text/javascript">
+adroll_adv_id = "CFHVXHQ25BH4VCXZCQKD42";
+adroll_pix_id = "4HMHZYG3KVCFTDB5BB44IX";
+(function () {
+var oldonload = window.onload;
+window.onload = function(){
+   __adroll_loaded=true;
+   var scr = document.createElement("script");
+   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+   scr.setAttribute('async', 'true');
+   scr.type = "text/javascript";
+   scr.src = host + "/j/roundtrip.js";
+   ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+   if(oldonload){oldonload()}};
+}());
+</script>
+<!-- Adroll Stop -->
+<!-- All in One SEO Pack 2.2.5.1 by Michael Torbert of Semper Fi Web Design-->
+<meta name="description" content="3D Issue now allows you to build branded hubs from your marketing content. Get started today for free!"/>
+<!-- /all in one seo pack -->
+<link rel='stylesheet' id='contact-form-7-css' href='https://static-cdn1.3dissue.com/wp-content/plugins/contact-form-7/includes/css/styles.css' type='text/css' media='all'/>
+<link rel='stylesheet' id='bbpress-style-css' href='https://static-cdn2.3dissue.com/wp-content/plugins/bbpress/bbp-themes/bbp-twentyten/css/bbpress.css' type='text/css' media='screen'/>
+<link rel='stylesheet' id='fancybox-css' href='https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/jquery.fancybox-1.3.6.pack.css' type='text/css' media='screen'/>
+<script type='text/javascript' src='https://static-cdn1.3dissue.com/wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='https://static-cdn2.3dissue.com/wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='https://static-cdn2.3dissue.com/wp-content/plugins/sharebar/js/sharebar.js'></script>
+<link rel='shortlink' href='https://www.3dissue.com/?p=29305'/>
+<script type="text/javascript">var icl_lang = 'en';var icl_home = 'https://www.3dissue.com/';</script>
+<script type="text/javascript">function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }  
+}
+addLoadEvent(function(){
+    var lhid = document.createElement('input');
+    lhid.setAttribute('type','hidden');
+    lhid.setAttribute('name','lang');
+    lhid.setAttribute('value',icl_lang);     
+    src = document.getElementById('searchform');   
+    if(src){
+        src.appendChild(lhid);
+        src.action=icl_home; 
+    }
+});
+
+function icl_retry_mtr(a){
+    var id = a.getAttribute('id');
+    spl = id.split('_');
+    var loc = location.href.replace(/#(.*)$/,'').replace(/(&|\?)(retry_mtr)=([0-9]+)/g,'').replace(/&nonce=([0-9a-z]+)(&|$)/g,'');
+    if(-1 == loc.indexOf('?')){
+        url_glue='?';
+    }else{
+        url_glue='&';
+    }    
+    location.href=loc+url_glue+'retry_mtr='+spl[3]+'&nonce='+spl[4];
+    return false;
+}</script>
+<link rel="stylesheet" href="https://static-cdn2.3dissue.com/wp-content/plugins/sharebar/css/sharebar.css" type="text/css" media="screen"/>
+<script type="text/javascript">jQuery(document).ready(function($) { $('.sharebar').sharebar({horizontal:'true',swidth:'80',minwidth:1020,position:'left',leftOffset:50,rightOffset:10}); });</script>
+<!-- Sharebar Plugin by Monjurul Dolon (http://mdolon.com/) - more info at: http://devgrow.com/sharebar-wordpress-plugin -->
+<!-- Facebook Like Thumbnail -->
+<meta property="og:image" content="https://static-cdn2.3dissue.com/wp-content/themes/ktwosix/images/150x150.jpg"/>
+<!-- using default fallback -->
+<!-- Facebook Like Thumbnail (By Ashfame - https://github.com/ashfame/facebook-like-thumbnail) -->
+<link href="https://static-cdn1.3dissue.com/wp-content/themes/ktwosix/style.css" rel="stylesheet" type="text/css"/>
+<!-- Easy FancyBox using FancyBox - RavanH (http://status301.net/wordpress-plugins/easy-fancybox/) -->
+<script type="text/javascript">
+	/* <![CDATA[ */
+	var fb_timeout = null;
+	var fb_opts = { 'overlayShow' : true, 'hideOnOverlayClick' : true, 'showCloseButton' : true, 'centerOnScroll' : true, 'enableEscapeButton' : true, 'autoScale' : true };
+	var easy_fancybox_handler = function(){
+	/* IMG */
+	var fb_IMG_select = 'a[href*=".jpg"]:not(.nofancybox), area[href*=".jpg"]:not(.nofancybox), a[href*=".jpeg"]:not(.nofancybox), area[href*=".jpeg"]:not(.nofancybox), a[href*=".png"]:not(.nofancybox), area[href*=".png"]:not(.nofancybox)';
+	jQuery(fb_IMG_select).addClass('fancybox');
+	var fb_IMG_sections = jQuery('div.gallery');
+	fb_IMG_sections.each(function() { jQuery(this).find(fb_IMG_select).attr('rel', 'gallery-' + fb_IMG_sections.index(this)); });
+	jQuery('a.fancybox, area.fancybox, li.fancybox a:not(li.nofancybox a)').fancybox( jQuery.extend({}, fb_opts, { 'transitionIn' : 'elastic', 'easingIn' : 'easeOutBack', 'transitionOut' : 'elastic', 'easingOut' : 'easeInBack', 'opacity' : false, 'hideOnContentClick' : false, 'titleShow' : true, 'titlePosition' : 'over', 'titleFromAlt' : true, 'showNavArrows' : true, 'enableKeyboardNav' : true, 'cyclic' : false }) );
+	/* YouTube */
+	jQuery('a[href*="youtube.com/watch"]:not(.nofancybox), area[href*="youtube.com/watch"]:not(.nofancybox)').addClass('fancybox-youtube');
+	jQuery('a[href*="youtu.be/"]:not(.nofancybox), area[href*="youtu.be/"]:not(.nofancybox)').addClass('fancybox-youtube');
+	jQuery('a.fancybox-youtube, area.fancybox-youtube, li.fancybox-youtube a:not(li.nofancybox a)').fancybox( jQuery.extend({}, fb_opts, { 'type' : 'iframe', 'width' : 640, 'height' : 360, 'padding' : 10, 'titleShow' : false, 'titlePosition' : 'float', 'titleFromAlt' : true, 'onStart' : function(selectedArray, selectedIndex, selectedOpts) { selectedOpts.href = selectedArray[selectedIndex].href.replace(new RegExp('youtu.be', 'i'), 'www.youtube.com/embed').replace(new RegExp('watch\\?(.*)v=([a-z0-9\_\-]+)(&|\\?)?(.*)', 'i'), 'embed/$2?$1$4') } }) );
+	/* Auto-click */ 
+	jQuery('#fancybox-auto').trigger('click');
+	}
+	/* ]]> */
+	</script>
+<style type="text/css">.fancybox-hidden{display:none}.rtl #fancybox-left{left:auto;right:0px}.rtl #fancybox-right{left:0px;right:auto}.rtl #fancybox-right-ico{background-position:-40px -30px}.rtl #fancybox-left-ico{background-position:-40px -60px}.rtl .fancybox-title-over{text-align:right}.rtl #fancybox-left-ico,.rtl #fancybox-right-ico{right:-9999px}.rtl #fancybox-right:hover span{right:auto;left:20px}.rtl #fancybox-left:hover span{right:20px}#fancybox-img{max-width:none;max-height:none}#fancybox-content{border-color:#fff}</style>
+<!--[if lt IE 8]>            
+		<style type="text/css">
+.fancybox-ie6 #fancybox-close{background:transparent;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_close.png",sizingMethod="scale")}
+.fancybox-ie6 #fancybox-left-ico{background:transparent;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_nav_left.png",sizingMethod="scale")}
+.fancybox-ie6 #fancybox-right-ico{background:transparent;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_nav_right.png",sizingMethod="scale")}
+.fancybox-ie6 #fancybox-title-over{background:transparent;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_title_over.png",sizingMethod="scale");zoom:1}
+.fancybox-ie6 #fancybox-title-float-left{background:transparent;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_title_left.png",sizingMethod="scale")}
+.fancybox-ie6 #fancybox-title-float-main{background:transparent;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_title_main.png",sizingMethod="scale")}
+.fancybox-ie6 #fancybox-title-float-right{background:transparent;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_title_right.png",sizingMethod="scale")}
+.fancybox-ie6 #fancybox-bg-w,.fancybox-ie6 #fancybox-bg-e,.fancybox-ie6 #fancybox-left,.fancybox-ie6 #fancybox-right,#fancybox-hide-sel-frame{height:expression(this.parentNode.clientHeight+"px")}
+#fancybox-loading.fancybox-ie6{position:absolute;margin-top:0;top:expression((-20+(document.documentElement.clientHeight ? document.documentElement.clientHeight/2 : document.body.clientHeight/2)+(ignoreMe=document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+"px")}
+#fancybox-loading.fancybox-ie6 div{background:transparent;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_loading.png", sizingMethod="scale")}
+.fancybox-ie #fancybox-bg-n{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_n.png",sizingMethod="scale")}
+.fancybox-ie #fancybox-bg-ne{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_ne.png",sizingMethod="scale")}
+.fancybox-ie #fancybox-bg-e{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_e.png",sizingMethod="scale")}
+.fancybox-ie #fancybox-bg-se{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_se.png",sizingMethod="scale")}
+.fancybox-ie #fancybox-bg-s{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_s.png",sizingMethod="scale")}
+.fancybox-ie #fancybox-bg-sw{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_sw.png",sizingMethod="scale")}
+.fancybox-ie #fancybox-bg-w{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_w.png",sizingMethod="scale")}
+.fancybox-ie #fancybox-bg-nw{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_nw.png",sizingMethod="scale")}
+		</style>
+	<![endif]-->
+<!--[if IE 8]>            
+		<style type="text/css">
+.fancybox-ie #fancybox-bg-n{-ms-filter:'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_n.png",sizingMethod="scale")'}
+.fancybox-ie #fancybox-bg-ne{-ms-filter:'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_ne.png",sizingMethod="scale")'}
+.fancybox-ie #fancybox-bg-e{-ms-filter:'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_e.png",sizingMethod="scale")'}
+.fancybox-ie #fancybox-bg-se{-ms-filter:'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_se.png",sizingMethod="scale")'}
+.fancybox-ie #fancybox-bg-s{-ms-filter:'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_s.png",sizingMethod="scale")'}
+.fancybox-ie #fancybox-bg-sw{-ms-filter:'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_sw.png",sizingMethod="scale")'}
+.fancybox-ie #fancybox-bg-w{-ms-filter:'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_w.png",sizingMethod="scale")'}
+.fancybox-ie #fancybox-bg-nw{-ms-filter:'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/fancy_shadow_nw.png",sizingMethod="scale")'}
+		</style>
+	<![endif]-->
+</head>
+<body class="page page-id-29305 page-template page-template-template-product-page-php"><noscript><meta HTTP-EQUIV="refresh" content="0;url='http://www.3dissue.com/hubs.html?PageSpeed=noscript'" /><style><!--table,div,span,font,p{display:none} --></style><div style="display:block">Please click <a href="http://www.3dissue.com/hubs.html?PageSpeed=noscript">here</a> if you are not redirected within a few seconds.</div></noscript>
+<!-- START - Google Tag Manager - www.3dissue.com -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PQD4CM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PQD4CM');</script>
+<!-- END - Google Tag Manager - www.3dissue.com -->
+<div id="wrapper">
+<div id="header">
+<div id="menuSpacer" style="padding-top:106px;"></div>
+<div class="header-holder">
+<div class="header-area">
+<div id="bannerMenu">
+<div id="bannerContent" class="varWidth group">
+<div class="bLogo floatleft">
+<a href="https://www.3dissue.com" class="logo"><img src="https://static-cdn2.3dissue.com/images/logos/logo.png" alt="3D Issue Logo"/></a>
+</div> <!-- bLogo -->
+<img src="https://static-cdn1.3dissue.com/images/stock/menu.png" alt="menu icon" id="menu-icon">
+<div class="bMenu floatright">
+<ul id="menu-main-nav" class="whiteDropDown">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a><span>PRODUCTS</span></a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/flipbooks.html"><span>FLIPBOOKS</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/hubs.html"><span>HUBS</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/custom-app.html"><span>APPS</span></a></li>
+</ul>
+</li>
+<li>|</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/blog.html/"><span>BLOG</span></a></li>
+<li>|</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact.html"><span>CONTACT</span></a></li>
+<li>|</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a><span>LANGUAGE</span></a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.3dissue.com/hubs.html"><span>ENGLISH</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.3dissue.com/es/hubs.html"><span>ESPAÑOL</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.3dissue.com/fr/hubs.html"><span>FRANÇAIS</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.3dissue.com/de/hubs.html"><span>DEUTSCH</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.3dissue.com/it/hubs.html"><span>ITALIANO</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.3dissue.com/pt-pt/hubs.html"><span>PORTUGUÊS</span></a></li>
+</ul>
+</li>
+</ul>
+<div class="clear"></div>
+</div> <!-- bMenu -->
+</div> <!-- bannerContent -->
+</div> <!-- bannerMenu  -->
+<div class="shadowSeperator"></div>
+<div class="bannerSubmenuContent">
+<div class="bannerSubmenuContentMenu varWidth">
+<div id="submenuContentHeading"><a href="/hubs.html">HUBS</a></div>
+<ul class="sub-menu-nav whiteDropDown">
+<li><a href="/hubs.html#hubsFeatures">FEATURES</a></li><li>|</li><li><a href="/hubs-samples.html">SAMPLES</a></li><li>|</li><li><a href="/video-tutorials-hubs.html">VIDEOS</a></li><li>|</li><li><a href="/hubs-pricing.html">BUY</a></li><li>|</li><li><a href="/hubs.html#signIn" class="signIn">SIGN IN</a></li><li>|</li><li><a href="/hubs.html#signUp" class="signUp">SIGN UP</a></li> </ul>
+</div>
+</div>
+<div id="mobile-menu">
+<ul id="mobile-menu-main-nav">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/flipbooks.html"><span>FLIPBOOKS</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/hubs.html"><span>HUBS</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/custom-app.html"><span>APPS</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/publishing-guides.html"><span>GUIDES</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/software-reviews.html"><span>REVIEWS</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/blog.html/"><span>BLOG</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact.html"><span>CONTACT</span></a></li>
+</ul>
+</div>
+<div class="clear"></div>
+</div> <!-- header-area -->
+</div><!-- end header-holder -->
+</div><!-- end header -->
+<link href="https://static-cdn1.3dissue.com/wp-content/themes/ktwosix/css/product.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://static-cdn1.3dissue.com/wp-content/themes/ktwosix/js/pricing2.min.js"></script>
+<div class="textwidget"><div class="hubsBG widgetBG">
+<div id="bannerZone" class="varWidth group">
+<div class="promoText floatleft">
+<h1 class="white">Centralize your content</h1>
+<h2 class="white">Centralize your news, feeds and social content into an auto-updating hub, suitable for viewing on any device.</h2>
+<p id="logInToHub"><a href="http://hubs.3dissue.com/site/trial" class="button">CREATE YOUR HUB</a> <span style="font-style:italic;margin-left:0.4em;" class="white">or</span> <span id="loginBtn"><a href="#" onclick="displayLoginForm();return false;">LOGIN</a></span></p>
+</div>
+<div class="promoImg floatright"><a href="https://www.youtube.com/watch?v=e7mdjcugJb0&#038;rel=0&#038;autoplay=1"><img src="https://static-cdn2.3dissue.com/images/stock/hubPhone.png" alt="" onmouseover="this.src='https://static-cdn1.3dissue.com/images/stock/hubPhoneRollover.png';" onmouseout="this.src='https://static-cdn2.3dissue.com/images/stock/hubPhone.png';"></a></div>
+</div>
+<div id="trialHeader" class="oneLineHeader">
+<div class="trialHeaderContainer varWidth">
+<div class="trialInfo group" style="padding:13px 0 13px;"><img src="https://static-cdn1.3dissue.com/images/appConference/mwc.png" class="mwcLogo" alt="Meet 3D Issue at Mobile World Congress in Barcelona"/><a href="#mwc" class="fancybox"><img src="https://static-cdn2.3dissue.com/images/appConference/mwcBtn.png" class="mwcBtn" alt="Meet Us At MWC"/></a></div>
+</div>
+</div>
+</div>
+<div style="display:none" class="fancybox-hidden">
+<div id="mwc">
+<div class="wpcf7" id="wpcf7-f53287-o1" dir="ltr">
+<div class="screen-reader-response"></div>
+<form name="" action="/hubs.html#wpcf7-f53287-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="53287"/><br/>
+<input type="hidden" name="_wpcf7_version" value="3.9.3"/><br/>
+<input type="hidden" name="_wpcf7_locale" value=""/><br/>
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f53287-o1"/><br/>
+<input type="hidden" name="_wpnonce" value="823d217439"/>
+</div>
+<p class="contactTitle">Meet with us at Mobile World Congress</p>
+<p class="cf7_label">Name<br/><span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"/></span></p>
+<p class="cf7_label">Email<br/><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false"/></span></p>
+<p class="cf7_label">Message<br/><span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></textarea></span></p>
+<p><span class="wpcf7-form-control-wrap your-telephone-100-wrap" style="display:none !important;visibility:hidden !important;"><input class="wpcf7-form-control wpcf7-text" type="text" name="your-telephone-100" value="" size="40" tabindex="-1"/><br><small>Please leave this field empty.</small></span></p>
+<p class="cf7_btn_container"><input type="submit" value="Send Your Message" class="wpcf7-form-control wpcf7-submit button"/></p>
+<div class="wpcf7-response-output wpcf7-display-none"></div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="clients">
+<div class="clientsTop clientsImg varWidth">
+</div><!-- end clientsTop and clientsImg -->
+</div><!-- end clients -->
+<div id="main">
+<div class="maincontent">
+<div class="maincontentcontainer">
+<style>#trialHeader .trialInfo img.mwcLogo{margin:0 1rem 0 0;display:inline}#trialHeader .trialInfo img.mwcBtn{margin:0;padding-bottom:3px;display:inline}#trialHeader .trialInfo img.mwcBtn:hover{opacity:.9}@media only screen and (max-width:355px){#trialHeader .trialInfo img.mwcLogo{width:48%}#trialHeader .trialInfo img.mwcBtn{width:42%}}</style>
+<div class="section group intro">
+<div class="sectionContent varWidth center">
+<h2 class="sectionHeading">How Hubs <b>benefit</b> you</h2>
+<p class="mediumPad reducedWidth2 grey">
+<div class="col span_1_of_5"><img src="https://static-cdn2.3dissue.com/images/honeycombs/hubs/centralizeLrg.png" alt="create a hub to centralize your content"><br/>
+<h3 class="normal mediumPadBoth">Centralize your content</h3>
+<p class="grey smallerFont">Allow your audience to access all your content in one place. Collect news from blogs, trending news, Facebook, Twitter, YouTube, and more!</p>
+</div>
+<div class="col span_1_of_5"><img src="https://static-cdn1.3dissue.com/images/honeycombs/hubs/updateLrg.png" alt="update content easily"><br/>
+<h3 class="normal mediumPadBoth">Live, updated content, always</h3>
+<p class="grey smallerFont">There is no need to maintain your Hub, the Hub updates automatically as content is added to your online sources.</p>
+</div>
+<div class="col span_1_of_5"><img src="https://static-cdn2.3dissue.com/images/honeycombs/hubs/reachLrg.png" alt="reach your audience"><br/>
+<h3 class="normal mediumPadBoth">Reach your audience, anywhere</h3>
+<p class="grey smallerFont">Hubs optimizes your content to suit whatever device your reader chooses, ensuring maximum exposure.</p>
+</div>
+<div class="col span_1_of_5"><img src="https://static-cdn2.3dissue.com/images/honeycombs/hubs/createYourOwnLrg.png" alt="create a news aggregator"><br/>
+<h3 class="normal mediumPadBoth">Create your own news aggregator</h3>
+<p class="grey smallerFont">Create a specialized industry specific news aggregator that specializes in content that is of interest to your target audience.</p>
+</div>
+<div class="col span_1_of_5"><img src="https://static-cdn1.3dissue.com/images/honeycombs/hubs/engagementLrg.png" alt="increase engagement"><br/>
+<h3 class="normal mediumPadBoth">Increase customer engagement</h3>
+<p class="grey smallerFont">Create beautifully presented digital editions with tailored content that increases interaction from your readers.</p>
+</div>
+</div>
+</div>
+<div class="section group">
+<div id="samples" class="sectionContent varWidth center">
+<h2 class="sectionHeading">Check out our stunning online <b>samples</b></h2>
+<p class="mediumPad grey reducedWidth2">See how our customers are using the Hub technology to transform their marketing content. There are several key uses of a Hub, check them out here.</p>
+<div class="col span_1_of_3">
+<p class="sampleCover"><a href="http://hub.3dissue.net/seC0" target="_blank"><img src="https://static-cdn1.3dissue.com/images/samples/hubs/3dissueHub.png" alt="3D Issue Hub sample"></a></p>
+<p><a href="http://hub.3dissue.net/seC0" target="_blank" class="sampleTitle">3D Issue <span class="hubItalic">Hub</span></a></p>
+</div>
+<div class="col span_1_of_3">
+<p class="sampleCover"><a href="http://hub.3dissue.net/sZA0" target="_blank"><img src="https://static-cdn2.3dissue.com/images/samples/hubs/laLouverHub.png" alt="La Lover Hub sample"></a></p>
+<p><a href="http://hub.3dissue.net/sZA0" target="_blank" class="sampleTitle">L.A. Louver <span class="hubItalic">Hub</span></a></p>
+</div>
+<div class="col span_1_of_3">
+<p class="sampleCover"><a href="http://hub.3dissue.net/shB0" target="_blank"><img src="https://static-cdn2.3dissue.com/images/samples/hubs/pearsonHub.png" alt="Pearson Hub sample"></a></p>
+<p><a href="http://hub.3dissue.net/shB0" target="_blank" class="sampleTitle">Pearson <span class="hubItalic">Hub</span></a></p>
+</div>
+</div>
+</div>
+<div id="hubsFeatures" class="section group">
+<div id="flipbooks" class="sectionContent varWidth center" style="padding-bottom:0;">
+<p class="sectionLogo"><img src="https://static-cdn2.3dissue.com/images/logos/hubsSmall.png" alt="hubs software"></p>
+<h2 class="sectionHeading">3D Issue <b>Hubs</b></h2>
+<p class="mediumPad grey reducedWidth3">Using 3D Issue Hubs, you can bring together content you have on websites, blogs, Twitter feed, YouTube account, Facebook, Tumblr and more. Your reader can then access all your content together on any device.</p>
+<p style="margin-bottom:0;"><img src="https://static-cdn2.3dissue.com/images/stock/multiDeviceHubs.jpg" alt="3D Issue Hubs works across all devices" class="largePad"></p>
+<div class="group">
+<div class="col span_1_of_3 productInfoHoneycomb textLeft" style="margin-top:0;">
+<div class="group">
+<div class="col span_1_of_5"><img src="https://static-cdn1.3dissue.com/images/honeycombs/hubs/autoUpdate.png" alt="auto-updating content"></div>
+<div class="col span_4_of_5 paddedFeature">
+<h3>AUTO UPDATING</h3>
+<p>Once created your Hub will check on the sources and auto update your Hub.</p>
+</div>
+</div>
+</div>
+<div class="col span_1_of_3 productInfoHoneycomb textLeft" style="margin-top:0;">
+<div class="group">
+<div class="col span_1_of_5"><img src="https://static-cdn2.3dissue.com/images/honeycombs/hubs/locations.png" alt="multiple content locations"></div>
+<div class="col span_4_of_5 paddedFeature">
+<h3>Multiple Locations</h3>
+<p>Create as many Hubs with as much content as you want.</p>
+</div>
+</div>
+</div>
+<div class="col span_1_of_3 productInfoHoneycomb textLeft" style="margin-top:0;">
+<div class="group">
+<div class="col span_1_of_5"><img src="https://static-cdn2.3dissue.com/images/honeycombs/hubs/responsive.png" alt="responsive content"></div>
+<div class="col span_4_of_5 paddedFeature">
+<h3>RESPONSIVE CONTENT</h3>
+<p>Watch how your content adapts to any resolution, or device.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="group">
+<div class="col span_1_of_3 productInfoHoneycomb textLeft">
+<div class="group">
+<div class="col span_1_of_5"><img src="https://static-cdn2.3dissue.com/images/honeycombs/hubs/cloud.png" alt="cloud hosted hubs"></div>
+<div class="col span_4_of_5 paddedFeature">
+<h3>CLOUD STORAGE</h3>
+<p>Create, store and manage all of your hubs on our super fast cloud service.</p>
+</div>
+</div>
+</div>
+<div class="col span_1_of_3 productInfoHoneycomb textLeft">
+<div class="group">
+<div class="col span_1_of_5"><img src="https://static-cdn2.3dissue.com/images/honeycombs/hubs/personalize.png" alt="personalize your content"></div>
+<div class="col span_4_of_5 paddedFeature">
+<h3>PERSONALIZE</h3>
+<p>Change fonts, colors &#038; background. Completely customize the Hub.</p>
+</div>
+</div>
+</div>
+<div class="col span_1_of_3 productInfoHoneycomb textLeft">
+<div class="group">
+<div class="col span_1_of_5"><img src="https://static-cdn2.3dissue.com/images/honeycombs/hubs/embed.png" alt=""></div>
+<div class="col span_4_of_5 paddedFeature">
+<h3>EMBEDDING</h3>
+<p>Add your hub into your own website in a matter of seconds.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="group">
+<div class="col span_1_of_3 productInfoHoneycomb textLeft">
+<div class="group">
+<div class="col span_1_of_5"><img src="https://static-cdn2.3dissue.com/images/honeycombs/hubs/video.png" alt="video"></div>
+<div class="col span_4_of_5 paddedFeature">
+<h3>VIDEO &amp; MULTIMEDIA</h3>
+<p>Display video and multimedia clips within the content of your hub.</p>
+</div>
+</div>
+</div>
+<div class="col span_1_of_3 productInfoHoneycomb textLeft">
+<div class="group">
+<div class="col span_1_of_5"><img src="https://static-cdn2.3dissue.com/images/honeycombs/hubs/api.png" alt="Integrate with our API"></div>
+<div class="col span_4_of_5 paddedFeature">
+<h3>API READY</h3>
+<p>Integrate your apps into the core hub using our API.</p>
+</div>
+</div>
+</div>
+<div class="col span_1_of_3 productInfoHoneycomb textLeft">
+<div class="group">
+<div class="col span_1_of_5"><img src="https://static-cdn1.3dissue.com/images/honeycombs/hubs/rss.png" alt=""></div>
+<div class="col span_4_of_5 paddedFeature">
+<h3>MULTIPLE SOURCES</h3>
+<p>Add content from RSS, Blogs, HTML pages, social feeds, email and many more&#8230;</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section group">
+<div class="sectionContent varWidth center pricing">
+<p class="sectionLogo"><img src="https://static-cdn2.3dissue.com/images/honeycombs/hubs/pricing.png" alt="hubs pricing"></p>
+<div id="hubsPricing">
+<fieldset>
+<legend align="center">&nbsp;&nbsp;Hubs&nbsp;&nbsp;</legend>
+<div class="pricingTop">
+<p class="grey">3D Issue Hubs collects and centralizes your online marketing content and converts it into stunning mobile web applications that can be viewed on any desktop, tablet, eReader or SmartPhone.</p>
+</div>
+<table>
+<thead>
+<tr>
+<td>
+<p class="products">lite</p>
+<p class="prices"><span class="currencySymbol">$</span> <span class="lite">49</span></p>
+<p class="productDesc">Per month</p>
+<p class="buyNowBtns"><a href="https://www.cleverbridge.com/386/?scope=checkout&#038;cart=146573&#038;enablecoupon=false&#038;recommendation=none&#038;cfg=3dissue_var" class="button lite">BUY NOW</a></p>
+<p class="viewMoreMobile"><a href="#" onclick="viewMoreMobile(event,'hubs',1);" class="button">View all features</a></p>
+</td>
+<td>
+<p class="products">PROFESSIONAL</p>
+<p class="prices"><span class="currencySymbol">$</span> <span class="pro">149</span></p>
+<p class="productDesc">Per month</p>
+<p class="buyNowBtns"><a href="https://www.cleverbridge.com/386/?scope=checkout&#038;cart=146574&#038;enablecoupon=false&#038;recommendation=none&#038;cfg=3dissue_var" class="button pro">BUY NOW</a></p>
+<p class="viewMoreMobile"><a href="#" onclick="viewMoreMobile(event,'hubs',2);" class="button">View all features</a></p>
+</td>
+<td>
+<p class="products">ENTERPRISE</p>
+<p class="prices"><span class="currencySymbol">$</span> <span class="ent">399</span></p>
+<p class="productDesc">Per month</p>
+<p class="buyNowBtns"><a href="https://www.cleverbridge.com/386/?scope=checkout&#038;cart=146575&#038;enablecoupon=false&#038;recommendation=none&#038;cfg=3dissue_var" class="button ent">BUY NOW</a></p>
+<p class="viewMoreMobile"><a href="#" onclick="viewMoreMobile(event,'hubs',3);" class="button">View all features</a></p>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="ticked">1 Hub</td>
+<td class="ticked tooltip"><span>Multiple Hubs</span>
+<div class="uiTooltip">Have up to 10 different Hubs live at any one time.</div>
+</td>
+<td class="ticked tooltip"><span>Multiple Hubs</span>
+<div class="uiTooltip">Have up to 25 different Hubs live at any one time.</div>
+</td>
+</tr>
+<tr>
+<td class="ticked tooltip"><span>10 Sources</span>
+<div class="uiTooltip">Hubs will monitor and update from up to 10 unique content sources at any one time.</div>
+</td>
+<td class="ticked tooltip"><span>20 Sources</span>
+<div class="uiTooltip">Hubs will monitor and update from up to 20 unique content sources at any one time.</div>
+</td>
+<td class="ticked tooltip"><span>50 Sources</span>
+<div class="uiTooltip">Hubs will monitor and update from up to 50 unique content sources at any one time.</div>
+</td>
+</tr>
+<tr>
+<td class="ticked tooltip"><span>Sync data <br/>every 4hrs</span>
+<div class="uiTooltip">Every 4 hours Hubs will check your online sources for any new content and instantly add it to your hub.</div>
+</td>
+<td class="ticked tooltip"><span>Sync data <br/>every 1hrs</span>
+<div class="uiTooltip">Every 1 hour Hubs will check your online sources for any new content and instantly add it to your hub.</div>
+</td>
+<td class="ticked tooltip"><span>Sync data <br/>every 15mins</span>
+<div class="uiTooltip">Every 15 minutes Hubs will check your online sources for any new content and instantly add it to your hub.</div>
+</td>
+</tr>
+<tr>
+<td class="ticked tooltip"><span>Stats</span>
+<div class="uiTooltip">We track every click and interaction with your content and publish this data to our bespoke stat reporter for your review.</div>
+</td>
+<td class="ticked tooltip"><span>Stats</span>
+<div class="uiTooltip">We track every click and interaction with your content and publish this data to our bespoke stat reporter for your review.</div>
+</td>
+<td class="ticked tooltip"><span>Stats</span>
+<div class="uiTooltip">We track every click and interaction with your content and publish this data to our bespoke stat reporter for your review.</div>
+</td>
+</tr>
+<tr>
+<td class="ticked tooltip"><span>RSS</span>
+<div class="uiTooltip">Auto update the latest articles by Integrating blog, news and google alert feeds directly into your hub.</div>
+</td>
+<td class="ticked tooltip"><span>RSS</span>
+<div class="uiTooltip">Auto update the latest articles by Integrating blog, news and google alert feeds directly into your hub.</div>
+</td>
+<td class="ticked tooltip"><span>RSS</span>
+<div class="uiTooltip">Auto update the latest articles by Integrating blog, news and google alert feeds directly into your hub.</div>
+</td>
+</tr>
+<tr>
+<td class="ticked tooltip"><span>Social</span>
+<div class="uiTooltip">Allow your audience to access content from all your facebook, twitter, youtube, slideshare, instagram and other platform in one place.</div>
+</td>
+<td class="ticked tooltip"><span>Social</span>
+<div class="uiTooltip">Allow your audience to access content from all your facebook, twitter, youtube, slideshare, instagram and other platform in one place.</div>
+</td>
+<td class="ticked tooltip"><span>Social</span>
+<div class="uiTooltip">Allow your audience to access content from all your facebook, twitter, youtube, slideshare, instagram and other platform in one place.</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="viewMoreReset"><a href="#" onclick="viewAll(event, 'hubs');" class="button">View all products</a></p>
+</fieldset>
+</div>
+</div>
+</div>
+<div class="section group">
+<div id="hubVids" class="sectionContent varWidth">
+<div class="col span_1_of_2"><a href="https://www.youtube.com/watch?v=M0zcziH8rR4&amp;rel=0&amp;autoplay=1"><img class="bigVid" alt="tutorial video" src="https://static-cdn1.3dissue.com/images/video/hubsLrg.jpg"/></a><a href="https://www.youtube.com/watch?v=qfyEc6P-_Uo&amp;rel=0&amp;autoplay=1"><img class="smallVid" style="margin-right: 4%;" alt="tutorial video" src="https://static-cdn1.3dissue.com/images/video/hubsSml1.jpg"/></a><a href="https://www.youtube.com/watch?v=Kkmvt4fme2E&amp;rel=0&amp;autoplay=1"><img class="smallVid" alt="tutorial video" src="https://static-cdn1.3dissue.com/images/video/hubsSml2.jpg"/></a></div>
+<div class="col span_1_of_2 videoTutorials textLeft">
+<h2 class="sectionHeading">Learn about <b>hubs</b></h2>
+<p class="mediumPad grey">Check out our videos on Hubs to go more in-depth</p>
+<div id="vidList">
+<ul>
+<li><a href="https://www.youtube.com/watch?v=M0zcziH8rR4&amp;rel=0&amp;autoplay=1">Quick introduction to Hubs</a></li>
+<li><a href="https://www.youtube.com/watch?v=CNcnUumwfgM&amp;rel=0&amp;autoplay=1">Responsive hubs for every device</a></li>
+<li><a href="https://www.youtube.com/watch?v=LUV3jJxHGbc&amp;rel=0&amp;autoplay=1">Adding RSS feeds to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=qfyEc6P-_Uo&amp;rel=0&amp;autoplay=1">Adding articles to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=2yw6ce5tLfo&amp;rel=0&amp;autoplay=1">Adding Google Alerts to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=JzEhZVF3Gos&amp;rel=0&amp;autoplay=1">Manually Adding Content to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=Kkmvt4fme2E&amp;rel=0&amp;autoplay=1">Adding email sources to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=AyDSS07n3oE&amp;rel=0&amp;autoplay=1">Adding trending news to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=mwgJopxZ3n0&amp;rel=0&amp;autoplay=1">Adding Flipbooks to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=DPHvpHFJ0n4&amp;rel=0&amp;autoplay=1">Adding Slideshare to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=_kKZKJ5HTuE&amp;rel=0&amp;autoplay=1">Adding Twitter feeds to your Hubs</a></li>
+<li><a href="https://www.youtube.com/watch?v=m7EilGOC5IQ&amp;rel=0&amp;autoplay=1">Adding Facebook feeds to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=_X5S8lT5m0c&amp;rel=0&amp;autoplay=1">Adding Google+ to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=kKTAhVWOJpo&amp;rel=0&amp;autoplay=1">Adding Youtube videos to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=Gks5fDcRTX0&amp;rel=0&amp;autoplay=1">Adding Vimeo videos to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=G0sEiSc6jT4&amp;rel=0&amp;autoplay=1">Adding Instagram feeds to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=_GseLFKt2R8&amp;rel=0&amp;autoplay=1">Adding Flickr to your Hub</a></li>
+<li><a href="https://www.youtube.com/watch?v=D_gs6Mw2Di8&amp;rel=0&amp;autoplay=1">Adding Tumblr feeds to your Hub</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section group reviewBG">
+<div class="sectionContent varWidth center">
+<h2>Our <b>customers</b> have a lot to say about us</h2>
+<p class="mediumPad reducedWidth2 grey">We really value our customers and their opinions, we welcome feedback and act on feature requests.</p>
+<div class="col span_1_of_3">
+<p><img src="https://static-cdn2.3dissue.com/images/reviews/amazonReview1.png" alt="Review from Amazon"></p>
+<p><img src="https://static-cdn2.3dissue.com/images/reviews/amazon.png" alt="5 star review"></p>
+<p class="smallerFont"><b>Fergus Burns</b><br/>Amazon</p>
+<p><img src="https://static-cdn2.3dissue.com/images/reviews/rating5.png" alt="5 star review"></p>
+</div>
+<div class="col span_1_of_3">
+<p class="reviewPadding"><img src="https://static-cdn1.3dissue.com/images/reviews/macyReview1.png" alt="Review from Macys"></p>
+<p><img src="https://static-cdn2.3dissue.com/images/reviews/macys.png" alt="5 star review"></p>
+<p class="smallerFont"><b>Stephen Competello</b><br/>MACYS</p>
+<p><img src="https://static-cdn2.3dissue.com/images/reviews/rating5.png" alt="5 star review"></p>
+</div>
+<div class="col span_1_of_3">
+<p><img src="https://static-cdn2.3dissue.com/images/reviews/chicagoReview1.png" alt="Review from Chicago"></p>
+<p><img src="https://static-cdn2.3dissue.com/images/reviews/chicago.png" alt="5 star review"></p>
+<p class="smallerFont"><b>Josh Metnick</b><br/>Chicago.com, Inc.</p>
+<p><img src="https://static-cdn2.3dissue.com/images/reviews/rating5.png" alt="5 star review"></p>
+</div>
+</div>
+<p class="clear center"><a class="button readMore" href="/software-reviews.html">Read More Reviews</a></p>
+</div>
+<div class="section group webinar">
+<div class="sectionContent varWidth center">
+<h2>Join a live online demonstration</h2>
+<p class="mediumPad reducedWidth1">We host free webinars where you can watch our team create a digital publication from scratch and post it live online.</p>
+<p class="webinarBtnContainer"><a class="button attendWebinarBtn" href="/attend-webinar.html">Attend Webinar</a></p>
+<p class="btmImage"><img src="https://static-cdn1.3dissue.com/images/stock/iMacWebinar.jpg" alt="For a free step by step guide on how to create your own digital publications, why not join a Webinar?"></p>
+</div>
+</div>
+<link href="https://static-cdn1.3dissue.com/wp-content/themes/ktwosix/css/hubs.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://static-cdn2.3dissue.com/wp-content/themes/ktwosix/js/hubs.min.js"></script>
+<div id="formsContainer">
+<div id="hubsLoginOuterContainer">
+<div id="hubLoginContainer">
+<div id="hubLoginForm">
+<p><img src="https://static-cdn2.3dissue.com/images/hubs/hublogo.png" alt="3D Issue Hubs Logo"></p>
+<form id="login-form" action="https://hubs.3dissue.com/site/login" method="post" onsubmit="return validateLogin();">
+<p>
+<span class="emailLblLogin emailLbl">Email or Username</span><br><input class="email_input_login" name="LoginForm[email]" id="LoginForm_email" type="text">
+<br>
+<span class="pwdLblLogin pwdLbl passSpan">Password</span><br><input class="pass_input_login" name="LoginForm[password]" id="LoginForm_password" type="password">
+</p>
+<p>
+<input class="button loginBtn" type="submit" name="yt0" value="Login">
+</p>
+<div id="errMsg"></div>
+<p>
+<a href="#" onclick="displayForgotPasswordForm();return false;">Forgot Password</a>
+</p>
+</form>
+</div>
+<div id="loginAlternatives">
+<p>Don't have an account?</p>
+<p class="signUpBtnPar"><a href="#" onclick="displayRegForm();return false;" class="button register">Sign Up Now</a></p>
+</div>
+</div>
+</div>
+<div id="hubsRegisterOuterContainer">
+<div id="hubRegisterContainer">
+<div id="hubRegisterForm">
+<p><img src="https://static-cdn2.3dissue.com/images/hubs/hublogo.png" alt="3D Issue Hubs Logo"></p>
+<form id="register-form" action="https://hubs.3dissue.com/site/register" method="post" onsubmit="return validateRegister();">
+<p>
+<span class="nameLblRegister nameLbl">Name</span><br><input class="name_input_register" name="RegisterForm[name]" id="RegisterForm_name" type="text">
+<br>
+<span class="emailLblRegister emailLbl">Email</span><br><input class="email_input_register" name="RegisterForm[email]" id="RegisterForm_email" type="email">
+<br>
+<span class="pwdLblRegister pwdLbl passSpan">Password</span><br><input class="pass_input_register" name="RegisterForm[password]" id="RegisterForm_password" type="password" maxlength="40">
+</p>
+<p class="licenseAgreement">By clicking "Register", you agree to the <a href="/hubs-terms.html" target="_blank">Hubs Licence Agreement</a></p>
+<p>
+<input class="button registerBtn" type="submit" name="yt0" value="Register">
+</p>
+<div id="errMsg"></div>
+</form>
+</div>
+</div>
+</div>
+<div id="hubsForgotPasswordOuterContainer">
+<div id="hubForgotPasswordContainer">
+<div id="hubForgotPasswordForm">
+<p><img src="https://static-cdn2.3dissue.com/images/hubs/hublogo.png" alt="3D Issue Hubs Logo"></p>
+<p class="signUpInfo">Please fill out the following form with your email address:</p>
+<p class="signUpInfo">An email will be sent to this address which you will need to click for creating a new password</p>
+<form id="forgetPassword-form" action="https://hubs.3dissue.com/site/forgetPassword" method="post" onsubmit="return validateForgotPassword();">
+<p>
+<span id="ForgotPassEmailLabel" class="emailLblForgotPw emailLbl">Email</span><br><input class="email_input_forgotPw" name="ForgetPassword[email]" id="ForgotPasswordForm_email" type="email">
+</p>
+<p>
+<input class="button forgotPasswordBtn" type="submit" name="yt0" value="Submit">
+</p>
+<div id="errMsg"></div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="blankOutScreen"></div>
+</div><!-- end maincontentcontainer -->
+</div><!-- maincontent -->
+<div class="clients">
+<div class="clientsBtm clientsImg varWidth">
+</div><!-- end clientsBtm and clientsImg -->
+</div><!-- end clients -->
+<div id="footer">
+<div id="downloadFooter" class="center">
+<div id="downloadContent" class="varWidth"><span>Try Hubs Free for 14 Days</span> <a class="button downloadFooter signUp" href="/hubs.html#signUp">Sign Up To Hubs</a></div>
+</div>
+<div id="footercontainer" class="group varWidth">
+<div class="col span_1_of_5"><ul class="sub-menu"><li id="menu-item-29112" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29112"><a>Publishing</a></li>
+<li id="menu-item-29113" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29113"><a href="/digital-magazine-publishing.html">Magazines</a></li>
+<li id="menu-item-29114" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29114"><a href="/e-book-publishing.html">eBooks</a></li>
+<li id="menu-item-29115" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29115"><a href="/news-publishing.html">News</a></li>
+<li id="menu-item-29116" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29116"><a href="/custom-app.html">Native App Solution</a></li>
+</ul></div>
+<div class="col span_1_of_5"><ul class="sub-menu"><li id="menu-item-29152" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29152"><a>Marketing</a></li>
+<li id="menu-item-29153" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29153"><a href="/flipbooks.html">Flipbooks</a></li>
+<li id="menu-item-29155" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-29155"><a href="/hubs.html">Hubs</a></li>
+<li id="menu-item-29158" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29158"><a href="/custom-app.html">Branded Apps</a></li>
+<li id="menu-item-29154" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29154"><a href="/ebooks.html">eBooks</a></li>
+<li id="menu-item-29156" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29156"><a href="/digital-catalog-software.html">eCatalogs</a></li>
+<li id="menu-item-31185" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31185"><a href="https://www.3dissue.com/newsletters.html">Newsletters</a></li>
+<li id="menu-item-29157" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29157"><a href="/ebrochure-page-turning-software.html">eBrochures</a></li>
+</ul></div>
+<div class="col span_1_of_5"><ul class="sub-menu"><li id="menu-item-5395" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5395"><a>Resources</a></li>
+<li id="menu-item-44133" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44133"><a href="/download-3d-issue-professional.html">Download Trial</a></li>
+<li id="menu-item-31187" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31187"><a href="https://www.3dissue.com/contact.html">Contact Us</a></li>
+<li id="menu-item-31188" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31188"><a href="https://www.3dissue.com/about-us.html">About Us</a></li>
+<li id="menu-item-46416" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-46416"><a href="https://www.3dissue.com/partner-program.html">Partner Program</a></li>
+<li id="menu-item-29193" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29193"><a href="/attend-webinar.html">Webinars</a></li>
+<li id="menu-item-48508" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48508"><a href="https://www.3dissue.com/samples.html">Flipbook Samples</a></li>
+<li id="menu-item-29195" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29195"><a href="/video-request.html">Flipbook Videos</a></li>
+<li id="menu-item-52945" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52945"><a href="https://www.3dissue.com/hubs-samples.html">Hubs Samples</a></li>
+<li id="menu-item-52943" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52943"><a href="https://www.3dissue.com/video-tutorials-hubs.html">Hubs Videos</a></li>
+<li id="menu-item-52944" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52944"><a href="https://www.3dissue.com/apps-samples.html">Apps Samples</a></li>
+<li id="menu-item-29194" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29194"><a href="/publishing-guides.html">Guides</a></li>
+<li id="menu-item-52073" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52073"><a href="https://www.3dissue.com/blog.html/">Blog</a></li>
+<li id="menu-item-29196" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29196"><a href="/faqs.html">FAQS</a></li>
+<li id="menu-item-29197" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29197"><a href="/forums/forum/3d-issue-knowledge-base/">Support</a></li>
+<li id="menu-item-29198" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29198"><a href="/terms.html">Terms</a></li>
+<li id="menu-item-29199" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29199"><a href="/privacy-policy.html">Privacy Policy</a></li>
+<li id="menu-item-31272" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31272"><a href="https://www.3dissue.com/sitemap.html">Sitemap</a></li>
+<li id="menu-item-44132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44132"><a href="https://www.3dissue.com/licensing.html">Licensing</a></li>
+</ul></div>
+<div class="col span_1_of_5"><ul class="sub-menu"><li id="menu-item-29247" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-29247"><a>Select Language</a></li>
+<li id="menu-item-5366" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5366"><a href="/">English</a></li>
+<li id="menu-item-5367" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5367"><a href="/es/">Español</a></li>
+<li id="menu-item-5369" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5369"><a href="/fr/">Français</a></li>
+<li id="menu-item-5368" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5368"><a href="/de/">Deutsch</a></li>
+<li id="menu-item-5370" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5370"><a href="/it/">Italiano</a></li>
+<li id="menu-item-5371" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5371"><a href="/pt-pt/">Português</a></li>
+</ul></div>
+<div class="col span_1_of_5">	<div class="textwidget"><div class="logo"><a href="/"><img src="https://static-cdn2.3dissue.com/images/logos/logoFooter.png" alt="Return to home page"/></a></div>
+<div class="social"><a href="https://twitter.com/3dissue" target="_blank"><img src="https://static-cdn1.3dissue.com/images/logos/twitter.png" alt="Twitter Profile Page"/></a><a href="https://www.facebook.com/3DIssue" target="_blank"><img src="https://static-cdn1.3dissue.com/images/logos/facebook.png" alt="Facebook Profile Page"/></a><a href="https://plus.google.com/107307348530284283820?prsrc=3" target="_blank"><img src="https://static-cdn1.3dissue.com/images/logos/google.png" alt="Google Profile Page" rel="publisher"/></a>
+</div>
+</div>
+</div>
+</div><!-- end footercontainer -->
+</div><!-- end footer -->
+<div id="footercopyright">
+<div class="info varWidth">
+<div id="foot_left" class="floatleft">&nbsp;	<div class="textwidget"><p>Copyright © <b>3D Issue Ltd</b> 2015. All rights reserved.</p>
+</div>
+</div><!-- end foot_left -->
+<div id="foot_right" class="floatright"><div class="top-footer"><a href="#" class="link-top">Back to top<img src="https://static-cdn2.3dissue.com/images/logos/top.png" alt="Back to top"/></a></div><span class="noShow"><a href="/downloademailform.html" rel="nofollow">Download Email List</a></span></div><!-- end foot_right -->
+</div><!-- end info -->
+</div><!-- end footercopyright -->
+</div><!-- end main -->
+</div><!-- end wrapper -->
+<script type='text/javascript' src='https://static-cdn1.3dissue.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"https:\/\/www.3dissue.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://static-cdn1.3dissue.com/wp-content/plugins/contact-form-7/includes/js/scripts.js'></script>
+<script type='text/javascript' src='https://static-cdn2.3dissue.com/wp-content/plugins/easy-fancybox/fancybox/jquery.fancybox-1.3.6.pack.js'></script>
+<script type='text/javascript' src='https://static-cdn1.3dissue.com/wp-content/plugins/easy-fancybox/jquery.easing.pack.js'></script>
+<script type="text/javascript">
+jQuery(document).on('ready post-load', easy_fancybox_handler );
+</script>
+<script type="text/javascript">var img = document.createElement("img");img.src = "/logo.gif?r="+encodeURIComponent(document.referrer)+"&u="+encodeURIComponent(document.location.pathname)+encodeURIComponent(document.location.search)+"&pid="+ (typeof _PAGEID === 'undefined' ? "" : _PAGEID);</script>
+<script>
+function loadSnapEngage() {
+var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+se.src = '//commondatastorage.googleapis.com/code.snapengage.com/js/0b62acf4-7006-4e90-a110-4a39d704cd75.js';
+var done = false;
+se.onload = se.onreadystatechange = function() {
+if (!done&&(!this.readyState||this.readyState==='loaded'||this.readyState==='complete')) {
+done = true;
+// Place your SnapEngage JS API code below
+// SnapEngage.allowChatSound(true); // Example JS API: Enable sounds for Visitors.
+// SnapEngage.hideButton();
+}
+};
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+}
+
+if(typeof showChat !== 'undefined' && showChat == 1) {
+  loadSnapEngage();
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "url": "https://www.3dissue.com",
+  "logo": "https://static-cdn2.3dissue.com/images/logos/main.jpg",
+  "contactPoint" : [
+  {
+   "@type" : "ContactPoint",
+   "telephone" : "+1-718-569-6212",
+   "contactType" : "sales",
+   "areaServed" : ["US","CA","MX"]
+  } , {
+   "@type" : "ContactPoint",
+   "telephone" : "+44-208-0999-739",
+   "contactType" : "sales",
+   "areaServed" : "GB"
+  }  , {
+   "@type" : "ContactPoint",
+   "telephone" : "+353-7491-16055",
+   "contactType" : "sales",
+   "areaServed" : "IE"
+} ],
+  "sameAs" : [ "https://www.facebook.com/3DIssue","https://www.twitter.com/3dissue","https://plus.google.com/+3dissue-publishing-platform","https://www.linkedin.com/company/3d-issue","https://www.youtube.com/user/3dissue",
+        "http://instagram.com/3dissue/","https://www.flickr.com/photos/3dissue/","http://www.slideshare.net/3DIssue","https://www.pinterest.com/3dissue/"]
+}
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-2.newrelic.com","licenseKey":"44ba8b7fa7","applicationID":"9312300","transactionName":"ZAYAMhYEXEJRVBFcXl1MNxQNSltfVFIdG0FbEw==","queueTime":0,"applicationTime":0,"atts":"SEEDRF4eT0w=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-536.min.js"}</script></body>
+</html>
+";i:2;s:4:"6272";}

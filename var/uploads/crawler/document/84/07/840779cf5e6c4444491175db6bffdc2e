@@ -1,0 +1,515 @@
+a:3:{i:0;s:17:"http://rrddm.com/";i:1;s:22691:"
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+		<html>
+			<head><script type="text/javascript">/* <![CDATA[ */_cf_loadingtexthtml="<img alt=' ' src='/CFIDE/scripts/ajax/resources/cf/images/loading.gif'/>";
+_cf_contextpath="";
+_cf_ajaxscriptsrc="/CFIDE/scripts/ajax";
+_cf_jsonprefix='//';
+_cf_websocket_port=8575;
+_cf_flash_policy_port=1243;
+_cf_clientid='83F0BA4B4AC02D32AB2ED5B506B4C82D';/* ]]> */</script><script type="text/javascript" src="/CFIDE/scripts/ajax/messages/cfmessage.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/ajax/package/cfajax.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/ajax/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/ajax/yui/animation/animation-min.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/ajax/ext/adapter/yui/ext-yui-adapter.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/ajax/ext/ext-all.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/ajax/package/cfmessagebox.js"></script>
+<link rel="stylesheet" type="text/css" href="/CFIDE/scripts/ajax/resources/ext/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="/CFIDE/scripts/ajax/resources/cf/cf.css" />
+<script type="text/javascript" src="/CFIDE/scripts/ajax/yui/calendar/calendar-min.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/ajax/yui/container/container_core-min.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/ajax/yui/menu/menu-min.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/ajax/package/cfmenu.js"></script>
+<link rel="stylesheet" type="text/css" href="/CFIDE/scripts/ajax/resources/yui/yui.css" />
+
+				<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+				<title>Relevance Reactor | Essential Technology for Professional Marketers</title>
+				<link rel="stylesheet" type="text/css" href="http://www.relevancereactor.com/brand/style/style1.css?nocache=65EB0EB3-F405-0466-48E7B7E748D94916" media="screen" />
+				<link rel="icon" href="http://www.relevancereactor.com/brand/image/www_favicon_1.png?v=20150202" />
+			
+<script type="text/javascript">/* <![CDATA[ */
+	ColdFusion.Ajax.importTag('CFAJAXPROXY');
+/* ]]> */</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	ColdFusion.Ajax.importTag('CFMESSAGEBOX');
+/* ]]> */</script>
+
+	<script language="javascript" type="text/javascript">
+		// Display PL (Page Load) error message
+		var displayErrorMessagePL = function() {
+			ColdFusion.MessageBox.show('errorMessageBoxPL');
+		}
+
+		// Display error message to standard error message box
+		var displayErrorMessage = function(errorHeader, errorMessage, boxWidth) {
+			if (boxWidth == null) {
+				boxWidth = 400;
+			}
+			if (!ColdFusion.MessageBox.isMessageBoxDefined('errorMessageBox')) {
+				ColdFusion.MessageBox.create('errorMessageBox', 'alert', 'title', 'message', '', {bodystyle:'background-color: #FFFFFF;', modal:true, icon:'info', width:boxWidth});
+			}
+			ColdFusion.MessageBox.updateTitle('errorMessageBox', errorHeader);
+			ColdFusion.MessageBox.updateMessage('errorMessageBox', errorMessage);
+			ColdFusion.MessageBox.show('errorMessageBox');
+		}
+
+		// Prompt general confirm message
+		var displayGeneralConfirmMessage = function(confirmHeader, confirmMessage, handler) {
+			if (typeof(handler) == 'undefined') {
+				var confirmHandler = handleGeneralConfirm;
+			} else {
+				var confirmHandler = handler;
+			}
+			
+			if (!ColdFusion.MessageBox.isMessageBoxDefined('generalConfirmMessageBox')) {
+				ColdFusion.MessageBox.create('generalConfirmMessageBox', 'confirm', 'title', 'message', confirmHandler, {bodystyle:'background-color: #FFFFFF;', modal:true, icon:'question', width:400});
+			}
+			ColdFusion.MessageBox.update('generalConfirmMessageBox', {callbackhandler: confirmHandler});
+			ColdFusion.MessageBox.updateTitle('generalConfirmMessageBox', confirmHeader);
+			ColdFusion.MessageBox.updateMessage('generalConfirmMessageBox', confirmMessage + '?');
+			ColdFusion.MessageBox.show('generalConfirmMessageBox');
+		}
+
+		// Global general confirm
+		confirmActionHold = '';
+		var generalConfirm = function(confirmMessage, confirmAction) {
+			confirmActionHold		= confirmAction;
+			displayGeneralConfirmMessage('Confirmation Required', confirmMessage);
+		}
+
+		// Handle general confirm
+		var handleGeneralConfirm = function(buttonAnswer) {
+			if ( buttonAnswer == 'yes' ) {
+				document.mainForm.formAction.value = confirmActionHold;
+				disableFormButtons(document.mainForm);
+				document.mainForm.submit();
+			}
+		}
+
+		// Handle add/edit entity
+		var handleEntityAddEdit = function(currentFormMode) {
+			if (_CF_checkmainForm(document.mainForm)) {
+				document.mainForm.formAction.value		= currentFormMode;
+				disableFormButtons(document.mainForm);
+				document.mainForm.submit();
+			}
+		}
+		
+		// Load the help window
+		var loadHelp = function(helpContent) {
+			if (helpContent) {
+				document.getElementById('helpWindow_body').innerHTML = '<div style="padding: 10px">' + helpContent + '</div>';
+			} else { 
+				document.getElementById('helpWindow_body').innerHTML = '<div style="padding: 10px"><br /><br /><hr /><div class="helpContent">If you require assistance, email <a href="mailto:support@rrddm.com">support@rrddm.com</a></div></div>';
+			}
+			ColdFusion.Window.show('helpWindow');
+		}
+		
+		// Disable all buttons in the form
+		var disableFormButtons = function(currentForm) {
+			for (var i = 0; i < currentForm.elements.length; i++) {
+				if (currentForm.elements[i].type == 'button') {
+					currentForm.elements[i].disabled = true;
+				}
+			}
+		}
+
+		// Enable all buttons in the form
+		var enableFormButtons = function(currentForm) {
+			for (var i = 0; i < currentForm.elements.length; i++) {
+				if (currentForm.elements[i].type == 'button') {
+					currentForm.elements[i].disabled = false;
+				}
+			}
+		}
+		
+		// Format xml text area before posting to server
+		var formatXML = function(inputText) {
+			var outputText = inputText;
+			outputText = outputText.replace(/\&amp\;/ig, '&')
+			outputText = outputText.replace(/\&/ig, '&amp;')
+			outputText = outputText.replace(/\"\"\"/ig, '"&quot;"')
+			return outputText;
+		}
+		
+		// Populate select
+		var populateSelect = function(selectField, selectQuery, selectValue, selectText) {
+			// Populate if not already
+			if (selectField.options.length <= 2) {
+				// Preserve the selected value
+				var currentValue = selectField[selectField.selectedIndex].value;
+				// Clear
+				selectField.options.length = 1;
+				// Populate
+				for (var i = 0; i < selectQuery.getRowCount(); i++) {
+					var selectOption								= new Option();
+					selectOption.value								= eval('selectQuery.' + selectValue + '[i]');
+					selectOption.text								= eval('selectQuery.' + selectText + '[i]');
+					selectField.options[selectField.options.length]	= selectOption;
+				}
+				// Select
+				for (var i = 0; i < selectField.length; i++) {
+					if (selectField[i].value == currentValue) {
+						selectField.selectedIndex = i;
+						break;
+					}
+				}
+			}
+		}
+
+		// Populate available data fields from selected database
+		var populateDataFieldsFromDatabase = function(databaseSelect, databaseValueColumn, dataFieldSelect, dataFieldValueColumn) {
+			
+			// Only perform this operation if a database is selected
+			if (databaseSelect.selectedIndex == 0) {
+				return;
+			}
+			
+			// Preserve the selected dataField and database
+			var currentDataFieldValue	= dataFieldSelect[dataFieldSelect.selectedIndex].value;
+			var currentDatabaseValue	= databaseSelect[databaseSelect.selectedIndex].value;
+			
+			// Clear all but first option
+			dataFieldSelect.options.length = 1;
+			
+			// Populate
+			for (var i = 0; i < databaseStructure.getRowCount(); i++) {
+				// Only for the selected database
+				if (eval('databaseStructure.' + databaseValueColumn + '[i]') == currentDatabaseValue) {
+					var selectOption										= new Option();
+					selectOption.value										= eval('databaseStructure.' + dataFieldValueColumn + '[i]');
+					selectOption.text										= eval('databaseStructure.' + 'datafieldsqlname' + '[i]');
+					dataFieldSelect.options[dataFieldSelect.options.length]	= selectOption;
+				}
+			}
+			// Select the originally selected
+			for (var i = 0; i < dataFieldSelect.length; i++) {
+				if (dataFieldSelect[i].value == currentDataFieldValue) {
+					dataFieldSelect.selectedIndex = i;
+					break;
+				}
+			}
+		}
+		
+		// Toggle show/hide for div container
+		var toggleContainerShowHide = function(containerID) {
+			// Create reference to container
+			var myContainer = document.getElementById(containerID);
+			// Toggle
+			if (myContainer.style.display == 'none') {
+				myContainer.style.display = 'block';
+			}
+			else {
+				myContainer.style.display = 'none';
+			}
+		}
+		
+		// Return Mouse Cords
+		var getMouseXY = function(ev) {
+			// Detect IE
+			var isIE = document.all ? true : false;
+			// Set Mouse Cords
+			if (isIE) {
+				var xPos = ev.clientX + document.body.scrollLeft;
+				var yPos = ev.clientY + document.body.scrollTop;
+			} else {
+				var xPos = ev.x ? ev.x : ev.pageX;
+				var yPos = ev.y ? ev.y : ev.pageY;
+			}
+			// Return a structure
+			return {x: xPos, y: yPos};
+		}
+		
+		// AJAX Request handler
+		var globalAJAXErrorHandler = function(errorHTTPCode, errorHTTPMessage) {
+			if (hideStatusWindow) {
+				hideStatusWindow();	
+			}
+			displayErrorMessage('Error', errorHTTPCode + ': ' +  errorHTTPMessage);
+			return;
+		}
+		
+		// Gets the index of a named array key
+		var globalGetArrayKeyIndex = function(arrayInput, arrayKey) {
+			for (var i = 0; i < arrayInput.length; i++) {
+				if (arrayInput[i] == arrayKey) {
+					return i;
+				}
+			}
+		}
+	
+		// AJAX error query display
+		var globalAJAXErrorDisplay = function(errorQuery) {
+			var errorMessage = '';
+			for (var i = 0; i < errorQuery.DATA.length; i++) {
+				errorMessage += errorQuery.DATA[i][globalGetArrayKeyIndex(errorQuery.COLUMNS,'ERRORMESSAGE')] + '<br />';
+			}
+			displayErrorMessage('Error', errorMessage);
+		}
+		
+		// Javascript number formating
+		var globalNumberFormat = function (nStr)
+		{
+			nStr += '';
+			x = nStr.split('.');
+			x1 = x[0];
+			x2 = x.length > 1 ? '.' + x[1] : '';
+			var rgx = /(\d+)(\d{3})/;
+			while (rgx.test(x1)) {
+				x1 = x1.replace(rgx, '$1' + ',' + '$2');
+			}
+			return x1 + x2;
+		}
+		
+		// Parse XML
+		var globalParseXML = function(xmlString) {
+			
+			// Create XML object depending on browser
+			if (window.DOMParser) {
+				var parser	= new DOMParser();
+				var xmlDoc	= parser.parseFromString(xmlString, 'text/xml');
+			} else {
+				var xmlDoc		= new ActiveXObject('Microsoft.XMLDOM');
+				xmlDoc.async	= 'false';
+				xmlDoc.loadXML(xmlString);
+			}
+			
+			// Return xml
+			return xmlDoc;
+		}
+		
+		// Return node value (checks for existence first)
+		var globalXMLNodeValue = function(xmlNode) {
+			// If the node is defined
+			if (xmlNode) {
+				return xmlNode.nodeValue;
+			} else {
+				return '';
+			}
+		}
+		
+		// Do Nothing function for a href links that need onclick events
+		var doNothing = function() {
+			return;
+		}
+		
+		// 0 or 1 from Boolean
+		var zeroOneFormat = function(inputVar) {
+			if (inputVar) {
+				return '1';
+			} else {
+				return '0';
+			}
+		}
+
+		// 0 or 1 from Boolean
+		var yesNoFormat = function(inputVar) {
+			if (inputVar) {
+				return 'Yes';
+			} else {
+				return 'No';
+			}
+		}
+		
+		// JS date formating
+		var formatDate = function (dateString, includeTZ) {
+			
+			// Of the string is blank, return blank
+			if (dateString == '') {
+				return '';
+			}
+			
+			// Convert string to date object
+			var dateObject		= new Date(dateString);
+
+			// Create some date parts
+			var m	= dateObject.getMonth() + 1;
+			var mm	= m < 10 ? '0' + m : m;
+
+			var d	= dateObject.getDate();
+			var dd	= d < 10 ? '0' + d : d;
+
+			var h	= dateObject.getHours();
+			var ap	= (h < 12)? 'AM' : 'PM' ;
+			var h	= (h > 12)? h - 12 : h;
+			var h	= (h == 0)? 12 : h;
+			var hh	= h < 10 ? '0' + h : h;
+
+			var n	= dateObject.getMinutes();
+			var nn	= n < 10 ? '0' + n : n;
+			var s	= dateObject.getSeconds();
+			var ss	= s < 10 ? '0' + s : s;
+
+			// Create new string
+			var newDateString = dateObject.getFullYear() + '-' + mm + '-' + dd + ' ' + hh + ':' + nn + ' ' + ap;
+			
+			// Add TZ
+			if (includeTZ == null || (includeTZ != null && includeTZ == true)) {
+				newDateString = newDateString + ' MDT';
+			} 
+
+			// Return formated date			
+			return newDateString;
+		}
+
+		// Disable (grey-out) div contents
+		var disableDiv = function(elm) {
+		
+			_width = elm.offsetWidth;
+			_height = elm.offsetHeight;
+			//_top = elm.offsetTop;
+			//_left = elm.offsetLeft;
+			_top = 0;
+			_left = 0;
+			 
+			overlay = document.createElement("div");
+			overlay.style.width = _width + "px";
+			overlay.style.height = _height + "px";
+			overlay.style.position = "absolute";
+			overlay.style.background = "#dedede";
+			overlay.style.top = _top + "px";
+			overlay.style.left = _left + "px";
+			 
+			overlay.style.filter = "alpha(opacity=50)";
+			overlay.style.opacity = "0.5";
+			overlay.style.mozOpacity = "0.5";
+			 
+			elm.appendChild(overlay);
+		}		
+	</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	ColdFusion.Ajax.importTag('CFMENU');
+/* ]]> */</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	var _cf_menu_init_1424382208124=function()
+	{
+		var _cf_menubar=ColdFusion.Menu.initMenuBar("cf_menu1424382208123", { autosubmenudisplay:true, showdelay:250, hidedelay:10, lazyload:true});
+		_cf_menubar.render();
+		_cf_menubar.show();
+	};ColdFusion.Event.registerOnLoad(_cf_menu_init_1424382208124);
+/* ]]> */</script>
+
+<meta name="keywords" content="data management, database management, marketing database, data centralization, custom reporting, centralized reporting, data segmentation, data mining, data profiling, data analysis, business intelligence" />
+<meta name="description" content="Relevance Reactor's Digital Data Manager is designed for digital marketers providing tools for import/export automation, centralization, segmentation, analysis and custom reporting of data." />
+<meta name="google-site-verification" content="2QgsgGk4jSq3Pmq5m6E8pxtdcJNzOhdR9PMYur7PaJk" />
+</head>
+			<body>
+				<div id="contentAll">
+					
+						<div id="contentHeaderGuest">
+							<img src="http://www.relevancereactor.com/brand/image/www_header_1.jpg?v=20150202" width="1200" /><br />
+						</div>
+					
+					<div id="contentMiddle">
+						<div id="contentBody">
+							
+			<div id="contentMenu">
+				<div id="contentMenuHeader">
+				</div>
+				<div  id="cf_menu1424382208123" class="yuimenubar yuimenubarnav" style=" font-size:112%; background-color: #E6E7E8;">
+	<div  class="bd">
+		<ul  class="first-of-type">
+			<li  id="cf_menuitem1424382208125" class="yuimenubaritem" style="" onmouseover="ColdFusion.Menu.menuItemMouseOver('cf_menuitem1424382208125', 'black');" onmouseout="ColdFusion.Menu.menuItemMouseOut('cf_menuitem1424382208125');"><a href="http://www.relevancereactor.com/index.cfm?v=20150202"  class="yuimenubaritemlabel"  style="font-family:Verdana, Arial, Helvetica, sans-serif;">Home</a>
+			
+			</li><li  id="cf_menuitem1424382208126" class="yuimenubaritem" style="" onmouseover="ColdFusion.Menu.menuItemMouseOver('cf_menuitem1424382208126', 'black');" onmouseout="ColdFusion.Menu.menuItemMouseOut('cf_menuitem1424382208126');"><a href="javascript:ColdFusion.empty();"  class="yuimenubaritemlabel"  style="font-family:Verdana, Arial, Helvetica, sans-serif;">Modules</a><div  class="yuimenu" style=" font-family:Verdana, Arial, Helvetica, sans-serif;">
+				<div  class="bd">
+					<ul  class="first-of-type">
+						
+						<li  id="cf_menuitem1424382208127" class="yuimenuitem" style="" onmouseover="ColdFusion.Menu.menuItemMouseOver('cf_menuitem1424382208127', 'black');" onmouseout="ColdFusion.Menu.menuItemMouseOut('cf_menuitem1424382208127');"><a href="http://www.relevancereactor.com/featuresDDM.cfm?v=20150202"  class="yuimenuitemlabel"  style="font-family:Verdana, Arial, Helvetica, sans-serif;">Data Manager</a>
+						
+						</li>
+					</ul>
+					<ul>
+						<li  id="cf_menuitem1424382208129" class="yuimenuitem" style="" onmouseover="ColdFusion.Menu.menuItemMouseOver('cf_menuitem1424382208129', 'black');" onmouseout="ColdFusion.Menu.menuItemMouseOut('cf_menuitem1424382208129');"><a href="http://www.relevancereactor.com/featuresCKM.cfm?v=20150202"  class="yuimenuitemlabel"  style="font-family:Verdana, Arial, Helvetica, sans-serif;">Click Manager</a>
+						
+						</li>
+					</ul>
+					<ul>
+						<li  id="cf_menuitem1424382208131" class="yuimenuitem" style="" onmouseover="ColdFusion.Menu.menuItemMouseOver('cf_menuitem1424382208131', 'black');" onmouseout="ColdFusion.Menu.menuItemMouseOut('cf_menuitem1424382208131');"><a href="http://www.relevancereactor.com/featuresCPM.cfm?v=20150202"  class="yuimenuitemlabel"  style="font-family:Verdana, Arial, Helvetica, sans-serif;">Campaign Manager</a>
+						
+						</li>
+					</ul>
+				 </div>
+			 </div>
+			</li><li  id="cf_menuitem1424382208132" class="yuimenubaritem" style="" onmouseover="ColdFusion.Menu.menuItemMouseOver('cf_menuitem1424382208132', 'black');" onmouseout="ColdFusion.Menu.menuItemMouseOut('cf_menuitem1424382208132');"><a href="http://www.relevancereactor.com/about.cfm?v=20150202"  class="yuimenubaritemlabel"  style="font-family:Verdana, Arial, Helvetica, sans-serif;">About</a>
+			
+			</li><li  id="cf_menuitem1424382208133" class="yuimenubaritem" style="" onmouseover="ColdFusion.Menu.menuItemMouseOver('cf_menuitem1424382208133', 'black');" onmouseout="ColdFusion.Menu.menuItemMouseOut('cf_menuitem1424382208133');"><a href="http://www.relevancereactor.com/events.cfm?v=20150202"  class="yuimenubaritemlabel"  style="font-family:Verdana, Arial, Helvetica, sans-serif;">Events</a>
+			
+			</li><li  id="cf_menuitem1424382208134" class="yuimenubaritem" style="" onmouseover="ColdFusion.Menu.menuItemMouseOver('cf_menuitem1424382208134', 'black');" onmouseout="ColdFusion.Menu.menuItemMouseOut('cf_menuitem1424382208134');"><a href="http://www.relevancereactor.com/contact.cfm?v=20150202"  class="yuimenubaritemlabel"  style="font-family:Verdana, Arial, Helvetica, sans-serif;">Contact</a>
+			
+			</li><li  id="cf_menuitem1424382208135" class="yuimenubaritem" style="" onmouseover="ColdFusion.Menu.menuItemMouseOver('cf_menuitem1424382208135', 'black');" onmouseout="ColdFusion.Menu.menuItemMouseOut('cf_menuitem1424382208135');"><a href="https://secure.relevancereactor.com/rr/login.cfm"  class="yuimenubaritemlabel"  style="font-family:Verdana, Arial, Helvetica, sans-serif;">Client Login</a>
+			
+			</li>
+		</ul>
+	 </div>
+ </div> 
+				<div id="contentMenuFooter">
+				</div>
+			</div>
+		
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td id="contentLeftColumn" valign="top">
+									</td>
+									<td id="contentBodyInside" valign="top">
+		 
+
+<table cellspacing="0" cellpadding="0" width="100%"><tr>
+	<td style="padding-bottom: 10px; padding-left: 45px; padding-right: 40px;">
+		<div class="bodyTextNormal">
+		<b>Relevance Reactor</b> is a user-friendly, web-based software platform designed for data-driven digital marketers.  It is comprised of a stand-alone Data Management module (Data Manager), a stand-alone Real-Time Click Tracking &amp; Routing module (Click Manager) and an optional Email Campaign Management module (Campaign Manager) as an extension of Data Manager.
+		Relevance Reactor provides essential technology for advertisers, publishers, lead generators, data brokers and email marketers.
+		</div>
+	</td>
+</tr></table>
+
+<table cellspacing="0" cellpadding="0" width="100%"><tr>
+	<td valign="top" width="33%" align="center">
+		<a href="http://www.relevancereactor.com/featuresDDM.cfm?v=20150202"><img src="http://www.relevancereactor.com/brand/image/rr_ddm_banner.png?v=20150202" alt="Data Manager" /></a><br /><br />
+		<a href="http://www.relevancereactor.com/featuresDDM.cfm?v=20150202"><img src="http://www.relevancereactor.com/brand/image/rr_ddm_features.gif?v=20150202" alt="Data Manager" /></a><br />
+		<div class="bodyTextTitle" style="padding: 10px 0px 0px 0px; color: #BE1E2D;">Stand-Alone Module</div>
+		<div class="bodyTextTitle" style="padding: 10px 0px 0px 0px; color: #BE1E2D;">Starting at $1,500/month</div>
+	</td>
+	<td valign="top" width="33%" align="center">
+		<a href="http://www.relevancereactor.com/featuresCKM.cfm?v=20150202"><img src="http://www.relevancereactor.com/brand/image/rr_ckm_banner.png?v=20150202" alt="Click Manager" /></a><br /><br />
+		<a href="http://www.relevancereactor.com/featuresCKM.cfm?v=20150202"><img src="http://www.relevancereactor.com/brand/image/rr_ckm_features.gif?v=20150202" alt="Click Manager" /></a><br />
+		<div class="bodyTextTitle" style="padding: 10px 0px 0px 0px; color: #008F4F;">Stand-Alone Module</div>
+		<div class="bodyTextTitle" style="padding: 10px 0px 0px 0px; color: #008F4F;">Starting at $500/month</div>
+	</td>
+	<td valign="top" width="33%" align="center">
+		<a href="http://www.relevancereactor.com/featuresCPM.cfm?v=20150202"><img src="http://www.relevancereactor.com/brand/image/rr_cpm_banner.png?v=20150202" alt="Campaign Manager" /></a><br /><br />
+		<a href="http://www.relevancereactor.com/featuresCPM.cfm?v=20150202"><img src="http://www.relevancereactor.com/brand/image/rr_cpm_features.gif?v=20150202" alt="Campaign Manager" /></a><br />
+		<div class="bodyTextTitle" style="padding: 10px 0px 0px 0px; color: #A53692;">Data Manager Optional Module</div>
+		<div class="bodyTextTitle" style="padding: 10px 0px 0px 0px; color: #A53692;">$1,000/month Flat Fee</div>
+	</td>
+</tr></table>
+
+
+
+
+
+									</td>
+									<td id="contentRightColumn" valign="top">
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div id="contentFooter">
+						<div class="bodyTextSmall" style="color: #FFFFFF">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td align="left">&copy;2015 Makiska Media Corp. All Rights Reserved&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color: white" href="http://www.relevancereactor.com/privacy.cfm">Privacy Policy</a></td>
+									<td align="right"><i>MKWEBV03</i></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				
+			</body>
+		</html>
+		";i:2;s:4:"8001";}

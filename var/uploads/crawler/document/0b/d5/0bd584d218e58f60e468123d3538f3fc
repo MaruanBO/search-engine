@@ -1,0 +1,827 @@
+a:3:{i:0;s:15:"http://gao.gov/";i:1;s:48869:"
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>U.S. Government Accountability Office (U.S. GAO)</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	   <meta property="og:title" content="U.S. Government Accountability Office (U.S. GAO)">
+        <meta property="og:type" content="Website">
+        <meta property="og:url" content="http://www.gao.gov/">
+        <meta property="og:image" content="http://www.gao.gov/images/seal_2011_12_20.png">
+        <meta property="og:description" content="The U.S. Government Accountability Office (GAO) is an independent, nonpartisan agency that investigates and reports on how the federal government spends taxpayer dollars.">
+        <link rel="apple-touch-icon-precomposed" href="/img_library/apple-touch-icon.png">
+        <meta name="Last-Modified" content="Thu, 19 Feb 2015 12:49:35 -0500">        <link rel="stylesheet" type="text/css" href="/scripts/jquery/css/jquery-ui.min.css">
+        <link rel='stylesheet' type="text/css" href='/scripts/wrapper.css'>
+        <link rel="stylesheet" type="text/css" href="/scripts/gao.css?v=2.3">
+        <link rel="stylesheet" href="/scripts/jquery/css/nivo-slider.css" type="text/css" media="screen">
+        <link rel="stylesheet" type="text/css" href="../inc/css/footer.css?v=1.03">
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript">!window.jQuery && document.write(unescape("%3Cscript src='/scripts/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));</script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+        <script type="text/javascript">!window.jQuery.ui && document.write(unescape("%3Cscript src='/scripts/jquery/jquery-ui.min.js' type='text/javascript'%3E%3C/script%3E"));</script>
+        <script type="text/javascript" src="/scripts/jquery/jquery.nivo.slider.pack.js?v=3.2"></script>
+        <script type="text/javascript" src="/scripts/jquery/jquery-bg_scripts.js?v=1.01"></script>
+        <script type="text/javascript" src="/scripts/jquery/jquery-cookie.min.js"></script>
+        <script type="text/javascript" src="/scripts/jquery/jquery-scrollable.min.js"></script>
+        <!--[if lte IE 7]>
+        <style>#main_nav li.bg-Popup a.nav_item{padding-right:36px}</style>
+        <script type="text/javascript">
+            $(function() {
+                // Adjust all main nav items so they are all the same height
+                // IE < 8 doesn't support css tables
+                box_height = 0;
+                $('.nav_item').each(function() {
+                    var height = $(this).outerHeight();
+                    if (height>box_height) {
+                        box_height = height;
+                    }
+                });
+                $('.nav_item').each(function() {
+                    if($(this).outerHeight()<box_height) {
+                        var outerHeight = $(this).outerHeight();
+                        $(this).css('padding-top',parseInt($(this).css('padding-top'))+Math.ceil((box_height-outerHeight)/2)+'px');
+                        $(this).css('padding-bottom',parseInt($(this).css('padding-bottom'))+Math.floor((box_height-outerHeight)/2)+'px');
+                    }
+                });
+            });
+        </script>
+        <![endif]-->
+        <script type="text/javascript">
+            $(function() {
+                // Clicking on a nav wrapper cell will load the link inside
+                $('#main_nav').on('click','div.wrapper > ul > li:not(.bg-Popup)',function(e){
+                    e.preventDefault();
+                    document.location = $(this).children('a[href]').attr('href');
+                });
+
+                // Load the RIP tab box
+                var lastTab = null;
+                $("#recently_issued_tabs").tabs({ fx: { opacity: 'toggle', duration:'fast' },
+                    select: function(e, ui) {
+                        $('#'+lastTab).data('scroll',$('#recently_issued_tabs .inner').scrollTop());
+                        $('#recently_issued > h2 > a').attr('href',$(ui.tab).attr('data'));
+                    },
+                    show : function(e ,ui) {
+                        lastTab = ui.panel.id;
+                        $('.bg-scroll').resetScroller({scrollTop:$('#'+ui.panel.id).data('scroll')});
+                    },
+                    cookie: {name: 'rip cookie'}
+                });
+
+                // Adjust Top Download Box size to be consistent across tabs
+                /*
+                var box_height = 0;
+                $('[id*=top_download_box_tabs] ol').each(function() {
+                    var height = $(this).outerHeight();
+                    if (height>box_height) {
+                        box_height = height;
+                    }
+                });
+                $('[id*=top_download_box_tabs] ol').each(function() {
+                    $(this).css('min-height',box_height+10+'px');
+                });
+
+                // Load Top Download Tab box
+                $("#top_download_box").tabs({fx: { opacity: 'toggle', duration:'fast' }});
+                */
+
+                // Add Scroller to RIP box
+                $('.bg-scroll').addScrollButtons();
+
+                // Load the Featured Slider
+                $('#slider').nivoSlider({
+                    pauseTime:5000,
+                    effect:'fade'
+                });
+
+                // Play/Pause button for the Slider
+                $('#nivoSlider-control').click(function(){
+                    if ($(this).attr('data')=='stop') {
+                        $('#slider').data('nivoslider').stop();
+                        $(this).attr('src','img_library/slider/play.png');
+                        $(this).attr('data','play');
+                    } else {
+                        $('#slider').data('nivoslider').start();
+                        $(this).attr('src','img_library/slider/pause.png');
+                        $(this).attr('data','stop');
+                    }
+                });
+
+                // Line Key Resource bottom up with the bottom of the RIP box
+                $('#recently_issued .inner').alignBottoms({parent_offset:31});
+
+                // Line Featured Topics box top and bottom up with Top Download box
+                //$('#top_download_box').alignBottoms();
+                $('#top_download_box_tabs-4').alignBottoms();
+
+                // Create the nav popups
+                $('.bg-Popup').createPopup({show_speed:200,hide_speed:200,animation_speed:300});
+
+                // Create search box placeholder for browsers that don't support it
+                $('#search_box').simulatePlaceholder();
+
+                // Remove Resources href if javascript is running
+                $('#main_nav li.bg-Popup a.nav_item').attr('href','#');
+
+                // Featured Collections Scroller
+                $('.scroll_container').scrollable({
+                    /*circular: true,*/
+                    onBeforeSeek: function(event, index) {
+                        if (index > this.getSize()-3) {
+                            return false;//disable scrollable api
+                        }
+                    },
+                    onSeek: function(event, index) {
+                        if (index == this.getSize()-3) {
+                            $('a.next').addClass('disabled');//hide 'next' button
+                        } else {
+                            $('a.next').removeClass('disabled');
+                        }
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript" src="/inc/js/foresee/foresee-trigger.js" defer></script>
+        <script>var _gaq=[['_setAccount','UA-29643216-1'],['_setDomainName','gao.gov'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+    </head>
+
+    <body>
+        <div id="skip_nav_link" style="height:0px; margin-left:-1000px;"><a href="#skip_nav">Skip Navigation</a></div>
+        <div id="header_container">
+            <div id="banner_area">
+                <div class="inner" style="position:relative;">
+                    <form id="search_form" method="get" action="/search" onSubmit="return clk('/search','search');">
+                        <input id="search_box" name="q" type="search" title="Search the GAO website with a Keyword or Report number" placeholder="Keyword or Report #" />
+                        <button id="search_button" type="submit">Search</button>
+                    </form>
+                    <a id="banner" href="" title="U.S. Government Accountability Office (GAO)"><img src="images/US-GAO-logo.png" itemprop="logo" height="49" width="485" alt="U.S. Government Accountability Office (GAO)" /></a>
+                </div>
+            </div>
+            <div id="main_nav">
+                <div class="wrapper">
+                    <ul>
+                        <li><a class="nav_item" href="/browse/date/week">Reports &amp; Testimonies</a></li>
+                        <li><a class="nav_item" href="/legal/index.html">Legal Decisions<br />&amp; Bid Protests</a></li>
+                        <li><a class="nav_item" href="/key_issues/overview">Key Issues</a></li>
+                        <li><a class="nav_item" href="/about/index.html">About GAO</a></li>
+                        <li><a class="nav_item" href="/careers/index.html">Careers</a></li>
+                        <li><a class="nav_item" href="/multimedia/video">Multimedia</a></li>
+                        <li class="bg-Popup">
+                            <a class="nav_item" href="/resources.html">Resources For</a>
+                            <ul class="bg-pop_div">
+                                <li><a href="/resources/congress/overview">Congress</a></li>
+                                <li><a href="/resources/journalists/overview">Journalists</a></li>
+                                <li><a href="/resources/auditors/overview">Auditors</a></li>
+                                <li><a href="/resources/federal_managers/overview">Federal Managers</a></li>
+                                <li><a href="/resources/researchers/overview">Researchers</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="content_container">
+            <a name="skip_nav" id="skip_nav"></a>
+            <div id="left_column_container">
+                <div id="recently_issued" class="box_thick_top box_grey_border">
+                    <h2><a href="/browse/date/week">Recently Issued&nbsp;&nbsp;<span class="raquo">&raquo;</span></a></h2>
+                    <div id="recently_issued_tabs">
+                        <ul>
+                            <li><a href="#reports" data="/browse/date/week">REPORTS &amp; TESTIMONIES</a></li>
+                            <li><a href="#legal" data="/legal/index.html">LEGAL DECISIONS</a></li>
+                        </ul>
+                        <div class="inner bg-scroll align-bottom" data="#featured_topics">
+                            <div id="reports" data="/rip/reports/">
+                                <h3>Feb 19, 2015</h3><ul>
+		
+			   <li id="reports-0"><div><a href="/products/GAO-15-178"><img class="icon" src="http://www.gao.gov/images/rip/government.jpg" title="source: Eyewire" alt="Government Operations" /></a>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 <h4>Flood Insurance: </h4>
+					 <a href="/products/GAO-15-178">Status of FEMA's Implementation of the Biggert-Waters Act, as Amended</a><br /><div class="release_info">GAO-15-178:<span>Published: Feb 19, 2015. Publicly Released: Feb 19, 2015.</span></div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+			   <li id="reports-1"><div><a href="/products/GAO-15-181"><img class="icon" src="http://www.gao.gov/images/rip/environment.jpg" title="source: Art Explosion" alt="Natural Resources and Environment" /></a>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 <h4>Defense Nuclear Facilities Safety Board: </h4>
+					 <a href="/products/GAO-15-181">Improvements Needed to Strengthen Internal Control and Promote Transparency</a><br /><div class="release_info">GAO-15-181:<span>Published: Jan 20, 2015. Publicly Released: Feb 19, 2015.</span></div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+			   <li id="reports-2"><div><a href="/products/GAO-15-119"><img class="icon" src="http://www.gao.gov/images/rip/tax.jpg" title="source: Eyewire" alt="Tax Policy and Administration" /></a>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 <h4>Identity and Tax Fraud: </h4>
+					 <a href="/products/GAO-15-119">Enhanced Authentication Could Combat Refund Fraud, but IRS Lacks an Estimate of Costs, Benefits and Risks</a><br /><div class="release_info">GAO-15-119:<span>Published: Jan 20, 2015. Publicly Released: Feb 19, 2015.</span></div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+		</ul><h3>Feb 18, 2015</h3><ul>
+		
+			   <li id="reports-3"><div><a href="/products/GAO-15-250"><img class="icon" src="http://www.gao.gov/images/rip/defense.jpg" title="source: [West Covina, California] Progressive Management, 2008" alt="National Defense" /></a>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 <h4>Contingency Contracting: </h4>
+					 <a href="/products/GAO-15-250">Contractor Personnel Tracking System Needs Better Plans and Guidance</a><br /><div class="release_info">GAO-15-250:<span>Published: Feb 18, 2015. Publicly Released: Feb 18, 2015.</span></div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+			   <li id="reports-4"><div><a href="/products/GAO-15-269"><img class="icon" src="http://www.gao.gov/images/rip/auditing.jpg" title="source: PhotoDisc" alt="Auditing and Financial Management" /></a>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 <h4>Improper Payments: </h4>
+					 <a href="/products/GAO-15-269">TRICARE Measurement and Reduction Efforts Could Benefit from Adopting Medical Record Reviews</a><br /><div class="release_info">GAO-15-269:<span>Published: Feb 18, 2015. Publicly Released: Feb 18, 2015.</span></div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+			   <li id="reports-5"><div><a href="/products/GAO-15-2SP"><img class="icon" src="http://www.gao.gov/images/rip/gao.jpg" title="source: GAO" alt="GAO Mission and Operations" /></a>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 <h4>GAO Mission and Operations</h4>
+					 <a href="/products/GAO-15-2SP">GAO&#58; Summary of Performance and Financial Information Fiscal Year 2014</a><br /><div class="release_info">GAO-15-2SP:<span>Published: Feb 17, 2015. Publicly Released: Feb 18, 2015.</span></div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+		</ul><h3>Feb 13, 2015</h3><ul>
+		
+			   <li id="reports-6"><div><a href="/products/GAO-15-266"><img class="icon" src="http://www.gao.gov/images/rip/health.jpg" title="source: PhotoDisc" alt="Health Care" /></a>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 <h4>Defense Health Care: </h4>
+					 <a href="/products/GAO-15-266">Better Tracking and Oversight Needed of Servicemember Separations for Non-Disability Mental Conditions</a><br /><div class="release_info">GAO-15-266:<span>Published: Feb 13, 2015. Publicly Released: Feb 13, 2015.</span></div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+			   <li id="reports-7"><div><a href="/products/GAO-15-35"><img class="icon" src="http://www.gao.gov/images/rip/environment.jpg" title="source: Art Explosion" alt="Natural Resources and Environment" /></a>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 <h4>Hazardous Waste: </h4>
+					 <a href="/products/GAO-15-35">Agencies Should Take Steps to Improve Information on USDA's and Interior's Potentially Contaminated Sites</a><br /><div class="release_info">GAO-15-35:<span>Published: Jan 16, 2015. Publicly Released: Feb 13, 2015.</span></div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+		</ul><h3>Feb 12, 2015</h3><ul>
+		
+			   <li id="reports-8"><div><a href="/products/GAO-15-300"><img class="icon" src="http://www.gao.gov/images/rip/economy.jpg" title="source: PhotoDisc" alt="Economic Development" /></a>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 <h4>African Growth and Opportunity Act: </h4>
+					 <a href="/products/GAO-15-300">Eligibility Process and Economic Development in Sub-Saharan Africa</a><br /><div class="release_info">GAO-15-300:<span>Published: Feb 12, 2015. Publicly Released: Feb 12, 2015.</span></div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+			   <li id="reports-9"><div><a href="/products/GAO-15-386T"><img class="icon" src="http://www.gao.gov/images/rip/environment.jpg" title="source: Art Explosion" alt="Natural Resources and Environment" /></a>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 <h4>Environmental Satellites: </h4>
+					 <a href="/products/GAO-15-386T">Improvements Needed in NOAA's Mitigation Strategies as It Prepares for Potential Satellite Coverage Gaps</a><br /><div class="release_info">GAO-15-386T:<span>Published: Feb 12, 2015. Publicly Released: Feb 12, 2015.</span></div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+		</ul><!--
+		<table>
+			<tr><td>Use Cache</td><td>True</td></tr>
+			<tr><td>Kill Cache</td><td>False</td></tr>
+			<tr><td>From Cache</td><td>True</td></tr>
+			<tr><td>Cache Prefix</td><td>gao.gov</td></tr>
+		</table>--><!--
+		<table>
+			<tr><td>Use Cache</td><td>True</td></tr>
+			<tr><td>Kill Cache</td><td>False</td></tr>
+			<tr><td>From Cache</td><td>True</td></tr>
+			<tr><td>Cache Prefix</td><td>gao.gov</td></tr>
+		</table>-->                            </div>
+                            <div id="legal" data="/rip/decisions/">
+                                <h3>Feb 19, 2015</h3><ul>
+		
+			   <li id="decisions-0"><div>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 
+					 <a href="/products/B-410788">Graybar</a><br /><div class="release_info">B-410788</div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+			   <li id="decisions-1"><div>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 
+					 <a href="/products/B-410762,B-410762.2">Investment Management Enterprise</a><br /><div class="release_info">B-410762,B-410762.2</div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+			   <li id="decisions-2"><div>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 
+					 <a href="/products/B-409949.2">CompTech-CDO, LLC</a><br /><div class="release_info">B-409949.2</div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+			   <li id="decisions-3"><div>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 
+					 <a href="/products/B-410444">Nangwik Services, LLC</a><br /><div class="release_info">B-410444</div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+		</ul><h3>Feb 18, 2015</h3><ul>
+		
+			   <li id="decisions-4"><div>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 
+					 <a href="/products/GAO-15-382R">Department of Energy: Energy Conservation Program: Energy Conservation Standards for Automatic Commercial Ice Makers</a><br /><div class="release_info">GAO-15-382R</div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+			   <li id="decisions-5"><div>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 
+					 <a href="/products/GAO-15-381R">Department of Energy: Energy Conservation Program: Energy Conservation Standards for General Service Fluorescent Lamps and Incandescent Reflector Lamps</a><br /><div class="release_info">GAO-15-381R</div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+		</ul><h3>Feb 13, 2015</h3><ul>
+		
+			   <li id="decisions-6"><div>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 
+					 <a href="/products/B-410797">FitNet Purchasing Alliance</a><br /><div class="release_info">B-410797</div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+			   <li id="decisions-7"><div>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 
+					 <a href="/products/B-410298.2">The Continuum Engineering--Reconsideration</a><br /><div class="release_info">B-410298.2</div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+		</ul><h3>Feb 12, 2015</h3><ul>
+		
+			   <li id="decisions-8"><div>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 
+					 <a href="/products/B-410714">CGI Federal Inc.</a><br /><div class="release_info">B-410714</div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+		</ul><h3>Feb 11, 2015</h3><ul>
+		
+			   <li id="decisions-9"><div>
+				  <div class="links">
+						   </div></div>
+				  <div class="listing">
+					 
+					 <a href="/products/B-410089.2,B-410089.3">Council for Logistics Research, Inc.</a><br /><div class="release_info">B-410089.2,B-410089.3</div>
+                  		 </div>
+					 <div class="clear"></div>
+			   </li>
+		 
+		</ul><!--
+		<table>
+			<tr><td>Use Cache</td><td>True</td></tr>
+			<tr><td>Kill Cache</td><td>False</td></tr>
+			<tr><td>From Cache</td><td>True</td></tr>
+			<tr><td>Cache Prefix</td><td>gao.gov</td></tr>
+		</table>--><!--
+		<table>
+			<tr><td>Use Cache</td><td>True</td></tr>
+			<tr><td>Kill Cache</td><td>False</td></tr>
+			<tr><td>From Cache</td><td>True</td></tr>
+			<tr><td>Cache Prefix</td><td>gao.gov</td></tr>
+		</table>-->                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- just show one box for trending, rather than tabs - Scott - 140520 Tue 16:07
+                <div id="top_download_box" class="align-top" data="#key_resources">
+                    <ul class="nav">
+                        <li><a href="#top_download_box_tabs-1">TOP DOWNLOADS</a></li>
+                        <li><a href="#top_download_box_tabs-2">TOP SHARED</a></li>
+                        <li><a href="#top_download_box_tabs-3">TOP E-MAILED</a></li>
+                        <li><a href="#top_download_box_tabs-4">TOP TRENDING</a></li>
+                    </ul>
+
+                    <div id="top_download_box_tabs-1">
+                        <ol><li><a href="http://www.gao.gov/products/GAO-11-696">Federal Reserve System: Opportunities Exist to Strengthen Policies and Processes for Managing Emergency Assistance</a></li>
+<li><a href="http://www.gao.gov/products/GAO-14-663">Regulatory Impact Analysis: Development of Social Cost of Carbon Estimates</a></li>
+<li><a href="http://www.gao.gov/products/GAO-11-907">Afghanistan Governance: Performance-Data Gaps Hinder Overall Assessment of U.S. Efforts to Build Financial Management Capacity</a></li>
+<li><a href="http://www.gao.gov/products/GAO-12-331G">Government Auditing Standards: 2011 Revision (Supersedes GAO-07-731G) [Reissued on January 20, 2012]</a></li>
+<li><a href="http://www.gao.gov/products/GAO-05-734SP">A Glossary of Terms Used in the Federal Budget Process (Supersedes AFMD-2.1.1)</a></li>
+</ol>                        <a href="/about/topdownloads#downloaded" class="complete_list"><strong>See Complete List</strong> &raquo;</a>
+                    </div>
+                    <div id="top_download_box_tabs-2">
+                        <ol><li><a href="http://www.gao.gov/products/GAO-14-465">Education of Homeless Students: Improved Program Oversight Needed</a></li>
+<li><a href="http://www.gao.gov/products/GAO-14-663">Regulatory Impact Analysis: Development of Social Cost of Carbon Estimates</a></li>
+<li><a href="http://www.gao.gov/products/B-326013">Department of Defense--Compliance with Statutory Notification Requirement</a></li>
+<li><a href="http://www.gao.gov/products/GAO-14-555">Drinking Water: EPA Program to Protect Underground Sources from Injection of Fluids Associated with Oil and Gas Production Needs Improvement</a></li>
+<li><a href="http://www.gao.gov/products/GAO-14-705T">Patient Protection and Affordable Care Act: Preliminary Results of Undercover Testing of Enrollment Controls for Health Care Coverage and Consumer Subsidies Provided Under the Act</a></li>
+</ol>                        <a href="/about/topdownloads#shared" class="complete_list"><strong>See Complete List</strong> &raquo;</a>
+                    </div>
+                    <div id="top_download_box_tabs-3">
+                        <ol><li><a href="http://www.gao.gov/products/GAO-04-676T">Paperwork Reduction Act: Agencies report Slight Decreases in Burden Estimates and Violations</a></li>
+<li><a href="http://www.gao.gov/products/A11931">Scope of Professional Credentials Statute</a></li>
+<li><a href="http://www.gao.gov/products/D08382">Hughes Network Systems, LLC</a></li>
+<li><a href="http://www.gao.gov/products/GAO-10-540">Legal Services Corporation: Improvements Needed in Controls over Grant Awards and Grantee Program Effectiveness</a></li>
+<li><a href="http://www.gao.gov/products/423962">B-205348, NOVEMBER 23, 1982, 62 COMP.GEN. 58</a></li>
+</ol>                        <a href="/about/topdownloads#emailed" class="complete_list"><strong>See Complete List</strong> &raquo;</a>
+                    </div>
+                </div>
+                    -->
+                    <div id="top_download_box_tabs-4"
+                        data="#key_resources"
+                        class="align-top box_grey_border box_thick_top"
+                        >
+                        <h2><strong>Trending Now:</strong> Most viewed, downloaded, and shared</h2>
+                        <ol><li>
+ <h4>High-Risk Series:</h4><a href="/products/GAO-15-290"> An Update</a>
+ <div class="release_info">GAO-15-290: <span>Published: Feb 11, 2015. Publicly Released: Feb 11, 2015.</span></div>
+</li>
+<li>
+ <h4>Contingency Contracting:</h4><a href="/products/GAO-15-250"> Contractor Personnel Tracking System Needs Better Plans and Guidance</a>
+ <div class="release_info">GAO-15-250: <span>Published: Feb 18, 2015. Publicly Released: Feb 18, 2015.</span></div>
+</li>
+<li>
+<a href="/products/GAO-15-2SP">GAO&#58; Summary of Performance and Financial Information Fiscal Year 2014</a>
+ <div class="release_info">GAO-15-2SP: <span>Published: Feb 18, 2015. Publicly Released: Feb 18, 2015.</span></div>
+</li>
+<li>
+ <h4>Improper Payments:</h4><a href="/products/GAO-15-269"> TRICARE Measurement and Reduction Efforts Could Benefit from Adopting Medical Record Reviews</a>
+ <div class="release_info">GAO-15-269: <span>Published: Feb 18, 2015. Publicly Released: Feb 18, 2015.</span></div>
+</li>
+<li>
+ <h4>Identity Theft:</h4><a href="/products/GAO-14-633"> Additional Actions Could Help IRS Combat the Large, Evolving Threat of Refund Fraud</a>
+ <div class="release_info">GAO-14-633: <span>Published: Sep 22, 2014. Publicly Released: Sep 22, 2014.</span></div>
+</li>
+</ol>                        <!-- <a href="/about/topdownloads" class="complete_list"><strong>See Complete List</strong> &raquo;</a> -->
+                    </div>
+            </div>
+            <div id="right_column_container">
+                <div id="featured_scroller">
+                    <div id="slider-wrapper">
+                         <div id="slider" class="nivoSlider">
+                           <a href="/highrisk/overview"><img src="/img_library/slider/slider_2015highrisk.jpg" title="#2015highrisk" alt="Federal programs and \"high risk\" for waste, fraud & abuse." width="467" height="200" /></a>                          
+                           <a href="/press/best_places_2014.htm"><img src="/img_library/slider/slider_bpwfg2014.jpg" title="#htmlcaptionbpwfg" alt="Best Places to Work in the Federal Government slider." width="467" height="200" /></a> 
+                                                   
+                           <a href="http://blog.gao.gov" target="_blank"><img src="/img_library/slider/watchblog_slider.jpg" title="#htmlcaptionwatchblog" alt="WatchBlog slider." width="467" height="200" /></a>                           
+                           <a href="/key_issues/overview"><img src="/img_library/slider/keyissues_slider.jpg" alt="Key Issues Banner" title="#htmlcaption3" width="467" height="200" /></a>
+                        </div>
+                        <div id="2015highrisk" class="nivo-html-caption">
+                            This <a href="/highrisk/overview">collection</a> could lead to billions of dollars in savings, improve service to the public, and strengthen confidence in the federal government.
+                        </div> 
+                        <div id="htmlcaptionbpwfg" class="nivo-html-caption">
+                            The Partnership for Public Service <a href="/press/best_places_2014.htm">again</a> named GAO among the "Best Places to Work" in the federal government.
+                        </div> 
+
+                        <div id="htmlcaptionwatchblog" class="nivo-html-caption">
+                            GAO launches the <a href="http://blog.gao.gov" target="_blank">Watchblog</a> to highlight its work on tracking taxpayer dollars and promoting accountability.
+                        </div>
+                       <div id="htmlcaption3" class="nivo-html-caption">                        
+                            This <a href="/key_issues/overview">new section</a> of the website provides information about GAO's work on a range of issues and highlights our most relevant reports.
+                        </div>
+
+                        <img id="nivoSlider-control" data="stop" src="/img_library/slider/pause.png" alt="Slider On/Off toggle switch" width="20" height="20" />
+                        <!--  <div id="play" style="cursor: pointer;"><img src="images/play.png"></div>  -->
+                    </div>
+                </div>
+		<div id="grid_left">
+                    <a href="http://blog.gao.gov" target="_blank">
+                        <div id="watchblog_stroke">
+                           <div id="watchblog">
+                              <img src="/img/watchblog_logo.png" alt="Watchblog Logo">
+                           </div>
+                        </div>
+                    </a>
+                </div>
+                <div id="grid_right">
+                    <a href="/cghome/index.html">
+                        <div id="comptroller_stroke">
+                            <div id="comptroller">
+                                <h6>Comptroller General</h6>
+                                <p>Gene L. Dodaro</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="clear"></div>
+                <div id="spotlight_grid">
+                    <div id="stay_connected">
+                        <h2><a href="/feeds.html">Stay Connected&nbsp;&nbsp;<span class="raquo">&raquo;</span></a></h2>
+                        <div id="connected_list">
+                            <ul>
+                                <li><a class="spritely_stayconnected stayconnected_facebook" href="http://www.facebook.com/usgao" target="_blank">Facebook</a></li>
+                                <li class="bg-Popup" width="auto">
+                                    <a class="spritely_stayconnected stayconnected_twitter" href="http://twitter.com/usgao" target="_blank">Twitter</a>
+                                    <ul class="bg-pop_div">
+                                        <li><a href="http://twitter.com/usgao" target="_blank">Reports</a></li>
+                                        <li><a href="http://twitter.com/usgaolegal" target="_blank">Legal</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="spritely_stayconnected stayconnected_linkedin" href="http://www.linkedin.com/company/us-government?trk=cp_followed_name_us-government" target="_blank">Linkedin</a></li>
+                                <li><a class="spritely_stayconnected stayconnected_youtube" href="http://www.youtube.com/usgao" target="_blank">YouTube</a></li>
+                                <li><a class="spritely_stayconnected stayconnected_flickr" href="http://www.flickr.com/photos/usgao" target="_blank">Flickr</a></li>
+                                <li><a class="spritely_stayconnected stayconnected_rss" href="/feeds.html">RSS feeds</a></li>
+                                <li><a class="spritely_stayconnected stayconnected_blog" href="http://blog.gao.gov" target="_blank">Blog</a></li>
+                                <li><a class="spritely_stayconnected stayconnected_podcasts" href="/podcast/watchdog.html">Podcasts</a></li>
+                                <li><a class="spritely_stayconnected stayconnected_widgets" href="/widgets_reports_and_legal.html">Widgets</a></li>
+                                <li><a class="spritely_stayconnected stayconnected_email" href="/subscribe/index.php">E-mail</a></li>
+                            </ul>
+                        </div><!--connected_list-->
+                        <div class="clear"></div>
+                    </div><!--stay_connected-->
+                </div><!--spotlight_grid-->
+
+                <div id="featured_topics" class="scroll_container box_thick_top">
+
+                    <a class="next browse right" style="float:right"></a>
+                    <!-- root element for scrollable -->
+                    <a class="prev browse left" style="float:right"></a>
+                    <!-- "next page" action -->
+
+                    <h2>
+                        Featured Collections
+                    </h2>
+
+                    <div class="scrollable">
+                        <!-- root element for the items -->
+                        <div class="items">
+                            <div class="item">
+                                <a href="/duplication/overview">
+                                    <img src="/img/collections/collections_duplication.png" width="119" height="105" alt="duplication icon">
+                                    <h3>Duplication & <br>Cost Savings:</h3>
+                                    GAO's new report on areas where the federal government could reduce duplication and achieve cost savings.
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="/highrisk/overview">
+                                    <img src="/img/collections/collections_high_risk.png" width="119" height="105"  alt="high risk icon">
+                                    <h3><strong>High Risk List:</strong></h3>
+                                    GAO's list of programs that need continued attention due to high risk factors.
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="/fiscal_outlook/overview">
+                                    <img src="/img/collections/collections_fiscal_outlook.png" width="119" height="105"  alt="fiscal icon">
+                                    <h3>Fiscal Outlook <br>and the Debt:</h3> GAO's reports on the federal fiscal outlook and the long-term debt.
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="/technology_assessment/key_reports">
+                                    <img src="/img/collections/collections_tech_assessment.png" width="119" height="105"  alt="technology assessment icon">
+                                    <h3>Technology Assessment:</h3> GAO's analysis of critical technological innovations.
+                                </a>
+                            </div>
+
+                            <div class="item">
+                                <a href="/recovery">
+                                    <img src="/img/collections/collections_recovery_act.png" width="119" height="105" alt="recovery icon">
+                                    <h3>Recovery Act:</h3>
+                                    Following the Money: GAO's Oversight of the Recovery Act.
+                                </a>
+                            </div>
+                            <!--                     Commenting out section so list matches those in the key issues medallions collection. Gov Bes Prac is on hold. -->
+                            <!--                     <div class="item"> -->
+                            <!--                     	<a href="/highrisk/challenges/"> -->
+                            <!--                       		<h3><strong>Government Best<br>Practices </strong>&raquo;</h3> -->
+                            <!--                       		<img src="/img/collections/collections_government_best_practices.png" width="119" height="105"  alt="fiscal icon"> -->
+                            <!--                       		GAO's Government Best Practices Work -->
+                            <!--                       	</a> -->
+                            <!--                     </div> -->
+                        </div><!--items-->
+
+                    </div><!--scrollable-->
+                    <div class="clear"></div>
+                </div><!--featured_topics-->
+
+                <div id="key_resources" class="box_grey_border box_thick_top">
+                    <h2>Quick Links&nbsp;&nbsp;</h2>
+                    <ul>
+                        <li class="press_release"><a href="http://www.gao.gov/press/latest_high_risk_list.htm" class="thirdLevel"> GAO Adds IT Acquisitions and Operations and VA Health Care to Latest High Risk List </a></li><li class="press_release"><a href="http://www.gao.gov/press/macpac_appointments_2015.html" class="thirdLevel">GAO Makes MACPAC Appointments</a></li><li class="press_release"><a href="http://www.gao.gov/press/best_places_2014.htm" class="thirdLevel">GAO Rises in "Best Places to Work" Rankings</a></li>                        <li class="fraud"><a href="/fraudnet/fraudnet.htm">FraudNet: Report Fraud, Waste or Abuse</a></li>
+                        <li class="scams"><a href="/using.htm#scam"><p>E-Mail Scam Alerts</p></a></li>
+                        <li class="committees"><a href="/about/hcac/index.html"><p>Health Care Advisory Committees</p></a></li>
+                        <li class="gaoig"><a href="/about/workforce/ig.html"><p>GAO Inspector General</p></a></li>
+                    </ul>
+                   <div id="book_section">
+                        <div class="left_book">
+                            <a class="yellow_book" href="/yellowbook/overview" alt="Government Auditing Standards">The<br>Yellow<br>Book</a>
+                            <a class="book_text" href="/yellowbook/overview" style="padding-bottom:0;" alt="Government Auditing Standards">Government<br>Auditing<br>Standards</a>
+                        </div>  
+                        <div class="left_book">  
+                            <a href="/about/performanceaccountabilityreport/overview" alt="Performance & Accountability Report"><img src="/img_library/par2014_cover.jpg" style="height:100px;border: 1px #000000 solid;" >
+                            </a><a class="book_text" style="padding-top:2px;height:51px;padding-bottom:0;" href="/about/performanceaccountabilityreport/overview" alt="Strategic Plan">Performance&nbsp;&#38;<br>
+ Accountability<br>
+ Report<br></a>
+                        </div>
+
+                        <div class="left_book">
+                            <a class="red_book" href="/legal/redbook/redbook.html" alt="Federal Appropriations Law">The<br>Red<br>Book</a>
+                            <a class="book_text" href="/legal/redbook/redbook.html" alt="Federal Appropriations Law">Federal<br>Appropriations<br>Law</a>
+                        </div>
+                        <div class="left_book">
+                            <a class="green_book" href="/greenbook/overview" alt="Standards for Internal Control">The<br>Green<br>Book</a>
+                            <a class="book_text" href="/greenbook/overview" alt="Standards for Internal Control">Standards<br>for&nbsp;Internal<br>Controls</a>
+                        </div>
+
+                    </div>
+                    <div class="clear"></div>
+                </div><!--key_resources-->
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+ <div id="footer" class="footerfontsize">
+
+   <div id="footertop">
+      <div class="footerstroke">&nbsp;</div>
+      <div id="footer_seal_wrap">
+         <img style="display:block; margin:auto;" alt="GAO seal" src="/img/footer_seal.png">
+      </div>
+      <div class="footerstroke">&nbsp;</div>
+      <div style="clear:both;"></div>
+   </div>
+   <div class="footer_social" >
+      <ul>
+         <li><a class="spritely footer_facebook" href="http://www.facebook.com/usgao" target="blank"><span class="text_no_indent">Facebook</span></a></li>
+         <li>
+            <div class="spritely footer_twitter">
+               <a class="text_no_indent" href="http://twitter.com/usgao" target="blank">@usgao</a>
+               <a class="text_no_indent_second" href="http://twitter.com/usgaolegal" target="blank">@usgaolegal</a>
+            </div>
+         </li>
+         <li><a class="spritely footer_linkedin" href="http://www.linkedin.com/company/us-government?trk=cp_followed_name_us-government" target="blank"><span class="text_no_indent">LinkedIn</a></span></li>
+         <li><a class="spritely footer_youtube" href="http://www.youtube.com/usgao" target="blank"><span class="text_no_indent">YouTube</a></span></li>
+         <li><a class="spritely footer_flickr" href="http://www.flickr.com/photos/usgao" target="blank"><span class="text_no_indent">Flickr</a></span></li>
+         <li><a class="spritely footer_rss" href="/feeds.html"><span class="text_no_indent">RSS feeds</a></span></li>
+         <li><a class="spritely footer_blog" href="http://blog.gao.gov" target="_blank"><span class="text_no_indent">Blog</a></span></li>
+         <li><a class="spritely footer_podcasts" href="http://www.gao.gov/podcast/watchdog.html"><span class="text_no_indent">Podcasts</a></span></li>
+         <li><a class="spritely footer_widgets" href="/widgets_reports_and_legal.html"><span class="text_no_indent">Widgets</a></span></li>
+         <li><a class="spritely footer_email" href="/subscribe/index.php"><span class="text_no_indent">E-mail</a></span></li>
+         <li><a class="spritely footer_stayconnected" href="/feeds.html"><span class="text_no_indent">Stay connected</a></span></li>
+      </ul>
+   </div>
+
+   <div style="border-bottom:1px solid #999999;width:1015px;margin: 0 auto">&nbsp;</div>
+
+   <div class="footer_lower">
+
+      <div id="subfooter">
+         <div class="col">
+            <h4><a href="/browse/date/week">Reports&nbsp;&amp;<br />Testimonies</a></h4>
+            <ul>
+               <li><a href="/browse/date">Browse By Date</a></li>
+               <li><a href="/browse/topic">Browse By Topic</a></li>
+               <li><a href="/browse/agency">Browse By Agency</a></li>
+            </ul>
+         </div>
+         <!--/ .col -->
+
+         <div class="col">
+            <h4><a href="/legal/index.html">Legal&nbsp;Decisions<br />&amp;&nbsp;Bid Protests</a></h4>
+            <ul>
+               <li><a href="/legal/genleg.html">General Legal<br />
+               Decisions&nbsp;&amp; FAQs</a></li>
+               <li><a href="/legal/bids/bidprotest.html">Bid Protests</a></li>
+               <li><a href="/legal/redbook/redbook.html">Red Book</a></li>
+               <li><a href="/legal/lawresources/resources.html">Appropriations Law</a></li>
+               <li><a href="/legal/contract/appeals.html">Contract Appeals<br />Board</a></li>
+               <li><a href="/legal/fedvac/vacancies.html">Federal Vacancies<br />Act Resources</a></li>
+               <li><a href="/legal/congressact/congress.html">Congressional<br />Review Act</a></li>
+            </ul>
+         </div>
+         <!--/ .col -->
+
+         <div class="col">
+            <h4><a href="/key_issues/overview">Key Issues</a></h4>
+            <ul>
+               <li><a href="/key_issues/overview#t=1">Browse By Topic</a></li>
+               <li><a href="/key_issues/overview#t=2">Browse By Agency</a></li>
+               <li><a href="/key_issues/overview#t=3">Browse Collections</a></li>
+            </ul>
+         </div>
+         <!--/ .col -->
+
+         <div class="col">
+            <h4><a href="/about/index.html">About GAO</a></h4>
+            <ul>
+               <li><a href="/cghome/index.html">Comptroller<br />General</a></li>
+               <li><a href="/subscribe/index.php">E-mail Updates</a></li>
+               <li><a href="/about/location/">Location</a></li>
+               <li><a href="/about/workforce/">Workforce</a></li>
+               <li><a href="/about/products/">Products and<br />Services</a></li>
+               <li><a href="/about/history/">History</a></li>
+               <li><a href="/about/hcac/index.html">Health Care<br />Advisory<br />Committees</a></li>
+               <li><a href="/about/products/foia.html">FOIA</a></li>
+               <li><a href="/about/workforce/nofear.html">No&nbsp;Fear&nbsp;Act&nbsp;Data</a></li>
+               <li><a href="/fraudnet/fraudnet.htm">FraudNet:<br />Reporting Fraud</a></li>
+             </ul>
+         </div>
+         <!--/ .col -->
+
+         <div class="col">
+            <h4><a href="/careers/index.html">Careers</a></h4>
+            <ul>
+               <li><a href="https://www.usajobs.gov/JobSearch/Search/GetResults?OrganizationID=LG00&amp;ApplicantEligibility=all">Current Job<br />Vacancies</a></li>
+               <li><a href="/careers/apply.html">Apply for Jobs</a></li>
+               <li><a href="/careers/career.html">Career Paths</a></li>
+               <li><a href="/careers/benefits.html">Benefits</a></li>
+               <li><a href="/careers/student.html">Student and<br />Executive<br />Programs</a></li>
+               <li><a href="/careers/diversity.html">Diversity &amp;<br />Inclusion</a></li>
+            </ul>
+         </div>
+         <!--/ .col -->
+
+         <div class="col">
+            <h4><a href="/multimedia/video/">Multimedia</a></h4>
+            <ul>
+               <li><a href="/multimedia/video/">Video Gallery</a></li>
+               <li><a href="/podcast/watchdog.html">Podcast Gallery</a></li>
+            </ul>
+         </div>
+         <!--/ .col -->
+
+         <div class="col">
+            <h4><a href="/resources.html">Resources For</a></h4>
+            <ul>
+               <li><a href="/resources/congress/overview">Congress</a></li>
+               <li><a href="/resources/journalists/overview">Journalists</a></li>
+               <li><a href="/resources/auditors/overview">Auditors</a></li>
+               <li><a href="/resources/federal_managers/overview">Federal Managers</a></li>
+               <li><a href="/resources/researchers/overview">Researchers</a></li>
+            </ul>
+         </div>
+         <!--/ .col -->
+
+         <div style="clear:both"></div>
+      </div>
+
+      <div class="air">
+         <a href="/values/">ACCOUNTABILITY<span class="footer_star">&#9733;</span>INTEGRITY<span class="footer_star">&#9733;</span>RELIABILITY</a>
+         <div class="footerstroke2">
+         <ul>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/ordering.htm">Ordering&nbsp;GAO&nbsp;Publications</a></li>
+            <li><a href="/about/contact.html">Contact GAO</a></li>
+            <li><a href="/sitemap.html">Site Map</a></li>
+            <li class="lastfooterlink"><a href="/using.htm">Help</a></li>
+         </ul>
+         </div>
+      </div>
+
+   </div><!--footer_lower-->
+ </div>
+<!-- [END] Footer -->
+    </body>
+</html>
+";i:2;s:5:"10667";}

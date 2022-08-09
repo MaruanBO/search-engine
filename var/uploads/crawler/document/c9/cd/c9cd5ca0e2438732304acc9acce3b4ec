@@ -1,0 +1,347 @@
+a:3:{i:0;s:27:"http://altpayfirstdata.com/";i:1;s:17227:"
+
+<html>
+<head>
+<title>First Data</title>
+<!-- ImageReady Preload Script (ui.psd) -->
+<script type="text/javascript">
+
+function newImage(arg) {
+	if (document.images) {
+		rslt = new Image();
+		rslt.src = arg;
+		return rslt;
+	}
+}
+
+
+function iserror() {
+    if (''.length > 0 || document.getElementById('saleschannel').value > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function changeImages() {
+	if (document.images && (preloadFlag == true)) {
+		for (var i=0; i<changeImages.arguments.length; i+=2) {
+			document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+		}
+	}
+}
+
+var preloadFlag = false;
+function preloadImages() {
+	if (document.images) {
+		ui_01_ImageMap_03_over = newImage("/Content/images/ui_01-ImageMap_03_over.gif");
+		ui_01_ImageMap_02_over = newImage("/Content/images/ui_01-ImageMap_02_over.gif");
+		preloadFlag = true;
+    }
+    if (iserror()) {
+        displaypage();
+    }
+}
+
+function splatMerchantId() {
+    var merchid = document.getElementById('MerchantID').value;
+    document.getElementById('MerchantID1').value = merchid;
+    var hashes = ""
+    for(var i=0;i<merchid.length;i++) {
+        hashes = hashes + "#";
+    }
+    document.getElementById('MerchantID').value = hashes;
+}
+
+function disableSelection(target){
+    if (typeof target.onselectstart!="undefined") //IE route
+    	target.onselectstart=function(){return false}
+    else if (typeof target.style.MozUserSelect!="undefined") //Firefox route
+    	target.style.MozUserSelect="none"
+    else //All other route (ie: Opera)
+    	target.onmousedown=function(){return false}
+    target.style.cursor = "default"
+}
+
+function doOnLoad() {
+    preloadImages();
+    disableSelection(document.body);
+    clearAll();  
+    }
+
+function selectAll() {
+    if (document.getElementById('allpayments').checked == true)
+    {document.getElementById('VisaMC').checked = true;
+    document.getElementById('paypal').checked = true;
+    document.getElementById('google').checked = true;
+    document.getElementById('eBillMe').checked = true;
+    document.getElementById('Amazon').checked = true;
+    }
+    else
+    {document.getElementById('VisaMC').checked = false;
+    document.getElementById('paypal').checked = false;
+    document.getElementById('google').checked = false;
+    document.getElementById('eBillMe').checked = false;
+    document.getElementById('Amazon').checked = false;    
+    }
+}
+
+   
+function clearAll() {
+    document.getElementById('allpayments').checked = false;
+}
+
+function displaypage() {
+    var platform = document.getElementById('platform').value;
+    if (platform == "Global" || platform == "Other") {
+        var div1 = document.getElementById('div1');
+        var div2 = document.getElementById('div2');
+        div1.style.display = 'block';
+        div2.style.display = 'none';
+    }
+    if (platform == "e4") {
+        var div2 = document.getElementById('div2');
+        var div1 = document.getElementById('div1');
+        div2.style.display = 'block';
+        div1.style.display = 'none';
+    }
+}    
+ 
+function clearForm() {
+    var formElements = document.getElementById('form').elements;
+    for(var i=0;i<formElements.length;i++) {
+        formElements[i].value = "";
+    }
+}
+
+
+</script>
+
+<!-- End Preload Script -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="Content/Themes/firstdata.css" rel="stylesheet" media="screen" type="text/css" >
+</head>
+<body bgcolor="#FFFFFF" onload="doOnLoad();">
+
+<form id="form" method="POST" action="/Content/ASP/merchantregistrationRsp.asp">
+
+<!-- ImageReady Slices (gui.psd) -->
+<div align="center">
+  
+  <table id="Table_0" width="800" border="0" cellpadding="2" cellspacing="2">
+    <tr><td bgcolor="#FFFFFF">      
+	  
+	  <table id="Table_01" width="798" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td bgcolor="#e0e1e3"><div align="right" class="linkText"> <a href="default.asp">Merchant Registration</a> | <a href="mailto:CustomerService@AltPayFirstdata.com?subject=Questions about Alternative Payments">Contact</a> &nbsp;</div></td>
+          </tr><tr><td><img name="ui_01" src="/Content/images/ui_01-ImageMap_02_over.gif" width="798" height="152" border="0" alt="" usemap="#ui_01_Map"></td>
+          </tr>
+          <tr>
+		
+            <td background="/Content/images/ui_02.gif" width="798">
+			<!-- start content -->            
+			  <center><span class="error"></span></center>
+     
+           <table width="700" border="0" align="center" cellpadding="3" cellspacing="1" id="Page1" class="BorderCells" >
+              <tr>
+                <td colspan="2" valign="middle"><p align="left" class="boldbodyText1"><strong>First Data Gateway Platform</strong></p></td>
+                </tr>
+              <tr>
+                <td width="170" valign="middle" class="bodyText1" align="center">
+                
+                <select name="platform" id="platform" onchange="displaypage()">
+                <option value="0">Please Select</option>        
+                <option value="Global">Global Gateway</option>        
+                <option value="e4">Global Gateway e4</option>      
+                <option value="Other">Other</option>   
+                </select>
+                
+			
+				</td>
+               
+              </tr>
+            </table> 
+            <br/>
+     
+   <div id='div1' style='display:none' align="center">
+           <table id="Table_3" width="700" border="0" cellpadding="2" cellspacing="2">
+            	<tr>
+            	  <td>
+                      <!--<table width="700" border="0" align="center" cellpadding="3" cellspacing="1" id="Page1" class="BorderCells" >
+                          <tr>
+                            <td colspan="2" valign="middle"><p class="boldbodyText1"><strong>First Data Representative</strong></p></td>
+                          </tr>
+                          <tr>
+                            <td width="170" valign="middle" class="bodyText1"><div align="right">Sales ID</div></td>
+                            <td width="515" valign="middle"><input name="RepId" type="text" id="RepId" value="" size="35" maxlength="35" /></td>
+                          </tr>
+                          <tr>
+                            <td width="170" valign="middle" class="bodyText1"><div align="right">Sales email</div></td>
+                            <td width="515" valign="middle"><input name="SalesEmail" type="text" id="SalesEmail" value="" size="35" maxlength="35" /></td>
+                          </tr>
+                    <br/>
+                    </table>--> 
+                 
+                       <table width="700" border="0" align="center" cellpadding="3" cellspacing="1" 
+                          id="Page1" class="BorderCells" >
+            <tr valign="bottom">
+              <td colspan="3" valign="middle"><p align="center" class="HeaderText1">First Data Merchant Registration    Form</p></td>
+            </tr>
+            <tr>
+              <td colspan="3" valign="middle" class="boldbodyText1">Thank you for your  interest in the First Data Gateway extended product offering.&nbsp; Please  select the product(s) you would like to support and then complete the brief  registration form. We appreciate your business.</td>
+            </tr>
+            <tr>
+              <td colspan="3" valign="middle"><span class="bodyText1"><strong>Select Payment Brand(s): </strong></span></td>
+            </tr>
+            <tr>
+              <td width="31" valign="middle"><input id="allpayments" name="allpayments" type="checkbox" value="0"  onclick="selectAll();"></td>
+              <td width="219" valign="middle" class="boldbodyText2"><img src="/Content/images/selectAll.jpg" alt="Select All" width="100" height="38" border="0" /></td>
+              <td width="418" valign="middle"></td>
+             <tr>
+              <td colspan="3" valign="middle"><hr></td>
+              </tr>
+            <tr>
+              <td valign="middle"><input id="VisaMC" name="VisaMC" type="checkbox" value="8"  onclick="clearAll();"></td>
+              <td valign="middle"><img src="/Content/images/vbv.gif" alt="Verified by Visa" width="100" height="38" border="0" /> <img src="/Content/images/securecode.gif" alt="MasterCard SecureCode" width="100" height="38" border="0" /></td>
+              <td valign="middle" class="bodyText1">Reduce fraudulent chargebacks and cost by accepting Visa and MasterCard.<br>
+                Consumers with a Visa or MasterCard have a safer, more secure shopping experience.</td>
+            </tr>
+            <tr>
+              <td colspan="3" valign="middle"><hr></td>
+              </tr>
+            <tr>
+              <td valign="middle"><input id="paypal" name="paypal" type="checkbox" value="4"  onclick="clearAll();"></td>
+              <td valign="middle"><img src="/Content/images/pp.gif" alt="PayPal" width="100" height="38" border="0" /></td>
+              <td valign="middle" class="bodyText1">PayPal is an online wallet used by over 164 million accountholders. It provides your shoppers with confidence as they shop online.</td>
+            </tr>
+            <tr>
+              <td colspan="3" valign="middle"><hr></td>
+              </tr>
+            <tr>
+              <td valign="middle"><input id="google" name="google" type="checkbox" value="10"  onclick="clearAll();"></td>
+              <td valign="middle"><img src="/Content/images/gco.gif" alt="Google Checkout" width="100" height="38" border="0" /></td>
+              <td valign="middle" class="bodyText1">Fast, convenient checkout option for online consumers. Merchants receive the Google Checkout Badge, thus increasing their Google ranking. </td>
+            </tr>
+             <tr>
+              <td colspan="3" valign="middle"><hr></td>
+              </tr>
+            <tr>
+              <td valign="middle"><input id="eBillMe" name="eBillMe" type="checkbox" value="5"  onclick="clearAll();"></td>
+              <td valign="middle"><img src="/Content/images/eBillMe.gif" alt="eBillMe" width="100" height="38" border="0" /></td>
+              <td valign="middle" class="bodyText1">eBillme is the secure payment option that does not require a credit card. Your customers simply checkout using eBillme and pay for their purchase through their bank's online bill pay portal.</td><br />
+            </tr>
+             <tr>
+              <td colspan="3" valign="middle"><hr></td>
+              </tr>
+            <tr>
+              <td valign="middle" ><input id="Amazon" name="Amazon" type="checkbox" value="16"  onclick="clearAll();"></td>
+              <td valign="middle" ><img src="/Content/images/Amazon2.gif" alt="Amazon" width="100" height="38" border="0" /></td>
+              <td valign="middle"  class="bodyText1">Amazon Simple Pay&trade; is a set of payment-only products that allow your customers to use payment information from their Amazon.com account as a payment method on your website.</td>
+            </tr>            
+          </table>
+          </td></tr></table> 
+          </div>
+
+        
+        
+<div id='div2' style='display:none' align="center">
+           <table id="Table1" width="700" border="0" cellpadding="2" cellspacing="2">
+            	<tr>
+            	  <td>
+                      <!--<table width="700" border="0" align="center" cellpadding="3" cellspacing="1" id="Page1" class="BorderCells" >
+                          <tr>
+                            <td colspan="2" valign="middle"><p class="boldbodyText1"><strong>First Data Representative</strong></p></td>
+                          </tr>
+                          <tr>
+                            <td width="170" valign="middle" class="bodyText1"><div align="right">Sales ID</div></td>
+                            <td width="515" valign="middle"><input name="RepId" type="text" id="RepId" value="" size="35" maxlength="35" /></td>
+                          </tr>
+                          <tr>
+                            <td width="170" valign="middle" class="bodyText1"><div align="right">Sales email</div></td>
+                            <td width="515" valign="middle"><input name="SalesEmail" type="text" id="SalesEmail" value="" size="35" maxlength="35" /></td>
+                          </tr>
+                    <br/>
+                    </table>--> 
+                 
+                       <table width="700" border="0" align="center" cellpadding="3" cellspacing="1" 
+                          id="Table2" class="BorderCells" >
+            <tr valign="bottom">
+              <td colspan="3" valign="middle"><p align="center" class="HeaderText1">First Data Merchant Registration    Form</p></td>
+            </tr>
+            <tr>
+              <td colspan="3" valign="middle" class="boldbodyText1">Thank you for your  interest in the First Data Gateway extended product offering.&nbsp; Please  select the product(s) you would like to support and then complete the brief  registration form. We appreciate your business.</td>
+            </tr>
+            <tr>
+              <td colspan="3" valign="middle"><span class="bodyText1"><strong>Select Payment Brand(s): </strong></span></td>
+            </tr>
+            <tr>
+              <td valign="middle"><input id="VisaMC2" name="VisaMC" type="checkbox" value="8" ></td>
+              <td valign="middle"><img src="/Content/images/vbv.gif" alt="Verified by Visa" width="100" height="38" border="0" /> <img src="/Content/images/securecode.gif" alt="MasterCard SecureCode" width="100" height="38" border="0" /></td>
+              <td valign="middle" class="bodyText1">Reduce fraudulent chargebacks and cost by accepting Visa and MasterCard.<br>
+                Consumers with a Visa or MasterCard have a safer, more secure shopping experience.</td>
+            </tr>
+          </table>
+          </td></tr></table> 
+          </div>
+          
+            <br>
+            <table id="Table4" width="700" border="0" cellpadding="2" cellspacing="2" 
+                    align="center"> 
+            <tr>
+            	  <td>                            
+            <table width="700" align="center" cellpadding="3" cellspacing="1" id="Table3" 
+                          class="BorderCells" border="0" dir="ltr" >
+              <tr>
+                <td colspan="2" valign="middle"><p class="boldbodyText1"><strong>First Data</strong></p></td>
+              </tr>
+              <tr>
+                <td width="170" valign="middle" class="bodyText1"><div align="right"><span class="RedText">*</span>&nbsp;&nbsp;Merchant ID</div></td>
+                    <td width="515" valign="middle"><input type="hidden" id="MerchantID1" name="MerchantID1"/><input name="MerchantID" type="text" id="MerchantID" value="" onblur="splatMerchantId();" size="35" maxlength="35" /></td>
+            </tr>
+              <tr>
+                <td width="170" valign="middle" class="bodyText1"><div align="right"><span class="RedText">*</span>&nbsp;&nbsp;Confirm Merchant ID</div></td>
+                <td width="515" valign="middle"><input name="MerchantID2" type="text" id="MerchantID2" value="" size="35" maxlength="35" /></td>
+              </tr>
+            </table>
+            <span class="RedText">&nbsp;&nbsp;* Required fields</span>
+            <br>
+    		<div align="right"><a href="default.asp"><img src="/Content/images/Reset.gif" width="123" height="30" border="0"></a>
+    		<input type="image" src="/Content/images/Submit.gif" width="116" height="30" >&nbsp;</div>
+           		
+        </td></tr></table>          
+          
+
+                
+		
+		<!-- end content -->		
+		</td>
+	</tr>
+	<tr>
+        <td>					
+			<img src="/Content/images/ui_03.gif" width="798" height="54"><br><span class="SmallTxt">Copyright 2008, First Data Corporation. All Rights Reserved.</span>
+		</td>
+	</tr>
+</table>
+<map name="ui_01_Map">
+<area shape="rect" alt="" coords="141,111,279,138" href="mailto:CustomerService@AltPayFirstdata.com?subject=Questions about Alternative Payments"
+	onmouseover="changeImages('ui_01', '/Content/images/ui_01-ImageMap_03_over.gif'); return true;"
+	onmouseout="changeImages('ui_01', '/Content/images/ui_01.gif'); return true;"
+	onmousedown="changeImages('ui_01', '/Content/images/ui_01-ImageMap_03_over.gif'); return true;"
+	onmouseup="changeImages('ui_01', '/Content/images/ui_01-ImageMap_03_over.gif'); return true;">
+<area shape="rect" alt="" coords="1,111,139,138" href="default.asp"
+	onmouseover="changeImages('ui_01', '/Content/images/ui_01-ImageMap_02_over.gif'); return true;"
+	onmouseout="changeImages('ui_01', '/Content/images/ui_01.gif'); return true;"
+	onmousedown="changeImages('ui_01', '/Content/images/ui_01-ImageMap_02_over.gif'); return true;"
+	onmouseup="changeImages('ui_01', '/Content/images/ui_01-ImageMap_02_over.gif'); return true;">
+<area shape="rect" alt="" coords="16,48,208,90" href="default.asp">
+</map>
+<!-- End ImageReady Slices -->
+
+</td>
+	</tr>
+</table>
+</div>
+</form>
+</body>
+</html>
+";i:2;s:4:"7850";}

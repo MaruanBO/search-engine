@@ -1,0 +1,2187 @@
+a:3:{i:0;s:19:"http://nextgov.com/";i:1;s:98665:"<!DOCTYPE html>
+<html >
+<head>
+  <script type="text/javascript">
+  if(typeof String.prototype.trim !== 'function') {
+    String.prototype.trim = function() {
+      return this.replace(/^\s+|\s+$/g, '');
+    }
+  }
+
+  function hasCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+      var c = ca[i].trim();
+      if (c.indexOf(name)==0) return true;
+    }
+    return false;
+  }
+
+  function deleteCookie(cname) {
+    //set to a past expiration to delete cookie
+    setCookie(cname, "delete", -2);
+  }
+
+  function setCookie(cname,cvalue,exdays) {
+    if (typeof exdays != "undefined") {
+      var d = new Date();
+      d.setTime(exdays);
+      var expires = "expires="+d.toGMTString();
+      document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/";
+    } else {
+      document.cookie = cname + "=" + cvalue + "; path=/";
+    }
+  }
+
+  function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0; i<ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1);
+          if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
+      }
+      return "";
+  }
+</script>
+
+  
+
+    <script type="text/javascript">
+      //<![CDATA[
+      
+        var suppressWelcomeAd = false;
+      
+      var isiPad = navigator.userAgent.match(/iPad/i) != null;
+      var isFb = navigator.userAgent.match(/facebookexternalhit/i) != null;
+      // iPad detection and  check for onswipe_redirect=never in the URL
+      if (isiPad && !hasCookie("desktopPreferred")) {
+        function getUrlVar(key){
+          var result = new RegExp(key + "=([^&]*)", "i").exec(window.location.search);
+          return result && encodeURIComponent(result[1]) || "";
+        }
+        if (getUrlVar("onswipe_redirect") == "never") {
+          // set cookie to enable welcome ad for iPad
+          setCookie("desktopPreferred", "1");
+        }
+      }
+      if (!hasCookie("welcomeAdViewed") && (!isiPad || isiPad && hasCookie("desktopPreferred")) && !isFb) {
+        setCookie("cookiesEnabled", "1");
+        if (hasCookie("cookiesEnabled"))	{
+          deleteCookie("cookiesEnabled");
+          currentDate = new Date();
+          eod = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 23, 59, 0, 0);
+          setCookie("welcomeAdViewed", "1", Math.round((eod.getTime())));
+
+          if (!suppressWelcomeAd) {
+
+            // Set cookie with referrer for Omniture script to use
+            if (document.referrer == "") {
+              setCookie("referrer:" + window.location, "Typed/Bookmarked");
+            } else {
+              // trick for getting the hostname
+              var host_tmp = document.createElement("a");
+              host_tmp.href = document.referrer;
+
+              setCookie("referrer:" + window.location, host_tmp.hostname);
+            }
+
+
+            window.location = 'http://cdn.nextgov.com/nextgov/interstitial.html?v=2.1.1&rf=' + encodeURIComponent(window.location);
+          }
+        }
+      }
+
+      //]]>
+    </script>
+
+  
+
+
+  
+  <!--[if !IE]> -->
+  <script type="text/javascript" src="http://assets.onswipe.com/synapse/on.js?usr=nextgov" id="onswipe_synapse"></script>
+  <!-- <![endif]-->
+
+
+	<meta charset="utf-8">
+
+  <meta property="article:publisher" content="http://www.facebook.com/Nextgov" />
+  <meta property="fb:admins" content="578600878" />
+  <meta property="og:site_name" content="Nextgov" />
+  
+  
+<meta name="sailthru.date" content="2015-02-19T21:48:34Z"/>
+<meta name="sailthru.description" content="Federal technology news, best practices, and web 2.0 tools - Nextgov.com"/>
+<meta name="sailthru.title" content="Federal Technology News and Analysis for IT Managers &amp; Acquisition Teams"/>
+<meta name="sailthru.tags" content="type-homepage,site-nextgov"/>
+  
+
+	<title>Federal Technology News and Analysis for IT Managers &amp; Acquisition Teams</title>
+
+    
+    
+    <link rel="canonical" href="http://www.nextgov.com" />
+    
+    
+
+    
+    <meta name="description" content="Federal technology news, best practices, and web 2.0 tools - Nextgov.com" />
+    
+	<script type="text/javascript" src="http://cdn.nextgov.com/nextgov/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="http://cdn.nextgov.com/js/jquery-ui-1.8.21.custom.min.js"></script><!-- custom download: Core, Effects Core, Effect "Fade" -->
+    <script type="text/javascript" src="http://cdn.nextgov.com/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="http://cdn.nextgov.com/js/disqus-loader.js?v=2.5.7.2" ></script>
+    <script type="text/javascript" src="http://cdn.nextgov.com/nextgov/js/jquery.main.js?v=2.5.7.2"></script>
+    <script type="text/javascript" src="http://cdn.nextgov.com/js/newsletter.form.js?v=2.5.7.2"></script>
+    <script type="text/javascript" src="http://cdn.nextgov.com/js/jquery.form.js?v=2.5.7.2"></script>
+    <script type="text/javascript" src="http://cdn.nextgov.com/nextgov/js/omniture/s-code.js?v=2.5.7.2"></script>
+
+  <link media="all" rel="stylesheet" href="http://cdn.nextgov.com/nextgov/css/all.css?v=2.5.7.2" />
+  <link media="all" rel="stylesheet" type="text/css" href="http://cdn.nextgov.com/css/responsive_embed.css?v=2.5.7.2" />
+<!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="http://cdn.nextgov.com/nextgov/css/ie-all.css?v=2.5.7.2" media="screen"/>
+<![endif]-->
+<!--[if lt IE 8]>
+  <link rel="stylesheet" type="text/css" href="http://cdn.nextgov.com/nextgov/css/ie.css?v=2.5.7.2" media="screen"/>
+<![endif]-->
+<!--[if lt IE 9]>
+  <link rel="stylesheet" type="text/css" href="http://cdn.nextgov.com/nextgov/css/ie-8.css?v=2.5.7.2" media="screen"/>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">
+    //<![CDATA[
+    stLight.options({
+      publisher: "3cf7ffb5-3f0d-4c31-9c9f-84d731418e4c",
+      onhover: false
+    });
+    //]]>
+  </script>
+  <script type="text/javascript">
+    //<![CDATA[
+     var adblock = true;
+     var number_of_ad_checks = 0;
+     var top_right_ad_size_check_called = false;
+     function top_right_ad_size_check() {
+       top_right_ad_size_check_called = true;
+       number_of_ad_checks++;
+       if ($("#topblock-ad").height() > 599) {
+         $("#bottomblock-ad").hide();
+       } else if ($("#topblock-ad").height() < 250 && number_of_ad_checks < 11) {
+         setTimeout("top_right_ad_size_check()", 500);
+       }
+     }
+   //]]>
+  </script>
+  <script type="text/javascript" src="http://cdn.nextgov.com/js/adframe.js"></script>
+  <script type="text/javascript" src="http://cdn.nextgov.com/js/ad-toggle.js"></script>
+  
+
+  
+  
+    <script type="text/javascript">
+    //<![CDATA[
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-395628-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    //]]>
+    </script>
+  
+
+  
+
+
+</head>
+<body class="">
+
+
+<script type="text/javascript">
+//<![CDATA[
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+s.server="www.nextgov.com"
+s.channel="home"
+s.pageName="federal technology news and analysis for it managers acquisition teams - home"
+s.prop1=""
+s.prop2="0"
+s.prop3="federal technology news and analysis for it managers acquisition teams - home"
+s.prop4="/"
+s.prop5=""
+s.prop6="Home"
+s.prop7="home"
+s.prop8="home - landing"
+s.prop9=""
+s.prop10=""
+s.prop11=""
+s.prop12=""
+s.prop13=""
+s.prop14=""
+s.prop15=""
+s.prop16=""
+s.prop17="Federal Technology News and Analysis for IT Managers &amp; Acquisition Teams"
+s.prop18=""
+s.prop19="federal technology news and analysis for it managers acquisition teams - home"
+s.prop20=""
+s.prop21="federal technology news and analysis for it managers acquisition teams - home"
+s.prop22=""
+s.prop23=""
+s.prop24=""
+s.prop25=""
+s.prop26=""
+s.prop27=""
+s.prop32="False"
+s.prop34=""
+s.prop35=""
+s.prop36=""
+s.prop37=""
+s.prop38=""
+s.prop39="Error: not set"
+s.hier1="home/landing/federal technology news and analysis for it managers acquisition teams"
+s.hier2=""
+s.hier3=""
+
+if ((typeof(Govexec) != "undefined") && (typeof(Govexec.get_format)=== 'function')){
+  s.prop38 = Govexec.get_format();
+}
+
+if (typeof(adblock) != 'undefined' && adblock) {
+  s.prop32 = "True";
+}
+
+// Collect referrer; override omniture referrer; clear cookie
+var referrerCookieName = "referrer:" + window.location;
+var referredThroughInterstitial = document.referrer.indexOf("interstitial.html") > -1;
+s.prop50 = (referredThroughInterstitial) ? "true" : "false";
+if (referredThroughInterstitial) {
+  if (hasCookie(referrerCookieName)) {
+    var originalReferrer = getCookie(referrerCookieName);
+    deleteCookie(referrerCookieName);
+
+    // Might be Typed/Bookmarked or Referrer (see layout file)
+    s.prop39 = originalReferrer;
+  } else {
+    // Referrer cookie lost
+    s.prop39 = "Referrer Lost"
+  }
+} else {
+  // Not routed through interstitial
+  if (document.referrer != "") {
+    // Not routed through interstitial; set prop39 to standard referrer
+
+    // trick for getting the hostname
+    var host_tmp = document.createElement("a");
+    host_tmp.href = document.referrer;
+
+    s.prop39 = host_tmp.hostname;
+  } else {
+    // No referrer; URL was directly entered / bookmarked
+    s.prop39 = "Typed/Bookmarked";
+  }
+}
+
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code) document.write(s_code)
+if(navigator.appVersion.indexOf('MSIE')>=0) document.write(unescape('%3C')+'\!-'+'-');
+//]]>
+</script> 
+<noscript>
+	<div>
+		<a href="http://www.omniture.com" title="Web Analytics" ><img
+src="http://metrics.nextgov.com/b/ss/atlanticnextgov2012/1/H.17--NS/0"
+height="1" width="1" alt="" /></a>
+	</div>
+</noscript>
+<!--/DO NOT REMOVE/-->
+
+	<div id="wrapper">
+		<div class="w1">
+			<div class="w2">
+				<header id="header">
+					<div class="container_12">
+						<div class="top-block">
+							<h1 class="logo"><a href="/?oref=ng-logo">Nextgov</a></h1>
+							<div class="ads">
+                                <div class="ad ad-topleader" id="topleader-ad">
+	
+	<script type="text/javascript">
+//<![CDATA[
+if (typeof window.dart_random_ord == 'undefined') {
+	window.dart_random_ord = ('000000000' + Math.ceil(Math.random() * 1000000000).toString()).slice(-9);
+}
+
+var this_ad_link = 'http://ad.doubleclick.net/N617/adj/nextgov.com/homepage;pos=topleader;sz=728x90;tile=1;ord=' + window.dart_random_ord + '?';
+document.write('<' + 'script type="text/javascript" src="' + this_ad_link + '">' + '<' + '/script>');
+
+//]]>
+	</script>
+  
+    <noscript>
+      <a href="http://ad.doubleclick.net/N617/jump/nextgov.com/homepage;pos=topleader;sz=728x90;" title="">
+        <img src="http://ad.doubleclick.net/N617/ad/nextgov.com/homepage;pos=topleader;sz=728x90;tile=1;" alt="" />
+      </a>
+      </noscript>
+  
+</div>
+							</div>
+						</div>
+
+						<div class="grid_12">
+						
+						
+							<nav class="menu-holder">
+								<span class="text">TRENDING</span>
+								<ul class="menu" id="menu">
+								
+									<li><a href="/cio-briefing/2015/02/high-risk-list-government-it-projects-fail-too-frequently/105063/?oref=ng-trending">High Risk List</a></li>
+								
+									<li><a href="/cybersecurity/2015/02/obama-creates-cyber-cia-or-obama-creates-cyber-counterterrorism-center/105051/?oref=ng-trending">Cyber Agency</a></li>
+								
+									<li><a href="/cybersecurity/2015/02/exclusive-opm-monitoring-anthem-hack-breach-could-impact-13m-feds/104700/?oref=ng-trending">Anthem Hack</a></li>
+								
+									<li><a href="/cio-briefing/2015/02/federal-it-budget-things-may-finally-be-looking/105123/?oref=ng-trending">IT Budget</a></li>
+								
+									<li><a href="/emerging-tech/2015/02/senators-consider-congressional-role-internet-things/105144/?oref=ng-trending">Internet of Things</a></li>
+								
+									<li class="last-child"><a href="/cio-briefing/2015/02/what-agile-development-should-look-federal-it/104919/?oref=ng-trending">Agile</a></li>
+								
+								</ul>
+							</nav>
+						
+							
+							<ul class="images">
+								
+
+								<li>
+									
+											<div>
+										
+									<a href="http://www.nextgov.com/the-big-fix-2015/">
+										<img src="http://cdn.nextgov.com/media/img/upload/2015/02/18/Skybox_BigFix_1/nextgov-skybox.jpg"
+     alt=""
+     title=""
+     
+     height="108" 
+     width="235" 
+/>
+
+
+										<span class="text-holder"><span class="text-holder-inner">Get Our New eBook on IT Acquisition</span></span>
+									</a>
+								</li>
+							
+
+								<li>
+									
+											<div>
+										
+									<a href="/big-data/2015/02/heres-what-white-houses-first-chief-data-scientist-will-do/105579/?oref=ng-skybox">
+										<img src="http://cdn.nextgov.com/media/img/upload/2015/02/18/021815DJPatilNG/nextgov-skybox.jpg"
+     alt=""
+     title=""
+     
+     height="108" 
+     width="235" 
+/>
+
+
+										<span class="text-holder"><span class="text-holder-inner">Meet the First US Chief Data Scientist</span></span>
+									</a>
+								</li>
+							
+
+								<li>
+									
+											<div>
+										
+									<a href="/cio-briefing/2015/02/it-might-be-time-stop-throwing-money-federal-it/105477/?oref=ng-skybox">
+										<img src="http://cdn.nextgov.com/media/img/upload/2015/02/18/021815spendingmoneyNG/nextgov-skybox.jpg"
+     alt=""
+     title=""
+     
+     height="108" 
+     width="235" 
+/>
+
+
+										<span class="text-holder"><span class="text-holder-inner">IT Spending: More Money...</span></span>
+									</a>
+								</li>
+							
+
+								<li>
+									
+											<div>
+										
+									<a href="/cloud-computing/2015/02/gsa-seeks-new-cloud-procurement-models/105474/?oref=ng-skybox">
+										<img src="http://cdn.nextgov.com/media/img/upload/2015/02/17/021715cloudcontractNG/nextgov-skybox.jpg"
+     alt=""
+     title=""
+     
+     height="108" 
+     width="235" 
+/>
+
+
+										<span class="text-holder"><span class="text-holder-inner">GSA Mulls Cloud Contract Vehicle</span></span>
+									</a>
+								</li>
+							
+							</ul>
+
+						</div>
+					</div>
+				</header>
+				
+
+
+<nav class="main-nav">
+  <ul id="nav">
+    
+    
+      
+      
+      
+
+      <li>
+        <a href="/technology-news/?oref=ng-nav" class="technology-news">News</a>
+        <div class="drop">
+          <div class="drop-holder">
+            <div class="drop-block">
+              <a href="/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/?oref=ng-dropdown">
+                <div class="image alignleft">
+                  <img src="http://cdn.nextgov.com/media/img/upload/2015/02/19/021915whitehouseNG/thumb-large.jpg" alt="" title="" height="131" width="218" />
+                </div>
+                <header class="heading">
+                  ‘Data Science is a Team Sport'<span class="font-override">:</span> DJ Patil Spends First Day Pitching Silicon Valley on Joining Government
+                </header>
+              </a>
+              
+                <p>In its quest to get more data scientists into government, the Obama administration is likely to face stiff competition for talent from the private sector. 
+
+</p>
+              
+              <div class="meta">
+                <ul class="social">
+                  <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/" href="javascript:Void();">facebook</a></li>
+                  <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/" st_title="‘Data Science is a Team Sport&#39;: DJ Patil Spends First Day Pitching Silicon Valley on Joining Government" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                  <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/" href="javascript:Void();">google</a></li>
+                  <li><a class="comment disqus-count" href="/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/#disqus_thread" data-disqus-identifier="post_105648"></a></li>
+                </ul>
+                <span class="date">// 4:11 PM ET</span>
+              </div>
+            </div>
+            
+            
+            
+            <div class="news-block full-width">
+              <header class="heading">
+                <strong class="title">LATEST NEWS</strong>
+              </header>
+              <ul>
+                
+                  <li><a href="/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/?oref=ng-dropdown"><strong>GSA Shops Around New Ways to Buy Tech</strong> <span class="date">// 4:33 PM ET</span></a></li>
+                
+                  <li><a href="/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/?oref=ng-dropdown"><strong>America Needs a New FOIA Overseer: Is it You? </strong> <span class="date">// 1:15 PM ET</span></a></li>
+                
+                  <li><a href="/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/?oref=ng-dropdown"><strong>The Science Behind Human-Controlled Weather</strong> <span class="date">// 12:45 PM ET</span></a></li>
+                
+              </ul>
+              
+            </div>
+            
+		
+            
+            
+          </div>
+        </div>
+      </li>
+    
+      
+      
+      
+
+      <li>
+        <a href="/cio-briefing/?oref=ng-nav" class="cio-briefing">CIO Briefing</a>
+        <div class="drop">
+          <div class="drop-holder">
+            <div class="drop-block">
+              <a href="/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/?oref=ng-dropdown">
+                <div class="image alignleft">
+                  <img src="http://cdn.nextgov.com/media/img/upload/2015/02/19/021915itprocurementNG/thumb-large.jpg" alt="" title="" height="131" width="218" />
+                </div>
+                <header class="heading">
+                  The Big Fix<span class="font-override">:</span> Is Washington Ready for IT Reform?
+                </header>
+              </a>
+              
+                <p>From creating digital fix-it squads to promoting unorthodox methods of buying technology, the five in-depth stories in the ebook explore how the government and Congress are tackling IT reform and the forecast for success. 
+</p>
+              
+              <div class="meta">
+                <ul class="social">
+                  <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/" href="javascript:Void();">facebook</a></li>
+                  <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/" st_title="The Big Fix: Is Washington Ready for IT Reform?" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                  <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/" href="javascript:Void();">google</a></li>
+                  <li><a class="comment disqus-count" href="/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/#disqus_thread" data-disqus-identifier="post_105606"></a></li>
+                </ul>
+                <span class="date">// 10:56 AM ET</span>
+              </div>
+            </div>
+            
+            
+            
+            <div class="news-block full-width">
+              <header class="heading">
+                <strong class="title">LATEST NEWS</strong>
+              </header>
+              <ul>
+                
+                  <li><a href="/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/?oref=ng-dropdown"><strong>‘Data Science is a Team Sport': DJ Patil Spends First Day Pitching Silicon Valley on Joining Government</strong> <span class="date">// 4:11 PM ET</span></a></li>
+                
+                  <li><a href="/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/?oref=ng-dropdown"><strong>America Needs a New FOIA Overseer: Is it You? </strong> <span class="date">// 1:15 PM ET</span></a></li>
+                
+                  <li><a href="/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/?oref=ng-dropdown"><strong>Justice, DHS Quarantine Smartphones Returning from Abroad</strong> <span class="date">// February 18, 2015</span></a></li>
+                
+              </ul>
+              
+            </div>
+            
+		
+            
+            
+          </div>
+        </div>
+      </li>
+    
+      
+      
+      
+
+      <li>
+        <a href="/emerging-tech/?oref=ng-nav" class="emerging-tech">Emerging Tech</a>
+        <div class="drop">
+          <div class="drop-holder">
+            <div class="drop-block">
+              <a href="/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/?oref=ng-dropdown">
+                <div class="image alignleft">
+                  <img src="http://cdn.nextgov.com/media/img/upload/2015/02/19/021915weatherNG/thumb-large.jpg" alt="" title="" height="131" width="218" />
+                </div>
+                <header class="heading">
+                  The Science Behind Human-Controlled Weather
+                </header>
+              </a>
+              
+                <p>Cloud seeding won&#39;t solve winter woes, and it probably won&#39;t promise clear skies for wedding days, either.</p>
+              
+              <div class="meta">
+                <ul class="social">
+                  <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/" href="javascript:Void();">facebook</a></li>
+                  <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/" st_title="The Science Behind Human-Controlled Weather" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                  <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/" href="javascript:Void();">google</a></li>
+                  <li><a class="comment disqus-count" href="/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/#disqus_thread" data-disqus-identifier="post_105618"></a></li>
+                </ul>
+                <span class="date">// 12:45 PM ET</span>
+              </div>
+            </div>
+            
+            
+            
+            <div class="news-block full-width">
+              <header class="heading">
+                <strong class="title">LATEST NEWS</strong>
+              </header>
+              <ul>
+                
+                  <li><a href="/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/?oref=ng-dropdown"><strong>America Needs a New FOIA Overseer: Is it You? </strong> <span class="date">// 1:15 PM ET</span></a></li>
+                
+                  <li><a href="/emerging-tech/2015/02/faa-drone-regulations-deal-blow-amazon/105516/?oref=ng-dropdown"><strong>FAA Drone Regulations Deal Blow to Amazon</strong> <span class="date">// February 18, 2015</span></a></li>
+                
+                  <li><a href="/emerging-tech/emerging-tech-blog/2015/02/there-really-level-playing-field-between-milcloud-and-commercial-cloud-providers/105453/?oref=ng-dropdown"><strong>Is There Really a Level Playing Field Between MilCloud and Commercial Cloud Providers?</strong> <span class="date">// February 17, 2015</span></a></li>
+                
+              </ul>
+              
+            </div>
+            
+		
+            
+            
+          </div>
+        </div>
+      </li>
+    
+      
+      
+      
+
+      <li>
+        <a href="/cloud-computing/?oref=ng-nav" class="cloud-computing">Cloud</a>
+        <div class="drop">
+          <div class="drop-holder">
+            <div class="drop-block">
+              <a href="/cloud-computing/2015/02/gsa-seeks-new-cloud-procurement-models/105474/?oref=ng-dropdown">
+                <div class="image alignleft">
+                  <img src="http://cdn.nextgov.com/media/img/upload/2015/02/17/021715cloudcontractNG/thumb-large.jpg" alt="" title="" height="131" width="218" />
+                </div>
+                <header class="heading">
+                  GSA Considers New Cloud Contract Vehicle
+                </header>
+              </a>
+              
+                <p>The administration issued a request for information about new contracting and acquisition models for cloud services. Responses are due in March. </p>
+              
+              <div class="meta">
+                <ul class="social">
+                  <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/cloud-computing/2015/02/gsa-seeks-new-cloud-procurement-models/105474/" href="javascript:Void();">facebook</a></li>
+                  <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/cloud-computing/2015/02/gsa-seeks-new-cloud-procurement-models/105474/" st_title="GSA Considers New Cloud Contract Vehicle" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                  <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/cloud-computing/2015/02/gsa-seeks-new-cloud-procurement-models/105474/" href="javascript:Void();">google</a></li>
+                  <li><a class="comment disqus-count" href="/cloud-computing/2015/02/gsa-seeks-new-cloud-procurement-models/105474/#disqus_thread" data-disqus-identifier="post_105474"></a></li>
+                </ul>
+                <span class="date">// February 17, 2015</span>
+              </div>
+            </div>
+            
+            
+            
+            <div class="news-block full-width">
+              <header class="heading">
+                <strong class="title">LATEST NEWS</strong>
+              </header>
+              <ul>
+                
+                  <li><a href="/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/?oref=ng-dropdown"><strong>GSA Shops Around New Ways to Buy Tech</strong> <span class="date">// 4:33 PM ET</span></a></li>
+                
+                  <li><a href="/emerging-tech/emerging-tech-blog/2015/02/there-really-level-playing-field-between-milcloud-and-commercial-cloud-providers/105453/?oref=ng-dropdown"><strong>Is There Really a Level Playing Field Between MilCloud and Commercial Cloud Providers?</strong> <span class="date">// February 17, 2015</span></a></li>
+                
+                  <li><a href="/cloud-computing/2015/02/cia-bringing-amazons-marketplace-intelligence-community/104937/?oref=ng-dropdown"><strong>CIA is Bringing Amazon’s Marketplace to the Intelligence Community </strong> <span class="date">// February 10, 2015</span></a></li>
+                
+              </ul>
+              
+            </div>
+            
+		
+            
+            
+          </div>
+        </div>
+      </li>
+    
+      
+      
+      
+
+      <li>
+        <a href="/cybersecurity/?oref=ng-nav" class="cybersecurity">Cybersecurity</a>
+        <div class="drop">
+          <div class="drop-holder">
+            <div class="drop-block">
+              <a href="/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/?oref=ng-dropdown">
+                <div class="image alignleft">
+                  <img src="http://cdn.nextgov.com/media/img/upload/2015/02/18/021815phoneNG/thumb-large.jpg" alt="" title="" height="131" width="218" />
+                </div>
+                <header class="heading">
+                  Justice, DHS Quarantine Smartphones Returning from Abroad
+                </header>
+              </a>
+              
+                <p>Malicious software may already have infected some phones and tablets.</p>
+              
+              <div class="meta">
+                <ul class="social">
+                  <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/" href="javascript:Void();">facebook</a></li>
+                  <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/" st_title="Justice, DHS Quarantine Smartphones Returning from Abroad" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                  <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/" href="javascript:Void();">google</a></li>
+                  <li><a class="comment disqus-count" href="/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/#disqus_thread" data-disqus-identifier="post_105576"></a></li>
+                </ul>
+                <span class="date">// February 18, 2015</span>
+              </div>
+            </div>
+            
+            
+            
+            <div class="news-block full-width">
+              <header class="heading">
+                <strong class="title">LATEST NEWS</strong>
+              </header>
+              <ul>
+                
+                  <li><a href="/cybersecurity/2015/02/google-calls-fbis-plan-expand-hacking-power-monumental-constitutional-threat/105537/?oref=ng-dropdown"><strong>Google Calls FBI's Plan to Expand Hacking Power a 'Monumental' Constitutional Threat</strong> <span class="date">// February 18, 2015</span></a></li>
+                
+                  <li><a href="/cybersecurity/2015/02/secrets-out-nsa-personnel-hack-better-chinese-and-russians/105483/?oref=ng-dropdown"><strong>The Secret’s Out: NSA Personnel are Out-Hacking the Chinese and Russians </strong> <span class="date">// February 17, 2015</span></a></li>
+                
+                  <li><a href="/cybersecurity/2015/02/hackers-poison-chipotle-snoop-forbes-readers-and-swindle-commodities-traders/105372/?oref=ng-dropdown"><strong>Hackers Poison Chipotle, Snoop on Forbes Readers and Swindle Commodities Traders</strong> <span class="date">// February 16, 2015</span></a></li>
+                
+              </ul>
+              
+            </div>
+            
+		
+            
+            
+          </div>
+        </div>
+      </li>
+    
+      
+      
+      
+
+      <li>
+        <a href="/mobile/?oref=ng-nav" class="mobile">Mobile</a>
+        <div class="drop">
+          <div class="drop-holder">
+            <div class="drop-block">
+              <a href="/mobile/2015/02/apple-ceo-says-obama-needs-embrace-privacy-first-philosophy/105366/?oref=ng-dropdown">
+                <div class="image alignleft">
+                  <img src="http://cdn.nextgov.com/media/img/upload/2015/02/13/021315timcookNG/thumb-large.jpg" alt="Apple CEO Tim Cook speaks at the White House Summit on Cybersecurity and Consumer Protection." title="Apple CEO Tim Cook speaks at the White House Summit on Cybersecurity and Consumer Protection." height="131" width="218" />
+                </div>
+                <header class="heading">
+                  Apple CEO Says Obama Needs to Embrace 'Privacy First' Philosophy
+                </header>
+              </a>
+              
+                <p>&#34;If those of us in positions of responsibility fail to do everything in our power to protect the right of privacy, we risk something far more valuable than money. We risk our way of life.&#34;</p>
+              
+              <div class="meta">
+                <ul class="social">
+                  <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/mobile/2015/02/apple-ceo-says-obama-needs-embrace-privacy-first-philosophy/105366/" href="javascript:Void();">facebook</a></li>
+                  <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/mobile/2015/02/apple-ceo-says-obama-needs-embrace-privacy-first-philosophy/105366/" st_title="Apple CEO Says Obama Needs to Embrace &#39;Privacy First&#39; Philosophy" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                  <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/mobile/2015/02/apple-ceo-says-obama-needs-embrace-privacy-first-philosophy/105366/" href="javascript:Void();">google</a></li>
+                  <li><a class="comment disqus-count" href="/mobile/2015/02/apple-ceo-says-obama-needs-embrace-privacy-first-philosophy/105366/#disqus_thread" data-disqus-identifier="post_105366"></a></li>
+                </ul>
+                <span class="date">// February 13, 2015</span>
+              </div>
+            </div>
+            
+            
+            
+            <div class="news-block full-width">
+              <header class="heading">
+                <strong class="title">LATEST NEWS</strong>
+              </header>
+              <ul>
+                
+                  <li><a href="/big-data/2015/02/us-government-requests-information-twitter-users-spike/104973/?oref=ng-dropdown"><strong>US Government Requests for Information on Twitter Users Spike</strong> <span class="date">// February 10, 2015</span></a></li>
+                
+                  <li><a href="/technology-news/tech-insider/2015/02/5-lessons-government-can-learn-hollywood-about-video/104856/?oref=ng-dropdown"><strong>5 Lessons Government Can Learn From Hollywood About Video</strong> <span class="date">// February 10, 2015</span></a></li>
+                
+                  <li><a href="/health/2015/02/what-my-hearing-aid-taught-me-about-future-wearables/104685/?oref=ng-dropdown"><strong>What My Hearing Aid Taught Me About the Future of Wearables</strong> <span class="date">// February 5, 2015</span></a></li>
+                
+              </ul>
+              
+            </div>
+            
+		
+            
+            
+          </div>
+        </div>
+      </li>
+    
+      
+      
+      
+
+      <li>
+        <a href="/health/?oref=ng-nav" class="health">Health</a>
+        <div class="drop">
+          <div class="drop-holder">
+            <div class="drop-block">
+              <a href="/health/2015/02/why-were-there-so-many-third-party-apps-healthcaregov-anyway/105369/?oref=ng-dropdown">
+                <div class="image alignleft">
+                  <img src="http://cdn.nextgov.com/media/img/upload/2015/02/13/021315healthappsNG/thumb-large.jpg" alt="" title="" height="131" width="218" />
+                </div>
+                <header class="heading">
+                  Why Were There So Many Third-Party Apps on HealthCare.gov, Anyway? 
+                </header>
+              </a>
+              
+                <p>One expert called the large number of apps running in the site&#39;s background “digital overkill.”
+</p>
+              
+              <div class="meta">
+                <ul class="social">
+                  <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/health/2015/02/why-were-there-so-many-third-party-apps-healthcaregov-anyway/105369/" href="javascript:Void();">facebook</a></li>
+                  <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/health/2015/02/why-were-there-so-many-third-party-apps-healthcaregov-anyway/105369/" st_title="Why Were There So Many Third-Party Apps on HealthCare.gov, Anyway? " st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                  <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/health/2015/02/why-were-there-so-many-third-party-apps-healthcaregov-anyway/105369/" href="javascript:Void();">google</a></li>
+                  <li><a class="comment disqus-count" href="/health/2015/02/why-were-there-so-many-third-party-apps-healthcaregov-anyway/105369/#disqus_thread" data-disqus-identifier="post_105369"></a></li>
+                </ul>
+                <span class="date">// February 13, 2015</span>
+              </div>
+            </div>
+            
+            
+            
+            <div class="news-block full-width">
+              <header class="heading">
+                <strong class="title">LATEST NEWS</strong>
+              </header>
+              <ul>
+                
+                  <li><a href="/big-data/2015/02/scientists-say-all-worlds-data-can-fit-dna-hard-drive-size-teaspoon/105519/?oref=ng-dropdown"><strong>Scientists Say All the World’s Data Can Fit on a DNA Hard Drive the Size of a Teaspoon</strong> <span class="date">// February 18, 2015</span></a></li>
+                
+                  <li><a href="/health/2015/02/healthcaregov-20-numbers/105351/?oref=ng-dropdown"><strong>HealthCare.gov 2.0: By the Numbers</strong> <span class="date">// February 13, 2015</span></a></li>
+                
+                  <li><a href="/health/2015/02/new-brain-decoder-could-boost-neuroscience-research/105003/?oref=ng-dropdown"><strong>New Brain Decoder Could Boost Neuroscience Research</strong> <span class="date">// February 10, 2015</span></a></li>
+                
+              </ul>
+              
+            </div>
+            
+		
+            
+            
+          </div>
+        </div>
+      </li>
+    
+      
+      
+      
+
+      <li>
+        <a href="/defense/?oref=ng-nav" class="defense">Defense</a>
+        <div class="drop">
+          <div class="drop-holder">
+            <div class="drop-block">
+              <a href="/defense/2015/02/will-new-drone-regulations-stifle-innovation/105435/?oref=ng-dropdown">
+                <div class="image alignleft">
+                  <img src="http://cdn.nextgov.com/media/img/upload/2015/02/17/021715drones2NG/thumb-large.jpg" alt="A multi-rotor hexacopter, an unmanned aircraft that farmer Robert Blair purchased to monitor his farm in Kendrick, Idaho." title="A multi-rotor hexacopter, an unmanned aircraft that farmer Robert Blair purchased to monitor his farm in Kendrick, Idaho." height="131" width="218" />
+                </div>
+                <header class="heading">
+                  Will New Drone Regulations Stifle Innovation?
+                </header>
+              </a>
+              
+                <p>Regulators have a lot to consider when allowing commercial drone use—namely, how not to screw up the market potential.</p>
+              
+              <div class="meta">
+                <ul class="social">
+                  <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/defense/2015/02/will-new-drone-regulations-stifle-innovation/105435/" href="javascript:Void();">facebook</a></li>
+                  <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/defense/2015/02/will-new-drone-regulations-stifle-innovation/105435/" st_title="Will New Drone Regulations Stifle Innovation?" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                  <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/defense/2015/02/will-new-drone-regulations-stifle-innovation/105435/" href="javascript:Void();">google</a></li>
+                  <li><a class="comment disqus-count" href="/defense/2015/02/will-new-drone-regulations-stifle-innovation/105435/#disqus_thread" data-disqus-identifier="post_105435"></a></li>
+                </ul>
+                <span class="date">// February 17, 2015</span>
+              </div>
+            </div>
+            
+            
+            
+            <div class="news-block full-width">
+              <header class="heading">
+                <strong class="title">LATEST NEWS</strong>
+              </header>
+              <ul>
+                
+                  <li><a href="/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/?oref=ng-dropdown"><strong>Justice, DHS Quarantine Smartphones Returning from Abroad</strong> <span class="date">// February 18, 2015</span></a></li>
+                
+                  <li><a href="/cybersecurity/2015/02/google-calls-fbis-plan-expand-hacking-power-monumental-constitutional-threat/105537/?oref=ng-dropdown"><strong>Google Calls FBI's Plan to Expand Hacking Power a 'Monumental' Constitutional Threat</strong> <span class="date">// February 18, 2015</span></a></li>
+                
+                  <li><a href="/emerging-tech/2015/02/faa-drone-regulations-deal-blow-amazon/105516/?oref=ng-dropdown"><strong>FAA Drone Regulations Deal Blow to Amazon</strong> <span class="date">// February 18, 2015</span></a></li>
+                
+              </ul>
+              
+            </div>
+            
+		
+            
+            
+          </div>
+        </div>
+      </li>
+    
+      
+      
+      
+
+      <li>
+        <a href="/big-data/?oref=ng-nav" class="big-data">Big Data</a>
+        <div class="drop">
+          <div class="drop-holder">
+            <div class="drop-block">
+              <a href="/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/?oref=ng-dropdown">
+                <div class="image alignleft">
+                  <img src="http://cdn.nextgov.com/media/img/upload/2015/02/19/021915whitehouseNG/thumb-large.jpg" alt="" title="" height="131" width="218" />
+                </div>
+                <header class="heading">
+                  ‘Data Science is a Team Sport'<span class="font-override">:</span> DJ Patil Spends First Day Pitching Silicon Valley on Joining Government
+                </header>
+              </a>
+              
+                <p>In its quest to get more data scientists into government, the Obama administration is likely to face stiff competition for talent from the private sector. 
+
+</p>
+              
+              <div class="meta">
+                <ul class="social">
+                  <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/" href="javascript:Void();">facebook</a></li>
+                  <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/" st_title="‘Data Science is a Team Sport&#39;: DJ Patil Spends First Day Pitching Silicon Valley on Joining Government" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                  <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/" href="javascript:Void();">google</a></li>
+                  <li><a class="comment disqus-count" href="/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/#disqus_thread" data-disqus-identifier="post_105648"></a></li>
+                </ul>
+                <span class="date">// 4:11 PM ET</span>
+              </div>
+            </div>
+            
+            
+            
+            <div class="news-block full-width">
+              <header class="heading">
+                <strong class="title">LATEST NEWS</strong>
+              </header>
+              <ul>
+                
+                  <li><a href="/big-data/2015/02/heres-what-white-houses-first-chief-data-scientist-will-do/105579/?oref=ng-dropdown"><strong>Here’s What the White House’s First Chief Data Scientist Will Do</strong> <span class="date">// February 18, 2015</span></a></li>
+                
+                  <li><a href="/big-data/2015/02/scientists-say-all-worlds-data-can-fit-dna-hard-drive-size-teaspoon/105519/?oref=ng-dropdown"><strong>Scientists Say All the World’s Data Can Fit on a DNA Hard Drive the Size of a Teaspoon</strong> <span class="date">// February 18, 2015</span></a></li>
+                
+                  <li><a href="/big-data/2015/02/amid-open-data-push-agencies-feel-urge-analytics/105471/?oref=ng-dropdown"><strong>Amid Open Data Push, Agencies Feel Urge for Analytics</strong> <span class="date">// February 17, 2015</span></a></li>
+                
+              </ul>
+              
+            </div>
+            
+		
+            
+            
+          </div>
+        </div>
+      </li>
+    
+  </ul>
+</nav>
+
+
+
+
+        <div class="ad ad-gutter" id="gutter-ad">
+	
+	<script type="text/javascript">
+//<![CDATA[
+if (typeof window.dart_random_ord == 'undefined') {
+	window.dart_random_ord = ('000000000' + Math.ceil(Math.random() * 1000000000).toString()).slice(-9);
+}
+
+var this_ad_link = 'http://ad.doubleclick.net/N617/adj/nextgov.com/homepage;pos=gutter;sz=460x800;tile=2;ord=' + window.dart_random_ord + '?';
+document.write('<' + 'script type="text/javascript" src="' + this_ad_link + '">' + '<' + '/script>');
+
+//]]>
+	</script>
+  
+</div>
+
+        
+          
+        
+				<div class="main-holder container_12">
+          
+					<div class="tools-block">
+						<form action="/search/" method="get" class="search-form">
+							<fieldset>
+								<div class="field-holder">
+									<input type="text" class="text" name="q" value="SEARCH NEXTGOV" />
+									<input type="submit" value="SEARCH" class="btn-submit" />
+								</div>
+							</fieldset>
+						</form>
+						<ul class="social">
+							<li><a class="facebook" href="http://www.facebook.com/Nextgov">facebook</a></li>
+							<li><a class="twitter" href="http://twitter.com/#!/nextgov/">twitter</a></li>
+							<li><a class="google-plus" href="https://plus.google.com/117520345336146276455" rel="publisher">google plus</a></li>
+							<li><a class="rss" href="/rss/all/">rss</a></li>
+						</ul>
+					</div>
+          
+          
+					<div id="content" class="grid_8">
+              
+  
+  <section class="visual">
+      <header class="heading with-background">
+        <h2>
+          <a href="/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/?oref=ng-HPtopstory">
+            <span class="outer">
+              <span class="inner"><span class="inner-inner">Justice, DHS to Quarantine Smartphones of Employees Who Travel Overseas </span></span></span></a><div class="social-holder">
+            <ul class="social">
+              <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/" href="javascript:Void();">facebook</a></li>
+              <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/" st_title="Justice, DHS to Quarantine Smartphones of Employees Who Travel Overseas " st_via="nextgov" href="javascript:Void();">twitter</a></li>
+              <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/" href="javascript:Void();">google</a></li>
+              <li><a class="comment disqus-count" href="/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/#disqus_thread" data-disqus-identifier="post_105576"></a></li>
+            </ul>
+            <span class="date">// February 18</span>
+          </div>
+        </h2>
+      </header>
+      <a href="/cybersecurity/2015/02/justice-dhs-quarantine-smartphones-returning-abroad/105576/?oref=ng-HPtopstory">
+        
+          <div class="subheader-holder">
+            <p>Malicious software may already have infected some phones and tablets.</p>
+          </div>
+        
+        <img src="http://cdn.nextgov.com/media/img/upload/2015/02/18/021815phoneNG/nextgov-large.jpg" alt="" title="" height="284" width="620" />
+        <span class="btn-read">READ MORE</span>
+      </a>
+  </section>
+  
+
+  
+  </section>
+  <section class="latest-news">
+    <header class="heading">
+      <h2>LATEST NEWS</h2>
+    </header>
+    <div class="list-holder">
+      <div class="river">
+        
+        
+
+
+
+    
+    
+    
+
+    
+        
+    
+        
+    
+
+    <div class="row">
+
+    
+        
+
+        <div class="left">
+            
+
+            
+
+                
+                
+
+                <p class="with-background">
+                    <a class="outer" href="/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/?oref=ng-HPriver">
+                        <strong>
+                            <span class="inner">
+                                <span class="text">GSA Shops Around New Ways to Buy Tech</span>
+                            </span>
+                        </strong>
+                        
+                        <span class="dek-outer">
+                            <span class="external"></span>
+                            GSA&#39;s recent moves indicate the agency is searching for acquisition platforms that can keep up with ...
+                        </span>
+                        
+                    </a>
+                </p>
+
+                <div class="meta">
+                    <ul class="social">
+                        <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/" href="javascript:Void();">facebook</a></li>
+                        <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/" st_title="GSA Shops Around New Ways to Buy Tech" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                        <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/" href="javascript:Void();">google</a></li>
+                        <li><a class="comment disqus-count" href="/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/?oref=ng-HPriver#disqus_thread" data-disqus-identifier="post_105615"></a></li>
+                    </ul>
+                    <span class="date">// 4:33 PM ET</span>
+                </div>
+            
+        </div>
+    
+        
+
+        <div class="right">
+            
+
+            
+
+                
+                
+
+                <p class="with-background">
+                    <a class="outer" href="/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/?oref=ng-HPriver">
+                        <strong>
+                            <span class="inner">
+                                <span class="text">‘Data Science is a Team Sport': DJ Patil Spends First Day Pitching Silicon Valley on Joining Government</span>
+                            </span>
+                        </strong>
+                        
+                        <span class="dek-outer">
+                            <span class="external"></span>
+                            In its quest to get more data ...
+                        </span>
+                        
+                    </a>
+                </p>
+
+                <div class="meta">
+                    <ul class="social">
+                        <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/" href="javascript:Void();">facebook</a></li>
+                        <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/" st_title="‘Data Science is a Team Sport&#39;: DJ Patil Spends First Day Pitching Silicon Valley on Joining Government" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                        <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/" href="javascript:Void();">google</a></li>
+                        <li><a class="comment disqus-count" href="/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/?oref=ng-HPriver#disqus_thread" data-disqus-identifier="post_105648"></a></li>
+                    </ul>
+                    <span class="date">// 4:11 PM ET</span>
+                </div>
+            
+        </div>
+    
+
+    </div>
+
+
+
+    
+    
+    
+
+    
+        
+    
+        
+    
+
+    <div class="row">
+
+    
+        
+
+        <div class="left mark">
+            
+
+            
+
+                
+                
+
+                <p class="with-background">
+                    <a class="outer" href="/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/?oref=ng-HPriver">
+                        <strong>
+                            <span class="inner">
+                                <span class="text">America Needs a New FOIA Overseer: Is it You? </span>
+                            </span>
+                        </strong>
+                        
+                        <span class="dek-outer">
+                            <span class="external"></span>
+                            The office in charge of monitoring governmentwide FOIA compliance and policy is looking for a ...
+                        </span>
+                        
+                    </a>
+                </p>
+
+                <div class="meta">
+                    <ul class="social">
+                        <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/" href="javascript:Void();">facebook</a></li>
+                        <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/" st_title="America Needs a New FOIA Overseer: Is it You? " st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                        <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/" href="javascript:Void();">google</a></li>
+                        <li><a class="comment disqus-count" href="/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/?oref=ng-HPriver#disqus_thread" data-disqus-identifier="post_105621"></a></li>
+                    </ul>
+                    <span class="date">// 1:15 PM ET</span>
+                </div>
+            
+        </div>
+    
+        
+
+        <div class="right">
+            
+
+            
+
+                
+                
+
+                <p class="with-background">
+                    <a class="outer" href="/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/?oref=ng-HPriver">
+                        <strong>
+                            <span class="inner">
+                                <span class="text">The Science Behind Human-Controlled Weather</span>
+                            </span>
+                        </strong>
+                        
+                        <span class="dek-outer">
+                            <span class="external"></span>
+                            Cloud seeding won&#39;t solve winter woes, and it probably won&#39;t promise clear skies for wedding ...
+                        </span>
+                        
+                    </a>
+                </p>
+
+                <div class="meta">
+                    <ul class="social">
+                        <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/" href="javascript:Void();">facebook</a></li>
+                        <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/" st_title="The Science Behind Human-Controlled Weather" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                        <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/" href="javascript:Void();">google</a></li>
+                        <li><a class="comment disqus-count" href="/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/?oref=ng-HPriver#disqus_thread" data-disqus-identifier="post_105618"></a></li>
+                    </ul>
+                    <span class="date">// 12:45 PM ET</span>
+                </div>
+            
+        </div>
+    
+
+    </div>
+
+
+
+    
+    
+    
+
+    
+        
+    
+        
+    
+
+    <div class="row">
+
+    
+        
+
+        <div class="left">
+            
+
+            
+
+                
+                
+
+                <p class="with-background">
+                    <a class="outer" href="/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/?oref=ng-HPriver">
+                        <strong>
+                            <span class="inner">
+                                <span class="text">The Big Fix: Is Washington Ready for IT Reform?</span>
+                            </span>
+                        </strong>
+                        
+                        <span class="dek-outer">
+                            <span class="external"></span>
+                            From creating digital fix-it squads to promoting unorthodox methods of buying technology, ...
+                        </span>
+                        
+                    </a>
+                </p>
+
+                <div class="meta">
+                    <ul class="social">
+                        <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/" href="javascript:Void();">facebook</a></li>
+                        <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/" st_title="The Big Fix: Is Washington Ready for IT Reform?" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                        <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/" href="javascript:Void();">google</a></li>
+                        <li><a class="comment disqus-count" href="/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/?oref=ng-HPriver#disqus_thread" data-disqus-identifier="post_105606"></a></li>
+                    </ul>
+                    <span class="date">// 10:56 AM ET</span>
+                </div>
+            
+        </div>
+    
+        
+
+        <div class="right">
+            
+
+            
+
+                
+                
+
+                <p class="with-background">
+                    <a class="outer" href="/big-data/2015/02/heres-what-white-houses-first-chief-data-scientist-will-do/105579/?oref=ng-HPriver">
+                        <strong>
+                            <span class="inner">
+                                <span class="text">Here’s What the White House’s First Chief Data Scientist Will Do</span>
+                            </span>
+                        </strong>
+                        
+                        <span class="dek-outer">
+                            <span class="external"></span>
+                            The White House is providing more details about the projects its first ...
+                        </span>
+                        
+                    </a>
+                </p>
+
+                <div class="meta">
+                    <ul class="social">
+                        <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/big-data/2015/02/heres-what-white-houses-first-chief-data-scientist-will-do/105579/" href="javascript:Void();">facebook</a></li>
+                        <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/big-data/2015/02/heres-what-white-houses-first-chief-data-scientist-will-do/105579/" st_title="Here’s What the White House’s First Chief Data Scientist Will Do" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                        <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/big-data/2015/02/heres-what-white-houses-first-chief-data-scientist-will-do/105579/" href="javascript:Void();">google</a></li>
+                        <li><a class="comment disqus-count" href="/big-data/2015/02/heres-what-white-houses-first-chief-data-scientist-will-do/105579/?oref=ng-HPriver#disqus_thread" data-disqus-identifier="post_105579"></a></li>
+                    </ul>
+                    <span class="date">// February 18</span>
+                </div>
+            
+        </div>
+    
+
+    </div>
+
+
+
+    
+    
+    
+
+    
+        
+    
+        
+    
+
+    <div class="row">
+
+    
+        
+
+        <div class="left">
+            
+
+            
+
+                
+                
+
+                <p class="with-background">
+                    <a class="outer" href="/cio-briefing/2015/02/it-and-gao-recommendations/105573/?oref=ng-HPriver">
+                        <strong>
+                            <span class="inner">
+                                <span class="text">Agencies Excel at Fixing IT Problems Uncovered by GAO, Study Says</span>
+                            </span>
+                        </strong>
+                        
+                        <span class="dek-outer">
+                            <span class="external"></span>
+                            A new analysis of more than 40,000 GAO recommendations spanning nearly 30 ...
+                        </span>
+                        
+                    </a>
+                </p>
+
+                <div class="meta">
+                    <ul class="social">
+                        <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/cio-briefing/2015/02/it-and-gao-recommendations/105573/" href="javascript:Void();">facebook</a></li>
+                        <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/cio-briefing/2015/02/it-and-gao-recommendations/105573/" st_title="Agencies Excel at Fixing IT Problems Uncovered by GAO, Study Says" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                        <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/cio-briefing/2015/02/it-and-gao-recommendations/105573/" href="javascript:Void();">google</a></li>
+                        <li><a class="comment disqus-count" href="/cio-briefing/2015/02/it-and-gao-recommendations/105573/?oref=ng-HPriver#disqus_thread" data-disqus-identifier="post_105573"></a></li>
+                    </ul>
+                    <span class="date">// February 18</span>
+                </div>
+            
+        </div>
+    
+        
+
+        <div class="right">
+            
+
+            
+
+                
+                
+
+                <p class="with-background">
+                    <a class="outer" href="/cybersecurity/2015/02/google-calls-fbis-plan-expand-hacking-power-monumental-constitutional-threat/105537/?oref=ng-HPriver">
+                        <strong>
+                            <span class="inner">
+                                <span class="text">Google Calls FBI's Plan to Expand Hacking Power a 'Monumental' Constitutional Threat</span>
+                            </span>
+                        </strong>
+                        
+                        <span class="dek-outer">
+                            <span class="external"></span>
+                            Any change in accessing computer data should go through ...
+                        </span>
+                        
+                    </a>
+                </p>
+
+                <div class="meta">
+                    <ul class="social">
+                        <li><a class="facebook st_facebook_custom" st_url="http://www.nextgov.com/cybersecurity/2015/02/google-calls-fbis-plan-expand-hacking-power-monumental-constitutional-threat/105537/" href="javascript:Void();">facebook</a></li>
+                        <li><a class="twitter st_twitter_custom" st_url="http://www.nextgov.com/cybersecurity/2015/02/google-calls-fbis-plan-expand-hacking-power-monumental-constitutional-threat/105537/" st_title="Google Calls FBI&#39;s Plan to Expand Hacking Power a &#39;Monumental&#39; Constitutional Threat" st_via="nextgov" href="javascript:Void();">twitter</a></li>
+                        <li><a class="google st_googleplus_custom" st_url="http://www.nextgov.com/cybersecurity/2015/02/google-calls-fbis-plan-expand-hacking-power-monumental-constitutional-threat/105537/" href="javascript:Void();">google</a></li>
+                        <li><a class="comment disqus-count" href="/cybersecurity/2015/02/google-calls-fbis-plan-expand-hacking-power-monumental-constitutional-threat/105537/?oref=ng-HPriver#disqus_thread" data-disqus-identifier="post_105537"></a></li>
+                    </ul>
+                    <span class="date">// February 18</span>
+                </div>
+            
+        </div>
+    
+
+    </div>
+
+
+
+      </div>
+    </div>
+    <div class="btn-holder">
+      <a href="/technology-news/all/" class="btn-gray"><span>more news</span></a>
+    </div>
+  </section>
+
+
+  <section class="threatwatch-promo-section">
+    <h2>THREATWATCH</h2>
+    <div class="promo-body-wrapper">
+      <a href="/cybersecurity/threatwatch/2015/02/user-accounts-compromised-group-that-hacked/2037/?oref=TW_hp_module" class="promo-body">
+        <img src="http://cdn.nextgov.com/nextgov/images/threatwatch-promo-img.jpg" alt="" />
+        <div class="promo-content">
+          
+            <div class="outer">
+              <div class="inner">
+                <h4>User accounts compromised</h4>
+                
+                  <h3>Group That Hacked CENTCOM Eyes Military Spouses</h3>
+                
+                <span>See threat report now</span>
+              </div>
+            </div>
+          
+        </div>
+      </a>
+
+      <div class="promo-sponsor">
+        <span>Underwritten by</span>
+        <a href="http://pubads.g.doubleclick.net/gampad/clk?id=69749375&iu=/617/govexec.com/emailads" target="_blank"><img src="http://cdn.nextgov.com/nextgov/images/sponsors/logo-gdit.png" alt="GDIT"></a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="info-section">
+    <div class="block" id="cio-briefing-section">
+      <div class="block-holder">
+        <h2>CIO BRIEFING</h2>
+        <div class="image">
+          <a href="/technology-news/tech-insider/2014/03/what-kind-tech-exec-or-potential-exec-are-you/81646/" class="link">
+            <span class="outer-outer">
+              <span class="outer">
+                <span class="inner">
+                  <span class="inner-inner">
+                    What Kind of Tech Exec (or Potential Exec) Are You? 
+                    <span class="arrow">&nbsp;</span>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <img src="http://cdn.nextgov.com/media/img/upload/2014/03/31/033114techassessmentNG/nextgov-small.jpg" alt="" title="" height="172" width="285" />
+          </a>
+          <span class="social">
+            <a st_url="http://www.nextgov.com/technology-news/tech-insider/2014/03/what-kind-tech-exec-or-potential-exec-are-you/81646/" href="javascript:Void();" class="facebook st_facebook_custom"></a>
+            <a st_url="http://www.nextgov.com/technology-news/tech-insider/2014/03/what-kind-tech-exec-or-potential-exec-are-you/81646/" href="javascript:Void();" st_title="What Kind of Tech Exec (or Potential Exec) Are You? " st_via="nextgov" class="twitter st_twitter_custom"></a>
+            <a st_url="http://www.nextgov.com/technology-news/tech-insider/2014/03/what-kind-tech-exec-or-potential-exec-are-you/81646/" href="javascript:Void();" class="google st_googleplus_custom"></a>
+            <a href="/technology-news/tech-insider/2014/03/what-kind-tech-exec-or-potential-exec-are-you/81646/#disqus_thread" class="comment"></a>
+          </span>
+        </div>
+        
+          <p>
+            <a href="/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/"><strong>The Big Fix: Is Washington Ready for IT Reform?</strong></a>
+            <span class="date">10:56 AM ET //</span>
+            <a href="/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/#disqus_thread" class="comments disqus-count" data-disqus-identifier="post_105606"></a>
+          </p>
+        
+          <p>
+            <a href="/cio-briefing/2015/02/it-and-gao-recommendations/105573/"><strong>Agencies Excel at Fixing IT Problems Uncovered by GAO, Study Says</strong></a>
+            <span class="date">February 18 //</span>
+            <a href="/cio-briefing/2015/02/it-and-gao-recommendations/105573/#disqus_thread" class="comments disqus-count" data-disqus-identifier="post_105573"></a>
+          </p>
+        
+      </div>
+      <div class="btn-holder">
+        <a href="/cio-briefing/" class="btn-gray btn-gray2"><span>more from <br/>cio briefing</span></a>
+      </div>
+    </div>
+    <div class="block" id="emerging-tech-section">
+      <div class="block-holder">
+        <h2>EMERGING TECH</h2>
+        <div class="image">
+          <a href="/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/" class="link">
+            <span class="outer-outer">
+              <span class="outer">
+                <span class="inner">
+                  <span class="inner-inner">
+                    The Science Behind Human-Controlled Weather
+                    <span class="arrow">&nbsp;</span>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <img src="http://cdn.nextgov.com/media/img/upload/2015/02/19/021915weatherNG/nextgov-small.jpg" alt="" title="" height="172" width="285" />
+          </a>
+          <span class="social">
+            <a st_url="http://www.nextgov.com/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/" href="javascript:Void();" class="facebook st_facebook_custom"></a>
+            <a st_url="http://www.nextgov.com/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/" st_title="The Science Behind Human-Controlled Weather" st_via="nextgov" href="javascript:Void();" class="twitter st_twitter_custom"></a>
+            <a st_url="http://www.nextgov.com/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/" href="javascript:Void();" class="google st_googleplus_custom"></a>
+            <a href="/emerging-tech/2015/02/science-behind-human-controlled-weather/105618/#disqus_thread" class="comment"></a>
+          </span>
+        </div>
+        
+          <p>
+            <a href="/emerging-tech/2015/02/faa-drone-regulations-deal-blow-amazon/105516/"><strong>FAA Drone Regulations Deal Blow to Amazon</strong></a>
+            <span class="date">February 18 //</span>
+            <a href="/emerging-tech/2015/02/faa-drone-regulations-deal-blow-amazon/105516/#disqus_thread" class="comments disqus-count" data-disqus-identifier="post_105516"></a>
+          </p>
+        
+          <p>
+            <a href="/emerging-tech/2015/02/social-science-element-darpas-big-data-search-engine/105273/"><strong>The Social Science Behind DARPA’s Plan to Map Out the Dark Web</strong></a>
+            <span class="date">February 13 //</span>
+            <a href="/emerging-tech/2015/02/social-science-element-darpas-big-data-search-engine/105273/#disqus_thread" class="comments disqus-count" data-disqus-identifier="post_105273"></a>
+          </p>
+        
+      </div>
+      <div class="btn-holder">
+        <a href="/emerging-tech/" class="btn-gray btn-gray2"><span>more from<br/>EMERGING TECH</span></a>
+      </div>
+    </div>
+  </section>
+  <section class="featured">
+    <div class="col">
+      <header class="heading">
+        <h2 class="text-featured">FEATURED</h2>
+      </header>
+      <ul>
+        
+        
+        <li class="">
+          <a href="/emerging-tech/2015/01/scientists-now-know-how-make-robots-less-creepy-looking/103620/?oref=ng-featured">
+            <img src="http://cdn.nextgov.com/media/img/upload/2015/01/23/012315cuterobotNG/thumb.jpg" alt="" title="" height="83" width="138" />
+            <strong>Scientists Now Know How to Make Robots Less Creepy Looking</strong>
+          </a>
+        </li>
+        
+        <li class="omega">
+          <a href="/technology-news/tech-insider/2015/01/rocketing-future-can-containers-help-secure-cloud/104175/?oref=ng-featured">
+            <img src="http://cdn.nextgov.com/media/img/upload/2015/01/30/013015cloudsecurityNG/thumb.jpg" alt="" title="" height="83" width="138" />
+            <strong>Rocketing into the Future: Can Containers Help Secure the Cloud?</strong>
+          </a>
+        </li>
+        
+        <li class="">
+          <a href="/emerging-tech/2015/01/5-tech-predictions-you-should-actually-pay-attention/103227/?oref=ng-featured">
+            <img src="http://cdn.nextgov.com/media/img/upload/2015/01/20/012015futuretechNG/thumb.jpg" alt="" title="" height="83" width="138" />
+            <strong>5 Tech Predictions You Should Actually Pay Attention To</strong>
+          </a>
+        </li>
+        
+        <li class="omega">
+          <a href="/cybersecurity/2015/01/beware-unwitting-insider-threat/104097/?oref=ng-featured">
+            <img src="http://cdn.nextgov.com/media/img/upload/2015/01/29/012915insiderthreatNG/thumb.jpg" alt="" title="" height="83" width="138" />
+            <strong>Beware the Unwitting Insider Threat</strong>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <div class="col col2">
+      <header class="heading">
+        <h2>from our sponsors</h2>
+      </header>
+      <ul>
+        
+        
+        <li class="">
+          <a href="http://www.nextgov.com/the-big-fix-2015/" rel="external">
+              <img src="http://cdn.nextgov.com/media/img/upload/2015/02/18/Skybox_BigFix_3/thumb.jpg" alt="" title="" height="83" width="138" />
+            <strong>Get Nextgov's New eBook!</strong>
+          </a>
+        </li>
+        
+        <li class="omega">
+          <a href="http://www.govexec.com/gbc/protecting-your-agencys-core-data-hybrid-cloud/99797/?oref=ng-fromoursponsors">
+              <img src="http://cdn.nextgov.com/media/img/upload/2014/11/24/11406978145_7751112cf1_o/thumb.jpg" alt="" title="" height="83" width="138" />
+            <strong>Protecting Your Agency's Core Data with Hybrid Cloud</strong>
+          </a>
+        </li>
+        
+        <li class="">
+          <a href="http://www.govexec.com/gbc/reports/anticipating-threats-community-approaches-protecting-data/102183/?oref=ng-fromoursponsors">
+              <img src="http://cdn.nextgov.com/media/img/upload/2015/01/14/13334080323_7b02cb3f42_k_1/thumb.jpg" alt="" title="" height="83" width="138" />
+            <strong>Anticipating Threats: Community Approaches to Protecting Data</strong>
+          </a>
+        </li>
+        
+        <li class="omega">
+          <a href="http://www.govexec.com/gbc/reports/360-degree-view-defense-logistics/103221/?oref=ng-fromoursponsors">
+              <img src="http://cdn.nextgov.com/media/img/upload/2015/02/19/deflog/thumb.jpg" alt="" title="" height="83" width="138" />
+            <strong>A 360 Degree View of Defense Logistics</strong>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </section>
+  
+ 
+ 
+  <section class="boxes">
+    <h2 class="mark-heading2"><span class="row">more from</span> <span class="row">government executive media group</span></h2>
+    <div class="box-row">
+      <div class="box box2">
+        <a href="http://www.govexec.com/?oref=ng-fromGE" class="image-holder"><img src="http://cdn.nextgov.com/nextgov/images/logo-ge.gif" alt="image description" width="139" height="128" ></a>
+      </div>
+      
+      <div class="box box2">
+        <p><a href="http://www.govexec.com/management/2015/02/scaled-back-dhs-headquarters-plan-would-squeeze-3000-more-people-same-space/105654/?oref=ng-fromGE"><strong>Scaled-Back DHS Headquarters Plan Would Squeeze 3,000 More People Into the Same Space</strong></a><span class="date">4:39 PM ET</span></p>
+      </div>
+      
+      <div class="box">
+        <p><a href="http://www.govexec.com/state-local/2015/02/do-we-just-have-get-used-fiery-train-crashes/105657/?oref=ng-fromGE"><strong>Do We Just Have to Get Used to Fiery Train Crashes?</strong></a><span class="date">4:38 PM ET</span></p>
+      </div>
+      
+      <div class="box">
+        <p class="more"><a href="http://www.govexec.com/?oref=ng-fromGE"><strong>MORE FEDERAL NEWS FROM GOVERNMENT EXECUTIVE </strong></a></p>
+      </div>
+    </div>
+    <div class="box-row">
+      <div class="box box2">
+        <a href="http://www.govexec.com/gbc/?oref=ng-fromGBC" class="image-holder"><img src="http://cdn.nextgov.com/nextgov/images/logo-gbc.gif" alt="image description" width="139" height="128" ></a>
+      </div>
+       
+       
+       <div class="box box2">
+        <p><a href="http://www.govexec.com/gbc/reports/360-degree-view-defense-logistics/103221/?oref=ng-fromGBC"><strong>A 360 Degree View of Defense Logistics</strong></a></p>
+      </div>
+      
+       <div class="box">
+        <p><a href="http://www.govexec.com/gbc/balancing-regulation-and-accountability-ediscovery/102180/?oref=ng-fromGBC"><strong>Balancing Regulation and Accountability in eDiscovery</strong></a></p>
+      </div>
+      
+		<div class="box">
+        	<p class="more"><a href="http://www.govexec.com/gbc/?oref=ng-fromGBC"><strong>MORE RESEARCH FROM GOVERNMENT BUSINESS COUNCIL </strong></a></p>
+      </div>
+    </div>
+    <div class="box-row">
+      <div class="box box2">
+        <a href="http://www.govexec.com/excellence/?oref=ng-fromEIG" class="image-holder"><img src="http://cdn.nextgov.com/nextgov/images/logo-eig.gif" alt="image description" width="139" height="128" ></a>
+      </div>
+      
+    	
+       <div class="box box2">
+       <p><a href="http://www.govexec.com/excellence/promising-practices/2015/02/escaping-groundhog-day-5-tips-innovation/105549/?oref=ng-fromEIG"><strong>Escaping Groundhog Day: 5 Tips for Innovation</strong></a></p>
+      </div>
+      
+       <div class="box">
+       <p><a href="http://www.govexec.com/excellence/promising-practices/2015/02/american-millennials-are-behind-most-their-counterparts-some-basic-skills/105468/?oref=ng-fromEIG"><strong>American Millennials are Behind Most of Their Counterparts in Some Basic Skills</strong></a></p>
+      </div>
+      
+      <div class="box">
+        <p class="more"><a href="http://www.govexec.com/excellence/?oref=ng-fromEIG"><strong>MORE FROM EXCELLENCE IN GOVERNMENT </strong></a></p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="partners">
+    <header class="heading">
+      <h2 class="mark-heading2"><span class="row">more from</span><span class="row">atlantic media company</span></h2>
+    </header>
+    
+      
+    <div class="block">
+        <a href="http://www.nationaljournal.com/" class="image-holder"><img src="http://cdn.nextgov.com/media/img/upload/partner_logos/amc_nj.jpg" alt="National Journal" /></a>
+      
+      <p><a href="http://www.nationaljournal.com/energy/dietary-panel-eating-less-meat-is-better-for-the-environment-20150219"><strong>Dietary Panel: Eating Less Meat Is Better for the Environment</strong> <span class="date">3:31 PM ET</span></a></p>
+      
+      <p><a href="http://www.nationaljournal.com/politics/meet-the-democratic-senate-candidate-who-drives-democrats-crazy-20150219"><strong>Meet The Democratic Senate Candidate Who Drives Democrats Crazy</strong> <span class="date">2:41 PM ET</span></a></p>
+      
+    </div>
+    
+    <div class="block">
+        <a href="http://www.theatlantic.com/technology/" class="image-holder"><img src="http://cdn.nextgov.com/media/img/upload/partner_logos/amc_ng_atlantic.jpg" alt="The Atlantic - Technology" /></a>
+      
+      <p><a href="http://feedproxy.google.com/~r/AtlanticScienceAndTechnology/~3/PvJQyzMEdJ8/story01.htm"><strong>How the Inventor of the Polaroid Saved the Patent</strong> <span class="date">11:05 AM ET</span></a></p>
+      
+      <p><a href="http://feedproxy.google.com/~r/AtlanticScienceAndTechnology/~3/OzSFDaURDxA/story01.htm"><strong>The Science Behind Human-Controlled Weather</strong> <span class="date">6:22 AM ET</span></a></p>
+      
+    </div>
+    
+    <div class="block omega">
+        <a href="http://qz.com/" class="image-holder"><img src="http://cdn.nextgov.com/media/img/upload/partner_logos/amc_quartz.jpg" alt="Quartz" /></a>
+      
+      <p><a href="http://qz.com/347401/whats-apple-worth-more-than/"><strong>What’s Apple Worth More Than?</strong> <span class="date">4:15 PM ET</span></a></p>
+      
+      <p><a href="http://qz.com/346296/qualcomms-latest-smartphone-chips-keep-it-ahead-of-the-pack/"><strong>Qualcomm’s latest smartphone chips keep it ahead of the pack</strong> <span class="date">3:35 PM ET</span></a></p>
+      
+    </div>
+  
+  </section>
+
+<script type="text/javascript">
+disqus_landing = true;
+</script>
+
+
+
+					</div>
+					<aside id="sidebar" class="grid_4">
+                        
+                          <div class="ad ad-topblock" id="topblock-ad">
+	
+	<script type="text/javascript">
+//<![CDATA[
+if (typeof window.dart_random_ord == 'undefined') {
+	window.dart_random_ord = ('000000000' + Math.ceil(Math.random() * 1000000000).toString()).slice(-9);
+}
+
+var this_ad_link = 'http://ad.doubleclick.net/N617/adj/nextgov.com/homepage;pos=topblock;sz=300x250,300x1000,300x600;tile=3;ord=' + window.dart_random_ord + '?';
+document.write('<' + 'script type="text/javascript" src="' + this_ad_link + '">' + '<' + '/script>');
+
+//]]>
+	</script>
+  
+    <noscript>
+      <a href="http://ad.doubleclick.net/N617/jump/nextgov.com/homepage;pos=topblock;sz=300x250,300x1000,300x600;" title="">
+        <img src="http://ad.doubleclick.net/N617/ad/nextgov.com/homepage;pos=topblock;sz=300x250,300x1000,300x600;tile=3;" alt="" />
+      </a>
+      </noscript>
+  
+</div>
+                        
+
+                        
+                        
+						<div class="side-block">
+							<h3>PROMOTIONS</h3>
+							<ul class="list">
+
+							
+								<li>
+									<a href="http://www.govexec.com/gbc/reports/anticipating-threats-community-approaches-protecting-data/102183/?oref=ng-promotions">
+										<img src="http://cdn.nextgov.com/media/img/upload/2015/01/14/13334080323_7b02cb3f42_k_1/promoted.jpg"
+     alt=""
+     title=""
+     
+     height="50" 
+     width="80" 
+/>
+
+
+										<span class="text-holder">
+
+											
+											<span class="sponsored">Issue Brief</span>
+											
+
+										<strong>Anticipating Threats: Community Approaches to Protecting Data</strong> // Read now
+
+										</span>
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.govexec.com/gbc/reports/competitive-landscape-federal-it-procurement/100773/?oref=ng-promotions">
+										<img src="http://cdn.nextgov.com/media/img/upload/2014/12/09/CeBit_Hannover_2007/promoted.jpg"
+     alt=""
+     title=""
+     
+     height="50" 
+     width="80" 
+/>
+
+
+										<span class="text-holder">
+
+											
+											<span class="sponsored">Insight Report</span>
+											
+
+										<strong>The Competitive Landscape of Federal IT Procurement</strong> // Learn more 
+
+										</span>
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.govexec.com/gbc/protecting-your-agencys-core-data-hybrid-cloud/99797/?oref=ng-promotions">
+										<img src="http://cdn.nextgov.com/media/img/upload/2014/11/24/11406978145_7751112cf1_o/promoted.jpg"
+     alt=""
+     title=""
+     
+     height="50" 
+     width="80" 
+/>
+
+
+										<span class="text-holder">
+
+											
+											<span class="sponsored">Issue Brief</span>
+											
+
+										<strong>Protecting Your Agency's Core Data with Hybrid Cloud</strong> // Learn more
+
+										</span>
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.govexec.com/gbc/balancing-regulation-and-accountability-ediscovery/102180/?oref=ng-promotions">
+										<img src="http://cdn.nextgov.com/media/img/upload/2015/01/09/12753719314_35dd0bad1b_k/promoted.jpg"
+     alt=""
+     title=""
+     
+     height="50" 
+     width="80" 
+/>
+
+
+										<span class="text-holder">
+
+											
+											<span class="sponsored">Issue Brief</span>
+											
+
+										<strong>Balancing Regulation and Accountability in eDiscovery</strong> // Learn more
+
+										</span>
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.govexec.com/gbc/reports/360-degree-view-defense-logistics/103221/?oref=ng-promotions">
+										<img src="http://cdn.nextgov.com/media/img/upload/2015/02/19/deflog/promoted.jpg"
+     alt=""
+     title=""
+     
+     height="50" 
+     width="80" 
+/>
+
+
+										<span class="text-holder">
+
+											
+											<span class="sponsored">Insight Report</span>
+											
+
+										<strong>A 360 Degree View of Defense Logistics</strong> // Learn more
+
+										</span>
+									</a>
+								</li>
+							
+							</ul>
+						</div>
+						
+						<div class="side-block">
+							<h3>FREE NEWSLETTERS</h3>
+							<form action="/newsletters/subscribe/" data-form-name="right-column-subscribe" method="post" id="newsletter-signup" class="newsletters-form">
+                <input type="hidden" name="newsletter_signup_source" value="ng-right-rail"/>
+
+								<fieldset>
+									<div class="form-block">
+										<ul class="form-list">
+											<li>
+												<input type="checkbox" name="newsletter:newsletter_ng_today" id="newsletter:newsletter_ng_today" class="checkbox" value="1" >
+												<label for="newsletter:newsletter_ng_today">Nextgov Today</label>
+											</li>
+											<li>
+												<input type="checkbox" name="newsletter:newsletter_ng_health_it" id="newsletter:newsletter_ng_health_it" class="checkbox" value="1"  >
+												<label for="newsletter:newsletter_ng_health_it">Health IT</label>
+											</li>
+                      <li>
+                        <input type="checkbox" name="newsletter:newsletter_state_and_local" id="newsletter:newsletter_state_and_local" class="checkbox" value="1"  >
+                        <label for="newsletter:newsletter_state_and_local">State and Local</label>
+                      </li>
+                      <li>
+                        <input type="checkbox" name="newsletter:newsletter_research_and_insights" id="newsletter:newsletter_research_and_insights" class="checkbox" value="1"  >
+                        <label for="newsletter:newsletter_research_and_insights">Research & Insights</label>
+                      </li>
+                      <li>
+												<input type="checkbox" name="newsletter:newsletter_ng_threatwatch" id="newsletter:newsletter_ng_threatwatch" class="checkbox" value="1" />
+                        <label for="newsletter:newsletter_ng_threatwatch">Nextgov ThreatWatch</label>
+											</li>
+										</ul>
+										<div class="btn-holder">
+											<a href="http://www.govexec.com/newsletters/" class="link">see all</a>
+										</div>
+										<div class="text-box">
+											<input type="text" id="email_address" name="email_address" value="Enter your email address here..." class="text">
+										</div>
+									</div>
+									<input type="submit" value="subscribe" class="btn-submit">
+								</fieldset>
+							</form>
+						</div>
+                        
+                          
+                          <div class="ad ad-bottomblock" id="bottomblock-ad">
+	
+	<script type="text/javascript">
+//<![CDATA[
+if (typeof window.dart_random_ord == 'undefined') {
+	window.dart_random_ord = ('000000000' + Math.ceil(Math.random() * 1000000000).toString()).slice(-9);
+}
+if ($('#topblock-ad script[src*="widgetserver"]').length == 0 && $('#topblock-ad script[src*="flite"]').length == 0 && top_right_ad_size_check_called == false && $("#topblock-ad").height() < 600) {
+      if ($("#topblock-ad").height() < 250) {
+          top_right_ad_size_check();
+      }
+var this_ad_link = 'http://ad.doubleclick.net/N617/adj/nextgov.com/homepage;pos=bottomblock;sz=300x250;tile=4;ord=' + window.dart_random_ord + '?';
+document.write('<' + 'script type="text/javascript" src="' + this_ad_link + '">' + '<' + '/script>');
+}
+//]]>
+	</script>
+  
+    <noscript>
+      <a href="http://ad.doubleclick.net/N617/jump/nextgov.com/homepage;pos=bottomblock;sz=300x250;" title="">
+        <img src="http://ad.doubleclick.net/N617/ad/nextgov.com/homepage;pos=bottomblock;sz=300x250;tile=4;" alt="" />
+      </a>
+      </noscript>
+  
+</div>
+                          
+                        
+						
+						
+
+
+
+<div class="side-block">
+  <h3>blogs</h3>
+  <ul class="list list2">
+    
+    
+    
+      <li>
+        <a href="/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/?oref=voicesmodule">
+          <img src="http://cdn.nextgov.com/nextgov/images/blog-sidebar-emerging-tech-blog.jpg?v=2.5.7.2" alt="Emerging Tech" width="142" height="54" >
+          <span class="text-holder"><strong>America Needs a New FOIA Overseer: Is it You?  </strong><em class="text">Emerging Tech <em class="author">by 
+  
+    Frank Konkel</em></em></span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/technology-news/tech-insider/2015/02/-memory-persistence-secrets-mission-critical-big-data/105249/?oref=voicesmodule">
+          <img src="http://cdn.nextgov.com/nextgov/images/blog-sidebar-tech-insider.jpg?v=2.5.7.2" alt="Tech Insider" width="142" height="54" >
+          <span class="text-holder"><strong>In-Memory Computing: What Happens When the Power Goes Out? </strong><em class="text">Tech Insider <em class="author">by 
+  
+    Chris Steel</em></em></span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/cio-briefing/wired-workplace/2015/02/where-top-tech-companies-recruit/105330/?oref=voicesmodule">
+          <img src="http://cdn.nextgov.com/nextgov/images/blog-sidebar-wired-workplace.jpg?v=2.5.7.2" alt="Wired Workplace" width="142" height="54" >
+          <span class="text-holder"><strong>Where Top Tech Companies Recruit From </strong><em class="text">Wired Workplace <em class="author">by 
+  
+    Max Nisen</em></em></span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+            
+              
+
+<div class="side-block">
+	<h3 class="text-links">sponsored links</h3>
+	<ul class="list list3">
+        <script type="text/javascript" src="http://jlinks.industrybrains.com/jsct?sid=885&amp;ct=GOVERNMENT_EXECUTIVE_ROS&amp;num=5&amp;layt=3&amp;fmt=simp"></script>
+	
+        
+          
+        
+		<li>
+			<span class="text-holder"><strong><a href="http://www.govexec.com/gbc/reports/lessons-learned-federal-cloud-adoption/100887/">Lessons Learned in Federal Cloud Adoption</a></strong> Read more <a href="http://www.govexec.com/gbc/reports/lessons-learned-federal-cloud-adoption/100887/" rel="external">www.govexec.com/fedcloud</a></span>
+		</li>
+	
+        
+          
+        
+		<li>
+			<span class="text-holder"><strong><a href="http://www.govexec.com/gbc/protecting-your-agencys-core-data-hybrid-cloud/99797/">Protecting Your Agency's Core Data with Hybrid Cloud</a></strong> Learn more <a href="http://www.govexec.com/gbc/protecting-your-agencys-core-data-hybrid-cloud/99797/" rel="external">www.govexec.com/coredata</a></span>
+		</li>
+	
+	</ul>
+</div>
+
+            
+					</aside>
+          
+				</div>
+        
+			</div>
+		</div>
+		<footer id="footer">
+			<div class="footer-holder">
+				<div class="footer-frame container_12">
+					<strong class="logo"><a href="/">Nextgov</a></strong>
+					<div class="menus-holder">
+						<div class="row">
+							<ul class="footer-menu">
+								<li><a href="/about/">About</a></li>
+								<li><a href="/about/contact/">Contact Us</a></li>
+								<li><a href="http://www.govexec.com/events/">Events</a></li>
+								<li><a href="http://www.govexecmediagroup.com/">Advertise</a></li>
+								<li><a href="/about/list-rentals/">List Rentals</a></li>
+								<li><a href="/about/site-map/">Site Map</a></li>
+								<li><a href="/about/privacy-policy/">Privacy Policy</a></li>
+								<li><a href="/about/terms-and-conditions/">Terms &amp; Conditions</a></li>
+							</ul>
+						</div>
+						<div class="row">
+							<ul class="footer-menu footer-menu2">
+								<li><a href="http://www.govexec.com/">GovExec</a></li>
+                <li><a href="http://www.defenseone.com/">Defense One</a></li>
+								<li><a href="http://qz.com/" rel="external">Quartz</a></li>
+								<li><a href="http://www.nationaljournal.com/" rel="external">National Journal</a></li>
+								<li><a href="http://www.theatlantic.com/" rel="external">The Atlantic</a></li>
+								<li><a href="http://www.citylab.com/" rel="external">CityLab</a></li>
+							</ul>
+						</div>
+						<p class="copyright">&copy; 2015 by National Journal Group, Inc. All rights reserved. | <a href="http://www.edgecast.com/">CDN</a> powered by Edgecast Networks
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+  
+    <!-- Newsletter modal -->
+    <div id="modal_window">
+      <div id="modal_window_content"><img src="http://cdn.nextgov.com/images/ajax-loading.gif" width="32" height="32" alt="Loading..." /></div>
+      <a href="#" class="close_button"><img src="http://cdn.nextgov.com/images/close-circle.png" alt="Close window" width="30" height="30" /></a>
+    </div>
+  
+
+  
+
+  
+    
+      
+      
+	<div id="parsely-root" style="display: none">
+	  <a id="parsely-cfg" data-parsely-site="nextgov.com" href="http://parsely.com">Powered by the Parse.ly Publisher Platform (P3).</a>
+	</div>
+	<script type="text/javascript">
+    //<![CDATA[
+	  (function(s, p, d) {
+	    var h=d.location.protocol, i=p+"-"+s,
+	      e=d.getElementById(i), r=d.getElementById(p+"-root"),
+	      u=h==="https:"?"d1z2jf7jlzjs58.cloudfront.net"
+	      :"static."+p+".com";
+	    if (e) return;
+	      e = d.createElement(s); e.id = i; e.async = true;
+	      e.src = h+"//"+u+"/p.js"; r.appendChild(e);
+	  })("script", "parsely", document);
+    //]]>
+	</script>
+      
+    <script type="text/javascript">
+    //<![CDATA[
+      var _sf_async_config={uid:17396,domain:"nextgov.com"};
+
+      _sf_async_config.title = "Federal Technology News and Analysis for IT Managers &amp; Acquisition Teams";
+
+      (function(){
+        function loadChartbeat() {
+          window._sf_endpt=(new Date()).getTime();
+          var e = document.createElement('script');
+          e.setAttribute('language', 'javascript');
+          e.setAttribute('type', 'text/javascript');
+          e.setAttribute('src', (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+"js/chartbeat.js");
+          document.body.appendChild(e);
+        }
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != 'function') ?
+        loadChartbeat : function() { oldonload(); loadChartbeat(); };
+      })();
+    //]]>
+    </script>
+      <script type="text/javascript">
+_bizo_data_partner_id = "1016";
+</script>
+<script type="text/javascript">
+(function() {
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";
+b.async = true;
+b.src = (window.location.protocol === "https:" ? "https://sjs" : "http://js") + ".bizographics.com/insight.min.js";
+s.parentNode.insertBefore(b, s);
+})();
+</script>
+<noscript>
+<img height="1" width="1" alt="" style="display:none;" src="//www.bizographics.com/collect/?pid=1016&fmt=gif" />
+</noscript>
+    
+    <script type="text/javascript">
+//<![CDATA[
+    var disqus_shortname = 'nextgov';
+    var disqus_all_shortnames = {'defenseone': 'defenseone', 'govexec': 'govexec', 'nextgov': 'nextgov'};
+    (function () {
+        var scriptElement = document.createElement('script'); scriptElement.async = true;
+        scriptElement.type = 'text/javascript';
+        scriptElement.src = 'http://cdn.nextgov.com/js/custom_disqus_count_ng.js?v=2.1.4';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(scriptElement);
+    }());
+    //]]>
+</script>
+
+    
+    <script type="text/javascript" src="https://ak.sail-horizon.com/horizon/v1.js"></script>
+<script type="text/javascript">
+  $(function() {
+    // Sailthru Concierge
+    if (window.Sailthru) {
+    
+      Sailthru.setup({
+        domain: 'horizon.nextgov.com',
+        
+        spider: false,
+        
+        concierge: false
+      });
+    
+    }
+  });
+</script>
+    
+  
+
+  <script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+  
+    
+      <!-- Google Code for Remarketing Tag -->
+<!--
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+-->
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 962442471;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/962442471/?value=0&amp;guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+    
+  
+
+</body>
+</html>";i:2;s:5:"10578";}

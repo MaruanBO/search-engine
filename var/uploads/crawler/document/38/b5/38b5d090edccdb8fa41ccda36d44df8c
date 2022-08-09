@@ -1,0 +1,194 @@
+a:3:{i:0;s:24:"http://revolvermaps.com/";i:1;s:8701:"<!DOCTYPE HTML>
+<html><head>
+<title>Welcome to RevolverMaps
+ | RevolverMaps - Free 3D Visitor Maps</title>
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<meta name="keywords" content="visitor,map,maps,3d,engine,globe,globes,revolvermaps,widget,widgets,ip,location,geolocation,traffic,sitetraffic,live,statistics,livestatistics">
+<meta name="author" content="Daniel Seifert (Karma Implementor)">
+<meta name="description" content="RevolverMaps: Interactive 3D Visitor Globes">
+<link rel="stylesheet" type="text/css" href="css/layout.css">
+<link rel="stylesheet" type="text/css" href="content/home/css/s.css">
+<link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+<script src="lib/js/rm/opt_l1_13.php"></script>
+
+<div id="layout-redmessage" class="layout-bg urgentmsg"></div><script src="redmessage.php" async></script>
+
+<noscript><div class="layout-bg"><div class="layout-centeredpage urgentmsg">This website requires JavaScript.</div></div></noscript>
+
+<div class="layout-bar1">
+	<div class="layout-centeredpage">
+		<img src="graph/header.png" alt="RevolverMaps, Get a Widget." usemap="#headmap">
+		<a class="active" href="?target=home"><div></div>About</a><a href="?target=gallery"><div></div>Widgets</a><a href="?target=faq"><div></div>Help</a>
+	</div>
+</div>
+
+<div class="layout-bg">
+
+<div class="layout-centeredpage">
+
+<div class="layout-navi2"><a href="?target=home" class="active">Home</a><a href="?target=news">News</a><a href="?target=info">Info / Contact</a></div>
+
+<div class="layout-headbox"><div><h1>Welcome to RevolverMaps
+</h1><div>Free.<br>
+Customizable.<br>
+No registration, easy installation.
+</div></div></div>
+
+<div class="layout-content">
+
+<div class="layout-floatbox">
+<script>var rmCanGL=rmGLSupport()=='webgl'&&rmIsGLShaderPrecisionHigh()&&window.requestAnimationFrame;</script>
+
+<h2 class="first">Description</h2>
+
+<div class="layout-sidebox" style="width:160px;height:600px;"><div class="layout-ad" style="width:160px;min-height:600px;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- rmv2 160x600 text+display -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:160px;height:600px"
+     data-ad-client="ca-pub-4222107390938546"
+     data-ad-slot="7394424085"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+
+RevolverMaps are a <a href="?target=gallery" title="Widget Gallery">collection</a> of <b>real-time visitor statistics widgets</b> for your <b>website</b> or <b>blog</b>.<p>
+
+<div id="conti" class="annotation"><div class="layout-valignmiddle"></div>
+<i>demo widget: <script>document.write('<a href="?target=setup'+(rmCanGL?'gl':'')+'" title="Get RevolverMaps Standard'+(rmCanGL?' GL':'')+'">RevolverMaps Standard'+(rmCanGL?' GL':'')+'</a>');</script></i>
+</div>
+Have a look at the sample on the left: Every visitor leaves an eternal dot on the <b>3D</b> globe, recent visitor locations are tagged by the labels showing the flag of the country as well as city and state.
+<p>All widgets are <b>free</b> of charge, <b>easy</b> to install and <b>customizable</b> in size and appearance. Every widget is connected to the public live statistics page providing more detailed information on your visitors.
+<p>Get an overview of all widgets in the <a href="?target=gallery" title="Widget Gallery">widget gallery</a>.
+
+<div style="clear:left;"></div>
+
+<h2>Get Started</h2>
+
+To <b>quickly embed the globe</b> from the sample above in your page follow <b>two steps</b>: Choose a size and copy the code from the textarea below to the desired position in your HTML structure. Your globe will instantly start recording your visitors.
+
+<p>
+<div id="form">
+
+<div>
+<div><b>1.</b> Choose Size</div>
+<select size="1" onchange="rmSetSize(this.value);">
+<option value="320" selected>large - 320px &times; 320px</option>
+<option value="270">medium - 270px &times; 270px</option>
+<option value="220">small - 220px &times; 220px</option>
+</select>
+<p>
+<script>document.write('<a class="button" href="?target=setup'+(rmCanGL?'gl':'')+'" title="Get RevolverMaps Standard'+(rmCanGL?' GL':'')+'">more options</a>');</script>
+</div>
+
+<div>
+<div><b>2.</b> Copy the Code to Your Site</div>
+<textarea readonly id="codetf" onclick="this.focus();this.select();"></textarea>
+<div class="annotation">By copying the code you agree to the <a href="?target=legal#terms">Terms of Service</a>.</div>
+</div>
+
+</div>
+<script>
+var rmCurrentSize,rmHoHa;
+function rmSetCode(){
+	ge('codetf').value=rmHoHa===false?'Error, please try again later.':(rmHoHa?(rmCanGL?('\x3Cscript type="text/javascript" src="//'+rmHoHa[0]+'.revolvermaps.com/0/0/6.js?i='+rmHoHa[1]+'&amp;m=7&amp;s='+rmCurrentSize+'&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async">\x3C/script>'):('\x3Cscript type="text/javascript" src="//'+rmHoHa[0]+'.revolvermaps.com/0/0/1.js?i='+rmHoHa[1]+'&amp;m=7&amp;s='+rmCurrentSize+'&amp;c=e63100" async="async">\x3C/script>')):'Loading...');
+}
+function rmSetSize(s){
+	if(s!==rmCurrentSize){
+		rmCurrentSize=s;
+		var t=ce('script'),c=ge('conti').firstChild;
+		rmChilds(c);
+		t.type='text/javascript';
+		t.src=rmCanGL?'//ra.revolvermaps.com/0/0/6.js?i=0ffftggap65&m=7&s='+rmCurrentSize+'&c=e63100&cr1=ffffff&f=arial&l=0&bv=90&lx=-420&ly=420&hi=20&he=7&hc=a8ddff&rs=80':'//ra.revolvermaps.com/0/0/1.js?i=0ffftggap65&m=7&s='+rmCurrentSize+'&c=e63100';
+		c.appendChild(t);
+		rmSetCode();
+	}
+}
+rmSetSize(320);
+(function(t){
+try{
+	t.open('GET','content/home/gc2.php?r='+Math.random(),true);
+	t.onreadystatechange=function(){
+		if(t.readyState==4){
+			rmHoHa=t.status==200?t.responseText.split(','):false;
+			rmSetCode();
+		}
+	};
+	t.send(null);
+}
+catch(e){}
+})(new XMLHttpRequest);
+</script>
+
+<h2>More Widgets, More Configuration Options</h2>
+&rarr; <script>document.write('<a href="?target=setup'+(rmCanGL?'gl':'')+'" title="Get RevolverMaps Standard'+(rmCanGL?' GL':'')+'">Get the Standard Version</a>');</script>, the globe as shown above<p>
+&rarr; <script>document.write('<a href="?target=setupmini'+(rmCanGL?'gl':'')+'" title="Get RevolverMaps Mini'+(rmCanGL?' GL':'')+'">Get the Mini Globe</a>');</script>, a globe optimized for small sizes<p>
+&rarr; <a href="?target=setupplain" title="Get RevolverMaps Plain">Get the Plain Version</a>, a 2D map<p>
+&rarr; <a href="?target=setupbutton" title="Get RevolverMaps Button">Get the Button</a>, a very small globe<p>
+&rarr; <a href="?target=setup24" title="Get RevolverMaps 24 Hours Chart">Get the 24 Hours Chart</a>, displays the visits over the last 24 hours
+</div>
+
+<div style="margin:60px 0 35px;"><div class="layout-ad" style="width:970px;min-height:90px;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- rmv2 970x90 text -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:970px;height:90px"
+     data-ad-client="ca-pub-4222107390938546"
+     data-ad-slot="4440957680"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+
+</div>
+
+<div class="layout-foot layout-floatbox">
+
+<div>
+<h2>Demo Stats</h2>
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/3.js?i=0ffftggap65&amp;b=0&amp;s=30&amp;m=0&amp;cl=ffffff&amp;co=004680&amp;cd=d64700&amp;v0=9&amp;v1=90&amp;r=1" async="async"></script>
+<br>
+</div>
+
+<div>
+<h2>RevolverMaps</h2>
+<a href="?target=home">Home</a><br>
+<a href="?target=gallery">Widgets</a><br>
+<a href="?target=faq">FAQ / Help</a><br>
+<a href="?target=news">News</a><br>
+<a href="?target=info">Info / Contact</a><br>
+</div>
+
+<div>
+<h2>Tools</h2>
+<a href="?target=worldclock">World Clock</a><br>
+<a href="?target=colorpicker">Color Picker</a><br>
+<a href="http://www.the-i.de">MyIP</a><br>
+<a href="http://www.myogl.org">MyOGL</a><br>
+</div>
+<div>
+<h2>Links</h2>
+<a href="http://www.avengina.org">Avengina</a><br>
+<a href="http://visibleearth.nasa.gov/">NASA Visible
+Earth</a>
+</div>
+<div>
+<h2>Legal</h2>
+<a href="?target=legal#terms">Terms of Service</a><br>
+<a href="?target=legal#privacy">Privacy Policy</a><br>
+<a href="?target=legal#imprint">Imprint</a> 
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="layout-barend">RevolverMaps are customizable visitor map widgets combined with a live statistics function. The easy setup makes the free service available for private and professional webmasters, webdesigners, bloggers, social networkers...<br>&copy; 2008 - 2015 Karma Implementor. All Rights Reserved.</div>
+
+<map name="headmap"><area shape="rect" coords="0,0,206,24" href="/" alt="RevolverMaps"><area shape="rect" coords="215,10,317,26" href="?target=gallery" alt="Get a Widget." title="Widget Gallery"></map>
+</body></html>
+";i:2;s:4:"1198";}

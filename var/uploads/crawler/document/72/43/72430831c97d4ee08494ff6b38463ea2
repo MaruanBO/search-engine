@@ -1,0 +1,1511 @@
+a:3:{i:0;s:26:"http://metalinjection.net/";i:1;s:113935:"<!DOCTYPE html>
+<html>
+<head><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"Uw8BVlNADAEDUFdbDw=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:19,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:19,2:20,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:20,2:19,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:20,2:19,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:20,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:18,handle:"D5DuLP"}],18:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],19:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],20:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:19,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+	<link href='http://fonts.googleapis.com/css?family=Ledger|Oswald&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+	<title>Heavy Metal News, Music Videos, Tour Dates - Metal Injection</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		
+<!--Plugin WP Missed Schedule 2013.1231.2015 Build 2015-01-19 Active - Tag 991777abf4277c24f209b74b5da25563-->
+
+<!-- This website is patched against a big problem not solved from WordPress 2.5+ to date -->
+
+
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="The leading metal news, metal music video and metal tour date source on the internet. Get your fix of Metal Injection!"/>
+<link rel="canonical" href="http://www.metalinjection.net/" />
+<link rel="publisher" href="https://plus.google.com/metalinjection"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Heavy Metal News, Music Videos, Tour Dates - Metal Injection" />
+<meta property="og:description" content="The leading metal news, metal music video and metal tour date source on the internet. Get your fix of Metal Injection!" />
+<meta property="og:url" content="http://www.metalinjection.net/" />
+<meta property="og:site_name" content="Metal Injection" />
+<meta property="article:publisher" content="http://facebook.com/metalinjection" />
+<meta property="fb:app_id" content="151197663443" />
+<meta property="og:image" content="http://www.metalinjection.net/wp-content/uploads/2014/01/Metal-Injection-2014.jpg" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:description" content="The leading metal news, metal music video and metal tour date source on the internet. Get your fix of Metal Injection!"/>
+<meta name="twitter:title" content="Heavy Metal News, Music Videos, Tour Dates - Metal Injection"/>
+<meta name="twitter:site" content="@metalinjection"/>
+<meta name="twitter:domain" content="Metal Injection"/>
+<meta name="twitter:creator" content="@metalinjection"/>
+<meta name="twitter:image:src" content="http://www.metalinjection.net/wp-content/uploads/2014/01/Metal-Injection-2014.jpg"/>
+<script type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "url": "http://www.metalinjection.net/", "potentialAction": { "@type": "SearchAction", "target": "http://www.metalinjection.net/?s={search_term}", "query-input": "required name=search_term" } }</script>
+<!-- / Yoast WordPress SEO plugin. -->
+
+<link rel='stylesheet' id='mediaelement-css'  href="http://www.metalinjection.net/wp-includes/js/mediaelement/mediaelementplayer.min.css?6b5976" type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css'  href="http://www.metalinjection.net/wp-includes/js/mediaelement/wp-mediaelement.css?6b5976" type='text/css' media='all' />
+<link rel='stylesheet' id='migration-style-css'  href="http://www.metalinjection.net/wp-content/themes/mi5/style.css?6b5976" type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href="http://www.metalinjection.net/wp-content/plugins/jetpack/css/jetpack.css?6b5976" type='text/css' media='all' />
+<link rel='stylesheet' id='taxonomy-image-plugin-public-css'  href="http://www.metalinjection.net/wp-content/plugins/taxonomy-images/style.css?6b5976" type='text/css' media='screen' />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js?ver=1.6.2'></script>
+<script type='text/javascript' src="http://www.metalinjection.net/wp-content/plugins/powerpress/player.min.js?6b5976"></script>
+
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+		var arrAffiliates = {
+			'com'   : 'alternapunkco-20',
+			'co.uk'	: '',
+			'de'	: '',
+			'fr'	: '',
+			'ca'	: '',
+			'co.jp'	: '',
+			'jp'	: '',
+			'it'	: '',
+			'cn'	: '',
+			'es'	: '',
+			'in'	: ''
+		};
+		var strUrlAjax = 'http://www.metalinjection.net/wp-content/plugins/amazon-affiliate-link-localizer/ajax.php';
+	</script>
+	<script type="text/javascript" src="http://www.metalinjection.net/wp-content/plugins/amazon-affiliate-link-localizer/js/amazon_linker.min.js?v=1.9&amp;6b5976"></script><script type="text/javascript"><!--
+function powerpress_pinw(pinw){window.open('http://www.metalinjection.net/?powerpress_pinw='+pinw, 'PowerPressPlayer','toolbar=0,status=0,resizable=1,width=460,height=320');	return false;}
+powerpress_url = 'http://www.metalinjection.net/wp-content/plugins/powerpress/';
+//-->
+</script>
+<style type="text/css">.g2_column {width: 738px;margin: 0px 1px 0px 12px;}</style>
+<style type='text/css'>img#wpstats{display:none}</style><!-- Vipers Video Quicktags v6.5.2 | http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/ -->
+<style type="text/css">
+.vvqbox { display: block; max-width: 100%; visibility: visible !important; margin: 10px auto; } .vvqbox img { max-width: 100%; height: 100%; } .vvqbox object { max-width: 100%; } 
+</style>
+<script type="text/javascript">
+// <![CDATA[
+	var vvqflashvars = {};
+	var vvqparams = { wmode: "opaque", allowfullscreen: "true", allowscriptaccess: "always" };
+	var vvqattributes = {};
+	var vvqexpressinstall = "http://www.metalinjection.net/wp-content/plugins/vipers-video-quicktags/resources/expressinstall.swf";
+// ]]>
+</script>
+
+	
+  <link rel="shortcut icon" href="http://metalinjection.s3.amazonaws.com/mi5/favicon.ico" />
+  <script type="text/javascript" src="http://metalinjection.s3.amazonaws.com/mi5/modernizr.js"></script>
+  <script type="text/javascript" src="http://metalinjection.s3.amazonaws.com/mi5/metal-injection.js"></script>
+	
+
+
+
+  <!-- DFP CODE -->
+  
+
+<!-- Start: GPT Sync -->
+<script type='text/javascript'>
+	var gptadslots=[];
+				
+	(function() {
+		var useSSL = 'https:' == document.location.protocol;
+		var src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+		document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+	})();
+	
+</script>
+
+	
+<script type="text/javascript">
+
+	googletag.cmd.push(function () {
+	
+	var leader_map = googletag.sizeMapping().addSize([300,200], [320, 50]).addSize([728,500], [728, 90]).addSize([1000,500], [[1000, 220], [970, 250], [728, 90]]).build();
+	var sidebar_map = googletag.sizeMapping().addSize([700,200], [[300,250], [300,600]]).build();
+	var rocko_map = googletag.sizeMapping().addSize([728,500],[600,125]).addSize([300,200],[320,63]).build();
+
+	//Adslot 1 declaration ::: Top Leaderboard
+	gptadslots[1] = googletag.defineSlot('/188050911/Metalinjection_Leader', [[1000, 220], [970, 250], [728, 90], [320, 50]],'adpos-leader-top').defineSizeMapping(leader_map).setTargeting('pos',['728_1']).addService(googletag.pubads()).setCollapseEmptyDiv(true);
+	
+	//Adslot 2 declaration ::: Bottom Leaderboard
+	gptadslots[2] = googletag.defineSlot('/188050911/Metalinjection_leader_BTF', [[1000, 220], [970, 250], [728, 90], [300, 250]],'adpos-leader-bot').defineSizeMapping(leader_map).setTargeting('pos',['728_2']).addService(googletag.pubads()).setCollapseEmptyDiv(true);
+	
+	//Adslot 3 declaration ::: 300x250
+	gptadslots[3] = googletag.defineSlot('/188050911/MetalInjection_Box_real', [[300, 250], [300, 600]],'adpos-300-1').defineSizeMapping(sidebar_map).setTargeting('pos',['300_1']).addService(googletag.pubads()).setCollapseEmptyDiv(true);
+	
+	//Adslot 4 declaration ::: Skyscraper
+	gptadslots[4] = googletag.defineSlot('/188050911/Metalinjection_skyscraper_BTF', [[300, 250], [300, 600]],'adpos-300-2').defineSizeMapping(sidebar_map).setTargeting('pos',['300_2']).addService(googletag.pubads()).setCollapseEmptyDiv(true);
+	
+	//Adslot 5 declaration ::: Mobile 300x250
+	gptadslots[5] = googletag.defineSlot('/188050911/MetalInjection_Box_real', [[300, 250]],'adpos-300-3').setTargeting('pos',['adpos-300-3']).addService(googletag.pubads()).setCollapseEmptyDiv(true);
+
+	//Adslot 6 declaration ::: Skin
+	gptadslots[6] = googletag.defineSlot('/188050911/Metalinjection_Skin', [[1,1]],'adpos-skin').setTargeting('pos',['skin']).addService(googletag.pubads()).setCollapseEmptyDiv(true);
+	
+
+	//Adslot 7 declaration ::: Rockabilia
+	gptadslots[7] = googletag.defineSlot('/188050911/metalinjection_600_125', [[600, 125], [320, 63]],'adpos-600-1').defineSizeMapping(rocko_map).setTargeting('pos',['600']).addService(googletag.pubads()).setCollapseEmptyDiv(true);
+
+	
+				
+	googletag.pubads().enableSingleRequest();
+	googletag.pubads().setTargeting('page',['main']);
+	googletag.pubads().enableSyncRendering();
+	googletag.enableServices();
+	
+	});
+
+</script>
+
+
+	
+
+            <script type="text/javascript">//<![CDATA[
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-1535202-1']);
+				            _gaq.push(['_trackPageview']);
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+            //]]></script>
+			
+
+
+</head>
+
+<body >
+
+  <div id="skinoverlay"></div>
+
+  <div class="container">
+		<header class="clearfix">
+      <a href="/" title="Go to Homepage">
+        <img src="http://i1.wp.com/www.metalinjection.net/image/metal-injection-logo.png" alt="Metal Injection" id="site-logo" />
+      </a>
+
+       <a href="#" id="mobile-search-button" class="visible-xs">
+        <img src="http://i0.wp.com/www.metalinjection.net/search.png" width="96%" height="auto" scale="0">      </a>
+
+      <a href="#" id="mobile-navigation-button" class="visible-xs">
+       <img src="http://i0.wp.com/www.metalinjection.net/menu.png" width="96%" height="auto" scale="0">
+
+      </a>
+
+     
+     
+     
+      
+      <div class="content">
+        <nav>
+          <ul class="list-inline">
+			<li class="active"><a href="/" >Home</a></li>
+			<li><a href="/video" >Video</a>
+				<div class="sub-menu-float">
+				<ul class="sub-menu">
+				<li><dl>
+					<dd><a href="/video" >Latest Videos Listing</a></dd>
+					<dd><a href="/channels" >All Channels</a></dd>
+				
+					<dt>Popular Channels</dt>
+					<dd><a href="/channels/music-videos" >Music Videos</a></dd>
+					<dd><a href="/channels/metal-injection-exclusives" >Metal Injection Exclusives</a></dd>
+					<dd><a href="/channels/live-footage" >Live Footage</a></dd>
+					<dd><a href="/channels/br00tal-comedy" >br00tal Comedy</a></dd>
+					<dd><a href="/channels/ask-the-artist" >ASK THE ARTIST</a></dd>
+					<dd><a href="/channels/kids-in-metal" >Kids In Metal</a></dd>
+					<dd><a href="/channels/pit-full-of-shit" >Pit Full of Shit Live Footage</a></dd>
+					<dd><a href="/channels/rockumentary" >Rockumentary</a></dd>
+					<dd><a href="/channels/show-your-skills" >Show Your Skills</a></dd>
+				
+					<dt>Original Series</dt>
+					<dd><a href="/channels/louder-education-series">Louder Education</a></dd>
+					<dd><a href="/channels/on-the-record">On The Record</a></dd>
+					<dd><a href="/channels/countdown">Countdown</a></dd>
+					<dd><a href="/channels/spotlight" >Spotlight</a></dd>
+				</dl></li>
+				</ul>
+				</div>
+			</li>
+			<li><a href="/#content-filter" >News</a>
+				<div class="sub-menu-float">
+				<ul class="sub-menu">
+				<li><dl>
+					<dd><a href="/category/tour-dates" >Tour Dates</a></dd>
+					<dd><a href="/category/upcoming-releases/weekly-injection" >New Albums Out This Week</a></dd>
+					<dd><a href="/category/av" >Audio/Video</a></dd>
+					<dd><a href="/category/reviews" >Reviews</a></dd>
+					<dd><a href="/category/upcoming-releases" >Upcoming Releases</a></dd>
+					<dd><a href="/category/around-the-interwebs" >Around the Interwebs (Funny)</a></dd>
+					<dd><a href="/category/lists" >Lists</a></dd>
+					<dd><a href="/category/editorials" >Editorials</a></dd>
+				</dl></li>
+				</ul>
+				</div>
+			</li>
+			<li><a href="/category/podcasts" >Podcasts</a>
+				<div class="sub-menu-float">
+				<ul class="sub-menu">
+				<li><dl>
+					<dd><a href="/category/podcasts" >Latest Podcasts</a></dd>
+					<dd><a href="/livecast" >Metal Injection Livecast</a></dd>
+					<dd><a href="/category/podcasts/decibels-extremely-extreme-podcast" >Decibel&#039;s Extremely Extreme Podcast</a></dd>
+					<dd><a href="/category/podcasts/msrcast" >MSRcast</a></dd>
+					<dd><a href="/category/podcasts/open-metalcast" >Open Metacast</a></dd>
+					<dd><a href="/category/podcasts/relapse-records-podcast" >Relapse Records Podcast</a></dd>
+					<dd><a href="/category/podcasts/heavy-metal-happy-hour" >Heavy Metal Happy Hour</a></dd>
+					<dd><a href="/category/podcasts/hand-ov-doom" >Hand Ov Doom</a></dd>
+				</dl></li>
+				</ul>
+				</div>
+			</li>
+			<li><a href="/category/reviews" >Reviews</a></li>
+			<li><a href="/photo-gallery" >Photos</a></li>
+			<li><a href="/fm" >.FM</a></li>
+			<li><a href="/category/free-swag" >Contests</a></li>
+			<li><a href="http://www.indiemerch.com/metalinjection/">Merch</a></li>
+			</ul>                                                                              
+          </ul>
+        </nav>
+        <form action="/" method="get" id="site-search">
+          <fieldset>
+            <input type="submit" alt="Search" id="site-search-submit" />
+            <input type="text" name="s" id="site-search-input" value="" placeholder="Search the site" />
+          </fieldset>
+        </form>
+
+        <ul id="social-links" class="list-inline">
+          <li class="facebook"><a target="_blank" href="http://www.facebook.com/metalinjection">Facebook</a></li>
+          <li class="twitter"><a target="_blank" href="http://www.twitter.com/metalinjection">Twitter</a></li>
+          <li class="youtube"><a target="_blank" href="http://www.youtube.com/metalinjection">You Tube</a></li>
+          <li class="instagram"><a target="_blank" href="http://www.instagram.com/metal_injection">Instagram</a></li>
+          <li class="tumblr"><a target="_blank" href="http://metalinjection.tumblr.com/">Tumblr</a></li>
+          <li class="google"><a target="_blank" href="http://www.google.com/+metalinjection">Google</a></li>
+          <li class="itunes"><a target="_blank" href="http://phobos.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=73799807">iTunes</a></li>
+          <li class="appstore"><a target="_blank" href="http://itunes.apple.com/us/app/metal-injection/id478735893">App Store</a></li>
+          <li class="rss"><a target="_blank" href="/rss-feeds">RSS</a></li>
+        </ul>
+
+        <ul id="quicklinks" class="visible-xs list-unstyled">
+          <li><a href="/channels/music-videos">Music Videos</a></li>
+          <li><a href="/channels/br00tal-comedy">Funny Videos</a></li>
+          <li><a href="/category/tour-dates">Tour Dates</a></li>
+          <li><a href="/channels/kids-in-metal">Kids In Metal</a></li>
+          <li><a href="/livecast">Metal Injection Livecast</a></li>
+          <li><a href="/channels/rockumentary">Rockumentary</a></li>
+        </ul>
+      </div>
+		</header>
+
+			
+		
+		<!-- DFP Leader Top -->
+		<div id="ad-header">
+		<div id='adpos-leader-top'>
+	<script type='text/javascript'>
+		googletag.display('adpos-leader-top');
+	</script>
+</div>		</div>
+	
+		
+
+
+
+
+<div class="row">
+
+	<div class="col-md-8" id="region-main">
+
+	
+
+				<div id="content-previews">
+					<div class="row">
+						<div id="a-spot" class="col-md-8">
+
+	
+			<a href="http://www.metalinjection.net/latest-news/bummer-alert/iron-maidens-bruce-dickinson-battling-tongue-cancer"><img src="http://i1.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/iron-maiden-bruce-dickinson.jpg?resize=485%2C270" class="img-responsive wp-post-image" alt="Ozzfest 2005" />
+			<h2>
+              IRON MAIDEN&#039;s Bruce Dickinson Battling Tongue Cancer			</h2></a>
+
+							</div>
+						<div id="b-spots" class="col-md-4">
+
+
+								
+							<article>
+								<a href="http://www.metalinjection.net/lists/insane-black-metal-drummers-proofed"><img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/insane-black-metal-drummers.jpg?resize=83%2C54" class="img-responsive wp-post-image" alt="insane-black-metal-drummers" />5 Insane Black Metal Drummers</a>
+							</article>
+			
+							<article>
+								<a href="http://www.metalinjection.net/at-the-movies/cannibal-corpse-almost-turned-down-working-with-jim-carrey-on-ace-ventura"><img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/cannibal-corpse-ace-ventura-pet-detective.jpg?resize=83%2C54" class="img-responsive wp-post-image" alt="cannibal-corpse-ace-ventura-pet-detective" />CANNIBAL CORPSE Recollect Being In <em>Ace Ventura</em></a>
+							</article>
+			
+							<article>
+								<a href="http://www.metalinjection.net/lists/christian-black-metal-bands"><img src="http://i1.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/christian-black-metal-bands-unblack-metal.jpg?resize=83%2C54" class="img-responsive wp-post-image" alt="christian-black-metal-bands-unblack-metal" />7 Christian Black Metal Bands You Need To Hear</a>
+							</article>
+			
+							<article>
+								<a href="http://www.metalinjection.net/metal-in-the-mainstream/killswitch-engages-adam-d-won-the-price-is-right-today-seriously"><img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/Killswitch_Engage_Adam_D_on_The_Price_Is_Right.jpg?resize=83%2C54" class="img-responsive wp-post-image" alt="Killswitch_Engage_Adam_D_on_The_Price_Is_Right" />Adam D. Wins The Price Is Right!</a>
+							</article>
+			
+							<article>
+								<a href="http://www.metalinjection.net/gossip/so-mastodons-brent-hinds-got-kicked-out-the-grammys-last-night"><img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/hinds-fb.jpg?resize=83%2C54" class="img-responsive wp-post-image" alt="hinds-fb" />MASTODON&#039;s Brent Hinds Got Kicked Out The Grammys</a>
+							</article>
+			
+						</div>
+					</div>
+				</div> <!--marquee-->
+	
+
+	<section id="primary-content">
+		<div id="content-filter">
+			<span class="content-filter-button hidden-xs">Quick Jump:</span>
+            <span class="content-filter-button visible-xs">Quick Jump</span>
+            <ul class="list-inline">
+              <li class="active"><a href="#">Latest</a></li>
+              <li><a href="/category/tour-dates">Tour Dates</a></li>
+              <li><a href="/category/reviews">Reviews</a></li>
+              <li><a href="/category/av/">A/V</a></li>
+              <li><a href="/category/upcoming-releases">Upcoming Releases</a></li>
+            </ul>
+		</div>
+
+  	
+
+
+          <article class="post-61597 post type-post status-publish format-standard has-post-thumbnail hentry category-black-metal-history-month category-lists tag-black-metal tag-dawn tag-death-metal tag-dissection tag-naglfar tag-sacramentum tag-sweden tag-unanimated tag-vinterland tag-vittra">
+            
+                             <a  href="http://www.metalinjection.net/lists/blackened-melodic-death-metal-a-history-lesson"> 
+               <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/Blackened-Melodeath1.png?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="Blackened Melodeath" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/black-metal-history-month" rel="category tag">Black Metal History Month</a> <a href="http://www.metalinjection.net/category/lists" rel="category tag">Lists</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/lists/blackened-melodic-death-metal-a-history-lesson">Blackened Melodic Death Metal: A History Lesson</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/jameszalucky" title="Posts by J.Andrew Zalucky" rel="author">J.Andrew Zalucky</a> | February 19, 2015 </span>
+              <p><p>These bands embody all the best things about metal: catchy riffs and great songwriting, effective use of melody to create a narrative structure, vocals soaked in reverb, and all the brutality one needs without resorting to cheesiness or self-parody.</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/jameszalucky" title="Posts by J.Andrew Zalucky" rel="author">J.Andrew Zalucky</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/lists/blackened-melodic-death-metal-a-history-lesson">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/lists/blackened-melodic-death-metal-a-history-lesson#respond" class="postcomments"  title="Comment on Blackened Melodic Death Metal: A History Lesson"><span class="dsq-postid" data-dsqidentifier="61597 http://www.metalinjection.net/?p=61597">0</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/lists/blackened-melodic-death-metal-a-history-lesson" pw:title="Blackened Melodic Death Metal: A History Lesson">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-61475 post type-post status-publish format-standard has-post-thumbnail hentry category-reviews tag-visigoth">
+            
+                             <a  href="http://www.metalinjection.net/reviews/album-review-visigoth-the-revenant-king"> 
+               <img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2015/01/Visigoth-e1422689481641.jpg?resize=220%2C220" class="attachment-thumbnail wp-post-image" alt="Visigoth" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/reviews" rel="category tag">Reviews</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/reviews/album-review-visigoth-the-revenant-king">Album Review: VISIGOTH <em>The Revenant King</em></a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/mathis" title="Posts by Shayne Mathis" rel="author">Shayne Mathis</a> | February 19, 2015 </span>
+              <p><p> Though these reavers hail from the salty plains of Utah, they worship at the alter of Grand Magus and Manilla Road instead of the false prophet Joseph Smith and his Jell-O loving Mormonite horde.</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/mathis" title="Posts by Shayne Mathis" rel="author">Shayne Mathis</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/reviews/album-review-visigoth-the-revenant-king">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/reviews/album-review-visigoth-the-revenant-king#respond" class="postcomments"  title="Comment on Album Review: VISIGOTH The Revenant King"><span class="dsq-postid" data-dsqidentifier="61475 http://www.metalinjection.net/?p=61475">0</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/reviews/album-review-visigoth-the-revenant-king" pw:title="Album Review: VISIGOTH <em>The Revenant King</em>">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-62111 video type-video status-publish has-post-thumbnail hentry tag-septicflesh">
+            
+                             <a class="with-play-button" href="http://www.metalinjection.net/video/new-septicflesh-drummer-krimh-proves-he-can-play-the-vampire-from-nazareth"> 
+               <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/new-septicflesh-drummer-krimh-pr.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="New SEPTICFLESH Drummer Krimh Proves He Can Play &quot;The Vampire From Nazareth&quot;" /> </a> 
+               <div class="content">
+                            
+              <span class="category"> <a href="http://www.metalinjection.net/channels/live-footage" rel="tag">Live Footage</a></span>
+              <h2 class="title"><a href="http://www.metalinjection.net/video/new-septicflesh-drummer-krimh-proves-he-can-play-the-vampire-from-nazareth">New SEPTICFLESH Drummer Krimh Proves He Can Play &#034;The Vampire From Nazareth&#034;</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+              <p><p>Just in case you needed proof Krimh is scary good at drums.</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/video/new-septicflesh-drummer-krimh-proves-he-can-play-the-vampire-from-nazareth">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/video/new-septicflesh-drummer-krimh-proves-he-can-play-the-vampire-from-nazareth#respond" class="postcomments"  title="Comment on New SEPTICFLESH Drummer Krimh Proves He Can Play &quot;The Vampire From Nazareth&quot;"><span class="dsq-postid" data-dsqidentifier="62111 http://www.metalinjection.net/?post_type=video&amp;p=62111">0</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/video/new-septicflesh-drummer-krimh-proves-he-can-play-the-vampire-from-nazareth" pw:title="New SEPTICFLESH Drummer Krimh Proves He Can Play &#034;The Vampire From Nazareth&#034;">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+			<!--mobile 300x250 ad-->
+			<script>var screenWidth = document.documentElement.clientWidth; if(screenWidth <= 700) {document.write("<div id='adpos-300-3' class='ad300'>\n<script type='text\/javascript'>\ngoogletag.display('adpos-300-3');\n<\/script>\n<\/div>\n");}</script>	
+			
+		
+
+
+          <article class="post-62189 post type-post status-publish format-standard has-post-thumbnail hentry category-finally tag-jnco tag-jnco-jeans tag-nu-metal tag-numetal">
+            
+                             <a  href="http://www.metalinjection.net/finally/jncos-are-coming-back"> 
+               <img src="http://i1.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/jnco-jeans-comeback.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="jnco-jeans-comeback" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/finally" rel="category tag">Finally!</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/finally/jncos-are-coming-back">JNCOs Are Coming Back</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+              <p><p>If you were a metal fan in the 90s, you know exactly what this means.</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/finally/jncos-are-coming-back">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/finally/jncos-are-coming-back#comments" class="postcomments"  title="Comment on JNCOs Are Coming Back"><span class="dsq-postid" data-dsqidentifier="62189 http://www.metalinjection.net/?p=62189">10</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/finally/jncos-are-coming-back" pw:title="JNCOs Are Coming Back">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-62155 post type-post status-publish format-standard has-post-thumbnail hentry category-earnings-attendance tag-black-veil-brides tag-machine-head tag-mayhem tag-primus">
+            
+                             <a  href="http://www.metalinjection.net/its-just-business/earnings-attendance/earnings-attendance-machine-head-black-veil-brides-mayhem-primus-and-more"> 
+               <img src="http://i1.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/Machine-head-live.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="Machine head live" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/its-just-business/earnings-attendance" rel="category tag">Earnings &amp; Attendance</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/its-just-business/earnings-attendance/earnings-attendance-machine-head-black-veil-brides-mayhem-primus-and-more">Earnings &#038; Attendance: MACHINE HEAD, BLACK VEIL BRIDES, MAYHEM, PRIMUS and more</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+              <p><p>How much money does a band make on the road?&#8230;</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/its-just-business/earnings-attendance/earnings-attendance-machine-head-black-veil-brides-mayhem-primus-and-more">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/its-just-business/earnings-attendance/earnings-attendance-machine-head-black-veil-brides-mayhem-primus-and-more#comments" class="postcomments"  title="Comment on Earnings &amp; Attendance: MACHINE HEAD, BLACK VEIL BRIDES, MAYHEM, PRIMUS and more"><span class="dsq-postid" data-dsqidentifier="62155 http://www.metalinjection.net/?p=62155">3</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/its-just-business/earnings-attendance/earnings-attendance-machine-head-black-veil-brides-mayhem-primus-and-more" pw:title="Earnings &#038; Attendance: MACHINE HEAD, BLACK VEIL BRIDES, MAYHEM, PRIMUS and more">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-62186 post type-post status-publish format-standard has-post-thumbnail hentry category-eww tag-nickelback">
+            
+                             <a  href="http://www.metalinjection.net/latest-news/eww/man-goes-on-nonstop-week-long-nickelback-listening-binge-for-charity"> 
+               <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/headphones-bad.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="headphones-bad" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/latest-news/eww" rel="category tag">Eww</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/latest-news/eww/man-goes-on-nonstop-week-long-nickelback-listening-binge-for-charity">Man Goes on Nonstop Week-Long NICKELBACK Listening Binge For Charity</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+              <p><p>Some people are much braver than me. </p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/latest-news/eww/man-goes-on-nonstop-week-long-nickelback-listening-binge-for-charity">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/latest-news/eww/man-goes-on-nonstop-week-long-nickelback-listening-binge-for-charity#comments" class="postcomments"  title="Comment on Man Goes on Nonstop Week-Long NICKELBACK Listening Binge For Charity"><span class="dsq-postid" data-dsqidentifier="62186 http://www.metalinjection.net/?p=62186">2</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/latest-news/eww/man-goes-on-nonstop-week-long-nickelback-listening-binge-for-charity" pw:title="Man Goes on Nonstop Week-Long NICKELBACK Listening Binge For Charity">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-62184 post type-post status-publish format-standard has-post-thumbnail hentry category-av tag-black-sabbath tag-iron-man tag-tony-iommi">
+            
+                             <a class="with-play-button" href="http://www.metalinjection.net/av/the-animated-origin-of-heavy-metal-as-told-by-black-sabbaths-tony-iommi"> 
+               <img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/black-sabbath-tony-iommi-animated.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="black sabbath tony iommi animated" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/av" rel="category tag">A/V</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/av/the-animated-origin-of-heavy-metal-as-told-by-black-sabbaths-tony-iommi">The Animated Origin of Heavy Metal as Told By BLACK SABBATH&#039;s Tony Iommi</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+              <p><p>Happy birthday Tony Iommi!</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/av/the-animated-origin-of-heavy-metal-as-told-by-black-sabbaths-tony-iommi">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/av/the-animated-origin-of-heavy-metal-as-told-by-black-sabbaths-tony-iommi#comments" class="postcomments"  title="Comment on The Animated Origin of Heavy Metal as Told By BLACK SABBATH&#039;s Tony Iommi"><span class="dsq-postid" data-dsqidentifier="62184 http://www.metalinjection.net/?p=62184">1</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/av/the-animated-origin-of-heavy-metal-as-told-by-black-sabbaths-tony-iommi" pw:title="The Animated Origin of Heavy Metal as Told By BLACK SABBATH&#039;s Tony Iommi">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-62103 post type-post status-publish format-standard has-post-thumbnail hentry category-av category-full-album-stream tag-carach-angren">
+            
+                             <a class="with-play-button" href="http://www.metalinjection.net/av/carach-angrens-monstrous-new-album-this-is-no-fairytale-is-streaming"> 
+               <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/Carach-Angren-This-Is-No-Fairytale.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="Carach-Angren-This-Is-No-Fairytale" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/av" rel="category tag">A/V</a> <a href="http://www.metalinjection.net/category/av/full-album-stream" rel="category tag">Full Album Stream</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/av/carach-angrens-monstrous-new-album-this-is-no-fairytale-is-streaming">CARACH ANGREN&#039;s Monstrous New Album <em>This Is No Fairytale</em> Is Streaming!</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+              <p><p>Get spooky heavy! Carach Angren can do no wrong.</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/av/carach-angrens-monstrous-new-album-this-is-no-fairytale-is-streaming">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/av/carach-angrens-monstrous-new-album-this-is-no-fairytale-is-streaming#comments" class="postcomments"  title="Comment on CARACH ANGREN&#039;s Monstrous New Album This Is No Fairytale Is Streaming!"><span class="dsq-postid" data-dsqidentifier="62103 http://www.metalinjection.net/?p=62103">1</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/av/carach-angrens-monstrous-new-album-this-is-no-fairytale-is-streaming" pw:title="CARACH ANGREN&#039;s Monstrous New Album <em>This Is No Fairytale</em> Is Streaming!">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+<div class="featured">
+          <article class="post-62154 post type-post status-publish format-gallery has-post-thumbnail hentry category-av tag-animals-as-leaders tag-arch-enemy tag-deftones tag-fat-chiptune tag-necrophagist tag-periphery tag-slipknot tag-suicide-silence">
+            <a class="with-play-button" href="http://www.metalinjection.net/av/8-bit-covers-of-slipknot-deftones-necrophagist-suicide-silence-etc-songs-make-me-wish-there-was-a-metal-nes-video-game">
+              <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/Slipknot-8-bit.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="Slipknot-8-bit" />            </a>
+            <div class="content">
+              <span class="category"><a href="http://www.metalinjection.net/category/av" rel="category tag">A/V</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/av/8-bit-covers-of-slipknot-deftones-necrophagist-suicide-silence-etc-songs-make-me-wish-there-was-a-metal-nes-video-game">8-Bit Covers of SLIPKNOT, DEFTONES NECROPHAGIST, SUICIDE SILENCE, etc. Songs Make Me Wish There Was A Metal NES Video Game</a></h2>
+
+
+              <p><p>Animals As Leaders, Periphery and Arch Enemy too!</p>
+</p>
+
+
+                            <span class="hidden-mobile meta">Posted by <a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+             
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/av/8-bit-covers-of-slipknot-deftones-necrophagist-suicide-silence-etc-songs-make-me-wish-there-was-a-metal-nes-video-game">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/av/8-bit-covers-of-slipknot-deftones-necrophagist-suicide-silence-etc-songs-make-me-wish-there-was-a-metal-nes-video-game#comments" class="postcomments"  title="Comment on 8-Bit Covers of SLIPKNOT, DEFTONES NECROPHAGIST, SUICIDE SILENCE, etc. Songs Make Me Wish There Was A Metal NES Video Game"><span class="dsq-postid" data-dsqidentifier="62154 http://www.metalinjection.net/?p=62154">2</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/av/8-bit-covers-of-slipknot-deftones-necrophagist-suicide-silence-etc-songs-make-me-wish-there-was-a-metal-nes-video-game" pw:title="8-Bit Covers of SLIPKNOT, DEFTONES NECROPHAGIST, SUICIDE SILENCE, etc. Songs Make Me Wish There Was A Metal NES Video Game">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+</div>			
+
+
+
+
+          <article class="post-62157 post type-post status-publish format-standard has-post-thumbnail hentry category-av category-upcoming-releases tag-death tag-gruesome">
+            
+                             <a class="with-play-button" href="http://www.metalinjection.net/av/gruesome-exhumed-possessed-etc-is-the-best-new-old-school-death-metal-group-around"> 
+               <img src="http://i1.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/Gruesome.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="Gruesome" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/av" rel="category tag">A/V</a> <a href="http://www.metalinjection.net/category/upcoming-releases" rel="category tag">Upcoming Releases</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/av/gruesome-exhumed-possessed-etc-is-the-best-new-old-school-death-metal-group-around">GRUESOME (EXHUMED, POSSESSED, Etc.) Is The Best New Old-School Death Metal Group Around</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+              <p><p>Do you like 1980&#039;s Death? Then get in here.</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/av/gruesome-exhumed-possessed-etc-is-the-best-new-old-school-death-metal-group-around">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/av/gruesome-exhumed-possessed-etc-is-the-best-new-old-school-death-metal-group-around#comments" class="postcomments"  title="Comment on GRUESOME (EXHUMED, POSSESSED, Etc.) Is The Best New Old-School Death Metal Group Around"><span class="dsq-postid" data-dsqidentifier="62157 http://www.metalinjection.net/?p=62157">7</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/av/gruesome-exhumed-possessed-etc-is-the-best-new-old-school-death-metal-group-around" pw:title="GRUESOME (EXHUMED, POSSESSED, Etc.) Is The Best New Old-School Death Metal Group Around">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-62171 video type-video status-publish has-post-thumbnail hentry tag-sleep">
+            
+                             <a class="with-play-button" href="http://www.metalinjection.net/video/sleeps-dragonaut-on-a-banjitar-sounds-so-right"> 
+               <img src="http://i1.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/sleeps-dragonaut-on-a-banjitar-s.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="SLEEP&#039;s &quot;Dragonaut&quot; On A Banjitar Sounds So Right" /> </a> 
+               <div class="content">
+                            
+              <span class="category"> <a href="http://www.metalinjection.net/channels/music-videos" rel="tag">Music Videos</a></span>
+              <h2 class="title"><a href="http://www.metalinjection.net/video/sleeps-dragonaut-on-a-banjitar-sounds-so-right">SLEEP&#039;s &#034;Dragonaut&#034; On A Banjitar Sounds So Right</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+              <p><p>Country fried stoner is the way to go.</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/video/sleeps-dragonaut-on-a-banjitar-sounds-so-right">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/video/sleeps-dragonaut-on-a-banjitar-sounds-so-right#respond" class="postcomments"  title="Comment on SLEEP&#039;s &quot;Dragonaut&quot; On A Banjitar Sounds So Right"><span class="dsq-postid" data-dsqidentifier="62171 http://www.metalinjection.net/?post_type=video&amp;p=62171">0</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/video/sleeps-dragonaut-on-a-banjitar-sounds-so-right" pw:title="SLEEP&#039;s &#034;Dragonaut&#034; On A Banjitar Sounds So Right">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-62160 post type-post status-publish format-standard has-post-thumbnail hentry category-yes tag-brann-dailor tag-clutch tag-mastodon">
+            
+                             <a  href="http://www.metalinjection.net/latest-news/yes/mastodon-drummer-suggests-nightly-jams-with-clutch-on-upcoming-tour-in-the-works"> 
+               <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/Brann-Dailor-Mastodon.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="Brann Dailor Mastodon" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/latest-news/yes" rel="category tag">Fuck Yes!</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/latest-news/yes/mastodon-drummer-suggests-nightly-jams-with-clutch-on-upcoming-tour-in-the-works">MASTODON Drummer Suggests Nightly Jams with CLUTCH On Upcoming Tour In The Works</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+              <p><p>My brain cannot handle a nightly jam like this, making this tour 100% more must see, and it was already a great package.</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/latest-news/yes/mastodon-drummer-suggests-nightly-jams-with-clutch-on-upcoming-tour-in-the-works">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/latest-news/yes/mastodon-drummer-suggests-nightly-jams-with-clutch-on-upcoming-tour-in-the-works#comments" class="postcomments"  title="Comment on MASTODON Drummer Suggests Nightly Jams with CLUTCH On Upcoming Tour In The Works"><span class="dsq-postid" data-dsqidentifier="62160 http://www.metalinjection.net/?p=62160">3</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/latest-news/yes/mastodon-drummer-suggests-nightly-jams-with-clutch-on-upcoming-tour-in-the-works" pw:title="MASTODON Drummer Suggests Nightly Jams with CLUTCH On Upcoming Tour In The Works">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+<div class="featured">
+          <article class="post-62176 post type-post status-publish format-gallery has-post-thumbnail hentry category-bummer-alert tag-bruce-dickinson tag-iron-maiden">
+            <a  href="http://www.metalinjection.net/latest-news/bummer-alert/iron-maidens-bruce-dickinson-battling-tongue-cancer">
+              <img src="http://i1.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/iron-maiden-bruce-dickinson.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="Ozzfest 2005" />            </a>
+            <div class="content">
+              <span class="category"><a href="http://www.metalinjection.net/category/latest-news/bummer-alert" rel="category tag">Bummer Alert</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/latest-news/bummer-alert/iron-maidens-bruce-dickinson-battling-tongue-cancer">IRON MAIDEN&#039;s Bruce Dickinson Battling Tongue Cancer</a></h2>
+
+
+              <p><p>Silver lining: He&#039;s already undergoing chemotherapy and doctors expect a full recovery.</p>
+</p>
+
+
+                            <span class="hidden-mobile meta">Posted by <a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/robinjection" title="Posts by Robert Pasbani" rel="author">Robert Pasbani</a> | February 19, 2015 </span>
+             
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/latest-news/bummer-alert/iron-maidens-bruce-dickinson-battling-tongue-cancer">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/latest-news/bummer-alert/iron-maidens-bruce-dickinson-battling-tongue-cancer#comments" class="postcomments"  title="Comment on IRON MAIDEN&#039;s Bruce Dickinson Battling Tongue Cancer"><span class="dsq-postid" data-dsqidentifier="62176 http://www.metalinjection.net/?p=62176">16</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/latest-news/bummer-alert/iron-maidens-bruce-dickinson-battling-tongue-cancer" pw:title="IRON MAIDEN&#039;s Bruce Dickinson Battling Tongue Cancer">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+</div>			
+
+
+
+
+          <article class="post-62156 post type-post status-publish format-standard has-post-thumbnail hentry category-av tag-abiotic tag-dying-fetus">
+            
+                             <a class="with-play-button" href="http://www.metalinjection.net/av/abiotic-new-song-featuring-dying-fetus-frontman-john-gallagher"> 
+               <img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/abiotic-Casuistry.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="abiotic-Casuistry" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/av" rel="category tag">A/V</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/av/abiotic-new-song-featuring-dying-fetus-frontman-john-gallagher">Here&#039;s ABIOTIC&#039;s New Song Featuring DYING FETUS Frontman John Gallagher</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+              <p><p>John Gallagher + Abiotic = BRVTAL.</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 19, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/av/abiotic-new-song-featuring-dying-fetus-frontman-john-gallagher">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/av/abiotic-new-song-featuring-dying-fetus-frontman-john-gallagher#comments" class="postcomments"  title="Comment on Here&#039;s ABIOTIC&#039;s New Song Featuring DYING FETUS Frontman John Gallagher"><span class="dsq-postid" data-dsqidentifier="62156 http://www.metalinjection.net/?p=62156">1</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/av/abiotic-new-song-featuring-dying-fetus-frontman-john-gallagher" pw:title="Here&#039;s ABIOTIC&#039;s New Song Featuring DYING FETUS Frontman John Gallagher">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-62059 post type-post status-publish format-standard has-post-thumbnail hentry category-open-metalcast">
+            
+                             <a  href="http://www.metalinjection.net/podcasts/open-metalcast/open-metalcast-episode-112-frostburnt"> 
+               <img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2012/03/open_metalcast_logo.png?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="open_metalcast_logo" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/podcasts/open-metalcast" rel="category tag">Open Metacast</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/podcasts/open-metalcast/open-metalcast-episode-112-frostburnt">Open Metalcast Episode #112: Frostburnt</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/maloney" title="Posts by Craig Maloney" rel="author">Craig Maloney</a> | February 18, 2015 </span>
+              <p><p>Here at Open Metalcast Headquarters we&#039;re well in the throes&#8230;</p>
+<div class="powerpress_player" id="powerpress_player_7395">
+<audio class="wp-audio-shortcode" id="audio-62059-2" preload="none" style="width: 100%; visibility: hidden;" controls="controls"><source type="audio/mpeg" src="http://archive.org/download/OpenMetalcastEpisode112Frostburnt/open_metalcast_112.mp3?_=2" /><a href="http://archive.org/download/OpenMetalcastEpisode112Frostburnt/open_metalcast_112.mp3">http://archive.org/download/OpenMetalcastEpisode112Frostburnt/open_metalcast_112.mp3</a></audio></div>
+<p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://archive.org/download/OpenMetalcastEpisode112Frostburnt/open_metalcast_112.mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="open_metalcast_112.mp3">Download</a>
+</p><!--powerpress_player--></p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/maloney" title="Posts by Craig Maloney" rel="author">Craig Maloney</a> | February 18, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/podcasts/open-metalcast/open-metalcast-episode-112-frostburnt">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/podcasts/open-metalcast/open-metalcast-episode-112-frostburnt#respond" class="postcomments"  title="Comment on Open Metalcast Episode #112: Frostburnt"><span class="dsq-postid" data-dsqidentifier="62059 http://www.metalinjection.net/?p=62059">0</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/podcasts/open-metalcast/open-metalcast-episode-112-frostburnt" pw:title="Open Metalcast Episode #112: Frostburnt">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-61944 video type-video status-publish has-post-thumbnail hentry tag-master tag-necrosexual">
+            
+                             <a class="with-play-button" href="http://www.metalinjection.net/video/necrosexual-interviews-masters-paul-speckmann"> 
+               <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/necrosexual-interviews-masters-p.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="NECROSEXUAL Interviews MASTER&#039;s Paul Speckmann" /> </a> 
+               <div class="content">
+                            
+              <span class="category"> <a href="http://www.metalinjection.net/channels/necrosexual-presents" rel="tag">Necrosexual Presents</a></span>
+              <h2 class="title"><a href="http://www.metalinjection.net/video/necrosexual-interviews-masters-paul-speckmann">NECROSEXUAL Interviews MASTER&#039;s Paul Speckmann</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/metalinjection" title="Posts by metalinjection">Metal Injection</a>  | February 18, 2015 </span>
+              <p><p>Paul Speckmann frontman and bassist of legendary metal group Master&#8230;</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/metalinjection" title="Posts by metalinjection">Metal Injection</a>  | February 18, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/video/necrosexual-interviews-masters-paul-speckmann">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/video/necrosexual-interviews-masters-paul-speckmann#comments" class="postcomments"  title="Comment on NECROSEXUAL Interviews MASTER&#039;s Paul Speckmann"><span class="dsq-postid" data-dsqidentifier="61944 http://www.metalinjection.net/?post_type=video&amp;p=61944">1</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/video/necrosexual-interviews-masters-paul-speckmann" pw:title="NECROSEXUAL Interviews MASTER&#039;s Paul Speckmann">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-62145 video type-video status-publish has-post-thumbnail hentry tag-motionless-in-white">
+            
+                             <a class="with-play-button" href="http://www.metalinjection.net/video/motionless-in-white-break-the-cycle-music-video"> 
+               <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/motionless-in-white-break-the-cy.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="MOTIONLESS IN WHITE &quot;Break The Cycle&quot; Music Video" /> </a> 
+               <div class="content">
+                            
+              <span class="category"> <a href="http://www.metalinjection.net/channels/music-videos" rel="tag">Music Videos</a></span>
+              <h2 class="title"><a href="http://www.metalinjection.net/video/motionless-in-white-break-the-cycle-music-video">MOTIONLESS IN WHITE &#034;Break The Cycle&#034; Music Video</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/metalinjection" title="Posts by metalinjection">Metal Injection</a>  | February 18, 2015 </span>
+              <p><p>From the new album Reincarnate, out now on Fearless Records. Motionless&#8230;</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/metalinjection" title="Posts by metalinjection">Metal Injection</a>  | February 18, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/video/motionless-in-white-break-the-cycle-music-video">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/video/motionless-in-white-break-the-cycle-music-video#comments" class="postcomments"  title="Comment on MOTIONLESS IN WHITE &quot;Break The Cycle&quot; Music Video"><span class="dsq-postid" data-dsqidentifier="62145 http://www.metalinjection.net/?post_type=video&amp;p=62145">4</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/video/motionless-in-white-break-the-cycle-music-video" pw:title="MOTIONLESS IN WHITE &#034;Break The Cycle&#034; Music Video">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-62096 post type-post status-publish format-standard has-post-thumbnail hentry category-av tag-amorphis tag-barren-earth tag-kreator tag-moonsorrow">
+            
+                             <a class="with-play-button" href="http://www.metalinjection.net/av/the-new-barren-earth-moonsorrow-kreator-etc-song-is-low-slow-melodic-great"> 
+               <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/Barren-Earth.jpg?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="Barren-Earth" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/av" rel="category tag">A/V</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/av/the-new-barren-earth-moonsorrow-kreator-etc-song-is-low-slow-melodic-great">The New BARREN EARTH (MOONSORROW, KREATOR, Etc.) Song Is Low, Slow And Melodic</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 18, 2015 </span>
+              <p><p>Get your fix of melodic death metal downtempo right here, right now.</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 18, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/av/the-new-barren-earth-moonsorrow-kreator-etc-song-is-low-slow-melodic-great">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/av/the-new-barren-earth-moonsorrow-kreator-etc-song-is-low-slow-melodic-great#comments" class="postcomments"  title="Comment on The New BARREN EARTH (MOONSORROW, KREATOR, Etc.) Song Is Low, Slow And Melodic"><span class="dsq-postid" data-dsqidentifier="62096 http://www.metalinjection.net/?p=62096">2</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/av/the-new-barren-earth-moonsorrow-kreator-etc-song-is-low-slow-melodic-great" pw:title="The New BARREN EARTH (MOONSORROW, KREATOR, Etc.) Song Is Low, Slow And Melodic">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-62113 post type-post status-publish format-standard has-post-thumbnail hentry category-tour-dates tag-ensiferum tag-korpiklaani">
+            
+                             <a  href="http://www.metalinjection.net/tour-dates/ensiferum-and-korpiklaani-to-tour-north-america-this-may"> 
+               <img src="http://i1.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/KORPIKLAANI-Ensiferum-Tour.png?resize=450%2C300" class="attachment-post_listing wp-post-image" alt="KORPIKLAANI-Ensiferum-Tour" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/tour-dates" rel="category tag">Tour Dates</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/tour-dates/ensiferum-and-korpiklaani-to-tour-north-america-this-may">ENSIFERUM And KORPIKLAANI To Tour North America This May!</a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 18, 2015 </span>
+              <p><p>Viking hordes, assemble!</p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/kennelty" title="Posts by Greg Kennelty" rel="author">Greg Kennelty</a> | February 18, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/tour-dates/ensiferum-and-korpiklaani-to-tour-north-america-this-may">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/tour-dates/ensiferum-and-korpiklaani-to-tour-north-america-this-may#comments" class="postcomments"  title="Comment on ENSIFERUM And KORPIKLAANI To Tour North America This May!"><span class="dsq-postid" data-dsqidentifier="62113 http://www.metalinjection.net/?p=62113">2</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/tour-dates/ensiferum-and-korpiklaani-to-tour-north-america-this-may" pw:title="ENSIFERUM And KORPIKLAANI To Tour North America This May!">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+
+          <article class="post-61148 post type-post status-publish format-standard has-post-thumbnail hentry category-reviews tag-sarpanitum">
+            
+                             <a  href="http://www.metalinjection.net/reviews/album-review-sarpanitum-blessed-be-my-brothers"> 
+               <img src="http://i1.wp.com/www.metalinjection.net/wp-content/uploads/2015/01/sarpanitum.jpg?resize=220%2C220" class="attachment-thumbnail wp-post-image" alt="sarpanitum" /> </a> 
+               <div class="content">
+                            
+              <span class="category"><a href="http://www.metalinjection.net/category/reviews" rel="category tag">Reviews</a> </span>
+              <h2 class="title"><a href="http://www.metalinjection.net/reviews/album-review-sarpanitum-blessed-be-my-brothers">Album Review: SARPANITUM <em>Blessed Be My Brothers </em></a></h2>
+
+              <span class="hidden-mobile meta"> Posted by <a href="http://www.metalinjection.net/author/driedger" title="Posts by Nate" rel="author">Nate</a> | February 18, 2015 </span>
+              <p><p>A blackened death metal feel is the overall sense this album portrays. The creative foundation that is present in almost every track turns out to be a melodic flow guided by the lead guitar. The result is quite a unique experience. </p>
+</p>
+              <span class="visible-xs meta"><a href="http://www.metalinjection.net/author/driedger" title="Posts by Nate" rel="author">Nate</a> | February 18, 2015 </span>
+              <ul class="list-inline interactions">
+                <li class="visible-xs read-more"><a href="http://www.metalinjection.net/reviews/album-review-sarpanitum-blessed-be-my-brothers">Read More</a></li>
+                <li class="comment-count"><a href="http://www.metalinjection.net/reviews/album-review-sarpanitum-blessed-be-my-brothers#respond" class="postcomments"  title="Comment on Album Review: SARPANITUM Blessed Be My Brothers "><span class="dsq-postid" data-dsqidentifier="61148 http://www.metalinjection.net/?p=61148">0</span></a></li>
+                <li class="fb-like-container">
+                	<div class="pw-widget pw-counter-horizontal" pw:copypaste="false" pw:url="http://www.metalinjection.net/reviews/album-review-sarpanitum-blessed-be-my-brothers" pw:title="Album Review: SARPANITUM <em>Blessed Be My Brothers </em>">
+						<a class="pw-button-facebook pw-look-native"></a>
+						<a class="pw-button-twitter pw-look-native"></a>
+						<a class="pw-button-email pw-look-native"></a>
+					</div>
+
+
+                </li>
+              </ul>
+            </div>
+          </article>
+				
+
+
+	    <div class="navigation">
+      <ul class="list-inline">
+
+        <li class="pager-previous active"><span class='page-numbers current'>1</span></li><li class="hidden-mobile"><a class='page-numbers' href='http://www.metalinjection.net/page/2'>2</a></li><li class="hidden-mobile"><a class='page-numbers' href='http://www.metalinjection.net/page/3'>3</a></li><li class="hidden-mobile"><a class='page-numbers' href='http://www.metalinjection.net/page/4'>4</a></li><li class="hidden-mobile"><a class='page-numbers' href='http://www.metalinjection.net/page/5'>5</a></li><li class="hidden-mobile"><a class='page-numbers' href='http://www.metalinjection.net/page/6'>6</a></li><li class="hidden-mobile"><span class="page-numbers dots">&hellip;</span></li><li class="hidden-mobile"><a class='page-numbers' href='http://www.metalinjection.net/page/926'>926</a></li><li class="pager-next"><a class="next page-numbers" href="http://www.metalinjection.net/page/2">&raquo;</a></li>      </ul>
+    </div> <!-- navigation  -->
+
+
+
+	</div> <!-- col-md-8  -->
+
+  
+  <div class="col-md-4 hidden-xs" id="region-sidebar">
+        
+    <!-- Ad Sidebar Top -->
+    <!-- MetalInjection_Box_real -->
+    <div id="sidebar-ad-top">
+		<script>var screenWidth = document.documentElement.clientWidth; if(screenWidth >= 768) {document.write("<div id='adpos-300-1' class='ad300'>\n<script type='text\/javascript'>\ngoogletag.display('adpos-300-1');\n<\/script>\n<\/div>\n");}</script>
+	</div>
+
+
+
+    <!-- Videos -->
+
+    
+    <!-- start newsletter -->
+<form action="http://metalinjection.net/mailinglist/public/listmessenger.php" method="post">
+    <div id="newsletter-form">
+      <h3>Newsletter</h3>
+      <form method="post" action="">
+        <fieldset><input type="hidden" name="group_ids[]" value="1" /><input type="hidden" id="action" name="action" value="subscribe" />
+          <input type="text" class="text"  id="email_address" name="email_address" placeholder="Enter Your Email Address">
+          <input type="submit" class="submit" value="Enter">
+        </fieldset>
+      </form>
+    </div>
+</form>
+<!--end newsletter-->
+
+
+    <aside id="videos-sidebar">
+      <h3><a href="/video">Videos</a></h3>
+      
+      
+												<div class="featured">
+						        <article>
+						          <a class="with-play-button featuredvideo" href="http://www.metalinjection.net/video/watch-rushs-neil-peart-tools-danny-carey-jam-with-south-parks-matt-stone"><img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/jam-alert-neil-peart-and-danny-c.jpg?resize=450%2C300" class="img-responsive full-width wp-post-image" alt="JAM ALERT: Neil Peart And Danny Carey Both Drummed On This One Song" /></a>
+						          <a href="http://www.metalinjection.net/video/watch-rushs-neil-peart-tools-danny-carey-jam-with-south-parks-matt-stone">Watch RUSH&#039;s Neil Peart &#038; TOOL&#039;s Danny Carey Jam With South Park&#039;s Matt Stone</a>
+						        </article>
+						      </div> 
+						  
+      <article>
+        <a href="http://www.metalinjection.net/video/things-elitist-metal-fans-say" class="with-play-button">
+         <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/things-elitist-metal-fans-say.jpg?resize=285%2C155" class="img-responsive full-width wp-post-image" alt="Things Elitist Metal Fans Say" />        </a>
+        <a class="secondaryvideo" href="http://www.metalinjection.net/video/things-elitist-metal-fans-say">Things Elitist Metal Fans Say</a>
+      </article>
+	  
+      <article>
+        <a href="http://www.metalinjection.net/video/here-are-the-10-best-ways-to-hold-your-guitar" class="with-play-button">
+         <img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/here-are-the-10-best-ways-to-hol.jpg?resize=285%2C155" class="img-responsive full-width wp-post-image" alt="Here Are The 10 Best Ways To Hold Your Guitar" />        </a>
+        <a class="secondaryvideo" href="http://www.metalinjection.net/video/here-are-the-10-best-ways-to-hold-your-guitar">Here Are The 10 Best Ways To Hold Your Guitar</a>
+      </article>
+	  
+      <article>
+        <a href="http://www.metalinjection.net/video/metallica-meets-j-k-simmons-character-from-whiplash-mash-up" class="with-play-button">
+         <img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/metallica-meets-j-k-simmons-char.jpg?resize=285%2C155" class="img-responsive full-width wp-post-image" alt="METALLICA Meets J.K. Simmons&#039; Character from Whiplash (Mash Up)" />        </a>
+        <a class="secondaryvideo" href="http://www.metalinjection.net/video/metallica-meets-j-k-simmons-character-from-whiplash-mash-up">METALLICA Meets J.K. Simmons&#039; Character from <em>Whiplash</em> (Mash Up)</a>
+      </article>
+	                                         
+    </aside>
+    <a href="/video" class="view-more">All Videos</a>
+
+
+    
+
+  <aside id="videos-sidebar">
+      <h3><a href="/video">Classic Content</a></h3>
+      
+      
+												<div class="featured">
+						        <article>
+						          <a class="with-play-button  featuredvideo" href="http://www.metalinjection.net/video/8-year-old-girl-shreds"><img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2014/03/8-year-old-girl-shreds1.jpg?resize=450%2C300" class="img-responsive full-width wp-post-image" alt="8-Year-Old Girl Shreds!" /></a>
+						          <a href="http://www.metalinjection.net/video/8-year-old-girl-shreds">8-Year-Old Girl Shreds!</a>
+						        </article>
+						      </div> 
+						  
+      <article>
+        <a href="http://www.metalinjection.net/gif-grab/the-15-best-slayer-gifs-on-the-internet"  >
+         <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2013/01/SLAYER-logo-animated.gif?resize=200%2C155" class="img-responsive full-width wp-post-image" alt="SLAYER logo animated" />        </a>
+        <a class="secondaryvideo" href="http://www.metalinjection.net/gif-grab/the-15-best-slayer-gifs-on-the-internet">The 15 Best SLAYER GIFs On The Internet</a>
+      </article>
+	  
+      <article>
+        <a href="http://www.metalinjection.net/video/black-crown-initiate-take-the-phaal-curry-challenge" class="with-play-button" >
+         <img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2014/09/black-crown-initiate-take-the-ph.jpg?resize=285%2C155" class="img-responsive full-width wp-post-image" alt="BLACK CROWN INITIATE Take The Phaal Curry Challenge" />        </a>
+        <a class="secondaryvideo" href="http://www.metalinjection.net/video/black-crown-initiate-take-the-phaal-curry-challenge">BLACK CROWN INITIATE Take The Phaal Curry Challenge</a>
+      </article>
+	  
+      <article>
+        <a href="http://www.metalinjection.net/lists/the-20-raddest-metal-on-metal-cover-songs-ever"  >
+         <img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2014/11/20-METAL-ON-METAL-COVER-SONGS.jpg?resize=285%2C155" class="img-responsive full-width wp-post-image" alt="20-METAL-ON-METAL-COVER-SONGS" />        </a>
+        <a class="secondaryvideo" href="http://www.metalinjection.net/lists/the-20-raddest-metal-on-metal-cover-songs-ever">The 20 Raddest METAL on METAL Cover Songs&#8230;EVER.</a>
+      </article>
+	  
+      <article>
+        <a href="http://www.metalinjection.net/lists/black-metal-valentines-day-cards-guaranteed-to-get-you-laid"  >
+         <img src="http://i1.wp.com/www.metalinjection.net/wp-content/uploads/2014/02/heartburns.jpg?resize=285%2C155" class="img-responsive full-width wp-post-image" alt="heartburns" />        </a>
+        <a class="secondaryvideo" href="http://www.metalinjection.net/lists/black-metal-valentines-day-cards-guaranteed-to-get-you-laid">Black Metal Valentine&#039;s Day Cards: Guaranteed To Get You Laid</a>
+      </article>
+	                                         
+    </aside>
+    
+
+
+    
+
+
+
+
+  
+
+    <!-- Photos -->
+
+    <aside id="photos-sidebar">
+      <h3><a href="/photo-gallery">Photos</a></h3>
+      
+       	
+      
+      
+      <article>
+        <a href="http://www.metalinjection.net/photo-gallery?g2_itemId=138254">
+          <img src="http://www.metalinjection.net/gallery2/main.php?g2_view=core.DownloadItem&amp;g2_itemId=138258&amp;g2_serialNumber=3" class="img-responsive full-width">
+       An Evening with Machine Head in NYC</a>
+      </article>
+ 	
+      
+      
+      <article>
+        <a href="http://www.metalinjection.net/photo-gallery?g2_itemId=137831&#038;g2_highlightId=137833">
+          <img src="http://www.metalinjection.net/gallery2/main.php?g2_view=core.DownloadItem&amp;g2_itemId=137935&amp;g2_serialNumber=2" class="img-responsive full-width">
+       Opeth, In Flames, Red Fang in NYC</a>
+      </article>
+ 	
+      
+      
+      <article>
+        <a href="http://www.metalinjection.net/photo-gallery?g2_itemId=137443">
+          <img src="http://www.metalinjection.net/gallery2/main.php?g2_view=core.DownloadItem&amp;g2_itemId=137451&amp;g2_serialNumber=4" class="img-responsive full-width">
+       Slipknot, Korn, King 810</a>
+      </article>
+ 	
+      
+      
+      <article>
+        <a href="http://www.metalinjection.net/photo-gallery?g2_itemId=137267">
+          <img src="http://www.metalinjection.net/gallery2/main.php?g2_view=core.DownloadItem&amp;g2_itemId=137274&amp;g2_serialNumber=4" class="img-responsive full-width">
+       Slayer, Suicidal Tendencies</a>
+      </article>
+ 	
+      
+      
+      <article>
+        <a href="http://www.metalinjection.net/photo-gallery?g2_itemId=137015">
+          <img src="http://www.metalinjection.net/gallery2/main.php?g2_view=core.DownloadItem&amp;g2_itemId=137020&amp;g2_serialNumber=2" class="img-responsive full-width">
+       Arch Enemy, Kreator, Huntress</a>
+      </article>
+ 	
+      
+      
+      <article>
+        <a href="http://www.metalinjection.net/photo-gallery?g2_itemId=135523">
+          <img src="http://www.metalinjection.net/gallery2/main.php?g2_view=core.DownloadItem&amp;g2_itemId=135883&amp;g2_serialNumber=2" class="img-responsive full-width">
+       Slipknot&#039;s Knotfest 2014</a>
+      </article>
+               
+    </aside>      
+    <a href="/photo-gallery" class="view-more">All Photos</a>
+
+    <!-- Reviews -->
+
+    <aside class="" id="reviews-sidebar">
+      <h3>Reviews</h3>
+      
+      
+      
+      <article>
+        <a href="http://www.metalinjection.net/reviews/album-review-visigoth-the-revenant-king">
+        <img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2015/01/Visigoth-e1422689481641.jpg?resize=220%2C220" class="img-responsive full-width wp-post-image" alt="Visigoth" />          <span>Review</span>
+          <h4>VISIGOTH <em>The Revenant King</em></h4> 
+          
+         
+
+        </a>
+      </article>
+      
+            
+      
+      <article>
+        <a href="http://www.metalinjection.net/reviews/album-review-sarpanitum-blessed-be-my-brothers">
+        <img src="http://i1.wp.com/www.metalinjection.net/wp-content/uploads/2015/01/sarpanitum.jpg?resize=220%2C220" class="img-responsive full-width wp-post-image" alt="sarpanitum" />          <span>Review</span>
+          <h4>SARPANITUM <em>Blessed Be My Brothers </em></h4> 
+          
+         
+
+        </a>
+      </article>
+      
+            
+      
+      <article>
+        <a href="http://www.metalinjection.net/reviews/album-review-36-crazyfists-time-and-trauma">
+        <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2014/12/36crazyfiststimecdcoversmaller.jpg?resize=220%2C220" class="img-responsive full-width wp-post-image" alt="36crazyfiststimecdcoversmaller" />          <span>Review</span>
+          <h4>36 CRAZYFISTS- <em>Time and Trauma</em></h4> 
+          
+         
+
+        </a>
+      </article>
+      
+            </aside>
+    <a href="#" class="view-more">All Reviews</a>
+
+   
+
+
+    <!-- Livecast Sidebar -->
+        <aside id="livecast-sidebar">
+      <h3>Livecast <small>Talk Podcast</small></h3>
+      <article>
+        <img src="http://i1.wp.com/www.metalinjection.net/image/livecastsidebar.jpg" class="img-responsive full-width">
+        
+          
+        
+        
+        <h4>
+          <a href="http://www.metalinjection.net/podcasts/livecast/livecast-294">METAL INJECTION LIVECAST #294 &#8211; Yewish</a>
+        </h4>
+        <p><p>Our friends Jake Bowen and Loni Berman sat in on&#8230;</p>
+<div class="powerpress_player" id="powerpress_player_7397">
+<audio class="wp-audio-shortcode" id="audio-61998-4" preload="none" style="width: 100%; visibility: hidden;" controls="controls"><source type="audio/mpeg" src="http://traffic.libsyn.com/metalinjection2/294_METAL_INJECTION_LIVECAST_294_-_Yewish.mp3?_=4" /><a href="http://traffic.libsyn.com/metalinjection2/294_METAL_INJECTION_LIVECAST_294_-_Yewish.mp3">http://traffic.libsyn.com/metalinjection2/294_METAL_INJECTION_LIVECAST_294_-_Yewish.mp3</a></audio></div>
+<p class="powerpress_links powerpress_links_mp3">Podcast: <a href="http://traffic.libsyn.com/metalinjection2/294_METAL_INJECTION_LIVECAST_294_-_Yewish.mp3" class="powerpress_link_d" title="Download" rel="nofollow" download="294_METAL_INJECTION_LIVECAST_294_-_Yewish.mp3">Download</a>
+</p><!--powerpress_player--></p>
+        <ul class="actions list-inline">
+          <li>
+            <a href="http://www.metalinjection.net/podcasts/livecast/livecast-294">Listen Now</a>
+          </li>
+          <li class="last">
+            <a href="/podcasts">All Podcasts</a>
+          </li>
+        </ul>
+                
+      </article>
+    </aside>
+               
+
+
+
+<div id="facebook-box">
+	<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fmetalinjection&amp;width=350&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=151197663443" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:350px; height:258px;" allowTransparency="true"></iframe>
+	
+</div>
+
+    <aside id="reviews-sidebar">
+      <h3><a href="/free-swag">GIVEAWAYS</a></h3>
+      
+      
+											
+
+      <article>
+        <a href="http://www.metalinjection.net/free-swag/guessing-game/guessing-game-answer-correctly-you-could-win-a-free-cd-from-our-giveaway-pile-4">
+         <img src="http://i0.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/guessme.jpg?resize=285%2C155" class="img-responsive full-width wp-post-image" alt="guessme" />        </a>
+        <a class="secondaryvideo" href="http://www.metalinjection.net/free-swag/guessing-game/guessing-game-answer-correctly-you-could-win-a-free-cd-from-our-giveaway-pile-4">GUESSING GAME: Answer Correctly &#038; You Could Win A FREE CD From Our Giveaway Pile</a>
+      </article>
+	  						
+
+      <article>
+        <a href="http://www.metalinjection.net/free-swag/the-g2a-com-video-game-gift-card-giveaway">
+         <img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/g2a-gift-card-giveaway.jpg?resize=285%2C155" class="img-responsive full-width wp-post-image" alt="g2a-gift-card-giveaway" />        </a>
+        <a class="secondaryvideo" href="http://www.metalinjection.net/free-swag/the-g2a-com-video-game-gift-card-giveaway">The G2A.COM Video Game Gift Card Giveaway</a>
+      </article>
+	  						
+
+      <article>
+        <a href="http://www.metalinjection.net/free-swag/caption-contest/caption-contest-enter-your-funniest-caption-you-could-win-a-free-cd-7">
+         <img src="http://i2.wp.com/www.metalinjection.net/wp-content/uploads/2015/02/Dave-from-Revocation-with-a-Rivers-of-Nihil-shirt.jpg?resize=285%2C155" class="img-responsive full-width wp-post-image" alt="Dave from Revocation with a Rivers of Nihil shirt" />        </a>
+        <a class="secondaryvideo" href="http://www.metalinjection.net/free-swag/caption-contest/caption-contest-enter-your-funniest-caption-you-could-win-a-free-cd-7">CAPTION CONTEST: Enter Your Funniest Caption &#038; You Could Win A Free CD!</a>
+      </article>
+	                                         
+    </aside>
+
+
+    
+    <!-- Ad Sidebar Bottom -->
+
+    <div id="sidebar-bottom-ad">
+	<script>var screenWidth = document.documentElement.clientWidth; if(screenWidth >= 970) {document.write("<div id='adpos-300-2' class='ad300'>\n<script type='text\/javascript'>\ngoogletag.display('adpos-300-2');\n<\/script>\n<\/div>\n");}</script>
+    </div>
+
+  	</div>
+  </div> <!-- .col-md-4 -->
+
+
+</div><!-- .row -->  
+	
+
+
+
+  <!-- DFP Leader Bottom -->
+  <div id="ad-footer">
+  <div id='adpos-leader-bot'>
+	<script type='text/javascript'>
+		googletag.display('adpos-leader-bot');
+	</script>
+</div>  </div>
+
+</div> <!-- container -->
+
+
+<!-- footer -->
+
+<script src="http://i.po.st/static/v3/post-widget.js#publisherKey=83g6c7gft9i595q6di4p&retina=true" type="text/javascript"></script>
+
+
+<div id="welcomeMessage"></div>                                                                                                                                         
+
+         <!-- Load the Facebook JavaScript SDK -->                                                                                                                               
+         <div id="fb-root"></div>                                                                                                                                                
+         <script>                                                                                                                                                                
+           window.fbAsyncInit = function() {                                                                                                                                     
+             FB.init({                                                                                                                                                           
+               appId      : '151197663443', // App ID                                                                                                                         
+               status     : true, // check login status                                                                                                                          
+               cookie     : true                                                                                                                                                 
+             });                                                                                                                                                                 
+
+             // Check if the current user is logged in                                                                                                                           
+             // and has authorized the app                                                                                                                                       
+             FB.getLoginStatus(function(response) {                                                                                                                              
+               // Check the result of the user                                                                                                                                   
+               if(response && response.status == 'connected') {                                                                                                                  
+                 // The user is connected to Facebook                                                                                                                            
+                 // and has authorized the app.                                                                                                                                  
+                 // Now personalize the user experience                                                                                                                          
+
+                 FB.api('/me', function(response) {                                                                                                                              
+                   var message = document.getElementById('welcomeMessage');                                                                                                      
+                   message.innerHTML = 'Hello, ' + response.first_name;                                                                                                          
+                 });                                                                                                                                                             
+               } else {                                                                                                                                                          
+                 // The user has not authenticated your app,                                                                                                                     
+                 // proceed with your normal (anonymous) flow.                                                                                                                   
+               }                                                                                                                                                                 
+             });                                                                                                                                                                 
+           };                                                                                                                                                                    
+
+           // Load the SDK Asynchronously
+           (function(d, s, id) {
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) return;
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=113869198637480";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+         </script>
+
+<footer>
+    <div class="container">
+      <a class="visible-xs" href="/" title="Go to Homepage">
+        <img src="http://metalinjection.s3.amazonaws.com/mi5/metal-injection-logo.png" alt="Metal Injection" id="site-logo-footer">
+      </a>
+      <nav>
+        <ul class="list-inline">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="/video">Videos</a></li>
+          <li><a href="/">News</a></li>
+          <li><a href="/photo-gallery">Photos</a></li>
+          <li><a href="/category/podcasts">Podcasts</a></li>
+          <li><a href="/merch">Merch</a></li>
+          <li><a href="/category/free-swag">Contests</a></li>
+          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="/fm">.FM</a></li>                                                                                
+        </ul>
+      </nav>
+      <p id="copyright">© 2004 - 2015 Metal Injection LLC. All rights reserved. | <a href="/wanted">Help Wanted</a> | <a href="/advertising">Advertising Info</a> | <a href="/contact-us">Contact Us</a> | <a href="/terms-conditions">Terms &amp; Conditions</a> | Metal Injection is a proud member of <a href="http://www.blastbeatnetwork.com" target="_blank">the Blast Beat, Heavy Metal Advertising Network</a></p>
+
+      <div class="visible-xs" id="mobile-footer">
+        <ul id="social-links-mobile" class="list-inline">
+          <li class="facebook"><a href="http://www.facebook.com/metalinjection" target="_blank">Facebook</a></li>
+          <li class="twitter"><a href="http://twitter.com/metalinjection" target="_blank">Twitter</a></li>
+          <li class="youtube"><a href="http://www.youtube.com/metalinjection" target="_blank">You Tube</a></li>
+          <li class="rss"><a href="/rss-feeds">RSS</a></li>
+        </ul>      
+        <a href="/terms-conditions">Privacy Policy</a>
+        <p>© 2013 METAL INJECTION. All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+
+<script>var screenWidth = document.documentElement.clientWidth; if(screenWidth >= 1000) {document.write("<div id='adpos-skin' style='width: 1px; height: 1px;'>\n<script type='text\/javascript'>\ngoogletag.display('adpos-skin');\n<\/script>\n<\/div>\n");}</script>
+
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+sc_project=2344906; 
+sc_invisible=1; 
+sc_partition=21; 
+sc_security="be12ac99"; 
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a href="http://www.statcounter.com/" target="_blank"><img class="statcounter" src="http://c22.statcounter.com/2344906/0/be12ac99/1/" alt="counter easy hit" ></a></div></noscript>
+<!-- End of StatCounter Code -->
+
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-qKELvQhgtyzqE"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-qKELvQhgtyzqE.gif?6b5976" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+
+<!--Plugin WP Missed Schedule 2013.1231.2015 Build 2015-01-19 Active - Tag 991777abf4277c24f209b74b5da25563-->
+
+<!-- This website is patched against a big problem not solved from WordPress 2.5+ to date -->
+
+<span id="bruteprotect_uptime_check_string" style="display:none;">7ads6x98y</span>        <script type="text/javascript">
+        // <![CDATA[
+        var disqus_shortname = 'metalinjection';
+        (function () {
+            var nodes = document.getElementsByTagName('span');
+            for (var i = 0, url; i < nodes.length; i++) {
+                if (nodes[i].className.indexOf('dsq-postid') != -1) {
+                    nodes[i].parentNode.setAttribute('data-disqus-identifier', nodes[i].getAttribute('data-dsqidentifier'));
+                    url = nodes[i].parentNode.href.split('#', 1);
+                    if (url.length == 1) { url = url[0]; }
+                    else { url = url[1]; }
+                    nodes[i].parentNode.href = url + '#disqus_thread';
+                }
+            }
+            var s = document.createElement('script'); 
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        // ]]>
+        </script>
+        <script type='text/javascript'>
+/* <![CDATA[ */
+var mejsL10n = {"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Download File":"Download File","Download Video":"Download Video","Play\/Pause":"Play\/Pause","Mute Toggle":"Mute Toggle","None":"None","Turn off Fullscreen":"Turn off Fullscreen","Go Fullscreen":"Go Fullscreen","Unmute":"Unmute","Mute":"Mute","Captions\/Subtitles":"Captions\/Subtitles"}};
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="http://www.metalinjection.net/wp-includes/js/mediaelement/mediaelement-and-player.min.js?6b5976"></script>
+<script type='text/javascript' src="http://www.metalinjection.net/wp-includes/js/mediaelement/wp-mediaelement.js?6b5976"></script>
+<script type='text/javascript' src="http://www.metalinjection.net/wp-content/plugins/jetpack/modules/photon/photon.js?6b5976"></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201508'></script>
+
+	<script src="http://stats.wp.com/e-201508.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:3.3.1',blog:'63772647',post:'7872',tz:'-5'});
+	var load_cmc = function(){linktracker_init(63772647,7872,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","licenseKey":"76d7e8bf23","applicationID":"4234698","transactionName":"YVAAbBFQV0QFURJRCVgaN0oKHlBZAFceFhZeRQ==","queueTime":0,"applicationTime":3,"atts":"TRcDGllKREo=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-515.min.js"}</script></body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using apc
+Database Caching 69/100 queries in 0.057 seconds using apc
+Object Caching 4546/4753 objects using apc
+
+ Served from: www.metalinjection.net @ 2015-02-19 16:27:55 by W3 Total Cache -->";i:2;s:4:"1810";}

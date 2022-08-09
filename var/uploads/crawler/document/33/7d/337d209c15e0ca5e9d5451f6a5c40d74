@@ -1,0 +1,560 @@
+a:3:{i:0;s:18:"http://ruby14.com/";i:1;s:27229:"<!DOCTYPE html>
+<html lang="ru-RU">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Ruby14 | Official Home of the Ruby14 Love Doll</title>
+		<link rel="profile" href="http://gmpg.org/xfn/11">
+		<link rel="pingback" href="http://ruby14.com/xmlrpc.php">
+		<link rel="shortcut icon" href="http://ruby14.com/wp-content/themes/ruby14/img/favicon.png" type="image/png" />
+
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/flexslider/2.2.2/jquery.flexslider-min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
+				
+		<script src="http://ruby14.com/wp-content/themes/ruby14/js/vex-2.2.1/js/vex.combined.min.js"></script>
+		<link rel="stylesheet" href="http://ruby14.com/wp-content/themes/ruby14/js/vex-2.2.1/css/vex.css" type="text/css">
+		<link rel="stylesheet" href="http://ruby14.com/wp-content/themes/ruby14/js/vex-2.2.1/css/vex-theme-default.css" type="text/css">
+
+		<script src="//cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js"></script>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" type="text/css">
+		<link rel="stylesheet" href="http://ruby14.com/wp-content/themes/ruby14/js/FlexSlider/flexslider.css" type="text/css">
+		
+		<style>
+			#shop-cart-block-html-methods,
+			#shop-cart-block-html-form,
+			#shop-cart-block-html-bank,	
+			#shop-cart-block-html-check,
+			#shop-cart-payment-container {
+				display: none;
+			}
+		</style>
+		
+		<script type="text/javascript" charset="utf-8">
+			$(function() {
+				$('.flexslider').flexslider({
+					animation: "slide",				
+					animation: "slide",
+					animationSpeed: 700,
+					slideshowSpeed: 5000,
+
+					controlNav: false,
+					prevText: '',
+					nextText: '',
+
+					keyboard: true
+				});
+				
+				$('.thumbs .image a').on('click', function(){
+					$('#placeholder').prop('href', $(this).prop('href'));
+					$('#placeholder img').prop('src', $(this).data('original-image'))
+
+					$('#zoom-image').prop('href', $(this).prop('href'));
+					return false;
+				});
+				
+				$("a.zoom").fancybox();
+				
+				var shopCart = {};
+
+				
+				shopCart.init = function() {
+					shopCart.updateCountItems();
+					shopCart.initTable();
+					
+					$(document).on('click', '#remove-item', function(){
+						var _this = $(this);
+						$(this).closest('tr').remove();
+						
+						var _uniq = $(this).data('_uniq');
+						
+						sc = JSON.parse(localStorage['shop-cart']);
+						localStorage['shop-cart'] = JSON.stringify(sc.items.filter(function(e){
+							return e._uniq !== _this.data('id');
+						}));
+					});
+					
+					$("#shop-cart-container .quantity").bind("change paste keyup", function() {
+						var _this = $(this);
+						
+						var sc = JSON.parse(localStorage['shop-cart']);
+						$.each(sc.items, function(n, v) {
+							if(v._uniq == _this.data('id')) {
+								sc.items[n].quantity = _this.val();
+							}
+						});
+						localStorage['shop-cart'] = JSON.stringify(sc);
+					
+						$(this).closest('tr').find('td.price').text(accounting.formatMoney($(this).data('price') * $(this).val(), "$", 2, ".", ","))
+						
+						totalAmount = 0;
+						$.each($('.quantity'), function(n, v) {
+							totalAmount += $(v).data('price') * $(v).val();
+						});
+						$('.summary .total strong').text(accounting.formatMoney(totalAmount, "$", 2, ".", ","));
+					});
+				
+					$('#add-to-cart').on('click', function(){
+						url = document.URL;
+						name = $('h1:eq(1)').text();
+						product = $('#product-select option:selected').text();
+						if(!product) 
+							product = $('.single-option-selector option:selected').text();
+						img = $('div[class="image featured"] img')[0].src;
+						price = $('#price-preview').text();
+						quantity = $('#quantity').val();
+						
+						shopCart.addItem(url, name, product, img, price, quantity);
+						
+						return false;
+					});
+					
+					$(document).on('click', '#checkout', function(){
+						if(!$('#agree:checked').length) {
+							vex.dialog.alert({
+								message: 'You must agree with the terms and conditions of sales to check out.',
+								className: 'vex-theme-default'
+							});
+							return false;
+						}
+						
+						$('#shop-cart-container').empty();
+						$('#shop-cart-payment-container').show()
+						
+						scPC = $('#shop-cart-payment-container');
+						
+						scPC.find('form').before('<div id="overview" class="clearfix"><div id="products"><h2>You&#39;re purchasing this&hellip;</h2><table id="thumbs" cellspacing="0" cellpadding="0"></table></div><div id="wallet"><span id="cost"></span></div><div style="clear:left"></div></div><div id="content"></div>');
+						
+						sc = localStorage['shop-cart'];
+						if(sc && (typeof JSON.parse(sc).items != 'undefined')) {
+							sc = JSON.parse(sc);
+							$.each(sc.items, function(n, v) {
+								scPC.find('table#thumbs').append('' +
+									'<tr>'+
+										'<td>'+
+											'<div style="height:100px;width:100px;"><img style="height: 80px;" alt="'+v.name+'" class="images" src="'+v.img+'" /></div>'+
+											'<h3 class="plisthead" title="'+v.name+'">'+v.name+'</h3>'+
+											'<span class="plist-variant-title">'+v.product+'</span><br />'+
+											'<span class="plist-line-price">'+v.quantity+'x '+accounting.formatMoney(v.price, "$", 2, ".", ",")+'</span>'+
+										'</td>'+
+									'</tr>'+
+								+ '');
+								
+								scPC.find('textarea[name="Cart"]').append(
+									v.name + "     " + v.quantity + " x " + accounting.formatMoney(v.price, "$", 2, ".", ",") + "\n" + v.product + "\n\n"
+								);
+							});
+							
+							totalAmount = 0;
+							$.each(sc.items, function(n, v) {
+								totalAmount += v.price * v.quantity;
+							});
+							
+							scPC.find('#cost').text(accounting.formatMoney(totalAmount, "$", 2, ".", ","));
+						}
+						
+						scPC.find('textarea[name="Cart"]').prepend('<b>You&#39;re purchasing this&hellip;</b><br>');						
+						scPC.find('input[name="Total"]').val(accounting.formatMoney(totalAmount, "$", 2, ".", ","));
+					});
+
+					$(document).on('submit', '#shop-cart-payment-container form', function(){
+						/*
+						if($('#shop-cart-payment-container form').valid())
+							$('#shop-cart-payment-container #content').html($('#shop-cart-block-html-methods').html());
+						return false;
+						*/
+					});
+					/*
+					$(document).on('click', '#complete-purchase', function() {
+						$('#shop-cart-payment-container #products h2').text('You\'ve just purchased this. ');
+						
+						checkbox = parseInt($('#shop-cart-payment-container #content input[name="gateway"]:checked').val());
+						
+						if(checkbox === 1){
+							$('#shop-cart-payment-container #content').html($('#shop-cart-block-html-bank').html());
+						} else if(checkbox === 2){
+							$('#shop-cart-payment-container #content').html($('#shop-cart-block-html-check').html());
+						}
+					});
+					*/
+				};
+				shopCart.sendForm = function() {
+					radio = $('input[name="Type"]:checked').val();
+					if(radio === 'Bank to Bank Wire Deposit') 
+						vex.dialog.alert({
+							message: $('#shop-cart-block-html-bank').html(),
+							className: 'vex-theme-default'
+						});
+					if(radio === 'Personal Check')
+						vex.dialog.alert({
+							message: $('#shop-cart-block-html-check').html(),
+							className: 'vex-theme-default'
+						});
+				};
+				shopCart.initTable = function(){
+					scC = $('#shop-cart-container');
+					if(scC.length) {
+						sc = localStorage['shop-cart'];
+						if(sc && (typeof JSON.parse(sc).items != 'undefined')) {
+							sc = JSON.parse(sc);
+							if(sc.items.length) {
+								scC.html('<table><thead><tr><th class="image">&nbsp;</th><th class="item">&nbsp;</th><th class="qty">Quantity</th><th class="price">Price</th><th class="remove">&nbsp;</th></tr></thead><tbody></tbody></table><p style="float:none; text-align:right; clear: both; margin: 10px 0;"><input style="float:none; vertical-align:middle;" type="checkbox" id="agree" /><label style="display:inline; float:none" for="agree"> I agree with the <a href="http://ruby14.com/?page_id=236">terms and conditions</a>.</label></p><div class="buttons clearfix"><input type="submit" id="checkout" class="btn" name="checkout" value="Checkout" /></div>');
+								$.each(sc.items, function(n, v) {
+									scC.find('tbody').append('' + 
+										'<tr>' + 
+											'<td class="image">' + 
+												'<div class="product_image">' + 
+													'<a href="'+v.url+'" style="border: none">' + 
+														'<img height="80" src="'+v.img+'"  alt="'+v.name+'" />' + 
+													'</a>' + 
+												'</div>' + 
+											'</td>' + 
+											'<td class="item">' + 
+												'<a href="'+v.url+'">' + 
+													'<strong>'+v.name+'</strong>' + 
+													'<span class="variant_title">'+v.product+'</span>' + 
+												'</a>' + 
+											'</td>' + 
+											'<td class="qty">' + 
+												'<input type="text" size="4" data-id="'+v._uniq+'" data-price="'+v.price+'" value="'+v.quantity+'" class="tc item-quantity quantity" />' + 
+											'</td>' + 
+											'<td class="price">'+accounting.formatMoney(v.price * v.quantity, "$", 2, ".", ",")+'</td>' + 
+											'<td class="remove"><a href="#" id="remove-item" data-id="'+v._uniq+'" class="cart">Remove</a></td>' + 
+										'</tr>');
+								});
+								totalAmount = 0;
+								$.each(sc.items, function(n, v) {
+									totalAmount += v.price * v.quantity;
+								});
+								
+								scC.find('tbody').append('' + 
+									'<tr class="summary">' + 
+										'<td class="image">&nbsp;</td>' + 
+										'<td>&nbsp;</td>' + 
+										'<td>&nbsp;</td>' + 
+										'<td class="price"><span class="total"><strong>'+accounting.formatMoney(totalAmount, "$", 2, ".", ",")+'</strong></span></td>' + 
+										'<td>&nbsp;</td>' +
+									'</tr>');
+							}
+						} else {
+							scC.text('Shop cart is empty');
+						}
+					}
+				}
+				shopCart.addItem = function(url, name, product, img, price, quantity) {
+					sc = localStorage['shop-cart'];
+					if(sc && (typeof JSON.parse(sc).items != 'undefined')) {
+						sc = JSON.parse(sc);
+					} else {
+						sc = {};
+						sc.items = [];
+					}
+					sc.items.push({
+						url: url,
+						name: name,
+						product: product,
+						img: img,
+						price: accounting.unformat(price),
+						quantity: quantity,
+						_uniq: new Date().valueOf()
+					});
+					localStorage['shop-cart'] = JSON.stringify(sc);
+					shopCart.updateCountItems();
+					
+					
+					vex.dialog.alert({
+						message: 'Successfully added <code>'+name+'</code> item!',
+						className: 'vex-theme-default'
+					});
+					
+					// var n = noty({
+							// layout: 'topRight',
+							// type: 'information',
+							// text: 'Successfully added <code>'+name+'</code> item!',
+						// });
+				};
+				shopCart.updateCountItems = function() {
+					sc = localStorage['shop-cart'];
+					if(sc && (typeof JSON.parse(sc).items != 'undefined')) {
+						sc = JSON.parse(sc);
+						$('#cart-count-items').text(sc.items.length);
+					} else {
+						$('#cart-count-items').text(0);
+					}
+				};
+				shopCart.init();
+			});
+		</script>
+		
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo:300,400,700">
+		
+		<link rel="alternate" type="application/rss+xml" title="Ruby14 &raquo; Лента" href="http://ruby14.com/?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="Ruby14 &raquo; Лента комментариев" href="http://ruby14.com/?feed=comments-rss2" />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://ruby14.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='ruby14-style-css'  href='http://ruby14.com/wp-content/themes/ruby14/style.css?ver=3.9.2' type='text/css' media='all' />
+<link rel='stylesheet' id='core-css'  href='http://ruby14.com/wp-content/plugins/simple-subscribe/assets/styleFrontEnd.css?ver=3.9.2' type='text/css' media='all' />
+<script type='text/javascript' src='http://ruby14.com/wp-includes/js/jquery/jquery.js?ver=1.11.0'></script>
+<script type='text/javascript' src='http://ruby14.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://ruby14.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://ruby14.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='next' title='Your cart' href='http://ruby14.com/?page_id=85' />
+<meta name="generator" content="WordPress 3.9.2" />
+<link rel='canonical' href='http://ruby14.com/' />
+<link rel='shortlink' href='http://ruby14.com/' />
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+	</head>
+	<body>
+		<!-- Begin toolbar -->
+		<div class="toolbar-wrapper">
+			<div class="toolbar clearfix">
+				<div class="span12 clearfix">
+					<ul class="unstyled">
+						<li>
+							<div class="search-field">
+	<form role="search" class="search" method="get" id="searchform" action="http://ruby14.com/" >
+		<input src="http://ruby14.com/wp-content/themes/ruby14/img/icon-search.png" alt="Go" id="go" type="image">
+		<input name="s" id="s" class="search_box" placeholder="Search" value="" type="text">
+	</form>
+</div>
+						</li>
+						<li><span class="icon-cart"></span><a href="http://ruby14.com/?page_id=85" class="cart" title="Shopping Cart">Cart: <span id="cart-count-items">0</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- End toolbar -->
+		<!-- Begin wrapper -->
+		<div id="transparency" class="wrapper">
+			<div class="row">
+				<!-- Begin right navigation -->
+				<div class="row" id="header">
+					<div class="span12 border-bottom">
+						<div class="span3 inner-left">
+							<div class="logo">
+								<h1><a href="http://ruby14.com/" rel="home">Ruby14</a></h1>
+							</div>
+						</div>
+						<section id="nav">
+							<div class="span9 inner-right">
+								<nav class="main"><ul id="menu-%d0%bc%d0%b5%d0%bd%d1%8e-1" class="horizontal fr unstyled clearfix"><li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-16"><a href="http://ruby14.com/">Home</a></li>
+<li id="menu-item-255" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-255 dropdown"><a href="#">Ruby Shop</a>
+<ul class="dropdown">
+	<li id="menu-item-256" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-256"><a href="http://ruby14.com/?cat=15">Body Styles</a></li>
+	<li id="menu-item-209" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-209"><a href="http://ruby14.com/?p=201">Pillow</a></li>
+	<li id="menu-item-304" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-304"><a href="http://ruby14.com/?cat=15">Faces</a></li>
+	<li id="menu-item-309" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-309"><a href="http://ruby14.com/?p=201">Extras</a></li>
+</ul>
+</li>
+<li id="menu-item-257" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-257 dropdown"><a href="#">Videos</a>
+<ul class="dropdown">
+	<li id="menu-item-267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-267"><a href="http://ruby14.com/?page_id=262">SILICONE LOLITA sex doll short</a></li>
+	<li id="menu-item-268" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-268"><a href="http://ruby14.com/?page_id=260">RUBY 14 SEX DOLL Silikonpuppe Midnite</a></li>
+	<li id="menu-item-269" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-269"><a href="http://ruby14.com/?page_id=258">LOVEDOLL INSTRUCTION DVD teaser</a></li>
+</ul>
+</li>
+<li id="menu-item-214" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-214 dropdown"><a href="http://ruby14.com/?page_id=212">All About Ruby</a>
+<ul class="dropdown">
+	<li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="http://ruby14.com/?page_id=222">What You Should Know&#8230;</a></li>
+	<li id="menu-item-247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-247"><a href="http://ruby14.com/?page_id=224">The Girls of R14</a></li>
+	<li id="menu-item-246" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-246"><a href="http://ruby14.com/?page_id=226">F.A.Q.&#8217;s</a></li>
+	<li id="menu-item-245" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-245"><a href="http://ruby14.com/?page_id=228">Makeup Tips</a></li>
+	<li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-244"><a href="http://ruby14.com/?page_id=230">Skin Tones</a></li>
+	<li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="http://ruby14.com/?page_id=234">Shipping</a></li>
+	<li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="http://ruby14.com/?page_id=236">Ruby14 Policy</a></li>
+	<li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="http://ruby14.com/?page_id=238">Contact us</a></li>
+</ul>
+</li>
+<li id="menu-item-300" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-300"><a href="http://ruby14.com/?cat=23">Blog</a></li>
+</ul></nav>								
+								<nav class="mobile clearfix"><div class="mobile-menu"><form><select onchange="if (this.value) window.location.href=this.value"><option value="http://ruby14.com/">Home</option>
+<option value="">Ruby Shop<option value="http://ruby14.com/?cat=15">Body Styles</option>
+<option value="http://ruby14.com/?p=201">Pillow</option>
+<option value="http://ruby14.com/?cat=15">Faces</option>
+<option value="http://ruby14.com/?p=201">Extras</option>
+</option>
+<option value="">Videos<option value="http://ruby14.com/?page_id=262">SILICONE LOLITA sex doll short</option>
+<option value="http://ruby14.com/?page_id=260">RUBY 14 SEX DOLL Silikonpuppe Midnite</option>
+<option value="http://ruby14.com/?page_id=258">LOVEDOLL INSTRUCTION DVD teaser</option>
+</option>
+<option value="http://ruby14.com/?page_id=212">All About Ruby<option value="http://ruby14.com/?page_id=222">What You Should Know...</option>
+<option value="http://ruby14.com/?page_id=224">The Girls of R14</option>
+<option value="http://ruby14.com/?page_id=226">F.A.Q.'s</option>
+<option value="http://ruby14.com/?page_id=228">Makeup Tips</option>
+<option value="http://ruby14.com/?page_id=230">Skin Tones</option>
+<option value="http://ruby14.com/?page_id=234">Shipping</option>
+<option value="http://ruby14.com/?page_id=236">Ruby14 Policy</option>
+<option value="http://ruby14.com/?page_id=238">Contact us</option>
+</option>
+<option value="http://ruby14.com/?cat=23">Blog</option>
+</select></form></div></nav>							</div>
+						</section>
+					</div>
+				</div>
+				<!-- End right navigation -->
+				<!-- Begin below navigation -->
+				<!-- End below navigation -->
+				<!-- Begin content-->
+				<section id="content" class="clearfix">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+			
+				
+<article id="post-23" class="post-23 page type-page status-publish has-post-thumbnail hentry">
+	<div class="span12">
+			</div>
+	<div class="entry-content">
+		<div class="span12">
+<div class="flexslider">
+	<ul class="slides">
+		<li>
+			<img src="http://ruby14.com/wp-content/uploads/2014/08/slideshow_1.jpg" />
+		</li>
+		<li>
+			<img src="http://ruby14.com/wp-content/uploads/2014/08/slideshow_2.jpg" />
+		</li>
+		<li>
+			<img src="http://ruby14.com/wp-content/uploads/2014/08/slideshow_3.jpg" />
+		</li>
+		<li>
+			<img src="http://ruby14.com/wp-content/uploads/2014/08/slideshow_4.jpg" />
+		</li>
+	</ul>
+</div>
+</div>
+<div class="" id="fp-images" style="margin-bottom:25px">
+	<div class="span4">
+		<a href="http://ruby14.com/?cat=15">
+		<img src="http://ruby14.com/wp-content/uploads/2014/08/fp_image_1.jpg" alt="" />
+		</a>
+	</div>
+	<div class="span4">
+		<a href="http://ruby14.com/?cat=15">
+		<img src="http://ruby14.com/wp-content/uploads/2014/08/fp_image_2.jpg" alt="" />
+		</a>
+	</div>
+	<div class="span4">
+		<a href="http://ruby14.com/?p=201">
+		<img src="http://ruby14.com/wp-content/uploads/2014/08/fp_image_3.jpg" alt="" />
+		</a>
+	</div>
+</div>
+<div class="span12 p20">
+	<div class="intro clearfix">
+		<h2>Official Home of the Ruby14 Dolls &#8212; The Best &#171;Sex&#187; Dolls</h2>
+		<div>
+			<p><b>Adults Only Please!</b></p>
+			<p><b>By entering this website you certify that you are over 18 years of age. This website contains some sexual and erotic content. By entering this website you are agreeing that you are an adult and wish to view or purchase sexual or erotic material and that this material is not prohibited in the community in which you live. Please do not show the contents of this website to minors.</b></p>
+		</div>
+	</div>
+</div>			</div><!-- .entry-content -->
+	<footer class="entry-footer span12">
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+				
+			
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+						
+					</div>
+				</section>
+				<!-- End content-->
+			</div>
+		</div>
+		<!-- End wrapper -->
+		<!-- Begin footer -->
+		<div class="footer-wrapper">
+			<footer>
+				<div class="row">
+					<div class="span12 full-border"></div>
+					<!-- Begin latest blog post -->
+					<div class="span4">
+													<aside id="cats-loop-widget-2" class="widget_posts-by-cat widget cats-loop-widget"><div class="widget_posts-by-cat p30"><h4 class="widget-title">The Ruby14 Blog</h4><section class="articles_posts-by-cat">
+		<article class="posts-by-cat_article-297">
+		<h3>
+			<a href="http://ruby14.com/?p=297" title="The Ruby14 Blog">
+				The Ruby14 Blog			</a>
+		</h3>
+
+		<p><p>Welcome to the new Ruby 14 Website and the new Ruby 14 blog. We plan on having guest bloggers come and share the many facets of Sex, Love and Fetishes.</p>
+</p>
+	</article>
+	
+</section>
+</div></aside>											</div>
+					<!-- End latest blog post -->
+					<!-- Begin footer navigation -->
+					<div class="span4 footer-menu">
+													<aside id="nav_menu-3" class="widget widget_nav_menu"><div class="p30"><h4 class="widget-title">Quick Links</h4><div class="menu-%d0%bc%d0%b5%d0%bd%d1%8e-2-container"><ul id="menu-%d0%bc%d0%b5%d0%bd%d1%8e-2" class="menu"><li id="menu-item-270" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-270"><a href="http://ruby14.com/?page_id=236">Ruby14 Policy Page</a></li>
+<li id="menu-item-271" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-271"><a href="http://ruby14.com/?page_id=234">Shipping Information</a></li>
+<li id="menu-item-273" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-273"><a href="http://ruby14.com/?page_id=212">About Us</a></li>
+<li id="menu-item-274" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-274"><a href="http://ruby14.com/?page_id=85">Your cart</a></li>
+</ul></div></div></aside>											</div>
+					<!-- End footer navigation -->
+					<!-- Begin newsletter/social -->
+					<div class="span4">
+													<aside id="simplesubscribe-2" class="widget widget_simplesubscribe"><div class="p30">
+<h4 class="widget-title">Newsletter</h4>
+	<div class="clear clearFix"></div>
+		<div class="widgetGuts">
+		<form action="" method="post" id="frm-subscriptionFrontsimplesubscribe-2">
+
+<dl>
+
+	<dt><label for="frm-email" class="required">Your e-mail address</label></dt>
+
+	<dd><input type="text" name="email" id="frm-email" required data-nette-rules='[{"op":":filled","msg":"E-mail address is requried."},{"op":":email","msg":"Your e-mail address must be valid."}]' value="" class="text"></dd>
+
+
+
+	<dt></dt>
+
+	<dd><input type="submit" name="_submit" class="subscribeButton button" value="Subscribe"></dd>
+
+</dl>
+
+<div><input type="hidden" name="_form_" value="subscriptionFrontsimplesubscribe-2"><!--[if IE]><input type=IEbug disabled style="display:none"><![endif]--></div>
+</form>
+
+		<p style="max-width:180px;font-size: 10px;display:none">By signing up, you agree to our <a href="http://www.readygraph.com/tos">Terms of Service</a> and <a href='http://readygraph.com/privacy/'>Privacy Policy</a>.</p>
+		<div class="clear clearFix"></div>
+	</div>
+	<div class="clear clearFix"></div>
+</div></aside>
+											</div>
+					<!-- End newsletter/social -->
+					<!-- Begin copyright -->
+					<div class="span12 tc copyright">
+						<p>Copyright © 2014 Ruby14</p>
+						<ul class="credit-cards clearfix">
+							<!--<li><img src="http://ruby14.com/wp-content/themes/ruby14/img/icon-cc-visa.gif" alt="Visa"></li>-->
+							<!--<li><img src="http://ruby14.com/wp-content/themes/ruby14/img/icon-cc-mastercard.gif" alt="MasterCard"></li>-->
+							<li><img src="http://ruby14.com/wp-content/uploads/2014/08/w512h5121339248515check512.png" alt="" height="30"></li>
+							<li><img src="http://ruby14.com/wp-content/uploads/2014/08/funding-icon-07.png" alt="" height="30"></li>
+							<li><img src="http://ruby14.com/wp-content/themes/ruby14/img/icon-cc-paypal.gif" alt="PayPal"></li>
+						</ul>
+						<!-- /.credit-cards -->
+					</div>
+					<!-- End copyright -->
+				</div>
+			</footer>
+		</div>
+	<script type='text/javascript' src='http://ruby14.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/ruby14.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"\u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://ruby14.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.9.1'></script>
+<script type='text/javascript' src='http://ruby14.com/wp-content/themes/ruby14/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='http://ruby14.com/wp-content/themes/ruby14/js/skip-link-focus-fix.js?ver=20130115'></script>
+<script type='text/javascript' src='http://ruby14.com/wp-content/plugins/simple-subscribe/assets/netteForms.js?ver=1.0.0'></script>
+	</body>
+</html>";i:2;s:4:"3544";}

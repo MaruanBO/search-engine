@@ -1,0 +1,501 @@
+a:3:{i:0;s:23:"http://creditkarma.com/";i:1;s:50261:"<!doctype html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" ><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UAQEWV9RGwcAVldVBAY="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(5),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(f){"stack"in f&&(t(1),t(4),"addEventListener"in window&&t(2),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(3),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:8,2:5,3:9,4:7,5:21,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(2);t("loader").features.stn=!0,t(1),n.on("fn-start",function(t){var e=t[0];e instanceof Event&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof Event&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:6,2:8,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:21,2:22,ee:"QJf3ax",gos:"7eSDFh"}],6:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState"],"-")},{1:22,2:21,ee:"QJf3ax"}],7:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:22,2:21,ee:"QJf3ax"}],8:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:22,2:21,ee:"QJf3ax"}],9:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),f=s(a),u=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new u(t);try{i.emit("new-xhr",[],e),f.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=u.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:5,2:22,ee:"QJf3ax"}],10:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=e(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=e(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var u=0;c>u;u++)n.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:11,3:9,4:5,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],11:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&f&&f.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=f.createElement("script");e.src=l.proto+t.agent,f.body.appendChild(e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document,u="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},l=e.exports={offset:i(),origin:p,features:{}};f[u]?(f[u]("DOMContentLoaded",o,!1),c[u]("load",n,!1)):(f[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:20,handle:"D5DuLP"}],20:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],21:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],22:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:21,ee:"QJf3ax"}]},{},["G9z0Bl",3,10,4]);</script>
+<meta name="description" content="Instantly receive your free credit score and free credit report online. Free credit tools to track and optimize your credit score. No credit card needed &amp; no hidden fees." >
+<meta name="keywords" content="Free Credit Score, Check Credit Report, Check Credit Reports, Online Credit Report, Free Credit Check, Credit Report, Credit Reports, Credit Score, Credit Scores, Credit History, Credit Manager, Credit Checks, Credit Karma, Credit, Score" >
+<meta name="verify-v1" content="LM4VHzduL0w9RuTtJJ3I9DMyHscEa4Ucoa49DWFFo40=" >
+<meta name="og:title" content="Credit Karma" >
+<meta name="og:type" content="company" >
+<meta name="og:url" content="https://www.creditkarma.com" >
+<meta name="og:image" content="https://creditkarmacdn-a.akamaihd.net/res/img/facebook/oglogo.jpg" >
+<meta name="og:site_name" content="Credit Karma" >
+<meta name="fb:admins" content="1525418, 84000136" >
+<meta name="fb:app_id" content="170840887919" >
+<title>Free Credit Report &amp; Free Credit Score. No Credit Card Required.</title>
+<link href="https://creditkarmacdn-a.akamaihd.net/res/out/base_styles.347255146375.css" media="all" rel="stylesheet" type="text/css" >
+<link href="https://creditkarmacdn-a.akamaihd.net/res/out/default.347255146375.css" media="all" rel="stylesheet" type="text/css" >
+<link href="https://creditkarmacdn-a.akamaihd.net/res/out/default_index.347255146375.css" media="all" rel="stylesheet" type="text/css" >
+<script type="text/javascript">
+    //<!--
+var PROTOCOL                 = window.document.location.protocol + '//',
+    HOSTBASE                 = 'www.creditkarma.com',
+    BASE_URL                 = PROTOCOL + HOSTBASE,
+    MEDIA_URL                = 'https://creditkarmacdn-a.akamaihd.net',
+    TRKCK                    = 'CKTRKID',
+    CSRF_TOKEN               = '4f993f2c58edb3c624a05b72204e443cea85568f6202d0d94e87bebf9c89280d',
+    CSRF_HEADER_STRING       = 'X_CSRF_TOKEN',
+    CKEDITOR_BASEPATH        = 'https://creditkarmacdn-a.akamaihd.net/res/js/lib/ckeditor/',
+    SOCKET_SERVER            = false,
+    SOCKET_ROOM              = false,
+    CK                       = parent.CK || {},
+    USER_CAN_VIEW_REPORT     = false,
+    USER_YI_COUNT            = 0,
+    BCBDATA                  = false,
+    USER_REQUIRES_SCREENNAME = false,
+    OVKWID                   = null,
+    IT_ENABLED               = false,
+    IT_SHOW                  = false;
+CK.sessionIdleTime           = 900000;
+    //-->
+</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://creditkarmacdn-a.akamaihd.net/res/out/everywhere.347255146375.js"></script>
+<script type="text/javascript" src="https://creditkarmacdn-a.akamaihd.net/res/out/default.347255146375.js"></script>
+
+</head>
+<body class="notAuthed default default-index default-index-index" data-onready-hook="default/index/index">
+<div id="fb-root"></div>
+
+<!--[if lte IE 8]>
+<div id="ie8Warning" ck-message="negative" style="height: 50px; padding-left: 52px; line-height: 4;">
+    Internet Explorer 8 and earlier versions are not supported. <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" class="bold" target="_blank">Upgrade your browser</a> for the best experience.
+    <a href="#" onclick="this.parentNode.style.display = 'none'">
+    <img src="https://creditkarmacdn-a.akamaihd.net/res/images/layout_images/ieWarningClose.gif" alt="close" class="fr closeInfo" style="padding-top: 15px; padding-right: 20px;" />
+    </a>
+</div>
+<![endif]-->
+<header ck-topbar id="top-bar" class="default">
+<div>
+            <a ck-logo="left" href="/" id="top-bar-logo" alt="Credit Karma" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;CkLogo&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}">Credit Karma</a>
+
+    
+        
+<nav id="top-bar-nav" role="navigation">
+<ul id="top-main-nav" ck-topnav class="navigation-ul nav ">
+
+
+<li id="nav-shop" class="dropdown l1nav-shop" >
+    <a ck-icon="credit-cards blue transparent" href="/shop/creditcards" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;CCTop&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}">Credit Cards</a>
+    <ul role="menu" class="dropdown-menu">
+        <li><a ck-icon="best-cc transparent blue" href="/shop/creditcards" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;CCBest&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}">Best Credit Cards</a></li>
+        <li><a ck-icon="credit-cards transparent blue" href="/shop/creditcards/searchcc" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;CCSearchAll&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}">Search All Credit Cards</a></li>
+        <hr ck-div />
+        <li><a ck-icon="balance-transfer transparent blue" href="/shop/creditcards/balance_transfer" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;CCBalanceTransfer&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}">Balance Transfer Credit Cards</a></li>
+        <li><a ck-icon="low-interest transparent blue" href="/shop/creditcards/low_interest" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;CCLowInterest&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}">Low Interest Credit Cards</a></li>
+        <li><a ck-icon="cash-back transparent blue" href="/shop/creditcards/cash_back" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;CCCashBack&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}">Cash Back Credit Cards</a></li>
+    </ul>
+</li><li id="nav-loans" class="dropdown l1nav-shop" >
+    <a ck-icon="loans blue transparent" href="/shop/personal-loans"
+       role="button" class="dropdown-toggle ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;shopTop&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" data-toggle="dropdown-hover" data-target="#">Loans</a>
+    <ul role="menu" class="dropdown-menu">
+        <li><a href="/shop/personal-loans"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;shopPersonalLoans&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="personal-loans transparent blue">Personal Loans</a></li>
+        <li><a href="/shop/autos"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;shopAutos&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="auto-loan transparent blue">Auto Loans</a></li>
+        <li><a href="/shop/student-loans"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;shopStudentLoans&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="student-loan transparent blue">Student Loans</a></li>
+        <li><a href="/shop/business-loans"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;shopBusinessLoans&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="business-loan transparent blue">Business Loans</a></li>
+    </ul>
+</li>    <li id="nav-insurance" class="dropdown l1nav-shop" >
+        <a ck-icon="buoy blue transparent" href="/shop/auto-insurance"
+           role="button" class="dropdown-toggle ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;insuranceTop&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" data-toggle="dropdown-hover" data-target="#">Insurance</a>
+        <ul role="menu" class="dropdown-menu">
+            <li><a href="/shop/auto-insurance"
+                   class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;insuranceTopAuto&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="auto-insurance blue transparent">Auto Insurance</a></li>
+        </ul>
+    </li>
+<li id="nav-reviews" class="dropdown l1nav-community" >
+    <a ck-icon="reviews transparent blue" href="/reviews"
+       role="button" class="dropdown-toggle ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;reviewsTop&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" data-toggle="dropdown-hover" data-target="#">Reviews</a>
+    <ul role="menu" class="dropdown-menu">
+        <li><a href="/reviews/credit-card"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;reviewsCC&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="credit-cards transparent blue">Credit Cards</a></li>
+        <li><a href="/reviews/auto-loan"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;reviewsAutoLoan&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="auto-loan transparent blue">Auto Loans</a></li>
+        <li><a href="/reviews/mortgage"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;reviewsMortgage&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="home-loans transparent blue">Home Loans</a></li>
+        <li><a href="/reviews/personal-loan"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;reviewsPersonal&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="personal-loans transparent blue">Personal Loans</a></li>
+        <li><a href="/reviews/auto-insurance"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;reviewsAutoInsurance&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="auto-insurance transparent blue">Auto Insurance</a></li>
+        <li><a href="/reviews/life-insurance"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;reviewsLifeInsurance&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="life-insurance transparent blue">Life Insurance</a></li>
+        <li><a href="/reviews/banking"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;reviewsBanking&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="banking transparent blue">Banking</a></li>
+        <li><a href="/reviews/home-equity"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;reviewsHomeEquity&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="home-equity transparent blue">Home Equity</a></li>
+        <li><a href="/reviews/credit-union"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;reviewsCreditUnion&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="banking transparent blue">Credit Unions</a></li>
+    </ul>
+</li><li id="nav-other-offers" class="dropdown l1nav-shop" >
+
+    <a ck-icon="debt-solutions blue transparent" href="/shop/debt-solution " role="button" class="dropdown-toggle ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;otherOfferTop&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" data-toggle="dropdown-hover"  data-target="#">Debt Solutions</a>
+</li>    <li id="nav-community" class="dropdown l1nav-community" >
+
+        <a href="/all/advice " role="button" class="dropdown-toggle ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;adviceTop&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" data-toggle="dropdown-hover"  data-target="#" ck-icon="people transparent blue">Community</a>
+
+        <ul role="menu" class="dropdown-menu">
+            <li><a href="/all/advice/index/category/Auto+Insurance" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;adviceAutoInsurance&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="auto-insurance transparent blue">Auto Insurance</a></li>
+
+            <li><a href="/all/advice/index/category/Auto+Loans" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;adviceAutoLoan&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="auto-loan transparent blue">Auto Loans</a></li>
+
+            <li><a href="/all/advice/index/category/Banking" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;adviceBanking&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="banking transparent blue">Banking</a></li>
+
+            <li><a href="/all/advice/index/category/Bankruptcy" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;adviceBankruptcy&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="bankruptcy transparent blue">Bankruptcy</a></li>
+
+            <li><a href="/all/advice/index/category/Credit+Cards" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;adviceCC&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="credit-cards transparent blue">Credit Cards</a></li>
+
+            <li><a href="/all/advice/index/category/Credit+Report" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;adviceCreditReport&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="credit-report transparent blue">Credit Report</a></li>
+
+            <li><a href="/all/advice/index/category/Credit+Scores" class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;adviceCreditScores&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="credit-scores transparent blue">Credit Scores</a></li>
+
+        </ul>
+    </li>
+<li id="nav-articles" class="dropdown l1nav-community" >
+<a href="/news" role="button" class="dropdown-toggle ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;TA-articles&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" data-toggle="dropdown-hover"  data-target="#" ck-icon="articles transparent blue">Articles</a>
+</li><li id="nav-tools-advice" class="dropdown l1nav-community" >
+    <a href="/tools"
+       role="button" class="dropdown-toggle ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;TA-Top&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" data-toggle="dropdown-hover" data-target="#" ck-icon="financial-tools transparent blue">Tools</a>
+    <ul role="menu" class="dropdown-menu">
+        <li><a href="/tools"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;TA-tools&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="financial-tools transparent blue">Financial Tools</a></li>
+        <li><a href="/all/advice"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;TA-advice&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="credit-help transparent blue">Credit Advice</a></li>
+        <li><a href="/resources"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;TA-resources&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="resources transparent blue">Financial Resources</a></li>
+        <li><a href="/news"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;TA-articles&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="articles transparent blue">Articles</a></li>
+        <li><a href="http://blog.creditkarma.com/"
+               class="ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;TA-CKBlog&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" ck-icon="ck-blog transparent blue">Credit Karma Blog</a></li>
+    </ul>
+</li>
+<li id="nav-blog" class="dropdown">
+    <a ck-icon="ck-blog transparent blue" href="https://blog.creditkarma.com/" role="button" class="dropdown-toggle ckAnchorEvent" data-ckevent="{&quot;eventcode&quot;:&quot;L1NavClicks&quot;,&quot;eventinformation&quot;:&quot;blogTop&quot;,&quot;ovmtc&quot;:&quot;L1&quot;,&quot;s&quot;:&quot;__ck_bs&quot;}" data-toggle="dropdown-hover"  data-target="#">Blog</a>
+</li>
+
+    <li id="nav-overflow" ck-topnav-overflow class="dropdown">
+        <a ck-icon="blue transparent after arrow-down" role="button" class="dropdown-toggle">More</a>
+        <ul role="menu" class="dropdown-menu">
+        </ul>
+    </li>
+</ul>
+</nav>
+    <nav id="top-bar-account" class="top-navigation">
+        
+    <ul id="loginLink" class="anon">
+         <li><a href="https://www.creditkarma.com/faq/howitworks">How it Works</a></li>
+         <li><a href="https://help.creditkarma.com">Help Center</a></li>
+         <li id="hlogon">
+            <span id="loggedOut">
+                <!-- todo: if mobile then class = "" -->
+                    <a rel="nofollow" href="https://www.creditkarma.com/auth/logon" class=account-link>
+                        <i class="icon-lock"></i>
+                        <span class="screen-name subModalLink">Log In</span>
+                    </a>
+            </span>
+         </li>
+
+        <li>
+            <a href="https://www.creditkarma.com/signup" rel="nofollow">Sign up<span class="narrowHide"> now for free</span>!</a>
+        </li>
+    </ul>
+    </nav></div>
+</header>
+
+
+<main>
+    <!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: HomePage
+URL of the webpage where the tag is expected to be placed: https://www.creditkarma.com
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 06/11/2014
+-->
+<script type="text/javascript">
+    var axel = Math.random() + "";
+    var a = axel * 10000000000000;
+    document.write('<iframe src="https://4449091.fls.doubleclick.net/activityi;src=4449091;type=Landi0;cat=HomeP0;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+    <iframe src="https://4449091.fls.doubleclick.net/activityi;src=4449091;type=Landi0;cat=HomeP0;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+<div class="anon-container">
+
+    <div class="headerContainer">
+                        <div class="header-container-inner">
+            <div id="mainImage" class="fl"></div>
+            <div id="ckFeatures" class="fl">
+                <h1 ck-header="page" class="anon-title">
+                    Your Credit Score Should<br />
+                    Be Free&ndash;and Now It Is.
+                </h1>
+
+                <ul ck-list="dotted">
+                    <li>Get Your Absolutely Free Credit Score</li>
+                    <li>Stay on Top of All of Your Accounts in One Place</li>
+                    <li>No Trials. No Credit Cards. Truly Free</li>
+                </ul>
+
+                <a href="https://www.creditkarma.com/signup"  ck-button="orange">
+                    Get Started Now
+                </a>
+
+                <div class="checking-text">
+                    Checking your own score does not <br />
+                    hurt your credit.
+                    <a href="https://www.creditkarma.com/faq/howitworks">Learn More</a>
+                </div>
+            </div>
+            <small class="simulated-footer">Screen images simulated.</small>
+
+            <div cf></div>
+        </div>
+
+    </div>
+
+    <div id="ckIntro">
+        <p id="ckIntroP">Credit Karma gives you access to all of your financial information — bank accounts, credit cards, bills, mortgages, loans, and, of course, your credit scores — all in one location, all under one account, <span class="hight-light">all for FREE</span>.</p>
+    </div>
+
+    <div cf></div>
+    <div class="about-ck-container">
+        <div id="aboutCK">
+            <div id="aboutCKHdr">
+                <span id="mediaStrip">
+                    <strong id="msnbc"><span>MSNBC</span></strong>
+                    <strong id="smartmoney"><span>SmartMoney</span></strong>
+                    <strong id="wsj"><span>The Wall Street Journal</span></strong>
+                    <strong id="usatoday"><span>USA Today</span></strong>
+                    <strong id="techCrunch"><span>TechCrunch</span></strong>
+                                    </span>
+                <span id="moreNews" class="fr">
+                    <a href="https://www.creditkarma.com/about/press">More News</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="ck-bucket-holder-container">
+        <div id="ck-bucket-holder">
+            <div class="ckBucket  ckBucketFirst">
+                <h2 ck-header="sub">Truly Free Credit Scores</h2>
+                <span id="tfcs"></span>
+                <p>Get your 100% free credit score instantly, securely and safely. Always free. No credit card required.</p>
+            </div>
+            <div class="ckBucket">
+                <h2 ck-header="sub">Free Credit Monitoring</h2>
+                <span id="fcm"></span>
+                <p>Receive daily notifications of important changes to your credit report. Credit monitoring can help protect your credit.</p>
+            </div>
+            <div class="ckBucket">
+                <h2 ck-header="sub">Free Credit Reports</h2>
+                <span id="am"></span>
+                <p>Access your full credit report anytime. See complete details, print a copy for your records and update every week.</p>
+            </div>
+            <div class="ckBucket ckBucketLast">
+                <h2 ck-header="sub">Reviews &amp; Advice</h2>
+                <span id="rna"></span>
+                <p>Get credit-smart with reviews and advice from more than 20 million Credit Karma members.</p>
+            </div>
+        </div>
+    <div class="ck-bucket-simulated-text"><small class="simulated-footer">Screen images simulated.</small></div>
+    </div>
+    <div class="blue-bar">
+        <h2 ck-header="sub">Credit Karma Gives You The Tools You Need For Better Credit Health</h2>
+    </div>
+
+    <div id="tools-row-container">
+        <div class="toolsRow">
+            <div class="toolsImage">
+                <span id="getScoreImg"></span>
+            </div>
+
+            <div class="tools-desc">
+                <h3 ck-header="small">Get Your Free Credit Score</h3>
+                <p>Credit Karma believes that every consumer has a right to access their free credit scores. You'll get four credit scores along with free credit tools to help you better understand what a good credit score is. Even better, you'll receive your free credit score without a credit card.</p>
+            </div>
+            <div cf></div>
+        </div>
+        <div class="toolsRow">
+            <div class="toolsImage">
+                <span id="crcImg"></span>
+            </div>
+
+            <div class="tools-desc">
+                <h3 ck-header="small">Dig Into Your Credit Factors</h3>
+                <p>
+                    Review an easy-to-understand summary of your credit report details.
+                    See how you compare on six key factors that commonly impact your credit health.
+                </p>
+            </div>
+            <div cf></div>
+        </div>
+        <div class="toolsRow">
+            <div class="toolsImage">
+                <span id="monitoringImg"></span>
+            </div>
+
+            <div class="tools-desc">
+                <h3 ck-header="small">Enroll in Free Credit Monitoring</h3>
+                <p>Credit monitoring can help prevent identity theft and inaccurate information from appearing on your credit report. You'll receive an email when something important changes in your credit report. Monitor your credit report daily for free with Credit Karma.</p>
+            </div>
+            <div cf></div>
+        </div>
+        <div class="toolsRow">
+            <div class="toolsImage">
+                <span id="reportInsightImg"></span>
+            </div>
+
+            <div class="tools-desc">
+                <h3 ck-header="small">Gain Insight into Your Credit Report</h3>
+                <p>See your full TransUnion credit report whenever you want. With Credit Karma, you can view the details of your credit cards, mortgages, auto loans and personal loans. Updating your report once a week can help you spot fraudulent accounts, maintain records and understand what steps you can take next.</p>
+            </div>
+            <div cf></div>
+        </div>
+        <div class="toolsRow">
+            <div class="toolsImage">
+                <span id="savingsImg"></span>
+            </div>
+
+            <div class="tools-desc">
+                <h3 ck-header="small">Receive Savings Recommendations Based on Your Credit Score</h3>
+                <p>Get specialized recommendations for products that fit your credit profile. If you have good credit, we'll give you suggestions for <a href="https://www.creditkarma.com/shop/creditcards/good-credit">credit cards for good credit</a> before you <a href="https://www.creditkarma.com/shop/creditcards">apply for a credit card</a>. If you have poor credit, we'll help you figure out <a href="https://www.creditkarma.com/faq/how-to-improve-your-credit-health">how to improve your credit</a>. We'll also suggest <a href="https://www.creditkarma.com/shop/creditcards/balance_transfer">balance transfer credit cards</a> to help you pay back your credit card debt. You'll receive the <a href="https://www.creditkarma.com/shop/creditcards">best credit card</a> and loan recommendations for your specific credit rating.</p>
+            </div>
+            <div cf></div>
+        </div>
+        <div class="toolsRow">
+            <div class="toolsImage">
+                <span id="simulatorImg"></span>
+            </div>
+
+            <div class="tools-desc">
+                <h3 ck-header="small">Simulate Your New Credit Score</h3>
+                <p>Credit Karma also offers the <a href="https://www.creditkarma.com/myfinances/simulator">Credit Score Simulator</a>, which shows you how certain financial actions might affect your credit score over time. See how a bankruptcy, late payment, tax lien and more could affect your credit score.</p>
+            </div>
+            <div cf></div>
+        </div>
+        <div class="toolsRow">
+            <div class="toolsImage">
+                <span id="reviewsImg"></span>
+            </div>
+
+            <div class="tools-desc tools-desc-last">
+                <h3 ck-header="small">Read Consumer Financial Reviews</h3>
+                <p>Want to apply for a credit card? Before you make your decision, read <a href="https://www.creditkarma.com/reviews/credit-card">credit card reviews</a> to see which cards are recommended by other consumers. See <a href="https://www.creditkarma.com/reviews/mortgage">mortgage reviews</a>, <a href="https://www.creditkarma.com/reviews/auto-loan">auto loan reviews</a>, <a href="https://www.creditkarma.com/reviews/auto-insurance">auto insurance reviews</a>, <a href="https://www.creditkarma.com/reviews/banking">banking reviews</a>, <a href="https://www.creditkarma.com/reviews/home-equity">home equity reviews</a>, <a href="https://www.creditkarma.com/reviews/credit-union">credit union reviews</a> and <a href="https://www.creditkarma.com/reviews/life-insurance">life insurance reviews</a>. You can also write a review to help others make financial decisions.</p>
+            </div>
+            <div cf></div>
+        </div>
+    </div>
+
+    <div class="blue-bar">
+        <h2 ck-header="sub">Credit Karma&trade; Believes All Consumers Should Have Access to Free Credit Scores</h2>
+    </div>
+
+
+    <div id="ckStatement">
+        <div id="ckStatementContent">
+            <span class="ck-statement"></span>
+            <div id="ckStatementCTA">
+                <a href="https://www.creditkarma.com/signup" ck-button="orange">
+                    Get Started Now
+                </a>
+                <p>Checking your own score does not <br />hurt your credit. <a href="https://help.creditkarma.com/hc/en-us/articles/202333694-Will-using-Credit-Karma-lower-my-credit-score-">Learn More</a></p>
+            </div>
+
+            <div class="credit-score-explain">A credit score is one of the most important components of a consumer's financial profile. At Credit Karma&trade;, we believe free access to one's credit score and report is a fundamental consumer right. That is why our site allows consumers to access their credit score anytime they want for free without the sneaky "free" trials or subscription requirements. In addition to free credit scores, Credit Karma&trade; has a wealth of tools and content to help consumers better understand how credit scores and credit reports work.<br /><br />
+
+                Credit Karma&trade; is a completely free pro-consumer service dedicated to demystifying the credit landscape. With our credit simulators, free credit scores, credit advice, and credit score comparisons, our goal is to empower consumers to more actively manage their credit and their financial health.</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</main>
+<footer ck-footer id="main-footer" role="contentinfo">
+
+    <ul>
+        <h4 ck-header="copy">Connect &amp; Share</h4>
+        <li><a href="http://www.facebook.com/CreditKarma" target="_blank" rel="nofollow" ck-icon="small-facebook">Become a fan on <span>Facebook</span></a></li>
+        <li><a href="http://www.twitter.com/CreditKarma" target="_blank" rel="nofollow" ck-icon="small-twitter">Follow us on Twitter <span>@CreditKarma</span></a></li>
+        <li><a href="http://blog.creditkarma.com/feed" target="_blank" rel="nofollow" ck-icon="small-blog">Subscribe to our <span>Blog</span></a></li>
+                <li><a href="http://itunes.apple.com/us/app/credit-karma-mobile-free-credit/id519817714?ls=1&mt=8" target="_blank" rel="nofollow" ck-icon="small-ios">Get the <span>Free App for iPhone&reg;</span></a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=com.creditkarma.mobile" target="_blank" rel="nofollow" ck-icon="small-android">Get the <span>Free App for Android&trade;</span></a></li>
+            </ul>
+    <ul>
+        <h4 ck-header="copy">Company Info</h4>
+        <li><a href="/about" rel="nofollow">About Credit Karma</a></li>
+        <li><a href="https://help.creditkarma.com">Help Center</a></li>
+        <li><a href="/about/press" rel="nofollow">In The News</a></li>
+        <li><a href="/about/security" rel="nofollow">Our Security Practices</a></li>
+        <li><a href="/careers" rel="nofollow">Careers</a></li>
+        <li><a href="/about/terms" rel="nofollow">Terms of Use</a></li>
+        <li><a href="/about/privacy" rel="nofollow">Privacy Policy</a></li>
+        <li><a href="http://affiliate.creditkarma.com">Affiliate Network</a></li>
+    </ul>
+    <ul>
+        <h4 ck-header="copy">Best Offers</h4>
+        <li><a href="/shop/creditcards">Best Credit Cards</a></li>
+        <li><a href="/shop/creditcards/capital_one">Capital One Credit Cards</a></li>
+        <li><a href="/shop/creditcards/chase">Chase Credit Card Offers</a></li>
+        <li><a href="/shop/creditcards/barclays">Barclaycard Credit Card Offers</a></li>
+        <li><a href="/creditcard/chaseFRE">Chase Freedom</a></li>
+        <li><a href="/shop/personal-loans">Personal Loans</a></li>
+    </ul>
+    <ul>
+        <h4 ck-header="copy">Credit Resources</h4>
+        <li><a href="http://blog.creditkarma.com">Credit Karma Blog</a></li>
+        <li><a href="/resources">Financial Resources</a></li>
+        <li><a href="/myfinances/simulator/index/ref/tools">Credit Score Simulator</a></li>
+        <li><a href="/calculators/amortization">Mortgage Calculator</a></li>
+        <li><a href="/calculators/debtrepayment">Debt Repayment Calculator</a></li>
+        <li><a href="/reviews/credit-card">Credit Card Reviews</a></li>
+        <li><a href="/all/advice">Credit Advice</a></li>
+    </ul>
+    <ul>
+        <h4 ck-header="copy">More Info</h4>
+        <li><a href="/faq/what-is-a-good-credit-score">What is a Good Credit Score?</a></li>
+        <li><a href="/faq/how-to-improve-your-credit-health">How to Improve Your Credit Health</a></li>
+        <li><a href="/credit-monitoring">Free Credit Monitoring</a></li>
+        <li><a href="/free-credit-report">Free Credit Report</a></li>
+        <li><a href="/auto-insurance-score">Auto Insurance Score</a></li>
+    </ul>
+
+    <div id="footer-certified" class="certified-float-left">
+
+    <div id="d33c9a59-5cf9-4c4c-892c-18930ef0defa" class="certified-block">
+        <script type="text/javascript" src="//privacy-policy.truste.com/privacy-seal/Credit-Karma/asc?rid=d33c9a59-5cf9-4c4c-892c-18930ef0defa"></script>
+        <a href="//privacy.truste.com/privacy-seal/Credit-Karma/validation?rid=397b697b-5c32-4826-828c-0b36aee9fb6c" title="TRUSTe online privacy certification" target="_blank">
+            <img src="//privacy-policy.truste.com/privacy-seal/Credit-Karma/seal?rid=397b697b-5c32-4826-828c-0b36aee9fb6c" alt="TRUSTe online privacy certification"/>
+        </a>
+    </div>
+
+    <!-- Begin DigiCert site seal HTML and JavaScript -->
+    <div id="DigiCertClickID_0EscSmSQ" class="digicert certified-block" data-language="en_US"></div>
+    <script type="text/javascript">
+        var __dcid = __dcid || [];__dcid.push(["DigiCertClickID_0EscSmSQ", "10", "s", "black", "0EscSmSQ"]);(function(){var cid=document.createElement("script");cid.async=true;cid.src="//seal.digicert.com/seals/cascade/seal.min.js";var s = document.getElementsByTagName("script");var ls = s[(s.length - 1)];ls.parentNode.insertBefore(cid, ls.nextSibling);}());
+    </script>
+    <!-- End DigiCert site seal HTML and JavaScript -->
+
+</div>
+
+    <div clear id="footer-copyright">
+        <p ck-text="light tiny">Copyright&copy; 2007&ndash;2015 Credit Karma&trade;, Inc. Credit Karma is a registered trademark of Credit Karma, Inc. All Rights Reserved. Product name, logo, brands, and other trademarks featured or referred to within Credit Karma are the property of their respective trademark holders. This site may be compensated through third party advertisers.</p>
+        <p ck-text="light tiny">iPhone is a trademark of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
+        <p ck-text="light tiny">Android is a trademark of Google Inc.</p>
+        <p ck-text="light tiny">The Equifax logo is a registered trademark owned by Equifax in the United States and other countries.</p>
+    </div>
+</footer>
+
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-3256920-1']);
+    _gaq.push(['_setCustomVar', 4, 'Desktop Yodlee User', 'false', 1]);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-2.newrelic.com","licenseKey":"248e088a40","applicationID":"4026737","transactionName":"NVFVYhFSWUsDAUEKDgwbdEMQR1hVTQZQBQAXWEMZCl1TXRpNXA0FB0w=","queueTime":0,"applicationTime":144,"ttGuid":"","agentToken":"","userAttributes":"","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-515.min.js"}</script></body>
+</html>
+";i:2;s:3:"465";}

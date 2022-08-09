@@ -1,0 +1,1173 @@
+a:3:{i:0;s:25:"http://paperbackswap.com/";i:1;s:85608:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+		<title>Trade Used Books with PaperBack Swap (the world's largest Book Club)</title>
+	<meta name="engine" content="90" /><meta name="v" content="gt_9212" /><meta http-equiv="X-UA-Compatible" content="IE=9;IE=8;IE=7;IE=EDGE;FF=3;OtherUA=4">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="description" content="Trade in your books via the largest online book swapping community in the world. Then choose from over 5 million available hardbacks, audiobooks, textbooks, romance novels and more. List your books today!" /><meta name="keywords" content="free books, FREE, TRADE, trade books, exchange, swap, swapping, swaps, used, bookswap, book clubs, audiobooks, paperbacks, hardbacks, how to books, homeschool, romance, audio, textbooks, free shipping" />
+	<link href="http://a.pbsstatic.com/css/global-866.css" rel="stylesheet" type="text/css" />
+<link href="http://a.pbsstatic.com/plugins/opensearch.xml" rel="search" type="application/opensearchdescription+xml" title="PaperBackSwap" />
+<script type="text/javascript">var page_loaded=false;var subdomain='www';var secure_subdomain='secure';var user_logged_in=false;var statistic_id='bENCYXJrellVMmt5ZkZhM2JjSjZvZz09';var server='eDVlb2szOTNDR2R2STliN05hMDRpdz09';var live_chat_total_members=0;</script>
+	<script type="text/javascript" src="http://a.pbsstatic.com/includes/global-200.js"></script>
+<script type="text/javascript" src="http://a.pbsstatic.com/includes/qm-4.js"></script>
+<script type="text/javascript">
+	var phpsessid = '164st0s8t0t4dekou73g0rher5';
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-3362379-1']);
+	_gaq.push(['_setCampNameKey','c']);
+	_gaq.push(['_setCampMediumKey','m']);
+	_gaq.push(['_setCampSourceKey','_ads']);
+	_gaq.push(['_setCampTermKey','k']);
+	_gaq.push(['_setCampContentKey','v']);
+	_gaq.push(['_setDomainName','paperbackswap.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+	
+	(function() {
+    	var ga = document.createElement('script');
+    	ga.type = 'text/javascript';
+    	ga.async = true;
+    	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    	var s = document.getElementsByTagName('script')[0];
+    	s.parentNode.insertBefore(ga, s);
+  	})();
+</script>
+
+	<meta name="robots" content="NOODP"/> 	<link rel="canonical" href="http://www.paperbackswap.com/index.php" /> 	<script type="text/javascript" src="http://yui.yahooapis.com/2.9.0/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://a.pbsstatic.com/css/carousel_yui_2.7-10.css" />
+	<script type="text/javascript">
+		/*$(document).ready(function () {
+			auto_login = "true";
+		});*/
+		function update_text_on_selection(id, text)
+		{
+			var h = document.getElementById("books_posted_strip_h2");
+			if (h && typeof(h)!='undefined')
+			{
+				h.innerHTML = text;
+			}
+
+			var t = document.getElementById(id);
+			if (t && typeof(t)!='undefined')
+			{
+				t.style.fontWeight="bold";
+				t.style.fontSize="100%";
+			}
+		}
+	</script>
+	<style>
+		.right{
+			position: absolute;
+			width: 200px;
+			right: .5em;
+			top: .5em;
+		}
+
+		.left{
+			float: left;
+			width: 100%;
+			clear: left;
+		}
+
+		.container{
+			overflow: auto;
+			position: relative;
+			padding: 0;
+		}
+	</style>
+</head>
+<body >
+			<div id="fb-root"></div>
+		<script type="text/javascript">
+			var fb_button;
+
+			window.fbAsyncInit = function() { FB.init({ appId: 464725376882909,
+		        	version    : 'v2.2',
+		            status: true,
+		            cookie: true,
+		            xfbml: true,
+		            oauth: true,
+		            channelUrl: 'http://www.paperbackswap.com/channel.php'});
+
+
+		        function updateButton(response) {
+					//alert('updateButton');
+					showLoader(true);
+		            fb_button    =   document.getElementById('fb-auth');
+
+		            if (response.authResponse) {
+						//alert('connected');
+		                //user is already logged in and connected
+		                FB.api('/me', function(info) {
+							email = info.email;
+							fb_id = info.id;
+
+							$.ajax({
+								url: '/scripts/login_fb_user.php',
+								cache: false,
+								type: 'GET',
+								data: { 'email' : email, 'fb_id' : fb_id },
+								dataType: 'json',
+								success: function(data) {
+									//alert('success');
+									if (data.success=='true')
+									{
+										//alert('success==true');
+										if ((typeof(data.redirect) != 'undefined'))
+										{
+											//alert('redirect:true');
+											showLoader(false);
+											window.location = decodeURI(data.redirect);
+										}
+									}
+								},
+								error: function( error )
+								{
+									//alert ('An error occurred during the Facebook log in process. Please reload the page and try again.');
+								}
+							});
+							//alert('login(response, info)-inside');
+		                    login(response, info);
+		                });
+
+		                fb_button.onclick = function() {
+		                    FB.logout(function(response) {
+								//alert('FB.logout');
+		                        logout(response);
+		                    });
+		                };
+		            } else {
+		                //user is not connected to PBS Login app or logged out
+						//alert('connected-else');
+		                fb_button.onclick = function() {
+		                    showLoader(true);
+		                    FB.login(function(response) {
+								//alert('FB.login');
+		                        if (response.authResponse) {
+		                            FB.api('/me', function(info) {
+		                                login(response, info);
+		                            });
+		                        } else {
+		                            //user cancelled login or did not grant authorization
+									//alert('FB.login-else');
+		                            showLoader(false);
+		                        }
+		                    }, {scope:'email'});
+		                }
+		            }
+		        }
+
+		        FB.Event.subscribe('auth.statusChange', updateButton);
+		    };
+
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+
+            function login(response, info){
+				//alert('login(response, info)-outside');
+	            fb_button    =   document.getElementById('fb-auth');
+                if (response.authResponse) {
+    				//alert('login(response, info)-outside-if-true');
+                    var accessToken = response.authResponse.accessToken;
+    				//showLoader(false);
+
+	                FB.api('/me', function(info) {
+						email = info.email;
+						fb_id = info.id;
+
+						$.ajax({
+							url: '/scripts/login_fb_user.php',
+							cache: false,
+							type: 'GET',
+							data: { 'email' : email, 'fb_id' : fb_id },
+							dataType: 'json',
+							success: function(data) {
+								//alert('success');
+								//if (data.success=='true')
+								//{
+									//alert('success==true');
+									if ((typeof(data.redirect) != 'undefined'))
+									{
+										//alert('redirect:true');
+										window.location = decodeURI(data.redirect);
+										showLoader(false);
+									}
+								//}
+								//else
+								//{
+
+								//};
+							},
+							error: function( error )
+							{
+								//alert ('An error occurred during the Facebook log in process. Please reload the page and try again.');
+							}
+						});
+						//alert('login(response, info)-inside');
+	                    //login(response, info);
+	                });
+
+                } else {
+    				//alert('login(response, info)-outside-else');
+					uri = 'https://secure.paperbackswap.com/register/fb_index.php';
+					window.location=uri;
+                }
+            }
+
+            function logout(response){
+				//alert('logout(response)-outside');
+                showLoader(false);
+            }
+
+            function showLoader(status){
+                if (status)
+                    document.getElementById('loader').style.display = 'block';
+                else
+                    document.getElementById('loader').style.display = 'none';
+            }
+			</script>
+	<div id="page_container">
+				<div id="page_header">
+	
+	<a name="top"></a>
+<div id="header_logo">
+	<div id="header_left" onclick="self.location.href='/index.php'"></div>
+	<div id="header_right" align="right">
+		<div id="header_site_links">
+							<div id="cd_link" onclick="window.open('http://www.swapacd.com/index.php?f=books')"   ></div><div id="dvd_link" onclick="window.open('http://www.swapadvd.com/index.php?f=books')"   ></div>
+					</div>
+		<div id="header_top_links">
+			
+			<a href="/misc/whats_new.php">What's New</a> - 			<a href="/index.php">Home</a> -
+										<a rel="nofollow" href="https://secure.paperbackswap.com/members/login.php">Login</a>
+					</div>
+		<div id="header_stats" style="cursor:pointer;" onclick="self.location.href='/pulse/index.php';" title="The Pulse of PBS">
+			<div id="header_stats_left_of_left">
+				<div id="header_stats_main">
+						<span id="header_stats_right"></span>
+												<div id="header_stats_text">
+							 Member <span style="color:green;">$</span>avings: <span style="color:green;">$</span><span id="total_money_saved" style="color:green;">39,012,571.39</span>
+							 |
+							 Books Available: <span id="site_wide_total_books">4,201,622</span>
+							 |
+							 Members Online: 1,334						</div>
+						<script type="text/javascript">
+
+							var hide_header_stats = function() { document.getElementById("header_stats_main").style.visibility = "hidden"; }
+							
+							function update_site_book_total()
+							{
+								current = document.getElementById('site_wide_total_books').innerHTML;
+								var idx = current.indexOf(',');
+
+						        while (idx > -1)
+						        {
+						            current = current.replace(',', '');
+						            idx = current.indexOf(',');
+						        }
+
+						        current = parseInt(current) + 1;
+				                current += '';
+
+				                var rgx = /(\d+)(\d{3})/;
+				                while (rgx.test(current))
+				                {
+				                        current = current.replace(rgx, '$1' + ',' + '$2');
+				                }
+
+				                document.getElementById('site_wide_total_books').innerHTML = current;
+
+				                if (document.getElementById('site_wide_total_books_HP'))
+				                {
+				                	document.getElementById('site_wide_total_books_HP').innerHTML = current;
+				                }
+
+				                setTimeout("update_site_book_total();", 20000);
+							}
+
+							function update_member_savings()
+							{
+								savings = document.getElementById('total_money_saved').innerHTML;
+								var hdx = savings.indexOf(',');
+
+						        while (hdx > -1)
+						        {
+						            savings = savings.replace(',', '');
+						            hdx = savings.indexOf(',');
+						        }
+
+				                savings = format_currency(parseFloat(savings) + 1);
+				                savings += '';
+
+				                var rgx = /(\d+)(\d{3})/;
+				                while (rgx.test(savings))
+				                {
+				                	savings = savings.replace(rgx, '$1' + ',' + '$2');
+				                }
+
+				                document.getElementById('total_money_saved').innerHTML = savings;
+
+				                if (document.getElementById('total_money_saved_HP'))
+				                {
+				                	document.getElementById('total_money_saved_HP').innerHTML = savings;
+				                }
+
+								setTimeout("update_member_savings();", 5000);
+							}
+
+							update_site_book_total();
+							update_member_savings();
+						</script>
+				</div>
+			</div>
+		</div>
+		<div id="header_bar">
+			<div id="header_bar_text" >
+				Swap Used Books - Buy New Books at Great Prices!			</div>
+			<div id="header_bar_search">
+				<form name="header_bar_search_frm" id="header_bar_search_frm" method="get" action="/book/browser.php" onsubmit="return submit_header_search();">
+					<div>
+													<input type="text" size="40" value="Title, Author, ISBN or Keyword..." style="color:#CCC;" onfocus="setup_header_search();" onblur="restore_search_box(this.id);" id="header_bar_search_field" name="k" autocomplete="off" />
+												<input type="submit" value="Search" class="button" />
+					</div>
+				</form>
+			</div>
+		</div>
+
+		
+		<div id="header_navigation_row">
+			<div id="header_navigation_l">
+				<div style="position:relative;z-index:9999999;"><div id="qmcrumbs" class="qm-crumbs-container"></div></div>
+				<div id="qm0" class="qmmc">
+											<a href="/help/how_to_swap_books.php">How To Swap Books</a>
+													<a href="https://secure.paperbackswap.com/register/fb_index.php">Sign Up</a>
+																<a href="/book/search.php">Search <img src="http://a.pbsstatic.com/images/header/submenu_indicator.png" align="absmiddle" border="0" /></a>
+					<div>
+						<a href="/book/search.php">All Books</a>
+						<a href="/market/index.php" class="sub_menu_sub">PBS Market (New Books) &nbsp; </a>
+						<div>
+							<a href="/market/book_buyers_guide/index.php">Gift Buying Guide</a>
+						</div>
+						<a href="/book/browser.php">Book Browser</a>
+						<a href="/book/advanced_search.php">Advanced Search</a>
+						<a href="/book/posted_today.php">Books Posted Today</a>
+						<a href="/reviews/index.php">Member Book Reviews</a>
+						<a href="/book/awards.php">Award Winning Books</a>
+						<a href="/book/popular_list.php">NYT Best Sellers</a>
+						<a href="/book/most_traveled.php">Most Traveled Copies</a>
+						<a href="/book/wish_list.php">Club Wish List</a>
+											</div>
+											<a rel="nofollow" href="https://secure.paperbackswap.com/members/login.php">Login</a>
+										<a href="/community/index.php">Community <img src="http://a.pbsstatic.com/images/header/submenu_indicator.png" align="absmiddle" border="0" /></a>
+					<div>
+												<a href="/forum/index.php">Discussion Forums</a>
+						<a href="/lists/index.php" class="sub_menu_sub">Book Lists</a>
+						<div>
+							<a href="/lists/club_lists.php">Club Lists</a>
+							<a href="/lists/my_book_lists.php" rel="nofollow">My Book Lists</a>
+							<a href="/lists/watch_lists.php" rel="nofollow">My Watched Lists</a>
+							<a href="/lists/create.php" rel="nofollow">Create a List</a>
+													</div>
+						<a href="http://blog.paperbackswap.com">Blog</a>
+						<a href="/donations/index.php" class="sub_menu_sub">Donations</a>
+						<div>
+							<a href="/donations/schools.php">School Donation Program</a>
+							<a href="/donations/in_memory.php">In Memory of...</a>
+							<a href="/donations/military.php">Military Donation Program</a>
+							<a href="/misc/friends_of_pbs/friends_of_pbs.php">Friends of PBS</a>
+						</div>
+													<a href="/chat/index.php" rel="nofollow">Live Chat</a>
+												<a href="/box_o_books/index.php">Box-O-Books</a>
+												<a href="/about/maps.php">Maps</a>
+						<a href="/the_eclectic_pen/index.php">The Eclectic Pen</a>
+						<a href="/fun_stuff/index.php" class="sub_menu_sub" rel="nofollow">Fun Stuff</a>
+						<div>
+							<a href="/fun_stuff/20_questions/index.php" rel="nofollow">20 Questions</a>
+							<a href="/fun_stuff/sudoku/index.php" rel="nofollow">Sudoku</a>
+						</div>
+						<a href="/top/wishes.php" class="sub_menu_sub">Top 100</a>
+						<div>
+							<a href="/top/wishes.php">Wishes</a>
+							<a href="/top/requests.php">Requests</a>
+							<a href="/top/posts.php">Posts</a>
+							<a href="/top/swappers.php">Swappers</a>
+							<a href="/top/referrers.php">Referrers</a>
+						</div>
+						<a href="/pulse/index.php">Pulse of PBS</a>
+						<a href="/spread_the_word.php" class="sub_menu_sub">Spread The Word</a>
+						<div>
+							<a href="/tell_a_friend/index.php" rel="nofollow">Tell A Friend</a>
+							<a href="/bookmarks/index.php" rel="nofollow">Bookmarks</a>
+							<a href="http://www.facebook.com/PaperBackSwap?sk=app_4949752878" target="_blank" rel="nofollow">Facebook Page</a>
+							<a href="http://www.facebook.com/apps/application.php?id=4785494317" target="_blank" rel="nofollow">Facebook App</a>
+							<a href="/spread_the_word.php">More</a>
+						</div>
+						<a href="/photos/index.php" rel="nofollow">Photo Gallery</a>
+						<a href="/recipes/index.php">Recipes</a>
+						<a href="/tags/cloud.php">Club Tag Cloud</a>
+						<a href="/testimonials/index.php">Member Testimonials</a>
+					</div>
+					<a href="/help/index.php">Help Center <img src="http://a.pbsstatic.com/images/header/submenu_indicator.png" align="absmiddle" border="0" /></a>
+					<div>
+						<a href="/help/how_to_swap_books.php">How To Swap Books?</a>
+						<a href="/help/help_index.php">Browse Help Docs</a>
+						<a href="/help/help_index.php?atl=t" rel="nofollow">Ask the Librarian</a>
+						<a href="/help/icon_index.php" rel="nofollow">PBS Member Icons</a>
+						<a href="/help/live_help.php" rel="nofollow">Live Help</a>
+					</div>
+					<a href="https://secure.paperbackswap.com/kiosk/index.php" style="border:none;padding-right:0px">Kiosk <img src="http://a.pbsstatic.com/images/header/submenu_indicator.png" align="absmiddle" border="0" /></a>
+					<div>
+						<a href="/market/index.php">PBS Market (New Books)</a>
+						<a href="https://secure.paperbackswap.com/kiosk/index.php">Go Shopping</a>
+						<a href="https://secure.paperbackswap.com/kiosk/details.php?id=3">Buy Credits</a>
+						<a href="https://secure.paperbackswap.com/kiosk/details.php?id=6">Buy PBS Money</a>
+						<a href="https://secure.paperbackswap.com/kiosk/primo_pricing.php">Upgrade Membership</a>
+						<a href="/gift_certificates/">Gift Certificates</a>
+						<a href="https://secure.paperbackswap.com/members/transfer_credits/index.php">Transfer Credits</a>
+					</div>
+					<span id="menu_r"></span>
+					<span class="qmclear">&nbsp;</span></div>
+					<script type="text/javascript">qm_create(0,false,100,500,false)</script>
+
+				</div>
+
+			<div id="icon_container" style="right:108px;width:150px;">
+
+				
+									<div id="fb_icon">
+						<a href="http://www.facebook.com/PaperBackSwap?sk=app_4949752878" title="header=[] body=[Find us on FaceBook.]" target="_blank" rel="nofollow">
+							<div class="fb_share s_img" alt="Find our Book Club on Facebook"></div>
+						</a>
+					</div>
+				
+									<div id="tw_icon">
+						<a href="http://twitter.com/paperbackswap" title="header=[] body=[Follow us on Twitter.]" target="_blank" rel="nofollow">
+							<div class="twt_share s_img" alt="Follow our Book Club on Twitter"></div>
+						</a>
+					</div>
+				
+									<div id="amz_icon">
+						<a href="http://www.amazon.com/gp/redirect.html?ie=UTF8&location=http%3A%2F%2Fwww.amazon.com%2Fbooks-used-books-textbooks%2Fb%3Fie%3DUTF8%26node%3D283155%26ref_%3Dsa_menu_bo0&tag=pbs_00002-20&linkCode=ur2&camp=1789&creative=390957" title="header=[] body=[Did you know that you help the club if you make your Amazon purchases by starting on our site?  Just click here when you want to buy anything from Amazon and your purchase will support PBS!]" target="_blank" rel="nofollow">
+							<div class="amz_share s_img" alt="Support our Book Club"></div>
+						</a>
+					</div>
+				
+
+								
+			</div>
+
+
+						
+
+									
+				
+				<div id="faq_position">
+					<div id="faq_tab_up" style="cursor:pointer;">
+						<div class="header_need_help_main">
+							<div class="header_need_help_text" onclick="gather_relevant_faqs();toggle_page_faqs();return false;"><span class="header_need_help_r"></span>Need Help?</div>
+						</div>
+					</div>
+					<div id="faq_tab_down" style="display:none;">
+						<div id="faq_tab_middle"></div>
+						<div id="faq_tab_bottom" onclick="toggle_page_faqs();" style="cursor:pointer;" alt="Click to Close Tab" title="Click to Close Tab">
+							<div class="header_need_help_main header_need_help_main_down">
+								<span class="header_need_help_text"><span class="header_need_help_r"></span><a href="/help/help_index.php">Visit the Help Center</a> - Close X</span>
+							</div>
+						</div>
+					</div>
+				</div>
+						
+			
+		</div>
+	</div>
+
+
+	
+
+		<div id="optional_header_row">
+
+			
+			
+			
+		</div>
+</div>
+<script type="text/javascript">
+function show_fb_logout()
+{
+	document.getElementById("fb_logout_down").style.display="inline";
+}
+
+function pre_logout(href)
+{
+	if (confirm('Click OK to also log out of Facebook. Click Cancel to only log out of PaperBackSwap.'))
+	{
+		href +="?fblo=yes";
+	}
+	return false;
+}
+</script></div>
+		<div id="page_content">
+
+			<div style="position:absolute;float:left;top:0px;left:-140px">
+											</div>
+
+			<div style="position:absolute;float:right;top:0px;right:-140px">
+				<img id="Image-Maps_2201009140916105" src="http://a.pbsstatic.com/images/hear_about_us.png" border="0" usemap="#Image-Maps_2201009140916105" width="129" height="772" alt="Heard about Swapping Books" />
+			</div>
+
+			
+			<div class="clear"></div><div class="dt"><div class="dtr"><div class="dtc" style="width:34.9%;"><div id="new_member_QR"><div class="round">
+<div class="tl tl_green"></div><div class="tr tr_green"></div><div class="outer bb_green"><div class="inner bb_green"><div class="content" style="height:170px;margin-left:15px;"><div class="clear"></div><h2 class="plain" style="margin:-5px 0 5px 0;">Join in 2 Easy Steps!</h2><form id="qr_form" action="https://secure.paperbackswap.com/register/quick.php" method="post" onsubmit="return confirm_reg_info();"><strong style="display:block;font-size:0.9em;">Your Full Name: (e.g. Jane Smith)</strong><input type="text" name="name" id="name" tabindex="1" style="display:block;width:90%;font-size:0.9em;" /><strong style="display:block;font-size:0.9em;margin-top:2px;">Email Address:</strong><input type="text" name="username" id="user_name" tabindex="2" style="display:block;width:90%;font-size:0.9em;" /><div class="dt"><div class="dtr"><div class="dtc" style="width:60%;"><strong style="display:block;font-size:0.9em;margin-top:2px;">Create a Password:</strong><input type="password" name="password" id="password" tabindex="3" style="display:block;width:90%;font-size:0.9em;" /></div><div class="dtc" style="width:40%;font-size:0.9em;margin-top:7px;"><span style="cursor:help;padding-left:3px;" title="header=[] body=[Secure Registration]"><img style="vertical-align:middle;" src="http://a.pbsstatic.com/images/lock_icon.gif" /></span> <input type="submit" value="Sign Up" class="button"  tabindex="4" style="color:green;font-size:1.5em;margin-top:5px;" /></div></div></div><div class="clear"></div><div align="center" style="font-size:0.9em;margin-top:3px;"><a href="#" onclick="toggle_login_form(); return false;">Members - Click Here to Log in</a></div><input name="action" type="hidden" id="action" value="pre_process" /></form><div class="clear"></div></div></div></div><div class="bl bl_green"></div><div class="br br_green"></div></div></div><div id="existing_member_QL" style="display:none;"><div class="round">
+<div class="tl tl_grey"></div><div class="tr tr_grey"></div><div class="outer bb_grey"><div class="inner bb_grey"><div class="content" style="height:170px;"><div class="clear"></div><h2 class="plain" style="margin:-5px 0 5px 0;">Members Log in Here</h2><form id="form1" action="https://secure.paperbackswap.com/members/login.php" method="post"><input type="hidden" name="cookie_test" value="164st0s8t0t4dekou73g0rher5" /><strong style="display:block;font-size:0.9em;">Email / Nickname:</strong><input type="text" name="username" id="username" tabindex="1" style="display:block;width:98%;" /><div class="dt"><div class="dtr"><div class="dtc" style="width:60%;font-size:0.9em;"><strong style="display:block;">Password:</strong><input type="password" name="password" id="password" tabindex="2" style="display:block;width:96%" /></div><div class="dtc" style="width:40%;text-align:center;font-size:0.9em;"><span style="cursor:help;padding-left:3px;" title="header=[] body=[Secure Login]"><img style="vertical-align:middle;" src="http://a.pbsstatic.com/images/lock_icon.gif" /></span>&nbsp;	<input type="submit" value="Log in" class="button" tabindex="4" style="font-size:1.5em;margin-top:9px;" /></div></div></div><div class="clear"></div><div align="center" style="font-size:0.9em;margin-top:5px;"><span style="float:left;"><input name="reme" type="checkbox" id="reme" tabindex="3" value="1" /> <label for="reme" style="font-weight: normal;">Remember Me</label></span><span style="float:right;margin-right:20px;"><fb:login-button id="fb-auth" scope="email,publish_actions" show-faces="false" max-rows=1 autologoutlink="false"><span id="login_btn_text">Login with Facebook</span></fb:login-button></span><br clear="all" /><div id="loader" style="display:none;float:right;margin-right:50px;margin-top:3px;">Logging in using Facebook...<img src="http://a.pbsstatic.com/images/loading.gif" alt="loading" /></div></div><div style="border-bottom: 1px solid #EEE; margin:5px 0;" class="clear"/></div><div align="center" style="font-size:0.9em;margin-top:10px;"><a href="#" onclick="toggle_login_form(); return false;">New Members - Click Here to Register</a></div></form><div class="clear"></div></div></div></div><div class="bl bl_grey"></div><div class="br br_grey"></div></div></div></div><div class="dtc" style="width:65%;"><div class="round" style="padding-left:7px;">
+<div class="tl tl_yellow"></div><div class="tr tr_yellow"></div><div class="outer bb_yellow"><div class="inner bb_yellow"><div class="content" style="height:170px;"><div class="clear"></div><h1 class="hp_h1" style="margin:-5px 0 5px 0;padding:0;">Trade Books with Our Online Book Swapping Club...</h1><span id="hdtw_blurb" style="float:right;margin-left:5px;text-align:center;"><a href="#" onclick="generate_simple_overlay('<object width=\'660\' height=\'525\'><param name=\'movie\' value=\'http://www.youtube.com/v/fg_BjtKrAJs&hl=en&fs=1&color1=0x006699&color2=0x54abd6&border=1\'></param><param name=\'allowFullScreen\' value=\'true\'></param><param name=\'allowscriptaccess\' value=\'always\'></param><embed src=\'http://www.youtube.com/v/fg_BjtKrAJs&hl=en&fs=1&color1=0x006699&color2=0x54abd6&border=1\' type=\'application/x-shockwave-flash\' allowscriptaccess=\'always\' allowfullscreen=\'true\' width=\'660\' height=\'525\'></embed></object>','700px',true); return false;"><img src="http://a.pbsstatic.com/images/video_hp.png" border="0" alt="PaperBackSwap on CBS Atlanta" title="header=[] body=[Watch a video featuring PaperBackSwap Member Amy M. and our founder Richard Pickering.]" /><br /></a></span><ul style="margin-top:5px;margin-bottom:0px;"><li>It's easy: List books you'd like to swap with other club members.</li><li>Once a book is requested, mail it to the club member.</li><li>In return, you may choose from <b><span style=color:green; id="site_wide_total_books_HP">4,201,622</span></b> available books!</li></ul><div style="margin-top:0px;margin-left:50px;">- You pay postage for the books you send out; the books you receive come to you postage-paid.<br />- Books you request are yours to keep, or swap again!<br /></div><div class="clear"></div><div style="float:left;margin-top:-10x;"><em>We're <strong>NOT just Paperback Books</strong>! Enjoy trading Hardbacks, Audio Books, Textbooks and more.</em></div><div class="clear"></div><div class="clear"></div></div></div></div><div class="bl bl_yellow"></div><div class="br br_yellow"></div></div></div></div></div><div class="clear" style="margin-bottom:1px;"></div>
+			<div style="margin:7px;" class="clear"></div>
+
+						<div class="round">
+<div class="tl tl_grey"></div><div class="tr tr_grey"></div><div class="outer bb_grey"><div class="inner bb_grey"><div class="content"><div class="clear"></div>												
+				<div class="clear"></div><h2 align="left" class="plain" style="margin:-5px 0 10px 0;" id="books_posted_strip_h2">Browse Selections...</h2><table cellpadding="0" cellspacing="0" width="100%" height="165"><tr><td align="center" width="80%"><div style="width:100%;overflow:hidden;"><div class="nbs-carousel" id="member_favs_strip"  style="width:732px"><div class="content_shadow"><a href="http://www.paperbackswap.com/Last-Season-Team-Search-Soul/book/0143057057/"><img src="http://cc.pbsstatic.com/m/55/7055/9780143057055.jpg" alt="The Last Season : A Team in Search of Its Soul (Unabridged) (Audio CD)" title="The Last Season : A Team in Search of Its Soul (Unabridged) (Audio CD)" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Invented-Life-Locke-Mary-E-Pearson/book/1427215170/"><img src="http://ca.pbsstatic.com/m/78/5178/9781427215178.jpg" alt="The Invented Life of Locke Jenkins (The Jenna Fox Chronicles)" title="The Invented Life of Locke Jenkins (The Jenna Fox Chronicles)" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Larry-Bonds-Red-Dragon-Rising/book/161106208X/"><img src="http://cb.pbsstatic.com/m/83/2083/9781611062083.jpg" alt="Larry Bond\'s Red Dragon Rising: Shadows of War (Red Dragon Series)" title="Larry Bond\'s Red Dragon Rising: Shadows of War (Red Dragon Series)" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/July-Bride-Year-Beth-Wiseman/book/1491521295/"><img src="http://ca.pbsstatic.com/m/98/1298/9781491521298.jpg" alt="A July Bride (A Year of Weddings Novella)" title="A July Bride (A Year of Weddings Novella)" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Hero-Pacific-Life-Marine-Legend/book/1598595970/"><img src="http://ca.pbsstatic.com/m/70/5970/9781598595970.jpg" alt="Hero of the Pacific: The Life of Marine Legend John Basilone" title="Hero of the Pacific: The Life of Marine Legend John Basilone" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/3rd-Degree-Womens-Murder-Club/book/1594839522/"><img src="http://ca.pbsstatic.com/m/28/9528/9781594839528.jpg" alt="3rd Degree (Women\'s Murder Club, Bk 3) (Audio CD) (Unabridged)" title="3rd Degree (Women\'s Murder Club, Bk 3) (Audio CD) (Unabridged)" border="0" /></a> &nbsp; </div>
+	<style>
+		#member_favs_carousel { margin: 0; }
+		#member_favs_container { margin: 0 auto; }
+							#member_favs_carousel li { width:110px; height:160px; }
+				#member_favs_carousel li.yui-carousel-item-loading { width:660px; height:150px; }
+		#member_favs_container span.yui-carousel-button { margin-top:47px; }
+	</style>
+
+	<div class="nbs-container-bones">		<div id="member_favs_container">
+		    <ol id="member_favs_carousel"></ol>
+		</div>
+		</div></div class="nbs-carousel">
+	<script type="text/javascript">
+		YAHOO.util.Event.onDOMReady(function (ev)
+		{
+			var carousel = new YAHOO.widget.Carousel("member_favs_container",
+			{
+		        numItems: 248,
+		        numVisible: 6,
+				animation:
+				{
+					speed: 1,
+					effect: YAHOO.util.Easing.easeBothStrong
+				}
+		    });
+
+	    	/*
+		    	Create new attributes and initialize them.
+		    	These will be passed along within each carousel object.
+	    	*/
+		    carousel.setAttributeConfig("c_id", { value:'member_favs' });
+		    carousel.setAttributeConfig("c_position", { value:6 });
+		    carousel.setAttributeConfig("c_timestamp", { value:1424382543 });
+
+		    // This initializes a listener for when next or previous buttons are clicked.  Also, DON'T MOVE THIS! It's position matters.
+		    carousel.addListener("afterScroll", function(c) { ajax_call("position="+c.first+"&view_size=6&id=cv4_3094398346_audio_books_e_0", "/scripts/carousels/save_position.php", 'POST'); });
+
+		    /* This is the original data retrieval done when the page is loaded and the DOM is ready. */
+			if (typeof(carousel)!="undefined")
+			{
+				var url = "/scripts/carousels/fav_genres.php";
+				var params = "&genre_id=/scripts/carousels/audio_books.php&view_size=6";
+									var data = {"images":["http:\/\/cc.pbsstatic.com\/m\/55\/7055\/9780143057055.jpg","http:\/\/ca.pbsstatic.com\/m\/78\/5178\/9781427215178.jpg","http:\/\/cb.pbsstatic.com\/m\/83\/2083\/9781611062083.jpg","http:\/\/ca.pbsstatic.com\/m\/98\/1298\/9781491521298.jpg","http:\/\/ca.pbsstatic.com\/m\/70\/5970\/9781598595970.jpg","http:\/\/ca.pbsstatic.com\/m\/28\/9528\/9781594839528.jpg","http:\/\/ca.pbsstatic.com\/m\/00\/8200\/9781423318200.jpg","http:\/\/cb.pbsstatic.com\/m\/69\/9669\/9781593979669.jpg","http:\/\/cd.pbsstatic.com\/m\/17\/4617\/9781441804617.jpg"],"urls":["http:\/\/www.paperbackswap.com\/Last-Season-Team-Search-Soul\/book\/0143057057\/","http:\/\/www.paperbackswap.com\/Invented-Life-Locke-Mary-E-Pearson\/book\/1427215170\/","http:\/\/www.paperbackswap.com\/Larry-Bonds-Red-Dragon-Rising\/book\/161106208X\/","http:\/\/www.paperbackswap.com\/July-Bride-Year-Beth-Wiseman\/book\/1491521295\/","http:\/\/www.paperbackswap.com\/Hero-Pacific-Life-Marine-Legend\/book\/1598595970\/","http:\/\/www.paperbackswap.com\/3rd-Degree-Womens-Murder-Club\/book\/1594839522\/","http:\/\/www.paperbackswap.com\/Devils-Punchbowl-Penn-Cage-Bk\/book\/142331820X\/","http:\/\/www.paperbackswap.com\/Testament-Audio-CD-Eric-Van-Lustbader\/book\/1593979665\/","http:\/\/www.paperbackswap.com\/Whispering-Outlaw-Max-Brand\/book\/1441804617\/"],"ids":["item_roll_9780143057055","item_roll_9781427215178","item_roll_9781611062083","item_roll_9781491521298","item_roll_9781598595970","item_roll_9781594839528","item_roll_9781423318200","item_roll_9781593979669","item_roll_9781441804617"],"alts":["The Last Season : A Team in Search of Its Soul (Unabridged) (Audio CD)","The Invented Life of Locke Jenkins (The Jenna Fox Chronicles)","Larry Bond\\'s Red Dragon Rising: Shadows of War (Red Dragon Series)","A July Bride (A Year of Weddings Novella)","Hero of the Pacific: The Life of Marine Legend John Basilone","3rd Degree (Women\\'s Murder Club, Bk 3) (Audio CD) (Unabridged)","The Devil\\'s Punchbowl (Penn Cage, Bk 3) (Audio CD) (Abridged)","The Testament (Audio CD) (Abridged)","The Whispering Outlaw"],"position":8,"prior":0,"unique_id":"audio_books_e_0","size":9,"fathoms":1,"leftovers":1,"isbns":["9780143057055","9781427215178","9781611062083","9781491521298","9781598595970","9781594839528","9781423318200","9781593979669","9781441804617"]};
+					var new_position = process_carousel_data(data, carousel);
+				    carousel.set("c_position", new_position);
+							}
+
+		    carousel.on("loadItems", function (o) { get_carousel_content.call(this,url,params,'swap_carousel_callback'); });
+
+			
+			carousel.render();
+		    carousel.show();
+		});
+	</script>
+	<div class="clear"></div>
+	</div></td><td valign="top" width="20%" style="font-size:15px;line-height:22px;"><div class="clear"></div><div class="dt" style="text-align:left;"> <div class="dtr row0" style="">
+  <div class="dtc col0" style="width:99.9%; ">
+<div style=""><a id="hp_rpb" class="member_favs_link" href="#" onclick="swap_selection(this,'favs','Recently Posted', '/scripts/carousels/posted_today.php',null,'6'); return false;">Recently Posted Books</a> </div>  </div>
+ </div>
+ <div class="dtr row1" style="">
+  <div class="dtc col0" style="width:99.9%; ">
+<div style=""><a id="hp_rsb" class="member_favs_link" href="#" onclick="swap_selection(this,'favs','Recently Swapped', '/scripts/carousels/recently_swapped.php',null,'6'); return false;">Recently Swapped Books</a> </div>  </div>
+ </div>
+ <div class="dtr row2" style="">
+  <div class="dtc col0" style="width:99.9%; ">
+<div style=""><a id="hp_trb" class="member_favs_link" href="#" onclick="swap_selection(this,'favs','Highly Rated', '/scripts/carousels/top_rated.php',null,'6'); return false;">Highly Rated Books</a> </div>  </div>
+ </div>
+ <div class="dtr row3" style="">
+  <div class="dtc col0" style="width:99.9%; ">
+<div style=""><a id="hp_ab" class="member_favs_link" href="#" onclick="swap_selection(this,'favs','Audio Books', '/scripts/carousels/audio_books.php',null,'6'); return false;">Available Audio Books</a> </div>  </div>
+ </div>
+ <div class="dtr row4" style="">
+  <div class="dtc col0" style="width:99.9%; ">
+<div style="">&nbsp; </div>  </div>
+ </div>
+ <div class="dtr row5" style="">
+  <div class="dtc col0" style="width:99.9%; ">
+<div style="">&nbsp; </div>  </div>
+ </div>
+</div><div class="clear"></div></td></tr></table><div id="expanded_genres" style=""><div class="clear"></div><div class="dt" style="text-align:left;"> <div class="dtr row0" style="">
+  <div class="dtc col0" style="width:16.6%; ">
+<div style=""><a id="hp_g_1" class="member_favs_link" href="http://www.paperbackswap.com/Arts-Photography/genre/1/" onclick="swap_selection(this,'genre','Arts & Photography','1',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Arts & Photography</strong>]">Arts & Photography</a> </div>  </div>
+  <div class="dtc col1" style="width:16.6%; ">
+<div style=""><a id="hp_g_5" class="member_favs_link" href="http://www.paperbackswap.com/Computers-Technology/genre/5/" onclick="swap_selection(this,'genre','Computers & Technology','5',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Computers & Technology</strong>]">Computers & Technology</a> </div>  </div>
+  <div class="dtc col2" style="width:16.6%; ">
+<div style=""><a id="hp_g_9" class="member_favs_link" href="http://www.paperbackswap.com/History/genre/9/" onclick="swap_selection(this,'genre','History','9',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>History</strong>]">History</a> </div>  </div>
+  <div class="dtc col3" style="width:16.6%; ">
+<div style=""><a id="hp_g_17" class="member_favs_link" href="http://www.paperbackswap.com/Literature-Fiction/genre/17/" onclick="swap_selection(this,'genre','Literature & Fiction','17',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Literature & Fiction</strong>]">Literature & Fiction</a> </div>  </div>
+  <div class="dtc col4" style="width:16.6%; ">
+<div style=""><a id="hp_g_20" class="member_favs_link" href="http://www.paperbackswap.com/Parenting-Relationships/genre/20/" onclick="swap_selection(this,'genre','Parenting & Relationships','20',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Parenting & Relationships</strong>]">Parenting & Relationships</a> </div>  </div>
+  <div class="dtc col5" style="width:16.6%; ">
+<div style=""><a id="hp_g_25" class="member_favs_link" href="http://www.paperbackswap.com/Science-Fiction-Fantasy/genre/25/" onclick="swap_selection(this,'genre','Science Fiction & Fantasy','25',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Science Fiction & Fantasy</strong>]">Science Fiction & Fantasy</a> </div>  </div>
+ </div>
+ <div class="dtr row1" style="">
+  <div class="dtc col0" style="width:16.6%; ">
+<div style=""><a id="hp_g_2" class="member_favs_link" href="http://www.paperbackswap.com/Biographies-Memoirs/genre/2/" onclick="swap_selection(this,'genre','Biographies & Memoirs','2',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Biographies & Memoirs</strong>]">Biographies & Memoirs</a> </div>  </div>
+  <div class="dtc col1" style="width:16.6%; ">
+<div style=""><a id="hp_g_6" class="member_favs_link" href="http://www.paperbackswap.com/Cookbooks-Food-Wine/genre/6/" onclick="swap_selection(this,'genre','Cookbooks, Food & Wine','6',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Cookbooks, Food & Wine</strong>]">Cookbooks, Food & Wine</a> </div>  </div>
+  <div class="dtc col2" style="width:16.6%; ">
+<div style=""><a id="hp_g_49" class="member_favs_link" href="http://www.paperbackswap.com/Horror/genre/49/" onclick="swap_selection(this,'genre','Horror','49',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Horror</strong>]">Horror</a> </div>  </div>
+  <div class="dtc col3" style="width:16.6%; ">
+<div style=""><a id="hp_g_13996" class="member_favs_link" href="http://www.paperbackswap.com/Medicine/genre/13996/" onclick="swap_selection(this,'genre','Medicine','13996',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Medicine</strong>]">Medicine</a> </div>  </div>
+  <div class="dtc col4" style="width:16.6%; ">
+<div style=""><a id="hp_g_21" class="member_favs_link" href="http://www.paperbackswap.com/Reference/genre/21/" onclick="swap_selection(this,'genre','Reference','21',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Reference</strong>]">Reference</a> </div>  </div>
+  <div class="dtc col5" style="width:16.6%; ">
+<div style=""><a id="hp_g_26" class="member_favs_link" href="http://www.paperbackswap.com/Sports-Outdoors/genre/26/" onclick="swap_selection(this,'genre','Sports & Outdoors','26',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Sports & Outdoors</strong>]">Sports & Outdoors</a> </div>  </div>
+ </div>
+ <div class="dtr row2" style="">
+  <div class="dtc col0" style="width:16.6%; ">
+<div style=""><a id="hp_g_3" class="member_favs_link" href="http://www.paperbackswap.com/Business-Money/genre/3/" onclick="swap_selection(this,'genre','Business & Money','3',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Business & Money</strong>]">Business & Money</a> </div>  </div>
+  <div class="dtc col1" style="width:16.6%; ">
+<div style=""><a id="hp_g_48" class="member_favs_link" href="http://www.paperbackswap.com/Crafts-Hobbies-Home/genre/48/" onclick="swap_selection(this,'genre','Crafts, Hobbies & Home','48',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Crafts, Hobbies & Home</strong>]">Crafts, Hobbies & Home</a> </div>  </div>
+  <div class="dtc col2" style="width:16.6%; ">
+<div style=""><a id="hp_g_86" class="member_favs_link" href="http://www.paperbackswap.com/Humor-Entertainment/genre/86/" onclick="swap_selection(this,'genre','Humor & Entertainment','86',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Humor & Entertainment</strong>]">Humor & Entertainment</a> </div>  </div>
+  <div class="dtc col3" style="width:16.6%; ">
+<div style=""><a id="hp_g_18" class="member_favs_link" href="http://www.paperbackswap.com/Mystery-Thriller-Suspense/genre/18/" onclick="swap_selection(this,'genre','Mystery, Thriller & Suspense','18',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Mystery, Thriller & Suspense</strong>]">Mystery, Thriller & Su...</a> </div>  </div>
+  <div class="dtc col4" style="width:16.6%; ">
+<div style=""><a id="hp_g_22" class="member_favs_link" href="http://www.paperbackswap.com/Religion-Spirituality/genre/22/" onclick="swap_selection(this,'genre','Religion & Spirituality','22',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Religion & Spirituality</strong>]">Religion & Spirituality</a> </div>  </div>
+  <div class="dtc col5" style="width:16.6%; ">
+<div style=""><a id="hp_g_28" class="member_favs_link" href="http://www.paperbackswap.com/Teen-Young-Adult/genre/28/" onclick="swap_selection(this,'genre','Teen & Young Adult','28',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Teen & Young Adult</strong>]">Teen & Young Adult</a> </div>  </div>
+ </div>
+ <div class="dtr row3" style="">
+  <div class="dtc col0" style="width:16.6%; ">
+<div style=""><a id="hp_g_4" class="member_favs_link" href="http://www.paperbackswap.com/Childrens-Books/genre/4/" onclick="swap_selection(this,'genre','Children\'s Books','4',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Children\'s Books</strong>]">Children's Books</a> </div>  </div>
+  <div class="dtc col1" style="width:16.6%; ">
+<div style=""><a id="hp_g_173507" class="member_favs_link" href="http://www.paperbackswap.com/Engineering-Transportation/genre/173507/" onclick="swap_selection(this,'genre','Engineering & Transportation','173507',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Engineering & Transportation</strong>]">Engineering & Transpor...</a> </div>  </div>
+  <div class="dtc col2" style="width:16.6%; ">
+<div style=""><a id="hp_g_10777" class="member_favs_link" href="http://www.paperbackswap.com/Law/genre/10777/" onclick="swap_selection(this,'genre','Law','10777',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Law</strong>]">Law</a> </div>  </div>
+  <div class="dtc col3" style="width:16.6%; ">
+<div style=""><a id="hp_g_53" class="member_favs_link" href="http://www.paperbackswap.com/Nonfiction/genre/53/" onclick="swap_selection(this,'genre','Nonfiction','53',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Nonfiction</strong>]">Nonfiction</a> </div>  </div>
+  <div class="dtc col4" style="width:16.6%; ">
+<div style=""><a id="hp_g_23" class="member_favs_link" href="http://www.paperbackswap.com/Romance/genre/23/" onclick="swap_selection(this,'genre','Romance','23',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Romance</strong>]">Romance</a> </div>  </div>
+  <div class="dtc col5" style="width:16.6%; ">
+<div style=""><a id="hp_g_27" class="member_favs_link" href="http://www.paperbackswap.com/Travel/genre/27/" onclick="swap_selection(this,'genre','Travel','27',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Travel</strong>]">Travel</a> </div>  </div>
+ </div>
+ <div class="dtr row4" style="">
+  <div class="dtc col0" style="width:16.6%; ">
+<div style=""><a id="hp_g_4366" class="member_favs_link" href="http://www.paperbackswap.com/Comics-Graphic-Novels/genre/4366/" onclick="swap_selection(this,'genre','Comics & Graphic Novels','4366',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Comics & Graphic Novels</strong>]">Comics & Graphic Novels</a> </div>  </div>
+  <div class="dtc col1" style="width:16.6%; ">
+<div style=""><a id="hp_g_10" class="member_favs_link" href="http://www.paperbackswap.com/Health-Fitness-Dieting/genre/10/" onclick="swap_selection(this,'genre','Health, Fitness & Dieting','10',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Health, Fitness & Dieting</strong>]">Health, Fitness & Dieting</a> </div>  </div>
+  <div class="dtc col2" style="width:16.6%; ">
+<div style=""><a id="hp_g_2370,3098,9926,9942,3048881,838794,847982,860872,860856,3049721" class="member_favs_link" href="http://www.paperbackswap.com/Libros-En-Espanol/genre/2370,3098,9926,9942,3048881,838794,847982,860872,860856,3049721/" onclick="swap_selection(this,'genre','Libros en Espanol','2370,3098,9926,9942,3048881,838794,847982,860872,860856,3049721',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Libros en Espanol</strong>]">Libros en Espanol</a> </div>  </div>
+  <div class="dtc col3" style="width:16.6%; ">
+<div style=""><a id="hp_g_290060" class="member_favs_link" href="http://www.paperbackswap.com/Outdoors-Nature/genre/290060/" onclick="swap_selection(this,'genre','Outdoors & Nature','290060',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Outdoors & Nature</strong>]">Outdoors & Nature</a> </div>  </div>
+  <div class="dtc col4" style="width:16.6%; ">
+<div style=""><a id="hp_g_75" class="member_favs_link" href="http://www.paperbackswap.com/Science-Math/genre/75/" onclick="swap_selection(this,'genre','Science & Math','75',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Science & Math</strong>]">Science & Math</a> </div>  </div>
+  <div class="dtc col5" style="width:16.6%; ">
+<div style=""><a id="hp_g_1038394,2302,2962,10197,847720,861438,861022" class="member_favs_link" href="http://www.paperbackswap.com/Westerns/genre/1038394,2302,2962,10197,847720,861438,861022/" onclick="swap_selection(this,'genre','Westerns','1038394,2302,2962,10197,847720,861438,861022',null,'6'); return false;" title="header=[] body=[Click to change the carousel to show available books in <strong>Westerns</strong>]">Westerns</a> </div>  </div>
+ </div>
+</div><div class="clear"></div></div><script>update_text_on_selection("hp_ab", "Books Available for Swapping in Audio Books");</script>
+			<div class="clear"></div></div></div></div><div class="bl bl_grey"></div><div class="br br_grey"></div></div>
+				<div class="clear" style="padding:7px;"></div><div style="position:relative;z-index:99;" id="market_search_0"><form action="/market/all_books.php" method="get" name="market_search_form_0" id="market_search_form_0"><h1 style="padding-left:5px;display:inline;" id="carousel_header_0"><a href="/market/index.php" title="header=[] body=[Click to see the Market Home Page]">Buy New Books</a> (<a href="/market/all_books.php" title="header=[] body=[Click to see the Market Search Page]">Click to see over 144,000 titles!</a>)<input type="submit" value="Go" class="button" style="float:right;"><input type="text" name="k" id="market_search_field_0" size="45" value="Title, Author, ISBN, Keyword" style="color: #ccc;z-index:3;float:right;" onfocus="this.value='';this.style.color='#000'" onblur="restore_search_box(this.id);"><label for="k" style="font-size:12px;color:#000;float:right;">Market Search: </label></h1><div class="round" style="margin-top:5px;">
+<div class="tl tl_grey"></div><div class="tr tr_grey"></div><div class="outer bb_grey"><div class="inner bb_grey"><div class="content"><div class="clear"></div><table cellpadding="0" cellspacing="0" width="100%"><tr><td align="center" valign="top"><h2 class="plain" style="margin:-1px 0 5px 0;"><a href="/market/see_all_from_carousel.php?t=ZjllT2ZGVzUvVHM9" title="header=[] body=[Click to see more Recent Releases]">6,000+ Recent Releases</a></h2><div class="nbs-carousel" id="market_1_strip"  style="width:467.2px"><div class="content_shadow"><a href="http://www.paperbackswap.com/Station-Eleven-Emily-St-John-Mandel/book/0385353308/"><img src="http://cc.pbsstatic.com/m/04/3304/9780385353304.jpg" alt="Station Eleven" title="Station Eleven" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Leaving-Time-Novel-Jodi-Picoult/book/0345544927/"><img src="http://cd.pbsstatic.com/m/26/4926/9780345544926.jpg" alt="Leaving Time: A Novel" title="Leaving Time: A Novel" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Revival-Novel-Stephen-King/book/1476770387/"><img src="http://cb.pbsstatic.com/m/83/0383/9781476770383.jpg" alt="Revival: A Novel" title="Revival: A Novel" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Bone-Clocks-Novel-David-Mitchell/book/1400065674/"><img src="http://cd.pbsstatic.com/m/77/5677/9781400065677.jpg" alt="The Bone Clocks: A Novel" title="The Bone Clocks: A Novel" border="0" /></a> &nbsp; </div>
+	<style>
+		#market_1_carousel { margin: 0; }
+		#market_1_container { margin: 0 auto; }
+				#market_1_carousel img { width:90%; }
+							#market_1_carousel li { width:99px; height:185px; }
+				#market_1_carousel li.yui-carousel-item-loading { width:396px; height:135px; }
+		#market_1_container span.yui-carousel-button { margin-top:42px; }
+	</style>
+
+	<div class="nbs-container-bones">		<div id="market_1_container">
+		    <ol id="market_1_carousel"></ol>
+		</div>
+		</div></div class="nbs-carousel">
+	<script type="text/javascript">
+		YAHOO.util.Event.onDOMReady(function (ev)
+		{
+			var carousel = new YAHOO.widget.Carousel("market_1_container",
+			{
+		        numItems: 248,
+		        numVisible: 4,
+				animation:
+				{
+					speed: 1,
+					effect: YAHOO.util.Easing.easeBothStrong
+				}
+		    });
+
+	    	/*
+		    	Create new attributes and initialize them.
+		    	These will be passed along within each carousel object.
+	    	*/
+		    carousel.setAttributeConfig("c_id", { value:'market_1' });
+		    carousel.setAttributeConfig("c_position", { value:4 });
+		    carousel.setAttributeConfig("c_timestamp", { value:1424382543 });
+
+		    // This initializes a listener for when next or previous buttons are clicked.  Also, DON'T MOVE THIS! It's position matters.
+		    carousel.addListener("afterScroll", function(c) { ajax_call("position="+c.first+"&view_size=4&id=cv4_3094398346_SQL_BookList_e_new", "/scripts/carousels/save_position.php", 'POST'); });
+
+		    /* This is the original data retrieval done when the page is loaded and the DOM is ready. */
+			if (typeof(carousel)!="undefined")
+			{
+				var url = "/scripts/carousels/market_carousel_update.php";
+				var params = "&carousel_type=new&view_size=4";
+									var data = {"images":["http:\/\/cc.pbsstatic.com\/m\/04\/3304\/9780385353304.jpg","http:\/\/cd.pbsstatic.com\/m\/26\/4926\/9780345544926.jpg","http:\/\/cb.pbsstatic.com\/m\/83\/0383\/9781476770383.jpg","http:\/\/cd.pbsstatic.com\/m\/77\/5677\/9781400065677.jpg","http:\/\/ca.pbsstatic.com\/m\/98\/3098\/9780525953098.jpg"],"urls":["http:\/\/www.paperbackswap.com\/Station-Eleven-Emily-St-John-Mandel\/book\/0385353308\/","http:\/\/www.paperbackswap.com\/Leaving-Time-Novel-Jodi-Picoult\/book\/0345544927\/","http:\/\/www.paperbackswap.com\/Revival-Novel-Stephen-King\/book\/1476770387\/","http:\/\/www.paperbackswap.com\/Bone-Clocks-Novel-David-Mitchell\/book\/1400065674\/","http:\/\/www.paperbackswap.com\/Edge-Eternity-Century-Ken-Follett\/book\/0525953094\/"],"ids":["item_roll_9780385353304","item_roll_9780345544926","item_roll_9781476770383","item_roll_9781400065677","item_roll_9780525953098"],"alts":["Station Eleven","Leaving Time: A Novel","Revival: A Novel","The Bone Clocks: A Novel","Edge of Eternity (Century, Bk 3)"],"position":4,"prior":0,"unique_id":"SQL_BookList_e_new","size":5,"fathoms":1,"leftovers":1,"isbns":["9780385353304","9780345544926","9781476770383","9781400065677","9780525953098"],"prices":["<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$24.95<\/strike> <b style=\"color:#060;\">$16.89<\/b> or <br \/><b style=\"color:#060;\">$12.99+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$28.00<\/strike> <b style=\"color:#060;\">$18.49<\/b> or <br \/><b style=\"color:#060;\">$14.59+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$30.00<\/strike> <b style=\"color:#060;\">$19.49<\/b> or <br \/><b style=\"color:#060;\">$15.59+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$30.00<\/strike> <b style=\"color:#060;\">$19.49<\/b> or <br \/><b style=\"color:#060;\">$15.59+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$36.00<\/strike> <b style=\"color:#060;\">$22.59<\/b> or <br \/><b style=\"color:#060;\">$18.69+1 credit<\/b><\/span>"]};
+					var new_position = process_carousel_data(data, carousel);
+				    carousel.set("c_position", new_position);
+							}
+
+		    carousel.on("loadItems", function (o) { get_carousel_content.call(this,url,params,'swap_carousel_callback'); });
+
+			
+			carousel.render();
+		    carousel.show();
+		});
+	</script>
+	<div class="clear"></div>
+	</td><td align="center" valign="top"><h2 class="plain" style="margin:-1px 0 5px 0;"><a href="/market/index.php#super_sellers" title="header=[] body=[Click to see more Super Sellers]">136,000+ Super Sellers</a></h2><div class="nbs-carousel" id="market_2_strip"  style="width:467.2px"><div class="content_shadow"><a href="http://www.paperbackswap.com/Unbroken-World-War-Laura-Hillenbrand/book/1400064163/"><img src="http://ca.pbsstatic.com/m/68/4168/9781400064168.jpg" alt="Unbroken: A World War II Story of Survival, Resilience, and Redemption" title="Unbroken: A World War II Story of Survival, Resilience, and Redemption" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Invention-Wings-Novel-Sue-Monk-Kidd/book/0670024783/"><img src="http://ca.pbsstatic.com/m/80/4780/9780670024780.jpg" alt="The Invention of Wings: A Novel" title="The Invention of Wings: A Novel" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Light-See-Novel-Anthony-Doerr/book/1476746583/"><img src="http://cd.pbsstatic.com/m/86/6586/9781476746586.jpg" alt="All the Light We Cannot See: A Novel" title="All the Light We Cannot See: A Novel" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Pioneer-Woman-Cooks-Ree-Drummond/book/0061658197/"><img src="http://ca.pbsstatic.com/m/98/8198/9780061658198.jpg" alt="The Pioneer Woman Cooks: Recipes from an Accidental Country Girl" title="The Pioneer Woman Cooks: Recipes from an Accidental Country Girl" border="0" /></a> &nbsp; </div>
+	<style>
+		#market_2_carousel { margin: 0; }
+		#market_2_container { margin: 0 auto; }
+				#market_2_carousel img { width:90%; }
+							#market_2_carousel li { width:99px; height:185px; }
+				#market_2_carousel li.yui-carousel-item-loading { width:396px; height:135px; }
+		#market_2_container span.yui-carousel-button { margin-top:42px; }
+	</style>
+
+	<div class="nbs-container-bones">		<div id="market_2_container">
+		    <ol id="market_2_carousel"></ol>
+		</div>
+		</div></div class="nbs-carousel">
+	<script type="text/javascript">
+		YAHOO.util.Event.onDOMReady(function (ev)
+		{
+			var carousel = new YAHOO.widget.Carousel("market_2_container",
+			{
+		        numItems: 248,
+		        numVisible: 4,
+				animation:
+				{
+					speed: 1,
+					effect: YAHOO.util.Easing.easeBothStrong
+				}
+		    });
+
+	    	/*
+		    	Create new attributes and initialize them.
+		    	These will be passed along within each carousel object.
+	    	*/
+		    carousel.setAttributeConfig("c_id", { value:'market_2' });
+		    carousel.setAttributeConfig("c_position", { value:4 });
+		    carousel.setAttributeConfig("c_timestamp", { value:1424382543 });
+
+		    // This initializes a listener for when next or previous buttons are clicked.  Also, DON'T MOVE THIS! It's position matters.
+		    carousel.addListener("afterScroll", function(c) { ajax_call("position="+c.first+"&view_size=4&id=cv4_3094398346_SQL_BookList_e_super_seller", "/scripts/carousels/save_position.php", 'POST'); });
+
+		    /* This is the original data retrieval done when the page is loaded and the DOM is ready. */
+			if (typeof(carousel)!="undefined")
+			{
+				var url = "/scripts/carousels/market_carousel_update.php";
+				var params = "&carousel_type=super_seller&view_size=4";
+									var data = {"images":["http:\/\/ca.pbsstatic.com\/m\/68\/4168\/9781400064168.jpg","http:\/\/ca.pbsstatic.com\/m\/80\/4780\/9780670024780.jpg","http:\/\/cd.pbsstatic.com\/m\/86\/6586\/9781476746586.jpg","http:\/\/ca.pbsstatic.com\/m\/98\/8198\/9780061658198.jpg","http:\/\/cb.pbsstatic.com\/m\/69\/3669\/9781594633669.jpg"],"urls":["http:\/\/www.paperbackswap.com\/Unbroken-World-War-Laura-Hillenbrand\/book\/1400064163\/","http:\/\/www.paperbackswap.com\/Invention-Wings-Novel-Sue-Monk-Kidd\/book\/0670024783\/","http:\/\/www.paperbackswap.com\/Light-See-Novel-Anthony-Doerr\/book\/1476746583\/","http:\/\/www.paperbackswap.com\/Pioneer-Woman-Cooks-Ree-Drummond\/book\/0061658197\/","http:\/\/www.paperbackswap.com\/Girl-Train-Novel-Paula-Hawkins\/book\/1594633665\/"],"ids":["item_roll_9781400064168","item_roll_9780670024780","item_roll_9781476746586","item_roll_9780061658198","item_roll_9781594633669"],"alts":["Unbroken: A World War II Story of Survival, Resilience, and Redemption","The Invention of Wings: A Novel","All the Light We Cannot See: A Novel","The Pioneer Woman Cooks: Recipes from an Accidental Country Girl","The Girl on the Train: A Novel"],"position":4,"prior":0,"unique_id":"SQL_BookList_e_super_seller","size":5,"fathoms":1,"leftovers":1,"isbns":["9781400064168","9780670024780","9781476746586","9780061658198","9781594633669"],"prices":["<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$28.00<\/strike> <b style=\"color:#060;\">$18.49<\/b> or <br \/><b style=\"color:#060;\">$14.59+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$27.95<\/strike> <b style=\"color:#060;\">$18.40<\/b> or <br \/><b style=\"color:#060;\">$14.50+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$27.00<\/strike> <b style=\"color:#060;\">$17.90<\/b> or <br \/><b style=\"color:#060;\">$14.00+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$27.50<\/strike> <b style=\"color:#060;\">$18.19<\/b> or <br \/><b style=\"color:#060;\">$14.29+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$26.95<\/strike> <b style=\"color:#060;\">$17.89<\/b> or <br \/><b style=\"color:#060;\">$13.99+1 credit<\/b><\/span>"]};
+					var new_position = process_carousel_data(data, carousel);
+				    carousel.set("c_position", new_position);
+							}
+
+		    carousel.on("loadItems", function (o) { get_carousel_content.call(this,url,params,'swap_carousel_callback'); });
+
+			
+			carousel.render();
+		    carousel.show();
+		});
+	</script>
+	<div class="clear"></div>
+	</td></tr><tr><td align="center" valign="top"><h2 class="plain" style="margin:10px 0 5px 0;"><a href="/market/see_all_from_carousel.php?t=OEJBMytwOHMrVm1jSnRTbXZXbEEwUT09" title="header=[] body=[Click to see more New Overstock Books]">4,000+ New Overstock</a></h2><div class="nbs-carousel" id="market_3_strip"  style="width:467.2px"><div class="content_shadow"><a href="http://www.paperbackswap.com/Secret-Keeper-Kate-Morton/book/1439152802/"><img src="http://cc.pbsstatic.com/m/05/2805/9781439152805.jpg" alt="The Secret Keeper" title="The Secret Keeper" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Shining-Girls-Lauren-Beukes/book/0316216852/"><img src="http://cb.pbsstatic.com/m/52/6852/9780316216852.jpg" alt="The Shining Girls" title="The Shining Girls" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Shining-Girls-Novel-Lauren-Beukes/book/0316216860/"><img src="http://cb.pbsstatic.com/m/69/6869/9780316216869.jpg" alt="The Shining Girls: A Novel" title="The Shining Girls: A Novel" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Lets-Explore-Diabetes-David-Sedaris/book/0316154695/"><img src="http://cd.pbsstatic.com/m/97/4697/9780316154697.jpg" alt="Let\'s Explore Diabetes with Owls" title="Let\'s Explore Diabetes with Owls" border="0" /></a> &nbsp; </div>
+	<style>
+		#market_3_carousel { margin: 0; }
+		#market_3_container { margin: 0 auto; }
+				#market_3_carousel img { width:90%; }
+							#market_3_carousel li { width:99px; height:185px; }
+				#market_3_carousel li.yui-carousel-item-loading { width:396px; height:135px; }
+		#market_3_container span.yui-carousel-button { margin-top:42px; }
+	</style>
+
+	<div class="nbs-container-bones">		<div id="market_3_container">
+		    <ol id="market_3_carousel"></ol>
+		</div>
+		</div></div class="nbs-carousel">
+	<script type="text/javascript">
+		YAHOO.util.Event.onDOMReady(function (ev)
+		{
+			var carousel = new YAHOO.widget.Carousel("market_3_container",
+			{
+		        numItems: 248,
+		        numVisible: 4,
+				animation:
+				{
+					speed: 1,
+					effect: YAHOO.util.Easing.easeBothStrong
+				}
+		    });
+
+	    	/*
+		    	Create new attributes and initialize them.
+		    	These will be passed along within each carousel object.
+	    	*/
+		    carousel.setAttributeConfig("c_id", { value:'market_3' });
+		    carousel.setAttributeConfig("c_position", { value:4 });
+		    carousel.setAttributeConfig("c_timestamp", { value:1424382543 });
+
+		    // This initializes a listener for when next or previous buttons are clicked.  Also, DON'T MOVE THIS! It's position matters.
+		    carousel.addListener("afterScroll", function(c) { ajax_call("position="+c.first+"&view_size=4&id=cv4_3094398346_SQL_BookList_e_overstock", "/scripts/carousels/save_position.php", 'POST'); });
+
+		    /* This is the original data retrieval done when the page is loaded and the DOM is ready. */
+			if (typeof(carousel)!="undefined")
+			{
+				var url = "/scripts/carousels/market_carousel_update.php";
+				var params = "&carousel_type=overstock&view_size=4";
+									var data = {"images":["http:\/\/cc.pbsstatic.com\/m\/05\/2805\/9781439152805.jpg","http:\/\/cb.pbsstatic.com\/m\/52\/6852\/9780316216852.jpg","http:\/\/cb.pbsstatic.com\/m\/69\/6869\/9780316216869.jpg","http:\/\/cd.pbsstatic.com\/m\/97\/4697\/9780316154697.jpg","http:\/\/cd.pbsstatic.com\/m\/77\/2977\/9780812992977.jpg"],"urls":["http:\/\/www.paperbackswap.com\/Secret-Keeper-Kate-Morton\/book\/1439152802\/","http:\/\/www.paperbackswap.com\/Shining-Girls-Lauren-Beukes\/book\/0316216852\/","http:\/\/www.paperbackswap.com\/Shining-Girls-Novel-Lauren-Beukes\/book\/0316216860\/","http:\/\/www.paperbackswap.com\/Lets-Explore-Diabetes-David-Sedaris\/book\/0316154695\/","http:\/\/www.paperbackswap.com\/Age-Miracles-Karen-Thompson-Walker\/book\/0812992970\/"],"ids":["item_roll_9781439152805","item_roll_9780316216852","item_roll_9780316216869","item_roll_9780316154697","item_roll_9780812992977"],"alts":["The Secret Keeper","The Shining Girls","The Shining Girls: A Novel","Let\\'s Explore Diabetes with Owls","The Age of Miracles"],"position":4,"prior":0,"unique_id":"SQL_BookList_e_overstock","size":5,"fathoms":1,"leftovers":1,"isbns":["9781439152805","9780316216852","9780316216869","9780316154697","9780812992977"],"prices":["<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$26.99<\/strike> <b style=\"color:#060;\">$8.39<\/b> or <br \/><b style=\"color:#060;\">$4.49+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$0.00<\/strike> <b style=\"color:#060;\">$6.19<\/b> or <br \/><b style=\"color:#060;\">$2.29+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$16.00<\/strike> <b style=\"color:#060;\">$6.19<\/b> or <br \/><b style=\"color:#060;\">$2.29+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$27.00<\/strike> <b style=\"color:#060;\">$7.79<\/b> or <br \/><b style=\"color:#060;\">$3.89+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$26.00<\/strike> <b style=\"color:#060;\">$7.29<\/b> or <br \/><b style=\"color:#060;\">$3.39+1 credit<\/b><\/span>"]};
+					var new_position = process_carousel_data(data, carousel);
+				    carousel.set("c_position", new_position);
+							}
+
+		    carousel.on("loadItems", function (o) { get_carousel_content.call(this,url,params,'swap_carousel_callback'); });
+
+			
+			carousel.render();
+		    carousel.show();
+		});
+	</script>
+	<div class="clear"></div>
+	</td><td align="center" valign="top"><h2 class="plain" style="margin:10px 0 5px 0;"><a href="/market/see_all_from_carousel.php?t=dUtuZUZSSmlZakE9&g=17" title="header=[] body=[Click to see more Discounted Books]">65,000+ Great Books at Discount Prices</a></h2><div class="nbs-carousel" id="market_4_strip"  style="width:467.2px"><div class="content_shadow"><a href="http://www.paperbackswap.com/Husbands-Secret-Liane-Moriarty/book/0399159347/"><img src="http://cb.pbsstatic.com/m/43/9343/9780399159343.jpg" alt="The Husband\'s Secret" title="The Husband\'s Secret" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Silver-Star-Jeannette-Walls/book/1451661509/"><img src="http://cd.pbsstatic.com/m/07/1507/9781451661507.jpg" alt="The Silver Star" title="The Silver Star" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Big-Little-Lies-Liane-Moriarty/book/0399167064/"><img src="http://cc.pbsstatic.com/m/65/7065/9780399167065.jpg" alt="Big Little Lies" title="Big Little Lies" border="0" /></a> &nbsp; <a href="http://www.paperbackswap.com/Gray-Mountain-John-Grisham/book/038553714X/"><img src="http://ca.pbsstatic.com/m/48/7148/9780385537148.jpg" alt="Gray Mountain" title="Gray Mountain" border="0" /></a> &nbsp; </div>
+	<style>
+		#market_4_carousel { margin: 0; }
+		#market_4_container { margin: 0 auto; }
+				#market_4_carousel img { width:90%; }
+							#market_4_carousel li { width:99px; height:185px; }
+				#market_4_carousel li.yui-carousel-item-loading { width:396px; height:135px; }
+		#market_4_container span.yui-carousel-button { margin-top:42px; }
+	</style>
+
+	<div class="nbs-container-bones">		<div id="market_4_container">
+		    <ol id="market_4_carousel"></ol>
+		</div>
+		</div></div class="nbs-carousel">
+	<script type="text/javascript">
+		YAHOO.util.Event.onDOMReady(function (ev)
+		{
+			var carousel = new YAHOO.widget.Carousel("market_4_container",
+			{
+		        numItems: 248,
+		        numVisible: 4,
+				animation:
+				{
+					speed: 1,
+					effect: YAHOO.util.Easing.easeBothStrong
+				}
+		    });
+
+	    	/*
+		    	Create new attributes and initialize them.
+		    	These will be passed along within each carousel object.
+	    	*/
+		    carousel.setAttributeConfig("c_id", { value:'market_4' });
+		    carousel.setAttributeConfig("c_position", { value:4 });
+		    carousel.setAttributeConfig("c_timestamp", { value:1424382543 });
+
+		    // This initializes a listener for when next or previous buttons are clicked.  Also, DON'T MOVE THIS! It's position matters.
+		    carousel.addListener("afterScroll", function(c) { ajax_call("position="+c.first+"&view_size=4&id=cv4_3094398346_SQL_BookList_e_genre_17", "/scripts/carousels/save_position.php", 'POST'); });
+
+		    /* This is the original data retrieval done when the page is loaded and the DOM is ready. */
+			if (typeof(carousel)!="undefined")
+			{
+				var url = "/scripts/carousels/market_carousel_update.php";
+				var params = "&carousel_type=genre&genre=17&view_size=4";
+									var data = {"images":["http:\/\/cb.pbsstatic.com\/m\/43\/9343\/9780399159343.jpg","http:\/\/cd.pbsstatic.com\/m\/07\/1507\/9781451661507.jpg","http:\/\/cc.pbsstatic.com\/m\/65\/7065\/9780399167065.jpg","http:\/\/ca.pbsstatic.com\/m\/48\/7148\/9780385537148.jpg","http:\/\/cb.pbsstatic.com\/m\/19\/3119\/9781594633119.jpg"],"urls":["http:\/\/www.paperbackswap.com\/Husbands-Secret-Liane-Moriarty\/book\/0399159347\/","http:\/\/www.paperbackswap.com\/Silver-Star-Jeannette-Walls\/book\/1451661509\/","http:\/\/www.paperbackswap.com\/Big-Little-Lies-Liane-Moriarty\/book\/0399167064\/","http:\/\/www.paperbackswap.com\/Gray-Mountain-John-Grisham\/book\/038553714X\/","http:\/\/www.paperbackswap.com\/Paying-Guests-Sarah-Waters\/book\/1594633118\/"],"ids":["item_roll_9780399159343","item_roll_9781451661507","item_roll_9780399167065","item_roll_9780385537148","item_roll_9781594633119"],"alts":["The Husband\\'s Secret","The Silver Star","Big Little Lies","Gray Mountain","The Paying Guests"],"position":4,"prior":0,"unique_id":"SQL_BookList_e_genre_17","size":5,"fathoms":1,"leftovers":1,"isbns":["9780399159343","9781451661507","9780399167065","9780385537148","9781594633119"],"prices":["<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$25.95<\/strike> <b style=\"color:#060;\">$17.39<\/b> or <br \/><b style=\"color:#060;\">$13.49+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$26.00<\/strike> <b style=\"color:#060;\">$17.39<\/b> or <br \/><b style=\"color:#060;\">$13.49+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$26.95<\/strike> <b style=\"color:#060;\">$17.89<\/b> or <br \/><b style=\"color:#060;\">$13.99+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$28.95<\/strike> <b style=\"color:#060;\">$18.99<\/b> or <br \/><b style=\"color:#060;\">$15.09+1 credit<\/b><\/span>","<span style=\"font-size:11px;color:#777;\"><strike style=\"color:#999;\">$28.95<\/strike> <b style=\"color:#060;\">$18.99<\/b> or <br \/><b style=\"color:#060;\">$15.09+1 credit<\/b><\/span>"]};
+					var new_position = process_carousel_data(data, carousel);
+				    carousel.set("c_position", new_position);
+							}
+
+		    carousel.on("loadItems", function (o) { get_carousel_content.call(this,url,params,'swap_carousel_callback'); });
+
+			
+			carousel.render();
+		    carousel.show();
+		});
+	</script>
+	<div class="clear"></div>
+	</td></tr></table><div class="clear"></div></div></div></div><div class="bl bl_grey"></div><div class="br br_grey"></div></div></form></div>
+												<div style="margin:7px;" class="clear"></div>
+
+			<h2 style="margin:0 0 5px 5px;">Discover</h2>
+
+			<div class="dt">
+				<div class="dtr">
+					<div class="dtc" style="width:52%;">
+						<div class="round" style="padding-right:7px;">
+<div class="tl tl_yellow"></div><div class="tr tr_yellow"></div><div class="outer bb_yellow"><div class="inner bb_yellow"><div class="content"><div class="clear"></div>						<h2 align="left" class="plain" style="margin:-1px 0 5px 0;"><span onclick="self.location.href='/help/epostage.php';" alt="Printable Postage for Books" style="cursor: pointer; cursor: hand;">Printable Postage</span></h2>
+							<div class="dt">
+								<div class="dtr">
+									<div class="dtc">
+										<div style="width:310px;">
+											Save by printing exact postage from your computer. Why drive to the Post Office just to wait in line?
+										</div>
+										<ul style="padding: 5px 15px 15px 25px; margin:0;">
+											<li>Mail books easily from your home.</li>
+											<li>No fussing with postage stamps.</li>
+											<li>Get <strong>instant credit</strong> when you mark books mailed!</li>
+											<li>Earn a <strong>Free Swap</strong> each time you send books with<br />Printable Postage!</li>
+										</ul>
+									</div>
+									<div class="dtc">
+										<a href="/help/epostage.php"><img width="145" border="0" style="vertical-align:middle;" src="http://a.pbsstatic.com/images/epostage2.jpg" /></a>
+									</div>
+								</div>
+
+								<div class="clear"></div>
+
+								<div class="dtr">
+									<div class="dtc">
+										<div><em>Not to mention all the money you'll save on books!</em></div>
+									</div>
+								</div>
+							</div>
+							<div class="clear"></div>
+						<div class="clear"></div></div></div></div><div class="bl bl_yellow"></div><div class="br br_yellow"></div></div>					</div>
+
+					<div class="dtc" style="width:48%;">
+					  	<div class="round">
+<div class="tl tl_yellow"></div><div class="tr tr_yellow"></div><div class="outer bb_yellow"><div class="inner bb_yellow"><div class="content" style="width:100%"><div class="clear"></div>							<h2 align="left" class="plain" style="margin:-1px 0 5px 0;"><span onclick="self.location.href='/testimonials/';" style="cursor: pointer; cursor: hand;">Member Testimonials</span></h2>
+															<em>It is time to check my inventory and how fantastic...I just push a button and my inventory prints in alphabetical order. Great planning you all. I love the ease of this site. Happy New Year and New Year's reading to everyone on PaperBack Swap.</em>
+								<br />
+								<div align="right" style="margin-bottom:20px;">
+									<strong>Nellie G. (Milburn, OK) - 12/30/2014</strong>
+								</div>
+															<em>There is no site better than this for readers such as myself; a dream come true.  AND, who doesn't like getting something in the mail besides BILLS?  Seeing a swap book arrive in my mailbox is like Christmas and I am NOT kidding.<br />
+Try it - you'll know what I mean.  Smiling here.</em>
+								<br />
+								<div align="right" style="margin-bottom:20px;">
+									<strong>Patricia F. (Afton, NY) - 11/15/2014</strong>
+								</div>
+														<div align="center" style="margin-top:5px;">
+								<a href="/testimonials/index.php" style="font-size:12px;">Read More</a> - <a href="/members/leave_testimonial.php" style="font-size:12px;">Leave Your Own</a>
+							</div>
+						<div class="clear"></div></div></div></div><div class="bl bl_yellow"></div><div class="br br_yellow"></div></div>					</div>
+				</div>
+			</div>
+
+		</div>
+		<div id="page_footer"><br clear="all" />
+<div align="center" style="font-size:11.5px; line-height: 19px; width:95%; margin:10px 0 10px 40px;" >
+	<style>
+		.footer_links a, .footer_links a:visited { color: #06C; text-decoration: none; }
+		.footer_links a:hover { text-decoration: underline; }
+		.footer_links strong { font-size:13px; font-weight:bold; color: #06C; }
+		.dtc {  }
+	</style>
+	<div class="dt footer_links">
+		<div class="dtr">
+			<div class="dtc" style="width:17%;" align="left">
+				<a href="/members/index.php" rel="nofollow"><strong>My Account</strong></a><br />
+				<a href="/members/book_add.php" rel="nofollow">Post Books</a><br />
+				<a href="/members/my_lists/wish_list.php" rel="nofollow">Wish List</a><br />
+				<a href="/members/bookshelf.php" rel="nofollow">Bookshelf</a><br />
+				<a href="/members/tools.php" rel="nofollow">Member Tools</a><br />
+				<a href="/misc/under_the_hood/index.php" rel="nofollow">Under the Hood</a><br />
+				<a href="/members/club_communications/newsletter_archive.php" rel="nofollow">Newsletter Archive</a><br />
+			</div>
+			<div class="dtc" style="width:20%;" align="left">
+				<a href="/book/search.php"><strong>Search for a Book</strong></a><br />
+				<a href="/index.php">Browse My Favorite Genres</a><br />
+				<a href="/book/advanced_search.php">Advanced Book Search</a><br />
+				<a href="/book/browser.php">Book Browser</a><br />
+				<a href="/tags/cloud.php">Club Tag Cloud</a><br />
+				<a href="/book/popular_list.php">NYT Best Sellers</a><br />
+				<a href="/Newbery-Medal-Award/award/1/?g=Children's+Books">Newbery Medal Winners</a><br />
+				<a href="/Pulitzer-Prize/award/2/?g=History">Pulitzer Prize Winners</a><br />
+				<a href="/book/posted_today.php">Books Posted Today</a><br />
+				<a href="/book/awards.php">Award Winning Books</a><br />
+				<a href="/mobile/index.php">Mobile / PDAs</a><br />
+			</div>
+			<div class="dtc" style="width:17%;" align="left">
+				<a href="/help/help_index.php"><strong>Help Center</strong></a><br />
+				<a href="/help/how_to_swap_books.php">How to Swap Books</a><br />
+				<a href="/help/help_index.php?atl=t">Ask the Librarian</a><br />
+				<a href="/help/live_help.php" rel="nofollow">Live Help</a><br />
+				<a href="/help/browser_test.php">Browser Test</a><br />
+				<a href="/about/features.php">Feature List</a><br />
+				<a href="/amazon_info.php">Amazon Search</a><br />
+			</div>
+			<div class="dtc" style="width:19%;" align="left">
+				<a href="/community/index.php"><strong>Community</strong></a><br />
+				<a href="/spread_the_word.php">Spread the Word</a><br />
+				<a href="/developers/index.php">Widgets &amp; APIs</a><br />
+				<a href="/rss/index.php">Feeds RSS/XML</a><br />
+				<a href="/box_o_books/index.php">Box-O-Books</a><br />
+				<a href="/forum/index.php">Discussion Forums</a><br />
+				<a href="http://blog.paperbackswap.com">Blog</a><br />
+								<a href="http://www.facebook.com/PaperBackSwap?v=app_4949752878" target="_blank" rel="nofollow">Facebook</a><br />
+								<a href="http://www.twitter.com/paperbackswap/" target="_blank" rel="nofollow">Twitter</a><br />
+							</div>
+			<div class="dtc" style="width:15%;" align="left">
+				<strong>Company</strong><br />
+				<a href="/press_media/index.php">Press &amp; Media</a><br />
+				<a href="/pulse/index.php">Pulse of PBS</a><br />
+				<a href="/contact_us/index.php">Contact Us</a><br />
+				<a href="/careers/index.php">Careers</a><br />
+				<a href="/help/privacy_policy.php">Privacy &amp; Security</a><br /><br />
+			</div>
+			<div class="dtc" style="width:11.9%;" align="left">
+				<strong>Sister Sites</strong><br />
+				<a href="http://www.swapadvd.com/">SwapaDVD.com</a><br />
+				<a href="http://www.swapacd.com/">SwapaCD.com</a><br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<strong><a href="#top">Back to the Top&nbsp;&uarr;</a></strong>
+			</div>
+		</div>
+	</div>
+</div>
+<div align="center" class="footer" style="font-size:12px;">
+	<span style="font-size:11px;float:left;text-align:left;padding-left:10px;padding-top:10px;">
+		By using this Web site, you confirm that you have read, understood, and agreed to be bound by the <a href="/help/terms_of_use.php" target="_blank" rel="nofollow">Terms of Use</a>. <br />
+		US Patent Number 7,877,315  |  Copyright &copy; 2004 - 2015 <a href="/">PaperBackSwap.com</a>. All Rights Reserved.
+	</span>
+
+	<span id="footer_logos" style="text-align:right;">
+		<span class="bbb_logo" rel="nofollow" onclick="window.open('http://www.bbb.org/atlanta/business-reviews/books-wholesale/paperbackswap-in-suwanee-ga-3003609');"></span>
+		<span class="paypal_logo" rel="nofollow" onclick="window.open('https://www.paypal.com/us/verified/pal=sales%40nationalbookswap%2ecom')"></span>
+	</span>
+
+	<br clear="all">
+</div>
+
+<a name="bottom"></a>
+
+
+		<span style="behavior:url(#default#clientCaps)" id="browserCaps"></span><script type="text/javascript" src="http://a.pbsstatic.com/includes/client_details-5.js"></script>
+		<script type="text/javascript">
+	if (document.getElementById('header_bar_search_field')) { AutoComplete_Create('header_bar_search_field', 'header_right', '/scripts/search_suggest.php', 'k', 'get', 2, 'header_bar_search_frm', []); }
+</script>
+
+
+<script type="text/javascript">
+	var page_loaded=true;
+	addEvent(window, 'load', function () {ajax_call('id='+statistic_id+'&pst=1424382543.468&pbt=0.21&mu=1311&z=', '/scripts/page_time.php')});
+</script>
+
+<div id="fb-root"></div></div>
+	</div>
+
+	<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.9.0/build/animation/animation-min.js&2.9.0/build/element/element-min.js&2.9.0/build/carousel/carousel-min.js"></script>
+	<script type="text/javascript" src="http://a.pbsstatic.com/includes/carousel_yui_2.7-12.js"></script>
+	<script type="text/javascript">
+
+	function modify_club_fav_selector(obj)
+		{
+			var cache_id = dcui('favorite_genres', obj.value);
+			swap_carousel('member_favs','', obj.value, null, cache_id, 8);
+		}
+		function swap_selection(obj, id, name, value, header, view_size)
+		{
+			var cache_id = dcui('favorite_genres', value);
+
+			var elements = YAHOO.util.Dom.getElementsByClassName("member_favs_link","a");
+			for (i=0; i<elements.length; i++)
+			{
+				elements[i].style.fontWeight="400";
+				elements[i].style.fontSize="100%";
+			}
+
+			var h = document.getElementById("books_posted_strip_h2");
+
+			if (typeof(h)!='undefined')
+			{
+				if (typeof(header)!='undefined' && header != null)
+				{
+					h.innerHTML = header;
+				}
+				else
+				{
+					h.innerHTML = "Books Available for Swapping in " + name;
+				}
+			}
+
+			if (typeof(obj)!='undefined')
+			{
+				obj.style.fontWeight="bold";
+				obj.style.fontSize="100%";
+			}
+
+			if (id=='genre')
+			{
+				swap_carousel('member_favs', 'genre_id='+value, null, cache_id, view_size);
+			}
+			else if (id=='favs')
+			{
+				swap_carousel('member_favs', '', value, cache_id, view_size);
+			}
+		}
+		// Determine Carousel Unique ID
+		function dcui(name, genre)
+		{
+			var session_id = '3094398346';
+
+			var output = '';
+
+			if (genre.indexOf("/") !== -1)
+			{
+				var temp = genre.split("/");
+				var fn = temp.pop();
+				temp = fn.split(".");
+				genre = temp[0];
+
+				output = 'cv4_' + session_id + '_' + genre + '_0';
+			}
+			else
+			{
+				output = 'cv4_' + session_id + '_' + name + '_' + genre;
+			}
+
+			return output;
+		}
+
+		var filters = ['m'];
+		if (document.getElementById('market_search_field_0')) {
+			AutoComplete_Create('market_search_field_0', 'market_search_0', '/scripts/search_suggest.php', 'k', 'get', 2, 'market_search_form_0',filters);
+		}
+	</script>
+
+	<map id="_Image-Maps_2201009140916105" name="Image-Maps_2201009140916105">
+		<area shape="rect" coords="6,106,118,156" href="/press_media/press_media_detail.php?id=104" alt="Good Housekeeping" title="Good Housekeeping" />
+		<area shape="rect" coords="5,166,117,216" href="/press_media/press_media_detail.php?id=203" alt="NBC Today Show" title="NBC Today Show" />
+		<area shape="rect" coords="5,228,117,278" href="/press_media/press_media_detail.php?id=311" alt="People Magazine" title="People Magazine" />
+		<area shape="rect" coords="3,296,115,346" href="/press_media/press_media_detail.php?id=588" alt="U.S. News" title="U.S. News" />
+		<area shape="rect" coords="5,366,117,441" href="/press_media/press_media_detail.php?id=309" alt="The Oprah Magazine" title="The Oprah Magazine" />
+		<area shape="rect" coords="4,471,116,519" href="/press_media/press_media_detail.php?id=258" alt="Reader's Digest" title="Reader's Digest" />
+		<area shape="rect" coords="5,552,117,600" href="/press_media/press_media_detail.php?id=32" alt="USA Today" title="USA Today" />
+		<area shape="rect" coords="4,630,116,678" href="/press_media/press_media_detail.php?id=105" alt="Real Simple" title="Real Simple" />
+		<area shape="rect" coords="5,704,117,752" href="/press_media/press_media_detail.php?id=34" alt="Smart Money" title="Smart Money" />
+	</map>
+</body>
+</html>
+";i:2;s:5:"10550";}

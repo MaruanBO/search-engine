@@ -1,0 +1,47 @@
+a:3:{i:0;s:26:"http://yourcareallies.com/";i:1;s:1485:"<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE></TITLE>
+<script>
+
+var bizrouter_uri = "/rte/public/validatetoken";
+
+function getQueryStringValue (key) {
+  return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$",
+ "i"), "$1"));
+}
+
+function setCookie(cname, cvalue, exhours) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exhours*60*60*1000));
+    var expires = "expires="+d.toGMTString();
+    var cook = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cook;
+    //document.cookie = cname + "=" + cvalue + "; " + expires + "; domain=" + document.domain + "; path=/";
+}
+
+function postForm() {
+  var myToken = getQueryStringValue("token");
+
+  //create the Token text cookie
+  if (myToken) { 
+    setCookie("HW_TOKEN_TEXT", myToken, 1); 
+    document.webseal.action = bizrouter_uri;
+    document.webseal.token.value = myToken;
+  } else {
+    setCookie("HW_TOKEN_TEXT", "", 0); 
+  }
+  setCookie("HW_TOKEN_DNS", window.location.protocol  + "//" + document.domain, 1); 
+  setCookie("oep_custzn", "careAllies!default", 1); 
+  document.webseal.submit();
+}
+
+</script>
+</HEAD>
+<body onLoad="postForm();">
+                <form name="webseal" method="post" action="/web/public/hw/guest">
+                   <input type="hidden" name="token" value="default" />
+                </form>
+</HTML>
+";i:2;s:4:"6054";}

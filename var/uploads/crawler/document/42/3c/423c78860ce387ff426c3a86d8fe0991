@@ -1,0 +1,3885 @@
+a:3:{i:0;s:22:"http://invaluable.com/";i:1;s:149180:"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+
+
+<head>
+	
+	
+<script>
+var redirectURL = 'https://m.invaluable.com/';
+	
+var fromMobile = 0;
+
+
+function is_touch_device() {	
+  return 'ontouchstart' in window // works on most browsers 
+      || 'onmsgesturechange' in window; // works on ie10
+	}
+
+var isTouch = is_touch_device();
+var thisUA = navigator.userAgent.toLowerCase();
+var isPhone = 0;
+var isIphone = 0;
+var isAndroidPhone = 0;
+var isWindowsPhone = 0
+var isBlackberry = 0;
+
+if (thisUA.indexOf('iphone') > -1){
+	isPhone = 1;
+	isIphone = 1;
+	}
+else if (thisUA.indexOf('android') > -1 &&  thisUA.indexOf('mobile') > -1){
+	isPhone = 1;
+	isAndroidPhone = 1;
+	}
+else if (thisUA.indexOf('blackberry') > -1){
+	isPhone = 1;
+	isBlackberry = 1;
+	}
+else if (thisUA.indexOf('iemobile') > -1 ||  thisUA.indexOf('windows phone') > -1){
+	isPhone = 1;
+	isWindowsPhone = 1;
+	}
+
+if (fromMobile == 0 && ((isPhone && isTouch) || isWindowsPhone)){
+	location.href = redirectURL;
+	}
+
+
+</script> 
+				<link rel="alternate" hreflang="en" href="http://www.invaluable.com" />
+				<link rel="alternate" hreflang="en-gb" href="http://www.invaluable.co.uk" />
+			
+	<script type="text/javascript" src="/lib/afjs/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="/lib/afjs/jquery-ui.min.js"></script>
+	
+	
+	<script src="//cdn.optimizely.com/js/699932692.js"></script>
+	<script src="/lib/afjs/jquery.dotdotdot-1.5.4-packed_5.24_.js" type="text/javascript"></script>
+	
+		<title>Live Online Art, Antiques & Estate Auctions | Invaluable</title>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+				<meta name="ROBOTS"			content="INDEX,FOLLOW" />
+			
+				<meta name="DESCRIPTION"	content="Find what you love at live online auctions from around the world. Bid on art, antiques, estate jewelry, rare coins, collectibles, and much more!" />
+			
+			<meta name="KEYWORDS"		content="" />
+			
+	<script type="text/javascript">
+		
+		var coName = 'invaluable';
+		var homeURL =  'http://www.invaluable.com';
+		var domain = document.domain.split(/\.(.+)/)[1];
+
+		
+		//<![CDATA[
+		window.onloads = new Array();
+		window.onload = function() { for( var i=0; i<window.onloads.length; i++ ) window.onloads[i](); }
+
+		function openWin( windowURL, windowName, windowFeatures ) {
+			return window.open( windowURL, windowName, windowFeatures ) ;
+		}
+		function getCHP(tokenName)
+			{
+			return window.open(homeURL + '/invaluable/viewCH.cfm?tokenName=' + tokenName, 'Help', 'width=620, height=475, left=10, top=10, scrollBars, resizable');
+			}
+
+		// Opener for demo
+		function openindex() {
+			window.open ("/wwwImages/flash/" + coName + "-demo.html","mywindow","resizable=0,menubar=0,status=0,toolbar=0,resizable=0,height=623,width=800");
+		}
+		//]]>
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="//cloud.typography.com/7846252/704082/css/fonts.css" />
+
+	
+	<link rel="stylesheet" type="text/css" href="/styles/jquery-ui_18_5.24_.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/rdHome_5.24_.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/header_5.24_.css" />
+
+<!--[if gte IE 7]>
+			<link rel="stylesheet" type="text/css" href="/styles/ie7_5.24_.css" />
+		<![endif]-->
+
+	<link rel="shortcut icon" href="http://www.invaluable.com/favicon.ico" type="image/vnd.microsoft.icon" />
+
+	
+	
+	<script type="text/javascript">
+		var J = jQuery.noConflict();
+
+		clearCount = 0
+
+		function clearGhost(which){
+			if (which == 'mbrLoginEmail' && clearCount == 0){
+				J('#' + which).val('').removeClass('newLoginGhost');
+				clearCount++;
+				}
+			else if (which == 'passwordGhost'){
+				J('#' + which).val('').removeClass('newLoginGhost');
+				J('#' + which).hide();
+				J('#password').removeClass('newLoginHidden').show().focus();
+				}
+			}
+
+		function loadAjaxTerms(){
+			availableSearchTerms = new Array();
+			J.ajax({
+				dataType: 'json',
+				url: '/lib/jQueryObj/jFineArtObj.cfc?wsdl',
+				data: {
+					method : 'getAutoCompleteAjax'
+					},
+				success: function(data){
+					availableSearchTerms = data;
+						}
+					});
+			}
+
+		function clearSearchBox(){
+			if (J('#headerSearchText').val() == 'Search for upcoming items'){
+				J('#headerSearchText').val('').addClass('searchFieldActive');
+				}
+			}
+		function clearSearchBoxSlider(){
+			if (J('#sliderSearchText').val() == 'What do you collect?'){
+				J('#sliderSearchText').val('').removeClass('sliderEmailGhost');
+				}
+			}
+
+		function clearSearchBoxMid(){
+			J('#midPageSearchText').val('').addClass('searchFieldActive');
+			}
+
+		function checkEmptySearch(which){
+			if (which == 1 &&  (J('#headerSearchText').val() == '' || J('#headerSearchText').val() == 'Search for upcoming items')){
+				J('#headerSearchText').val('Search for upcoming items').removeClass('searchFieldActive');
+				return false;
+				}
+			else if (which == 2 && (J('#midPageSearchText').val() == '' || J('#midPageSearchText').val() == 'What do you collect?')){
+				J('#midPageSearchText').val('What do you collect?').removeClass('searchFieldActive');
+				return false;
+				}
+			else if (which == 3 && (J('#emptySearchText').val() == '' || J('#emptySearchText').val() == 'Search for upcoming items')){
+				J('#emptySearchText').val('Search for upcoming items').removeClass('searchFieldActive');
+				return false;
+				}
+			else if (which == 4 && (J('#sliderSearchText').val() == '' || J('#sliderSearchText').val() == 'What do you collect?')){
+					J('#sliderSearchText').val('What do you collect?').removeClass('searchFieldActive');
+					return false;
+				}
+			else {
+				return true;
+				}
+			}
+
+		function setCookie(c_name,value,exdays){
+			var exdate = new Date();
+			exdate.setDate(exdate.getDate() + exdays);
+			var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+			document.cookie=c_name + "=" + c_value;
+			}
+		// set lengths of arrays for flyout
+		flyoutQueryLengths = new Array();
+		flyoutQueryLengths[0] = 0;
+		
+			flyoutQueryLengths[1] = 8;
+		
+			flyoutQueryLengths[2] = 8;
+		
+			flyoutQueryLengths[3] = 13;
+		
+			flyoutQueryLengths[4] = 16;
+		
+			flyoutQueryLengths[5] = 14;
+		
+			flyoutQueryLengths[6] = 6;
+		
+
+		// alternate category urlnames for language switching on category pages - empty otherwise
+		var altUrlNames = new Array();
+		
+
+		function getUserAgent() {
+			var userAgent = {
+				isTablet:0,
+				isIpad:0,
+				isAndroid:0
+			};
+			var thisUA = navigator.userAgent.toLowerCase();
+			if (thisUA.indexOf('ipad') > -1) {
+				userAgent.isTablet = 1;
+				userAgent.isIpad = 1;
+			} else if (thisUA.indexOf('android') > -1 && thisUA.indexOf('mobile') == -1) {
+				userAgent.isTablet = 1;
+				userAgent.isAndroid = 1;
+			}
+
+			return userAgent;
+			}
+
+		//  test for phone or tablet
+		function checkMobileDevice(which){
+			var thisUA = navigator.userAgent.toLowerCase();
+			var isTablet = 0;
+			var isMobileDevice = 0;
+			if (thisUA.indexOf('ipad') > -1 || (thisUA.indexOf('android') > -1 && thisUA.indexOf('mobile') == -1)) {
+				isTablet = 1;
+				}
+			var isMobilePhone = 0;
+			if (thisUA.indexOf('iphone') > -1 || (thisUA.indexOf('android') > -1 &&  thisUA.indexOf('mobile') > -1) || thisUA.indexOf('blackberry') > -1 || thisUA.indexOf('iemobile') > -1 ||  thisUA.indexOf('windows phone') > -1    ){
+				isMobilePhone = 1;
+				}
+			if (isTablet ==1 || isMobilePhone == 1){
+				isMobileDevice = 1;
+				}
+			if (which == 'phone'){
+				return isMobilePhone;
+				}
+			else if (which == 'tablet'){
+				return isTablet;
+				}
+			else {
+				return isMobileDevice;
+				}
+			}
+
+		function gsaSliderSearch(){
+			_gaq.push(["_trackEvent","Email Capture","Email capture search"]);
+			}
+
+		J(document).ready(function(){
+			var currentURL = location.href;
+			//remove redirect trigger before site switching
+			currentURL = currentURL.replace('?afRedir=true','');
+			var isTablet = getUserAgent().isTablet;
+			var isCategoryPage = 0;
+			var activeNav = 0;
+
+			if (currentURL.indexOf('/pc-') > -1 || currentURL.search('/cc-') > -1 || currentURL.search('/sc-') > -1){
+				isCategoryPage = 1;
+				}
+
+			var leaveNav = new Array();
+
+			J('.topNavItem').mouseenter(
+				function(){
+					var thisItem = this.id.substr(7);
+					J(this).addClass('topNavHighlight');
+					if (activeNav != thisItem || leaveNav.indexOf(thisItem) > -1 || leaveNav.length > 0){
+						J('#navFlyout_' + thisItem).show();
+						}
+					if (flyoutQueryLengths[thisItem] > 10){
+						J('#navFlyout_' + thisItem).addClass('flyoutWide');
+						}
+					});
+			J('.topNavItem').mouseleave(
+				function(){
+					var thisItem = this.id.substr(7);
+					J(this).removeClass('topNavHighlight');
+					J('#navFlyout_' + thisItem).hide();
+					incrementLeaveNav(thisItem);
+					});
+			J('.topNavItem').click(
+				function(){
+					J('.topNavItem').removeClass('topNavActive');
+					var thisItem = this.id.substr(7);
+					if (thisItem != 'more'){
+						J(this).addClass('topNavActive');
+						J('#navFlyout_' + thisItem).hide();
+						}
+					});
+
+			function incrementLeaveNav(which){
+				if (leaveNav.indexOf(which) == -1){
+					leaveNav.push(which)
+					}
+				}
+
+			J('#mbrLoginEmail').blur();
+
+			J('body').click(function(){
+				J('a.closer').click(function(){
+					if(J('#panelLogin').is(':visible')){
+						J('#panelLogin').hide();
+						}
+					if(J('#panelForgotpass').is(':visible')){
+						J('#panelForgotpass').hide();
+						}
+					});
+					J("#panelLogin").click(function(e) {
+					   e.stopPropagation();
+						});
+					if(J('#panelLogin').is(':visible')){
+						J('#panelLogin').hide();
+						}
+					J("#panelForgotpass").click(function(e) {
+					   e.stopPropagation();
+						});
+					if(J('#panelForgotpass').is(':visible')){
+						J('#panelForgotpass').hide();
+						}
+					});
+
+			J('body').click(function(){
+				//added conditional for IE
+				if(J('#headerSearchText').val() == ''  && (document.activeElement.id != 'headerSearchText' || J('#headerSearchText').is(':focus') == false)){
+					J('#headerSearchText').val('Search for upcoming items').removeClass('searchFieldActive');
+					}
+				if(J('#midPageSearchText').val() == ''  && (document.activeElement.id != 'midPageSearchText' || J('#midPageSearchText').is(':focus') == false)){
+					J('#midPageSearchText').val('What do you collect?').removeClass('searchFieldActive');
+					}
+
+				if(J('#sliderSearchText').val() == ''  && (document.activeElement.id != 'sliderSearchText' || J('#sliderSearchText').is(':focus') == false)){
+					J('#sliderSearchText').val('What do you collect?').addClass('sliderEmailGhost');
+					}
+				if(J('#sliderCapture.sliderEmailField').val() == ''  && (document.activeElement.id != 'sliderCapture' || J('#sliderCapture.sliderEmailField').is(':focus') == false)){
+					J('#sliderCapture.sliderEmailField').val('Your email address').addClass('sliderEmailGhost');
+					}
+
+				});
+
+			J('.navFlyout').removeClass('topNavItem');
+
+			J('#grayBox, #redirectButton, #closeSlider').click(function(){
+				J('#redirectOverlay').hide();
+				J('#grayBox').hide();
+				J('#sliderNewEmail').hide();
+				J('#sliderThanks').hide();
+				});
+
+		//adjust search box padding in old IE
+			if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
+				var ieVersion = new Number(RegExp.$1)
+				if (ieVersion <= 9){
+					J('.headerSearchBox').css('height','27px').css('padding-top','3px');
+					}
+				}
+			if (isTablet == 0){
+				J('#ukFlag.inactiveFlag').attr('title','Go to Invaluable.co.uk');
+				J('#usFlag.inactiveFlag').attr('title','Go to Invaluable.com');
+				}
+			J('#ukFlag.inactiveFlag').hover(function(){
+				J('#ukFlagImage').attr('src','/wwwImages/header/UK_Flag_Color.png');},
+				function(){
+					J('#ukFlagImage').attr('src','/wwwImages/header/UK_Flag_Gray.png');
+					});
+			J('#usFlag.inactiveFlag').hover(function(){
+				J('#usFlagImage').attr('src','/wwwImages/header/USA_Flag_Color.png');},
+				function(){
+					J('#usFlagImage').attr('src','/wwwImages/header/USA_Flag_Gray.png');
+					});
+
+		//iPad specific
+			if (isTablet == 1){
+				J('#newLogoImage').attr('src','/wwwImages/header/Nav_INVLogo_Tablet.png');
+				J('#panel_button').click(function(e){
+					if(J('#panelLogin').is(':visible') || J('#panelForgotpass').is(':visible')){
+						J('#mbrLoginEmail').blur();
+						J('#passwordGhost').blur();
+						J('#email').blur();
+						e.stopPropagation();
+						J('#panelLogin').hide();
+						J('#panelForgotpass').hide();
+						}
+					});
+
+				J('#ukFlagImage').attr('title','');
+				J('#usFlagImage').attr('title','');
+				J('#flags').click(function(){
+					if (currentURL.search('invaluable.co.uk') > -1){
+						var newURL = currentURL.replace('invaluable.co.uk','invaluable.com');
+						if (altUrlNames.length > 1){
+							newURL = newURL.replace(altUrlNames[2],altUrlNames[1])
+							}
+						}
+					else if (currentURL.search('invaluable.com') > -1){
+						var newURL = currentURL.replace('invaluable.com','invaluable.co.uk');
+						if (altUrlNames.length > 1){
+							newURL = newURL.replace(altUrlNames[1],altUrlNames[2])
+							}
+						}
+					if (isLoggedIn_slider == true){
+						logoutAndRedirect(newURL);
+						}
+					else {
+						window.location = newURL;
+						}
+					});
+				J('.navFlyout').click(function(){
+					J('.navFlyout').hide();
+					J('.topNavHighlight').removeClass('topNavHighlight');
+					});
+				}
+			else {
+				J('#ukFlag.inactiveFlag').click(function(){
+					var newURL = currentURL.replace('invaluable.com','invaluable.co.uk');
+					if (altUrlNames.length > 1){
+						newURL = newURL.replace(altUrlNames[1],altUrlNames[2])
+						}
+					if (isLoggedIn_slider == true){
+						logoutAndRedirect(newURL);
+						}
+					else {
+						window.location = newURL;
+						}
+					});
+				J('#usFlag.inactiveFlag').click(function(){
+					var newURL = currentURL.replace('invaluable.co.uk','invaluable.com');
+					if (altUrlNames.length > 1){
+						newURL = newURL.replace(altUrlNames[2],altUrlNames[1])
+						}
+					if (isLoggedIn_slider == true){
+						logoutAndRedirect(newURL);
+						}
+					else {
+						window.location = newURL;
+						}
+					});
+				}
+
+			
+
+			// Mac new user flyout padding
+			if (/Macintosh/.test(navigator.userAgent)){
+				J('.privacyPad').css('padding-top','10px');
+				}
+			// Fix IE non-hover starte on buttons
+			if (/MSIE/.test(navigator.userAgent)){
+				J('.overlayButton').hover(
+					function(){
+						J('.overlayButton').css('background-color','#33b0a2');
+						},
+					function(){
+						J('.overlayButton').css('background-color','#24988B');
+						}
+					);
+				}
+
+			J('#headerSearchButton').hover(
+				function(){
+				J('#headerSearchButton').attr('src','/wwwImages/header/Search_Button_Hover.png');
+					},
+				function(){
+				J('#headerSearchButton').attr('src','/wwwImages/header/Search_Button.png');
+					}
+				);
+
+			J('.myInvLink').hover(
+				function(){
+					J('.myInvLink .loginLink').addClass("underlined")
+							J('#panelMyInvaluable').show();
+					// get the data
+					J.ajax({
+						url:  '/lib/webServices/afObj.cfc?method=getMyInvFlyoutData',
+						dataType: 'json',
+						data: {memberID: 0},
+						cache: false,
+						success: function(result){
+							if (result['approvedAuctions'] > 0){
+								J('#count_myAuctions').html('(' + result['approvedAuctions'] + ')');
+								}
+							if (result['orderBids'] > 0){
+								J('#count_myBids').html('(' + result['orderBids'] + ')');
+								}
+							if (result['watchedLots'] > 0){
+								J('#count_myWatchedLots').html('(' + result['watchedLots'] + ')');
+								}
+							if (result['wonLots'] > 0){
+								J('#count_myWonLots').html('(' + result['wonLots'] + ')');
+								}
+							if (result['categoryAlerts'] > 0){
+								J('#count_cAlerts').html('(' + result['categoryAlerts'] + ')');
+								}
+							}
+						});
+					},
+				function(){
+					J('.myInvLink .loginLink').removeClass("underlined");
+					J('#panelMyInvaluable').hide();
+					}
+				);
+
+
+			J('.myInvLink').click(function(e){
+				J('.myInvLink .loginLink').removeClass("underlined");
+				J('#panelMyInvaluable').hide();
+				e.stopPropagation();
+				});
+
+			J('#headerSearchButton').click(function(){
+				var isValidatedSearch = checkEmptySearch(1);
+				if (isValidatedSearch == true){
+					document.searchFormHead.submit();
+					}
+				});
+
+			J('#noResultsSearchButton').hover(
+				function(){
+				J('#noResultsSearchButton').attr('src','/wwwImages/header/Search_Button_Hover.png');
+					},
+				function(){
+				J('#noResultsSearchButton').attr('src','/wwwImages/header/Search_Button.png');
+					}
+				);
+
+			J('#noResultsSearchButton').click(function(){
+				var isValidatedSearch = checkEmptySearch(3);
+				if (isValidatedSearch == true){
+					document.searchFormEmpty.submit();
+					}
+				});
+
+			J('#sliderSearchButton').click(function(){
+				var isValidatedSearch = checkEmptySearch(4);
+				if (isValidatedSearch == true){
+					document.searchFormSlider.submit();
+					}
+				});
+
+
+			J('.email2Closer').click(function(){
+				J('#sliderNewEmail2_outer').slideToggle(500,'swing');
+				J.setCookie("slideInClose", "closed", {domain:domain, path:"/", duration:36540});
+				_gaq.push(["_trackEvent","Email Capture","Email Capture Closed by user"]);
+				});
+
+
+
+			//include for ga eCommerce tracking
+			lotImpressions = new Array();
+			
+
+// rich relevance
+ 		if(typeof RR != 'undefined'){
+			RR.jsonCallback = function(){
+				rrData = RR.data.JSON.placements;
+				loadRR_Placements(rrData);
+				if (rrData.length == 0 &&  lotImpressions.length > 0){
+					dataLayer.push({
+						 'ecommerce': {
+					    	'impressions': lotImpressions
+					  		}
+						});
+					}
+				};
+			}
+		else if(typeof lotImpressions != 'undefined' && lotImpressions.length > 0){
+			dataLayer.push({
+				 'ecommerce': {
+			    	'impressions': lotImpressions
+			  		}
+				});
+			}
+
+//autocomplete
+
+		J.extend(J.ui.autocomplete.prototype, {
+		    _renderItem: function (ul, item) {
+		        var searchMask = this.element.val();
+		        var regEx = new RegExp(searchMask, "ig");
+		        var replaceMask = "<b>$&</b>";
+		        // var replaceMask = "<b style=\"color:green;\">$&</b>";
+		        var html = item.label.replace(regEx, replaceMask);
+
+		        return J("<li></li>")
+		            .data("item.autocomplete", item)
+		            .append(J("<a></a>").html(html))
+		            .appendTo(ul);
+			    }
+			});
+
+		J("#headerSearchText").autocomplete({
+			 source: function (request, response) {
+			 	if (J.ui == undefined && jQ.ui != undefined){
+			 		J.ui = jQ.ui;
+			 		}
+		        var term = J.ui.autocomplete.escapeRegex(request.term)
+		            , startsWithMatcher = new RegExp("^" + term, "i")
+		            , startsWith = J.grep(availableSearchTerms, function(value) {
+		                return startsWithMatcher.test(value.label || value.value || value);
+		            })
+		            , containsMatcher = new RegExp(term, "i")
+		            , contains = J.grep(availableSearchTerms, function (value) {
+		                return J.inArray(value, startsWith) < 0 &&
+		                    containsMatcher.test(value.label || value.value || value);
+		            });
+
+		        response(startsWith.concat(contains));
+			    },
+			select: function(event,ui){
+				var selectedItem = ui.item.value;
+				if (selectedItem != ''){
+					J("#headerSearchText").val(selectedItem);
+					document.searchFormHead.submit();
+					_gaq.push(["_trackEvent","Search","Auto-suggest","Clicked_Auto-suggest"]);
+					}
+				},
+			appendTo: '#headerAutoBox',
+			delay: 0,
+			minLength: 2
+			});
+
+		J('.reserve a.toggleflyout').click(function(event){
+				var isVisible = J(this).next(".flyout").is(":visible");
+				if (isVisible) {
+					J(this).next(".flyout").hide();
+				} else {
+					J(this).next(".flyout").show();
+				}
+				event.stopPropagation();
+			});
+
+		availableSearchTerms = new Array();
+
+		J('#rememberMe').click(function(){
+			if(J('#rememberMe').is(':checked')){
+				J('#loginbtn').attr('value','Stay Signed In');
+				}
+			else {
+				J('#loginbtn').attr('value','Sign In');
+				}
+			});
+
+		J('#rememberMe').attr('checked',true);
+		J('#loginbtn').attr('value','Stay Signed In');
+
+
+
+	//end document.ready
+			});
+
+		function loadRR_Placements(jsonData){
+			var divname = '';
+			var findDot = 0;
+			var lotTitle = '';
+			var thisLotRef = ''
+			bidInfo = '';
+			bidCount = 0;
+			var bidData = '';
+			var bidDataJSON = ''
+			var currencySymbol = '';
+			if (jsonData.length == 0){
+				J('#lotsUpcoming').show();
+				}
+			else {
+				//   ga ecommerce tracking variables
+				var cfPageID = 'homepage';
+				var thisCategoryVal = '';
+				var thisListVal = '';
+				if (cfPageID == 'viewLot'){
+					var isPastLot = 'false';
+					if (isPastLot == 'YES'){
+						thisListVal = 'past lot';
+						}
+					else {
+						thisListVal = 'upcoming lot';
+						}
+					}
+				else if (cfPageID == 'category'){
+					thisListVal = 'category';
+					}
+				else if (cfPageID == 'superCategory'){
+					thisListVal = 'category';
+					}
+				else if (cfPageID == 'homepage'){
+					thisListVal = 'homepage';
+					}
+				else if (cfPageID == 'browseUpcoming'){
+					thisListVal = 'browse upcoming';
+					}
+				else if (cfPageID.substring(0,2) == 'my'){
+					thisListVal = 'my invaluable';
+					}
+				var currentLotRef = '';
+				var thisBidInDollars = 0;
+				var thisHouseName = '';
+				var rrImpressions = new Array();
+				//  get bids and bidder counts in one object referenced by lot ref
+				var lotList = '';
+				for (var a = 0; a < jsonData.length; a++){
+					//  catch for hero data in RR
+					if (typeof jsonData[a].items != 'undefined'){
+						for (var b = 0; b < jsonData[a].items.length; b++){
+							if (lotList.length > 0){
+								lotList = lotList + ','
+								}
+							lotList = lotList +  jsonData[a].items[b].id;
+							}
+						}
+					}
+				J.ajax({
+					dataType: 'json',
+					url: '/lib/jQueryObj/jFineArtObj.cfc?wsdl',
+					data: {
+						method : 'getBidAndBidderCount',
+						'lotRefList' : lotList
+						},
+					success: function(data){
+						bidDataJSON = data;
+							}
+						}).done(function(){
+						for (var a = 0; a < jsonData.length; a++){
+							divname = jsonData[a].placement_name;
+							findDot = divname.indexOf('.');
+							divname = divname.substr(findDot + 1);
+						// hide vertical placement from iPad
+							if (divname != 'lotright'  || window.screen.width >= 1024){
+								J('#' + divname + ' #rrTitle').html(jsonData[a].message);
+							//  catch for hero data in RR
+							if (typeof jsonData[a].items != 'undefined'){
+									for (var b = 0; b < jsonData[a].items.length; b++){
+											J('#' + divname + ' #rrImageBox_' + b + ' img').attr('src',jsonData[a].items[b].imageURL);
+										//set title
+										lotTitle = jsonData[a].items[b].name;
+										J('#' + divname + ' #rrLotText_' + b).html('<a href="' + jsonData[a].items[b].linkURL + '">' +  lotTitle + '</a>')
+										J('#' + divname + ' #rrImageBoxLink_' + b).attr('href',jsonData[a].items[b].linkURL);
+
+										thisLotRef = jsonData[a].items[b].id;
+										if (bidDataJSON[thisLotRef] === undefined){
+											bidInfo = '$0';
+											bidCount = 0;
+											}
+										else {
+											bidInfo = bidDataJSON[thisLotRef].currencySymbol  + bidDataJSON[thisLotRef].currentBid;
+											bidCount = parseInt(bidDataJSON[thisLotRef].totalOrderBids);
+											}
+										if (bidCount == 1){
+											bidInfo = bidInfo + ' (1 bid)';
+											}
+										else if (bidCount > 1){
+											bidInfo = bidInfo + ' (' + bidCount + ' bids)';
+											}
+										else {
+											bidInfo = bidInfo + ' (starting bid)';
+											}
+										J('#' + divname + ' #rrLotText2_' + b).html(bidInfo);
+										J('#' + divname + ' #rrLotBox_' + b).show();
+										//build array for GA eCommerce
+										if (thisCategoryVal == ''){
+											thisCategoryVal = jsonData[a].message;
+											}
+										 if (bidDataJSON[thisLotRef] === undefined){
+											thisBidInDollars = 0;
+											thisHouseName = '';
+										 	}
+										 else {
+										 	thisBidInDollars = bidDataJSON[thisLotRef].bidInDollars;
+											thisHouseName = bidDataJSON[thisLotRef].houseName;
+										 	}
+										rrImpressions[rrImpressions.length]= {
+									       'name': jsonData[a].items[b].name,
+									       'id': jsonData[a].items[b].id,
+									      'price': thisBidInDollars,
+									      'brand': thisHouseName,
+									       'category': thisCategoryVal,
+									       'list': thisListVal,
+									       'position': 1,
+									       'variant' :'Active lot'
+									     	} ;
+										}
+									J('#' + divname).show();
+									J('.rr_rec_lotText').dotdotdot({height:36});
+									}
+								}
+							}
+
+						if (lotImpressions.length > 0){
+							var multiImpressions = lotImpressions.concat(rrImpressions);
+							}
+						else {
+							var multiImpressions = rrImpressions;
+							}
+
+					// push GA eCommerce
+						dataLayer.push({
+							 'ecommerce': {
+						    	'impressions': multiImpressions
+						  		}
+							});
+						});
+					}
+				}
+
+	// end rich relevance function
+
+		function slideUkHeader(direction){
+			if (direction == 'down'){
+				J('#topNavbar').addClass('ukHeaderSlide');
+				}
+			else {
+				J('#topNavbar').removeClass('ukHeaderSlide');
+				}
+			}
+
+		function logoutAndRedirect(newURL){
+			var isSecurePage = 0;
+			if (isSecurePage == 1){
+				var logoutURL =  'https://secure.invaluable.com/signin/signout.cfm';
+				}
+			else {
+				var logoutURL =  'http://www.invaluable.com/logout.cfm';
+				}
+			jQ.ajax({
+				url: logoutURL,
+				type: 'get',
+				dataType: 'text',
+				async: false,
+	           	success: function(data, textStatus, jqXHR){
+	           		window.location = newURL;
+					},
+				error: function(){
+					window.location = logoutURL;
+					window.location = newURL;
+					}
+				});
+			}
+
+		function noEnter(e){
+        	var key;
+        	// firefox vs. ie
+        	if (window.event){
+        		key = window.event.keyCode;
+        		}
+        	else {
+        		key = e.which;
+        		}
+        	if (key == 13 &&  (J('#sliderSearchText').val() == '' || J('#sliderSearchText').val() == 'What do you collect?')){
+        		J('#sliderSearchText').val('What do you collect?');
+        		return false;
+        		e.stopPropagation();
+        		}
+        	else {
+        		return true;
+        		}
+    		}
+		var 	isLoggedIn_slider = false;
+		_udn = ".invaluable.com";
+	</script>
+
+
+	<script type="text/javascript" src="/lib/afjs/custom_5.24_.js"></script>
+	
+
+	
+
+	<link rel="alternate" type="application/rss+xml" title="Invaluable.com Upcoming Auctions" href="http://www.invaluable.com/rss-upcoming-auctions.xml" />
+	<link rel="stylesheet" href="/styles/print_5.24_.css" type="text/css" media="print" />
+
+	<!--[if IE 6]>
+		<script type="text/javascript" src="/lib/afjs/IE6_images_5.24_.js"></script>
+	<![endif]-->
+	<link rel="alternate" type="application/rss+xml" title="Invaluable.com Upcoming Auctions" href="http://www.invaluable.com/rss-upcoming-auctions.xml" />
+	<link rel="stylesheet" href="/styles/print_5.24_.css" type="text/css" media="print" />
+	<!--[if IE]>
+		<script src="/lib/afjs/html5shiv_5.24_.js"></script><![endif]-->
+
+	
+			<link rel="alternate" hreflang="en" href="http://www.invaluable.com" />
+			<link rel="alternate" hreflang="en-gb" href="http://www.invaluable.co.uk" />
+		
+
+
+		<link rel="canonical" href="http://www.invaluable.com" />
+		<link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.invaluable.com/">
+		<script type="text/javascript" src="/lib/afjs/jquery.jshowoff.min_5.24_.js"></script>
+		<script src="/lib/afjs/promo_5.24_.js" type="text/javascript"></script>
+		<script src="/lib/afjs/jquery.jshowoff_5.24_.js" type="text/javascript"></script>
+		<script src="/lib/afjs/jquery.dotdotdot-1.5.4-packed_5.24_.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			jQ(document).ready(function() {
+				//move to auctions if filter param set in URL
+				var urlHasFilterParams = function() {
+					var filterParams = ['filterDays', 'filterCountryID', 'filterHouseRef',
+							'filterCategoryRef', 'orderBy', 'order', 'typeIsSet', 'filterHouseType'];
+
+					var pairs = window.location.search.substring(1).split('&');
+					for (var i = 0; i < pairs.length; i++) {
+						var pair = pairs[i].split('=');
+						if(jQ.inArray(pair[0], filterParams) >= 0) {
+							return true;
+						}
+					}
+					return false;
+				};
+				if(urlHasFilterParams()) {
+					jQ(window).scrollTop( jQ("#auction-list-header").offset().top );
+				}
+			});
+			jQ(window).load(function() {
+				vertCenterImages('div.photo img', 98);
+			});
+		</script>
+		
+		<script type="application/ld+json">
+			{
+			  "@context": "http://schema.org",
+			  "@type": "WebSite",
+			  "url": "http://www.invaluable.com/",
+			  "potentialAction": {
+			    "@type": "SearchAction",
+			    "target": "http://www.invaluable.com/catalog/searchLots.cfm?scp=u&ns=1&resetpage=1&isSC=0&wa={searchTerm}",
+			    "query-input": "required name=searchTerm"
+			  }
+			}
+			</script>
+	
+		<link rel="stylesheet" type="text/css" href="/styles/homePage_5.24_.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/upcoming_5.24_.css" />
+		<link rel="stylesheet" type="text/css" href="/styles/promo_5.24_.css" />
+		
+			<link rel="stylesheet" type="text/css" href="/styles/homePage-inv_5.24_.css" />
+		
+		<link rel="stylesheet" type="text/css" href="/styles/rebrand_5.24_.css" />
+	</head>
+
+<body>
+	 <!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M47W3V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-M47W3V');</script>
+	<!-- End Google Tag Manager -->
+	
+   
+	<script src="//media.richrelevance.com/rrserver/js/1.0/p13n.js"></script>
+    <script charset="utf-8" type="text/javascript">
+ 		var R3_COMMON = new r3_common();
+
+		R3_COMMON.setApiKey('d7c163cefc95f92d');
+		R3_COMMON.setBaseUrl(window.location.protocol+'//recs.richrelevance.com/rrserver/');
+		R3_COMMON.setClickthruServer(window.location.protocol+"//"+window.location.host);
+		R3_COMMON.setSessionId('A2DDDE6E-BF1C-412D-9590-CDAE39C84DB3');
+		
+			R3_COMMON.setUserId('A2DDDE6E-BF1C-412D-9590-CDAE39C84DB3');
+			var criteoCustomerID = 'A2DDDE6E-BF1C-412D-9590-CDAE39C84DB3';
+		
+		      var R3_HOME = new r3_home();
+		      R3_COMMON.addPlacementType('home_page.hp1');
+		      R3_COMMON.addPlacementType('home_page.hp2');
+		      R3_COMMON.addPlacementType('home_page.hp3');
+		      
+		      R3_COMMON.addPlacementType('home_page.hero1');
+		      
+	  rr_flush_onload();
+	  r3();
+    </script>
+
+	<div id="topNavbar">
+		<div id="topNavLinks">
+			
+			<div class="topNavItem" id="topNav_1" onClick="location.href='http://www.invaluable.com/fine-art/pc-SG2BIX3JPJ/';">
+				<a href="http://www.invaluable.com/fine-art/pc-SG2BIX3JPJ/" class="topNavItemLink">FINE ART</a>
+				
+				<div id="navFlyout_1" class="navFlyout flyoutLeft">
+					<div class="flyoutLeftColumn">
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/drawings/cc-X40D0LU64C/" class="navFlyoutItem">Drawings (742)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/fine-art-general/cc-Y4YDHAXYM6/" class="navFlyoutItem">Fine Art - General (42)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/mixed-media-art/cc-Z3K5WYSB8R/" class="navFlyoutItem">Mixed Media Art (468)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/paintings/cc-AF14022FJQ/" class="navFlyoutItem">Paintings (7620)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/photography/cc-5FM3GDY2EF/" class="navFlyoutItem">Photography (2263)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/posters/cc-QB7AGYS9KO/" class="navFlyoutItem">Posters (1172)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/prints/cc-SGERF8GX5G/" class="navFlyoutItem">Prints (14511)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/sculptures/cc-MH70PM0ARM/" class="navFlyoutItem">Sculptures (2600)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/fine-art/pc-SG2BIX3JPJ/"  class="viewMore">View All Fine Art &raquo</a>
+							</div>
+						
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+			<div class="topNavItem" id="topNav_2" onClick="location.href='http://www.invaluable.com/decorative-art/pc-HV9SJ0PETO/';">
+				<a href="http://www.invaluable.com/decorative-art/pc-HV9SJ0PETO/" class="topNavItemLink">DECORATIVE ART</a>
+				
+				<div id="navFlyout_2" class="navFlyout flyoutLeft">
+					<div class="flyoutLeftColumn">
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/american-indian-art/cc-V1810UB55N/" class="navFlyoutItem">American Indian Art (438)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/ceramics-pottery/cc-W7JLTHSDLU/" class="navFlyoutItem">Ceramics & Pottery (2398)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/decorative-art-general/cc-ET2N4AT11F/" class="navFlyoutItem">Decorative Art -<br />General (83)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/ethnographic-indigenous-artifacts/cc-SN06I92UXA/" class="navFlyoutItem">Ethnographic &<br />Indigenous Artifacts (596)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/glass/cc-HVPO5ZEMD1/" class="navFlyoutItem">Glass (2893)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/greek-roman-egyptian-antiques/cc-YIWIKOSRZQ/" class="navFlyoutItem">Greek, Roman & Egyptian<br />Antiquities (213)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/porcelain-china/cc-G51MM3JCDR/" class="navFlyoutItem">Porcelain & China (1834)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/silver-vertu/cc-HVLGMC4OMS/" class="navFlyoutItem">Silver & Vertu (3010)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/decorative-art/pc-HV9SJ0PETO/"  class="viewMore">View All Decorative Art &raquo</a>
+							</div>
+						
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+			<div class="topNavItem" id="topNav_3" onClick="location.href='http://www.invaluable.com/jewelry/pc-YKGNZXS2MH/';">
+				<a href="http://www.invaluable.com/jewelry/pc-YKGNZXS2MH/" class="topNavItemLink">JEWELRY</a>
+				
+				<div id="navFlyout_3" class="navFlyout flyoutLeft">
+					<div class="flyoutLeftColumn">
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/bracelets/cc-SD21QYCFQN/" class="navFlyoutItem">Bracelets (3060)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/costume-jewelry/cc-9OACJQ50M0/" class="navFlyoutItem">Costume Jewelry (101)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/earrings/cc-18N22YFW7F/" class="navFlyoutItem">Earrings (3323)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/jewelry-general/cc-C6BZQDE9JQ/" class="navFlyoutItem">Jewelry - General (2074)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/loose-stones-beads/cc-OG1XEE04VI/" class="navFlyoutItem">Loose Stones &<br />Beads (5209)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/mens-jewelry/cc-Q5BUT80T6S/" class="navFlyoutItem">Men's Jewelry (418)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/mens-watches/cc-7KBYXLPOCW/" class="navFlyoutItem">Men's Watches (685)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/necklaces-pendants/cc-O62XLMG5L9/" class="navFlyoutItem">Necklaces &<br />Pendants (6371)</a>
+							</div>
+						
+					</div>
+					
+						<div class="flyoutDivider">&nbsp;</div>
+						<div class="flyoutRightColumn">
+						
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/pins-brooches/cc-TQ0X13A58C/" class="navFlyoutItem">Pins & Brooches (819)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/pocket-watches-accessories/cc-OKRAO7JCZY/" class="navFlyoutItem">Pocket Watches &<br />Accessories (1045)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/rings/cc-QE9HEBWJZR/" class="navFlyoutItem">Rings (13289)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/vintage-jewelry/cc-K9OGPEH0Q1/" class="navFlyoutItem">Vintage Jewelry (35)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/womens-watches/cc-WBQ0TKYDMB/" class="navFlyoutItem">Women's Watches (677)</a>
+								</div>
+							
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/jewelry/pc-YKGNZXS2MH/"  class="viewMore">View All Jewelry &raquo</a>
+							</div>
+						</div>
+					
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+			<div class="topNavItem" id="topNav_4" onClick="location.href='http://www.invaluable.com/collectibles/pc-BQWOG3FLWY/';">
+				<a href="http://www.invaluable.com/collectibles/pc-BQWOG3FLWY/" class="topNavItemLink">COLLECTIBLES</a>
+				
+				<div id="navFlyout_4" class="navFlyout flyoutLeft">
+					<div class="flyoutLeftColumn">
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/advertising-paper-ephemera/cc-PCM15ZAEJA/" class="navFlyoutItem">Advertising, Paper &<br />Ephemera (1964)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/animation-art/cc-5FFNCDPPYM/" class="navFlyoutItem">Animation Art (180)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/autographs/cc-EOB7P0TJ34/" class="navFlyoutItem">Autographs (1735)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/books-maps-manuscripts/cc-NVAZ3UE29G/" class="navFlyoutItem">Books, Maps &<br />Manuscripts (2737)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/coins-monies-stamps/cc-SV4INCVA01/" class="navFlyoutItem">Coins, Monies &<br />Stamps (8648)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/collectibles-general/cc-H816I2EBE3/" class="navFlyoutItem">Collectibles -<br />General (1004)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/couture-fashion-accessories/cc-OKYXW1QPNP/" class="navFlyoutItem">Couture, Fashion &<br />Accessories (1090)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/electronics-collectibles/cc-WNDJ7L05CS/" class="navFlyoutItem">Electronics<br />Collectibles (276)</a>
+							</div>
+						
+					</div>
+					
+						<div class="flyoutDivider">&nbsp;</div>
+						<div class="flyoutRightColumn">
+						
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/historical-political-space-collectibles/cc-WHUZCHPFAQ/" class="navFlyoutItem">Historical, Political &<br />Space Collectibles (717)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/memorabilia/cc-WXMDZM23Q2/" class="navFlyoutItem">Memorabilia (2117)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/military-wartime-collectibles/cc-0EIGHLOFDZ/" class="navFlyoutItem">Military & Wartime<br />Collectibles (2168)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/musical-instruments-equipment/cc-9RFC2VPWGO/" class="navFlyoutItem">Musical Instruments &<br />Equipment (573)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/natural-history-fossils-minerals-collectibles/cc-4E71Y757DJ/" class="navFlyoutItem">Natural History<br />Collectibles, Fossils & Minerals (298)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/pens/cc-5ZZ5EOVHXB/" class="navFlyoutItem">Pens (235)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/sporting-fishing-hunting-collectibles/cc-HHO7L7CYWT/" class="navFlyoutItem">Sporting, Fishing &<br />Hunting Collectibles (1501)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/tools/cc-159SUKPT23/" class="navFlyoutItem">Tools (856)</a>
+								</div>
+							
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/collectibles/pc-BQWOG3FLWY/"  class="viewMore">View All Collectibles &raquo</a>
+							</div>
+						</div>
+					
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+			<div class="topNavItem" id="topNav_5" onClick="location.href='http://www.invaluable.com/furniture/pc-66MNH3RVXU/';">
+				<a href="http://www.invaluable.com/furniture/pc-66MNH3RVXU/" class="topNavItemLink">FURNITURE</a>
+				
+				<div id="navFlyout_5" class="navFlyout flyoutLeft">
+					<div class="flyoutLeftColumn">
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/beds/cc-Q1M0GV0I2V/" class="navFlyoutItem">Beds (115)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/benches-stools/cc-OQO01MZVPQ/" class="navFlyoutItem">Benches & Stools (210)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/cabinets-armoires-cupboards/cc-8RA3GB6FWF/" class="navFlyoutItem">Cabinets, Armoires &<br />Cupboards (1122)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/chairs/cc-GPI4WFSDTE/" class="navFlyoutItem">Chairs (1247)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/clocks/cc-77XL1D8362/" class="navFlyoutItem">Clocks (739)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/decor-accessories/cc-M6LMPIAVCG/" class="navFlyoutItem">Decor &<br />Accessories (5284)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/dressers-vanities/cc-MIYYXXKHP7/" class="navFlyoutItem">Dressers & Vanities (91)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/furniture-general/cc-9150N5SOYE/" class="navFlyoutItem">Furniture - General (165)</a>
+							</div>
+						
+					</div>
+					
+						<div class="flyoutDivider">&nbsp;</div>
+						<div class="flyoutRightColumn">
+						
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/lamps-lights/cc-XGC3VSBGB1/" class="navFlyoutItem">Lamps & Lights (1535)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/mirrors/cc-1D7I67OQBU/" class="navFlyoutItem">Mirrors (413)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/rugs-carpets/cc-9CP1X2GQ1T/" class="navFlyoutItem">Rugs & Carpets (1098)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/shelves-bookcases/cc-ZG423REXF2/" class="navFlyoutItem">Shelves & Bookcases (187)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/sofas-couches-chaises/cc-FRT16H4VXB/" class="navFlyoutItem">Sofas, Couches &<br />Chaises (212)</a>
+								</div>
+							
+								<div class="navFlyoutItem">
+									<a href="http://www.invaluable.com/tables-stands-consoles/cc-FKAJ7AFLJ9/" class="navFlyoutItem">Tables, Stands &<br />Consoles (2128)</a>
+								</div>
+							
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/furniture/pc-66MNH3RVXU/"  class="viewMore">View All Furniture &raquo</a>
+							</div>
+						</div>
+					
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+			<div class="topNavItem" id="topNav_6" onClick="location.href='http://www.invaluable.com/asian-art-antiques/pc-URF9IESAHL/';">
+				<a href="http://www.invaluable.com/asian-art-antiques/pc-URF9IESAHL/" class="topNavItemLink">ASIAN ART & ANTIQUES</a>
+				
+				<div id="navFlyout_6" class="navFlyout flyoutLeft">
+					<div class="flyoutLeftColumn">
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/asian-art-antiques-general/cc-SX0F397NC6/" class="navFlyoutItem">Asian Art & Antiques -<br />General (135)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/chinese-art-antiques/cc-KEDZ10Y647/" class="navFlyoutItem">Chinese Art &<br />Antiques (11555)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/indian-south-asian-art-antiques/cc-I13Z7CQUX6/" class="navFlyoutItem">Indian & South Asian Art<br />& Antiques (308)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/japanese-art-antiques/cc-OY2OUC9LF6/" class="navFlyoutItem">Japanese Art &<br />Antiques (1063)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/korean-art-antiques/cc-GEKIBCU9K0/" class="navFlyoutItem">Korean Antiques &<br />Art (49)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/southeast-asian-art-antiques/cc-QC1A8YCACY/" class="navFlyoutItem">Southeast Asian Art &<br />Antiques (181)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/asian-art-antiques/pc-URF9IESAHL/"  class="viewMore">View All Asian Art &<br />Antiques &raquo</a>
+							</div>
+						
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+			<div class="topNavItem" id="topNav_more">
+				
+				MORE &raquo;
+				<div id="navFlyout_more" class="navFlyout flyoutRight">
+					<div class="flyoutLeftColumn">
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/automobiles-boats-airplanes/pc-WIARM9WZTW/" class="navFlyoutItem">Automobiles, Boats &<br />Airplanes (393)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/dolls-bears-toys/pc-0HV8BV6K8Y/" class="navFlyoutItem">Dolls, Bears &<br />Toys (5129)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/general/pc-WXJEP9TUWL/" class="navFlyoutItem">General (58)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/guns-firearms/pc-TJYLLGLDKA/" class="navFlyoutItem">Guns & Firearms (8320)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/real-estate/pc-MU8Q47SBT3/" class="navFlyoutItem">Real Estate (6)</a>
+							</div>
+						
+							<div class="navFlyoutItem">
+								<a href="http://www.invaluable.com/wines-spirits/pc-5P1KWJO0ML/" class="navFlyoutItem">Wines & Spirits (657)</a>
+							</div>
+						
+						<div class="navFlyoutItem">
+							<a href="http://www.invaluable.com/tour/index.cfm"  class="viewMore">Learn How to Bid &raquo</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+
+	<div id="headerContent">
+		<div id="userLinks">
+			<div id="flags" class="loginCellBorder"  style="border:none;">
+				
+					<div id="usFlag" >
+						<img id="usFlagImage" src="/wwwImages/header/USA_Flag_Color.png">
+					</div>
+					<div id="ukFlag" class="inactiveFlag">
+						<img id="ukFlagImage" src="/wwwImages/header/UK_Flag_Gray.png">
+					</div>
+				
+			</div>
+			<div id="loginHelp" class="loginCellBorder loginCellLeftBorder">
+				<a href="http://www.invaluable.com/invaluable/help.cfm" class="loginLink">Help</a>
+			</div>
+			
+				<div id="loginCreate"class="loginCellBorder">
+					<a href="https://secure.invaluable.com/services/userInfo.cfm?type=register" rel="nofollow" id="createAccountLink" class="loginLink">Create Account</a>
+				</div>
+				<div id="login"class="loginCell">
+					<div class="loginIconBox">
+						<img src="/wwwImages/header/Icon_LoggedOut.png" class="loginIcon">
+					</div>
+					<div class="floatLeft">
+						<a class="openpanel login loginLink" href="#" rel="nofollow" id="panel_button">Sign In</a>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="flyout">
+					<div id="panelLogin">
+						<div class="arrow">
+							<img src="/wwwImages/header/Sign_In_Flyout_Arrow.png">
+						</div>
+						<form id="loginInfo" action="https://secure.invaluable.com/signin/signIn.a.cfm" method="post" novalidate>
+							<a href="#" class="close nowhere closer">X</a>
+							<label for="username">Email</label>
+							<input type="email" id="mbrLoginEmail"  name="mbrLoginEmail" value="" />
+							<span class="error">Your email is incorrect, please try again.</span>
+							<label for="password" class="nudgePassword">Password</label>
+							<input type="password" id="password"  name="password" value="" />
+							<span class="error">Your password is incorrect, please try again.</span>
+							<div class="rememberRow">
+								<div class="header-left">
+									<input type="checkbox" name="rememberMe" id="rememberMe" value="true" class="floatLeft" style="margin:3px 5px 0 0; "/>
+									<label for="'rememberMe'" class="floatLeft">Remember Me</label>
+								</div>
+								<div class="header-right">
+								<a class="forgot nowhere" href="javascript:void(0)" id="forgotpassword" alt="Forgot Password">Forgot password?</a>
+								</div>
+								
+							</div>
+							<input type="submit" value="Sign In" id="loginbtn" class="loginButton clear" />
+							<a class="clear logLinkSmall" href="https://secure.invaluable.com/services/userInfo.cfm?type=register">Not a member? Create an account.</a>
+							
+								<input type="hidden" name="goto" value="/index.cfm" />
+								<input type="hidden" name="gotoSec" value="false" />
+							
+							<input type="hidden" name="fromHeaderFlyout" value="1">
+						</form>
+					</div>
+					<div id="panelForgotpass">
+						<div class="arrow">
+							<img src="/wwwImages/header/Sign_In_Flyout_Arrow.png">
+						</div>
+						<form id="forgotPasswordForm" action="https://secure.invaluable.com/signin/mailpwd.cfm" method="post" novalidate>
+							<a href="#" class="close nowhere closer">X</a>
+							<div class='forgotHeader'>Forgot your password?</div>
+							<label for="emailForgot">Enter Your Email</label>
+							<input type="email" class="" name="mbrEmail" id="email" value="" />
+							<div class="forgotBlock">
+								<input class="loginButton forgotButton" type="submit" name="sendForgotPwd" id="sendForgotPwd" value="Request Info" />
+								<div class="nudgeCancel">
+								<a class="cancel nowhere logLinkSmall floatLeft" id="cancelForgotPwd" href="#">Cancel</a>
+								</div>
+							</div>
+							<div class="nudgeCreate2">
+							<a class="clear logLinkSmall" href="https://secure.invaluable.com/services/userInfo.cfm?type=register">Not a member? Create an account.</a>
+							</div>
+						</form>
+					</div>
+				</div>
+				
+
+			<div class="clear"></div>
+		</div>
+		<div id="logoBlock">
+			<div class="floatLeft nudgeLogo">
+				<a href="http://www.invaluable.com"><img id="newLogoImage" src="/wwwImages/header/Nav_INVLogo_ImageAsset.png" border="0" width="222" height="40"></a>
+			</div>
+			<div id="tagline">
+				The world&#8217;s premier auctions
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+
+		<div id="subNavBar" class='clear'>
+			<div class="subNavItem subNavFirstItem">
+				<a href="http://www.invaluable.com/catalog/browseUpcoming.cfm" class="subNavLink">Upcoming Auctions</a>
+			</div>
+			<div class="subNavItem">
+				<a href="http://www.invaluable.com/features/selectHouse.cfm" class="subNavLink">Auctioneer Directory</a>
+			</div>
+			<div class="subNavItem">
+				<a href="http://www.invaluable.com/invaluable/subOverview.cfm"  class="subNavLink">Subscriptions</a>
+			</div>
+			<div class="subNavItem noBorder">
+				<a href="http://www.invaluable.com/catalog/advancedSearch.cfm?srchScope=p" class="subNavLink">Price Archive</a>
+			</div>
+
+			<div id="headerSearchBlock">
+				<form name="searchFormHead" method="post" action="http://www.invaluable.com/catalog/searchLots.cfm" onSubmit="return checkEmptySearch(1);">
+				<div class="headerSearchBox">
+					<input type="text"  name="withAll" value="Search for upcoming items" searchtype="headerSearchType" id="headerSearchText" class="searchField" onFocus="loadAjaxTerms(),clearSearchBox();" onClick="loadAjaxTerms(),clearSearchBox();">
+					<input type="hidden" name="srchScope" value="u">
+					<input type="hidden" name="alFirst" value="1">
+					<input type="hidden" name="resetpage" value="1">
+					<input type="hidden" name="ns" value="1">
+					<input type="hidden" name="userSubmit" value="Search">
+					<div id="headerAutoBox" class="clear"></div>
+				</div>
+				<div style="float:left;">
+					<img id="headerSearchButton" src="/wwwImages/header/Search_Button.png" alt="Search" class="searchButton">
+				</div>
+				<div class="headerTitle">
+				<a href="http://www.invaluable.com/catalog/advancedSearch.cfm?srchScope=u" class="headerTitleLink">Advanced</a>
+				</div>
+				</form>
+				<div id="headerAutoBox" class="clear"></div>
+			</div>
+
+			<div class="clear"></div>
+		</div>
+		
+		<div class="magicHeaderSpacer">&nbsp;</div>
+		
+		<div id="pageSpacer">&nbsp;</div>
+	</div>
+
+<div id="container2">
+	<div id="overlayWrapper" style="display:none; z-index:2;" >
+		<div id="sliderOverlay"></div>
+	</div>
+
+	
+	<div id="sliderNewEmail">
+	<span id="closeSlider"><span></span></span>
+		<div class="overlayHeader">
+		WELCOME TO INVALUABLE
+		</div>
+		<div class="overlayCopy2">
+			Be the <span class="italic">first to know</span> about<br />the latest online auctions.
+		</div>
+		<div class="overlayFormBox">
+			<div id="emailRow">
+				<form name="sliderEmailForm">
+					<input id="sliderCapture" class="emailField emailGhost" name="Email Address" value="Your email address" type="text"/>
+					<input id="companyRefSlider" type="hidden" name="companyRef" value="1" />
+				</form>
+			</div>
+			<div id="emailError">
+				<span id="errorErrorText">Please enter a valid email address (name@host.com)</span>
+			</div>
+		</div>
+		<div class="signUpButtonPad">
+			<div id="sliderSubmitButton" class="overlayButton buttonSmaller submitBtn">
+				Sign Up &raquo;
+
+			</div>
+			<div class="noThanks buttonSmaller">
+				<a href="javascript:void(0);" class="noThanks">No, Thanks</a>
+			</div>
+		</div>
+		<div class="clear privacyPad">
+			PS: We value <a href="http://www.invaluable.com/agreements/privacy.cfm" class="privacyLink" target="_blank">your privacy</a>
+		</div>
+	</div>
+	<div id="sliderThanks">
+		<span id="closeSlider"><span></span></span>
+		<div class="overlayCopy2 italic">
+		Thank you!
+		</div>
+		<div class="vaseBox2">
+			<div class="vaseRule">
+				&nbsp;
+			</div>
+			<div class="floatLeft">
+				<img src="/wwwImages/Vase_ImageAsset.png">
+			</div>
+			<div class="vaseRule">
+				&nbsp;
+			</div>
+		</div>
+		<div class="clear overlayCopy2 learnMorePad">
+			Want to learn more<br />about online auctions?
+		</div>
+		<div class="overlayButton tourRedirect tourRedirectPad" id="tourButtonBox">
+			Take a Quick Tour &raquo;
+		</div>
+		<div id="confirmThanks" class="noThanks">
+			<a href="javascript:void(0);" class="noThanks">No, Thanks</a>
+		</div>
+	</div>
+	<div id="grayBox">&nbsp;</div>
+
+
+
+<div id="contentContainer">
+	<div id="main" class="header-left">
+		
+			<div class="category-tile-row">
+				
+	<link rel="stylesheet" type="text/css" href="http://www.invaluable.com/hpCarousel/css/carousel.css" />
+
+
+    <script>
+        jQuery(document).ready(function ($) {
+        	var cssPath = 'http://www.invaluable.com/hpCarousel/css/carousel.css';
+        	if (!J("link[href='" + cssPath + "']").length){
+				J('<link href="' + cssPath + '" rel="stylesheet">').appendTo("body");
+        		}
+        	var mobileDevice = checkMobileDevice();
+        	var showArrows = 1;
+        	var dotSpacing = 10;
+        	if (mobileDevice == 1){
+        		showArrows = 2;
+        		dotSpacing = 20;
+        		}
+        	 var _SlideshowTransitions = [
+            //Fade
+      //      { $Duration: 1200, $Opacity: 2 }
+      //      slide
+            {$Duration:500,x:-1,$Easing:$JssorEasing$.$EaseInQuad}
+            ];
+            var options = {
+                $DragOrientation: 3,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+                $ArrowNavigatorOptions: {                       //[Optional] Options to specify and enable arrow navigator or not
+                    $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+                    $ChanceToShow: showArrows,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $AutoCenter: 0,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1  								 //[Optional] Steps to go for each navigation request, default value is 1
+                	},
+
+                $SlideDuration: 500,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                $DragOrientation: 0,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+                $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $AutoPlayInterval: 5250,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                $SlideshowOptions: {                                //[Optional] Options to specify and enable slideshow or not
+                    $Class: $JssorSlideshowRunner$,                 //[Required] Class to create instance of slideshow
+                    $Transitions: _SlideshowTransitions,            //[Required] An array of slideshow transitions to play slideshow
+                    $TransitionsOrder: 1,                           //[Optional] The way to choose transition to play slide, 1 Sequence, 0 Random
+                    $PauseOnHover: 3,
+                    $ShowLink: true                                    //[Optional] Whether to bring slide link on top of the slider when slideshow is running, default value is false
+                },
+
+                 $BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
+                    $Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $ActionMode: 1,                                 //[Optional] 0 None, 1 act by click, 2 act by mouse hover, 3 both, default value is 1
+                    $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+                    $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+                    $SpacingX: dotSpacing,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
+                    $SpacingY: 0,                                   //[Optional] Vertical space between each item in pixel, default value is 0
+                    $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+                }
+            };
+
+//	must instantiate slider AFTER RichPromo injection
+		//   inject RP image
+			if(typeof RR != 'undefined'){
+				RR.jsonCallback = function(){
+					rrData = RR.data.JSON.placements;
+					for (var zz = 0; zz < rrData.length; zz++){
+						if (typeof rrData[zz].placement_name != 'undefined' && rrData[zz].placement_name == 'home_page.hero1'){
+							J('#slideBox').append('<div id="carouselSlide_richPromo"><a u="image" id="rpCarousel_url" href=""><img id="rpCarousel_img" src="" /></div>');
+							J('#rpCarousel_url').attr('href',rrData[zz].destination_url);
+							var extractImageName = rrData[zz].creative_url.split('/').pop();
+							var newImagePath = '/hpCarousel/img/' + extractImageName;
+				  			J('#rpCarousel_img').attr('src',newImagePath);
+							break;
+							}
+						}
+					if (J('#slideBox').children().length > 0){
+						var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+						}
+					else {
+						J('#slider1_container').hide();
+						J('#heroImageSearchBox').show();
+						}
+					};
+				}
+			else if (J('#slideBox').children().length > 0){
+				var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+				}
+			else {
+				J('#slider1_container').hide();
+				J('#heroImageSearchBox').show();
+				}
+
+        });
+    </script>
+
+	
+
+    <div id="slider1_container"  style="position: relative; top: 0px; left: 0px; width: 940px; height: 320px;">
+		
+        <div u="slides" id="slideBox">
+			
+				  <div><a u="image" href="http://ox-d.artfact.com/w/1.0/rc?cs=a6b8f94846&cb=6089"><img src="http://ox-d.artfact.com/w/1.0/ai?auid=537247560&cs=a6b8f94846&cb=6089"></a></div>
+				  
+				  <div><a u="image" href="http://ox-d.artfact.com/w/1.0/rc?cs=5962e5a712&cb=5285"><img src="http://ox-d.artfact.com/w/1.0/ai?auid=537247576&cs=5962e5a712&cb=5285"></a></div>
+				  
+        </div>
+		
+		
+        <span u="arrowleft" class="jssora11l"></span>
+        <span u="arrowright" class="jssora11r"></span>
+        
+        <div u="navigator" class="jssorb05">
+            <div u="prototype" style="position: absolute; width: 21px; height: 21px; text-align:center; line-height:21px; color:white; font-size:12px;" ></div>
+        </div>
+    </div>
+	<div id="heroImageSearchBox" class="hidden">
+		
+		<span class="category-tile category-tile-wide">
+			<img src="/wwwImages/Home_Hero_940x320.jpg">
+			<span class="category-tile-caption" style="padding-top:10px; padding-left:20px;">
+				<div class="gothamBlack22">
+				Tell us what you’re looking for:
+				</div>
+				<div id="homePageEntryBlock">
+					<form name="searchFormMidpage" method="post" action="http://www.invaluable.com/catalog/searchLots.cfm" onSubmit="return checkEmptySearch(2);">
+						<div class="midPageSearchBox">
+							<input type="text"  name="withAll" value="What do you collect?" id="midPageSearchText" class="midpageSearchField" onFocus="clearSearchBoxMid();" onClick="clearSearchBoxMid()" />
+							<input type="hidden" name="srchScope" value="u">
+							<input type="hidden" name="alFirst" value="1">
+							<input type="hidden" name="resetpage" value="1">
+							<input type="hidden" name="ns" value="1">
+							<input type="hidden" name="userSubmit" value="Search">
+						</div>
+						<div class="floatLeft">
+							<input type="submit" class="midPageSearchButton" value="Search" />
+						</div>
+					</form>
+				</div>
+			</span>
+		</span>
+		
+    	<script type="text/javascript" src="http://www.invaluable.com/hpCarousel/js/jssor.js"></script>
+    	<script type="text/javascript" src="http://www.invaluable.com/hpCarousel/js/jssor.slider.js"></script>
+		
+	</div>
+			</div>
+
+<div class="clear"></div>
+	<div id="hp1" class="rr_placement_horiz">
+		
+<div class="clear">
+	<div class="rr_rec_header" id="rrTitle">
+	Title
+	</div>
+	
+		<div class="rr_rec_lotBlock">
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_0">
+					<a href="" id="rrImageBoxLink_0">
+					<div class="rr_rec_ImageBox" id="rrImageBox_0">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_0">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_0">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_1">
+					<a href="" id="rrImageBoxLink_1">
+					<div class="rr_rec_ImageBox" id="rrImageBox_1">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_1">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_1">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_2">
+					<a href="" id="rrImageBoxLink_2">
+					<div class="rr_rec_ImageBox" id="rrImageBox_2">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_2">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_2">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_3">
+					<a href="" id="rrImageBoxLink_3">
+					<div class="rr_rec_ImageBox" id="rrImageBox_3">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_3">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_3">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_4">
+					<a href="" id="rrImageBoxLink_4">
+					<div class="rr_rec_ImageBox" id="rrImageBox_4">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_4">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_4">
+					$0 (starting bid)
+					</div>
+				</div>
+					
+		</div>
+	
+	<div class="clear"></div>
+</div>
+
+	</div>
+	<div id="hp2" class="rr_placement_horiz">
+		
+<div class="clear">
+	<div class="rr_rec_header" id="rrTitle">
+	Title
+	</div>
+	
+		<div class="rr_rec_lotBlock">
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_0">
+					<a href="" id="rrImageBoxLink_0">
+					<div class="rr_rec_ImageBox" id="rrImageBox_0">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_0">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_0">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_1">
+					<a href="" id="rrImageBoxLink_1">
+					<div class="rr_rec_ImageBox" id="rrImageBox_1">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_1">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_1">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_2">
+					<a href="" id="rrImageBoxLink_2">
+					<div class="rr_rec_ImageBox" id="rrImageBox_2">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_2">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_2">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_3">
+					<a href="" id="rrImageBoxLink_3">
+					<div class="rr_rec_ImageBox" id="rrImageBox_3">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_3">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_3">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_4">
+					<a href="" id="rrImageBoxLink_4">
+					<div class="rr_rec_ImageBox" id="rrImageBox_4">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_4">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_4">
+					$0 (starting bid)
+					</div>
+				</div>
+					
+		</div>
+	
+	<div class="clear"></div>
+</div>
+
+	</div>
+
+			
+
+			<div id="auction-list-header" class="section-header section-header-bordered">
+				Browse Upcoming Auctions
+				<a href="/catalog/browseUpcoming.cfm" class="gothamNarrow500">View All &raquo;</a>
+			</div>
+
+			
+		<div id="filters">
+			<form id="filter"  method="get">
+				<span class="label header-left">Filters:</span>
+				<div class="options">
+					<select id="filterDays" name="filterDays"> 
+						<option value="">All Dates</option>
+						
+							<option value="7" >Next 7 Days</option>
+						
+							<option value="30" >Next 30 Days</option>
+						
+							<option value="60" >Next 60 Days</option>
+						
+							<option value="90" >Next 90 Days</option>
+						
+					</select>
+					<select id="filterCountryID" name="filterCountryID">
+						<option value="">All Countries</option>
+						
+							<option value="US" >USA</option>
+						
+							<option value="AU" >Australia</option>
+						
+							<option value="AT" >Austria</option>
+						
+							<option value="BE" >Belgium</option>
+						
+							<option value="CA" >Canada</option>
+						
+							<option value="FR" >France</option>
+						
+							<option value="DE" >Germany</option>
+						
+							<option value="IE" >Ireland</option>
+						
+							<option value="IL" >Israel</option>
+						
+							<option value="IT" >Italy</option>
+						
+							<option value="MC" >Monaco</option>
+						
+							<option value="PH" >Philippines</option>
+						
+							<option value="PT" >Portugal</option>
+						
+							<option value="ZA" >South Africa</option>
+						
+							<option value="ES" >Spain</option>
+						
+							<option value="UK" >United Kingdom</option>
+						
+							<option value="VN" >Viet Nam</option>
+						
+					</select>
+						
+					<select id="filterHouseRef" name="filterHouseRef">
+						<option value="">All Houses</option>
+						
+								<optgroup label="2">
+								
+							<option value="XFU0S8F94K" >21st Century Auctions</option>
+							
+									</optgroup>
+								
+								<optgroup label="5">
+								
+							<option value="1PAGUZZ12K" >5th Avenue Auctioneers</option>
+							
+									</optgroup>
+								
+								<optgroup label="8">
+								
+							<option value="K5NALRE9MF" >888 Auctions</option>
+							
+									</optgroup>
+								
+								<optgroup label="A">
+								
+							<option value="PIGR60DAX8" >A.B. Levy's</option>
+							
+							<option value="T0Q08465TG" >Accademia Fine Art</option>
+							
+							<option value="TNY9Q9YSXK" >Addison & Sarova Auctioneers</option>
+							
+							<option value="I3ML582YX1" >Affiliated Auctions & Realty LLC</option>
+							
+							<option value="A8RZMKIYRS" >Albion Auctions</option>
+							
+							<option value="502VWKUKVT" >Alfonso Estate Auction</option>
+							
+							<option value="9UBE910CM6" >All American Auction</option>
+							
+							<option value="YX7UP9KE04" >Altair Auctions</option>
+							
+							<option value="I05CLMOSF1" >Ancient Resource LLC</option>
+							
+							<option value="OA9HEFXSSG" >Andrew's Coin and Jewelry</option>
+							
+							<option value="N83LMNWB0M" >Antique Place</option>
+							
+							<option value="8LGG9SNBY6" >Antique Prints</option>
+							
+							<option value="0TYI9NE8FR" >Antiques Supermarket</option>
+							
+							<option value="5DPDAJ3UYQ" >Applebrook Auctions</option>
+							
+							<option value="S5L3WY7TW6" >Arader Galleries</option>
+							
+							<option value="XI9G3GA4C3" >Artcurial - Briest - Poulain - F. Tajan</option>
+							
+							<option value="UQAV5346FD" >ArtForSale.com</option>
+							
+							<option value="4G7DOIBSSB" >Artistic Holdings Company</option>
+							
+							<option value="YVZOJ4S7D6" >Aspire Auctions Fine Art & Antiques</option>
+							
+							<option value="7192MPVNQP" >Auction Kings</option>
+							
+							<option value="D4J364YFTZ" >Auctionata AG</option>
+							
+							<option value="CTUD5RQX7U" >Auctionata US</option>
+							
+							<option value="VKLBF4FIRE" >Auctions by Terri Peters & Associates</option>
+							
+							<option value="ZX6X0DOEBK" >Auctions Imperial LLC</option>
+							
+							<option value="MWTH5DEC8U" >Auctions on Main</option>
+							
+							<option value="MSTJD6XDNW" >Auctions Van de Wiele</option>
+							
+							<option value="94TSQT4MVE" >Auktionshaus Eppli</option>
+							
+							<option value="ST7L0Z5N21" >Authenticautographsjust4u</option>
+							
+									</optgroup>
+								
+								<optgroup label="B">
+								
+							<option value="YWQY5T96UZ" >Bargain Hunt Auctions</option>
+							
+							<option value="XDY569R978" >Barnes Auctions</option>
+							
+							<option value="MTTN8WNHJC" >Bearnes Hampton & Littlewood</option>
+							
+							<option value="CIADLKIKM3" >Berner's Auction Gallery</option>
+							
+							<option value="C2JGB1JL1M" >Big Art Auctions</option>
+							
+							<option value="F31UTWVC5M" >Big Dog Auctions</option>
+							
+							<option value="L9VQCDNTH4" >Big Rock Auctions</option>
+							
+							<option value="GVNVP4Q50X" >Boone Shares - The Scripophily Center</option>
+							
+							<option value="1VXR0N17JH" >BOSTON AUCTIONS AND ANTIQUES LLC</option>
+							
+							<option value="GW3LRTCMPU" >Brand Used Works</option>
+							
+							<option value="UCZ5K1TF7Z" >Brompton's</option>
+							
+							<option value="5IZBZ1IQXO" >Bruce Kodner Galleries</option>
+							
+							<option value="V1810UB55N" >Burchard Galleries Inc</option>
+							
+							<option value="JUMXJ1O809" >Burnt Chimney Auction Gallery</option>
+							
+									</optgroup>
+								
+								<optgroup label="C">
+								
+							<option value="MVFF3BBIN7" >Capitoline Auction Gallery</option>
+							
+							<option value="OQIH8IAHQR" >Capitolium Art</option>
+							
+							<option value="ZLG8OKJLST" >Captain Ahab's Antiques</option>
+							
+							<option value="OABII1TKQK" >Carol Watson's Orange Coast Auctions</option>
+							
+							<option value="D1LFFW771Y" >Carroll's Auctioneers & Appraisers</option>
+							
+							<option value="JFTR4HUHDM" >Carvajal SVV</option>
+							
+							<option value="QWDJENVI3D" >Certified Rare Treasures and Vault Gems</option>
+							
+							<option value="QI41KPV7P5" >Chaucer Covers & Auctions</option>
+							
+							<option value="3GB8UMT72Z" >Christiana Auction Gallery</option>
+							
+							<option value="6VIQPMBIR9" >Christys of Indiana, Inc</option>
+							
+							<option value="Z3K5WYSB8R" >Clars Auction Gallery</option>
+							
+							<option value="MLNSIMTU7Y" >Clements Antiques of Tennessee</option>
+							
+							<option value="QULT08FGT6" >Clevedon Salerooms Ltd.</option>
+							
+							<option value="U9ZLA1TULV" >Complete Auctions</option>
+							
+							<option value="VKXCDCRTBZ" >Cooper Barrington LLP</option>
+							
+							<option value="5FM3GDY2EF" >Copake Auction Inc.</option>
+							
+							<option value="0OVFDKM529" >Cortrie Spezial Auktionen</option>
+							
+							<option value="SD21QYCFQN" >Cottone Auctions</option>
+							
+							<option value="64HJXPMU8R" >Crescent City Auction Gallery</option>
+							
+							<option value="ODPC6P1RHV" >Czerny's International Auction House</option>
+							
+									</optgroup>
+								
+								<optgroup label="D">
+								
+							<option value="OHM1RR7DMK" >DAF Auction, Inc.</option>
+							
+							<option value="18N22YFW7F" >Dargate Auction Galleries</option>
+							
+							<option value="IE1YF90UM4" >David Barsby Auctions</option>
+							
+							<option value="I9G5S7LPTZ" >Davidson Auctions</option>
+							
+							<option value="Z6EC1Y2EHD" >DegreeArt</option>
+							
+							<option value="BZL11MF3WY" >Dennis Auction Service</option>
+							
+							<option value="1HOB8W8UXC" >Deutsch Auktionen</option>
+							
+							<option value="CU1N8MJBVH" >Deutscher and Hackett</option>
+							
+							<option value="2C69O06UPQ" >Dix Noonan Webb</option>
+							
+							<option value="A9Y6CJYYK0" >Donley Auction Services</option>
+							
+							<option value="4V19IKE39A" >Doyle New York</option>
+							
+							<option value="4NJT35C79C" >Dreweatts & Bloomsbury</option>
+							
+							<option value="AOMB9EJ4UY" >DUMBO Auctions</option>
+							
+									</optgroup>
+								
+								<optgroup label="E">
+								
+							<option value="TPMARS8RNJ" >Echoes Antiques & Auction Gallery</option>
+							
+							<option value="CVV06MF8JE" >Eddie's Auction</option>
+							
+							<option value="9PK6TL93HP" >EJ'S Auction & Consignment</option>
+							
+							<option value="MU8Q47SBT3" >Eldred's</option>
+							
+							<option value="ACQTN2YP8I" >Elegance Auctioneers</option>
+							
+							<option value="E2HEQLIB6A" >Elite Decorative Arts</option>
+							
+							<option value="LQKLVOPFSO" >Embassy Auctions International</option>
+							
+							<option value="6DAIVA14RE" >Essex Auction and Estate Services</option>
+							
+							<option value="RO4CT3RZCJ" >Ezbarterbid Auction & Consignment LLC</option>
+							
+									</optgroup>
+								
+								<optgroup label="F">
+								
+							<option value="TA42I30XZF" >FauveParis</option>
+							
+							<option value="7X4F547JPU" >Fire Rock Gallery</option>
+							
+							<option value="VG2HAP8GQE" >Fisk Auctions</option>
+							
+							<option value="9PE9CMYOWN" >Florence Number Nine</option>
+							
+							<option value="K9OGPEH0Q1" >Fontaine's Auction Gallery</option>
+							
+							<option value="I042SZL6A6" >Fusco Auctions</option>
+							
+									</optgroup>
+								
+								<optgroup label="G">
+								
+							<option value="JY3O65V523" >Gallery 70two</option>
+							
+							<option value="J4UGI0PKAL" >Gallery 95 Auctions</option>
+							
+							<option value="TX07ZX3IYP" >GFL Fine Art</option>
+							
+							<option value="Q2P5VKTEKP" >Giafferi</option>
+							
+							<option value="2JV4DN7DFG" >Gordon S. Converse & Co.</option>
+							
+							<option value="APCN00GX13" >Gorringes</option>
+							
+							<option value="V51L81ILU8" >Government Auction</option>
+							
+							<option value="RZM43ZYA14" >Great Dane Auctions</option>
+							
+							<option value="12Y2XCJQGS" >Gulfcoast Coin and Jewelry</option>
+							
+							<option value="N7XVNLWDAZ" >GWS Auctions</option>
+							
+									</optgroup>
+								
+								<optgroup label="H">
+								
+							<option value="8JBN6JP72H" >Hampstead Auctions Ltd</option>
+							
+							<option value="8XQSVNGO0S" >Harley Jackson Auctioneer</option>
+							
+							<option value="9GMJW0FYL1" >Harrison Auctions Inc</option>
+							
+							<option value="ZF4SBWA8F5" >Henry's Auktionshaus</option>
+							
+							<option value="U6DLUUE6TZ" >Heritage Art Gallery</option>
+							
+							<option value="GE4EAUS0SS" >Heritage Auctions</option>
+							
+							<option value="XUT7FM84XX" >HGPY NY Auctions</option>
+							
+							<option value="8NBRZ9YTAD" >Holt's Auctioneers</option>
+							
+							<option value="5LAHM4EP52" >Homestead Auctions</option>
+							
+							<option value="CJ9RR0QLAS" >Hôtel des Ventes d'Enghien</option>
+							
+									</optgroup>
+								
+								<optgroup label="I">
+								
+							<option value="S6FM0DZ8S6" >I.B. Clark Gallery</option>
+							
+							<option value="JBL04EZI2R" >I.M. Chait</option>
+							
+							<option value="QSGSJ0W8B3" >Imperrion, Inc.</option>
+							
+							<option value="U9UEAY7Z4K" >International Coin Exchange</option>
+							
+									</optgroup>
+								
+								<optgroup label="J">
+								
+							<option value="Z8J07EMDAR" >J Levine Auction & Appraisal LLC</option>
+							
+							<option value="ODS5REGGF6" >J. James Auctioneers and Appraisers</option>
+							
+							<option value="MMPDEN06C8" >James D. Julia</option>
+							
+							<option value="C3Y4Y97BYN" >Jeschke Van Vliet</option>
+							
+							<option value="5J5JS5SAH0" >JG Autographs</option>
+							
+							<option value="CZCGZQPQMU" >John Nicholsons</option>
+							
+									</optgroup>
+								
+								<optgroup label="K">
+								
+							<option value="VIKT5IRBXR" >Kamelot Auctions</option>
+							
+							<option value="EV1GT4PB0H" >Kaminski Auctions</option>
+							
+							<option value="77KSF3DLUJ" >Kedem Public Auction House Ltd</option>
+							
+							<option value="YGKZZN7LQE" >Kingston Galleries</option>
+							
+							<option value="ZT4FFAW2ZW" >Kodner Galleries</option>
+							
+							<option value="N87JQPKQK6" >Kraft Auction Service</option>
+							
+									</optgroup>
+								
+								<optgroup label="L">
+								
+							<option value="EBOLFQHJBM" >La Suite Subastas</option>
+							
+							<option value="6E2OOTL45Z" >Lawsons</option>
+							
+							<option value="ZPBXKWKFNE" >Leaman Auctions Ltd.</option>
+							
+							<option value="UESBQ7I4Z8" >Leclere - Maison de ventes</option>
+							
+							<option value="UYBWZR9OLE" >Leland Little Auctions</option>
+							
+							<option value="VY7VNT8LB4" >Leonard Joel</option>
+							
+							<option value="TQ4WJBA6PS" >Link Auction Galleries</option>
+							
+							<option value="NSR1U9M4J5" >Little Bull Auction & Sales Co.</option>
+							
+							<option value="O4QJIFDULF" >Longfellow Auctions</option>
+							
+							<option value="GZ6IJQZUGD" >Los Angeles Modern Auctions (LAMA)</option>
+							
+							<option value="T06JRL87AN" >Lyon & Turnbull</option>
+							
+									</optgroup>
+								
+								<optgroup label="M">
+								
+							<option value="UIFSLESI3U" >Ma'mez Antique Fashions International Auctions</option>
+							
+							<option value="N8DL9UINU2" >Mallams</option>
+							
+							<option value="VL0CO3GWOE" >Manatee Galleries Inc.</option>
+							
+							<option value="D2VTF32EBR" >Mebane Antique Auction</option>
+							
+							<option value="3EOFBSKPN2" >Michiana Auctions & Estate Sale Center</option>
+							
+							<option value="JAYLF7GJVV" >Midnight Sun Antique Auction</option>
+							
+							<option value="B934E99PLM" >Millers Auction Co.</option>
+							
+							<option value="ZATAMLUIV3" >Morgan O'Driscoll</option>
+							
+							<option value="37TI65MVO3" >Morris and Whiteside Galleries</option>
+							
+									</optgroup>
+								
+								<optgroup label="N">
+								
+							<option value="PCU21CWROK" >Nadeau's Auction Gallery</option>
+							
+							<option value="HLCY3NYIQO" >National Book Auctions</option>
+							
+							<option value="YELTS77QEM" >Northgate Gallery</option>
+							
+							<option value="K3WHJLG42D" >Nova Art Auctions</option>
+							
+							<option value="48M20XFAPZ" >NYDJ Chinese Art Gallery</option>
+							
+									</optgroup>
+								
+								<optgroup label="O">
+								
+							<option value="J5PGOR8RAZ" >O'Gallerie</option>
+							
+							<option value="TDI0W8BDAC" >OLD SCHOOL AUCTIONS.COM, INC</option>
+							
+							<option value="WK7CSXAL9K" >One of a Kind Collectibles Auctions, LLC</option>
+							
+							<option value="O94JB6B4DL" >One Source Auction & Estate Services</option>
+							
+									</optgroup>
+								
+								<optgroup label="P">
+								
+							<option value="N090VQGGT7" >Pace & Hong Auctions, LLC</option>
+							
+							<option value="WMA1D5J56X" >Pacific Galleries</option>
+							
+							<option value="XUF0GA1VTI" >Palm Beach Auction Gallery</option>
+							
+							<option value="23GD3HYV0Y" >Pasarel</option>
+							
+							<option value="YZMUZA6BYA" >Peter Francis</option>
+							
+							<option value="4CXEGNRWLA" >Piedmont</option>
+							
+							<option value="VSK99DBTLO" >PosterConnection Inc.</option>
+							
+							<option value="B4SRZFEINW" >Potomack Company</option>
+							
+							<option value="SVMLZXJ2QW" >Pottle Auctions</option>
+							
+							<option value="R5VIQ24GCW" >Poulin Antiques & Auctions</option>
+							
+							<option value="3UWSDD06Q2" >Prescott Valley Consignment Auction</option>
+							
+									</optgroup>
+								
+								<optgroup label="Q">
+								
+							<option value="QY7R38UXOL" >Quan Rong Gallery</option>
+							
+							<option value="6OQWWFIB7N" >Quinn & Farmer Auctions</option>
+							
+									</optgroup>
+								
+								<optgroup label="R">
+								
+							<option value="OILN64K8KX" >Raffan Kelaher & Thomas</option>
+							
+							<option value="HQSDRII8PP" >Renascimento</option>
+							
+							<option value="QUJWH121F9" >Right Way Auctions</option>
+							
+							<option value="FHDR0MYPR7" >Rock Island Auction Company</option>
+							
+							<option value="EOK70SO9IY" >RoGallery</option>
+							
+							<option value="WXD31Y3Z1S" >Rowley Fine Art Auctioneers and Valuers</option>
+							
+									</optgroup>
+								
+								<optgroup label="S">
+								
+							<option value="I3S45ZKYRT" >Salcedo Auctions</option>
+							
+							<option value="ZPUZ0BDWFD" >Salle de Ventes Saint-Job</option>
+							
+							<option value="LBUSP4WOWQ" >Sarasota Auction</option>
+							
+							<option value="GGPHX0TJ6R" >Sarasota Estate Auction</option>
+							
+							<option value="ED5Q6BOGY2" >Seized Assets Auctioneers</option>
+							
+							<option value="0E7SDU8RSZ" >Semley Auctioneers</option>
+							
+							<option value="OV9Y5KNSJ8" >Shapiro Auctioneers</option>
+							
+							<option value="XJM5D0HKZK" >Shapiro Auctions LLC</option>
+							
+							<option value="GAAWOWQHNO" >Sheppards</option>
+							
+							<option value="QHJ98WBS9Y" >Simon Parr's Auctions Ltd</option>
+							
+							<option value="1I8TUTBT4S" >Simple Fine Art</option>
+							
+							<option value="7MA7RU2554" >Simpson Galleries</option>
+							
+							<option value="TAZWZLJR3S" >Sloans & Kenyon</option>
+							
+							<option value="A7I7CN0NNU" >Smith Auction Company</option>
+							
+							<option value="IYK5XJY8M4" >South Beach Auctions</option>
+							
+							<option value="S5RUF50Y2S" >South Florida Auctions</option>
+							
+							<option value="CRBSKBAE2S" >Stahl</option>
+							
+							<option value="HVPO5ZEMD1" >Stair Galleries</option>
+							
+							<option value="AXOWS6E0OX" >Stephenson's Auction</option>
+							
+							<option value="20DTAYQXC7" >Strauss & Co</option>
+							
+							<option value="JTYD4QJTDK" >Subarna Subastas</option>
+							
+							<option value="ELZAIXCMRM" >Swann Auction Galleries</option>
+							
+									</optgroup>
+								
+								<optgroup label="T">
+								
+							<option value="U9LWWVVQXX" >Tajan</option>
+							
+							<option value="XFZH4O3HAS" >The First-Class Auction Inc.</option>
+							
+							<option value="7V02WRH96A" >The NEW Bristol Auction</option>
+							
+							<option value="VJ9HCMZNEK" >The Stein Auction Company</option>
+							
+							<option value="5KMB7KQTP3" >Theodore Bruce</option>
+							
+							<option value="BUL8Y5XVZE" >Thomas Watson Auctioneers</option>
+							
+							<option value="RCP815G3Z5" >TOP AUCTION ITEMS.COM INC</option>
+							
+							<option value="DWCBHB3DL6" >Trains, Planes and Automobiles</option>
+							
+							<option value="CIBPWZQAVZ" >Treadway Toomey Auctions</option>
+							
+							<option value="35IRWXQ4UD" >Trilogy Estate Auctions</option>
+							
+							<option value="I6GXBMIRDB" >Tyler's Auction & Appraisals</option>
+							
+									</optgroup>
+								
+								<optgroup label="U">
+								
+							<option value="LJQTQYAP2L" >Universal Live Auctions</option>
+							
+							<option value="K790V33N1U" >US Asset Forfeiture & Seizures Inc</option>
+							
+							<option value="216FNTR2SR" >US Jewelry Liquidation</option>
+							
+									</optgroup>
+								
+								<optgroup label="V">
+								
+							<option value="W50XQTFR1H" >VDG Jewelry Auction</option>
+							
+							<option value="BZ883C593M" >Vectis Auctions Ltd</option>
+							
+							<option value="8HSEGHN05A" >Vickers & Hoad</option>
+							
+									</optgroup>
+								
+								<optgroup label="W">
+								
+							<option value="LFZMM62196" >Waddington's</option>
+							
+							<option value="1BCRF7IAW8" >WAREHOUSEDADDY L.L.C.</option>
+							
+							<option value="7R2TIB0G5T" >Watsons Heathfield</option>
+							
+							<option value="H4O0YQ8B7I" >Wensly Auctions</option>
+							
+							<option value="DVKWX3LCIG" >Weschler's</option>
+							
+							<option value="D7IFQSW0RJ" >Westbridge Fine Art Auction House</option>
+							
+							<option value="TD4PD5FL3U" >Westbury Auction Galleries, Inc.</option>
+							
+							<option value="QQ2FUPVU2M" >Western Asset Reserve</option>
+							
+							<option value="PDI1V5HB5J" >White's Auctions</option>
+							
+							<option value="NZJTEOZZHU" >Whyte's</option>
+							
+							<option value="GTH51GWIPL" >Wilkinson's Auctioneers</option>
+							
+							<option value="ZG423REXF2" >William Bunch</option>
+							
+							<option value="WI8JB2W1X7" >William's Auctions, LLC</option>
+							
+							<option value="K14JSP1LPK" >Winner's Auctions & Exhibitions</option>
+							
+							<option value="V347PD52TW" >Woodlands Auctions</option>
+							
+							<option value="GIEWNIUQV2" >Woodshed Gallery</option>
+							
+							<option value="TDA68D5IS7" >World Jewelry Auctions</option>
+							
+							<option value="28EGUZL6DT" >World of Antiques, Inc.</option>
+							
+							</optgroup>
+						
+					</select>
+						
+					<select id="filterCategoryRef" name="filterCategoryRef">
+						<option value="">All Categories</option>
+						
+								<optgroup label="Asian Art & Antiques">
+									
+									<option value="VA-URF9IESAHL" >&raquo; View All Asian Art & Antiques</option>
+									
+											<option value="SX0F397NC6" >Asian Art & Antiques - General</option>
+											
+											<option value="KEDZ10Y647" >Chinese Art & Antiques</option>
+											
+											<option value="I13Z7CQUX6" >Indian & South Asian Art & Antiques</option>
+											
+											<option value="OY2OUC9LF6" >Japanese Art & Antiques</option>
+											
+											<option value="GEKIBCU9K0" >Korean Antiques & Art</option>
+											
+											<option value="QC1A8YCACY" >Southeast Asian Art & Antiques</option>
+											
+								</optgroup>
+							
+								<optgroup label="Automobiles, Boats & Airplanes">
+									
+									<option value="VA-WIARM9WZTW" >&raquo; View All Automobiles, Boats & Airplanes</option>
+									
+											<option value="MDVKEEPFN1" >Automobiles</option>
+											
+											<option value="GTVT6ZM3QZ" >Transportation Vehicles</option>
+											
+								</optgroup>
+							
+								<optgroup label="Collectibles">
+									
+									<option value="VA-BQWOG3FLWY" >&raquo; View All Collectibles</option>
+									
+											<option value="PCM15ZAEJA" >Advertising, Paper & Ephemera</option>
+											
+											<option value="5FFNCDPPYM" >Animation Art</option>
+											
+											<option value="EOB7P0TJ34" >Autographs</option>
+											
+											<option value="NVAZ3UE29G" >Books, Maps & Manuscripts</option>
+											
+											<option value="SV4INCVA01" >Coins, Monies & Stamps</option>
+											
+											<option value="H816I2EBE3" >Collectibles - General</option>
+											
+											<option value="OKYXW1QPNP" >Couture, Fashion & Accessories</option>
+											
+											<option value="WNDJ7L05CS" >Electronics Collectibles</option>
+											
+											<option value="WHUZCHPFAQ" >Historical, Political & Space Collectibles</option>
+											
+											<option value="WXMDZM23Q2" >Memorabilia</option>
+											
+											<option value="0EIGHLOFDZ" >Military & Wartime Collectibles</option>
+											
+											<option value="9RFC2VPWGO" >Musical Instruments & Equipment</option>
+											
+											<option value="4E71Y757DJ" >Natural History Collectibles, Fossils & Minerals</option>
+											
+											<option value="5ZZ5EOVHXB" >Pens</option>
+											
+											<option value="HHO7L7CYWT" >Sporting, Fishing & Hunting Collectibles</option>
+											
+											<option value="159SUKPT23" >Tools</option>
+											
+								</optgroup>
+							
+								<optgroup label="Decorative Art">
+									
+									<option value="VA-HV9SJ0PETO" >&raquo; View All Decorative Art</option>
+									
+											<option value="V1810UB55N" >American Indian Art</option>
+											
+											<option value="W7JLTHSDLU" >Ceramics & Pottery</option>
+											
+											<option value="ET2N4AT11F" >Decorative Art - General</option>
+											
+											<option value="SN06I92UXA" >Ethnographic & Indigenous Artifacts</option>
+											
+											<option value="HVPO5ZEMD1" >Glass</option>
+											
+											<option value="YIWIKOSRZQ" >Greek, Roman & Egyptian Antiquities</option>
+											
+											<option value="G51MM3JCDR" >Porcelain & China</option>
+											
+											<option value="HVLGMC4OMS" >Silver & Vertu</option>
+											
+								</optgroup>
+							
+								<optgroup label="Dolls, Bears & Toys">
+									
+									<option value="VA-0HV8BV6K8Y" >&raquo; View All Dolls, Bears & Toys</option>
+									
+											<option value="4WSXVOTIS6" >Bears</option>
+											
+											<option value="SGRGS21XHW" >Dolls</option>
+											
+											<option value="1C0ZT2W77O" >Model Trains</option>
+											
+											<option value="1GO1XYQ22C" >Toys</option>
+											
+											<option value="A4FKXXE3RQ" >Toys, Bears & Dolls - General</option>
+											
+								</optgroup>
+							
+								<optgroup label="Fine Art">
+									
+									<option value="VA-SG2BIX3JPJ" >&raquo; View All Fine Art</option>
+									
+											<option value="X40D0LU64C" >Drawings</option>
+											
+											<option value="Y4YDHAXYM6" >Fine Art - General</option>
+											
+											<option value="Z3K5WYSB8R" >Mixed Media Art</option>
+											
+											<option value="AF14022FJQ" >Paintings</option>
+											
+											<option value="5FM3GDY2EF" >Photography</option>
+											
+											<option value="QB7AGYS9KO" >Posters</option>
+											
+											<option value="SGERF8GX5G" >Prints</option>
+											
+											<option value="MH70PM0ARM" >Sculptures</option>
+											
+								</optgroup>
+							
+								<optgroup label="Guns & Firearms">
+									
+									<option value="VA-TJYLLGLDKA" >&raquo; View All Guns & Firearms</option>
+									
+											<option value="J5PGOR8RAZ" >Firearms - General</option>
+											
+											<option value="4V19IKE39A" >Handguns</option>
+											
+											<option value="RWL1SBCJ8X" >Pistols</option>
+											
+											<option value="5EAIKMJEME" >Revolvers</option>
+											
+											<option value="SSADM5PDL5" >Rifles</option>
+											
+											<option value="OCHEHPBN2A" >Shotguns</option>
+											
+								</optgroup>
+							
+								<optgroup label="Furniture">
+									
+									<option value="VA-66MNH3RVXU" >&raquo; View All Furniture</option>
+									
+											<option value="Q1M0GV0I2V" >Beds</option>
+											
+											<option value="OQO01MZVPQ" >Benches & Stools</option>
+											
+											<option value="8RA3GB6FWF" >Cabinets, Armoires & Cupboards</option>
+											
+											<option value="GPI4WFSDTE" >Chairs</option>
+											
+											<option value="77XL1D8362" >Clocks</option>
+											
+											<option value="M6LMPIAVCG" >Decor & Accessories</option>
+											
+											<option value="MIYYXXKHP7" >Dressers & Vanities</option>
+											
+											<option value="9150N5SOYE" >Furniture - General</option>
+											
+											<option value="XGC3VSBGB1" >Lamps & Lights</option>
+											
+											<option value="1D7I67OQBU" >Mirrors</option>
+											
+											<option value="9CP1X2GQ1T" >Rugs & Carpets</option>
+											
+											<option value="ZG423REXF2" >Shelves & Bookcases</option>
+											
+											<option value="FRT16H4VXB" >Sofas, Couches & Chaises</option>
+											
+											<option value="FKAJ7AFLJ9" >Tables, Stands & Consoles</option>
+											
+								</optgroup>
+							
+								<optgroup label="General">
+									
+									<option value="VA-WXJEP9TUWL" >&raquo; View All General</option>
+									
+											<option value="IU4N4QCOPN" >Estate Sales</option>
+											
+											<option value="JBL04EZI2R" >General</option>
+											
+											<option value="MW3UICG07N" >Home Contents</option>
+											
+											<option value="NHYHBU9LPT" >Single Owner Sales</option>
+											
+								</optgroup>
+							
+								<optgroup label="Jewelry">
+									
+									<option value="VA-YKGNZXS2MH" >&raquo; View All Jewelry</option>
+									
+											<option value="SD21QYCFQN" >Bracelets</option>
+											
+											<option value="9OACJQ50M0" >Costume Jewelry</option>
+											
+											<option value="18N22YFW7F" >Earrings</option>
+											
+											<option value="C6BZQDE9JQ" >Jewelry - General</option>
+											
+											<option value="OG1XEE04VI" >Loose Stones & Beads</option>
+											
+											<option value="Q5BUT80T6S" >Men's Jewelry</option>
+											
+											<option value="7KBYXLPOCW" >Men's Watches</option>
+											
+											<option value="O62XLMG5L9" >Necklaces & Pendants</option>
+											
+											<option value="TQ0X13A58C" >Pins & Brooches</option>
+											
+											<option value="OKRAO7JCZY" >Pocket Watches & Accessories</option>
+											
+											<option value="QE9HEBWJZR" >Rings</option>
+											
+											<option value="K9OGPEH0Q1" >Vintage Jewelry</option>
+											
+											<option value="WBQ0TKYDMB" >Women's Watches</option>
+											
+								</optgroup>
+							
+								<optgroup label="Real Estate">
+									
+									<option value="VA-MU8Q47SBT3" >&raquo; View All Real Estate</option>
+									
+											<option value="YTSQ6JFY66" >Commercial Real Estate</option>
+											
+											<option value="8NO6RJJ1UZ" >Farm Real Estate</option>
+											
+											<option value="R5NXKCYKEM" >Homes</option>
+											
+											<option value="S80JXOMMHQ" >Land</option>
+											
+											<option value="ZPYJJZ6SSU" >Real Estate - General</option>
+											
+								</optgroup>
+							
+								<optgroup label="Wines & Spirits">
+									
+									<option value="VA-5P1KWJO0ML" >&raquo; View All Wines & Spirits</option>
+									
+											<option value="TPY5XXMX9V" >Cognacs</option>
+											
+											<option value="RL3109RDRM" >Dessert & Sweet Wines</option>
+											
+											<option value="I1KC063J1X" >Red Wines</option>
+											
+											<option value="UYBWZR9OLE" >Sparkling Wines</option>
+											
+											<option value="JQMYCL2KT7" >White Wines</option>
+											
+											<option value="EV1GT4PB0H" >Wines - General</option>
+											
+								</optgroup>
+							
+					</select>
+				</div>
+				<span class="label header-left label-show">Auction Type:</span>
+				<div class="options options-checkbox">
+					
+					<input id="filterHouseTypeAl" type="checkbox" value="al" name="" checked><label class="normal" for="filterHouseTypeAl">Live</label>
+					<input id="filterHouseTypeAt" type="checkbox" value="at" name="" checked><label class="normal" for="filterHouseTypeAt">Timed</label>
+					<input id="filterHouseTypeAp" type="checkbox" value="ap" name="" ><label style="margin-right:5px;" class="normal" for="filterHouseTypeAp">Catalog  only</label>
+					<div id="filterHouseTypeHelp">		
+						<a onclick="ShowOverlayPopUp('suggestPopup', event);" href="javascript:void(0);"><span class="helpiconbtn"></span></a>
+					</div>
+				</div>
+				<div id="suggestPopup" class="popUp displayNone" style="font-weight:normal;">
+					"Catalog  only" means that online bidding is not offered for these auctions.
+					<br>
+					<a onclick='jQ("#suggestPopup").hide();' class="closehelp">Close</a>
+				</div>
+
+				<input type="hidden" name="orderBy" id="orderBy" value="1">
+				<input type="hidden" name="order" id="order" value="ASC">
+				<input type="hidden" name="typeIsSet" id="typeIsSet" value="false">
+				<input type="hidden" name="filterHouseType" id="filterHouseType" value="">
+			</form>
+
+							
+		</div>
+	
+
+			<!-- Auction Results Listing -->
+			
+				<!-- Start Listing Row -->
+				<div class="listing-row">
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=QW1Q85SHLG" class="centered-photo-container listing-photo-container">
+							<img alt="HUGE REDUCTIONS! JEWELRY GEMS COINS MORE Lo Buy Prem No Res" src="http://image.invaluable.com/housePhotos/WesternAsset/43/561143/H5524-C69472151_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=QW1Q85SHLG">HUGE REDUCTIONS! JEWELRY GEMS COINS MORE Lo Buy Prem No Res</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/western-asset-reserve-qq2fupvu2m">by Western Asset Reserve</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 18, 2015, 12:15 AM EST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Henderson, NV, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-timed-auction">Timed auction</span>
+									
+								</div>
+
+								
+											<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&amp;catalogRef=QW1Q85SHLG" class="listing-button listing-button-watch-now">Enter Auction</a>
+										
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=LD8SYXLIOI" class="centered-photo-container listing-photo-container">
+							<img alt="HIGH-END FINE JEWELRY FACTORY CLEARANCE" src="http://image.invaluable.com/housePhotos/worldjewelry/97/561097/H5705-C69642992_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=LD8SYXLIOI">HIGH-END FINE JEWELRY FACTORY CLEARANCE</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/world-jewelry-auctions-tda68d5is7">by World Jewelry Auctions</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 3:00 AM PST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Carson, CA, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-timed-auction">Timed auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+											<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&amp;catalogRef=LD8SYXLIOI" class="listing-button listing-button-watch-now">Enter Auction</a>
+										
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+				</div>
+				<!-- End Listing Row -->
+			
+				<!-- Start Listing Row -->
+				<div class="listing-row">
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=FDWOVPY5XS" class="centered-photo-container listing-photo-container">
+							<img alt="Elegant Fine & Decorative Art Sale" src="http://image.invaluable.com/housePhotos/artisticholdings/87/561387/H5797-C69761381_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=FDWOVPY5XS">Elegant Fine & Decorative Art Sale</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/artistic-holdings-company-4g7doibssb">by Artistic Holdings Company</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 4:30 AM PST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Las Vegas, NV, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-timed-auction">Timed auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+											<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&amp;catalogRef=FDWOVPY5XS" class="listing-button listing-button-watch-now">Enter Auction</a>
+										
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=PHE2K0H6QG" class="centered-photo-container listing-photo-container">
+							<img alt="All Gold Coins, Diamond Jewelry, Gemstone Jewelry, GIA & EGL Certified Diamonds" src="http://image.invaluable.com/housePhotos/BigRock/33/560933/H19394-C69550842_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=PHE2K0H6QG">All Gold Coins, Diamond Jewelry, Gemstone Jewelry, GIA & EGL Certified Diamonds</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/big-rock-auctions-l9vqcdnth4">by Big Rock Auctions</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 5:00 AM PST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Torrance, CA, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://live16.invaluable.com/am2a/WebContent/bidder.html?a1=Invaluable-Viewer&a2=PHE2K0H6QG&lid=0&br=i&houseUserName=invaluable&rURL=https%3A%2F%2Fsecure%2Einvaluable%2Ecom%2FbidNow%2FreqForApproval%2Ecfm%3FcatalogRef%3DPHE2K0H6QG&cn=AFTOKEN-PROD&pURL=http%3A%2F%2Fwww%2Einvaluable%2Ecom&e=prod&videoType=" class="listing-button listing-button-watch-now" target="_blank">Enter Auction</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+				</div>
+				<!-- End Listing Row -->
+			
+				<!-- Start Listing Row -->
+				<div class="listing-row">
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=PARAFQEA6E" class="centered-photo-container listing-photo-container">
+							<img alt="Engagement Rings, Solitaire Rings, Fine Jewelry and Investment Gold Coins" src="http://image.invaluable.com/housePhotos/usjewelry/81/560981/H4595-C69567835_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=PARAFQEA6E">Engagement Rings, Solitaire Rings, Fine Jewelry and Investment Gold Coins</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/us-jewelry-liquidation-216fntr2sr">by US Jewelry Liquidation</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 5:00 AM PST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Commerce, CA, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://live17.invaluable.com/am2a/WebContent/bidder.html?a1=Invaluable-Viewer&a2=PARAFQEA6E&lid=0&br=i&houseUserName=invaluable&rURL=https%3A%2F%2Fsecure%2Einvaluable%2Ecom%2FbidNow%2FreqForApproval%2Ecfm%3FcatalogRef%3DPARAFQEA6E&cn=AFTOKEN-PROD&pURL=http%3A%2F%2Fwww%2Einvaluable%2Ecom&e=prod&videoType=" class="listing-button listing-button-watch-now" target="_blank">Enter Auction</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=G1RKZMPIM8" class="centered-photo-container listing-photo-container">
+							<img alt="SAA-HUGE 3 DAY $1 START AUCTION! DAY 3 OF 3!" src="http://image.invaluable.com/housePhotos/SeizedAssets/38/561238/H5578-C69485165_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=G1RKZMPIM8">SAA-HUGE 3 DAY $1 START AUCTION! DAY 3 OF 3!</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/seized-assets-auctioneers-ed5q6bogy2">by Seized Assets Auctioneers</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 5:00 AM PST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Westlake Villiage, CA, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+								</div>
+
+								
+												<a href="http://live5.invaluable.com/am2a/WebContent/bidder.html?a1=Invaluable-Viewer&a2=G1RKZMPIM8&lid=0&br=i&houseUserName=invaluable&rURL=https%3A%2F%2Fsecure%2Einvaluable%2Ecom%2FbidNow%2FreqForApproval%2Ecfm%3FcatalogRef%3DG1RKZMPIM8&cn=AFTOKEN-PROD&pURL=http%3A%2F%2Fwww%2Einvaluable%2Ecom&e=prod&videoType=" class="listing-button listing-button-watch-now" target="_blank">Enter Auction</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+				</div>
+				<!-- End Listing Row -->
+			
+				<!-- Start Listing Row -->
+				<div class="listing-row">
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=I2ANWK6SEG" class="centered-photo-container listing-photo-container">
+							<img alt="Only GemStones Close Out" src="http://image.invaluable.com/housePhotos/VDG/72/561372/H5759-C69575315_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=I2ANWK6SEG">Only GemStones Close Out</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/vdg-jewelry-auction-w50xqtfr1h">by VDG Jewelry Auction</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 7:00 AM PST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Montrose, CA, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://live5.invaluable.com/am2a/WebContent/bidder.html?a1=Invaluable-Viewer&a2=I2ANWK6SEG&lid=0&br=i&houseUserName=invaluable&rURL=https%3A%2F%2Fsecure%2Einvaluable%2Ecom%2FbidNow%2FreqForApproval%2Ecfm%3FcatalogRef%3DI2ANWK6SEG&cn=AFTOKEN-PROD&pURL=http%3A%2F%2Fwww%2Einvaluable%2Ecom&e=prod&videoType=" class="listing-button listing-button-watch-now" target="_blank">Enter Auction</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=XFJGVR8MCC" class="centered-photo-container listing-photo-container">
+							<img alt="Pens, Coins, Silver & More Estate Auction" src="http://image.invaluable.com/housePhotos/levine/99/561299/H4128-L69501898_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=XFJGVR8MCC">Pens, Coins, Silver & More Estate Auction</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/j-levine-auction-amp-appraisal-llc-z8j07emdar">by J Levine Auction &amp; Appraisal LLC</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 11:00 AM MST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Scottsdale, AZ, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://live5.invaluable.com/am2a/WebContent/bidder.html?a1=Invaluable-Viewer&a2=XFJGVR8MCC&lid=4128:levine:561299&br=i&houseUserName=invaluable&rURL=https%3A%2F%2Fsecure%2Einvaluable%2Ecom%2FbidNow%2FreqForApproval%2Ecfm%3FcatalogRef%3DXFJGVR8MCC&cn=AFTOKEN-PROD&pURL=http%3A%2F%2Fwww%2Einvaluable%2Ecom&e=prod&videoType=Wowza" class="listing-button listing-button-watch-now" target="_blank">Enter Auction</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+				</div>
+				<!-- End Listing Row -->
+			
+				<!-- Start Listing Row -->
+				<div class="listing-row">
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=6RUW40D36H" class="centered-photo-container listing-photo-container">
+							<img alt="Firearms Auction Day 1 of 4" src="http://image.invaluable.com/housePhotos/rockislandauction/71/559171/H3925-L67722081_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=6RUW40D36H">Firearms Auction Day 1 of 4</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/rock-island-auction-company-fhdr0mypr7">by Rock Island Auction Company</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 2:00 PM CST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Rock Island, IL, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+								</div>
+
+								
+												<a href="http://live16.invaluable.com/am2a/WebContent/bidder.html?a1=Invaluable-Viewer&a2=6RUW40D36H&lid=3925:rockislandauction:559171&br=i&houseUserName=invaluable&rURL=https%3A%2F%2Fsecure%2Einvaluable%2Ecom%2FbidNow%2FreqForApproval%2Ecfm%3FcatalogRef%3D6RUW40D36H&cn=AFTOKEN-PROD&pURL=http%3A%2F%2Fwww%2Einvaluable%2Ecom&e=prod&videoType=Wowza" class="listing-button listing-button-watch-now" target="_blank">Enter Auction</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=NCSHK1DFX6" class="centered-photo-container listing-photo-container">
+							<img alt="COINS ESTATE JEWELRY FINE ART SILVER ANTIQUES PORCELAIN" src="http://image.invaluable.com/housePhotos/andrewscoin/93/560193/H19139-C69738617_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=NCSHK1DFX6">COINS ESTATE JEWELRY FINE ART SILVER ANTIQUES PORCELAIN</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/andrew-s-coin-and-jewelry-oa9hefxssg">by Andrew's Coin and Jewelry</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 4:00 PM EST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Boca Raton, FL, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+								</div>
+
+								
+												<a href="http://live16.invaluable.com/am2a/WebContent/bidder.html?a1=Invaluable-Viewer&a2=NCSHK1DFX6&lid=0&br=i&houseUserName=invaluable&rURL=https%3A%2F%2Fsecure%2Einvaluable%2Ecom%2FbidNow%2FreqForApproval%2Ecfm%3FcatalogRef%3DNCSHK1DFX6&cn=AFTOKEN-PROD&pURL=http%3A%2F%2Fwww%2Einvaluable%2Ecom&e=prod&videoType=" class="listing-button listing-button-watch-now" target="_blank">Enter Auction</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+				</div>
+				<!-- End Listing Row -->
+			
+				<!-- Start Listing Row -->
+				<div class="listing-row">
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=OG64TO448K" class="centered-photo-container listing-photo-container">
+							<img alt="COINS JEWELRY ANTIQUES & COLLECTIBLES" src="http://image.invaluable.com/housePhotos/Carrolls/70/561470/H4376-C69655224_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=OG64TO448K">COINS JEWELRY ANTIQUES & COLLECTIBLES</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/carroll-s-auctioneers-amp-appraisers-d1lffw771y">by Carroll's Auctioneers &amp; Appraisers</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 4:30 PM EST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">guilford, CT, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://live5.invaluable.com/am2a/WebContent/bidder.html?a1=Invaluable-Viewer&a2=OG64TO448K&lid=0&br=i&houseUserName=invaluable&rURL=https%3A%2F%2Fsecure%2Einvaluable%2Ecom%2FbidNow%2FreqForApproval%2Ecfm%3FcatalogRef%3DOG64TO448K&cn=AFTOKEN-PROD&pURL=http%3A%2F%2Fwww%2Einvaluable%2Ecom&e=prod&videoType=" class="listing-button listing-button-watch-now" target="_blank">Enter Auction</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=HY8PQX2UKC" class="centered-photo-container listing-photo-container">
+							<img alt="Fine Jewelry, Art, and Other Collection Auction" src="http://image.invaluable.com/housePhotos/kingston/05/561405/H6024-C69593800_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=HY8PQX2UKC">Fine Jewelry, Art, and Other Collection Auction</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/kingston-galleries-ygkzzn7lqe">by Kingston Galleries</a>
+								
+							</span>
+							
+								<span class="listing-date">February 19, 2015, 3:00 PM PST </span>
+							
+							<span class="listing-location">Woodland Hills, CA, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&amp;catalogRef=HY8PQX2UKC"  class="listing-button listing-button-bid-now">Bid Now</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+				</div>
+				<!-- End Listing Row -->
+			
+				<!-- Start Listing Row -->
+				<div class="listing-row">
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=ESFHLQ4YFU" class="centered-photo-container listing-photo-container">
+							<img alt="HIGHLY IMPORTANT RENE LALIQUE,TIFFANY, FINE ART, ANTIQUES,CHINESE" src="http://image.invaluable.com/housePhotos/ABLevy/13/560813/H5142-L69013564_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=ESFHLQ4YFU">HIGHLY IMPORTANT RENE LALIQUE,TIFFANY, FINE ART, ANTIQUES,CHINESE</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/a.b.-levy-s-pigr60dax8">by A.B. Levy's</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 6:00 PM EST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">West Palm Beach, FL, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+								</div>
+
+								
+												<a href="http://live11.invaluable.com/am2a/WebContent/bidder.html?a1=Invaluable-Viewer&a2=ESFHLQ4YFU&lid=0&br=i&houseUserName=invaluable&rURL=https%3A%2F%2Fsecure%2Einvaluable%2Ecom%2FbidNow%2FreqForApproval%2Ecfm%3FcatalogRef%3DESFHLQ4YFU&cn=AFTOKEN-PROD&pURL=http%3A%2F%2Fwww%2Einvaluable%2Ecom&e=prod&videoType=" class="listing-button listing-button-watch-now" target="_blank">Enter Auction</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=LFK5CZSWGQ" class="centered-photo-container listing-photo-container">
+							<img alt="Master Prints From The Collection Of Scarab Press : Durer to Baskin" src="http://image.invaluable.com/housePhotos/WoodshedGallery/36/560536/H19247-C68965445_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=LFK5CZSWGQ">Master Prints From The Collection Of Scarab Press : Durer to Baskin</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/woodshed-gallery-giewniuqv2">by Woodshed Gallery</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 6:00 PM EST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Franklin, MA, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://live6.invaluable.com/am2a/WebContent/bidder.html?a1=Invaluable-Viewer&a2=LFK5CZSWGQ&lid=0&br=i&houseUserName=invaluable&rURL=https%3A%2F%2Fsecure%2Einvaluable%2Ecom%2FbidNow%2FreqForApproval%2Ecfm%3FcatalogRef%3DLFK5CZSWGQ&cn=AFTOKEN-PROD&pURL=http%3A%2F%2Fwww%2Einvaluable%2Ecom&e=prod&videoType=" class="listing-button listing-button-watch-now" target="_blank">Enter Auction</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+				</div>
+				<!-- End Listing Row -->
+			
+				<!-- Start Listing Row -->
+				<div class="listing-row">
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=U7WIHKXIT5" class="centered-photo-container listing-photo-container">
+							<img alt="Coins, Jewelry, Hummels, Antiques, Collectibles, Fine Art, and More!" src="http://image.invaluable.com/housePhotos/Complete/26/561426/H5788-C69616971_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=U7WIHKXIT5">Coins, Jewelry, Hummels, Antiques, Collectibles, Fine Art, and More!</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/complete-auctions-u9zla1tulv">by Complete Auctions</a>
+								
+							</span>
+							
+								<span class="listing-date enterAuctionDateText">February 19, 2015, 6:30 PM EST  <span class="enterAuctionNoWrap">(in progress)</span></span>
+							
+							<span class="listing-location">Clearwater, FL, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://live16.invaluable.com/am2a/WebContent/bidder.html?a1=Invaluable-Viewer&a2=U7WIHKXIT5&lid=0&br=i&houseUserName=invaluable&rURL=https%3A%2F%2Fsecure%2Einvaluable%2Ecom%2FbidNow%2FreqForApproval%2Ecfm%3FcatalogRef%3DU7WIHKXIT5&cn=AFTOKEN-PROD&pURL=http%3A%2F%2Fwww%2Einvaluable%2Ecom&e=prod&videoType=" class="listing-button listing-button-watch-now" target="_blank">Enter Auction</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=BZWJHO413V" class="centered-photo-container listing-photo-container">
+							<img alt="MID FEBRUARY ANTIQUES NO RESERVE AUCTION" src="http://image.invaluable.com/housePhotos/WorldofAntiques/80/560780/H5414-C68970657_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=BZWJHO413V">MID FEBRUARY ANTIQUES NO RESERVE AUCTION</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/world-of-antiques,-inc.-28eguzl6dt">by World of Antiques, Inc.</a>
+								
+							</span>
+							
+								<span class="listing-date">February 19, 2015, 4:00 PM PST </span>
+							
+							<span class="listing-location">Los Angeles, CA, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+								</div>
+
+								
+												<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&amp;catalogRef=BZWJHO413V"  class="listing-button listing-button-bid-now">Bid Now</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+				</div>
+				<!-- End Listing Row -->
+			
+				<!-- Start Listing Row -->
+				<div class="listing-row">
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=K5JVLJZFHI" class="centered-photo-container listing-photo-container">
+							<img alt="Fine & Decorative Art Auction" src="http://image.invaluable.com/housePhotos/artisticholdings/89/561389/H5797-C69768140_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=K5JVLJZFHI">Fine & Decorative Art Auction</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/artistic-holdings-company-4g7doibssb">by Artistic Holdings Company</a>
+								
+							</span>
+							
+								<span class="listing-date">February 20, 2015, 12:00 AM PST </span>
+							
+							<span class="listing-location">Las Vegas, NV, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-timed-auction">Timed auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&amp;catalogRef=K5JVLJZFHI"  class="listing-button listing-button-bid-now">Bid Now</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=78L9LXQK00" class="centered-photo-container listing-photo-container">
+							<img alt="GOVERNMENT AUCTION - ANTIQUES, COLLECTIBLES & GOLD COINS" src="http://image.invaluable.com/housePhotos/GovernmentAuction/84/561284/H5455-L69508519_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=78L9LXQK00">GOVERNMENT AUCTION - ANTIQUES, COLLECTIBLES & GOLD COINS</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/government-auction-v51l81ilu8">by Government Auction</a>
+								
+							</span>
+							
+								<span class="listing-date">February 19, 2015, 5:00 PM PST </span>
+							
+							<span class="listing-location">Santa Clarita, CA, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&amp;catalogRef=78L9LXQK00"  class="listing-button listing-button-bid-now">Bid Now</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+				</div>
+				<!-- End Listing Row -->
+			
+				<!-- Start Listing Row -->
+				<div class="listing-row">
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=V7EU1ZLF3U" class="centered-photo-container listing-photo-container">
+							<img alt="Model Train sale" src="http://image.invaluable.com/housePhotos/vectis/20/560920/H3260-L69120271_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=V7EU1ZLF3U">Model Train sale</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/vectis-auctions-ltd-bz883c593m">by Vectis Auctions Ltd</a>
+								
+							</span>
+							
+								<span class="listing-date">February 20, 2015, 10:30 AM GMT </span>
+							
+							<span class="listing-location">Stockton on Tees, UK</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-live-auction">Live auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&amp;catalogRef=V7EU1ZLF3U"  class="listing-button listing-button-bid-now">Bid Now</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+					<div class="listing">
+						<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=YK6XVKA61Z" class="centered-photo-container listing-photo-container">
+							<img alt="FACTORY CLEARANCE FINE JEWELRY & COINS" src="http://image.invaluable.com/housePhotos/worldjewelry/98/561098/H5705-C69656039_mid.jpg">
+						</a>
+						<div class="listing-info-container">
+							<h3 class="listing-title">
+								
+									
+									<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&catalogRef=YK6XVKA61Z">FACTORY CLEARANCE FINE JEWELRY & COINS</a>
+								
+							</h3>
+							<span class="listing-by">
+								
+									<a href="http://www.invaluable.com/auction-house/world-jewelry-auctions-tda68d5is7">by World Jewelry Auctions</a>
+								
+							</span>
+							
+								<span class="listing-date">February 20, 2015, 3:00 AM PST </span>
+							
+							<span class="listing-location">Carson, CA, US</span>
+							<div class="listing-action-container">
+								<div class="listing-type-container">
+									
+										<span class="listing-type listing-type-timed-auction">Timed auction</span>
+									
+										<span class="listing-type listing-type-platinum-house">Platinum house</span>
+									
+								</div>
+
+								
+												<a href="http://www.invaluable.com/catalog/searchLots.cfm?scp=c&amp;catalogRef=YK6XVKA61Z"  class="listing-button listing-button-bid-now">Bid Now</a>
+											
+							</div>
+						</div>
+					</div>
+					<!-- End Listing -->
+			
+				</div>
+				<!-- End Listing Row -->
+			
+
+			<div class="listing-navigation gothamNarrow500">
+				<a href="/catalog/browseUpcoming.cfm" class="boldViewAllLink">View all upcoming auctions &raquo;</a>
+			</div>
+
+		<div id="hp3" class="rr_placement_horiz">
+			
+<div class="clear">
+	<div class="rr_rec_header" id="rrTitle">
+	Title
+	</div>
+	
+		<div class="rr_rec_lotBlock">
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_0">
+					<a href="" id="rrImageBoxLink_0">
+					<div class="rr_rec_ImageBox" id="rrImageBox_0">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_0">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_0">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_1">
+					<a href="" id="rrImageBoxLink_1">
+					<div class="rr_rec_ImageBox" id="rrImageBox_1">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_1">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_1">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_2">
+					<a href="" id="rrImageBoxLink_2">
+					<div class="rr_rec_ImageBox" id="rrImageBox_2">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_2">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_2">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_3">
+					<a href="" id="rrImageBoxLink_3">
+					<div class="rr_rec_ImageBox" id="rrImageBox_3">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_3">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_3">
+					$0 (starting bid)
+					</div>
+				</div>
+			
+				<div class="rr_rec_lotBox rr_rec_lotBox_home" id="rrLotBox_4">
+					<a href="" id="rrImageBoxLink_4">
+					<div class="rr_rec_ImageBox" id="rrImageBox_4">
+						<img src="" class="rr_rec_Image" border="0">
+					</div>
+					</a>
+					<div class="rr_rec_lotText" id="rrLotText_4">
+						Lot title
+					</div>
+					<div class="rr_rec_lotText rr_rec_lotText2"  id="rrLotText2_4">
+					$0 (starting bid)
+					</div>
+				</div>
+					
+		</div>
+	
+	<div class="clear"></div>
+</div>
+
+		</div>
+			<div class="section-header">Popular Categories</div>
+
+			<div class="category-tile-row">
+				<a href="/landscape-paintings/sc-8JIKMBQ7HV/" class="category-tile category-tile-half">
+					<img src="/wwwImages/homepage/category/landscape-painting.png">
+					<span class="category-tile-caption gothamNarrow700">
+						<span>Landscape Paintings &raquo;</span>
+					</span>
+				</a><!--
+				--><a href="/world-coins/sc-2HCC1IFPOD/" class="category-tile category-tile-half last-tile">
+					<img src="/wwwImages/homepage/category/worldwide-coins.png">
+					<span class="category-tile-caption gothamNarrow700">
+						<span>World Coins &raquo;</span>
+					</span>
+				</a>
+			</div>
+
+			<div class="category-tile-row">
+				<a href="/mens-watches/cc-7KBYXLPOCW/" class="category-tile category-tile-quarter">
+					<img src="/wwwImages/homepage/category/watches.png">
+					<span class="category-tile-caption gothamNarrow700">
+						<span>Men's Watches &raquo;</span>
+					</span>
+				</a><!--
+				--><a href="/books-maps-manuscripts/cc-NVAZ3UE29G/" class="category-tile category-tile-quarter">
+					<img src="/wwwImages/homepage/category/books-maps-manuscripts.png">
+					<span class="category-tile-caption gothamNarrow700">
+						<span>Books, Maps, &amp; Manuscripts &raquo;</span>
+					</span>
+				</a><!--
+				--><a href="/rings/cc-QE9HEBWJZR/" class="category-tile category-tile-quarter">
+					<img src="/wwwImages/homepage/category/rings.png">
+					<span class="category-tile-caption gothamNarrow700">
+						<span>Rings &raquo;</span>
+					</span>
+				</a><!--
+				--><a href="/chinese-snuff-bottles/sc-0ERGF9H8AN/" class="category-tile category-tile-quarter last-tile">
+					<img src="/wwwImages/homepage/category/snuff-bottles.png">
+					<span class="category-tile-caption gothamNarrow700">
+						<span>Chinese Snuff Bottles&nbsp;&raquo;</span>
+					</span>
+				</a>
+			</div>
+
+		
+	</div>
+</div> 
+		<div id="orderConfWrapper">
+			<div id="orderConf">
+				
+
+			</div>
+		</div>
+
+		
+
+				<!-- Footer -->
+				<footer id="bottomWrapper">
+						<br><br>
+
+					<div id="bottomLinks" class="wrapper clear">
+						<div class="bottom">
+							<div class="linkgroup">
+								<h5>About Invaluable</h5>
+								<ul>
+									<li><a href="http://www.invaluable.com/invaluable/about.cfm">About Us</a></li>
+									<li><a href="http://www.invaluable.com/invaluable/help.cfm">Help/FAQ</a></li>
+									<li><a href="http://news.invaluable.com/">News Room</a></li>
+									<li><a href="http://www.invaluable.com/invaluable/contact.cfm">Contact Us</a></li>
+									<li><a href="http://invaluable.theresumator.com/apply" target="_blank">Careers</a></li>
+								</ul>
+							</div>
+							<div class="linkgroup">
+								<h5>Resources</h5>
+								<ul>
+									<li><a href="http://www.invaluable.com/?filterHouseType=al">Browse Online Auctions</a></li>
+									<li><a href="http://www.invaluable.com/features/selectArtist.cfm">Artist Database</a></li>
+									<li><a href="http://www.invaluable.com/invaluable/houseServices.cfm">Auction House Services</a></li>
+								</ul>
+							</div>
+							<div class="linkgroup">
+								<h5>Stay Connected</h5>
+								<ul>
+									<li style="padding:5px 0;"><a href="http://www.invaluable.com/ipad/" class="ipad" alt="Invaluable App for iPad " title="Invaluable App for iPad" rel="nofollow">App for iPad</a><img src="/wwwImages/New_Icon_Ipad_2.png" class="ipadNewFooter" height="15" width="28"> </li>
+									<li><a href="https://www.facebook.com/InvaluableAuctions" class="fb" alt="Friend Invaluable on Facebook" title="Friend Invaluable on Facebook" target="_blank" rel="nofollow">Facebook</a></li>
+									<li><a href="http://www.twitter.com/invaluablelive" class="twitter" alt="Follow Invaluable on Twitter" title="Follow Invaluable on Twitter" target="_blank" rel="nofollow">Twitter</a></li>
+									<li><a href="https://plus.google.com/112108589588204905013/posts" class="googlePlus" alt="Google+" title="GooglePlus">Google+</a></li>
+								</ul>
+							</div>
+								<div id="subscribeWrapper">
+									<h5>Join Our Mailing List</h5>
+									<span class="subtext">Get auction updates and news in your inbox!</span>
+									<input id="companyRef" type="hidden" name="companyRef" value="1" />
+									<input type="text" name="mbrEmailAddress" id="ntSignUp-Email" value="Email Address" maxlength="64"><button class="signup" id="footerSubmit">Sign Up</button>
+									<div class="errormsg error errorBlock"></div>
+								</div>
+						</div>
+					</div>
+					<div id="bottomFooter" class="wrapper">
+						<div class="bottom">
+							<span class="copyright">&copy; 1986-2015 Invaluable, LLC. and participating auction houses. All Rights Reserved.</span>
+							<a class="footer" href="http://www.invaluable.com/agreements/userTerms.cfm" rel="nofollow">Terms of Use</a>
+							<a class="footer" href="http://www.invaluable.com/agreements/subTerms.cfm" rel="nofollow">Subscription Agreement</a>
+							<a class="footer" href="http://www.invaluable.com/agreements/privacy.cfm" rel="nofollow" target="_blank">Privacy Policy & Cookies</a>
+							<a class="footer" href="http://www.invaluable.com/agreements/copyright.cfm" rel="nofollow">Copyright & Usage</a>
+						</div>
+					</div>
+				</footer>
+
+
+			</div><!-- END container-inner -->
+		</div>
+
+		<span id="loadingGraphic" class="hidden"><img style="position: fixed; left:50%; top:50%; margin:-20px 0 0 -25px;" src="/wwwImages/ajax-loader.gif" /></span>
+
+		
+		<!-- END container -->
+		
+		
+	
+	<script type="text/javascript">
+		//empty function, just in case....
+		function loadAds(){};
+		
+
+	</script>
+	
+		
+		<script type="text/javascript">
+		  var thisMemberID = '0';
+		  var thisMemberHardLogged = false;
+	  	  var thisMemberSoftLogged = false;
+		  var thisCompanyID = 1;
+		  var googleAnalyticsID = 'UA-21191163-99';
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', googleAnalyticsID]);
+		  if (thisCompanyID == 2){
+		 	 _gaq.push(['_setDomainName', 'invaluable.co.uk']);
+		  	}
+		  else {
+		  	_gaq.push(['_setDomainName', 'invaluable.com']);
+		  	}
+		  _gaq.push(['_setCustomVar', 5, 'memberID', thisMemberID, 2]);
+		  _gaq.push(['_trackPageview']);
+		  _gaq.push(['_setAllowLinker', true]);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+
+		
+		
+<br clear="all"	 />
+
+
+	
+		
+
+
+	</body>
+</html> ";i:2;s:4:"9807";}

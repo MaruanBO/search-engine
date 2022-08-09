@@ -1,0 +1,739 @@
+a:3:{i:0;s:27:"http://ehealthmedicare.com/";i:1;s:43299:"<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Medicare Insurance-Compare Medicare Plans Online or Call Us Toll Free</title>
+<link rel="canonical" href="http://www.ehealthmedicare.com/" />
+<link rel="apple-touch-icon-precomposed" href="http://static.ehealthmedicare.com/apple-touch-icon-precomposed.png" />
+<link rel="apple-touch-icon" href="http://static.ehealthmedicare.com/apple-touch-icon.png" />
+<link rel="apple-touch-icon" href="http://static.ehealthmedicare.com/touch-icon-iphone.png">
+<link rel="apple-touch-icon" sizes="76x76" href="http://static.ehealthmedicare.com/touch-icon-ipad.png">
+<link rel="apple-touch-icon" sizes="120x120" href="http://static.ehealthmedicare.com/touch-icon-iphone-retina.png">
+<link rel="apple-touch-icon" sizes="152x152" href="http://static.ehealthmedicare.com/touch-icon-ipad-retina.png">
+<meta name="description" content="Free no obligation quote and compare Medicare Insurance Plans including Advantage (Part C), Prescription Drug (Part D), and Supplement (Medigap) plans." />
+<meta name="keywords" content="medicare insurance, medicare" />
+
+<meta name="title" content="Medicare Insurance-Compare Medicare Plans Online or Call Us Toll Free" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+    var ehmsite = {};
+    function appLoadedCallback(callbox) {
+        console.log("callbox callback called "+callbox.allid);
+        if(typeof initAllid !== "undefined") {
+            initAllid(callbox, 'EHM39972', '', '');
+        }
+        if(typeof doSteelhouse !== "undefined") {
+            doSteelhouse();
+        }
+        if(typeof sendOmnitureTracking !== "undefined") {
+        	var sid = callbox.sid || '';
+            sendOmnitureTracking(callbox.allid, sid);
+        }
+        if(typeof initEhmpLinks !== "undefined") {
+            initEhmpLinks();
+        }           
+    }
+    function ehm(ehmwidget) {
+        ehmsite = ehmwidget;
+        
+        // commented out for MEDI-6335
+        //var delayTime = getParameterByName("lastcallDelay")?getParameterByName("lastcallDelay"):10000;
+        //setTimeout(function(){ehmsite.modal.showLastCallModal('A');}, delayTime);
+        // end - MEDI-6335
+
+        if ($("#header").length >0){
+       	 	initHeader();
+        }
+        if($("#fixed2").length > 0) {
+            initFixedInfo();
+        }
+        if($("#fixed").length > 0) {
+            initFixedCallBox();
+        }
+        if(typeof initPage !== "undefined") initPage();
+        for(var widgetInitFunc in ehiAppConfig.widgetInitFuncs) {
+            ehiAppConfig.widgetInitFuncs[widgetInitFunc]();
+        }
+        
+        if ($("#chart_div").length > 0){
+        	initalChart();
+        }
+       
+    }
+    function getParameterByName(name) {
+	 return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+	}
+    var ehiAppConfig = {
+        staticContentHost:'http://static.ehealthmedicareplans.com/muse/',
+        ajaxHost:'http://www.ehealthmedicareplans.com/muse/',
+        mcwsHost:'http://www.ehealthmedicareplans.com/mcws/',
+        leadSuccessUrl:'http://www.ehealthmedicareplans.com/',
+        ehealthmedicareUrl:'http://www.ehealthmedicare.com/',
+        allid: 'EHM39972',
+        params:'&leadFormEnabled=false',
+        seoAllid: 'SEO39973',
+        appLoaded: appLoadedCallback,
+        ehmSiteCallback: ehm,
+        ratingData:'{&quot;errors&quot;:[{&quot;param&quot;:&quot;pageUrl&quot;,&quot;message&quot;:&quot;{rating.pageUrl.notEmpty&quot;}]}',
+        serviceHost:'',
+        contextPath: '',
+        pageUrl:'',
+        set:function(prop, val) {
+                this[prop]=val;
+                if(this.onChange) this.onChange();
+        },
+        widgetInitFuncs: [],
+        registerWidgetInitFunc: function(func) {
+            ehiAppConfig.widgetInitFuncs.push(func);
+        },
+        enableLeadAudit:"true",
+        leadConsentVersion:"1.1"
+    };
+    function setAppConfigProperty(prop, val) {
+        ehiAppConfig.set(prop, val);
+    }        
+</script>
+<script src="http://static.ehealthmedicare.com/js/mbox.js"></script>
+<script data-main="http://static.ehealthmedicare.com/js/EHMSiteMain" src="http://static.ehealthmedicare.com/js/libs/require.js"></script>
+<script src="http://static.ehealthmedicare.com/js/medicare-information-fixed.js"></script>
+<script src="http://static.ehealthmedicare.com/js/call-center-fixed-footer.js"></script>
+<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://static.ehealthmedicare.com/js/HeaderView.js"></script>
+<script src="http://static.ehealthmedicare.com/js/share.js"></script>
+<script>
+    function openModal(){
+        playvideoTracker();
+        $.facebox(getVideoStr());
+    }
+    function playvideoTracker(){
+        trackOmnitureClick("Video","What is Medicare");
+    }
+    
+    //an event is passed only when we want to delay the redirect - i.e. when we are going to ehmp
+    function trackOmnitureClick(type, details, event){
+        if (event) event.preventDefault();
+        console.log("in trackOmnitureClick for " + type + "-" + details);
+        
+        if(s){
+            s.linkTrackVars="prop9";
+            s.prop9=type+":EHM:home page"+details;
+            s.tl(this,'o',type+":EHM:home page"+details);
+			// clearing variables so they don't carry through to the next omniture page tracked
+        	s.linkTrackVars="";
+        	s.prop9="";
+        }
+        
+        if (event) doRedirect(event);
+    }
+    function doRedirect(event) {
+    	//if the event has a url, redirect to it; otherwise we assume this is a button and we submit its parent form
+    	var eventUrl = event.currentTarget.href;
+    	
+    	if (eventUrl) window.location.href = eventUrl;
+        else event.currentTarget.form.submit();
+        
+    }
+</script>
+
+
+
+<link rel="stylesheet" type="text/css" media="all" href="http://static.ehealthmedicare.com/css/ehealth-medicare.css"/>
+
+<!--[if lt IE 9]>
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="http://static.ehealthmedicare.com/js/init-ehmp-links.js" ></script>
+
+
+    <meta name="google-site-verification" content="oEi6IT5xwHaPxoQBC1XbJ4NvmI1rVqQW0B7AysLecGE" />
+    <link rel="stylesheet" type="text/css" media="all" href="http://static.ehealthmedicare.com/css/global.css"/>
+    <script type="text/javascript" src="http://static.ehealthmedicare.com/js/homepage.js" ></script>
+     <script type="text/javascript" src="http://static.ehealthmedicare.com/js/init-form-allid.js" ></script>
+    <script>
+        function initPage() {
+           $.facebox.settings.opacity = 0.3;
+           carousel();
+           newsshow();
+        }
+    </script>
+
+</head>
+<body id="home-page">
+        <div id="header">
+	<script>
+function b(e){if(typeof String.prototype.endsWith!=="function"){String.prototype.endsWith=function(e){return this.indexOf(e,this.length-e.length)!==-1}}if(typeof String.prototype.contains!=="function"){String.prototype.contains=function(){return String.prototype.indexOf.apply(this,arguments)!==-1}}var t=location.protocol;var n=location.host;var r=location.pathname;var i=location.search;var s=location.hash;var o=t+"//"+n+r+i+s;if(r.endsWith("/b")||r.endsWith("/b/")){}else if(r.endsWith("/")){r=r+"b/"}else{r=r+"/b/"}if(typeof e!=="undefined"){if(i){if(i.contains("allid=")){}else{i+="&allid="+e}}else{i="?allid="+e}}var u=t+"//"+n+r+i+s;if(o===u){}else{location.replace(u)}}
+function eboxCreate(e){if(location.search.indexOf("tnttest=")>0){tntRedirect("SEO39973","b")}else mboxCreate(e)}function tntRedirect(e,t){if(typeof String.prototype.endsWith!=="function"){String.prototype.endsWith=function(e){return this.indexOf(e,this.length-e.length)!==-1}}if(typeof String.prototype.contains!=="function"){String.prototype.contains=function(){return String.prototype.indexOf.apply(this,arguments)!==-1}}var n=location.protocol;var r=location.host;var i=location.pathname;var s=location.search;var o=location.hash;var u=n+"//"+r+i+s+o;if(typeof t!=="undefined"){if(i.endsWith("/"+t)||i.endsWith("/"+t+"/")){}else if(i.endsWith("/")){i=i+t+"/"}else{i=i+"/"+t+"/"}}if(typeof e!=="undefined"){if(s){if(s.contains("allid=")){}else{s+="&allid="+e}}else{s="?allid="+e}}var a=n+"//"+r+i+s+o;if(u===a){}else{if(!s.contains("tntoff"))location.replace(a)}}
+    </script>
+	<div id="1" class="mboxDefault"></div>
+	<script type="text/javascript">
+		mboxCreate('ehm:global:V2');
+	</script>
+	<div id="2" class="mboxDefault"></div>
+	<script type="text/javascript">
+		mboxCreate('ehm:global:throttle:V2');
+	</script>	
+
+<div id="page-top" class="nav-secondary-fixed">
+    <section class="fullbluebar"></section>
+    <section id="nav-top">
+        <div>
+            <a href="/" class="cobrand">
+                <img id="cobrand-logo"
+                     src="http://static.ehealthmedicare.com/images/logos/ehm-logos-sprite.png"
+                     alt="Medicare Insurance Options from eHealth Medicare"
+                     title="Medicare Insurance Options from eHealth Medicare">
+            </a>
+            <ul id="gn-left">
+                <li id="nav-top-med"><a href="/medicare-insurance" class="selected"
+                                        title="Medicare Insurance">Medicare</a></li>
+            </ul>
+
+            <ul id="gn-right">
+                <li id="ctc">
+                    <p>Speak with a Licensed Insurance Agent</p>
+                </li>
+                <li class="last-child">
+                    <p class="phone">1-<span class="ehi-call-box" data-view="inline"></span>&nbsp;&nbsp;<span class="tty-user">TTY users</span> 711</p>
+                    <p class="hours"><span class="ehi-call-box" data-view="inlineHours" data-nobreak="true"></span></p>
+            </ul>
+        </div>
+    </section>
+    <!-- end nav-top -->
+    <section class="expanded-secondary-nav nav-fixed-scroll nav-top-med-links" id="nav-secondary">
+        <div>
+          <div id="header-logo">
+            <a href="/" class="ehm-logo">
+                <img class="narrow-elogo" id="nav-logo"
+                     src="http://static.ehealthmedicare.com/images/logos/ehm-logos-sprite.png"
+                     alt="Medicare Insurance Options from eHealth Medicare"
+                     title="Medicare Insurance Options from eHealth Medicare">
+            </a>
+            </div>
+            <ul id="nav-med-menu">
+                <li><a href="/medicare-part-c-advantage/">Medicare Advantage</a></li>
+                <li><a href="/medicare-supplement/">Medicare Supplement</a></li>
+                <li><a href="/medicare-part-d-prescription/">Medicare Part D</a></li>
+            </ul>
+
+            <ul id="nav-more-menu" class="nav-main-links med-show ">
+                <li data-link="more" class="secondary-links active">More</li>
+                <ul class="nav-sub-section one-column" data-link="more">
+                    <li>
+                        <ul>
+                            <li><h3>About Medicare</h3></li>
+                            <li><a href="/about-medicare/">What is Medicare?</a></li>
+                            <li><a href="/about-medicare/original-medicare/">Original Medicare</a></li>
+                            <li><a href="/medicare-part-c-advantage/">Medicare Advantage</a></li>
+			                <li><a href="/medicare-supplement/">Medicare Supplement</a></li>
+			                <li><a href="/medicare-part-d-prescription/">Medicare Part D</a></li>
+                            <li><a href="/medicare-by-state/">Medicare by State</a></li>
+                            <li><a href="/about-medicare/caregivers/">Caregivers</a></li>
+                        </ul>
+                        <ul>
+                            <li><h3>Eligibility and Coverage</h3></li>
+                            <li><a href="/about-medicare/eligibility/">Eligibility</a></li>
+                            <li><a href="/about-medicare/cataracts/">Coverage by Topic</a></li>
+                            <li><a href="/about-medicare/application/">Medicaid</a></li>
+                            <li><a href="/medicare-part-d-prescription/low-income-subsidy/">"Extra Help" Program - Low Income Subsidy</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                        	<li><h3>Enroll in Medicare</h3></li>
+                            <li><a href="/about-medicare/enrollment/">Enrollment</a></li>
+                            <li><a href="/about-medicare/enrollment/annual-election/">Annual Election</a></li>
+                            <li><a href="/about-medicare/enrollment/general-enrollment/">General Enrollment</a></li>
+                            <li><a href="/about-medicare/enrollment/initial-enrollment/">Initial Enrollment</a></li>
+                            <li><a href="/about-medicare/enrollment/special-enrollment/">Special Enrollment</a></li>
+                            <li><a href="/apply-for-medicare/">Apply for Medicare</a></li>
+                            <li><a href="/about-medicare/claims-and-reimbursement/">Claims and Reimbursement</a></li>
+                        </ul>
+                        <ul>
+                            <li><h3>Medicare Costs</h3></li>
+                            <li><a href="/about-medicare/savings-programs/">Medicare Savings Programs</a></li>
+                            <li><a href="/medicare-tax/">Medicare Taxes</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                        	<li><h3>Resources and Tools</h3></li>
+                            <li><a href="/about-medicare/tools-resources/">Resources</a></li>
+                            <li><a href="/about-medicare/avoiding-fraud/">Avoiding Fraud</a></li>
+                            <li><a href="/about-medicare/your-medicare-card/">Getting your Medicare Card</a></li>
+							<li><a href="/about-medicare/faq/">FAQs</a></li>
+							<li><a href="/about-medicare/glossary/a/">Glossary</a></li>
+							<li><a href="/media-center/">Media Center</a></li>
+							<li><a href="/about-medicare/medicare-gov/">Government Resources</a></li>
+						</ul>
+                        <ul>
+                        	<li><h3>About Us</h3></li>
+                            <li><a href="/about-us/">About eHealth Medicare</a></li>
+                            <li><a href="/about-us/testimonials/">Testimonials</a></li>
+                            <li><a href="/about-us/customer-service/">Customer Service</a></li>
+                            <li><a class="leaving-site" href="/about-us/press/">Press</a></li>
+                            <li><a href="/about-us/licensing/">Licensing</a></li>
+                            <li><a href="/about-us/privacy-policy/">Privacy Policy</a></li>
+                            <li><a class="leaving-site" href="/about-us/careers/">Careers</a></li>
+                            <li><a href="/sitemap/">Sitemap</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </section>
+    <!-- end nav-secondary -->
+</div>
+</div>
+<noscript>
+    
+        <section class="alert alert-error">
+            For a better experience on ehealthMedicare, enable JavaScript in your browser. <a rel="nofollow" href="/ehi/medicare/enable-js-tip">Show me how</a>
+        </section>
+    
+</noscript>
+
+        <div id="wrapper">
+         <div id="home-content">
+              
+<section id="homepage-split-banner">
+ 	<div class="right-split">
+ 	 <div id="home-split-content-bg"></div>
+   		<div id="home-hero-right-content">
+             <h1>Medicare eligible?</h1>
+             <p>Compare options and find the right plan that works for you.</p>
+            <a title="Get Health Insurance Quotes" class="btn btn-primary shopping-link" href="http://www.ehealthmedicareplans.com/?type=MA&allid=EHM39972">View Plans</a>
+           
+        </div>
+  	</div>
+ 	<div class="left-split">
+ 	 <div id="home-split-content-bg"></div>
+     	<div id="home-hero-left-content">
+             <h1>New to Medicare?</h1>
+             <p>We'll help you find answers, understand your options, and learn about how Medicare works.</p>
+            <a title="Get Health Insurance Quotes" class="btn btn-primary shopping-link" href="/about-medicare/?allid=EHM39972">Learn More</a>
+           
+        </div>
+   	</div>
+</section>  
+        	
+            
+            <section id="home-article-container" class="home-article-section">
+       <div class="home-article-banner">
+            <div class="facts">
+           		<p class="article-text"> How do you get Medicare? We give you the simple facts.  
+           		 	<a href="/apply-for-medicare/">Read more</a>
+            	</p>
+    	</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+        	<div class="lady"> 
+        		<p class="article-text"> When you can sign up or change your Medicare plan. 
+        			<a href="/about-medicare/enrollment/">Read more</a>
+        		</p>
+        	</div>
+        	
+        	
+            <div class="puzzle">
+            	<p class="article-text"> Medicare Advantage vs. Medigap: What's better for you? 
+           		 	<a href="/medigap-vs-medicare-advantage/">Read more</a>
+            	</p> 
+            </div>
+     </div>     
+ </section>
+               <section id="plan-type-choice" class="section-grey">
+            <block>
+               <h1>Medicare health plans for your needs and budget</h1>
+                <p></p>
+            </block>
+            <block>
+                <ul>
+                    <li>
+                        <a class="shopping-link" rel="nofollow" href="http://www.ehealthmedicareplans.com/?type=MA&allid=EHM39972">
+						<div class="hover-info">
+						    <block>
+							<h2 class="plan-type-name">Medicare<br/><span>Advantage</span></h2>
+							<p>Includes hospital, medical, and sometimes prescription coverage</p>
+							<div class="shop-now">Shop now</div>
+							</block>
+						</div>
+
+					    <h2 class="plan-type-name">Medicare<br/><span>Advantage</span></h2>
+                        <div class="ma-logo"></div></a>
+                    </li>
+                    <li>
+                         <a class="shopping-link" href="http://www.ehealthmedicareplans.com/?type=MS&allid=EHM39972">
+                    	<div class="hover-info">
+                    		<block>
+								<h2 class="plan-type-name">Medicare<br/><span>Supplement Plans</span></h2>
+								<p>Covers cost gaps if you have Original Medicare Part A and Part B</p>
+								<div class="shop-now">Shop now</div>
+							</block>
+						</div>
+                        <h2 class="plan-type-name">Medicare<br/><span>Supplement Plans</span></h2>
+                        <div class="ms-logo"></div></a>
+                    </li>
+                    <li>
+                        <a class="shopping-link" href="http://www.ehealthmedicareplans.com/?type=MD&allid=EHM39972">
+                        <div class="hover-info">
+                         <block>
+							<h2 class="plan-type-name">Medicare<br/><span>Part D</span></h2>
+							<p>A standalone prescription drug plans.</p>
+							<div class="shop-now">Shop now</div>
+						 </block>
+						</div>
+                        <h2 class="plan-type-name">Medicare<br/><span>Part D</span></h2>
+                        <div class="md-logo"></div></a>
+                    </li>
+                </ul>
+                <!--div class="pagination-wrap">
+                    <a id="prev2" class="prev disabled" href="#"><span class="offscreen">&lt;</span></a>
+                    <a id="next2" class="next disabled" href="#"><span class="offscreen">&gt;</span></a>
+                </div-->
+            </block>
+        </section>
+                   <section class="two-col-left home-med-section section-ma">
+            <block>
+                <section class="left-col"><div></div></section>
+                <section class="mid-col">
+                    <h1>Medicare Advantage</h1>
+                    <p>These private insurance plans provide the same coverage as Original Medicare, Part A and Part B, but can also provide additional benefits, such as prescription drug coverage. <a href="/medicare-part-c-advantage/">Read more</a></p>
+                    <a class="btn btn-primary btn-large shopping-link" href="http://www.ehealthmedicareplans.com/?type=MA&allid=EHM39972">See Plans</a>
+                </section>
+            </block>
+            <block>
+                <ul>
+                    <li>
+                        <a href="/apply-for-medicare/when/medicare-advantage/"><div class="image-left"></div></a>
+                        <div class="article-text">When you can enroll in a Medicare Advantage plan <a href="/apply-for-medicare/when/medicare-advantage/">Read more</a></div>
+                    </li>
+                    <li>
+                       <a href="/faq-can-i-get-a-part-c-and-part-d-plan-at-the-same-time/"><div class="image-mid"></div></a>
+                       <div class="article-text">How a Medicare Advantage Prescription Drug plan works <a href="/faq-can-i-get-a-part-c-and-part-d-plan-at-the-same-time/">Read more</a></div>
+                    </li>
+                    <li>
+                        <a href="/about-medicare/dental/"><div class="image-right"></div></a>
+                        <div class="article-text">Medicare Advantage for routine dental exams, fillings, and more <a href="/about-medicare/dental/">Read more</a></div>
+                    </li>
+                </ul>
+             </block>
+        </section>
+        <section class="two-col-right home-med-section section-ms section-grey">
+            <block>
+                <section class="mid-col">
+                    <h1>Medicare Supplement Plans</h1>
+                    <p>If you have Original Medicare, Part A and Part B, one of these plans can help you cover the costs you would normally be responsible for. Medicare Supplement Plans come in 10 different plan types. <a href="/medicare-supplement/">Read more</a> </p>
+                    <a class="btn btn-primary btn-large shopping-link" href="http://www.ehealthmedicareplans.com/?type=MS&allid=EHM39972">See Plans</a>
+                </section>
+                <section class="right-col"><div></div></section>
+            </block>
+             <block>
+                <ul>
+                    <li>
+                        <a href="/medicare-supplement/medigap-costs/"><div class="image-left"></div></a>
+                        <div class="article-text">Choosing the right Medigap plan to save on out-of-pocket costs <a href="/medicare-supplement/medigap-costs/">Read more</a></div>
+                    </li>
+                    <li>
+                       <a href="/apply-for-medicare/how/medicare-supplement/"><div class="image-mid"></div></a>
+                       <div class="article-text">How and when to apply for a Medigap plan <a href="/apply-for-medicare/how/medicare-supplement/">Read more</a></div>
+                    </li>
+                    <li>
+                        <a href="/medicare-supplement/changing-medigap-plans/"><div class="image-right"></div></a>
+                        <div class="article-text"> Important facts about switching your Medigap plan <a href="/medicare-supplement/changing-medigap-plans/">Read more</a></div>
+                    </li>
+                </ul>
+             </block>
+        </section>
+        <section class="two-col-left home-med-section section-md">
+            <block>
+                <section class="left-col"><div></div></section>
+                <section class="mid-col">
+                    <h1>Medicare Part D</h1>
+                    <p>Get a plan to help cover your prescription drug needs. Medicare Part D is a standalone plan that can work with Original Medicare or with a Medicare Advantage plan that doesn't already cover drugs. <a href="/medicare-part-d-prescription/">Read more</a></p>
+                    <a class="btn btn-primary btn-large shopping-link" href="http://www.ehealthmedicareplans.com/?type=MD&allid=EHM39972">See Plans</a>
+                </section>
+            </block>
+            <block>
+                <ul>
+                    <li>
+                        <a href="/medicare-part-d-prescription/drugs/"><div class="image-left"></div></a>
+                        <div class="article-text">Prescription drugs covered by Medicare Part D plans <a href="/medicare-part-d-prescription/drugs/">Read more</a></div>
+                    </li>
+                    <li>
+                       <a href="/apply-for-medicare/when/late-enrollment-penalties/"><div class="image-mid"></div></a>
+                       <div class="article-text">Avoiding the Medicare Part D late-enrollment penalty <a href="/apply-for-medicare/when/late-enrollment-penalties/">Read more</a></div>
+                    </li>
+                    <li>
+                        <a href="/medicare-part-d-prescription/donut-hole/"><div class="image-right"></div></a>
+                        <div class="article-text">Covering out-of-pocket costs in the Medicare Part D "donut hole" <a href="/medicare-part-d-prescription/donut-hole/">Read more</a></div>
+                    </li>
+                </ul>
+             </block>
+        </section>
+       
+
+            <section id="trust-bar">
+<block>
+<div class="pagination-wrap">
+<div class="pagination" id="pager2" style="display: block;">
+
+<a href="#" class="" title="Automatic carousel controls. Slide 1 of 4"><span>1</span></a><a href="#" class="selected" title="Automatic carousel controls. Slide 2 of 4"><span>2</span></a><a href="#" class="" title="Automatic carousel controls. Slide 3 of 4"><span>3</span></a><a href="#" class="" title="Automatic carousel controls. Slide 4 of 4"><span>4</span></a></div>
+</div>
+<div class="caroufredsel_wrapper" style="display: block; text-align: start; float: right; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto; width: 865px; height: 98px; margin: 0px; overflow: hidden;"><ul class="horizontal" style="text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 0px; margin: 0px; width: 9515px; height: 100px; z-index: auto;">
+<li>
+<div class="trust-title advertisement">Over <strong>4 million customers</strong> insured</div>
+</li><li>
+<div class="trust-title">Featured on:</div>
+<ul class="featured trust-img-set">
+<li id="home-trust-wallst" title="Wall Street Journal"></li>
+<li id="home-trust-cnn" title="CNN"></li>
+<li id="home-trust-nytimes" title="The New York Times"></li>
+<li id="home-trust-kip" title="Kiplinger"></li>
+</ul>
+</li>
+
+
+
+
+<li>
+<div class="trust-title last-child">The latest activity:</div>
+<div class="quote-num-wrap">
+<p class="quote-num">1,233,543</p>
+<p>Quotes this week</p>
+</div>
+<div class="caroufredsel_wrapper" style="display: block; text-align: left; float: left; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto; width: 420px; height: 60px; margin: 0px 0px 0px 27px; overflow: hidden;"><ul class="vertical" style="text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 0px; margin: 0px; height: 300px; width: 420px; z-index: auto;">
+
+
+
+
+<li class="male">Male, age 50, West Virginia | Purchased: Accident Insurance.</li><li class="female">Female, age 28, Colorado | Quoted: Individual and Family Insurance.</li><li class="female">Female, age 28, Pennsylvania | Purchased: Individual and Family Insurance.</li><li class="female">Female, age 37, Texas | Purchased: Critical Illness Insurance.</li></ul></div>
+</li>
+<li>
+<div class="trust-title">Secure, trusted, better:</div>
+<ul class="better-business trust-img-set">
+<li id="home-trust-bbb" title="Better Business Bureau"></li>
+<li id="home-trust-truste"><a target="_blank" title="TRUSTe" href="//privacy.truste.com/privacy-seal/eHealthInsurance-Services,-Inc-/validation?rid=67cffd36-31f2-4567-beea-4b1fe294b5f8" onclick="s_objectID=&quot;http://privacy.truste.com/privacy-seal/eHealthInsurance-Services,-Inc-/validation?rid=67cffd36-31_1&quot;;return this.s_oc?this.s_oc(e):true"></a></li>
+</ul>
+</li></ul></div>
+</block>
+</section>
+            
+            
+<section id="home-news">
+	<section class="section section-news">
+	    <span class="news-title" title="Icon: In the news">
+	    </span>
+	    <div class="news-back news-action" title="Previous news item"></div>
+	    <block style="width: 1600px;"> 
+				    <div style="margin-left: 20px;">
+				        <span class="news-date">Feb 18, 2015:</span>
+				        <a target="_blank" href="http://feedproxy.google.com/~r/EhealthMedicareBlog/~3/05WCWPdh1L8/" title="Medicare Adds Star Ratings to Dialysis Facilities class="news-item">Medicare Adds Star Ratings to Dialysis Facilities</a>
+				    </div>
+				    <div style="margin-left: 20px;">
+				        <span class="news-date">Feb 17, 2015:</span>
+				        <a target="_blank" href="http://feedproxy.google.com/~r/EhealthMedicareBlog/~3/xYFTBTe2g90/" title="Medicare Now Covers CT Scans to Screen for Lung Cancer class="news-item">Medicare Now Covers CT Scans to Screen for Lung Cancer</a>
+				    </div>
+				    <div style="margin-left: 20px;">
+				        <span class="news-date">Feb 09, 2015:</span>
+				        <a target="_blank" href="http://feedproxy.google.com/~r/EhealthMedicareBlog/~3/TohIt_oSxII/" title="Medicare Appeals Wait Times Cut in Half class="news-item">Medicare Appeals Wait Times Cut in Half</a>
+				    </div>
+				    <div style="margin-left: 20px;">
+				        <span class="news-date">Feb 17, 2015:</span>
+				        <a target="_blank" href="http://blog.ehealthinsurance.com/2015/02/what-are-your-top-three-financial-fears/" title="What are your top three financial fears?" class="news-item">What are your top three financial fears?</a>
+				    </div>
+				    <div style="margin-left: 20px;">
+				        <span class="news-date">Feb 17, 2015:</span>
+				        <a target="_blank" href="http://news.ehealthinsurance.com/news/missed-the-february-15-open-enrollment-deadline-ehealth-identifies-28-states-where-consumers-may-still-enroll-in-health-insurance" title="Missed the February 15 Open Enrollment Deadline? eHealth Identifies 28 States Where Consumers May Still Enroll in Health Insurance " class="news-item">Missed the February 15 Open Enrollment Deadline? eHealth Identifies 28 States Where Consum...</a>
+				    </div>
+				    <div style="margin-left: 20px;">
+				        <span class="news-date">Feb 15, 2015:</span>
+				        <a target="_blank" href="http://news.ehealthinsurance.com/news/avoid-the-tax-consequences-of-being-uninsured:-ehealth-and-intuit-turbotax-release-top-consumer-tips-for-enrolling-in-coverage-before-important-february-15-deadline" title="Avoid the Tax Consequences of Being Uninsured: eHealth and Intuit TurboTax Release Top Consumer Tips for Enrolling in Coverage Before Important February 15 Deadline " class="news-item">Avoid the Tax Consequences of Being Uninsured: eHealth and Intuit TurboTax Release Top Con...</a>
+				    </div>
+				    <div style="margin-left: 20px;">
+				         <span class="news-date">Feb 18, 2015:</span>
+                                <a target="_blank" href="http://www.facebook.com/#!/eHealth"><img src="/images/homepage/tools_share_facebook.gif" alt="" /></a>
+                                <a target="_blank" href="http://www.facebook.com/eHealth/posts/10152627182131814" title=" This article in the The Wall Street Journal suggests that some hospitals are dis..."> This article in the The Wall Street Journal suggests that some hospit...</a>
+				    </div>
+				    <div style="margin-left: 20px;">
+				         <span class="news-date">Feb 18, 2015:</span>
+                                <a target="_blank" href="http://www.facebook.com/#!/eHealth"><img src="/images/homepage/tools_share_facebook.gif" alt="" /></a>
+                                <a target="_blank" href="http://www.facebook.com/eHealth/posts/10152627003216814" title=" Medicare and Alcohol Dependency Counseling - Are you covered? Read More: http://..."> Medicare and Alcohol Dependency Counseling - Are you covered? Read Mo...</a>
+				    </div>
+				    <div style="margin-left: 20px;">
+				         <span class="news-date">Feb 18, 2015:</span>
+                                <a target="_blank" href="http://twitter.com/intent/user?screen_name=ehealthinc"><img src="http://static.ehealthmedicare.com/images/homepage/twitter.gif" alt="" /></a>
+                                <a target="_blank" href="https://twitter.com/eHealthInc/statuses/568120227893886976" title="@LHPro_Health See our map on where you can enroll in off exchange plans. Read more: http://t.co/CJbp0d7K4K http://t.co/HWb91IeILs">@LHPro_Health See our map on where you can enroll in off exchange plan...</a>
+				    </div>
+	    </block>
+	    <div class="news-arrow">
+	        <div class="news-forward news-action" title="Next news item"></div>
+	    </div>
+	</section>
+</section>          </div>
+        </div>
+        <div id="footer" class="footer-band">
+<block>
+        <ul>
+            <li>
+            <div id="ehi-logo">
+                <img id="footer-logo"
+                     src="http://static.ehealthmedicare.com/images/logos/ehm-logos-sprite.png"
+                     alt="eHealth Insurance"/>
+              </div>
+            </li>
+        </ul>
+        <ul>
+            <li><strong>Products</strong></li>
+            <li><a href="http://static.ehealthmedicareplans.com/">Medicare Insurance Plans </a></li>
+            <li><a href="/medicare-part-c-advantage/">Medicare Advantage </a></li>
+            <li><a href="/medicare-supplement/">Medicare Supplement Plans</a></li>
+            <li><a href="/medicare-part-d-prescription/">Medicare Part D</a></li>
+        </ul>
+        <ul>
+            <li><strong>Services</strong></li>
+            <li><a href="/about-medicare/">What is Medicare?</a></li>
+            <li><a href="/medicare-by-state/">Medicare by State </a></li>
+            <li><a href="/apply-for-medicare/">Apply for Medicare</a></li>
+            <li><a href="/about-medicare/tools-resources/">Medicare Resources</a></li>
+            <li><a href="/about-medicare/faq/">Frequently Asked Questions</a></li>
+            <li><a href="/about-us/customer-service/">Customer Service</a></li>
+        </ul>
+        <ul id="company">
+            <li><strong>Company</strong></li>
+            <li><a href="/about-us/" rel="nofollow">About Us</a></li>
+            <li><a href="/about-us/careers/">Careers</a></li>
+            <li><a href="/about-us/licensing/" rel="nofollow">Licensing</a></li>
+            <li><a href="/about-us/office-location/" rel="nofollow">Office Locations</a></li>
+            <li><a href="/about-us/privacy-policy/" rel="nofollow">Privacy Policy</a></li>
+            <li><a href="/sitemap/">Site Map</a></li>
+        </ul>
+        <ul id="connect">
+            <li><strong>Connect</strong></li>
+            <li><a href="http://www.facebook.com/eHealth" target="_blank"><div id="footer-fb" class="footer-social"></div>Facebook</a></li>
+            <li><a href="http://twitter.com/ehealthinc" target="_blank"><div id="footer-tw" class="footer-social"></div>Twitter</a></li>
+            <li><a href="https://plus.google.com/111097364640381145970" rel="publisher"><div id="footer-gp" class="footer-social"></div>GooglePlus</a></li>
+            <li><a href="http://www.youtube.com/user/eHealthInsurance" target="_blank"><div id="footer-yt" class="footer-social"></div>YouTube</a></li>
+            <li><a href="http://www.linkedin.com/company/ehealthinsurance" target="_blank"><div id="footer-li" class="footer-social"></div>LinkedIn</a></li>
+        </ul>
+        <div id="footer-secure">
+            <span class="img img-norton-small">
+                <img src="https://static.ehealthinsurance.com/ehealthinsurance/images_new/content/logos/norton-logo.png" class="left-logo" border="0" alt="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications."/><!--</noscript>-->
+            </span>
+            <span class="img img-truste-small">
+				<a target="_blank" title="TRUSTe online privacy certification" href="//privacy.truste.com/privacy-seal/eHealthInsurance-Services,-Inc-/validation?rid=f0af43eb-3be8-4be4-95d8-e06f74022f75">
+		            <img src="https://static.ehealthinsurance.com/ehealthinsurance/images_new/content/logos/truste.gif"
+		                    alt="eHealth uses a TRUSTe Certified privacy policy."/>
+		        </a>
+            </span>
+        </div>
+    </block>
+    <block>
+        <span id="footer-contact">Speak with a licensed agent 1-<span class="ehi-call-box" data-view="inline"></span> TTY User: 711 | <span class="ehi-call-box" data-view="inlineHours" data-nobreak="true"></span><span id="footer-copyright">&copy; 2015 eHealthInsurance Services, Inc.</span><span>
+    </block></div>
+<script type="text/javascript">var cache_buster = parseInt(Math.random()*99999999);document.write("<img src='https://p.rfihub.com/ca.gif?rb=5503&ca=20524451&ra=" + cache_buster + "' height=0 width=0 style='display:none' alt='Rocket Fuel'/>");</script>
+<noscript><iframe src='https://20524451p.rfihub.com/ca.html?rb=5503&ca=20524451&' style='display:none;padding:0;margin:0' width='0' height='0'></iframe></noscript>
+              <script type="text/javascript"><!--
+    var s_account="ehiallprd,ehiehmprd"//--></script>
+    <!-- SiteCatalyst code version: H.25.2.
+    Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+    More info available at http://www.omniture.com -->
+    <script type="text/javascript" src="http://static.ehealthmedicare.com/js/s_code.js"></script>
+    <script type="text/javascript"><!--
+    s.eVar52="https://www.ehealthmedicare.com/";
+    s.pageName="EHM:home page";
+    s.prop35="32";
+    s.eVar10="EHM39972";
+    s.events="";
+    s.prop30="04a";
+    s.prop45="1ADA0A101A";
+    s.server="www.ehealthmedicare.com";
+    s.eVar45="1ADA0A101A";
+    s.eVar1="EHM39972";
+    s.campaign="EHM39972";
+    s.eVar53="https://www.ehealthmedicare.com/";
+    s.channel="ehm:homepage";
+    
+    function sendOmnitureTracking(allid, sid) {
+    	if (allid) {
+    		s.campaign = allid;
+    		s.eVar1 = allid;
+    		if (sid) s.eVar1 += "|" + sid;
+    		s.eVar10 = allid;
+    	}
+    	
+    	var s_code=s.t();
+    	if(s_code) document.write(s_code);
+    }
+    //--></script>
+    <!-- End SiteCatalyst code version: H.25.2. -->
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28145448-1']);
+    _gaq.push(['_setDomainName', 'ehealthmedicare.com']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_addOrganic', 'search.mywebsearch', 'searchfor']);
+    _gaq.push(['_gat._anonymizeIp']);
+    _gaq.push(['_setCampSourceKey', 'allid']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+<img src="http://www.ehealthmedicareplans.com/muse-quote/?allianceId=EHM39972&page=EHM:home page&cookieId=1ADA0A101A" height="1" width="1" alt="" />
+
+
+<!-- steelhouse smarter pixel -->
+<script type="text/javascript">
+var steelhouseDone = false;
+function doSteelhouse(){
+"use strict";if(steelhouseDone)return;steelhouseDone=true;var e=null,b="4.0.0",
+n="10571",
+additional="",
+t,r,i;try{t=top.document.referer!==""?encodeURIComponent(top.document.referrer.substring(0,2048)):""}catch(o){t=document.referrer!==null?document.referrer.toString().substring(0,2048):""}try{r=window&&window.top&&document.location&&window.top.location===document.location?document.location:window&&window.top&&window.top.location&&""!==window.top.location?window.top.location:document.location}catch(u){r=document.location}try{i=parent.location.href!==""?encodeURIComponent(parent.location.href.toString().substring(0,2048)):""}catch(a){try{i=r!==null?encodeURIComponent(r.toString().substring(0,2048)):""}catch(f){i=""}}var l,c=document.createElement("script"),h=null,p=document.getElementsByTagName("script"),d=Number(p.length)-1,v=document.getElementsByTagName("script")[d];if(typeof l==="undefined"){l=Math.floor(Math.random()*1e17)}h="dx.steelhousemedia.com/spx?"+"dxver="+b+"&shaid="+n+"&tdr="+t+"&plh="+i+"&cb="+l+additional;c.type="text/javascript";c.src=("https:"===document.location.protocol?"https://":"http://")+h;v.parentNode.insertBefore(c,v)}
+</script>
+<!-- end steelhouse smarter pixel -->
+
+<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1023087831;
+var google_conversion_label = "o-MNCN_j-AEQ16ns5wM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1023087831/?value=1.000000&amp;label=o-MNCN_j-AEQ16ns5wM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- end Google Code for Remarketing Tag -->
+<script>
+    function attachMboxSession(){
+        var e=document.getElementsByTagName("a");
+        var t=mboxFactoryDefault.getSessionId().getId();
+        for(var n=0;n<e.length;n++){
+            var r=e[n].getAttribute("href");
+            if (r==null) {continue;}
+            if (r.indexOf("ehealthmedicare")==-1 && r.indexOf("www")>=1) {continue;}
+            var i=r;
+            if(r.indexOf("#")==-1){
+                if(r.indexOf("?")!=-1) {
+                    i=r+"&mboxSession="+t
+                }
+                else {i=r+"?mboxSession="+t}
+            }
+            e[n].setAttribute("href",i)
+        }
+    }
+    attachMboxSession()
+</script>
+
+</body>
+</html>";i:2;s:5:"10208";}

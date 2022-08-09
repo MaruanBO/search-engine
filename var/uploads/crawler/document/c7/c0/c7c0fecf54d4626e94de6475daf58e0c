@@ -1,0 +1,298 @@
+a:3:{i:0;s:21:"http://quakelive.com/";i:1;s:16061:"<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>
+<head>
+<title>QUAKE LIVE</title>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+<link rel='shortcut icon' href='/favicon.ico' />
+
+<style type="text/css">
+ @font-face {
+    font-family: HandelGothic;
+    src: url('/css/fonts/handelgothic-medium-webfont.eot');
+    src: local('☺'), url('/css/fonts/handelgothic-medium-webfont.woff') format('woff'), url('/css/fonts/handelgothic-medium-webfont.ttf') format('truetype'), url('/css/fonts/handelgothic-medium-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: HandelGothic;
+    src: url('/css/fonts/handelgothic-bold-webfont.eot');
+    src: local('☺'), url('/css/fonts/handelgothic-bold-webfont.woff') format('woff'), url('/css/fonts/handelgothic-bold-webfont.ttf') format('truetype'), url('/css/fonts/handelgothic-bold-webfont.svg') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/css/fonts/fontawesome-webfont.eot?v=4.0.3');
+  src: url('/css/fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('/css/fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('/css/fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('/css/fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+</style>
+<link rel='stylesheet' href='http://cdn.quakelive.com/web/2014120201/css/font-awesome_v2014120201.0.css' type='text/css' />
+
+<link rel='stylesheet' href='http://cdn.quakelive.com/web/2014120201/css/valances/default-standard/style_v2014120201.0.css' type='text/css' />
+
+<link rel='stylesheet' href='http://cdn.quakelive.com/web/2014120201/compiled_v2014120201.0.css' type='text/css' />
+<link rel='stylesheet' href='http://cdn.quakelive.com/web/2014120201/compiled2_v2014120201.0.css' type='text/css' />
+
+<!--[if lte IE 8]>
+<link rel='stylesheet' href='http://cdn.quakelive.com/web/2014120201/compiled_ie_v2014120201.0.css' type='text/css' />
+<![endif]-->
+
+ 
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-3677089-3']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+        'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+})();
+</script>
+
+</head>
+<body id="v-default-standard">
+
+<script id="tmpl-row" type="text/ejs">
+    <div class="mapshot"><img class="shot"/><div class="play-button"><i class="fa <%= upsell ? "fa-lock go-pro-button" : "fa-chevron-circle-right" %>"></i></div></div>
+    <div class="details">
+        <p class="icons">
+            <% if ( server.premium ) { %>
+                <i class='premium_icon' title='Premium Match'></i>
+            <% } %>
+            <% if ( !server.ranked ) { %>
+                <i class='unranked_icon' title='Unranked Match'></i>
+            <% } %>
+            <% if ( server.g_needpass ) { %>
+                <i class='locked_icon' title='Password Protected'></i>
+            <% } %>
+            <% if ( server.owner && !server.ranked && (server.ruleset != 3 || server.g_customSettings != 0) ) { %>
+                <i class="modified_icon" title="Server Modified:<%= '\n'+server.GetModifiedSettings().join('\n') %>"></i>
+            <% } %>
+        </p>
+
+        <p class="servertitle"><i class="sqrankicon rank_icon_<%= skill.delta %>" title="<%= skill.desc %>"></i><%= server.host_name %></p>
+        <p class="serverdesc"><img src="<%= flagIcon %>"/> <%= cityName %> - <%= gametype.title %>: <%= mapinfo.name %></p>
+    </div>
+    <div class="playercount"><%= num_players %> / <%= max_size %></div>
+    <div class="ping"><img src="<%= pingQuality %>"/> <span><%= server.ping %></span></div>
+</script>
+
+<script id="tmpl-details" type="text/ejs">
+    <div class="bt-map">
+        <div class="matchinfo">
+            <h1><%= host_name %></h1>
+            <h4><%= gt.title %>: <%= mapobj.name %></h4>
+            <%= player_str %>
+        </div>
+    </div>
+    <% if (gt.team) { %>
+        <div class="scorebox red">Red <b><%= g_redscore %></b></div><div class="scorebox blue"><b><%= g_bluescore %></b> Blue</div>
+    <% } %>
+
+    <button class="join-server" data-publicid="<%= public_id %>"><i class="fa fa-angle-double-right"></i> Join Match <i class="fa fa-angle-double-left"></i></button>
+
+    <ul class="serverinfo">
+        <% if (owner) { %>
+            <li>Server Owner <b><%= owner %></b></li>
+        <% } %>
+        <% if (details) { %>
+            <li><%= friendly_scorelimitname %> <b><%= friendly_scorelimit ? friendly_scorelimit : 'None' %></b></li>
+            <li>Time Limit <b><%= timelimit ? timelimit+' minutes' : 'None' %></b></li>
+            <li>Game State <b><%= stateString %></b></li>
+        <% } %>
+    </ul>
+
+    <ul class="players miniscroll">
+        <% if (!nicePlayers.length) { %>
+            <li>No players in match.</li>
+        <% } %>
+        <% for (var i=0; i<nicePlayers.length; i++) { %>
+            <% var p = nicePlayers[i]; %>
+            <li class="<%= p.friend ? 'friend' : '' %>"><img class="lgi_bordercolor_<%= p.team %>" src="<%= p.model %>"/> <a href='#!profile/summary/<%= StripColors( p.name ) %>'><%= p.clan %> <%= p.name %></a> <b><%= p.score %></b></li>
+        <% } %>
+    </ul>
+</script>
+
+
+<noscript>
+    <div id='noscript-overlay-bg'></div>
+    <div id='noscript-overlay'>
+        <div id='noscript-overlay-inner'>
+            <div id='noscript-overlay-close'>
+            </div>
+            <div class="dialog">
+                <div class="content">
+                    <div class="t"></div>
+                    <div id='noscript-overlay-content'>
+                        <center>
+                            <img src='http://cdn.quakelive.com/web/2014120201/images/ql_logo_v2014120201.0.png' width="387" height="96" />
+                            <h2>
+                            QUAKE LIVE makes extensive use of Javascript.<br /><br />
+                            Please <a href='http://www.google.com/support/adsense/bin/answer.py?answer=12654'>enable Javascript</a> in your browser.
+                            </h2>
+                        </center>
+                    </div>
+                </div>
+                <div class="b"><div></div></div>
+            </div>
+        </div>
+    </div>
+</noscript>
+
+<div id='overlay-bg'></div>
+<div id='overlay'>
+    <div id='overlay-inner'>
+        <div id='overlay-close'>
+        </div>
+        <div class="dialog">
+            <div class="content">
+                <div class="t"></div>
+                <div id='overlay-content'>
+                </div>
+            </div>
+            <div class="b"><div></div></div>
+        </div>
+    </div>
+</div>
+<div id='overlay-raw'>
+</div>
+
+<div id='qlv_game_mode'>
+
+    <div id="game_mode_left">
+        <div class="logo">
+            <img src="http://cdn.quakelive.com/web/2014120201/images/ql_loading_logo_v2014120201.0.png"/>
+            <a href="#" id="copy_match_url">Copy match URL to clipboard</a>
+            <a href="#" id="close_overlay">Close Overlay (ESC)</a>
+        </div>
+        <button id="leave_match">Back to Match Browser</button>
+    </div>
+
+    <div id="qlv_clock_wrapper">
+        Local Time
+        <div id="qlv_clock"></div>
+    </div>
+
+    <div class='game_wrapper'>
+
+        <div id="qlv_game_mode_switcher" class="content_right">
+            <a class="panel_friends selected" href="#" onclick="quakelive.GameInvites.SwitchInGameView('friends'); return false;">Friends</a><a class="panel_invites" href="#" onclick="quakelive.GameInvites.SwitchInGameView('invites'); return false;">Invites</a>
+        </div>
+        <div id='qlv_game_mode_chatlist' class='content_right ingame_panel'></div>
+        <div id='qlv_game_mode_invites' class='content_right ingame_panel hidden'>
+            <div class="inv_error"></div>
+            <div class="inv_loading">
+                <img src="http://cdn.quakelive.com/web/2014120201/images/loader_v2014120201.0.gif"/><br/>
+                Waiting for server...
+            </div>
+            <div class="inv_content">
+                <div class="inv_title"></div>
+                <div class="inv_serverinfo">
+                    <div class="inv_info"></div>
+                    <div class="inv_mapshot"><div class="inv_gamemode"></div></div>
+                </div>
+                <div class="inv_invites"></div>
+                <div class="inv_manualinvite">
+                    <a href="#">Invite player by name</a>
+                    <input placeholder="Enter player name..."/>
+                </div>
+            </div>
+        </div>
+        <div class='cl'></div>
+    </div>
+
+</div>
+
+<div id='qlv_site_popup'>
+</div>
+
+
+<div id='body-container'>
+    <table style="width: 100%; height: 100%">
+        <tr>
+            <td style="width: 100%; height: 100%" align="center" valign="middle">
+                <img src='http://cdn.quakelive.com/web/2014120201/images/ql_loading_logo_v2014120201.0.png' width="387" height="96" />
+                <br />
+                <img src='http://cdn.quakelive.com/web/2014120201/images/loader_v2014120201.0.gif' width='62' height='13' alt='' style="margin-top: 20px" />
+                <p style="margin-top: 20px" id="loading-blurb">
+                    QUAKE LIVE is loading now&hellip;
+                </p>
+                <p style="margin-top: 10px">
+                    <a href='javascript:;' onclick='if (typeof qz_instance == "object") { qz_instance.SendGameCommand("web_reload"); } else { quakelive.mod_support.GotoSupport(true) }; return false' style='font-size: 10px; color: #ffcc66'>Click here if the page does not load for you.</a>
+                    <br />
+                    <a href="http://www.esrb.org" target="_blank" style="margin-top: 60px;display: block; width: 137px"><img class="esrb_logo" alt="" title="Visit www.esrb.org" src="http://cdn.quakelive.com/web/2014120201/images/footer/esrb_v2014120201.0.gif" width="137" height="83" /></a>
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="ajax_loading_indicator">Loading&hellip;<br /><img src="http://cdn.quakelive.com/web/2014120201/images/loader_v2014120201.0.gif" width="62" height="13" /></div>
+
+<div id="ql_notifier"></div>
+
+<script type='text/javascript'>window.SITECONFIG = {xmppDomain: 'xmpp.quakelive.com',realm: 'quakelive',cdnUrl: 'http://cdn.quakelive.com/assets/2014120202',baseUrl: 'http://www.quakelive.com',secureBaseUrl: 'https://secure.quakelive.com',staticUrl: 'http://cdn.quakelive.com/web/2014120201',resourceRevision: 2014120201,xyzzy: 'Nothing happens',showRemoteVerts: true,showPostGameAlways: false,showContextMenus: true,deliveryUrl: "http://media.quakelive.com/delivery/spc.php",trackPageViews: true,pmAllowPublic: true,premiumStatus: "standard",aluCookie: "quakelive_alu",alpCookie: "quakelive_alp",homeOverride: "",forceVideoAds: false,videoService: "house",enableRegCaptcha: "",adPolicy: "4c76b55b2904b",_: 0};</script>
+
+<script type='text/javascript' src='http://cdn.quakelive.com/web/2014120201/compiled_v2014120201.0.js'></script>
+
+
+<script type='text/javascript' src='http://cdn.quakelive.com/web/2014120201/css/valances/default-standard/script_v2014120201.0.js'></script>
+
+<script type='text/javascript'>$(document).ready( function() {quakelive.valanceData = {"start":0,"end":0,"name":"default-standard","url":"","script":true,"scriptData":[]};quakelive.VERT_ZONES = {"main_leaderboard":1,"game_details_full_banner":9,"sidebar_medium_rectangle":2,"frontpage_medium_rectangle":11,"sidebar_half_page_ad":4,"post_game_interstitial":6,"pre_game_interstitial":3,"post_game_interstitial_tracker":5,"site_valance":12,"game_details_header":13,"forum_leaderboard":7,"forum_wide_skyscraper":10,"forum_square_popup":8,"frontpage_square_popup":5,"sidebar_half_banner":7,"sidebar_square_popup":8};$.ajaxRetrySettings = $.extend( {},$.ajaxRetrySettings, {error_codes: [500, 502, 503, 504]});$.ajax({url: '/user/load',dataType: 'json',cache: false,retry: {attempts: 3,tick: function ( o ) {quakelive.SetLoadingBlurb( 'Still trying to load&hellip; Attempt ' + o.failures + ' of ' + o.attempts + '.' );}},success: function ( json ) {quakelive.Init( json );nav.randomPlayer = 'Shiftkick';nav.navbar = {'Back': {'content': '<i class="fa fa-arrow-circle-left"></i>','href': '#','id': 'tn_back','class': 'ingame_only',},'Forward': {'content': '<i class="fa fa-arrow-circle-right"></i>','href': '#','id': 'tn_forward','class': 'ingame_only',},'Play': {'id': 'tn_home','href': '#','submenu': {'Welcome': {'href': '#!welcome','class': 'ingame_only'},'Download Game': {'href': '#!launcher','class': 'web_only'},'': SUBMENU_END}},'Community': {'id': 'tn_community','href': '#','submenu': {'Streams': {'newwindow': 'http://www.twitch.tv/directory/game/Quake%20Live',},'Trophy Case': {'href': '#!trophies'},'Race Leaders': {'href': '#!race'},'Featured Profile': {'href': '#!profile/summary/' + nav.randomPlayer,},'Forums': {'newwindow': '/forum/',},'': SUBMENU_END}},'News': {'id': 'tn_news','href': '#','submenu': {'Site News':      { 'href': '#!news/site_news' },'Twitter':        { 'newwindow': 'http://twitter.com/quakelive' },'Facebook':       { 'newwindow': 'http://www.facebook.com/quakelive' },'': SUBMENU_END}},'Settings': {'content': '<i class="fa fa-cog"></i>','href': '#','id': 'tn_settings','submenu': {'FAQ': { 'href': '#!faq' },'Game Manual': { 'href': '#!guide' },'Training Center':  { 'href': '#!practice/training', 'class': 'ingame_only' },'': SUBMENU_END},},'Go Pro!': {'id': 'tn_pro','href': '#!premium'},'': SUBMENU_END};},error: function ( xhr, status, ex ) {quakelive.SetLoadingBlurb( 'Unable to load profile.' );qlPrompt( {fatal: true,title: 'Error loading profile',body: '<p>Unable to load your profile data. Please reload the page, and try again.</p>'+'<p><a target="qlforum" href="javascript:;" onclick="quakelive.mod_support.GotoSupport(); return false">Click Here for Support</a></p><br/>'+'<p><b>Error returned by request:</b></p><p>'+ status +'</p>'} );}});} );</script>
+
+    <ul id="serverContext" class="contextMenu">
+    <li class="join">
+        <a href="#join">Join Match</a>
+    </li>
+    <li class="copy">
+        <a href="#copy">Link to Match</a>
+    </li>
+</ul><ul id="friendsContext" class="contextMenu">
+    <li class="view">
+        <a href="#view">View Profile</a>
+    </li>
+    <li class="invite">
+        <a href="#invite">Invite to Match</a>
+    </li>
+    <li class="copy">
+        <a href="#copy">Copy Match URL</a>
+    </li>
+</ul><ul id="serverBodyContext" class="contextMenu">
+    <li class="restore">
+        <a href="#restore">Restore Filter</a>
+    </li>
+    <li class="reset separator">
+        <a href="#reset">Reset Filter</a>
+    </li>
+</ul>
+
+<script type="text/javascript">
+_qoptions={qacct:"p-3eK2SF53G6Wa6"};
+</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://secure.quantserve.com/pixel/p-3eK2SF53G6Wa6.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></noscript>
+
+<script type="text/javascript">
+var addthis_config = {
+    services_compact: 'facebook, twitter, myspace, favorites, more',
+    ui_header_color: '#ccc',
+    ui_header_background: '#232323',
+    ui_cobrand: 'Quake Live',
+    username: 'idsoftware'
+};
+</script>
+<script type="text/javascript" src="http://cdn.quakelive.com/web/2014120201/js/addthis_widget_v2014120201.0.js"></script>
+</body>
+</html>";i:2;s:4:"7972";}

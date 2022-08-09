@@ -1,0 +1,374 @@
+a:3:{i:0;s:23:"http://arts-people.com/";i:1;s:30400:"<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwYAUlNbGwcDUFRaBAQ="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:19,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:19,2:20,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:20,2:19,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:20,2:19,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:20,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:18,handle:"D5DuLP"}],18:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],19:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],20:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:19,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+
+		<title>Box Office Software.  Ticket Software.  Ticket Printing.</title>
+
+    <meta name="description" content="Integrated software specifically for the performing arts - online & box office ticketing, fundraising, marketing, reporting, and world-class customer service, at industry-best prices.">
+
+		<meta name="keywords" content="arts people, arts-people, artspeople, software, performing arts, theatre, theater, concert, music, dance, festival, opera, choir, school, academic, ticketing, ticket, tickets, box office, software, fundraising, donor, donation, contribution, member, membership, customer service, marketing, email, reporting, reports, crm, patron management">
+
+    <meta name="author" content="Heather Blackbird, heather@arts-people.com">
+		<meta name=”viewport” content=”width=device-width, initial-scale=1.0″ />
+
+		<meta name="robots" content="index, follow">
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> <!-- trying to upgrade to 4x -->
+    <link href="/assets/css/social-buttons.css" rel="stylesheet">
+    <link href="/assets/css/site.css" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
+
+		<!-- link rel="shortcut icon" type="image/x-icon" href="/assets/images/shell-01.png" -->
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+
+<script>
+	/* ———–GOOGLE ANALYTICS SNIPPET———– */
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45366202-1', 'arts-people.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style>
+/* ———–Smartphone View———– */
+@media only screen and (max-width : 800px) {
+/* All smartphone rules go inside here */
+
+
+
+}
+
+/* ———–Tablet View———– */
+@media only screen and (max-width : 1180px) and (min-width : 801px) {
+/* All tablet rules go inside here */
+
+
+}
+
+/* ———–Large screen View———– */
+@media only screen and (min-width : 1181px) {
+/* All large screen rules go inside here */
+
+
+}
+</style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/assets/js/html5.js"></script>
+    <![endif]-->
+
+    <script src="/assets/js/jquery.js"></script>
+		<script src="/assets/js/modernizr.custom.51483.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/holder.js"></script>
+		<script src="/assets/js/jqBootstrapValidation.js"></script>
+		<script src="/assets/js/placeholder_ie.js"></script>
+
+	  <script>
+      $('document').ready(function(){
+
+					$('.bio-thumb').hover(
+						function(){
+							$(this).find('.bio-thumb-label').fadeIn();
+						},
+						function(){
+							$(this).find('.bio-thumb-label').fadeOut();
+						}
+					);
+
+					$('.bio-modal-close').click(function(){
+							$(this).closest('.modal').modal('hide');
+					});
+
+					$('.blog-entry-more-button').click(function(){
+
+						$(this).parents('.blog-entry').children('.blog-entry-collapsed').addClass('blog-entry-expanded').removeClass('blog-entry-collapsed');
+						$(this).hide();
+						$(this).siblings('.blog-entry-less-button').show();
+					});
+
+					$('.blog-entry-less-button').click(function(){
+						$(this).parents('.blog-entry').children('.blog-entry-expanded').addClass('blog-entry-collapsed').removeClass('blog-entry-expanded');
+						$(this).hide();
+						$(this).siblings('.blog-entry-more-button').show();
+					});
+
+
+      });
+
+
+    </script>
+
+
+  </head>
+
+  <body>
+
+<div style="width: 100%;height: 100%;position: fixed;z-index:-100;top: 0;">
+	<div style="margin-left: auto;margin-right: auto;width: 1100px;height: 100%;">
+	</div>
+</div>
+
+<div class="simple-lift" style="position: fixed;top: 0;width: 100%;background-image: url('/assets/images/backgrounds/bright_squares.png') ;height: 80px;z-index: 10000;">
+	<div class="container" >
+		<div id="header" class="row">
+
+			<div class="span4">
+				<div id="logo" class="simple-lift" style="background-color: #1e90d8;text-align: center;padding: 7px;margin-left: 30px;margin-top: -20px;width: 150px;-moz-border-radius: 20px;-webkit-border-radius: 20px;-khtml-border-radius: 20px;border-radius: 20px;">
+					<a href="/">
+						<img style="margin-top: 25px;"src="/assets/components/phpthumbof/cache/ArtsPeopleLogo-TicketHeartOnly.182809f8b6216fb7fe55a1c30e53b93b39.png">
+					</a>
+					<h3 id="company-name" class="lead" style="font-size: 25px;text-shadow: 0px 2px 3px #333;color: white;font-weight: bold;margin-top: 8px;">
+						<span >Arts</span>
+						<span >People</span>
+					</h3>
+				</div>
+			</div>
+
+			<div id="nav" class="span8" style="text-align: right;margin-top: 10px;">
+				<div class="text-gray" style="margin-right: 15px;"><a href="/contact-us/" >CONTACT</a> | 1-866-788-7853 | <a href="https://app.arts-people.com/login.php" >LOG IN</a>
+				</div>
+
+				<div class="btn-group" style="margin-top: 10px;margin-right: 10px;">
+					<button class="btn text-gray" onclick="location.href='/features/'">features</button>
+					<button class="btn text-gray" onclick="location.href='/who-we-are.html'">who we are</button>
+					<button class="btn text-gray" onclick="location.href='/giving-back-page/'">giving back</button>
+					<button style="box-shadow: inset 0 0 30px #f36f36;" class="btn text-gray" onclick="location.href='/demo-quote.html'">get a demo & quote</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container" style="margin-top:100px;">
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="row">
+				<div class="span12 lift" style="height: 345px;margin-bottom: 20px;overflow: hidden">
+					<div style="padding: 20px;text-align: right;">
+						<h1 class="major-callout">Sell tickets & fundraise!</h1>
+        		<p class="lead text-orange">Affordable arts ticketing with complete, friendly, support.</p>
+        		<blockquote class="pull-right">
+         			<p class="text-blue"> Serving arts organizations in the US and Canada.</p>
+          		<small>Arts People <cite title="Source Title"></cite></small>
+        		</blockquote>
+					</div>
+					<img style="width: 420px;margin-top: -42px;" src="/assets/images/screenshot-5-24-13_doorsales.png">
+					<img style="width: 420px;margin-top: -220px;margin-left: 120px;" src="/assets/images/meeting-shadowed.png">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+ 
+<div class="container">
+	<div class="row" style="margin-left: 0px;">
+		<ul class="thumbnails">
+<li class="span4">
+	<div class="thumbnail thumbnail-orange lift" style="border: 0;padding:0;">
+		<img src="/assets/components/phpthumbof/cache/siteviolinhand.6f48a82beff109794692619590fda65966.jpg" alt="">
+		<div class="caption" style="height: 210px;">
+			<h3>Music</h3>
+			<p><span>Symphonies, Orchestras, and Music Presenters make great use of our highly flexible venue pricing sections and membership tools. Very few systems can match our pricing features, and if they can, they are too expensive to be practical!<br /></span><a href="/features/">Read more! </a></p>
+		</div>
+	</div>
+</li>
+<li class="span4">
+	<div class="thumbnail thumbnail-blue lift" style="border: 0;padding:0;">
+		<img src="/assets/components/phpthumbof/cache/sitebookpage.6f48a82beff109794692619590fda65966.jpg" alt="">
+		<div class="caption" style="height: 210px;">
+			<h3>Theatre</h3>
+			<p>Community Theaters, Professional Theatres, Children's Theater, Shakespeare, Fringe Festival, Performing Arts Centers...each type of organzation has a communication style with their patrons and community. What's yours? <a href="/features/">Read More!</a><a href="/features/"><br /></a></p>
+		</div>
+	</div>
+</li>
+<li class="span4">
+	<div class="thumbnail thumbnail-red lift" style="border: 0;padding:0;">
+		<img src="/assets/components/phpthumbof/cache/sitedanceclass.6f48a82beff109794692619590fda65966.jpg" alt="">
+		<div class="caption" style="height: 210px;">
+			<h3>Arts Programs</h3>
+			<p>From University, College, and High School Performing Arts programs to all volunteer Parent Booster clubs, and the sold out annual recital. We have the tools needed to support arts education within the realities of funding a program. <a href="/features/">Read More!</a><a href="/features/"><br /></a></p>
+		</div>
+	</div>
+</li>
+<li class="span4">
+	<div class="thumbnail thumbnail-red lift" style="border: 0;padding:0;">
+		<img src="/assets/components/phpthumbof/cache/artspeople.6f48a82beff109794692619590fda65966.jpg" alt="">
+		<div class="caption" style="height: 210px;">
+			<h3>Film Festivals</h3>
+			<p><span>Setup satellite box offices anywhere, anytime.  Have laptop, will travel. </span>Multiple points of sale sharing same inventory - web, dedicated box office, satellite box offices, mobile box offices all updating inventory in real time.<br /><a href="/features/">Read More!</a></p>
+<p><span><br /> </span></p>
+		</div>
+	</div>
+</li>
+<li class="span4">
+	<div class="thumbnail thumbnail-orange lift" style="border: 0;padding:0;">
+		<img src="/assets/components/phpthumbof/cache/menacting.6f48a82beff109794692619590fda65966.jpg" alt="">
+		<div class="caption" style="height: 210px;">
+			<h3>Voice</h3>
+			<p>We work with Opera Houses, Choirs, and Choral Groups. The fundraising and membership features enable organizations to connect with patrons with care. Our Client Support staff is available to support your staff and volunteers!<br /><a href="/features/">Read More!</a></p>
+		</div>
+	</div>
+</li>
+<li class="span4">
+	<div class="thumbnail thumbnail-blue lift" style="border: 0;padding:0;">
+		<img src="/assets/components/phpthumbof/cache/sitedancer.6f48a82beff109794692619590fda65966.jpg" alt="">
+		<div class="caption" style="height: 210px;">
+			<h3>Dance</h3>
+			<p>The art of movement! We work with Ballet Companies, Dance Presenters, and small and mid-size Seasonal Dance Groups. Many also offer classes. Included in each account is our beta version of a Class Enrollment system. <a href="/features/">Read More!</a><a href="/features/"><br /></a></p>
+		</div>
+	</div>
+</li>
+		</ul>
+	</div>
+</div>
+ 
+
+
+<div class="container lift pad">
+ 	<div class="row">
+		<div class="span10 offset1" style="text-align: center">
+			<h1>A system that gets you!</h1>
+			<p class="lead text-orange">Sell tickets with the flexibility to price, discount, and integrate with your operation. </p>
+		</div>
+	</div>
+</div>
+ 
+
+ 
+<div class="container lift pad">
+	<div class="row">
+		<div class="span5 offset1">
+			<p> </p>
+<h1 style="text-align: center;"><span style="color: #a508f6;"><i class='icon-group icon-2x'></i></span></h1>
+<h2 class="handwritten" style="text-align: center;"><a href="/ticketing-details-page">Ticketing</a></h2>
+<p style="text-align: center;"><span style="font-size: 16px;">Sell single tickets, subscriptions, passes, add-on items, retail, Delivery method options.</span></p>
+<h1 style="text-align: center;"><span style="color: #f4f00a;"><i class='icon-check icon-2x'></i></span></h1>
+<h2 class="handwritten" style="text-align: center;"><a href="/marketing-details-page">Marketing</a></h2>
+<p style="text-align: center;"><span style="font-size: 16px;">Create targeted &amp; segmented communication to your ticket buyers and donors with direct mail &amp; email integrated with Mail Chimp &amp; Constant Contact.</span></p>
+<h1 style="text-align: center;"><span style="color: #ee10ea; text-align: center;"><i class='icon-heart icon-2x'></i></span> </h1>
+<h2 class="handwritten" style="text-align: center;"><span><strong><a href="/customer-service-details-page">Customer Service</a></strong></span></h2>
+<p style="text-align: center;"><span style="font-size: 16px;">Full service phone and help desk support, or self service with help files and forums. All service is included at no extra charge. </span></p>
+<p style="text-align: center;"><span style="font-size: 16px;">If this were the customer service Olympics, these folks would see only gold. </span></p>
+<p style="text-align: center;"><span style="font-size: 16px;"><strong> </strong></span></p>
+		</div>
+		<div class="span5">
+			<h1 style="text-align: center;"> <span style="color: #063bf8; text-align: center;"><i class='icon-cogs icon-2x'></i></span></h1>
+<h2 class="handwritten" style="text-align: center;"><span><strong><a href="/flexibility-details-page">Fundraising</a> </strong></span><a href="/flexibility-details-page"><br /></a></h2>
+<p style="text-align: center;"><span style="font-size: 16px;">Amazing rules-based pricing tools, highly configurable venue setup, orphan seating protection, website matching.  </span></p>
+<h1 style="text-align: center;"><span style="color: #11eeee; text-align: center;"><i class='icon-folder-open-alt icon-2x'></i></span></h1>
+<h2 class="handwritten" style="text-align: center;"><span><strong><a href="/database-details-page">Database</a></strong></span></h2>
+<p style="text-align: center;"><span style="font-size: 16px;">Link people and organizations together, complete transaction history, fantastic batching tools on par with the heavy hitters in data management. </span></p>
+<p> </p>
+<h1 style="text-align: center;"><span style="color: #2fde20; text-align: center;"><i class='icon-thumbs-up icon-2x'></i></span></h1>
+<h2 class="handwritten" style="text-align: center;"><a href="/features/">So much more!</a></h2>
+<p style="text-align: center;"><span style="font-size: 16px; text-align: center;">Read more about our features, get in touch for full pricing and to see our system in action.<br /></span><span style="font-size: 16px;"><a href="https://www.ticketturtle.com/who-we-are.html">Get to know us!</a></span></p>
+		</div>
+	</div>
+</div>
+ 
+ 
+<div class="container lift pad">
+	<div class="row">
+		<div class="span10 offset1">
+			<h1 style="text-align: center;"><span style="color: #0a26f4; text-align: center;"><i class='icon-flag icon-2x'></i></span></h1>
+<h1 class="handwritten" style="text-align: center;">Our product and company</h1>
+		</div>
+	</div>
+</div>
+ 
+ 
+<div class="container lift pad">
+	<div class="row">
+		<div class="span10 offset1">
+			<p class="justifyleft"><span style="font-size: 16px;">Arts People provides affordable, supported software to performing arts organizations across the US and Canada. Our product and company exist to help organizations work efficiently and achieve sustainability.</span></p>
+<p class="justifyleft"><span style="font-size: 16px;">We believe the arts have a profoundly postive effect on our world. We are grateful to be able to see it everyday in our work with organizations bringing art to their communities.  </span></p>
+<p class="justifyleft"><span style="font-size: 16px;">We use our social media channels and our internal forum to share information about our product, our company, and the community of Arts People users. We love exploring the intersection of art, culture and technology and welcome you to join us. </span></p>
+<p class="justifyleft"><span style="font-size: 16px;">Arts People was called <a href="https://www.arts-people.com/ticket-turtle-to-arts-people-announcement/">Ticket Turtle</a> until June of 2013. We didn't change ownership or focus, just needed a name without the word "turtle" in it that conveyed who we really are. We are based in Portland, Oregon. </span></p>
+<p class="justifyleft"> </p>
+<p class="justifyleft"> </p>
+		</div>
+	</div>
+</div>
+ 
+<hr > 
+<div class="container lift pad">
+	<div class="row">
+		<div class="span10 offset1">
+			<!-- <h1 style="text-align: center;"><span style="color: #0ee3f0; text-align: center;"> </span></h1> -->
+<h2 class="handwritten" style="text-align: center;"> </h2>
+<h2 class="handwritten" style="text-align: center;">An irresistible 1 minute slideshow!</h2>
+<p style="text-align: center;"><iframe id="vp1CHeCX" title="Video Player" src="https://s3.amazonaws.com/embed.animoto.com/play.html?w=swf/production/vp1&amp;e=1397522775&amp;f=CHeCXaFyAD6ANWQ1Dln9hA&amp;d=0&amp;m=p&amp;r=360p&amp;volume=100&amp;start_res=360p&amp;i=m&amp;asset_domain=s3-p.animoto.com&amp;animoto_domain=animoto.com&amp;options=" frameborder="0" width="432" height="243"></iframe></p>
+<!--<p style="text-align: left; margin: 0 0 -15px -60px;"><a href="https://app.arts-people.com/login.php">LOG IN</a></p> -->
+<p> </p>
+<!-- Facebook Badge END -->
+<p> </p>
+		</div>
+	</div>
+</div>
+ 
+</div>
+<!--FOOTER-->
+
+<div class="container" style="margin-top: 20px;">
+	<div class="row">
+		<div class="span4 simple-lift text-orange-inv" style="text-align: center;">
+			<h4><a style="color:#fff;" href="https://www.arts-people.com/contact-us/">Get in touch!</a></h4>
+			<!--<h4>Are you a customer?</h4>
+			<p>Contact us at support@arts-people.com</p>-->
+		</div>
+     <div class="span4 text-red-inv simple-lift" style="text-align: center;">
+			<h4><a style="color:#fff;" href="https://www.arts-people.com/demo-quote.html">Get a Demo & Quote!</a></h4>
+			<!--<h4>Not yet a customer?</h4>
+			<p>Contact us at sales@arts-people.com</p>-->
+		</div>
+		<div class="span4 simple-lift text-vib-blue-inv" style="text-align: center;">
+      <h4><a style="color:#fff;" href="https://app.arts-people.com/login.php">Login</a></h4>
+		<!--<div class="span4 simple-lift text-red-inv" style="text-align: center;">
+			<h4>Prefer the phone?</h4>
+			<p>Call us at 1.866.788.7853</p>-->
+		</div>
+	</div>
+</div>
+
+    <div class="container" >
+      <hr id="bottom-rule">    
+      <div id="footer" class="row">
+        <div class="span2">
+          <a href="https://twitter.com/arts_people" target="_blank" class="sb circle gradient glossy embossed light-blue twitter">Twitter</a>
+          <a href="https://www.facebook.com/artstothepeople" target="_blank" class="sb circle gradient glossy embossed blue facebook">Facebook</a>
+
+        </div>
+        <div class="span10">
+            <p class="footer-nav-item text-gray"> Copyright ©2013 Arts People. All rights reserved.</p>
+						<p class="footer-nav-item text-gray"> | </p>
+						<a href="/inspirations-page/"><p class="footer-nav-item">inspirations</p></a>
+						<a href="/demo-quote.html"><p class="footer-nav-item">demo</p></a>
+            <a href="/contact-us/"><p class="footer-nav-item">contact</p></a>
+            <!-- a href="https://app.arts-people.com/login.php" target="_blank"><p class="footer-nav-item">log in</p></a -->
+            <a href="/faq-page/"><p class="footer-nav-item ">faq</p></a>
+						<a href="/hiring-page/"><p class="footer-nav-item ">hiring</p></a>
+            <a href="/terms-of-use.html"><p class="footer-nav-item ">terms of use</p></a>
+        </div>
+      </div>
+    </div>
+<!--    /FOOTER-->
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","licenseKey":"a55673f471","applicationID":"4345835","transactionName":"Nl1UMBQHVxdSVRBdWw8XYxYPSVAKV1McGkQJSA==","queueTime":0,"applicationTime":2154,"atts":"GhpXRlwdRBk=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-515.min.js"}</script></body>
+</html>";i:2;s:4:"7566";}

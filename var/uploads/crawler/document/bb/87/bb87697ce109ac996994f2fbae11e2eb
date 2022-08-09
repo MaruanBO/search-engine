@@ -1,0 +1,1172 @@
+a:3:{i:0;s:23:"http://oneexchange.com/";i:1;s:73360:"<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 9 ]> <html lang="en" class="no-js ie8 lt-ie9" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9" xmlns:ng="http://angularjs.org"> <![endif]-->
+<!--[if !(IE)]><!--> <html lang="en" class="no-js" xmlns:ng="http://angularjs.org"> <!--<![endif]-->
+  <head><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width = 1000, initial-scale = 0.3, user-scalable = yes">-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Find Healthcare Coverage at OneExchange
+</title>
+
+<link href="/public/styles/oe.css" rel="stylesheet" type="text/css" />
+<link href="/public/styles/oe-responsive.css" rel="stylesheet" type="text/css" />
+<link href="/public/styles/lib/integrated-shopping-cart.css" rel="stylesheet" type="text/css" /><script type="text/javascript" src="/public/scripts/lib/modernizr.js"></script>
+<script type="text/javascript" src="/public/scripts/lib/detectizr.min.js"></script>
+<script>
+  if (new String(document.location).indexOf("shop-and-compare") < 0) {
+    document.write('<base href="' + document.location + '"/>');
+  }
+
+(function() {
+  'use strict';
+  var unsupportedUrl = '/unsupported-browser',
+      isUnsupportedMatch = /MSIE [678]\.\d+/,
+      isUnsupported = isUnsupportedMatch.test(navigator.userAgent),
+      redirect = function() {
+        window.location = unsupportedUrl;
+      };
+
+  if (isUnsupported && window.location.pathname !== unsupportedUrl) {
+    redirect();
+  }
+})();
+
+  // Avoid console errors in browsers that lack a console (IE9 fix)
+  var method;
+  var noop = function () {};
+  var methods = [
+      'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+      'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+      'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+      'timeStamp', 'trace', 'warn'
+  ];
+  var length = methods.length;
+  var console = (window.console = window.console || {});
+
+  while (length--) {
+      method = methods[length];
+
+      // Only stub undefined methods.
+      if (!console[method]) {
+          console[method] = noop;
+      }
+  }
+</script>
+
+
+  </head>
+
+  <body xmlns:ng="http://angularjs.org" id="ng-app" class="popoverCloseOnScroll"><a href="#mainContent" target="_self" id="skip-to-main-link" class="screen-reader-only" move-focus-on-shop-and-compare="true" focus-on="#mainContent">Skip to main content</a>
+
+
+
+<div class="navbar navbar-fixed-top">
+  <header role="banner">
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="pull-left">
+          <a class="pull-left logo" id="oe-logo" href="/" aria-label="OneExchange homepage"></a>
+          
+        </div>
+        <div class="pull-left">
+          <nav role="navigation">
+            
+          </nav>
+        </div>
+        <div class="pull-right">
+          
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<script type="text/ng-template" id="dialog.html">
+  <div class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="dialogTitleLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" aria-hidden="true" ng-click="onDismiss()">x</button>
+      <h3 class="h3-style" id="dialogTitleLabel" ng-bind="modalHeader"></h3>
+    </div>
+    <div class="modal-body" ng-transclude>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" ng-click="onCancel()">{{cancelText}}</button>
+      <button class="btn btn-primary" ng-click="onOk()" ng-disabled="primaryDisabled">{{okText}}</button>
+    </div>
+  </div>
+</script>
+<script type="text/ng-template" id="dialog2.html">
+  <div class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="dialogTitleLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" aria-hidden="true" ng-click="onOk()">x</button>
+      <h3 class="h3-style" id="dialogTitleLabel">{{modalHeader}}</h3>
+    </div>
+    <div class="modal-body" ng-transclude>
+    </div>
+    <div class="modal-footer">
+      <div class="loader" ng-show="loading"></div>
+      <button class="btn {{buttonClass}}" ng-click="onOk()" ng-disabled="loading">{{okText}}</button>
+    </div>
+  </div>
+</script>
+<script type="text/ng-template" id="hra-choice-tool.html">
+  <div class="modal cover-modal hra-choice" ng-controller="hra-choice-overlay" ng-class="{'open': overlayIsOpen, 'closed': !overlayIsOpen}" restricts-body-height-with="overlayIsOpen">
+    <div class="hra-choice-menu navbar navbar-fixed-top hra-desktop-only" role='banner'>
+      <div class="container hra-header-container">
+        <div class="inner-container hra-inner-container">
+          <h2 ng-show="selectedSlide.headerType === headerTypes.HEADER" class="h1-style" ng-bind="getStringValue(selectedSlide.headerValue)"></h2>
+          <nav class="clearfix" ng-show="selectedSlide.headerType === headerTypes.MENU" follow-hover="#hra-nav-tracker" follow-selection="#hra-nav-marker, #hra-nav-tracker">
+            <ul class="clearfix">
+              <li ng-repeat="item in menuSlides" class="h4-style" ng-class="{'selected': selectedSlide === item}" ng-click="setSelectedSlide(item)">
+                <a href="#">{{ item.menuValue() }}</a>
+              </li>
+            </ul>
+            <div id='hra-nav-tracker'></div>
+            <div id='hra-nav-marker'></div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="hra-choice-container clearfix" hra-scrollable-area>
+      <div class="container">
+        <div class="inner-container hra-inner-container clearfix">
+          <div class="chevron-container intermediary-only clearfix">
+            <div class="chevron-inner-container pull-left" ng-show="showPreviousButton">
+              <div class="paging-chevron left" ng-click='getPreviousSlide()'> </div>
+            </div>
+            <div class="chevron-inner-container pull-right" ng-show="showNextButton">
+              <div class="paging-chevron right" ng-click='getNextSlide()'> </div>
+            </div>
+          </div>
+          <div class='slide' ng-repeat='slide in slides' ng-class="{'selected': selectedSlide === slide}" compile-when="shouldCompile(slide)" template='{{ slide.template }}' ng-show="!slide.shouldShow || slide.shouldShow()">
+          </div>
+          <div class='span1 paging-chevron left pull-left hra-desktop-only no-intermediary' ng-click='getPreviousSlide()' ng-show="showPreviousButton" match-sibling-height='.slide.selected' check-match-on='selectedSlide.headerValue'></div>
+          <div class='span1 paging-chevron right pull-right hra-desktop-only no-intermediary' ng-click='getNextSlide()' ng-show="showNextButton" match-sibling-height='.slide.selected' check-match-on='selectedSlide.headerValue'></div>
+          <div class="hra-mobile-only mobile-action-buttons" ng-show="mobileStateManager.currentState === mobileStateManager.options.CHOOSING">
+            <button class="btn btn-primary" ng-click="signatureSlide.primaryAction()">{{ getStringValue(signatureSlide.primaryButton) }}</button>
+            <button class="btn btn-click" ng-click="mobileStateManager.currentState = mobileStateManager.options.INFORMING">Return to Comparison</button>
+          </div>
+          <div class="hra-mobile-only mobile-action-buttons" ng-show="mobileStateManager.currentState === mobileStateManager.options.INFORMING">
+            <button class="btn btn-primary" ng-click="mobileStateManager.currentState = mobileStateManager.options.CHOOSING">{{ copyGroup.ReadyToDecide }}</button>
+            <button class="btn btn-click" ng-click="closeOverlay()">{{ copyGroup.Cancel }}</button>
+          </div>
+          <div class="hra-mobile-only mobile-action-buttons" ng-show="mobileStateManager.currentState === mobileStateManager.options.SBM_CALL_ALERT">
+            <button class="btn btn-primary" ng-click="reload()">{{ copyGroup.Continue }}</button>
+            <button class="btn btn-click" ng-click="mobileStateManager.currentState = mobileStateManager.options.CHOOSING">{{ copyGroup.GoBack }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hra-choice-footer hra-desktop-only">
+      <div class="container hra-footer-container">
+        <div class="inner-container hra-inner-container">
+          <div class="pull-left help-label">
+            <need-help-popover popover-placement="top"></need-help-popover>
+          </div>
+          <div class="primary-button pull-right button-container" ng-show="getStringValue(selectedSlide.primaryButton).length">
+            <button class="btn placeholder">{{getStringValue(selectedSlide.primaryButton)}}</button>
+              <button ng-repeat="button in primaryButtons" ng-click="selectedSlide.primaryAction()" class="btn btn-primary btn-click" ng-class="{'selected': button === selectedSlide.primaryButton}">{{getStringValue(button)}}</button>
+          </div>
+          <div class="secondary-button pull-right button-container">
+            <button class="btn placeholder">{{getStringValue(selectedSlide.secondaryButton)}}</button>
+            <button ng-repeat="button in secondaryButtons" class="btn btn-click" ng-click="selectedSlide.secondaryAction()" ng-class="{'selected': button === selectedSlide.secondaryButton}">{{getStringValue(button)}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><div ng-controller="hra-plan-discard">
+  <div class="plan-list-modal-wrapper">
+    <div class="plan-list-modal" dialog="exp" visible="showDiscardPlansModal" modal-header="'Discarding Plans'" ok-text="'Continue'" on-ok="submitChoice()" cancel-text="'Cancel'" on-cancel="cancel()">
+      <div>
+        <p>{{ 'If you change your funding source to {fundingSource}, you can only choose from {planType} plans. We will discard the following plans from your cart if you continue.' | stringtemplate: 'fundingSource': newChoice : 'planType': planType }}</p>
+        <div class="plan-list-container">
+          <div class="plan-container row-fluid" ng-repeat="plan in incompatiblePlans">
+            <plan-display plan="plan"></plan-display>
+          </div>
+        </div>
+        <p>{{ 'To discard your current plans, click Continue. To keep using {fundingSource}, click Cancel.' | stringtemplate: 'fundingSource': previousChoice }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+<script type="text/ng-template" id="hra-choice-allocation-amounts.html">
+  <div ng-controller="allocation-amounts" class='allocation-amounts'>
+    <hra-slide-half-header></hra-slide-half-header>
+    <div class="slide-body halves clearfix">
+      <h2 class="hra-mobile-only mobile-header h2-style">{{ copyGroup.FundingAmounts }}</h2>
+      <div class="half first">
+        <h3 class="hra-mobile-only mobile-h3 h2-style">{{ copyGroup.EmployerFunding }}</h3>
+        <p>{{copyGroup.FundingAmountsHra}}</p>
+        <div class="loader medium-loader" ng-show="!hraAllocations().length"></div>
+        <div ng-repeat="allocation in hraAllocations()" class="hra-desktop-only">
+          <p>
+            <strong>{{ allocation.total | currency }}{{ allocation.frequency.perLabel }}
+              <span ng-show='allocation.secondaryFrequency'>
+                (<popover-dynamic link-text="getSecondaryAllocationText(allocation)" popover-title="copyGroup.FundingAllocationDescriptionHeader" popover-content="copyGroup.FundingAllocationDescriptionContent"></popover-dynamic>)
+              </span>
+            </strong><br/>
+            {{copyGroup.ThisAmountCovers}}
+          </p>
+          <ul>
+            <li ng-repeat="name in allocation.members" ng-bind="name"></li>
+          </ul>
+        </div>
+        <allocation-mobile-list></allocation-mobile-list>
+      </div>
+      <div class="half last">
+        <h3 class="hra-mobile-only mobile-h3 h2-style">{{ copyGroup.TaxCredit }}</h3>
+        <p ng-show="estimateStatus.needsEstimate()">{{copyGroup.AptcNoEstimateLine1}}<br/><br/>{{copyGroup.AptcNoEstimateLine2}}</p>
+        <p ng-show="estimateStatus.hasEstimateNoAptcNoFetch()">{{copyGroup.NoAptc}}</p>
+        <p ng-show="estimateStatus.hasEstimateAptcNoFetch()">{{copyGroup.FundingAmountsAptc}}</p>
+        <p ng-show="estimateStatus.hasFetchNoAptc()">{{copyGroup.FetchNoAptc}}</p>
+        <p ng-show="estimateStatus.hasFetchWithAptc()">{{copyGroup.FundingAmountsFetchAptc}}</p>
+        <open-estimate-option>
+          <p ng-show="estimateStatus.hasAptc()">
+            <strong>{{ (display = aptcDisplay()).first.amount | currency }}{{ display.first.label }} ({{ display.second.amount | currency }}{{ display.second.label }})</strong><br/>
+            {{copyGroup.ThisAmountCovers}}
+          </p>
+          <ul ng-show="estimateStatus.hasAptc()">
+            <li ng-repeat="name in qhpEligibleFamilyMembers" ng-bind="name"></li>
+          </ul>
+          <p>
+            <small>{{copyGroup.EligibilityNote}}</small>
+          </p>
+        </open-estimate-option>
+      </div>
+    </div>
+    <hra-slide-footer></hra-slide-footer>
+  </div>
+</script>
+<script type="text/ng-template" id="hra-who-is-covered.html">
+  <div ng-controller="allocation-amounts">
+    <hra-slide-half-header></hra-slide-half-header>
+    <div class="slide-body halves clearfix">
+      <h2 class="hra-mobile-only mobile-header h2-style">{{ copyGroup.WhoIsEligible }}</h2>
+      <div class="half first">
+        <h3 class="hra-mobile-only mobile-h3 h2-style">{{ copyGroup.EmployerFunding }}</h3>
+        <p>{{copyGroup.WhoIsEligibleHra}}</p>
+        <div ng-repeat="allocation in hraAllocations()" class="hra-desktop-only">
+          <p>
+            <strong>{{ allocation.total | currency }}{{ allocation.frequency.inlineLabel }}<span ng-show='allocation.secondaryFrequency'></strong> can be used to cover health care costs for:
+          </p>
+          <ul>
+            <li ng-repeat="name in allocation.members" ng-bind="name"></li>
+          </ul>
+        </div>
+        <allocation-mobile-list allocations="hraAllocations()"></allocation-mobile-list>
+      </div>
+      <div class="half last">
+        <h3 class="hra-mobile-only mobile-h3 h2-style">{{ copyGroup.TaxCredit }}</h3>
+        <p ng-show="estimateStatus.needsEstimate()">{{copyGroup.AptcNoEstimateLine1}}<br/><br/>{{copyGroup.AptcNoEstimateLine2}}</p>
+        <p ng-show="estimateStatus.hasEstimateNoAptcNoFetch()">{{copyGroup.NoAptc}}</p>
+        <p ng-show="estimateStatus.hasEstimateAptcNoFetch()">{{copyGroup.WhoIsEligibleAptc}}</p>
+        <p ng-show="estimateStatus.hasFetchNoAptc()">{{copyGroup.FetchNoAptc}}</p>
+        <p ng-show="estimateStatus.hasFetchWithAptc()">{{copyGroup.WhoIsEligibleFetchAptc}}</p>
+        <open-estimate-option>
+          <p ng-show="estimateStatus.hasAptc()"><strong>{{(display = aptcDisplay()).first.amount | currency }}{{ display.first.label }}</strong> {{copyGroup.UsedToCover}}</p>
+          <p>
+            <ul ng-show="estimateStatus.hasAptc()">
+              <li ng-repeat="name in qhpEligibleFamilyMembers" ng-bind="name"></li>
+            </ul>
+          </p>
+          <p>
+            <small>{{copyGroup.EligibilityNote}}</small>
+          </p>
+        </open-estimate-option>
+      </div>
+    </div>
+    <hra-slide-footer></hra-slide-footer>
+  </div>
+</script>
+<script type="text/ng-template" id="hra-what-is-covered-template.html">
+  <div ng-controller="whatIsCovered" class="what-is-covered">
+    <hra-slide-half-header></hra-slide-half-header>
+    <div class="slide-body halves clearfix">
+      <h2 class="hra-mobile-only mobile-header h2-style">{{ copyGroup.WhatIsCovered }}</h2>
+      <div class="half" ng-repeat="option in fundingOptions" ng-class="{'first': $first, 'last': $last}">
+        <h3 class="hra-mobile-only mobile-h3 h2-style">{{ ($first) ? copyGroup.EmployerFunding : copyGroup.TaxCredit }}</h3>
+        <p ng-bind-html="option.description"></p>
+        <ul ng-show="option.showItems">
+          <li ng-repeat='item in coverageExpenses'>
+            <p ng-show="!item[option.type].usePopover">
+              <i ng-class="{'oe-icon-remove-16': !item[option.type].covered, 'oe-icon-ok-16': item[option.type].covered}"></i>{{ item.label }}{{ item[option.type].labelExtra }}
+            </p>
+
+            <span ng-show="item[option.type].usePopover">
+              <i ng-class='{"oe-icon-remove-16": !item[option.type].covered, "oe-icon-ok-16": item[option.type].covered}'></i>
+              <popover-dynamic ng-show="option.type === 'aptc'" link-text="renderLabel(item, option.type)" popover-title="item[option.type].popoverTitle" popover-content="item[option.type].popoverContent" close-button="true"></popover-dynamic>
+
+              <popover-dynamic ng-show="option.type === 'hra'" link-text="renderLabel(item, option.type)" popover-title="item[option.type].popoverTitle" popover-content="item[option.type].popoverTemplate.outerHTML" popover-scope="$parent" close-button="true"></popover-dynamic>
+            </span>
+          </li>
+        </ul>
+        <p ng-bind-html='option.extraInfo' ng-show='option.extraInfo && option.showItems'></p>
+      </div>
+    </div>
+    <hra-slide-footer></hra-slide-footer>
+  </div>
+</script>
+
+<script type="text/ng-template" id="what-is-covered-popover-template.html">
+  <div>
+    <p>{{copyGroup.HraReimbursables}}</p>
+    <ul>
+      <li ng-show="reimbursables.isMedicalOutOfPocketReimbursable">{{copyGroup.MedicalOopReimbursable}}</li>
+      <li ng-show="reimbursables.isPrescriptionDrugOutOfPocketReimbursable">{{copyGroup.PrescriptionsOopReimbursable}}</li>
+      <li ng-show="reimbursables.isDentalOutOfPocketReimbursable">{{copyGroup.DentalOopReimbursable}}</li>
+      <li ng-show="reimbursables.isVisionOutOfPocketReimbursable">{{copyGroup.VisionOopReimbursable}}</li>
+    </ul>
+  </div>
+</script>
+<script type="text/ng-template" id="hra-signature-slide.html">
+  <div ng-controller="hraSignatureSlide" id="hra-signature-slide" class="signature-slide" ng-show='loaded'>
+    <header class="halves clearfix">
+      <h2 class="hra-mobile-only main-header h3-style">{{ copyGroup.MakeFundingDecision }}</h2>
+      <hra-decorator-halves class="hra-desktop-only" hide-button='true'></hra-decorator-halves>
+    </header>
+    <div class='slide-body'>
+      <p>To proceed, choose to activate your employer&#39;s funding account or seek a tax credit. If you choose to pursue a tax credit, we will help you complete the necessary application. Regardless of which funding option you choose, we will help you enroll in a compatible health insurance plan and apply your funding.</p>
+      <p><strong>{{copyGroup.IWill}}</strong></p>
+      <div class='choice-container hra-desktop-only'>
+        <oe-radio-list items='choices' name='' model='choice'></oe-radio-list>
+      </div>
+      <div class='choice-container hra-mobile-only'>
+        <oe-radio-list items='mobileChoices' name='' model='choice'></oe-radio-list>
+      </div>
+      <p ng-show='notAbleToContinueWithTaxCredit()'>Before you finalize your decision, we will send you to Healthcare.gov to complete your official application of tax credit eligibility. When you return to OneExchange you can view your tax credit amount and confirm whether you want to use your tax credit or use your employer funding.</p>
+      <div class="alert alert-info alert-icon" ng-if="ableToContinueWithTaxCredit()">
+        <i></i>
+        <p ng-show="!taxCreditChosenWithSbm()">
+          Your household is eligible for <strong>{{ getYearlyAptcTotal() | currency }}/year</strong> which will be applied to your medical premium(s) in the amount of <strong>{{ getAptc() | currency }}/month</strong>. You can go back and see how these funds compare to your employer-provided funds, apply to your household members.
+        </p>
+        <p ng-show="taxCreditChosenWithSbm()">
+          OneExchange estimates that your household is eligible for <strong>{{ getYearlyAptcTotal() | currency }}/year</strong> which will be applied to your medical premium(s) in the amount of <strong>{{ getAptc() | currency }}/month</strong>. If you wish to know your official eligibility, you will have to speak with a benefit advisor by calling <b>1-800-591-2611</b>.
+        </p>
+      </div>
+      <div ng-show='ableToContinueWithChoice()' class='disclaimer-container'>
+        <h5 class='h5-style'>Please read and agree to the following statement.</h5>
+        <div class="disclaimer">
+          <p ng-if="hraChosen()">If you are choosing to activate your Funding Account funds, you acknowledge that any person who is identified on this site as part of your household will not be eligible to obtain a premium tax credit, your household eligibility and income information previously inserted on this site is correct, the dollar amount of both your Funding Account funding and tax credit is an estimation that is based on the information you previously inserted on this site and applies only to the tax year for which coverage would start, and the estimates are provided by OneExchange and not a federal or state government or a health insurance company.  By providing the above estimates, OneExchange is not providing financial or tax advice to you, and you should consult with a financial or tax advisor should you have any financial or tax questions.  All estimates are subject to change.  Your Funding Account plan documentation is the official authority for any and all Funding Account terms and conditions.</p>
+          <p ng-if="taxCreditChosen()">If you are choosing to seek a premium tax credit, you acknowledge that any person who is identified on this site as part of your household will not be eligible to use your Funding Account funds, your household eligibility and income information you previously inserted on this site is correct, the dollar amount of both your Funding Account funding and tax credit is an estimation that is based on the information you previously inserted on this site and applies only to the tax year for which coverage would start, any change in your household or income during the year may affect your premium tax credit for that year, and the estimates are provided by OneExchange and not a federal or state government or a health insurance company.  By providing the above estimates, OneExchange is not providing financial or tax advice, and you should consult with a financial or tax advisor should you have any financial or tax questions.  All estimates are subject to change.  You must apply for a premium tax credit before you receive the credit.  You also must formally claim the premium tax credit on your Federal income tax return for the year you receive the credit.</p>
+        </div>
+        <div class="control-group signature-check" ng-class="{'error': agreedError && !agreed}">
+          <oe-checkbox model='agreed' inner-id='user-agreed'>I, {{ displayName() }}, agree</oe-checkbox>
+          <div class='help-block'>{{copyGroup.SignatureAgree}}</div>
+        </div>
+        <h5 class='h5-style agreement-header'>
+          Signature
+        </h5>
+        <h5 class='h5-style agreement-header name'>
+          {{ displayName() }}
+        </h5>
+        <fieldset>
+          <div class="signature-input name-input control-group" ng-class="{'error': signatureError}">
+            <label class="label-style" for='signature-name'>Applicant's name as above</label>
+            <input id='signature-name' type='text' ng-model='signature'></input>
+            <div class='help-block'>Your signature must match the name listed above.</div>
+          </div>
+          <div class="signature-input city-input control-group" ng-class="{'error': cityError}">
+            <label class="label-style" for='signature-city'>City</label>
+            <input id='signature-city' type='text' ng-model="city"></input>
+            <div class='help-block'>You must include your city.</div>
+          </div>
+          <div class="signature-input state-input control-group" ng-class="{'error': stateError}">
+            <label class="label-style" for='signature-state'>State</label>
+            <select id='signature-state' ng-model='chosenState' ng-options='state as state for state in states'>
+              <option value=""></option>
+            </select>
+            <div class='help-block'>You must choose your state.</div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</script>
+<script type="text/ng-template" id="hra-eligibility-check-slide.html">
+  <div ng-controller="hraEligibilityCheckSlide" id="hra-eligibility-check-slide">
+    <header class="clearfix">
+      <span class="h3-style">{{copyGroup.CallForEligibilityIntro}}</span>
+    </header>
+    <div class='slide-body'>
+      <div class="row-fluid">
+        <div class="pull-left span1">
+          <i class="oe-icon-speak-to-expert-48"></i>
+        </div>
+        <div class="span11">
+          <p>{{copyGroup.CallForEligibilityDescription}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="allocation-mobile-list.html">
+  <div ng-repeat="allocation in hraAllocations()" class="hra-mobile-only">
+    <allocation-mobile-display allocation="allocation"></allocation-mobile-display>
+  </div>
+</script>
+
+<script type="text/ng-template" id="allocation-mobile-display.html">
+  <p>
+    <span ng-repeat="name in allocation.members">
+      <span ng-show="!$first && allocation.members.length > 2">, </span><span ng-show="$last && allocation.members.length > 1"> and </span>
+      <strong>{{ name }}</strong>
+    </span>
+    get<span ng-show="allocation.members.length === 1">s</span>
+    <strong>{{ allocation.total | currency }}{{ allocation.frequency.perLabel }}</strong>
+  </p>
+</script>
+
+<script type="text/ng-template" id="hra-decorator-halves.html">
+  <div class="halves clearfix">
+    <div class='half first'>
+      <p>
+        <strong>{{copyGroup.EmployerFunding}}:</strong> {{ hraTotal() | currency | nochange }}{{ hraTotalFrequency().perLabel }}
+      </p>
+    </div>
+    <div class='half last'>
+      <p>
+        <strong>{{copyGroup.TaxCredit}}:</strong> <span ng-show="hasAptc()">{{ yearlyAptcAmount | currency | nochange }}/year</span><button class='btn btn-click btn-mini' ng-show='showEstimateButton() && !hideButton' ng-click='openEstimateModal()' ng-bind="buttonText()">Complete Your Estimate</button>
+      </p>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="hra-slide-footer.html">
+  <footer class="half-holder hra-desktop-only">
+    <hra-decorator-halves></hra-decorator-halves>
+  </footer>
+</script>
+
+<script type="text/ng-template" id="open-estimate-button-option.html">
+  <div class='estimate-button-option'>
+    <div class='complete-estimate' ng-show='needsEstimate()'>
+      <button class='btn btn-click' ng-click='openEstimateModal()'>Estimate My Tax Credit</button>
+    </div>
+    <div class='aptc-container' ng-show='!needsEstimate()' ng-transclude="true">
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="hra-slide-half-header.html">
+  <header class="clearfix halves hra-desktop-only">
+    <div class="half first">
+      <h3 class="h3-style">{{copyGroup.EmployerFunding}}</h3>
+    </div>
+    <div class="half last">
+      <h3 class="h3-style">{{copyGroup.TaxCredit}}</h3>
+    </div>
+  </header>
+</script>
+
+<script type="text/ng-template" id="hra-introduction-slide.html">
+  <div ng-controller="hra-introduction" class='hra-introduction'>
+    <header>
+      <h2 class="hra-mobile-only main-header h3-style">{{ mainHeadline }}</h2>
+      <h3 class="h3-style">{{headline}}</h3>
+    </header>
+    <div class='slide-body clearfix'>
+      <i class='oe-icon-wallet-48 hra-desktop-only'></i>
+      <p>{{copyGroup.IntroductionContentLine1}}</p>
+      <p>{{copyGroup.IntroductionContentLine2}}</p>
+      <p>{{copyGroup.IntroductionContentLine3}}</p>
+      <button class='btn btn-primary pull-right hra-desktop-only' ng-click="getNextSlide()">{{copyGroup.LetsGetStarted}}</button>
+      <div class="help-label pull-left">
+        <need-help-popover class="hra-mobile-only" popover-placement="top"></need-help-popover>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="hra-what-it-means-template.html">
+  <div ng-controller="what-it-means as ctrl" class="what-it-means">
+    <hra-slide-half-header></hra-slide-half-header>
+    <div class="slide-body halves clearfix">
+      <h2 class="hra-mobile-only mobile-header h2-style">{{ copyGroup.WhatYouChoiceMeans }}</h2>
+      <div class="half first">
+        <h3 class="hra-mobile-only mobile-h3 h2-style">{{ copyGroup.EmployerFunding }}</h3>
+        <strong>How do I qualify for my employer funding?</strong>
+        <p>You must opt-into your funding account. You can do this on the next screen by choosing "activate my funding account."</p>
+
+        <strong>How do I use my employer funding account?</strong>
+        <p>You pay your expenses in full, and then submit a request for reimbursement.</p>
+
+        <strong>What happens if I have unused funds in my employer funding account at the end of the year?</strong> 
+        <p>Please consult the Funding Guide in the SSC for details about year-over-year rollover for this funding account.</p>
+
+        <strong>What if I choose not to activate my employer funding this year?</strong>
+        <p>Please consult the Funding Guide in the SSC for details about whether the customer can opt into the fundung account in subsequent years for this funding account.</p>
+
+        <strong>What are the tax implications of employer funding?</strong>
+        <p>None. The funding is tax-free, however if you activate your employer funding you will not be eligible for a premium tax credit while your funding account is active. </p>
+
+        <strong>What health insurance plans are compatible with employer funding?</strong>
+        <p>In general, any health insurance policy premiums may be reimbursed from your funding account.</p>
+      </div>
+      <div class="half last">
+        <h3 class="hra-mobile-only mobile-h3 h2-style">{{ copyGroup.TaxCredit }}</h3>
+        <p oe-bind-html="copyGroup.WhatYourChoiceMeansAptc"></p>
+      </div>
+    </div>
+    <hra-slide-footer></hra-slide-footer>
+  </div>
+</script>
+<script type="text/ng-template" id="healthcare.gov-modal.html">
+  <div class='dialog-holder healthcare-gov-dialog-holder' ng-controller='healthcare-gov-modal'>
+    <div name="healthcarGov:modal" dialog="exp" visible="open && loaded" isDestructive="destructive" modal-header="'You are now leaving OneExchange.com...'" title="You are now leaving OneExchange.com..." ok-text="'Continue'" cancel-text="'Cancel'" on-ok="continueClicked()" on-cancel="cancelClicked()" class="healthcare-gov-modal">
+      <div>
+          <p>In order to update this information we will now redirect you to your State’s Marketplace to update your Household details. When complete, if you are not redirected you can resume your current session by returning to  <a href="http://www.oneexchange.com/">http://www.oneexchange.com/</a>.</p>
+          <p>If at any time you need additional help or have questions please contact us at  <b>1-800-591-2611</b>.</p>
+      </div>
+      <div ng-show='impersonating'>
+        <p>
+          Before you can proceed, you must provide your FFE User ID. Please enter it below.
+        </p>
+        <div class="control-group">
+          <label class="label-style control-label" for="ffeUserId">FFE User ID</label>
+          <div class="controls">
+            <input type="text" id="ffeUserId" ng-model="impersonatingUserFfeId"/>
+          </div>
+        </div>
+      </div>
+      <div class='not-shown' submit-when='continueSelected'>
+        <form method="post" action="/ffm/redirect" data-form-mode="lofi" data-bootstrap-inline="true" data-validation-options="{&quot;fields&quot;:[{&quot;field&quot;:&quot;FfeUserId&quot;,&quot;mode&quot;:&quot;live&quot;,&quot;rules&quot;:[]}],&quot;elementTimeout&quot;:1000}" class="activated-form validated-form">
+          <div ng-if="impersonatingUserFfeId">
+            <input type="hidden" name="FfeUserId" value="{{ $parent.impersonatingUserFfeId }}"></input>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="your-monthly-cost-popover">
+  <div>
+    <popover-dynamic link-text="copy.shoppingCart.YourMonthlyCost" popover-template-id="your-monthly-cost-table" popover-title="copy.shoppingCart.YourMonthlyCost | titlecase" close-button="true" popover-placement="left" class="plan-cost"></popover-dynamic>
+  </div>
+</script>
+
+<script type="text/ng-template" id="your-monthly-cost-table">
+  <table class="monthly-cost-popover">
+    <tr>
+      <td>Base Premium:</td>
+      <td>{{$parent.plan.premium | currency}}</td>
+    </tr>
+    <tr>
+      <td>Tax Credit Applied*:</td>
+      <td>-{{$parent.appliedCredit() | currency }}</td>
+    </tr>
+    <tr>
+      <td>{{$parent.copy.shoppingCart.YourMonthlyCost}}</td>
+      <td>{{$parent.calculatedPremium() | currency}}</td>
+    </tr>
+  </table>
+  <p ng-show="$parent.isEstimate" class="popover-note">
+    <small><em>{{$parent.copy.enrollmentGroups.EstimatePopoverNote}}</em></small>
+  </p>
+  <p ng-show="!$parent.isEstimate" class="popover-note">
+    <small><em>{{$parent.copy.enrollmentGroups.AptcNote}}</em></small>
+  </p>
+</script>
+
+<script type="text/ng-template" id="application-plan-details.html">
+  <div class="group clearfix">
+    <h3 class="screen-reader-only">Plan For:</h3>
+    <div class="family-members span3 clearfix">
+      <family-members-list family="group.members" context="cart"></family-members-list>
+    </div>
+    <div class="plan-info-container span9 row-fluid clearfix">
+      <div class="plan-summary span12 clearfix">
+        <div class="plan row-fluid clearfix" ng-show="group.selectedPlan">
+          <div class="span8">
+            <div class="plan-image span6">
+              <a href="{{ group.selectedPlan.detailsUrl }}" uses-ng-location="" limit-to-section="shop-and-compare">
+                <img class="carrier-logo pull-left clearfix" ng-src="{{ group.selectedPlan.carrierLogo }}" alt="{{ group.selectedPlan.carrierName}}" name="CarrierLogo"/>
+              </a>
+            </div>
+            <div class="coverage-info span6 clearfix">
+              <span class="coverage-includes">{{copy.CoverageIncludes}}:</span>
+              <plan-icons class="clearfix" plan="group.selectedPlan" network-text="$parent.getNetworkText(group.selectedPlan)" dental-text="$parent.getCoverageText(group.selectedPlan.hasDentalCoverage, 'Dental')" vision-text="$parent.getCoverageText(group.selectedPlan.hasVisionCoverage, 'Vision')"></plan-icons>
+            </div>
+            <div class="row-fluid">
+              <div class="plan-text span12">
+                <h4 title="{{group.selectedPlan.planName}}">{{group.selectedPlan.planName}}</h4>
+                <div class="row-fluid">
+                  <div class="plan-controls span12">
+                    <button type="button" class="btn-small btn btn-flat plan-details" name="PlanDetails" ng-click="$parent.goToPlanDetails(group)">
+                      {{copy.PlanDetails}} <i class="oe-icon-double-chevron-right-16"></i>
+                    </button>
+                    <button type="button" class="btn-small btn btn-flat plan-remove" ng-click="$parent.removePlan(group)" name="RemoveSelectedPlan" ng-show="$parent.canRemove(group)">
+                      <i class="oe-icon-remove-16"></i> {{copy.Remove}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span4">
+            <div class="coverage-starts span12 clearfix row-fluid">
+              <p class="coverage-date-label hidden-phone">{{copy.CoverageStarts}}:</p>
+              <p name="CoverageDateStart" class="coverage-date hidden-phone">{{ group.selectedPlan.effectiveDate }}</p>
+              <div class="coverage-date-info hidden-desktop hidden-tablet visible-phone">
+                <p class="coverage-date-label">{{copy.CoverageStarts}}:</p>
+                <p name="CoverageDateStart" class="coverage-date">{{ group.selectedPlan.effectiveDate }}</p>
+              </div>
+              <div class="plan-premium span12 {{group.selectedPlanType()}}">
+                <span ng-show="!group.hasQhpPlan()">{{copy.MonthlyCost}}:</span>
+                <p class="h2-style calculated-premium" name="MonthlyCost">{{$parent.getPlanPremium(group) | currency}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="plan-tiles-template.html">
+  <div class="plan-tiles" ng-show="enrollmentGroups.length > 0">
+    <div ng-repeat="group in enrollmentGroups" ng-init="plan = group.selectedPlan" class="row-fluid enrollment-group">
+      <shopping-cart-group group="group" copy="copy" from-cart="false"></shopping-cart-group>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="shopping-cart-group-template.html">
+  <div class="cart-enrollment-group clearfix row-fuid" ng-class="{'no-plan': !group.selectedPlan}" name="CartTile">
+    <span class="screen-reader-only">Who's Covered:</span>
+    <div class="family-members span3 clearfix">
+      <family-members-list family="group.members"></family-members-list>
+    </div>
+    <div class="plan-info-container span9 row-fluid clearfix">
+      <div class="plan-summary clearfix" ng-class="{span8: fromCart, span12: !fromCart}">
+        <span class="screen-reader-only">Which Plan:</span>
+        <div class="plan row-fluid clearfix aria-hidden-helper" ng-show="group.selectedPlan" aria-show-hide="!group.selectedPlan">
+          <div class="span8">
+            <div class="plan-image span6">
+              <a href="{{ group.selectedPlan.detailsUrl }}" uses-ng-location="" limit-to-section="shop-and-compare" ng-show="fromCart">
+                <img class="carrier-logo pull-left clearfix" ng-src="{{ group.selectedPlan.carrierLogo }}" alt="{{ group.selectedPlan.carrierName}}" name="CarrierLogo"/>
+              </a>
+              <img class="carrier-logo pull-left clearfix" ng-src="{{ group.selectedPlan.carrierLogo }}" alt="{{ group.selectedPlan.carrierName}}" name="CarrierLogo" ng-show="!fromCart"/>
+            </div>
+            <div class="row-fluid">
+              <div class="plan-text span12">
+                <h4 title="{{group.selectedPlan.planName}}" name="PlanName" class="plan-name">{{group.selectedPlan.planName}}</h4>
+                <div class="row-fluid" ng-show="fromCart">
+                  <div class="plan-controls span12">
+                    <button type="button" class="btn-small btn btn-flat plan-details" name="PlanDetails" ng-click="$parent.goToPlanDetails(group)">
+                      {{copy.PlanDetails}} <i class="oe-icon-double-chevron-right-16"></i>
+                    </button>
+                    <button type="button" class="btn-small btn btn-flat plan-remove" ng-click="$parent.removePlan(group)" name="RemoveSelectedPlan" ng-show="$parent.canRemove(group)">
+                      <i class="oe-icon-remove-16"></i> {{copy.Remove}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span4" ng-class="fromCart? '' : 'last-span'">
+            <div class="coverage-starts span12 clearfix row-fluid" aria-show-hide="!group.selectedPlan">
+              <p class="coverage-date-label hidden-phone aria-hidden-helper" aria-hidden="!group.selectedPlan">{{copy.CoverageStarts}}:</p>
+              <p name="CoverageDateStart" class="coverage-date hidden-phone aria-hidden-helper" aria-hidden="!group.selectedPlan">{{ effectiveDate }}</p>
+              <div class="coverage-date-info hidden-desktop hidden-tablet visible-phone">
+                <p class="coverage-date-label">{{copy.CoverageStarts}}:</p>
+                <p name="CoverageDateStart" class="coverage-date">{{ effectiveDate }}</p>
+              </div>
+              <div class="plan-premium span12 {{group.selectedPlanType()}}" aria-hidden="true">
+                <monthly-cost-popover ng-show="group.hasQhpPlan()" plan="group.selectedPlan" selected-plan-type="{{group.selectedPlanType()}}" group="group"></monthly-cost-popover>
+                <span ng-show="!group.hasQhpPlan()">{{copy.MonthlyCost}}:</span>
+                <p class="h3-style calculated-premium" name="MonthlyCost" aria-hidden="true">{{group.pocketCost | currency}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="plan no-plans clearfix" ng-show="!group.selectedPlan">
+          <p name="NoCoverageSelected" class="aria-hidden-helper" aria-show-hide="group.selectedPlan">{{copy.NoCoverageSelected}}</p>
+        </div>
+      </div>
+      <div class="plan-status clearfix {{$parent.getPlanStatusClass(group)}}" ng-show="fromCart" ng-class="{span4: fromCart}">
+        <span class="screen-reader-only">Plan Status:</span>
+        <div class="plan-actions clearfix row-fluid">
+          <div class="text-success action span12 aria-hidden-helper" ng-show="$parent.isStatusApplyOnline(group)">
+            <div class="apply-online">
+              <div class="span2 icon">
+                <i class="oe-icon-edit-24"></i>
+              </div>
+              <div class="span10 status-info">
+                <p class="aria-hidden-helper" aria-show-hide="!$parent.isStatusApplyOnline(group)">
+                  <span class="action-name">{{copy.ApplyOnline}}</span>
+                </p>
+                <small>
+                  <popover-dynamic class="popover-link" popover-title="copy.ApplyOnline" popover-content="copy.ExplainApplyOnline" link-text="copy.ExplainThis" name="ApplyOnlineExplanation"></popover-dynamic>
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="text-info action" ng-show="$parent.isStatusCallRequired(group)">
+            <div class="call-required">
+              <div class="span2 icon">
+                <i class="oe-icon-voice-check-24" ng-show="group.applicationType()==='Voice Signature'"></i>
+                <i class="oe-icon-phone-24" ng-show="group.applicationType()==='Voice Application'"></i>
+              </div>
+              <div class="span10 status-info">
+                <span class="action-name" aria-hidden="true">
+                  <small>{{copy.CallRequired}}</small>
+                </span>
+                <br/>
+                <span class="application-type">{{group.applicationType()}}</span>
+                <br/>
+                <small>
+                  <popover-dynamic class="popover-link" popover-title="group.applicationType()" popover-content="copy.ExplainVoiceApplication" link-text="copy.ExplainThis" name="VoiceApplicationExplanation"></popover-dynamic>
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="action" ng-show="$parent.isStatusShopNow(group)">
+            <div class="shop-now aria-hidden-helper" aria-show-hide="!$parent.isStatusShopNow(group)">
+              <button class="btn btn-flat btn-small action-link" ng-click="$parent.goToShopAndCompare(group)" name="ShopNowButton">
+                {{copy.ShopNow}} <i class="oe-icon-double-chevron-right-16"></i>
+              </button>
+            </div>
+          </div>
+          <div class="gray-back action" ng-show="$parent.isStatusViewPendingApps(group)">
+            <div class="view-applications">
+              <div class="span2 icon">
+                <i class="oe-icon-check-24"></i>
+              </div>
+              <div class="span10 status-info aria-hidden-helper" aria-show-hide="!$parent.isStatusViewPendingApps(group)">
+                <button class="btn btn-link action-link" ng-click="$parent.goToHouseholdApplicationAndPolicies(group)" name="ViewApplicationsButton">
+                  {{copy.ViewPendingApplications}} <i class="oe-icon-double-chevron-right-16"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="text-info action" ng-show="$parent.isStatusContinueShopping(group)">
+            <div class="continue-shopping span12">
+              <div class="span2 icon">
+                <i class="oe-icon-flag-24"></i>
+              </div>
+              <div class="span10 status-info">
+                <p aria-hidden="true">
+                  <span class="action-name">
+                    <small>{{copy.ActionRequired}}</small>
+                  </span>
+                  <strong>
+                    <button class="btn btn-link action-link" name="ContinueShopping" ng-click="$parent.goToShopAndCompare(group)">
+                      {{copy.ContinueShopping}}<i class="oe-icon-double-chevron-right-16"></i>
+                    </button>
+                  </strong>
+                </p>
+                <small>
+                  <popover-dynamic class="popover-link" popover-title="copy.AllApplicantsNeedCoverage" link-text="copy.AllApplicantsNeedCoverage" popover-content="copy.ExplainAllApplicantsNeedCoverage" name="AllApplicantsNeedCoverage"></popover-dynamic>
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="estimateTaxCreditModal.html">
+  <div modal-class="tax-credit-modal" name="estimateModal" dialog2="esitmateTaxCredit" modal-header="Estimate Your Premium Tax Credit" ok-text="'Close'" visible="modalVisible" on-ok="closeModal()" loading="loading">
+    <p>
+      Premium tax credit amounts are based on your household's size and total income. Please enter the estimated <strong>annual income for your household</strong> below.
+    </p>
+    <fieldset>
+      <legend class="label-style">{{tokens.householdIncome()}}</legend>
+      <oe-money-field input-class="span2" label="Total Household Income" change="magiChanged()" model="magi"></oe-money-field>
+    </fieldset>
+    <fieldset>
+      <legend class="label-style">IS OTHER HEALTH COVERAGE AVAILABLE?</legend>
+      <oe-single-checkbox model="$parent.isCovered" inner-id="coverage" on-change="otherCoverageAvailableChanged()">yes</oe-single-checkbox>
+    </fieldset>
+    <fieldset ng-show="showPregnancyQuestion()">
+      <legend class="label-style">ARE ANY FEMALE HOUSEHOLD MEMBERS PREGNANT?</legend>
+      <oe-radio-checkboxes model="isPregnant" legend-classes="'label-style-borderless'" items="isPregnantItems"></oe-radio-checkboxes>
+    </fieldset>
+    <fieldset ng-show="showPossiblePregnantFemales()">
+      <legend class="label-style">PLEASE INDICATE WHO IS CURRENTLY PREGNANT</legend>
+      <no-border-checkbox list="females" check-model="isPregnant" stringify="displayPossiblePregnantFemales"></no-border-checkbox>
+    </fieldset>
+    <hr/>
+    <div style="text-align: center;" class="text-section">
+      <div class="loader smaller-loader" ng-show="loadingEstimate"></div>
+      <div id="estimate-output" ng-show="!loadingEstimate">
+        <p ng-show="showDefaultMessage()">Your estimate will appear here.</p>
+        <p id="coverage-chosen-message" ng-show="isCovered">Because you have other health insurance coverage you may not be eligible for tax credits to help lower your health coverage costs.</p>
+        <p id="estimate-display" ng-show="showEstimate() || showEstimateWithPregnantFemales()">Your household may be eligible for a premium tax credit of {{monthlyAptcAmount | currency}}/month</p>
+        <p ng-show="showSelectFamilyMember()">Please select any female household members who are currently pregnant</p>
+        <div ng-show="showFamilyMemberEstimate()">
+          <p class="not-bold">Based on the information you provided, the following household members may be eligible for low- or no-cost health coverage administered by your state:</p>
+          <ul>
+            <li ng-repeat="member in allReducedCostMembers">{{member.memberName}}<span ng-show='member.age'>, {{member.age}}</span></li>
+          </ul>
+        </div>
+        <div ng-show="medicareEligible">
+          <p class="not-bold">Based on the information you provided, these members may be eligible for Medicare:</p>
+          <ul>
+            <li ng-repeat="member in medicareEligibleMembers">{{member.memberName}}<span ng-show='member.age'>, {{member.age}}</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="select-appointment-times.html">
+  <div class="clearfix hide picker">
+    <div class="select-tumbler select-day" ng-init="getDays()">
+      <div class="previous" ng-click="prevDay($event)">
+        <a href="#" class="btn btn-primary btn-square" style="width:auto; position:relative">
+          <span ng-hide="prevDayIsDisabled()">&#9650;</span>
+        </a>
+      </div>
+      <div class="tumbler-items days" title="Use the up and down arrow to change days.">
+        <span class="day-item"></span>
+        <span class="day-item"></span>
+        <span ng-repeat="day in model.availableDays" ng-class="{selected: isDaySelected(day)}" class="day-item day-{{$index+1}}">
+          {{day | date: 'EEE'}}<strong> {{day | date: 'MMM dd'}}</strong><input type="hidden" value="{{day}}"/>
+        </span>
+        <span class="day-item"></span>
+        <span class="day-item"></span>
+      </div>
+      <div class="next" ng-click="nextDay($event)">
+        <a href="#" class="btn btn-primary btn-square" style="width:auto; position:relative">
+          <span ng-hide="nextDayIsDisabled()">&#9660;</span>
+        </a>
+      </div>
+    </div>
+    <div class="select-tumbler select-time">
+      <div class="previous" ng-click="prevTime($event)">
+        <a href="#" class="btn btn-primary btn-square" style="width:auto; position:relative; height=2">
+          <span ng-hide="prevTimeIsDisabled()">&#9650;</span>
+        </a>
+      </div>
+      <div class="tumbler-items times" title="Use the up and down arrow to change times.">
+        <span class="time-item"></span>
+        <span class="time-item"></span>
+        <span ng-repeat="time in model.availableTimes" class="time-item time-{{$index+1}}" ng-class="{selected: isTimeSelected(time)}">
+          <strong>{{time}}</strong>
+          <input type="hidden" value="{{time}}"/>
+        </span>
+        <span class="time-item"></span>
+        <span class="time-item"></span>
+      </div>
+      <div class="next" ng-click="nextTime($event)">
+        <a href="#" class="btn btn-primary btn-square" style="width:auto; position:relative">
+          <span ng-hide="nextTimeIsDisabled()">&#9660;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="share-scheduled-call-modal.html">
+  <div>
+    <div name="shared:scheduleAppointment" dialog="exp" visible="show" modal-header="'Share your Scheduled Call?'" ok-text="'Next'" cancel-text="'Cancel'" on-ok="ok()" on-cancel="cancel()" ng-cloak="">
+      <p>Additional memebers of your household are Medicare-eligible. Would you like to share your scheduled call with them? </p>
+
+      <small>
+        <em>Scheduling a call for:</em>
+      </small>
+      <div class='disabled-form oe-checkbox'>
+        <input class='oe-checkbox-input modified-checkbox clearfix' checked="checked" type='checkbox' disabled=''/>
+        <label class='label-style clearfix' for='{{ id }}'>
+          <i class='image-check'></i>
+          <span class='extras'>
+            {{applicant()}}
+          </span>
+        </label>
+      </div>
+
+      <small>Share my scheduled call with:</small>
+      <div ng-repeat="additionalApplicant in additionalApplicants() track by $index">
+        <oe-checkbox model="isChecked" inner-id="{{additionalApplicant.CustomerPersonId}}">{{additionalApplicant.Name}}</oe-checkbox>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="schedule-call-modal.html">
+  <div ng-controller="ScheduleCallController">
+      <div ng-show="hasAdditionalApplicants()" name="shared:dedicatedDateTimeAditionalApplicants" dialog="exp" visible="show && hasAddtionalApplicants()" modal-header="'Select Your Dedicated Date & Time'" ok-text="'Select'" cancel-text="'Back'" on-ok="onScheduleAppointment()" on-cancel="back()" ng-cloak="">
+        <div ng-show="isButtonDisabled()">
+          <p>Oops. Something has gone wrong, there are no upcoming call times available to select. Call us.</p>
+        </div>
+        <div ng-hide="isButtonDisabled()" class="picker-container">
+          <select-appointment-times></select-appointment-times>
+        </div>
+      </div>
+
+      <div ng-show="!hasAdditionalApplicants()" name="shared:dedicatedDateTimeNotAdditionalApplicants" dialog="exp" visible="show" modal-header="'Select Your Dedicated Date & Time'" ok-text="'Select'" cancel-text="'Cancel'" on-ok="onScheduleAppointment()" on-cancel="cancel()" ng-cloak="">
+        <div ng-show="isButtonDisabled()">
+          <p>Oops. Something has gone wrong, there are no upcoming call times available to select. Call us.</p>
+        </div>
+        <div ng-hide="isButtonDisabled()" class="picker-container">
+          <select-appointment-times></select-appointment-times>
+        </div>
+      </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="no-call-required-alert.html">
+  <div ng-show="show" class="alert alert-success fade in">
+    <strong>A Scheduled Call is not Required. Please Call Us Directly.</strong>
+    <p>This application requires a telephone call before it can be finalized. To finalize your application please call us during business hours.</p>
+    <strong>
+      {{phone}}<br/>
+      Mon-Fri <call-center-times></call-center-times>
+    </strong>
+  </div>
+</script>
+
+<!--updated angular references to correct paths-->
+<script type="text/ng-template" id="scheduled-appointment.html">
+  <div class="scheduled-appointment">
+    <label class="label-style display-only">Call scheduled</label>
+    <p>
+      On<strong class="due-date"> {{appointment.DueDate}}</strong><br/>
+      at<strong class="due-time"> {{appointment.Time}} {{appointment.TimeZone}}</strong><br/>
+      call us at<strong> {{appointment.Phone}}</strong>(TTY: 711).
+    </p>
+    <label class="label-style display-only">Participants</label>
+    <p>
+      <strong ng-repeat="participant in getParticipants()">{{participant.Name}}<br/></strong>
+    </p>
+    <div>
+      <button class="btn" ng-click="rescheduleAppointment(appointment.Reschedule)">Reschedule</button>
+    </div>
+    <div>
+      <button class="btn-link" ng-click="cancelAppointment()">Cancel Scheduled Call</button>
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="schedule-call.html">
+  <div>
+    <share-scheduled-call-modal show="showShareCall" cancel="cancel()" ok="showScheduleCallDialog()" the-applicant="primaryUser(group)" additional-applicants="additionalMedicareApplicants(group)"></share-scheduled-call-modal>
+    <schedule-call-modal show="showScheduleCall" cancel="cancel()" back="back()" ok="scheduleAppointment()" person-id="{{bucket.model.PersonToScheduleId}}" has-additional-applicants="hasAdditionalMedicareApplicants(group)"></schedule-call-modal>
+    <scheduled-appointment ng-show="showAppointment"></scheduled-appointment>
+    <no-call-required-alert show="showNoCallRequiredAlert" phone="{{bucket.model.CampaignPhone}} (TTY: 711)"></no-call-required-alert>
+    <div name="shared:cancelAppointmentConfirm" dialog="exp" visible="showConfirmDialog" modal-header="'Confirm Cancellation'" ok-text="'Cancel call'" cancel-text="'Cancel'" on-ok="confirmCancellation()" on-cancel="stopCancellation()" ng-cloak="">
+      <p>Are you sure?</p>
+    </div>
+  </div>
+</script>
+
+<estimate-tax-credit-modal></estimate-tax-credit-modal>
+
+    <div class="container">
+      <div class="main">
+        <div class="inner-main" id="mainContent" role="main"><div class="oe-content loader initial-loader visible page-cover" toggle-after-load="coverLoaded" urls="
+  /public/images/OX-headline-background-sprite-ie.png,
+  /public/styles/webfonts/286692_0_0.eot,
+  /public/styles/webfonts/286692_0_0.eot?#iefix,
+  /public/styles/webfonts/286692_0_0.woff,
+  /public/styles/webfonts/286692_0_0.ttf,
+  /public/styles/webfonts/286692_0_0.svg#wf,
+  /public/styles/webfonts/286692_1_0.eot,
+  /public/styles/webfonts/286692_1_0.eot?#iefix,
+  /public/styles/webfonts/286692_1_0.woff,
+  /public/styles/webfonts/286692_1_0.ttf,
+  /public/styles/webfonts/286692_1_0.svg#wf,
+  /public/styles/webfonts/286692_2_0.eot,
+  /public/styles/webfonts/286692_2_0.eot?#iefix,
+  /public/styles/webfonts/286692_2_0.woff,
+  /public/styles/webfonts/286692_2_0.ttf,
+  /public/styles/webfonts/286692_2_0.svg#wf" ng-class="{ 'visible' : !coverLoaded }"></div>
+
+          
+
+
+<div class="row-fluid login-page" style="position:relative;">
+  <div class="span10">
+    <div class="row-fluid medicare-link">
+      <div id="looking-for">
+        <strong>What are you looking for?</strong>
+      </div>
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a>
+            Health Insurance<i class="oe-icon-chevron-down-16"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://medicare.oneexchange.com/" id="MedicareLinkButton" class="btn btn-mini">Medicare Insurance<i class="oe-icon-chevron-right-16"></i></a>
+        </li>
+      </ul>
+    </div>    
+
+
+      <div class="row-fluid">
+        <div class="span2 hidden-phone">
+          <div class="cobranded-graphic-background">
+            <div class="cobranded-graphic login-header-graphic"></div>
+          </div>
+        </div>
+        <div class="span10">
+          <h1 class="h1-style login-page-heading">Welcome to OneExchange for Health Insurance</h1>
+        </div>
+      </div>
+      <p class="gray-bottom-bar page-desc">
+        OneExchange is your online resource that makes it easy to find the right health insurance plan. If you're a returning visitor, log in below. If this is your first visit, create an account to get started. <a href="https://medicare.oneexchange.com/" id="MedicareLink">Looking for Medicare?</a>
+      </p>
+      <div class="row-fluid">
+        <div class="span6">
+          <h2 class="h2-style page-header">Sign In</h2>
+          <div class="row-fluid">
+            <div class="span12">
+              <form method="post" action="/login" data-clear-form-elements="[&quot;Password&quot;]" data-form-mode="lofi" data-bootstrap-inline="true" name data-validation-options="{&quot;fields&quot;:[{&quot;field&quot;:&quot;Url&quot;,&quot;mode&quot;:&quot;live&quot;,&quot;rules&quot;:[]},{&quot;field&quot;:&quot;ReturnUrl&quot;,&quot;mode&quot;:&quot;live&quot;,&quot;rules&quot;:[]},{&quot;field&quot;:&quot;UserName&quot;,&quot;mode&quot;:&quot;live&quot;,&quot;rules&quot;:[{&quot;rule&quot;:&quot;required&quot;,&quot;mode&quot;:&quot;triggered&quot;},{&quot;rule&quot;:&quot;email&quot;,&quot;mode&quot;:&quot;triggered&quot;}]},{&quot;field&quot;:&quot;Password&quot;,&quot;mode&quot;:&quot;live&quot;,&quot;rules&quot;:[{&quot;rule&quot;:&quot;required&quot;,&quot;mode&quot;:&quot;triggered&quot;}]},{&quot;field&quot;:&quot;NumberOfTries&quot;,&quot;mode&quot;:&quot;live&quot;,&quot;rules&quot;:[]},{&quot;field&quot;:&quot;Status&quot;,&quot;mode&quot;:&quot;live&quot;,&quot;rules&quot;:[]},{&quot;field&quot;:&quot;Message&quot;,&quot;mode&quot;:&quot;live&quot;,&quot;rules&quot;:[]},{&quot;field&quot;:&quot;RememberMe&quot;,&quot;mode&quot;:&quot;live&quot;,&quot;rules&quot;:[]},{&quot;field&quot;:&quot;LockedOutUntil&quot;,&quot;mode&quot;:&quot;live&quot;,&quot;rules&quot;:[]}],&quot;elementTimeout&quot;:1000}" autocomplete="off" class="activated-form validated-form"><div role="alert" class="alert alert-error alert-summary" style="display:none"><p class="h4-style">Oops!</p><p>Please review the highlighted errors.</p></div>
+                <div class="row-fluid">
+                  <div class="control-group"><label for="UserName" class="label-style">Email</label><div class="controls"><input type="text" value="" name="UserName" id="UserName" required aria-required="true" data-localization="{&quot;Messages&quot;:{&quot;required&quot;:&quot;Required Field&quot;,&quot;email&quot;:&quot;Please use a valid email address.&quot;}}" data-localized-label="UserName" autocomplete="off" trim-email-submit="" class="required email span10" /></div></div>
+                </div>
+                <div class="row-fluid">
+                  <div class="control-group"><label for="Password" class="label-style">Password</label><div class="controls"><input type="password" value="" name="Password" id="Password" required aria-required="true" data-localization="{&quot;Messages&quot;:{&quot;required&quot;:&quot;Required Field&quot;}}" data-localized-label="Password" autocomplete="off" class="required span10" /><a href="/forgot/password" id="forgot-link" class="btn-link pull-right span4">Forgot?</a></div></div>
+                </div>
+                <div class="row-fluid">
+                  <div class="span10">
+                    <input type="hidden" name="Url" value="~/"/>
+                    <input formnovalidate class="btn btn-primary pull-right login-btn" type="submit" value="Sign In" />
+                  </div>
+                </div>
+                </form>
+              </div>
+          </div>
+        </div>
+        <div class="span6">
+          <h2 class="h2-style page-header">Create an Account</h2>
+          <p>Are you a first-time visitor?</p>
+          <a href="/register" class="btn btn-primary">Create an Account</a>
+      </div>
+      </div>
+    </div>
+  <div class="cobrand-graphic login-graphic hidden-phone">
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    
+<footer class="clearfix" role="contentinfo">
+  <ul>
+    <li>
+      <a href="/privacy">Privacy Policy</a>
+    </li>
+    <li>
+      <a href="/licensing">Licensing &amp; Legal</a>
+    </li>
+    <li>
+      <a href="/fullsite" class="hidden-desktop">Full Site</a>
+    </li>
+  </ul>
+  <div class="towers-info">
+    <small>Copyright &copy;2015 Towers Watson. All Rights Reserved.</small>
+    <small>Powered by Towers Watson</small>
+    <div class="towers-watson-logo pull-right"></div>
+  </div>
+</footer>
+
+
+    </div><!--
+  Do not move this into css and script files.
+  By doing so, those files can be spoofed, to an external source.
+-->
+    <style type="text/css">
+        #one-exchange-container,
+        #ng-app {
+            display: none;
+        }
+    </style>
+
+
+<script>
+    (function() {
+        var elements = [
+            document.getElementById('one-exchange-container'),
+            document.getElementById('ng-app')
+        ];
+        
+        if(self === top) {
+            for(index in elements) {
+                var element = elements[index];
+                if(element && element.style){
+                    element.style.display = 'block' ;
+                }
+            }
+        } 
+        else {
+            top.location = self.location;
+        }
+    }());
+</script>
+
+
+<div ng-controller="timeoutWarningCtrl" ng-cloak>
+  <div name="timeoutWarning" dialog="exp" modal-header="'Are you still here?'" ok-text="'Yes, I\'ll Stay'" cancel-text="'No, Log Me Out'" on-ok="refreshSession()" on-cancel="endSession()" on-dismiss="refreshSession()" visible="timeoutWarningVisible" reopens-others-on-close="true" reopenable="false">
+    For your protection, you will be logged-out soon due to inactivity. Would you like to stay logged in to OneExchange.com?
+  </div>
+</div>
+
+
+
+<span id="phone" class="visible-phone hidden-desktop hidden-tablet"> </span>
+<span id="tablet" class="visible-tablet hidden-desktop hidden-phone"> </span>
+<span id="desktop" class="visible-desktop hidden-tablet hidden-phone"> </span>
+
+  </body><!--
+  Do not move this into css and script files.
+  By doing so, those files can be spoofed, to an external source.
+-->
+    <style type="text/css">
+        #one-exchange-container,
+        #ng-app {
+            display: none;
+        }
+    </style>
+
+
+<script>
+    (function() {
+        var elements = [
+            document.getElementById('one-exchange-container'),
+            document.getElementById('ng-app')
+        ];
+        
+        if(self === top) {
+            for(index in elements) {
+                var element = elements[index];
+                if(element && element.style){
+                    element.style.display = 'block' ;
+                }
+            }
+        } 
+        else {
+            top.location = self.location;
+        }
+    }());
+</script>
+<script type="text/javascript">
+oeJsRoutes = {"AppointmentAvailableInputModel":{"name":"AppointmentAvailableInputModel","method":"GET","url":"/can/schedule/appointment"},"AppointmentDaysInputModel":{"name":"AppointmentDaysInputModel","method":"GET","url":"/appointment/days"},"AppointmentStatusInputModel":{"name":"AppointmentStatusInputModel","method":"GET","url":"/appointment/status"},"AppointmentStatusTagInputModel":{"name":"AppointmentStatusTagInputModel","method":"GET","url":"/appointment/status/tag"},"AppointmentTimesInputModel":{"name":"AppointmentTimesInputModel","method":"GET","url":"/appointment/times"},"AuthCheckInputModel":{"name":"AuthCheckInputModel","method":"GET","url":"/auth-check"},"CallToActionDataInputModel":{"name":"CallToActionDataInputModel","method":"GET","url":"/call/to/action/data"},"ContactSettingsInputModel":{"name":"ContactSettingsInputModel","method":"GET","url":"/contact/callcenter"},"DetailedLocalityLookupModel":{"name":"DetailedLocalityLookupModel","method":"GET","url":"/detailed/locality"},"EnrollmentGroupsInputModel":{"name":"EnrollmentGroupsInputModel","method":"GET","url":"/shop-and-compare/enrollment-groups-data"},"EnrollmentGroupsPlanCountInputModel":{"name":"EnrollmentGroupsPlanCountInputModel","method":"GET","url":"/enrollment/group/plan/count"},"ExistingFamilyInputModel":{"name":"ExistingFamilyInputModel","method":"GET","url":"/existing/family"},"GetAptcInputModel":{"name":"GetAptcInputModel","method":"GET","url":"/aptc"},"HouseholdOverviewInputModel":{"name":"HouseholdOverviewInputModel","method":"GET","url":"/household/overview"},"LocalityLookupModel":{"name":"LocalityLookupModel","method":"GET","url":"/locality"},"LoginRequest":{"name":"LoginRequest","method":"GET","url":"/login"},"NonQhpQuoteResultsInputModel":{"name":"NonQhpQuoteResultsInputModel","method":"GET","url":"/shop-and-compare/non-qhp-quote-results"},"PlanDetailsInfoModel":{"name":"PlanDetailsInfoModel","method":"GET","url":"/shop-and-compare/json-plan-details/plan"},"QuoteResultsInputModel":{"name":"QuoteResultsInputModel","method":"GET","url":"/shop-and-compare/qhp-quote-results"},"ShopAndCompareDataInputModel":{"name":"ShopAndCompareDataInputModel","method":"GET","url":"/shop-and-compare/data"},"ShopAndCompareInputModel":{"name":"ShopAndCompareInputModel","method":"GET","url":"/shop-and-compare"},"SimplePlanDetailsModel":{"name":"SimplePlanDetailsModel","method":"GET","url":"/plan/details"},"SiteCopyInputModel":{"name":"SiteCopyInputModel","method":"GET","url":"/site-copy"},"PharmacySearchModel":{"name":"PharmacySearchModel","method":"GET","url":"/pharmacies"},"TimeoutModel":{"name":"TimeoutModel","method":"GET","url":"/timeout/info"},"TimeoutRefreshModel":{"name":"TimeoutRefreshModel","method":"GET","url":"/timeout/refresh"},"FeatureAvailabilityInputModel":{"name":"FeatureAvailabilityInputModel","method":"GET","url":"/feature/availability"},"ScheduleAppointmentInputModel":{"name":"ScheduleAppointmentInputModel","method":"GET","url":"/schedule/appointment"},"AddressModel":{"name":"AddressModel","method":"POST","url":"/address"},"MailingAddressModel":{"name":"MailingAddressModel","method":"POST","url":"/mailingaddress"},"CancelAppointmentInputModel":{"name":"CancelAppointmentInputModel","method":"POST","url":"/cancel/appointment"},"CheckDateInputModel":{"name":"CheckDateInputModel","method":"POST","url":"/check/date"},"CheckoutInputModel":{"name":"CheckoutInputModel","method":"POST","url":"/checkout"},"ConfirmScheduledAppointment":{"name":"ConfirmScheduledAppointment","method":"POST","url":"/confirm/appointment"},"EligibilityEstimateInputModel":{"name":"EligibilityEstimateInputModel","method":"POST","url":"/eligibility/estimate"},"HouseholdMemberHomeAddress":{"name":"HouseholdMemberHomeAddress","method":"POST","url":"/household/information"},"HouseholdMemberInformation":{"name":"HouseholdMemberInformation","method":"POST","url":"/householdmember"},"NewHouseholdMemberInformation":{"name":"NewHouseholdMemberInformation","method":"POST","url":"/newhouseholdmember"},"PersistAptcInputModel":{"name":"PersistAptcInputModel","method":"POST","url":"/persist/aptc"},"PlanInfoInputModel":{"name":"PlanInfoInputModel","method":"POST","url":"/carrier-review/plan"},"ReviewAndSignViewModel":{"name":"ReviewAndSignViewModel","method":"POST","url":"/_buckets/fdb765b4f046d438c543319ad64b208d"},"SaveEnrollmentGroupsInputModel":{"name":"SaveEnrollmentGroupsInputModel","method":"POST","url":"/save/enrollment/groups"},"ShoppingCartCheckoutInputModel":{"name":"ShoppingCartCheckoutInputModel","method":"POST","url":"/shopping-cart/checkout"},"ShoppingCartDataInputModel":{"name":"ShoppingCartDataInputModel","method":"POST","url":"/shopping-cart/data"},"ShoppingCartRemoveInputModel":{"name":"ShoppingCartRemoveInputModel","method":"POST","url":"/shopping-cart/remove"},"ShoppingCartSaveInputModel":{"name":"ShoppingCartSaveInputModel","method":"POST","url":"/shopping-cart/save"},"ShoppingCartReplaceInputModel":{"name":"ShoppingCartReplaceInputModel","method":"POST","url":"/shopping-cart/replace"},"SubmitPlanPreviewInputModel":{"name":"SubmitPlanPreviewInputModel","method":"POST","url":"/submit/plan/preview"},"IntegratedCheckoutInputModel":{"name":"IntegratedCheckoutInputModel","method":"POST","url":"/integrated-checkout"},"LimitedPlansAlertInputModel":{"name":"LimitedPlansAlertInputModel","method":"GET","url":"/alert/for/current/user"},"RelationshipTypesInputModel":{"name":"RelationshipTypesInputModel","method":"GET","url":"/relationship-types"},"StateCodesInputModel":{"name":"StateCodesInputModel","method":"GET","url":"/state/codes"},"NonMarketPlaceSignApplicationInputModel":{"name":"NonMarketPlaceSignApplicationInputModel","method":"POST","url":"/integrated-checkout/sign-application"},"HraSignatureInputModel":{"name":"HraSignatureInputModel","method":"GET","url":"/hra/signature/data"},"HraChoiceHelperInputModel":{"name":"HraChoiceHelperInputModel","method":"GET","url":"/hra/allocation/amounts"},"EligibilityEstimateGetInputModel":{"name":"EligibilityEstimateGetInputModel","method":"GET","url":"/eligibility/estimate"},"HraServiceInputModel":{"name":"HraServiceInputModel","method":"GET","url":"/current/hra"},"FundingChoiceInputModel":{"name":"FundingChoiceInputModel","method":"POST","url":"/choose/funding"},"IntegratedSummaryInputModel":{"name":"IntegratedSummaryInputModel","method":"POST","url":"/checkout-summary"}};
+</script>
+<script type="text/javascript">window.featureSettings = {"QuotingFeaturesEnabled":true,"EnrollmentFeaturesEnabled":false,"FfmFeaturesEnabled":false,"NonQhpFplThreshold":400,"CompareEnabled":true,"AnnualEnrollmentStartDay":"\/Date(1416034800000)\/","AnnualEnrollmentEndDay":"\/Date(1425106800000)\/","SyncEnabled":true,"FfmRedirectEnabled":false,"MedicareCardBucketEnabled":false,"AdditionalMedicareDetailsBucketEnabled":false,"PharmacyBucketEnabled":false,"PowerOfAttorneyBucketEnabled":false,"ClientsideTimeoutEnabled":true,"FundingOptionsBucketEnabled":false,"CampaignImportEnabled":false,"AllowDateSelection":false,"FundingSourceExpirationInMinutes":3,"HouseholdApplicationsExpirationInMinutes":0,"PlanDiscardModalEnabled":true,"IdeaEnrollmentEnabled":false,"AllowAllCallsToAction":false,"EnableCustomerSurveys":true,"EnableSendAgentAwayInCheckout":true,"EnableAppsAndPoliciesPlanDetails":false};window.contextualData = {"SurveyEnabled":true};</script>
+<script src="/public/scripts/lib/require.js" data-main="/public/scripts/main.js"></script>
+
+<script type="text/javascript" src="/public/scripts/one-exchange.google-analytics.js"></script>
+  <!--BEGIN QUALTRICS SITE INTERCEPT-->
+  <div id='ZN_cZIRdhtsIYAfcAl'>
+    <!--DO NOT REMOVE-CONTENTS PLACED HERE-->
+  </div>
+  <!--END SITE INTERCEPT-->
+
+
+
+</html>
+";i:2;s:4:"3507";}

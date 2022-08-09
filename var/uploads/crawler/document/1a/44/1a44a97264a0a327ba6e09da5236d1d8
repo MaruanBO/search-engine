@@ -1,0 +1,461 @@
+a:3:{i:0;s:20:"http://localbuzz.us/";i:1;s:23517:"<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="LocalBuzz is a great online resource for finding information and insights on local businesses and retailers." />
+<title>Localbuzz</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link rel="stylesheet" href="/resources/css/main.less" type="text/less" media="screen" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700italic,700,900,900italic' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="/resources/css/skins/square/blue.css" rel="stylesheet">
+    <link href="/resources/css/skins/flat/green.css" rel="stylesheet">
+    <link href="/resources/css/app.css" rel="stylesheet">
+    <link href='//api.tiles.mapbox.com/mapbox.js/v1.4.2/mapbox.css' rel='stylesheet' />
+    <script src="/resources/vendor/less-1.3.1.min.js" type="text/javascript"></script>
+    <script src="/resources/vendor/respond.min.js"></script>
+    <script src="/resources/vendor/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="/resources/vendor/alertify.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/resources/vendor/jquery.selectbox-0.2.js"></script>
+    <script type="text/javascript" src="/resources/vendor/jquery.simplemodal.js"></script>
+    <script type="text/javascript" src="/resources/js/app.js"></script>
+    <script type="text/javascript" src="/resources/js/layouts_main.js"></script>
+    <script src="/resources/vendor/icheck.js"></script>
+    <script src="/resources/vendor/jquery.colorbox-min.js"></script>
+    <script src='//api.tiles.mapbox.com/mapbox.js/v1.4.2/mapbox.js'></script>
+        <script type="text/javascript" src="http://csr.inspsearchapi.com/lib/infospace.search.js"></script>
+    <script src="http://cdn.trackingmax.com/sockjs-0.3.min.js"></script>
+    <script src="/resources/vendor/handlebars-v1.3.0.js"></script>
+</head>
+<body>
+<div id="locationSelectWidget" style="display: none;">
+  <div>
+    <form action="/locationSelectWidget" id="locationSelectWidgetForm">
+      <div class="col12">
+        <div class="col12">
+          <div class="rowSmall">
+            <h3>Please select your location</h3>
+            <h4>Our service is currently targeted only for US and Canada users</h4>
+          </div>
+          <div class="col1">USA</div>
+          <div class="col1">
+            <input type="radio" value="US" name="lsw_country" checked="checked" />
+          </div>
+          <div class="col2">Canada</div>
+          <div class="col2">
+            <input type="radio" value="CA" name="lsw_country" />
+          </div>
+        </div>
+        <div id="lsw_usa">
+          <div class="rowSmall">
+            <div class="col3">
+              <label>Enter Your Zip Code</label>
+              <input class="input" type="text" id="lsw_us_zip" />
+            </div>
+            <div class="col1">
+              <label>&nbsp;</label>
+              <img src="/resources/img/preloaders/circle_32.gif" alt="loading" id="lsw_loader" style="display: none" />
+            </div>
+          </div>
+
+          <div class="rowSmall">
+            <div class="col4">
+              <label>Or Select State </label>
+              <select class="input" style="line-height:14px; padding:5px; " id="lsw_state" name="state">
+              <option value="" selected="selected">Select a State</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+            </div>
+            <div class="col3" id="lsw_city_container" style="display: none">
+              <label>Select City </label>
+              <select class="input" style="line-height:14px; padding:5px;" id="lsw_city"></select>
+            </div>
+            <div class="col5" id="lsw_citytext_container" style="display: none" >
+              <label>Type city if not found in the list</label>
+              <input type="text" id="lsw_citytext" class="input" />
+            </div>
+          </div>
+          <div>
+            <div class="col4" id="lsw_submit_container" style="display: none">
+              <input type="submit" class="blueb" value="Submit" />
+              <input type="hidden" class="blueb" name="backURL" id="backURL" value="http://localbuzz.us/" />
+            </div>
+          </div>
+        </div>
+        <div id="lsw_canada" style="display: none">
+          <div class="rowSmall">
+            <div class="col3">
+              <label>Enter Your Zip Code</label>
+              <input class="input" type="text" id="lsw_canada_zip" />
+            </div>
+            <div class="col1">
+              <label>&nbsp;</label>
+              <img src="/resources/img/preloaders/circle_32.gif" alt="loading" id="lsw_loader_canada" style="display: none" />
+            </div>
+          </div>
+
+          <div class="rowSmall">
+            <div class="col5">
+              <label>Or Select Province </label>
+              <select class="input" style="line-height:14px; padding:5px; " id="lsw_state_canada" name="state">
+                <option value="" selected="selected">Select Province</option>
+                <option value="ON">Ontario</option>
+                <option value="QC">Quebeck</option>
+                <option value="NS">Nova Scotia</option>
+                <option value="NB">New Brunswick</option>
+                <option value="MB">Manitoba</option>
+                <option value="BC">British Columbia</option>
+                <option value="PE">Prince Edward Island</option>
+                <option value="SK">Saskatchewan</option>
+                <option value="AL">Alberta</option>
+                <option value="NL">Newfoundland</option>
+              </select>
+            </div>
+            <div class="col3" id="lsw_city_container_canada" style="display: none">
+              <label>Select City</label>
+              <select class="input" style="line-height:14px; padding:5px; " id="lsw_city_canada"></select>
+            </div>
+            <div class="col4" id="lsw_citytext_container_canada" style="display: none" >
+              <label>City</label>
+              <input type="text" id="lsw_citytext_canada" class="input" />
+            </div>
+          </div>
+          <div class="col4" id="lsw_submit_container_canada" style="display: none">
+            <input type="submit" class="blueb" value="Submit" id="lsw_submit_btn_canada" />
+            <input type="hidden" class="blueb" name="backURL" id="backURL_canada" value="http://localbuzz.us/" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- preload the images -->
+<div style='display:none'>
+    <img src='/resources/img/x.png' alt='' />
+</div>
+
+<script>
+    $('#locationSelectWidget').modal({onClose:function(){
+        //if location not selected and windows closed : select default location
+        var backURL = $('#backURL').val();
+        window.location = '/locationSelectWidget?lsw_country=us&lsw_city='+encodeURI(app.params.lsw_defaultCity)+'&lsw_state='+encodeURI(app.params.lsw_defaultState)+'&backURL='+backURL
+    }});
+</script>
+
+<script src="/resources/vendor/jquery.maskedinput.min.js"></script>
+<script src="/resources/js/locationSelectWidget.js"></script>
+  <div class="wrapper">
+    <header>
+      <div>
+        <a href="/" class="logo"><img src="/resources/img/logo_circle.png" alt="" /></a>
+        <div class="header-searcher">
+          <form action="/search" id="searchbox">
+            <div class="top-search-box">
+              <input type="text" value="" name="searchbox_query" id="searchbox_query" placeholder="Search" onfocus="this.placeholder = ''">
+              <input type="text" class="where-pinbg" value="Singapore" name="searchbox_location" id="searchbox_location" placeholder="e.g. 'New York'" onfocus="this.placeholder = ''">
+              <input type="hidden" value="" name="searchbox_action" id="searchbox_action" />
+              <button><i class="fa fa-search"></i></button>
+            </div>
+          </form>
+        </div>
+
+        <div class="menu-top">
+            <div id="current-page">Home</div>
+            <div id="menu-top-box">
+                <ul>
+                    <li><a id="tm_home" data-desc="Home" href="/">Home</a></li>
+                    <li><a id="tm_guides" data-desc="Guides" href="/guides">Guides</a></li>
+                    <li><a id="tm_shop" data-desc="Products" href="/shop">Products</a></li>
+                    <li><a id="tm_estimates" data-desc="Quotes" href="/services">Quotes</a></li>
+                    <li><a id="tm_local" data-desc="Local" href="/local">Local</a></li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </header>
+    
+  
+    <section class="mainpage-form">
+        <div class="form-main">
+            <span>Find what you need locally</span>
+            <form action="/search" id="searchbox_home">
+              <div class="kind-options col12">
+                <div class="column-formcateg" style="margin-left:98px">
+                    <input type="radio" name="searchbox_action" id="radio_local" class="si_radio" value="local"  > <div class="label-radio-mainpage">Businesses</div>
+                </div>
+                <div class="column-formcateg">
+                    <input type="radio" name="searchbox_action" id="radio_products" class="si_radio" value="shop"> <div class="label-radio-mainpage">Products</div>
+                </div>
+                <div class="column-formcateg">
+                    <input type="radio" name="searchbox_action" id="radio_estimates" class="si_radio" value="services" > <div class="label-radio-mainpage">Estimates</div>
+                </div>
+                <!-- <div class="column-formcateg">
+                    <input type="radio" name="searchbox_action" id="radio_info" class="si_radio" value="guides"> <div class="label-radio-mainpage">Guides</div>
+                </div>  -->
+                <div class="column-formcateg">
+                    <input type="radio" name="searchbox_action" id="radio_all" class="si_radio" value="overview" checked > <div class="label-radio-mainpage">All</div>
+                </div>
+              </div>
+                <div class="col4"><input type="text" value="" id="searchbox_home_query" name="searchbox_query" placeholder="Keywords" /></div>
+                <div class="col5"><input type="text" value="Singapore" id="searchbox_home_location" name="searchbox_location" placeholder="Enter City or ZipCode" /></div>
+                <div class="col3"><input type="submit" value="Search" /> </div>
+            </form>
+        </div>
+    </section>
+    <div class="container">
+        <p class="title-mp">Latest Business Reviews <span id="sloc" style="display: none">From Singapore</span></p>
+        <div id="home_page_latest_business_reviews">
+                <div class="col4 mp-short-loc left index_review">
+                        <div class="map-mainpage" id="map_mainpage_1">
+                                <img src="http://api.tiles.mapbox.com/v3/tmmaps.i8jh5kjm/url-http%3A%2F%2Fs3.amazonaws.com%2Fmapboxpins%2Fblue%2Fpin_new.png(-118.344287,34.065299)/-118.344287,34.065299,12/300x115.png" />
+</div>
+                                                <div class="content-short">
+                            <span class="name-b">Liz's Antique Hardware</span>
+                            <span class="loc-b">453 S La Brea Ave, Los Angeles, CA</span>
+                            <div>
+                                Liz's Is A Neighborhood Institution. Despite Being A Small Store, I've Always Found What I Needed Therethe Staff Is Incredibly Friendly And Helpful And The Prices Are Competitive. Even If You're Someone That Doesn't Care About Supporting Local Businesses, You'd Be A Fool Not To Come Here For Your Home Maintenance/repair Needs.                                <div class="rowSmall"></div>
+                                <a class="more-mainp" href="/local/details/t/gp/id/CoQBeAAAAHFwjLbO342ZZZdJbIz5kDR4QQ2rFpThwEI974lURzxRRLY44vBXGhk4pEdwXesfe9b04F_gKLR7Km7hP91pzyChhGltIiTZIZQQwkJTBOs7xdOxgD7zE0RqgZeYYTMm9PkHPv_8onml5gGwKZ18sGWbZxKVpDj1AvEL8a6BvK-wEhDg0KcSIdwOdqau8NFWIVF7GhReCWcqjrCyYv7ArG0nJLZuDoPYhg"> more »</a>
+                            </div>
+                        </div>
+                </div>
+                <div class="col4 mp-short-loc index_review">
+                        <div class="map-mainpage" id="map_mainpage_2">
+                                <img src="http://api.tiles.mapbox.com/v3/tmmaps.i8jh5kjm/url-http%3A%2F%2Fs3.amazonaws.com%2Fmapboxpins%2Fblue%2Fpin_new.png(-118.384527,34.084265)/-118.384527,34.084265,12/300x115.png" />
+</div>
+                        
+                        <div class="content-short">
+                            <span class="name-b">Koontz Hardware</span>
+                            <span class="loc-b">8914 Santa Monica Blvd, West Hollywood</span>
+                            <div>
+                                A Nylon Pivot Hinge Broke On My Glass Shower Door, Which Is About 25 Years Old.a Search On The Internet Failed To Find Any Replacement Part. Through Word Of Mouth I Was Steered To Koontz Hardware. The Sales Rep Was Very Helpful And Immediately Took Me To The Shelf Where The Exact Parts Were Hanging.                                <div class="rowSmall"></div>
+                                <a class="more-mainp" href="/local/details/t/gp/id/CoQBcgAAAG8etxAPFDcEiqrM1NaU6oLblEfdwU1F0qGy-AQ6PLnvr7DILi1j2zGPvRxNKMgKrUQFymn4B-87ujlGwXgFu4iM0yUSzDxU-l6y8WtkbzYqtgPdnKEZQY6OsawMTN2KBkJhOFIxHeI9C2tvQcCHjX0Hh3qJvnr-BsAQqYR_DeaeEhDH1A6rDAFWILeb8QhjaDKuGhQpMJcdDBsqjKCAntdCczWVFynIUQ"> more »</a>
+                            </div>
+                        </div>
+                </div>
+        </div>
+        <div class="col4 mp-short-fr">
+            <div class="add-your-buss">
+    <div class="title-form">
+        <span style="text-align:center">GET YOUR BUSINESS</span> <br />
+        <span style="font-size:43px">LISTED NOW</span> <br />
+        <p>It's really easy... Create a business profile in minutes and reach 1000s <br />of future customers now!</p>
+    </div>
+    <form id="addYourBusinessForm">
+        <input class="input" type="text" id="aybf_name" placeholder="Business Name">
+        <input class="input" type="text" id="aybf_phone" placeholder="Phone">
+        <input class="input" type="text" id="aybf_email" placeholder="Email">
+        <textarea style="overflow:hidden" class="input" id="aybf_description" placeholder="Short Description"></textarea>
+        <input class="submit" type="submit" value="List My Business">
+    </form>
+</div>
+
+
+<script>
+    function enablePhoneMask(){
+        $("#aybf_phone").mask(app.params.phoneMask);
+    }
+
+    app.whenReady.push({
+        priority:1,
+        run:function(){
+            enablePhoneMask();
+            $('#addYourBusinessForm').on('submit',function(){
+                var name = $('#aybf_name');
+                var phone = $('#aybf_phone');
+                var email = $('#aybf_email');
+                var description = $('#aybf_description');
+
+                app.formError.reset('#addYourBusinessForm');
+                if (!app.validate.name(name.val())||name.val()=='Business Name'){
+                    app.message.error('Please enter business name');
+                    name.focus();
+                    app.formError.set(name);
+                    return false;
+                }
+
+                if (!app.validate.phone_us(phone.val())||phone.val()=='Business Telephone'){
+                    app.message.error('Please enter valid phone number');
+                    phone.focus();
+                    app.formError.set(phone);
+                    return false;
+                }
+
+                if (!app.validate.email(email.val())){
+                    app.message.error('Please enter valid email');
+                    email.focus();
+                    app.formError.set(email);
+                    return false;
+                }
+
+                if (!app.validate.comment(description.val())){
+                    app.message.error('Please enter business description');
+                    description.focus();
+                    app.formError.set(description);
+                    return false;
+                }
+
+                //ok we can redirect to business add form : todo
+                window.location = '/addbusiness?name='+encodeURI(name.val())
+                    +'&phone='+encodeURI(phone.val())
+                    +'&email='+encodeURI(email.val())
+                    +'&description='+encodeURI(description.val())
+                    +'&src=aybw';
+                return false;
+            });
+        }
+    })
+</script>        </div>
+    </div>
+    
+
+  <div class="push"></div>
+  </div>
+  <footer>
+    <div class="top">
+      <div>
+        <span>SHARE LOCALBUZZ:</span>
+        <div id="social-color-container-footer">
+<a class="social-color" href="http://www.facebook.com/sharer/sharer.php?p%5Burl%5D=http%3A%2F%2Flocalbuzz.us%2F" target="_blank">
+    <img src="/resources/img/facebook.png" alt="facebook" />
+</a>
+<a class="social-color" href="https://twitter.com/share?url=http%3A%2F%2Flocalbuzz.us%2F" target="_blank">
+    <img src="/resources/img/twitter.png" alt="twitter" />
+</a>
+<a class="social-color" href="https://plus.google.com/share?url=http%3A%2F%2Flocalbuzz.us%2F" target="_blank" >
+    <img src="/resources/img/google.png" alt="google" />
+</a>
+<a class="social-color" href="http://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Flocalbuzz.us%2F&media=http%3A%2F%2Fwww.localbuzz.us%2Fresources%2Fimages%2Fpintrest.jpg&description=Found+on+Localbuzz" data-pin-do="buttonPin"data-pin-config="above">
+       <img src="/resources/img/pintrest.png" alt="pintrest" />
+</a>
+<a class="social-color social-mail" href="#">
+    <img src="/resources/img/mailic.png" alt="google" />
+</a>
+</div>
+
+
+<div  style="display: none">
+  <div id="mailShare">
+      <label>Email</label>
+      <input class="input" type="text" id="ssbw_email" />
+      <label >Subject</label>
+      <input class="input" type="text" id="ssbw_subject" value="Look what I have found in Localbuzz!" />
+      <label>Body</label>
+      <textarea class="input" rows="3" cols="50" id="ssbw_body">http://localbuzz.us/</textarea>
+
+      <button type="button" class="btn btn-default" id="ssbw_send">Send</button>
+  </div>
+</div>
+
+<script>
+  $('.social-mail').on('click',function(){
+      $.colorbox({inline:true,width:"600px",height:"300px",href:"#mailShare"});
+      return false;
+  });
+
+  $('#ssbw_send').on('click',function(){
+      var email = $('#ssbw_email');
+      var subject = $('#ssbw_subject');
+      var body = $('#ssbw_body');
+
+      if (!app.validate.email(email.val())){
+          app.message.alert('Please enter valid email');
+          email.focus();
+          return false;
+      }
+
+      if (subject.val().length<5){
+          subject.focus();
+          return false;
+      }
+
+      if (body.val().length<7){
+          body.focus();
+          return false;
+      }
+
+      window.location="mailto:"+email.val()+"?subject="+subject.val()+"&body="+body.val();
+
+  })
+</script>      </div>
+    </div>
+    <div class="bottom">
+      <div>
+        <div class="links-foot">
+          <span>MY ACCOUNT:</span>
+                    <a href="/registration">Sign Up</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="/login">Login</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+                              <a href="/addBusiness">Add My Business</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="/panel">Account Settings</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="/favorites">Favorites</a>
+        </div>
+      <div class="links-foot">
+        <span>COMPANY INFORMATION:</span>
+          <a href="/about.html">About LocalBuzz</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="/privacy.html">Your Privacy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="/terms.html">Our Terms of Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="/contact.html">Contact Details</a>
+        </div>
+        <div class="row"></div>
+        <div class="col4 clearleft"><a href="/"><img src="/resources/img/logo_circle.png" alt="" /></a></div>
+        <div class="col8 infofooter clearright right">© 2014 All rights reserved. All Trademarks and Patents are the property of their respective owners.</div>
+      </div>
+    </div>
+    <p id="back-top"><a href="#top"><span></span></a></p>
+  </footer>
+<script type="text/javascript" src="/resources/js/site_index.js"></script>
+</body>
+</html>";i:2;s:4:"6830";}

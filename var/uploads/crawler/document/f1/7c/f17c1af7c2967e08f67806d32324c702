@@ -1,0 +1,415 @@
+a:3:{i:0;s:20:"http://frontier.com/";i:1;s:58650:"<!DOCTYPE html><html ng-app="app" id="ng-app"><head id="Head1"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"beacon-5.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"f681e379cb","applicationID":"3530924","transactionName":"Y1dWZkJZVxVYABJeW1oddWFgF0oASQIBUkdRQEJbU10WAlhUUgBVVQEZVwVdAUsNVVYEGVUAV1cdWV1eAAFWVVBQVlYCbwoMUQkXUAEGUAQABVEJDVRmBRJFWlFFGlNDSEE=","queueTime":0,"applicationTime":351,"ttGuid":"42D7ADA2DB6C8166","agent":"js-agent.newrelic.com/nr-536.min.js"}</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwQEWFNbGwAFV1FbBQU="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(5),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e;try{throw new Error}catch(f){"stack"in f&&(t(1),t(4),"addEventListener"in window&&t(2),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(3),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:8,2:5,3:9,4:7,5:22,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1);t("loader").features.stn=!0,t(2),n.on("fn-start",function(t){var e=t[0];e instanceof Event&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof Event&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:8,2:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:22,2:23,ee:"QJf3ax",gos:"7eSDFh"}],6:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState"],"-")},{1:23,2:22,ee:"QJf3ax"}],7:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:23,2:22,ee:"QJf3ax"}],8:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:23,2:22,ee:"QJf3ax"}],9:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),f=s(a),u=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new u(t);try{i.emit("new-xhr",[],e),f.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=u.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:5,2:23,ee:"QJf3ax"}],10:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=e(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=e(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var u=0;c>u;u++)n.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:11,3:9,4:5,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],11:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],12:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","trackUserAction","finished","traceEvent","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:21,2:22,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&f&&f.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=f.createElement("script");e.src=l.proto+t.agent,f.body.appendChild(e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=(t(2),window),f=c.document,u="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-536.min.js"},l=e.exports={offset:i(),origin:p,features:{}};f[u]?(f[u]("DOMContentLoaded",o,!1),c[u]("load",n,!1)):(f[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:21,2:12,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],21:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],22:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],23:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:22,ee:"QJf3ax"}]},{},["G9z0Bl",3,10,4]);</script><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" href="https://d2w3zkq33l1i26.cloudfront.net/static/img/favicon.ico"><link rel="icon" href="https://d2w3zkq33l1i26.cloudfront.net/static/img/favicon.ico" type="image/ico"><!--[if lte IE 8]><script src="/vendor/polyfillshiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="/vendor/html5shiv.min.js"></script><![endif]-->
+<!--[if lte IE 9]><script src="/bower_components/json3/lib/json3.min.js"></script><![endif]-->
+<!--[if lte IE 8]><script src="/vendor/ie-shiv.js"></script><![endif]--><script src="//d2w3zkq33l1i26.cloudfront.net/static/base-0db2.min.js"></script><script type="text/javascript">$(function() {
+  //- Invoke the jQuery placeholder plugin
+  try {
+    $('input, textarea').placeholder();
+  } catch(e) {}
+});
+</script><script>setTimeout(function() {
+  try { s = s_dtm; } catch (e) {}
+}, 3000);
+</script><script src="//d2w3zkq33l1i26.cloudfront.net/static/app-4046.min.js"></script><script>angular.module('app.local', []);
+</script><script>document.createElement('accordion');
+document.createElement('accordion-group');
+document.createElement('accordion-heading');
+document.createElement('alert');
+</script><link type="text/css" rel="stylesheet" href="/css/base.css"><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"><link type="text/css" rel="stylesheet" href="//lipis.github.io/bootstrap-social/bootstrap-social.css"><script>$('.dropdown-menu').find('form').click(function(e) { e.stopPropagation(); });
+
+$(document).on('click', '.navbar-collapse.in', function(e) {
+  if ($(e.target).is('a')) {
+    $(this).collapse('hide');
+  }
+});
+
+if(typeof String.prototype.trim !== 'function') {
+  String.prototype.trim = function() {
+    return this.replace(/^\s+|\s+$/g, ''); 
+  }
+}
+
+[].filter || (Array.prototype.filter = 
+  function(a, b, c, d, e ) {
+  c = this;
+  d = [];
+  for (e in c)
+    ~~e + '' == e && e >= 0 &&
+    a.call(b, c[e], +e, c) &&
+    d.push(c[e]);
+    
+  return d
+})
+</script><script src="/vendor/Respond/dest/respond.min.js"></script><!-- Begin Monetate tag v6. Place at start of document head. DO NOT ALTER.--><script async src="//www.googletagmanager.com/gtm.js?id=GTM-LSD6"></script><!--script(type='text/javascript', async='', src='//b.monetate.net/js/1/a-04c0fb8e/p/frontier.com/391203/g')--><script type="text/javascript">var monetateT = new Date().getTime();
+(function () {
+var p = document.location.protocol;
+if (p == "http:" || p == "https:") {
+var m = document.createElement('script'); m.type = 'text/javascript'; m.async = true; m.src = (p == "https:" ? "https://s" : "http://") + "b.monetate.net/js/1/a-04c0fb8e/p/frontier.com/" + Math.floor((monetateT + 556174) / 3600000) + "/g";
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(m, s);
+}
+})();</script><!-- End Monetate tag.--><!-- Google Tag Manager--><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-LSD6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript">(function (w, d, s, l, i) {
+w[l] = w[l] || []; w[l].push({ 'gtm.start':
+new Date().getTime(), event: 'gtm.js'
+}); var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+'//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-LSD6');</script><!-- End Google Tag Manager--><!-- Adobe Tag Manager--><script type="text/javascript" src="//assets.adobedtm.com/fc19531c0bf6205e4c8c1a357c620866eec50643/satelliteLib-d6d9533ad217ae4b006a09293985f8ac08270bfc.js"></script><!-- End Adobe Tag Manager--><title>
+	Residential Service Packages |  TV  |  Internet  |  Phone
+</title><noscript>
+<img src="//bcp.crwdcntrl.net/5/c=3495/b=12934978" width="1" height="1">
+<img src="//pixel.quantserve.com/pixel/p-bG4A38CfFKBW4.gif?labels=_fp.event.Homepage" style="display: none;" border="0" height="1" width="1" alt="Quantcast">
+<img src="//ad.doubleclick.net/activity;src=4569416;type=1;cat=rem_h0;ord=1?" width="1" height="1" alt="">
+</noscript>
+<meta id="MetaAuthor" name="author" content="Frontier Communications Company">
+<meta name="google-site-verification" content="MjUbdCPgKG-SWfDFjR-TXK83_a0Zai9Co5oFAVgRBSU">
+<meta name="p:domain_verify" content="703ef793b90416e5a5f7c460c7e7da0e">
+<meta name="msvalidate.01" content="BAA85D94625AA8F6E23D5E427EBBF32B">
+<link rel="canonical" href="http://frontier.com"><meta name="Generator" content="Sitefinity 6.1.4700.0 PE"><link href="/Telerik.Web.UI.WebResource.axd?compress=0&amp;_TSM_CombinedScripts_=%3b%3bTelerik.Sitefinity.Resources%2c+Version%3d6.1.4700.0%2c+Culture%3dneutral%2c+PublicKeyToken%3dnull%3aen%3a6b071be6-0037-40cd-9ddd-b4306dfd727b%3a7a90d6a" type="text/css" rel="stylesheet"><link href="/Sitefinity/WebsiteTemplates/FTRNew/APP_Theme/global/sitefinity.css?v=635482112507664582" type="text/css" rel="stylesheet"><style type="text/css" media="all">.SITEFINITY {
+  /* CSS Document */ }
+  .SITEFINITY .home-carousel {
+    height: 100% !important; }
+  .SITEFINITY body {
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.42857;
+    color: #333;
+    background-color: #fff; }
+  .SITEFINITY sup {
+    font-size: 10px; }
+  .SITEFINITY .container {
+    width: 1020px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0; }
+  .SITEFINITY #homepage {
+    padding: 7px 0 0 0; }
+  .SITEFINITY #homepage #header {
+    border: 1px solid #ccc; }
+  .SITEFINITY #homepage ul li {
+    padding: 0 0 5px 0; }
+  .SITEFINITY #homepage .right-copy {
+    float: left;
+    width: 63%;
+    display: block;
+    padding: 0 0 25px 0; }
+  .SITEFINITY #homepage p {
+    margin-top: 12px;
+    margin-bottom: 12px; }
+  .SITEFINITY #homepage img {
+    border: none; }
+  .SITEFINITY #homepage .row {
+    padding: 25px 0; }
+  .SITEFINITY #homepage h1, .SITEFINITY .h1, .SITEFINITY h2, .SITEFINITY .h2, .SITEFINITY h3, .SITEFINITY .h3 {
+    padding: 10px 0; }
+  .SITEFINITY #homepage h2 {
+    font-size: 34px;
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1.1;
+    color: inherit; }
+  .SITEFINITY #homepage .left-frank h2 {
+    padding: 15px 0; }
+  .SITEFINITY #homepage .btn-primary {
+    border: 1px solid #820c05;
+    background-color: #9f1006; }
+  .SITEFINITY #homepage .btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.42857;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 400;
+    padding: 6px 12px; }
+  .SITEFINITY #homepage .hr {
+    clear: both;
+    border: 0;
+    border-top: 1px solid #eee;
+    border-color: #e0e0e0; }
+  .SITEFINITY #homepage .hr-top {
+    clear: both;
+    border: 0;
+    margin-top: 15px;
+    padding-bottom: 2px;
+    border-top: 1px solid #eee;
+    border-color: #e0e0e0; }
+  .SITEFINITY #homepage .left-img {
+    float: left;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 35px; }
+  .SITEFINITY #homepage .helpCenterBlock {
+    width: 320px;
+    float: left;
+    padding: 0 70px 0 25px; }
+  .SITEFINITY #homepage .helpCenterBlock2 {
+    width: 270px;
+    float: left;
+    height: 350px;
+    border-right: 1px solid #eee;
+    padding: 0 60px 0 0; }
+  .SITEFINITY #homepage .helpCenterBlock a, .SITEFINITY #homepage .helpCenterBlock2 a {
+    color: #008c9b; }
+  .SITEFINITY #homepage .img-laptop {
+    margin-top: 34px; }
+  .SITEFINITY #homepage .img-tv {
+    margin-top: 29px; }
+  .SITEFINITY #homepage .img-voice {
+    margin-top: 34px; }
+  .SITEFINITY #homepage #support-home {
+    position: relative;
+    padding-left: 30px;
+    top: 110px;
+    float: right;
+    width: 220px; }
+  .SITEFINITY #homepage .helpHeader {
+    background-color: #FFF;
+    position: absolute;
+    width: 126px;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    margin: -49px 0 0 447px;
+    padding: 10px; }
+  .SITEFINITY #homepage .helpCenterBlock p, .SITEFINITY #homepage .helpCenterBlock2 p {
+    color: #666; }
+  .SITEFINITY #homepage .helpCenterBlock p strong a, .SITEFINITY #homepage .helpCenterBlock2 p strong a {
+    text-decoration: none;
+    color: #333; }
+  .SITEFINITY #homepage .topGrayBar .topGrayBtn {
+    border: 0px solid #e0e0e0;
+    height: 79px;
+    width: 331px;
+    float: left;
+    text-align: center;
+    margin: 10px 14px 10px 0;
+    padding: 0 0 0; }
+  .SITEFINITY #homepage .topGrayBar .topGrayBtn-last {
+    border: 0px solid #e0e0e0;
+    height: 79px;
+    width: 330px;
+    float: right;
+    margin: 10px 0px 10px 0;
+    padding: 0 0 0; }
+  .SITEFINITY #homepage .topGrayBar .topGrayBtn-last a {
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: 700; }
+  .SITEFINITY #homepage .topGrayBar .topGrayBtn a {
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: 700; }
+  .SITEFINITY #homepage .topGrayBar .topGrayBtn img, .SITEFINITY #homepage .topGrayBar .topGrayBtn-last img {
+    vertical-align: middle; }
+  .SITEFINITY #support-home ul li a {
+    color: #333;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 2px 4px 2px 0; }
+  .SITEFINITY #support-home ul {
+    list-style-type: none; }
+  .SITEFINITY #homepage #support-home img {
+    vertical-align: middle;
+    padding: 5px; }
+  .SITEFINITY #homepage .magic {
+    clear: both; }
+  .SITEFINITY #homepage .left-frank {
+    float: left;
+    min-height: 1px;
+    padding-right: 185px;
+    padding-left: 15px;
+    margin-bottom: 66px; }
+  .SITEFINITY #homepage .franksCorner {
+    height: 230px; }
+  .SITEFINITY #homepage .frank img {
+    margin: 0px 10px 160px 10px; }
+  .SITEFINITY .navDots {
+    right: 10px !important; }
+  .SITEFINITY iframe {
+    height: 0; }
+  .SITEFINITY .online-error {
+    background-color: #aeddff;
+    position: absolute;
+    top: -116px;
+    color: #333333;
+    text-align: center;
+    width: 1020px;
+    padding: 2px 0;
+    height: 35px;
+    font-size: 15px; }
+</style><style type="text/css" media="all">.SITEFINITY .main-navigation .product-class > li {
+  margin-right: -1px !important; }
+.SITEFINITY .footer-social-icon {
+  width: 240px !important; }
+</style><meta name="description" content="Frontier offers many bundles so you can choose the internet, TV, and phone services that are right for you."><meta name="keywords" content="high-speed internet, dsl,  tv, fios tv, cable, internet, dish TV,  wifi, phone service, internet service, dsl internet, Frontier Telephone, local telephone service, long distance, internet, dial-up internet, frontiernet, high speed, dish, satellite TV, CZN, FTR, Frontier, Citizens, Citizens Communications, Citizens Communications Company, Frontier Communications"></head><body ng-controller="AppController" ng-cloak=""><div class="container"><div class="hidden-sm hidden-md hidden-lg hidden-xl"><div class="header">   <div ng-controller="GlobalHeaderController" class="navbar-header navbar-default"><button type="button" data-toggle="collapse" data-target=".navbar-collapse-top" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand hidden-lg hidden-xl hidden-md hidden-sm"><img ng-src="/img/Frontier.png" width="127"></a></div><div class="collapse navbar-collapse-top"><ul class="nav nav-justified"><li><a href="/residential">Residential</a></li><li><a href="/small-business">Small Business</a></li><li><a href="/enterprise">Enterprise</a></li><li ng-show="!sessionState.frontierId"><a href="/login">Sign In</a></li><li ng-show="sessionState.frontierId"><a href="/logout">Sign Out</a></li></ul></div></div></div></div><div class="row hidden-xs"><div class="header">   <div ng-controller="GlobalHeaderController" class="navbar-header navbar-static-top navbar-inverse"><div class="container"><div class="col-md-5 col-sm-5"><ul class="nav nav-tabs"><li class="active"><a href="/residential">Residential</a></li><li><a href="/small-business">Small Business</a></li><li><a href="/enterprise">Enterprise</a></li></ul></div><div class="col-md-6 col-md-offset-1"><ul id="shop-ftr-info" class="pull-right"><li class="location"><span class="current-location"></span><span style="float: left;" class="spn-lbl-flright"><a id="lbLocation" href="#" style="padding: 5px 0px 0px;" class="IPWidget lbLocation"></a></span><span style="float: right;"><a style="display: none; padding: 0px 10px; margin-top: -2px" class="lbLocation change-button"><img alt="Change_Button" src="/images/images/change_btn_2.png"></a></span></li><li class="cart cartselected"><i class="fa fa-shopping-cart fa-lg text"></i><a id="aHeaderCartMenu" href="" class="dropdown-toggle">Cart<b class="caret"></b></a><div class="dropdown-menu"><div class="SITEFINITY"><div id="CPHCart" class="drop-cart"><table><tr><td class="flyout-bg"><div id="banner-cart-items-container" class="drop-cart-container"><div class="view-cart-btn"><a href="/shopping-cart">VIEW MY CART</a></div></div></td></tr></table></div></div><script src="/js/legacy/CartBannerWidget.js"></script></div></li><li ng-show="!sessionState.frontierId" ng-controller="LoginDropdownController" class="signin"><i class="fa fa-lg fa-user text-success"> </i><a id="aSignInMenu" href="" class="dropdown-toggle">Sign In<b class="caret"></b></a><div class="dropdown-menu"><div id="dlgLogin" class="col-md-12"><div ng-controller="LoginController"><alert ng-show="health.general &amp;&amp; health.general &lt; 0.70" class="alert-danger">Our online billing system is temporarily unavailable. We are sorry for any inconvenience. Please try again later or call us at 1.800.921.8101 for urgent requests.</alert><div class="float-left w300px"><h2>Sign In</h2><alert type="danger" collapse="!obpMigratedError" class="alert-danger"><i class="fa fa-exclamation-triangle fa-3x pull-left"></i><p>Our records indicate that you have a Frontier ID associated with this username.</p><p>Please try again with your Frontier ID.</p></alert><alert type="danger" collapse="!passwordError" class="alert-danger"><i class="fa fa-exclamation-triangle fa-3x pull-left"></i><p>There was an error with the information you provided.</p><p>Please try again.</p></alert><form id="frmForm" role="form" ng-click="prevent($event)" class="xx-form-horizontal"><div class="form-group login-field"><div><label for="inputID" class="control-label">Frontier ID / Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><a id="aForgotId" href="/forgotID" tabindex="-1" class="form-control-static pull-right">Forgot?</a></div><input id="txtID" type="text" ng-model="id" name="id" placeholder="mary@frontier.com or marysmith" autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="w20 form-control"></div><div class="form-group login-field"><div><label for="inputPassword" class="control-label">Password</label><a id="aForgotPw" href="/forgotpassword" tabindex="-1" class="form-control-static pull-right">Forgot?</a></div><input id="txtPassword" type="password" ng-model="password" name="password" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="w20 form-control"></div><div class="form-group"><label class="control-label"><input id="cbRememberMe" type="checkbox" ng-model="rememberMe" name="rememberMe">&nbsp; Remember my ID</label></div><div class="form-group"><button id="btnSignIn" ng-disabled="busy" ng-click="login()" class="btn btn-primary w100"><i ng-show="busy" class="fa fa-spinner fa-spin fa-lg"></i><span style="padding-right:10px" ng-show="busy"></span>Sign In</button></div></form></div><div id="verticalOrSeparator" style="padding-left: 20px; padding-right: 20px; padding-top: 25px;" class="float-left"><img src="/img/or-separator-vertical.png" class="separator"></div><div class="float-left"><h2>Register</h2><div class="lh20px">New to Frontier.com?</div><div style="margin-bottom: .5em;" class="lh20px">Get started now, it's fast and easy!</div><a id="btnCreateFID" href="/register" style="padding: .5em;" class="btn btn-default w100"><strong>CREATE A FRONTIER ID</strong></a></div></div><iframe id="loginIFrame" ng-src="{{secureLoginIFrameUrl}}" style="display: none"></iframe></div></div></li><li ng-show="sessionState.frontierId" class="signin"><i class="fa fa-lg fa-user text-success"> </i><a id="aWelcome" href="/account#/profile">Welcome, {{sessionState.frontierId.firstName | renderAmps}}</a>&nbsp; &nbsp;</li><li ng-show="sessionState.frontierId" class="signin"><a id="aSignOut" href="" ng-click="logout()">Sign Out</a></li></ul></div></div></div></div></div><div class="container hidden-xs"><div id="header-main" ng-controller="GlobalHeaderController" class="header"><div class="col-md-2 col-sm-3 hidden-xs nopad"><a ng-class="{'ftr-brand-logo': area.type=='residential', 'ftr-brand-smb-logo': area.type=='smb'}" ng-href="{{logoUrl}}" class="navbar-brand"></a></div><div class="col-md-2 col-md-offset-1 hidden-sm hidden-xs"><form ng-controller="HeaderLinksController" class="navbar-form ftr-quick-links"><div class="form-group"><select ng-model="selection" class="selectpicker form-control ftr-quick-links"><option value="">Go to...</option><option value="/account?page=/summary">My Account</option><option value="/account?page=/payments/onetime">Pay Your Bill</option><option value="https://login.frontier.com/webmail">Check Your Mail</option></select></div></form></div><div ng-controller="HeaderSearchController" class="col-md-3 hidden-sm hidden-xs nopad"><form ng-submit="search()" class="navbar-form ftr-quick-search"><div class="form-group ftr-quick-search"><i ng-click="search()" class="fa fa-search search"></i><input type="search" ng-model="searchString" placeholder="Search Frontier..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="ftr-quick-search form-control"></div></form></div><div class="col-md-2 hidden-sm hidden-xs nopad"><div class="phone-number"><p class="call">{{supportPhoneNumber}}</p></div></div><div class="col-md-2 nopad"><div class="socialMedia pull-right"><span class="fa-stack fa-lg"><a href="https://twitter.com/FrontierCorp" target="_blank"><i class="fa fa-circle fa-stack-2x twitter"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a></span><span class="fa-stack fa-lg"><a href="https://www.facebook.com/FrontierCorp" target="_blank"><i class="fa fa-circle fa-stack-2x facebook"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a></span><span class="fa-stack fa-lg"><a href="https://www.linkedin.com/company/frontier-communications" target="_blank"><i class="fa fa-circle fa-stack-2x linkedin"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></a></span><span class="fa-stack fa-lg"><a href="https://plus.google.com/+FrontierCorp/posts" target="_blank"><i class="fa fa-circle fa-stack-2x linkedin"></i><i class="fa fa-google-plus fa-stack-1x fa-inverse">  </i></a></span></div></div></div></div><div id="fb-root"></div><form method="post" action="" id="form1">
+<input type="hidden" name="ctl08_TSM" id="ctl08_TSM" value="">
+<input type="hidden" name="ctl09_TSSM" id="ctl09_TSSM" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEzMTM5NjcxNThkZI2yTsa5XJpZ41yf1PB8llrWdGF8JsSmI5R0K1WqBUrY">
+
+
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = {"name":"en","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":".","IsReadOnly":true,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":",","CurrencySymbol":"$","NaNSymbol":"NaN","CurrencyNegativePattern":0,"NumberNegativePattern":1,"PercentPositivePattern":0,"PercentNegativePattern":0,"NegativeInfinitySymbol":"-Infinity","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":".","NumberGroupSeparator":",","CurrencyPositivePattern":0,"PositiveInfinitySymbol":"Infinity","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":".","PercentGroupSeparator":",","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"AM","Calendar":{"MinSupportedDateTime":"\/Date(-62135578800000)\/","MaxSupportedDateTime":"\/Date(253402300799999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":true},"DateSeparator":"/","FirstDayOfWeek":0,"CalendarWeekRule":0,"FullDateTimePattern":"dddd, MMMM dd, yyyy h:mm:ss tt","LongDatePattern":"dddd, MMMM dd, yyyy","LongTimePattern":"h:mm:ss tt","MonthDayPattern":"MMMM dd","PMDesignator":"PM","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"M/d/yyyy","ShortTimePattern":"h:mm tt","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM, yyyy","AbbreviatedDayNames":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"ShortestDayNames":["Su","Mo","Tu","We","Th","Fr","Sa"],"DayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"AbbreviatedMonthNames":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""],"MonthNames":["January","February","March","April","May","June","July","August","September","October","November","December",""],"IsReadOnly":true,"NativeCalendarName":"Gregorian Calendar","AbbreviatedMonthGenitiveNames":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",""],"MonthGenitiveNames":["January","February","March","April","May","June","July","August","September","October","November","December",""]},"eras":[1,"A.D.",null,0]};//]]>
+</script>
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl08_TSM&amp;compress=0&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen%3afa6755fd-da1a-49d3-9eb4-1e473e780ecd%3aea597d4b" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dU8f4fwSyPR2LBcrwLRSWvs6A15-KiFJGeDbSMUbdm4sRB-utAhpBfL3hJa8O3q9kOmSBddW-NMm68fh5INexpA2xOO9iN3Cr0nGlAH9K76zW5WEhcZjFN0T6ZzNN3mV1ElIUA_ZJDeqJL80N6okH_xqQBnyxUVshyMIrh-j6nHHRbXxSTx5pxAv1hHZgVqY0&amp;t=ffffffffd940e0cc" type="text/javascript"></script><input type="hidden" name="ctl00$ctl08" id="ctl08">
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.setServerId("ctl08", "ctl00$ctl08");
+Sys.Application._enableHistoryInScriptManager();
+//]]>
+</script>
+<div class="SITEFINITY"><div class="wrapper home"><div class="header"><div class="main-navigation clearfix"><ul class="product-class"><div id="mnuPlaceHolder_bar" style="height: 34px; background-color: #DC0538; color: #DC0538; visibility:visible" class="rsmList rsmLevel rsmThreeLevels product-class"></div>
+
+
+<script>
+    (function ($) {
+        $.fn.jsChangeLoc_getLevel1Menu = function () {
+            return '[{"_title":"Products","_href":"/residential/products","_nodeUrl":"~/residential/products","_nodeId":"6d39809f-6543-4f50-82a7-a02e7468e5c3","_navclass":" ","_subMenu":[{"_title":"Internet","_href":"/residential/products/internet","_nodeUrl":"~/residential/products/internet","_nodeId":"ed7d1383-0bf0-4b48-ab89-4458c8f8945f","_navclass":" ","_subMenu":[],"GetTitle":"Internet","GetHref":"/residential/products/internet","GetNodeUrl":"~/residential/products/internet","GetNodeId":"ed7d1383-0bf0-4b48-ab89-4458c8f8945f","GetNavClass":" ","GetSubMenu":[]},{"_title":"Phone","_href":"/residential/products/phone","_nodeUrl":"~/residential/products/phone","_nodeId":"257b9d18-d8ac-411f-88f8-07d9ae6d7126","_navclass":" ","_subMenu":[],"GetTitle":"Phone","GetHref":"/residential/products/phone","GetNodeUrl":"~/residential/products/phone","GetNodeId":"257b9d18-d8ac-411f-88f8-07d9ae6d7126","GetNavClass":" ","GetSubMenu":[]},{"_title":"TV","_href":"/residential/products/tv","_nodeUrl":"~/residential/products/tv","_nodeId":"1185d2f8-50ed-488d-91d8-41eb49d428de","_navclass":" ","_subMenu":[],"GetTitle":"TV","GetHref":"/residential/products/tv","GetNodeUrl":"~/residential/products/tv","GetNodeId":"1185d2f8-50ed-488d-91d8-41eb49d428de","GetNavClass":" ","GetSubMenu":[]},{"_title":"Protection & Online Security","_href":"/residential/products/protection-online-security","_nodeUrl":"~/residential/products/protection-online-security","_nodeId":"f1b3c66c-8783-45ff-a85f-3f36b0f3c024","_navclass":" ","_subMenu":[],"GetTitle":"Protection & Online Security","GetHref":"/residential/products/protection-online-security","GetNodeUrl":"~/residential/products/protection-online-security","GetNodeId":"f1b3c66c-8783-45ff-a85f-3f36b0f3c024","GetNavClass":" ","GetSubMenu":[]},{"_title":"Connected Home","_href":"/residential/products/connected-home","_nodeUrl":"~/residential/products/connected-home","_nodeId":"60b4a913-55df-4488-b57e-ab149a33d253","_navclass":" ","_subMenu":[],"GetTitle":"Connected Home","GetHref":"/residential/products/connected-home","GetNodeUrl":"~/residential/products/connected-home","GetNodeId":"60b4a913-55df-4488-b57e-ab149a33d253","GetNavClass":" ","GetSubMenu":[]}],"GetTitle":"Products","GetHref":"/residential/products","GetNodeUrl":"~/residential/products","GetNodeId":"6d39809f-6543-4f50-82a7-a02e7468e5c3","GetNavClass":" ","GetSubMenu":[{"_title":"Internet","_href":"/residential/products/internet","_nodeUrl":"~/residential/products/internet","_nodeId":"ed7d1383-0bf0-4b48-ab89-4458c8f8945f","_navclass":" ","_subMenu":[],"GetTitle":"Internet","GetHref":"/residential/products/internet","GetNodeUrl":"~/residential/products/internet","GetNodeId":"ed7d1383-0bf0-4b48-ab89-4458c8f8945f","GetNavClass":" ","GetSubMenu":[]},{"_title":"Phone","_href":"/residential/products/phone","_nodeUrl":"~/residential/products/phone","_nodeId":"257b9d18-d8ac-411f-88f8-07d9ae6d7126","_navclass":" ","_subMenu":[],"GetTitle":"Phone","GetHref":"/residential/products/phone","GetNodeUrl":"~/residential/products/phone","GetNodeId":"257b9d18-d8ac-411f-88f8-07d9ae6d7126","GetNavClass":" ","GetSubMenu":[]},{"_title":"TV","_href":"/residential/products/tv","_nodeUrl":"~/residential/products/tv","_nodeId":"1185d2f8-50ed-488d-91d8-41eb49d428de","_navclass":" ","_subMenu":[],"GetTitle":"TV","GetHref":"/residential/products/tv","GetNodeUrl":"~/residential/products/tv","GetNodeId":"1185d2f8-50ed-488d-91d8-41eb49d428de","GetNavClass":" ","GetSubMenu":[]},{"_title":"Protection & Online Security","_href":"/residential/products/protection-online-security","_nodeUrl":"~/residential/products/protection-online-security","_nodeId":"f1b3c66c-8783-45ff-a85f-3f36b0f3c024","_navclass":" ","_subMenu":[],"GetTitle":"Protection & Online Security","GetHref":"/residential/products/protection-online-security","GetNodeUrl":"~/residential/products/protection-online-security","GetNodeId":"f1b3c66c-8783-45ff-a85f-3f36b0f3c024","GetNavClass":" ","GetSubMenu":[]},{"_title":"Connected Home","_href":"/residential/products/connected-home","_nodeUrl":"~/residential/products/connected-home","_nodeId":"60b4a913-55df-4488-b57e-ab149a33d253","_navclass":" ","_subMenu":[],"GetTitle":"Connected Home","GetHref":"/residential/products/connected-home","GetNodeUrl":"~/residential/products/connected-home","GetNodeId":"60b4a913-55df-4488-b57e-ab149a33d253","GetNavClass":" ","GetSubMenu":[]}]},{"_title":"Special Offers","_href":"/residential/special-offers","_nodeUrl":"~/residential/special-offers","_nodeId":"6637160a-a525-47cf-b07a-8536df9bde8b","_navclass":" ","_subMenu":[],"GetTitle":"Special Offers","GetHref":"/residential/special-offers","GetNodeUrl":"~/residential/special-offers","GetNodeId":"6637160a-a525-47cf-b07a-8536df9bde8b","GetNavClass":" ","GetSubMenu":[]},{"_title":"Help Center","_href":"/helpcenter","_nodeUrl":"/helpcenter","_nodeId":"c8cfb24f-4152-42b7-a423-26804ab3c8a9","_navclass":" ","_subMenu":[],"GetTitle":"Help Center","GetHref":"/helpcenter","GetNodeUrl":"/helpcenter","GetNodeId":"c8cfb24f-4152-42b7-a423-26804ab3c8a9","GetNavClass":" ","GetSubMenu":[]}]';
+        };
+    })(jQuery);
+</script>
+   	<div style="background: url('/images/images/nav_bg_spr_red.png') repeat-x scroll 0 -34px;" class="RadSiteMap RadSiteMap_Frontier" id="siteMapControl_customnavigation">
+		<ul id="Level1" class="rsmList rsmLevel rsmThreeLevels product-class" style="visibility: visible;"> </ul>
+	</div>
+
+   <script id="Level1Template" type="text/x-jsrender">  
+           {{for Level1Menu tmpl="#InnerLevel1Template"/}}
+    </script>   
+
+    <script id="InnerLevel1Template" type="text/x-jsrender">  
+		<li class="rsmItem" style="width: 12%;">
+			<a class="rsmLink {{:GetNavClass}}" href={{:GetHref}} title={{:GetTitle}}>{{:GetTitle}}</a>          
+
+			<div class="sub-menu" style="display: none;">
+				<div class="content" id={{:GetNodeId}}>  
+			</div>
+
+			{{:"<scr" + "ipt type=text/javascript>"}}
+				Build2LevelMenu('{{:GetNodeUrl}}','{{:GetNodeId}}');
+			{{:"</scr" + "ipt>"}}  
+		</li>
+     </script>   
+
+    <script id="Level2Template" type="text/x-jsrender">  
+      {{for Level2Menu tmpl="#InnerLevel2Template"/}}
+    </script> 
+
+    <script id="InnerLevel2Template" type="text/x-jsrender"> 
+		 <div class="sub-menu-01">
+				<ul class="rsmList rsmLevel2" id={{:GetNodeId}}>    
+						<li class="header"> <a class="rsmLink {{:GetNavClass}}" href={{:GetHref}}>{{:GetTitle}}</a></li>
+						{{:"<scr" + "ipt type=text/javascript>"}}
+							Build3LevelMenu('{{:GetNodeUrl}}','{{:GetNodeId}}');
+						{{:"</scr" + "ipt>"}}
+
+			   </ul>
+		</div>
+    </script>   
+
+    <script id="Level3Template" type="text/x-jsrender">  
+           {{for Level3Menu tmpl="#InnerLevel3Template"/}}
+    </script> 
+
+     <script id="InnerLevel3Template" type="text/x-jsrender"> 
+     <li class="rsmItem"><a class="rsmLink {{:GetNavClass}}" href={{:GetHref}}>{{:GetTitle}}</a></li>
+    </script> 
+
+</ul></div></div><div class="container"><div class="content"><div class="home-carousel"><div>
+<script type="text/javascript">var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<img src="//ad.doubleclick.net/activity;src=4569416;type=1;cat=rem_h0;ord=' + a + '?" width="1" height="1" alt=""/>');
+
+</script><div class="sfContentBlock"><div id="homepage"> <div> <div id="header"><a href="/residential/special-offers"><img src="/images/imagerotatorhome/ftr16164_11_01_r_m_hsi_pr_dp_hph_r3.jpg" alt="Frontier Holiday"></a> </div> <!--<div id="header"><a href="/residential/special-offers"><img src="/images/imagerotatorhome/holiday_2014_1999.jpg" alt="Frontier Holiday" /></a> </div>--> </div> <div class="hr-top"></div> <div class="topGrayBar"> <div class="topGrayBtn"><a href="/login"><img width="333" height="76" alt="Pay Your Bill" src="http://frontiermarketingsupport.com/previewer/Jacob/new-homepage/images/pay-your-bill-btn.jpg"> </a></div> <div class="topGrayBtn"><a target="_blank" href="https://frontier.yahoo.com/"><img width="333" height="76" alt=" Frontier Yahoo Portal!" src="http://frontiermarketingsupport.com/previewer/Jacob/new-homepage/images/ftr-yahoo-portal-btn.jpg"></a></div> <div class="topGrayBtn-last"> <a target="_blank" href="https://login.frontier.com/webmail"><img width="326" height="76" alt="Check Your Mail" src="http://frontiermarketingsupport.com/previewer/Jacob/new-homepage/images/check-mail-btn.jpg"> </a></div> </div> <div> <div class="hr"></div> <div class="row internet"> <div class="left-img"><a href="/residential/products/internet"><img width="327px" src="//d2w3zkq33l1i26.cloudfront.net/static/img/hp-internet.png" alt="High-Speed Internet"></a></div> <div class="right-copy"> <h2>High-Speed Internet</h2> <p>We have the speed you need&mdash;no matter how you and your family use the Internet. Play games, video chat and stream movies&mdash;all for as low as $19.99 per month.</p> <ul> <li><strong>Hassle-free</strong>&mdash;Tired of the annual cable markup?<sup>1</sup> With Frontier, your Internet price is guaranteed for 3 years. And there&rsquo;s no contract. Yep, that&rsquo;s right, No contract. </li> <li><strong>Private</strong>&mdash;Unlike Comcast, we won't use your home Wi-Fi connection as a public hotspot.<sup>2</sup> With Frontier, your connection is yours and yours alone.  </li> <li><strong>Reliable</strong>&mdash;Talk to a U.S. customer service team member EVERY time you pick up the phone. We&rsquo;re proud to be 100% U.S.-based and a top employer of military vets.</li> </ul> <br> <a href="/residential/products/internet"><button class="btn btn-primary btn-md">Shop Now </button></a> </div> </div> <div class="hr"></div> <div class="row digitalProtection"> <div class="left-img"><a href="/residential/products/protection-online-security"><img alt="" width="327px" class="img-laptop" src="//d2w3zkq33l1i26.cloudfront.net/static/img/hp-digitalSecurity.png"></a></div> <div> <h2>Digital Security</h2> <p>Because your life has gone digital, we protect your digital life for as little as $4.99 a month* when you bundle Digital Security with your Internet service. From identity theft protection and computer security to content access and equipment protection, we keep you secure. </p> <p>All plans include our 100% U.S.-based technical support&mdash;it&rsquo;s like having an army of nerds at your fingertips for pennies a day. They can remove viruses and tune-up your computer annually at NO EXTRA CHARGE. Who else can say all that? Frankly, no one. </p> <a href="/residential/products/protection-online-security"><button class="btn btn-primary btn-md">Shop Now</button></a> </div> </div> <div class="hr"></div> <div class="row tv"> <div class="left-img"><a href="/residential/products/tv"><img alt="" width="327px" class="img-tv" src="//d2w3zkq33l1i26.cloudfront.net/static/img/hp-television.png"></a></div> <div> <h2>TV</h2> <p>There&rsquo;s always something great to watch with television from Frontier, no matter who in your family is watching. With packages including hundreds of America&rsquo;s most-watched channels, you won&rsquo;t miss a single moment of your favorite TV&mdash;from sports to Hollywood blockbusters. Plus, you can record shows and watch them commercial-free on Whole-Home DVRs.  From Frontier FiOS<sup>&reg;</sup> to Dish TV to FrontierTV powered by AT&amp;T U-verse<sup>&reg;</sup>, we&rsquo;ve got options for every budget that will keep your whole family entertained.</p> <a href="/residential/products/tv"><button class="btn btn-primary btn-md">Shop Now </button></a> </div> </div> <div class="hr"></div> <div class="row helpCenter"> <div class="helpHeader">Help Center</div> <div class="helpCenterBlock"> <p><strong><a href="/helpcenter/connecticut">Connecticut </a></strong><br>
+My Bill, My High-Speed Internet, My TV Service, My Phone Service,
+<a target="_self" href="/helpCenter/connecticut/">See More...</a> </p> <p><strong><a href="/helpcenter/internet">Internet </a></strong><br>
+Using Your Email, Web Safety, Wireless Network Setup,
+<a target="_self" href="/helpCenter/internet/">See More...</a> </p> <p><strong><a href="/helpcenter/dish-tv">TV </a></strong><br>
+DISH<sup>&reg;</sup> TV, FiOS<sup>&reg;</sup> TV, FiOS<sup>&reg;</sup> Internet, FiOS<sup>&reg;</sup> Troubleshooting,
+<a target="_self" href="/helpcenter/dish-tv-fios">See More...</a> </p> <p><strong><a href="/helpcenter/internet-self-install">Internet Self-Install </a></strong><br>
+How To Order, Install Router, Activate &amp; Configure,<br> <a target="_self" href="/helpCenter/internet-self-install/">See More...</a> </p> <p><strong><a href="/helpcenter/passwords">Usernames, Passwords, PINs </a></strong><br>
+Email, Voicemail, Online Bill Pay,
+<a target="_self" href="/helpCenter/passwords/">See More...</a> </p> </div> <div class="helpCenterBlock2"> <p><strong><a href="/helpcenter/frontiersecure">Frontier Secure Products </a></strong><br>
+Content Anywhere, Technical Support, Identity Protection,
+<a target="_self" href="/helpCenter/frontiersecure/">See More...</a> </p> <p><strong><a href="/helpcenter/billing-account">Account &amp; Billing </a></strong><br>
+View &amp; Pay Your Bill, Billing Options, Understanding Your Bill,
+<a target="_self" href="/helpCenter/billing-account/">See More...</a></p> <p><strong><a href="/helpCenter/troubleshooting">Troubleshooting </a></strong><br>
+Email Use Issues, Internet Browsing, Networking,
+<a target="_self" href="/helpCenter/troubleshooting/">See More...</a> </p> <p><strong><a href="/helpCenter/digitalphone">Voice  </a></strong><br>
+Calling Features, Voicemail, Product Guides,
+<a target="_self" href="/helpCenter/digitalphone/">See More...</a> </p> </div> <div class="helpCenterContact"> <div id="support-home"> <ul> <li> <span class="chat"><img width="27" height="27" alt="Chat" src="//d2w3zkq33l1i26.cloudfront.net/static/img/chat-icon.png"></span><a href="/helpCenter/contact-us">Chat Live Now </a></li> <li><a href="tel:1-800-921-8101"><img width="27" height="27" alt="Call Us" src="//d2w3zkq33l1i26.cloudfront.net/static/img/call-icon.png">Call Us 1.800.921.8101                         </a></li> <li><a href="/helpcenter"><img width="27" height="27" alt="Help Center" src="//d2w3zkq33l1i26.cloudfront.net/static/img/help-icon.png">Help Center </a></li> </ul> </div> </div> <div class="magic"></div> </div> <div class="hr"></div> <div class="row phone"> <div class="left-img"><a href="/residential/products/phone"><img alt="" width="327px" class="img-voice" src="//d2w3zkq33l1i26.cloudfront.net/static/img/hp-phone.png"></a></div> <div> <h2>Voice</h2> <p>Cell phones sure are convenient, except when your bill goes through the roof, the power goes out, or you need an alarm system&mdash;cell phones don&rsquo;t work with alarm systems. Frontier home phone service is not only reliable during emergencies&mdash;but you&rsquo;ll also save big on cell phone bills because there are never overages on a home phone. Our affordable plans include unlimited local calling and nationwide long distance, call waiting, 3-way calling and voicemail. </p> <p>Crystal clear phone calls that won't fade in and out when you&rsquo;re on an important call aren&rsquo;t bad either. </p> <a href="/residential/products/phone"> <button class="btn btn-primary btn-med">Shop Now </button></a> </div> </div> <div class="hr"></div> <div class="row franksCorner"> <div class="left-frank"> <h2><strong>Join Us For Open Mic Night<br> </strong><span>@ Frank's Corner</span></h2> <a target="_parent" href="//frontier.com/frankscorner/bestwork"><img alt="" width="94" height="33" src="http://frontiermarketingsupport.com/previewer/Jacob/new-homepage/images/lets-go-btn.jpg"></a> </div> <div class="frank"> <img src="//d2w3zkq33l1i26.cloudfront.net/static/img/hp-frankOpenMicNight.png" alt="Frank Open Mic Night"></div> <div class="hr"></div> <p><small><sup>1</sup> FCC Report on Cable Industry Prices, May 16, 2014</small></p> <p><small><sup>2</sup> CNN Money article from, June 16, 2014</small></p> </div> </div> </div>
+
+
+</div><div class="sf_cols">
+    <div class="sf_colsOut sf_1col_1_100">
+        <div id="MainContent_C052_Col00" class="sf_colsIn sf_1col_1in_100">
+            
+        </div>
+    </div>
+</div></div></div></div></div></div><div style="display: none">
+
+
+
+
+
+
+
+<div class="sf_cols">
+    <div style="width: 33%;" class="sf_colsOut sf_3cols_1_33">
+        <div id="CPHFooterDown_T662D647A018_Col00" class="sf_colsIn sf_3cols_1in_33">
+            
+        </div>
+    </div>
+    <div style="width: 33%;" class="sf_colsOut sf_3cols_2_34">
+        <div id="CPHFooterDown_T662D647A018_Col01" class="sf_colsIn sf_3cols_2in_34">
+            
+        </div>
+    </div>
+    <div style="width: 34%;" class="sf_colsOut sf_3cols_3_33">
+        <div id="CPHFooterDown_T662D647A018_Col02" class="sf_colsIn sf_3cols_3in_33">
+            
+        </div>
+    </div>
+</div></div><!-- HomeNew.jade -->
+
+       <script type="text/javascript" language="javascript" src="/widgets/ShoppingCart/ModalWidget.ascx.js?v=4b88dbb3-8e65-483c-a3fe-d19d99752fcf"></script>
+        
+    
+
+<script>var wcfServiceUrl = "/Sitefinity/Public/Services/CartProcessing/CartServices.svc/";      </script><script type="text/javascript" language="javascript" src="/Widgets/Checkout/FrontierCart.js"></script><script type="text/javascript" language="javascript" src="/Widgets/js/jsChangeLoc.js"></script><script type="text/javascript" language="javascript" src="/Widgets/js/CSAQual.js"></script><script type="text/javascript" language="javascript" src="/Widgets/Files/IPWidget.ascx.js"></script></div><div id="inqC2CImgContainer_Anchored"></div><script type="text/javascript">var inqCustData={'customerName':'','customerAddress':'','productsViewed':[],'productsInCart':[],'emailAddress':'','phoneNumber':'','outsideInsideLogin':''};</script><script src="https://frontier.inq.com/chatskins/launch/inqChatLaunch10004062.js" language="javascript"></script><script src="//d2w3zkq33l1i26.cloudfront.net/static/body-be36.js"></script><script src="/widgets/js/Chat.js?v=1" defer="defer"></script>
+<script type="text/javascript"><!-- Start of Async HubSpot Analytics Code -->
+
+    (function(d,s,i,r) {
+      if (d.getElementById(i)){return;}
+      var n=d.createElement(s),e=d.getElementsByTagName(s)[0];
+      n.id=i;n.src='//js.hs-analytics.net/analytics/'+(Math.ceil(new Date()/r)*r)+'/330433.js';
+      e.parentNode.insertBefore(n, e);
+    })(document,"script","hs-analytics",300000);
+
+<!-- End of Async HubSpot Analytics Code -->
+</script>
+<script type="text/javascript">
+//<![CDATA[
+;(function() {
+                        function loadHandler() {
+                            var hf = $get('ctl09_TSSM');
+                            if (!hf._RSSM_init) { hf._RSSM_init = true; hf.value = ''; }
+                            hf.value += ';Telerik.Sitefinity.Resources, Version=6.1.4700.0, Culture=neutral, PublicKeyToken=null:en:6b071be6-0037-40cd-9ddd-b4306dfd727b:7a90d6a';
+                            Sys.Application.remove_load(loadHandler);
+                        };
+                        Sys.Application.add_load(loadHandler);
+                    })();//]]>
+</script>
+</form><div id="footer"><div class="container"><div class="col-md-12 nopad"><div class="col-md-2 hidden-sm hidden-xs nopad pull-left"><img src="/img/footer-logo.png"></div><div class="col-md-2 col-sm-2 col-xs-12"><ul><li class="title">Frontier Sites</li><li> <a href="/tveverywhere">Frontier TV Everywhere</a></li><li> <a href="http://www.frontiergames.com/do/gameList?genre=-1" target="blank">Frontier Games</a></li><li> <a href="https://www.frontierwifi.com/data/default.aspx" target="blank">Frontier Wi-Fi</a></li><li> <a href="https://ftrsecure.com/" target="blank">Frontier Secure</a></li><li><a href="https://business.frontier.com/" target="blank">Business Services    </a></li></ul></div><div class="col-md-2 col-sm-2 col-xs-12"><ul><li class="title">Regional Sites</li><li> <a href="http://internet.frontier.com" target="blank">Central Region</a></li><li> <a href="http://east.frontier.com/Frontier-Bundle-Offers" target="blank">East Region</a></li><li> <a href="http://internet.frontier.com/local/" target="blank">Mid-Atlantic Region  </a></li><li> <a href="http://www.frontierinternet.com/" target="blank">National Region</a></li><li> <a href="http://west.frontier.com/" target="blank">West Region  </a></li></ul></div><div class="col-md-2 col-sm-3 col-sm-12col-xs-12"><ul><li class="title">Support</li><li> <a href="/helpcenter">Help Center</a></li><li> <a href="/account">My Residential</a></li><li> <a href="https://frontier.globysonline.com/cv/scripts/B3B0/eng/log.asp?gru=437662910&amp;sec=" target="blank">My Business Account</a></li><li> <a href="https://wholesale.frontier.com" target="blank">Carrier & Wholesale</a></li></ul></div><div class="col-md-2 col-sm-3 col-xs-12"><ul><li class="title">Contact</li><li> <a href="/helpCenter/contact-us">Contact Us</a></li><li> <a href="/retailstores">Retail Stores</a></li><li> <a href="/customerservice/media-relations">Media Contacts</a></li><li> <a href="/discountprograms">Discount Programs  </a></li></ul></div><div class="col-md-2 col-sm-2 col-xs-12"><ul><li class="title">About Us</li><li> <a href="http://investor.frontier.com/releases.cfm" target="blank">News</a></li><li> <a href="/careers2">Careers</a></li><li> <a href="http://investor.frontier.com/" target="blank">Investor Relations  </a></li><li> <a href="http://frontierct.com" target="blank">Connecticut Operations</a></li></ul></div></div><div class="col-md-10 col-md-offset-2 col-sm-12 col-xs-12"> <ul id="policies"> <li> <a href="/policies">Policies &amp; Notifications  </a></li><li class="spacer">|</li><li> <a href="/terms">Terms &amp; Conditions  </a></li><li class="spacer">|</li><li> <a href="/docs/policies/policies_privacy_111711.pdf">Privacy Policy </a></li><!--li <a href="#">Site Map </a>--></ul><div id="copywrite">&reg;2015 Frontier Communications Corporation. All rights reserved. </div></div></div></div><script>try { _satellite.pageBottom(); } catch (e) {}
+</script></body></html>";i:2;s:4:"1768";}

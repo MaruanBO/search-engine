@@ -1,0 +1,478 @@
+a:3:{i:0;s:20:"http://foxydeal.com/";i:1;s:39929:"<!DOCTYPE html>
+<html  lang="en-US">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwECUlJWGwAGVFRaBgM="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:19,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:19,2:20,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:20,2:19,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:20,2:19,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:20,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:18,handle:"D5DuLP"}],18:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],19:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],20:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:19,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+
+    <!-- Page Title & Favicon -->
+    <title>foxydeal</title>
+    <link rel="alternate" type="application/rss+xml" title="foxydeal &raquo; Feed" href="http://www.foxydeal.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="foxydeal &raquo; Comments Feed" href="http://www.foxydeal.com/comments/feed/" />
+<link rel='stylesheet' id='normalize-css'  href="http://www.foxydeal.com/wp-content/themes/foxydeal-theme/assets/stylesheets/normalize.css?688deb" type='text/css' media='all' />
+<link rel='stylesheet' id='grid-css'  href="http://www.foxydeal.com/wp-content/themes/foxydeal-theme/assets/stylesheets/grid.min.css?688deb" type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href="http://www.foxydeal.com/wp-content/themes/foxydeal-theme/assets/stylesheets/font-awesome.min.css?688deb" type='text/css' media='all' />
+<link rel='stylesheet' id='foxydeal-style-css'  href="http://www.foxydeal.com/wp-content/themes/foxydeal-theme/style.css?688deb" type='text/css' media='all' />
+<link rel='stylesheet' id='open-sans-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='open-sans-condensed-css'  href='//fonts.googleapis.com/css?family=Open+Sans+Condensed%3A300%2C300italic%2C700&#038;ver=4.0.1' type='text/css' media='all' />
+<script type='text/javascript' src="http://www.foxydeal.com/wp/wp-includes/js/jquery/jquery.js?688deb"></script>
+<script type='text/javascript' src="http://www.foxydeal.com/wp/wp-includes/js/jquery/jquery-migrate.min.js?688deb"></script>
+<script type='text/javascript' src="//cdn.jsdelivr.net/zeroclipboard/1.3.5/ZeroClipboard.min.js?688deb"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.foxydeal.com/wp/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.foxydeal.com/wp/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.0.1" />
+<link rel='canonical' href='http://www.foxydeal.com/' />
+<link rel='shortlink' href='http://www.foxydeal.com/' />
+
+    <!--[if (lt IE 8)|(IE8)]>
+    <script src="http://www.foxydeal.com/wp-content/themes/foxydeal-theme/assets/javascripts/vendor/respond.js?688deb"
+            type="text/javascript"></script>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="http://www.foxydeal.com/wp-content/themes/foxydeal-theme/assets/javascripts/vendor/html5shiv.js?688deb"></script>
+    <![endif]-->
+</head>
+<body  class="home page page-id-4 page-template page-template-front-page-php">
+
+<!--[if (lt IE 7)|(IE7)]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+    improve your experience.</p>
+<![endif]-->
+
+<!-- Container -->
+<div id="container">
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <h1><a href="http://www.foxydeal.com"><img
+                                    src="http://www.foxydeal.com/wp-content/themes/foxydeal-theme/assets/images/logo.png?688deb" alt="logo"></a>
+                        </h1>
+                    </div>
+                    <!-- /Logo -->
+                </div>
+                <div class="col-sm-8">
+                                        <!-- Main Navigation -->
+                    <nav id="main-navigation">
+                        <button type="button" class="menu-btn"><span class="line">&nbsp;</span><span
+                                class="line">&nbsp;</span><span class="line">&nbsp;</span></button>
+                        <ul id="menu-main-menu" class="group"><li id="menu-item-108317" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-108317"><a href="http://www.foxydeal.com/deal/">Deals</a></li>
+<li id="menu-item-108316" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-108316"><a href="http://www.foxydeal.com/merchant/">Merchants</a></li>
+<li id="menu-item-108315" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-108315"><a href="http://www.foxydeal.com/coupon/">Coupons</a></li>
+<li id="menu-item-108314" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4 current_page_item menu-item-108314 active"><a href="http://www.foxydeal.com/">front page</a></li>
+</ul>                    </nav>
+                    <!-- /Main Navigation -->
+                </div>
+            </div>
+        </div>
+    </header>	<!-- Dashboard -->
+	<div class="dashboard">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<div id="search-form">
+						<form action="http://www.foxydeal.com/" method="get">
+							<p class="group">
+								<input type="text" name="s"
+								       placeholder="Enter shop name&hellip;">
+								<button type="submit"><img
+										src="http://www.foxydeal.com/wp-content/themes/foxydeal-theme/assets/images/search-icon.png?688deb"
+										alt="search icon"></button>
+							</p>
+						</form>
+					</div>
+					<!-- meta slider -->
+<div style="max-width: 813px;" class="metaslider metaslider-nivo metaslider-3 ml-slider">
+    
+    <div id="metaslider_container_3">
+        <div class='slider-wrapper theme-default'>
+            <div class='ribbon'></div>
+            <div id='metaslider_3' class='nivoSlider'>
+                <a href="These offers will blow your mind..." target="_self"><img src="http://www.foxydeal.com/wp-content/uploads/2015/02/slider_uk-us-india_new.jpg?688deb" height="383" width="813" alt="" class="slider-3 slide-108323" /></a>
+                <a href="http://www.foxydeal.com/out/90055" target="_blank"><img src="http://www.foxydeal.com/wp-content/uploads/2015/02/expedia-813x383.jpg?688deb" height="383" width="813" data-title="Amazing Daily Deals from Expedia: Up to 40% off!" alt="" class="slider-3 slide-108324" /></a>
+                <a href="http://www.foxydeal.com/out/47688" target="_blank"><img src="http://www.foxydeal.com/wp-content/uploads/2015/02/walmart-813x383.jpg?688deb" height="383" width="813" data-title="Time to get dressed! Huge clearance sale at Walmart!" alt="" class="slider-3 slide-108325" /></a>
+                <a href="http://www.foxydeal.com/out/106338" target="_blank"><img src="http://www.foxydeal.com/wp-content/uploads/2015/02/best-buy-813x383.jpg?688deb" height="383" width="813" data-title="20% Off and Free Shipping on Personalized Cell Phone and iPad Cases." alt="" class="slider-3 slide-108327" /></a>
+            </div>
+        </div>
+        
+    </div>
+    <script type="text/javascript">
+        var metaslider_3 = function($) {
+            $('#metaslider_3').nivoSlider({ 
+                boxCols:7,
+                boxRows:5,
+                pauseTime:3000,
+                effect:"fade",
+                controlNav:true,
+                directionNav:true,
+                pauseOnHover:true,
+                animSpeed:600,
+                prevText:"&lt;",
+                nextText:"&gt;",
+                slices:15,
+                manualAdvance:false
+            });
+        };
+        var timer_metaslider_3 = function() {
+            var slider = !window.jQuery ? window.setTimeout(timer_metaslider_3, 100) : !jQuery.isReady ? window.setTimeout(timer_metaslider_3, 1) : metaslider_3(window.jQuery);
+        };
+        timer_metaslider_3();
+    </script>
+</div>
+<!--// meta slider-->
+				</div>
+				<div class="col-sm-4">
+					<div class="box1 easy-works">
+						<h2>How it works</h2>
+
+						<h2><img src="http://www.foxydeal.com/wp-content/themes/foxydeal-theme/assets/images/logo1.png?688deb" alt="image">
+						</h2>
+						<ul class="list1">
+							<li class="group"><i class="fa fa-tag"></i>
+
+								<p>Enter shop or browse category</p>
+							</li>
+							<li class="group"><i class="fa fa-users"></i>
+
+								<p>Select a coupon</p>
+							</li>
+							<li class="group"><i class="fa fa-money"></i>
+
+								<p>Redeem and save</p>
+							</li>
+						</ul>
+						<ul class="list2">
+							<li><i class="fa fa-check-circle-o"></i>
+
+								<p>Simple</p>
+							</li>
+							<li><i class="fa fa-check-circle-o"></i>
+
+								<p>Free</p>
+							</li>
+							<li><i class="fa fa-check-circle-o"></i>
+
+								<p>No registration</p>
+							</li>
+						</ul>
+						<!--	FIXME: FIND A PROPER WAY TO LINK TO A PAGE!!              -->
+						<p class="text-center">
+													</p>
+					</div>
+					<ul class="sociable">
+											</ul>
+				</div>
+			</div>
+			<div class="top-shops">
+				<h2>Our top shops</h2>
+
+
+				<div class="inner">
+					<ul>															<li>
+									<a href="http://www.foxydeal.com/merchant/walmart/"><img width="120" height="60" src="http://www.foxydeal.com/wp-content/uploads/2015/02/179_120x604.gif?688deb" class="attachment-top_merchant_slider wp-post-image" alt="Walmart logo" /></a>
+								</li>
+																						<li>
+									<a href="http://www.foxydeal.com/merchant/staples/"><img width="120" height="60" src="http://www.foxydeal.com/wp-content/uploads/2015/02/37_120x604.gif?688deb" class="attachment-top_merchant_slider wp-post-image" alt="Staples logo" /></a>
+								</li>
+																						<li>
+									<a href="http://www.foxydeal.com/merchant/microsoft-store/"><img width="120" height="60" src="http://www.foxydeal.com/wp-content/uploads/2015/02/5128_120x604.gif?688deb" class="attachment-top_merchant_slider wp-post-image" alt="Microsoft Store logo" /></a>
+								</li>
+																						<li>
+									<a href="http://www.foxydeal.com/merchant/groupon/"><img width="120" height="60" src="http://www.foxydeal.com/wp-content/uploads/2015/02/8383_120x604.gif?688deb" class="attachment-top_merchant_slider wp-post-image" alt="Groupon logo" /></a>
+								</li>
+																						<li>
+									<a href="http://www.foxydeal.com/merchant/expedia/"><img width="120" height="60" src="http://www.foxydeal.com/wp-content/uploads/2015/02/829_120x604.jpg?688deb" class="attachment-top_merchant_slider wp-post-image" alt="Expedia logo" /></a>
+								</li>
+												</ul>
+					<a href="#" class="prev-btn">&nbsp;</a>
+					<a href="#" class="next-btn">&nbsp;</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- /Dashboard -->
+
+	<!-- Content -->
+	<div id="content">
+		<div class="container">
+			<!-- Merchant category navigation -->
+			
+	<nav class="category">
+		<ul>
+							<li><a href="http://www.foxydeal.com/merchant-category/books-film-and-music/"><i class="fa fa-music"></i> Books, Film, and Music</a></li>
+							<li><a href="http://www.foxydeal.com/merchant-category/clothing-shoes-and-accessories/"><i class="fa fa-male"></i> Clothing, Shoes, and Accessories</a></li>
+							<li><a href="http://www.foxydeal.com/merchant-category/gifts/"><i class="fa fa-gift"></i> Gifts</a></li>
+							<li><a href="http://www.foxydeal.com/merchant-category/photo-and-printing/"><i class="fa fa-camera"></i> Photo and Printing</a></li>
+							<li><a href="http://www.foxydeal.com/merchant-category/travel-and-vacation/"><i class="fa fa-plane"></i> Travel and Vacation</a></li>
+			
+			<li><span>More <i class="fa fa-angle-down"></i></span>
+
+				<div class="dropdown">
+					<ul class="columnizer1">
+													<li><a href="http://www.foxydeal.com/merchant-category/and-accessories/">and Accessories (3)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/baby-kids-and-toys/"><i class="fa fa-child"></i> Baby, Kids, and Toys (82)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/business-and-finances/"><i class="fa fa-dollar"></i> Business and Finances (132)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/cars-motorcycles-and-accessories/"><i class="fa fa-car"></i> Cars, Motorcycles, and Accessories (91)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/clothing/">Clothing (3)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/computers-and-electronics/"><i class="fa fa-desktop"></i> Computers and Electronics (391)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/cosmetics-and-perfume/"><i class="fa fa-magic"></i> Cosmetics and Perfume (51)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/education/"><i class="fa fa-graduation-cap"></i> Education (143)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/erotic/"><i class="fa fa-heart"></i> Erotic (31)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/flowers-plants-and-garden/"><i class="fa fa-leaf"></i> Flowers, Plants, and Garden (16)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/food-and-drink/"><i class="fa fa-cutlery"></i> Food and Drink (187)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/furniture-and-decor/"><i class="fa fa-home"></i> Furniture and Decor (311)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/health-and-wellness/"><i class="fa fa-plus-square"></i> Health and Wellness (234)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/hobbies-and-leisure/"><i class="fa fa-paint-brush"></i> Hobbies and Leisure (104)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/online-retailers/"><i class="fa fa-shopping-cart"></i> Online Retailers (1)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/pets-and-accessories/"><i class="fa fa-paw"></i> Pets and Accessories (49)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/shoes/">Shoes (3)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/social-networks/"><i class="fa fa-users"></i> Social Networks (28)</a></li>
+													<li><a href="http://www.foxydeal.com/merchant-category/sports-and-outdoors/"><i class="fa fa-futbol-o"></i> Sports and Outdoors (195)</a></li>
+											</ul>
+				</div>
+			</li>
+		</ul>
+	</nav>
+			<!-- /Merchant category navigation -->
+			<div class="row coupons">
+					<div class="col-sm-4">
+		<h2><i class="fa fa-usd"></i>Top coupons</h2>
+		<ul>				<li class="group" data-coupon-id="106565">
+					<a href="http://www.foxydeal.com/out/106565" target="_blank">
+						<figure><img width="74" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/18577_120x604-74x37.gif?688deb" class="attachment-column_thumb wp-post-image" alt="Amazon Local logo" /></figure>
+						<span>Professional Portrait Packages at JCPenney Portraits.</span>
+					</a>
+				</li>
+							<li class="group" data-coupon-id="106235">
+					<a href="http://www.foxydeal.com/out/106235" target="_blank">
+						<figure><img width="74" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/18441_120x604-74x37.gif?688deb" class="attachment-column_thumb wp-post-image" alt="Best Buy logo" /></figure>
+						<span>Fitness Equipment Sale.</span>
+					</a>
+				</li>
+							<li class="group" data-coupon-id="96466">
+					<a href="http://www.foxydeal.com/out/96466" target="_blank">
+						<figure><img width="74" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/8383_120x604-74x37.gif?688deb" class="attachment-column_thumb wp-post-image" alt="Groupon logo" /></figure>
+						<span>Best of Beauty Deals.</span>
+					</a>
+				</li>
+							<li class="group" data-coupon-id="93700">
+					<a href="http://www.foxydeal.com/out/93700" target="_blank">
+						<figure><img width="74" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/5128_120x604-74x37.gif?688deb" class="attachment-column_thumb wp-post-image" alt="Microsoft Store logo" /></figure>
+						<span>$50 off Xbox One console.</span>
+					</a>
+				</li>
+							<li class="group" data-coupon-id="93692">
+					<a href="http://www.foxydeal.com/out/93692" target="_blank">
+						<figure><img width="74" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/5128_120x604-74x37.gif?688deb" class="attachment-column_thumb wp-post-image" alt="Microsoft Store logo" /></figure>
+						<span>Free Shipping on any order.</span>
+					</a>
+				</li>
+					</ul>
+		<p class="text-center"><a class="more-info1" href="http://www.foxydeal.com/coupon/top_coupons">More top coupons<i
+					class="fa fa-angle-double-right"></i></a></p>
+	</div>
+	<div class="col-sm-4">
+		<h2><i class="fa fa-tags"></i>New coupons</h2>
+		<ul>				<li class="group" data-coupon-id="109288">
+					<a href="http://www.foxydeal.com/out/109288" target="_blank">
+						<figure><img width="74" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/21249_120x604-74x37.gif?688deb" class="attachment-column_thumb wp-post-image" alt="The Neat Company logo" /></figure>
+						<span>Up to $100 off.</span>
+					</a>
+				</li>
+							<li class="group" data-coupon-id="109283">
+					<a href="http://www.foxydeal.com/out/109283" target="_blank">
+						<figure><img width="74" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/20435_120x604-74x37.gif?688deb" class="attachment-column_thumb wp-post-image" alt="YoYo.com logo" /></figure>
+						<span>15% off 2+ Chuggington Trains.</span>
+					</a>
+				</li>
+							<li class="group" data-coupon-id="109282">
+					<a href="http://www.foxydeal.com/out/109282" target="_blank">
+						<figure><img width="74" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/20435_120x604-74x37.gif?688deb" class="attachment-column_thumb wp-post-image" alt="YoYo.com logo" /></figure>
+						<span>20% off Magformers.</span>
+					</a>
+				</li>
+							<li class="group" data-coupon-id="109281">
+					<a href="http://www.foxydeal.com/out/109281" target="_blank">
+						<figure><img width="74" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/20435_120x604-74x37.gif?688deb" class="attachment-column_thumb wp-post-image" alt="YoYo.com logo" /></figure>
+						<span>20% off 2+ Little Pim Learning Languages DVDs.</span>
+					</a>
+				</li>
+							<li class="group" data-coupon-id="109280">
+					<a href="http://www.foxydeal.com/out/109280" target="_blank">
+						<figure><img width="74" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/20435_120x604-74x37.gif?688deb" class="attachment-column_thumb wp-post-image" alt="YoYo.com logo" /></figure>
+						<span>Up to 30% off Razor Scooters and Ride-ons.</span>
+					</a>
+				</li>
+					</ul>
+		<p class="text-center"><a class="more-info1" href="http://www.foxydeal.com/coupon/new_coupons">More new coupons<i
+					class="fa fa-angle-double-right"></i></a></p>
+	</div>
+				<div class="col-sm-4">
+					<h2><i class="fa fa-bell"></i>Top deals</h2>
+					<ul>							<li class="group">
+								<a href="http://www.foxydeal.com/deal/save-50-00-on-xbox-one/" target="_blank">
+									<figure><img width="55" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/xbox-one-55x37.jpg?688deb" class="attachment-column_thumb wp-post-image" alt="xbox-one" /></figure>
+									<span>Save $50.00 on Xbox One</span>
+								</a>
+							</li>
+													<li class="group">
+								<a href="http://www.foxydeal.com/deal/save-40-75-on-select-boots/" target="_blank">
+									<figure><img width="55" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/Fotolia_65965818_S-300x200-55x37.jpg?688deb" class="attachment-column_thumb wp-post-image" alt="Fotolia_65965818_S-300x200" /></figure>
+									<span>Save 40-75% on select boots</span>
+								</a>
+							</li>
+													<li class="group">
+								<a href="http://www.foxydeal.com/deal/weekly-coupons/" target="_blank">
+									<figure><img width="55" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/Fotolia_66779761_S-300x200-55x37.jpg?688deb" class="attachment-column_thumb wp-post-image" alt="Young brunette woman in cap" /></figure>
+									<span>Staples&#8217; Weekly Coupons</span>
+								</a>
+							</li>
+													<li class="group">
+								<a href="http://www.foxydeal.com/deal/huge-clearance-sale-at-walmart/" target="_blank">
+									<figure><img width="55" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/Fotolia_70887220_S-300x200-55x37.jpg?688deb" class="attachment-column_thumb wp-post-image" alt="Shopping surprised woman holding bags. Winter sales." /></figure>
+									<span>Huge Clearance Sale at Walmart</span>
+								</a>
+							</li>
+													<li class="group">
+								<a href="http://www.foxydeal.com/deal/winter-sale-at-expedia/" target="_blank">
+									<figure><img width="55" height="37" src="http://www.foxydeal.com/wp-content/uploads/2015/02/Fotolia_57767006_S-300x200-55x37.jpg?688deb" class="attachment-column_thumb wp-post-image" alt="Fotolia_57767006_S-300x200" /></figure>
+									<span>Winter Sale at Expedia</span>
+								</a>
+							</li>
+											</ul>
+					<p class="text-center"><a class="more-info1" href="http://www.foxydeal.com/deal/">More deals<i
+								class="fa fa-angle-double-right"></i></a></p>
+				</div>
+			</div>
+			<div id="back-to-top"><a href="#"><i class="fa fa-angle-double-up"></i></a></div>
+		</div>
+	</div>
+	<!-- /Content -->
+
+	<!-- Counters -->
+	<div class="discover-diversity">
+		<div class="container">
+			<h2>Discover the variety</h2>
+			<ul>
+				<li>
+					<div class="inner">
+						<p>
+							<a href="http://www.foxydeal.com/coupon/"><span>18754</span>Coupons</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="inner">
+						<p>
+							<a href="http://www.foxydeal.com/merchant/"><span>3433</span>Shops</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="inner">
+						<p>
+							<a href="http://www.foxydeal.com/deal/"><span>5</span>Deals</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="inner">
+						<p><span>10</span>Countries</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /Counters -->
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<ul class="sociable">
+									</ul>
+				<nav id="footer-navigation">
+
+					<ul id="menu-footer-menu" class=""><li id="menu-item-108322" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108322"><a href="http://www.foxydeal.com/about/">About foxydeal</a></li>
+<li id="menu-item-108321" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108321"><a href="http://www.foxydeal.com/imprint/">Imprint</a></li>
+<li id="menu-item-108318" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108318"><a href="http://www.foxydeal.com/terms-of-service/">Terms Of Service</a></li>
+<li id="menu-item-108319" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108319"><a href="http://www.foxydeal.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-108320" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108320"><a href="http://www.foxydeal.com/eula/">EULA</a></li>
+</ul>
+				</nav>
+			</div>
+			<div class="col-sm-6 col-sm-offset-2">
+				<div class="available-countries">
+            <h4>foxydeal is available in the following countries:</h4>
+					<ul>
+																				<li>
+									<a href="http://www.foxydeal.de/"
+									   target="_blank"><img width="30" height="20" src="http://www.foxydeal.com/wp-content/uploads/2015/01/Germany.png?688deb" class="attachment-post-thumbnail wp-post-image" alt="Germany" />Germany</a>
+								</li>
+															<li>
+									<a href="http://www.foxydeal.es/"
+									   target="_blank"><img width="30" height="20" src="http://www.foxydeal.com/wp-content/uploads/2015/01/Spain.png?688deb" class="attachment-post-thumbnail wp-post-image" alt="Spain" />Spain</a>
+								</li>
+															<li>
+									<a href="http://www.foxydeal.co.uk/"
+									   target="_blank"><img width="30" height="20" src="http://www.foxydeal.com/wp-content/uploads/2015/01/United-Kingdom.png?688deb" class="attachment-post-thumbnail wp-post-image" alt="United-Kingdom" />United Kingdom</a>
+								</li>
+															<li>
+									<a href="http://www.foxydeal.com.br/"
+									   target="_blank"><img width="30" height="20" src="http://www.foxydeal.com/wp-content/uploads/2015/01/Brazil.png?688deb" class="attachment-post-thumbnail wp-post-image" alt="Brazil" />Brazil</a>
+								</li>
+															<li>
+									<a href="http://www.foxydeal.pl/"
+									   target="_blank"><img width="30" height="20" src="http://www.foxydeal.com/wp-content/uploads/2015/01/Poland.png?688deb" class="attachment-post-thumbnail wp-post-image" alt="Poland" />Poland</a>
+								</li>
+															<li>
+									<a href="http://www.foxydeal.ru/"
+									   target="_blank"><img width="30" height="20" src="http://www.foxydeal.com/wp-content/uploads/2015/01/Russia.png?688deb" class="attachment-post-thumbnail wp-post-image" alt="Russia" />Russia</a>
+								</li>
+															<li>
+									<a href="http://www.foxydeal.nl/"
+									   target="_blank"><img width="30" height="20" src="http://www.foxydeal.com/wp-content/uploads/2015/01/Netherlands.png?688deb" class="attachment-post-thumbnail wp-post-image" alt="Netherlands" />Netherlands</a>
+								</li>
+															<li>
+									<a href="http://www.foxydeal.it/"
+									   target="_blank"><img width="30" height="20" src="http://www.foxydeal.com/wp-content/uploads/2015/01/Italy.png?688deb" class="attachment-post-thumbnail wp-post-image" alt="Italy" />Italy</a>
+								</li>
+															<li>
+									<a href="http://www.foxydeal.in/"
+									   target="_blank"><img width="30" height="20" src="http://www.foxydeal.com/wp-content/uploads/2015/01/India.png?688deb" class="attachment-post-thumbnail wp-post-image" alt="India" />India</a>
+								</li>
+															<li>
+									<a href="http://fr.foxydeal.com/"
+									   target="_blank"><img width="30" height="20" src="http://www.foxydeal.com/wp-content/uploads/2015/01/France.png?688deb" class="attachment-post-thumbnail wp-post-image" alt="France" />France</a>
+								</li>
+												</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="transparent-bg"></div>
+</div>
+<link rel='stylesheet' id='metaslider-nivo-slider-css'  href="http://www.foxydeal.com/wp-content/plugins/ml-slider/assets/sliders/nivoslider/nivo-slider.css?688deb" type='text/css' media='all' />
+<link rel='stylesheet' id='metaslider-public-css'  href="http://www.foxydeal.com/wp-content/plugins/ml-slider/assets/metaslider/public.css?688deb" type='text/css' media='all' />
+<link rel='stylesheet' id='metaslider-nivo-slider-default-css'  href="http://www.foxydeal.com/wp-content/plugins/ml-slider/assets/sliders/nivoslider/themes/default/default.css?688deb" type='text/css' media='all' />
+<link rel='stylesheet' id='metaslider-pro-public-css'  href="http://www.foxydeal.com/wp-content/plugins/ml-slider-pro/assets/public.css?688deb" type='text/css' media='all' />
+<script type='text/javascript' src="//cdn.jsdelivr.net/caroufredsel/6.2.1/jquery.carouFredSel.packed.js?688deb"></script>
+<script type='text/javascript' src="//cdn.jsdelivr.net/jquery.columnizer/1.6.0/jquery.columnizer.js?688deb"></script>
+<script type='text/javascript' src="//cdn.jsdelivr.net/jquery.sticky/1.0.1/jquery.sticky.js?688deb"></script>
+<script type='text/javascript' src="//cdn.jsdelivr.net/jquery.scrollto/1.4.13/jquery.scrollTo.js?688deb"></script>
+<script type='text/javascript' src="//cdn.jsdelivr.net/jquery.localscroll/1.3.1/jquery.localScroll.js?688deb"></script>
+<script type='text/javascript' src="http://www.foxydeal.com/wp-content/themes/foxydeal-theme/assets/javascripts/main.js?688deb"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var globData = {"ajaxurl":"http:\/\/www.foxydeal.com\/wp\/wp-admin\/admin-ajax.php","siteRoot":"http:\/\/www.foxydeal.com"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="http://www.foxydeal.com/wp-content/themes/foxydeal-theme/assets/javascripts/couponJS.js?688deb"></script>
+<script type='text/javascript' src="//d3avqv6zaxegeu.cloudfront.net/ftl.js?688deb"></script>
+<script type='text/javascript' src="http://www.foxydeal.com/wp-content/plugins/ml-slider/assets/sliders/nivoslider/jquery.nivo.slider.pack.js?688deb"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-2.newrelic.com","licenseKey":"bc8aaec597","applicationID":"3605812","transactionName":"YwFVZBMCXRAEAExYW1pLdlMVClwNSgVKXlpASUdRBgY=","queueTime":0,"applicationTime":330,"atts":"T0ZWElsYTh4=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-515.min.js"}</script></body>
+</html>";i:2;s:4:"7638";}

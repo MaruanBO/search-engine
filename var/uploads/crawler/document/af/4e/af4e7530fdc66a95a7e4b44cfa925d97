@@ -1,0 +1,1227 @@
+a:3:{i:0;s:18:"http://mydish.com/";i:1;s:92129:"
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" /><title>
+	MyDISH
+</title>
+
+    
+
+    <!-- Bootstrap -->
+    
+	<!--link type="text/css" rel="stylesheet" href="https://my.dish.com/customercaresc/rwd/css/bootstrap.min.css" /-->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://my.dish.com/customercaresc/javascript/jquery-1.10.1.min.js"></script>
+	
+    <!--link type="text/css" rel="stylesheet" href="https://my.dish.com/customercaresc/rwd/css/bootstrap-theme.min.css" /-->
+    <link href="/css/bootstrap-theme.min.css" rel="stylesheet" /><link type="text/css" rel="stylesheet" href="https://my.dish.com/customercaresc/css/csa_common_style.css" /><link type="text/css" rel="stylesheet" href="https://my.dish.com/customercaresc/css/csa_desktop_style.css" /><link type="text/css" rel="stylesheet" href="https://my.dish.com/customercaresc/css/csa_mobile_style.css" /><link type="text/css" rel="stylesheet" href="https://my.dish.com/customercaresc/css/offcanvas.css" /><link type="text/css" rel="stylesheet" href="https://my.dish.com/customercaresc/rwd/css/responsive-tables.css" /><link type="text/css" rel="stylesheet" href="https://my.dish.com/customercaresc/css/csa_header_footer_desktop.css" /><link type="text/css" rel="stylesheet" href="https://my.dish.com/customercaresc/css/csa_header_footer_mobile.css" /><link href="/css/stylesheet.ashx" rel="stylesheet" type="text/css" />
+    
+
+    
+    <script type="text/javascript" src="/Scripts/jquery-plugins.js"></script>
+    
+    <script type="text/javascript" src="/js/plugins.js"></script>
+    <script type="text/javascript" src="/scripts/jquery-ui-1.10.4.custom.min.js"></script>
+
+    <!--[if lt IE 9]>
+	    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    
+
+
+    
+    <style>
+body, .sub_nav {
+   background: #242424;
+   border-bottom: #242424;
+}
+
+#banner1{
+		background: #232323;
+		}
+
+.bannerHero .row > div .row > div{padding:0;}
+
+#dmmLogo{margin-top:-20px;}
+#dmmHeader{padding-top:42px;}
+
+#twitter-widget-0 {
+  width: 100% !important;
+  height: 395px;
+}
+#fb-root {
+  height: 0px;
+}
+.fb_iframe_widget {
+  width: 100%;
+}
+.fb_iframe_widget span {
+  width: 100% !important;
+  background: #FFF;
+  border-radius: 4px;
+}
+.fb_iframe_widget iframe {
+  width: 100% !important;
+}
+
+
+#prePop
+{
+padding: 0px 0px 12px 12px;
+display:none;
+}
+.ui-dialog .ui-dialog-titlebar {
+padding: 0px 12px 0;
+}
+#prePop img
+{
+width: 750px;
+max-width:99%;
+}
+
+@media (max-width: 960px){
+#dmmHeader{padding-top:0px;}
+#weekend {margin-top:20px;}
+}	
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+$.ajax({
+                type: "GET",
+                url: "/ajax/ppv.ashx",
+                data: { "_action": "getPPVByCatalog" },
+                cache: false,
+                dataType: "json",
+                success: function (data) 
+                {
+                     var take5 = 0
+                     var stringBuilder = "";
+                     for(var x = 0; x < data.length; x++)
+                    {
+                           if(data[x].category_id == 1)
+                           {
+                                take5 ++;
+                                stringBuilder += "<div><img alt=\"\" src=\"https://my.dish.com/customer/images/payperview/dynamicload/"+data[x].image_name+"\" /><br />"+((data[x].title.length>16)?(data[x].title.substring(0, 16)+"..."):(data[x].title))+"<br /><br /><a class=\"button red\" href=\"https://my.dish.com/customercare/payperview/getPPVMovieList.do?&amp;hdSelected=Y&amp;progType=MOVIE&amp;csgEventId="+data[x].eid+"\">Order Now</a></div>";
+                           }
+                           if(take5 == 5)
+                           {
+                                break;
+                           }
+                    }
+                    $("#featured").append(stringBuilder);
+                }
+           });
+});
+/*$(window).load(function(){
+
+  $( "#prePop" ).dialog({
+    position: ['center',180],
+    width: 775,
+    draggable: false,
+    modal:true,
+    maxHeight: 600
+  });
+
+}); */
+</script>
+    
+
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-30146366-1', 'auto');
+        ga('send', 'pageview');
+
+        //keep this - required for gtm/wt
+        dataLayer = [];
+
+    </script>
+</head>
+<body class="sub">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WPMQD9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+    'gtm.start':
+    new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+    '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WPMQD9');</script>
+    <!-- End Google Tag Manager -->
+
+
+    
+    
+    <div id="dish-header" class="visible-lg">
+	<div id="top-nav" class="group">
+	<div class="container">
+    
+		<ul>
+	        <li class="visible-xs"><a href="https://my.dish.com/customercare/usermanagement/logoutCustomer.do" title="Log Out">Log Out</a></li>
+	        <li><a href="/" title="MyDISH">MyDISH</a></li>
+	        <li><a href="http://www.dish.com" target="_self" title="DISH">DISH</a></li>
+	        <li><a href="http://dishanywhere.com" target="_self" title="DISH Anywhere">DISH ANYWHERE™</a></li>
+	        <li><a href="http://commercial.dish.com/business/" title="Business">BUSINESSES</a></li>
+        </ul>
+
+		<ul id="top-right-hat">
+			<li id="order-dish"><a href="http://www.mydish.com">CALL
+					US</a> <span id="order-phone"><a href="tel:+18003333474">1-800-333-DISH</a></span>
+			</li>
+			<li id="account" class="group"><a href="https://my.dish.com/customercare/usermanagement/logoutCustomer.do" id="topnavLogin"><strong>LOG IN / OUT</strong>
+			</a></li>
+			<li id="search">
+        <input type="text" id="q" class="searchText ui-autocomplete-input" accesskey="S" autocomplete="off"/><!--span role="status" aria-live="polite" class="ui-helper-hidden-accessible">No search results.</span-->
+        <button type="button" id="searchButton" class="searchButton" onclick="window.location='/Search.aspx?q=' + $('#q').val(); return false;"></button>
+        </li>
+		</ul>
+        
+	</div>
+    
+    </div>
+<div id="main-nav-wrap">
+	<div id="main-nav" class="group container">
+		<ul>
+			<li id="home"><a href="/">MyDISH</a></li>
+		<ul>
+	        <li class="col-xs-4 mainmenu mainmenuDefault cont570" id="my-account" onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+	        <div><a href="https://my.dish.com/customercare/paymybill/populateBillingDetails.do" id="mainnavAccount">MY ACCOUNT</a></div>
+	        </li>
+	        <li class="col-xs-4 mainmenu cont561" id="perks" onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+	        <div><a href="http://www.mydish.com/perks">PERKS</a></div>
+	        </li>
+	        <li class="col-xs-4 mainmenu cont502" id="upgrades" onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+	        <div><a href="http://www.mydish.com/upgrades">UPGRADES</a></div>
+	        </li>
+        </ul>
+
+        <ul>
+	        <li class="col-xs-4 mainmenu cont540" id="ppv"  onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+
+	        <div><a href="http://www.mydish.com/pay-per-view">PAY-PER-VIEW</a></div>
+	        </li>
+	        <li class="col-xs-4 mainmenu cont554" id="tve" onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+	        <div><a href="http://www.mydish.com/dish-anywhere">DISH ANYWHERE™</a></div>
+	        </li>
+	        <li class="col-xs-4 mainmenu cont501" id="support" onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+	        <div><a href="http://www.mydish.com/support">SUPPORT</a></div>
+	        </li>
+        </ul>
+
+		</ul>
+	</div>
+	<!-- End Main Nav -->
+    <div id="main-subnav">
+        <div class="container">
+            <div id="my-account-subnav" class="group" style="overflow: hidden; display: none;">
+                <div class="container_12 group">
+                    <ul>
+                        <li>
+                            <a href="https://my.dish.com/customercare/paymybill/populateBillingDetails.do">Pay My Bill</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/paymenthistory/populatePaymentHistory.do">My Payment History</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/mybillhistory/populateMyBillHistory.do">My Bill History</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/myprofile/prepAccountMaintenance.do">My Profile</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/mypreference/populatePreference.do">My Preferences</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="https://my.dish.com/customercare/programming/prepChangeProgramming.do">My Programming</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/broadband/prepBroadBand.do">My Internet</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/equipment/showMyEquipmentDetails.do">My Equipment</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/myappointments/showMyAppointments.do">My Appointments</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/ordermanagement/getShipmentDetails.do">My Shipments</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="https://my.dish.com/customercare/payperview/getPPVCertificatesList.do">My Pay-Per-View Certificates</a>
+                        </li>
+                        <li>
+                            <a id="myAnchor11" href="https://my.dish.com/customercare/clubdish/prepareMyReferralsHistory.do">My Referrals</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/myoffers/showInternetOffers.do">My Offers</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/mylocks/prepMyLocks.do">My Locks</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/myoffers/processGameFinder.do" target="_blank">Game Finder</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a id="myAnchor15" href="https://my.dish.com/customercare/clubdish/prepareMyReferrals.do">Refer a Friend</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/payperview/getPPVMovieList.do">Order Pay-Per-View</a>
+                        </li>
+                        <li>
+                            <a href="https://my.dish.com/customercare/VOD/prepVideoOnDemand.do">Order On Demand</a>
+                        </li>
+                        <li>
+                            <a id="myAnchor19" href="https://my.dish.com/customercare/ordermanagement/prepOrderAccessories.do?order=accessories">Order From Store</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="perks-subnav" class="group" style="overflow: hidden; display: none;">
+                <div class="container_12 group">
+                    <div class="grid_8 prefix_2 suffix_2">
+                        <ul class="visible-xs">
+                            <li><a href="http://www.mydish.com/perks">PERKS HOME</a></li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="http://www.mydish.com/perks/free-preview">Free Channel Previews</a></li>
+                            <li><a href="http://www.mydish.com/perks/dish-studio-ch-102">DISH Studio Ch. 102</a></li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="http://www.mydish.com/perks/on-demand">On Demand</a></li>
+                            <li><a href="http://www.mydish.com/perks/dish-anywhere">DISH Anywhere™</a></li>
+                        </ul>
+
+                        <ul class="border-right-no">
+                            <li><a href="http://www.mydish.com/perks/sweepstakes">Sweepstakes</a></li>
+                            <li><a href="http://www.mydish.com/perks/new-channels">New Channels</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div id="upgrades-subnav" class="group" style="overflow: hidden; display: none;">
+                <div class="container_12 group">
+                    <div class="grid_6 alpha omega">
+                        <ul class="visible-xs">
+                            <li><a href="http://www.mydish.com/upgrades">Upgrades Home</a></li>
+                        </ul>
+
+                        <h2>PROGRAMMING</h2>
+
+                        <ul>
+                            <li><a href="http://www.mydish.com/upgrades/english-packages">English Packages</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/premiums">Premium Channels</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/specialty-channels">Specialty Packages</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/blockbuster">Blockbuster @Home</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/sports">Sports Channels</a></li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="http://www.mydish.com/upgrades/hd">HD Channels</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/latino">Latino Packages</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/international">International Packages</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/local">Local Channels</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="grid_6 alpha omega">
+                        <h2>PRODUCTS</h2>
+
+                        <ul>
+                            <li><a href="http://www.mydish.com/upgrades/products/receivers">Receivers</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/products/internet-phone">Internet &amp; Phone</a></li>
+                            <li><a href="http://www.mydish.com/dish-anywhere">DISH Anywhere™</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/products/remotes-accessories">Remotes &amp; Accessories</a></li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="http://www.mydish.com/upgrades/products/dish-service">DISH Smart Home Services</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/products/tailgater">TV Outdoors</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/products/expand-dvr-storage">Expand DVR Storage</a></li>
+                            <li><a href="http://www.mydish.com/upgrades/products/games-channel-96">Games Channel 96</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div id="ppv-subnav" style="overflow: hidden; display: none;">
+                <div class="container_12 group">
+                    <div class="grid_6 prefix_3 suffix_3">
+                        <ul class="visible-xs">
+                            <li><a href="http://www.mydish.com/pay-per-view">PAY-PER-VIEW HOME</a></li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="http://www.mydish.com/pay-per-view/dishcinema">DISH Cinema</a></li>
+                            <li><a href="http://www.mydish.com/pay-per-view/sports-and-events">Sports &amp; Events</a></li>
+                            <li class="border-right-no"><a href="http://www.mydish.com/pay-per-view/adult-entertainment">Adult Entertainment</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div id="tve-subnav" class="four-col" style="overflow: hidden; display: none;">
+                <div class="container_12 group">
+                    <div class="grid_8 prefix_2 suffix_2">
+                        <ul class="visible-xs">
+                            <li><a href="http://www.mydish.com/dish-anywhere">DISH ANYWHERE™ HOME</a></li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="http://dishanywhere.com" target="_blank">dishanywhere.com</a></li>
+                            <li><a href="http://www.mydish.com/dish-anywhere/dish-anywhere-app">DISH Anywhere™ App</a></li>
+                            <li><a href="http://www.mydish.com/dish-anywhere/sling-adapter">Sling Adapter®</a></li>
+                            <li class="border-right-no"><a href="http://www.mydish.com/upgrades/products/hopper">Hopper with Sling®</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- end main-nav -->
+</div>
+        <script type="text/javascript" src="https://my.dish.com/customercaresc/9404/javascript/plugins.js"></script>
+
+	</div>
+    <div class="overlayBlurDiv" style="display: none;"><!-- --></div>
+
+    <div>
+    <div id="noie">
+        <h2>This Version of Internet Explorer Is Not Supported</h2>We recommend you upgrade to a more modern browser.<br><br>Some options are <a href="https://www.google.com/chrome/browser/">Google Chrome</a> and <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>.
+    </div>
+    <div class="row-offcanvas wrapper row-offcanvas-right row-offcanvas-fixed" id="rowoffcanvas">
+        <div class="navbar navbar-default navbar-fixed-top" id="navbar-default">
+			<div class="navbar-header">
+				 	<button id="toggleleft" type="button" class="navbar-toggle" data-toggle="offcanvas">
+				    <span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div id="contentHeader" data-role="header" data-theme="b">
+					<div class="navbar-header-img">
+						<img src="https://my.dish.com/customercaresc/images/common/Mobile_MenuR.png" id="toggleright" data-toggle="offcanvas">
+						<img src="https://my.dish.com/customercaresc/images/common/Mobile_MYDISH.png">
+                        <a href="https://my.dish.com/customercare/usermanagement/logoutCustomer.do">Log In/Out</a>
+					</div>							 
+  					<div class="navbar-header-text">MyDISH</div>
+		   		</div>		   				
+			</div>
+		</div>
+        <div id="Loading" class="loading" style="display:none;">	
+			<img id="imgLoad" src="https://my.dish.com/customercaresc/images/common/wait.gif" alt="Loading...">
+	    </div>
+
+    
+
+    <div class="sub_nav bcbox">
+	    <div class="container">
+
+            <div id="bc" class="breadcrumb">
+                <span id="ctl00_ctl00_SiteMapPathBreadCrumbs"><a href="#ctl00_ctl00_SiteMapPathBreadCrumbs_SkipLink"><img alt="Skip Navigation Links" height="0" width="0" src="/WebResource.axd?d=mvk9S9iZpO76UdqhzoFFxK9Y58JLWVmqQkY56Ve6sRS85uq-LBGiN85njiay5GxyENlZaXzzpzNMZehCGlF1CBKnJ3gSfG2SuUW77IcllPU1&amp;t=635231320608517049" border="0" /></a><a id="ctl00_ctl00_SiteMapPathBreadCrumbs_SkipLink"></a></span>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid mainarea">
+        <div class="row">
+
+    
+    <div class="visible-xs col-lg-4 sidebar-offcanvas leftNavigation" role="navigation" id="sidebar">
+			       			
+<!-- new -->
+
+<div class="visible-xs">
+<div id="rightmenu" style="display: none;" class="row sidebarmenu">
+			<ul>
+	
+	<li><a href="http://www.mydish.com" title="MyDISH">MyDISH</a></li>
+	<li><a href="http://www.dish.com" target="_self" title="DISH">DISH</a></li>
+	<li><a href="http://dishanywhere.com" target="_self" title="DISH Anywhere">DISH ANYWHERE™</a></li>
+	<li><a href="http://commercial.dish.com/business/?KBID=74383" title="Business">BUSINESSES</a></li>
+	<li class="visible-xs horizontalRule">&nbsp;</li>
+</ul>
+
+<h2 class="visible-xs">CORPORATE</h2>
+
+<div class="sub-menu-level2 visible-xs">
+<ul>
+	<li><a href="http://about.dish.com/">About DISH</a></li>
+	<li><a href="http://about.dish.com/news">News</a></li>
+	<li><a href="http://dish.client.shareholder.com/">Investor Relations</a></li>
+	<li><a href="http://careers.dish.com/">Careers</a></li>
+	<li><a href="http://www.dish.com/legal">Legal</a></li>
+</ul>
+</div>
+
+<h2 class="visible-xs">RESOURCES</h2>
+
+<div class="sub-menu-level2 visible-xs">
+<ul>
+	<li><a href="http://www.dish.com/support/tools-apps/locate-retailer" target="_blank">Find A Retailer</a></li>
+	<li><a href="http://www.dishlatino.com/" target="_blank">DishLATINO</a></li>
+	<li><a href="http://commercial.dish.com/business" target="_blank">Business Owners</a></li>
+	<li><a href="http://www.dishmediasales.com/" target="_blank">DISH Media Sales</a></li>
+	
+</ul>
+</div>
+
+<h2 class="visible-xs">CONNECT</h2>
+
+<div class="sub-menu-level2 visible-xs">
+<ul>
+	<li><a href="http://www.dish.com/chat/#email" id="send-feedback" target="_blank">Send Feedback</a></li>
+	<li><a href="https://dishnetworkmail.com/servlet/campaignrespondent?_ID_=dish.179" target="_blank">Newsletter</a></li>
+	<li><a href="http://www.dish.com/chat/" target="_blank">Contact Us</a></li>
+</ul>
+</div>
+
+</div>			
+<div id="leftmenu" class="row sidebarmenu">
+	<ul>
+	<li class="col-xs-4 mainmenu mainmenuDefault activeMainMenu" id="my-account" onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+
+	<div><a href="https://my.dish.com/customercare/paymybill/populateBillingDetails.do" id="mainnavAccount">MY ACCOUNT</a></div>
+	</li>
+	<li class="col-xs-4 mainmenu" id="perks" onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+	<div><a href="http://www.mydish.com/perks">PERKS</a></div>
+	</li>
+	<li class="col-xs-4 mainmenu" id="upgrades" onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+	<div><a href="http://www.mydish.com/upgrades">UPGRADES</a></div>
+	</li>
+</ul>
+
+<ul>
+	<li class="col-xs-4 mainmenu" id="ppv" onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+
+	<div><a href="http://www.mydish.com/pay-per-view">PAY-PER-VIEW</a></div>
+	</li>
+	<li class="col-xs-4 mainmenu" id="tve" onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+	<div><a href="http://www.mydish.com/dish-anywhere">DISH ANYWHERE™</a></div>
+	</li>
+	<li class="col-xs-4 mainmenu" id="support" onclick="javascript:showSubNav(this.id);"><span class="visible-lg">&nbsp;</span>
+	<div><a href="http://www.mydish.com/support">SUPPORT</a></div>
+	</li>
+</ul>
+
+</div>
+	
+<!-- End Main Nav -->
+	
+
+<!--  Left Navigation Begin Here --->
+<div id="sub-nav-perks" style="display: none;" class="sidebarmenu">
+	<ul>
+        <li><a href="http://www.mydish.com/perks">PERKS HOME</a></li>
+        <div class="sidemenu suppnav menuborder"><ul id="sidemenu1"><li class=""><a class="menulink" href="/perks/free-preview">Free Channel Previews</a></li><li class=""><a class="menulink" href="/perks/on-demand">On Demand</a></li><li class=""><a class="menulink" href="/perks/dish-anywhere">DISH Anywhere™</a></li><li class=""><a class="menulink" href="/perks/sweepstakes">Sweepstakes</a></li><li class=""><a class="menulink" href="/perks/new-channels">New Channels</a></li><li class=""><a class="menulink" href="/perks/dish-studio-ch-102">DISH Studio Ch. 102</a></li></li></ul></div>
+    </ul>
+</div>
+<div id="sub-nav-upgrades" style="display: none;" class="sidebarmenu">
+    <ul>
+        <li><a href="http://www.mydish.com/upgrades">UPGRADES HOME</a></li>
+        <div class="sidemenu suppnav menuborder"><ul id="sidemenu1"><li class="hasKids"><a class="menuparent" href="/upgrades/packages">Packages</a><span><div></div></span><ul><li class="hasKids"><a class="menulink" href="/upgrades/premiums">Premium Packages</a><ul><li class=""><a class="menulink" href="/upgrades/premiums/showtime">Showtime</a></li><li class=""><a class="menulink" href="/upgrades/premiums/starz">Starz</a></li></ul></li><li class=""><a class="menulink" href="/upgrades/specialty-channels">Specialty Channels</a></li><li class=""><a class="menulink" href="/upgrades/blockbuster">Blockbuster @Home</a></li><li class=""><a class="menulink" href="/upgrades/sports">Sports Channels</a></li><li class="hasKids"><a class="menulink" href="/upgrades/english-packages">English Packages</a><ul><li class=""><a class="menulink" href="/upgrades/english-packages/americas-top-120">America's Top 120</a></li><li class=""><a class="menulink" href="/upgrades/english-packages/americas-top-120-plus">America's Top 120 Plus</a></li><li class=""><a class="menulink" href="/upgrades/english-packages/americas-top-200">America's Top 200</a></li><li class=""><a class="menulink" href="/upgrades/english-packages/americas-top-250">America's Top 250</a></li><li class=""><a class="menulink" href="/upgrades/english-packages/americas-everything-pak">America's Everything Pak</a></li><li class=""><a class="menulink" href="/upgrades/english-packages/smart-pack">Smart Pack</a></li><li class=""><a class="menulink" href="/upgrades/english-packages/welcome-pack">Welcome Pack</a></li><li class=""><a class="menulink" href="/upgrades/english-packages/dish-america">Dish America</a></li></ul></li><li class=""><a class="menulink" href="/upgrades/hd">HD Channels</a></li><li class=""><a class="menulink" href="/upgrades/latino">Latino Channels</a></li><li class=""><a class="menulink" href="/upgrades/international">International Channels</a></li><li class=""><a class="menulink" href="/upgrades/local">Local Channels</a></li><li class=""><a class="menulink" href="/upgrades/compare-packages">Compare Packages</a></li></ul></li><li class="hasKids"><a class="menuparent" href="/upgrades/products">Products</a><span><div></div></span><ul><li class="hasKids"><a class="menulink" href="/upgrades/products/receivers">Receivers</a><ul><li class=""><a class="menulink" href="/upgrades/products/hopper">The Hopper™</a></li></ul></li><li class="hasKids"><a class="menulink" href="/upgrades/products/internet-phone">Internet & Phone</a><ul><li class=""><a class="menulink" href="/upgrades/products/satellite-internet">Satellite Internet</a></li></ul></li><li class="hasKids"><a class="menulink" href="/dish-anywhere/?n=2">DISH Anywhere™</a><ul><li class=""><a class="menulink" href="/Redirect.aspx?URL=http://www.dishanywhere.com/">Visit DISH Anywhere™</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=http://www.dishanywhere.com">Schedule Your DVR</a></li></ul></li><li class=""><a class="menulink" href="/upgrades/products/remotes-accessories">Remotes & Accessories</a></li><li class=""><a class="menulink" href="/upgrades/products/dish-service">DISH Smart Home Services</a></li><li class=""><a class="menulink" href="/upgrades/products/tv-outdoors">TV Outdoors</a></li><li class=""><a class="menulink" href="/upgrades/products/expand-dvr-storage">Expand DVR Storage</a></li><li class="hasKids"><a class="menulink" href="/upgrades/products/games-channel-96">Games Channel 96</a><ul><li class=""><a class="menulink" href="/upgrades/products/games-channel-96/family-pack">Family Pack</a></li><li class=""><a class="menulink" href="/upgrades/products/games-channel-96/adventure-land">Adventure Land</a></li><li class=""><a class="menulink" href="/upgrades/products/games-channel-96/hunting-trails">Hunting Trails</a></li><li class=""><a class="menulink islong" href="/upgrades/products/games-channel-96/who-wants-to-be-a-millionaire">Who Wants To Be A Millionaire™</a></li><li class=""><a class="menulink" href="/upgrades/products/games-channel-96/hit-games">Hit Games</a></li><li class=""><a class="menulink" href="/upgrades/products/games-channel-96/brain-teasers">Brain Teaser</a></li><li class=""><a class="menulink" href="/upgrades/products/games-channel-96/action-pack">Action Pack</a></li><li class=""><a class="menulink" href="/upgrades/products/games-channel-96/sports-arena">Sports Arena</a></li><li class=""><a class="menulink" href="/upgrades/products/games-channel-96/kidswise">KidsWise®</a></li><li class=""><a class="menulink" href="/upgrades/products/games-channel-96/board-and-cards">Board & Cards</a></li><li class=""><a class="menulink" href="/upgrades/products/games-channel-96/trivia-pack">Trivia Pack</a></li></ul></li></ul></li></li></ul></div>
+    </ul>							
+</div>
+<div id="sub-nav-ppv" style="display: none;" class="sidebarmenu">
+    <ul>
+	    <li><a href="http://www.mydish.com/pay-per-view">PAY-PER-VIEW HOME</a></li>
+        <div class="sidemenu suppnav menuborder"><ul id="sidemenu1"><li class="hasKids"><a class="menuparent" href="/pay-per-view/dishcinema">DISH Cinema</a><span><div></div></span><ul><li class=""><a class="menulink" href="/pay-per-view/dishcinema/details">Movie Details</a></li></ul></li><li class="hasKids"><a class="menuparent" href="/pay-per-view/sports-and-events">Sports & Events</a><span><div></div></span><ul><li class=""><a class="menulink" href="/pay-per-view/sports-and-events/baseball">Baseball</a></li><li class=""><a class="menulink" href="/pay-per-view/sports-and-events/cricket">Cricket</a></li><li class=""><a class="menulink" href="/pay-per-view/sports-and-events/basketball">Basketball</a></li><li class=""><a class="menulink" href="/pay-per-view/sports-and-events/boxing">Boxing</a></li><li class=""><a class="menulink" href="/pay-per-view/sports-and-events/football">Football</a></li><li class=""><a class="menulink" href="/pay-per-view/sports-and-events/hockey">Hockey</a></li><li class=""><a class="menulink" href="/pay-per-view/sports-and-events/rugby">Rugby</a></li><li class=""><a class="menulink" href="/pay-per-view/sports-and-events/soccer">Soccer</a></li><li class=""><a class="menulink" href="/pay-per-view/sports-and-events/mma">Mixed Martial Arts</a></li><li class=""><a class="menulink" href="/pay-per-view/sports-and-events/tennis">Tennis</a></li><li class=""><a class="menulink" href="/pay-per-view/sports-and-events/wrestling">Wrestling</a></li></ul></li><li class=""><a class="menulink" href="/pay-per-view/adult-entertainment">Adult Entertainment</a></li></li></ul></div>
+    </ul>		
+</div>
+<div id="sub-nav-tve" style="display: none;" class="sidebarmenu">
+    <ul>
+	    <li><a href="http://www.mydish.com/dish-anywhere">DISH ANYWHERE™ HOME</a></li>
+        <div class="sidemenu suppnav menuborder"><ul id="sidemenu1"><li class=""><a class="menulink" href="/Redirect.aspx?URL=http://www.dishanywhere.com/?54">Visit DISH Anywhere™</a></li><li class=""><a class="menulink" href="/dish-anywhere/dish-anywhere-app">DISH Anywhere™ App</a></li><li class=""><a class="menulink" href="/dish-anywhere/sling-adapter">Sling® Adapter</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=/upgrades/products/hopper?12">Hopper® with Sling®</a></li></li></ul></div>
+    </ul>		
+</div>
+<div id="sub-nav-support" style="display: none;" class="sidebarmenu">
+	<ul class="visible-xs">
+        <li><a href="/support">SUPPORT HOME</a></li>
+        <div class="sidemenu suppnav menuborder"><ul id="sidemenu1"><li class="hasKids"><a class="menuparent" href="/support/tech-information">Technical Information</a><span><div></div></span><ul><li class="hasKids"><a class="menulink" href="/support/receivers">Receivers</a><ul><li class="hasKids"><a class="menulink" href="/support/receiver-options">Menu Options</a><ul><li class=""><a class="menulink" href="/support/watching-tv">Watching TV</a></li><li class=""><a class="menulink" href="/support/managing-account">Managing Account</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/receiver-diagrams">Diagrams</a><ul><li class="hasKids"><a class="menulink" href="/support/receiver-diagrams-panels">Front/Back Panels</a><ul><li class=""><a class="menulink" href="/support/panels-hopper">Hopper</a></li><li class=""><a class="menulink" href="/support/panels-joey">Joey</a></li><li class=""><a class="menulink" href="/support/panels-wirelessjoey">Wireless Joey</a></li><li class=""><a class="menulink" href="/support/panels-wirelessjoeyaccesspoint">Wireless Joey Access Point</a></li><li class=""><a class="menulink" href="/support/panel-922">922</a></li><li class=""><a class="menulink" href="/support/panel-811-381">811/381</a></li><li class=""><a class="menulink" href="/support/panel-722k">722k</a></li><li class=""><a class="menulink" href="/support/panel-722">722</a></li><li class=""><a class="menulink" href="/support/panel-625">625</a></li><li class=""><a class="menulink" href="/support/panel-622">622</a></li><li class=""><a class="menulink" href="/support/panel-612">612</a></li><li class=""><a class="menulink" href="/support/panel-522">522</a></li><li class=""><a class="menulink" href="/support/panel-512">512</a></li><li class=""><a class="menulink" href="/support/panel-510">510</a></li><li class=""><a class="menulink" href="/support/panel-508">508</a></li><li class=""><a class="menulink" href="/support/panel-501">501</a></li><li class=""><a class="menulink" href="/support/panel-411">411</a></li><li class=""><a class="menulink" href="/support/panel-322">322</a></li><li class=""><a class="menulink" href="/support/panel-311k">311k</a></li><li class=""><a class="menulink" href="/support/panel-311">311</a></li><li class=""><a class="menulink" href="/support/panel-301">301</a></li><li class=""><a class="menulink" href="/support/panel-222k">222k</a></li><li class=""><a class="menulink" href="/support/panel-222">222</a></li><li class=""><a class="menulink" href="/support/panel-211k">211k</a></li><li class=""><a class="menulink" href="/support/panel-211">211</a></li><li class=""><a class="menulink" href="/support/panel-111">111</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/receiver-to-wall">Receiver to Wall</a><ul><li class=""><a class="menulink" href="/support/receiver-wall-hopper-joey">Hopper/Joey</a></li><li class=""><a class="menulink" href="/support/1-to-1">1 TV, 1 Tuner Receiver</a></li><li class=""><a class="menulink" href="/support/1-to-2">1 TV, 2 Tuner Receiver</a></li><li class=""><a class="menulink" href="/support/2-to-2">2 TV, 2 Tuner Receiver</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/receiver-to-tv1">Receiver to TV1</a><ul><li class=""><a class="menulink" href="/support/receiver-tv1-coax">With Coax</a></li><li class=""><a class="menulink" href="/support/receiver-tv1-rca">With RCA</a></li><li class=""><a class="menulink" href="/support/receiver-tv1-component">With Component</a></li><li class=""><a class="menulink" href="/support/receiver-tv1-hdmi">With HDMI</a></li></ul></li><li class=""><a class="menulink" href="/support/receiver-to-tv2">Receiver to TV2</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/how-to-navigate">How To Navigate</a><ul><li class=""><a class="menulink" href="/support/Using-Channels">Using Channels</a></li><li class=""><a class="menulink" href="/support/Using-Themes">Using Themes</a></li><li class=""><a class="menulink" href="/support/Using-Search">Using Search</a></li><li class=""><a class="menulink" href="/support/using-multichannel-recall">Using Multichannel Recall</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/how-to-dvr">How To DVR</a><ul><li class="hasKids"><a class="menulink" href="/support/dvr-lists">DVR Lists</a><ul><li class=""><a class="menulink" href="/support/dvr-lists-timers">Timers</a></li><li class=""><a class="menulink" href="/support/scheduled-events">Scheduled Events</a></li><li class=""><a class="menulink" href="/support/recordings">Recordings</a></li><li class=""><a class="menulink" href="/support/primetime-anytime">PrimeTime Anytime</a></li><li class=""><a class="menulink islong" href="/support/share-content-hopper">Share Content Between Hoppers</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/manage-timers">Manage Timers</a><ul><li class=""><a class="menulink" href="/support/create-timers-hopper">Create Timers Hopper</a></li><li class=""><a class="menulink" href="/support/Create-Timers">Create Timers</a></li><li class=""><a class="menulink" href="/support/delete-timers">Delete Timers</a></li><li class=""><a class="menulink" href="/support/set-timer-options">Set Timer Options</a></li><li class=""><a class="menulink" href="/support/timer-priority-rules">Priority Rules</a></li><li class=""><a class="menulink" href="/support/exact-match-rules">Exact Match Rules</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/manage-scheduled-events">Manage Scheduled Events</a><ul><li class=""><a class="menulink" href="/support/skip-an-event">Skip an Event</a></li><li class=""><a class="menulink" href="/support/restore-skipped-events">Restore Skipped Events</a></li><li class=""><a class="menulink" href="/support/view-skipped-events">View Skipped Events</a></li><li class=""><a class="menulink" href="/support/skipped-event-reasons">Skipped Event Reasons</a></li><li class=""><a class="menulink islong" href="/support/set-scheduled-event-priority">Set Scheduled Event Priority</a></li><li class=""><a class="menulink islong" href="/support/resolve-scheduled-event-conflicts">Resolve Scheduled Event Conflicts</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/manage-recordings">Manage Recordings</a><ul><li class="hasKids"><a class="menulink" href="/support/manage-groups">Manage Groups</a><ul><li class=""><a class="menulink" href="/support/set-group-preference">Set Group Preference</a></li><li class=""><a class="menulink" href="/support/create-groups">Create Groups</a></li><li class=""><a class="menulink" href="/support/delete-groups">Delete Groups</a></li><li class=""><a class="menulink" href="/support/group-before-recording">Group Before Recording</a></li><li class=""><a class="menulink" href="/support/group-after-recording">Group After Recording</a></li></ul></li><li class=""><a class="menulink" href="/support/delete-recordings">Delete Recordings</a></li><li class=""><a class="menulink" href="/support/view-deleted-recordings">View Deleted Recordings</a></li><li class=""><a class="menulink" href="/support/protect-recording">Protect Recordings</a></li><li class=""><a class="menulink" href="/support/unprotect-recordings">Unprotect Recordings</a></li><li class=""><a class="menulink" href="/support/set-max-number-recordings">Set Max Number Recordings</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/manage-ext-hard-drive">Manage Ext Hard Drive</a><ul><li class=""><a class="menulink" href="/support/ehd-overview">EHD Overview</a></li><li class="hasKids"><a class="menulink" href="/support/setup-flows">Setup Flows</a><ul><li class=""><a class="menulink" href="/support/setup-211-211k-411">211 / 211k / 411</a></li><li class=""><a class="menulink" href="/support/setup-612-622-722-722k">612 / 622 / 722 / 722k</a></li><li class=""><a class="menulink" href="/support/setup-922-hopper">922 / Hopper</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/transfer-to-receiver">Transfer to Receiver</a><ul><li class=""><a class="menulink" href="/support/trans-to-rec-612-622-722-722k">612 / 622 / 722 / 722k</a></li><li class=""><a class="menulink" href="/support/trans-to-rec-922-hopper">922 / Hopper</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/transfer-to-ehd">Transfer to EHD</a><ul><li class=""><a class="menulink" href="/support/trans-to-ehd-612-622-722-722k">612 / 622 / 722 / 722k</a></li><li class=""><a class="menulink" href="/support/trans-to-ehd-922-hopper">922 / Hopper</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/play-back-from-ehd">Play Back from EHD</a><ul><li class=""><a class="menulink" href="/support/playback-612-622-722-722k">612 / 622 / 722 / 722k</a></li><li class=""><a class="menulink" href="/support/playback-922-hopper">922 / Hopper</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/uninstalling">Uninstalling</a><ul><li class=""><a class="menulink" href="/support/uninstall-211-211k-411">211 / 211k / 411</a></li><li class=""><a class="menulink islong" href="/support/uninstall-612-622-722-722k-922-hopper">612 / 622 / 722 / 722k / 922 / Hopper</a></li></ul></li></ul></li></ul></li><li class=""><a class="menulink islong" href="/support/energy-efficiency">Receiver Energy Efficiency Information</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/how-to-use">How To Use</a><ul><li class=""><a class="menulink" href="/support/getting-started-with-dish">Your DISH System</a></li><li class=""><a class="menulink" href="/support/your-hopper">Your Hopper</a></li><li class=""><a class="menulink" href="/support/use-ppv">Pay-Per-View</a></li><li class=""><a class="menulink" href="/support/how-to-use-blockbuster">Blockbuster @Home™</a></li><li class=""><a class="menulink" href="/support/use-vod">Video On Demand (VOD)</a></li><li class=""><a class="menulink" href="/support/use-broadband-vod">Broadband VOD</a></li><li class=""><a class="menulink" href="/support/dishanywhere">dishanywhere.com</a></li><li class=""><a class="menulink" href="/support/dishanywhereapp">DISH Anywhere™ App</a></li><li class=""><a class="menulink" href="/support/dishexplorer">DISH Explorer App</a></li><li class=""><a class="menulink" href="/support/use-ehd">External Hard Drive</a></li><li class=""><a class="menulink" href="/support/parentallocks">Parental Locks</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/remotes">Remotes</a><ul><li class=""><a class="menulink" href="/support/remote-buttons">Functions By Button</a></li><li class="hasKids"><a class="menulink" href="/support/program-remote-to-receiver">Program Remote to Receiver</a><ul><li class=""><a class="menulink" href="/support/program-remote-to-receiver-922">Hopper/Joey/922</a></li><li class=""><a class="menulink" href="/support/program-non-hopper-to-receiver">Non-Hopper Receiver</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/program-remote-to-tv">Program Remote to TV/Other</a><ul><li class=""><a class="menulink" href="/support/remotecodes">Remote Codes</a></li><li class=""><a class="menulink" href="/support/program-to-tv-code-non-basic">By Code</a></li><li class=""><a class="menulink" href="/support/program-to-tv-scan-non-basic">By Scan</a></li><li class=""><a class="menulink" href="/support/program-to-tv-by-menu-922">By Menu</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/prevent-remote-interference">Prevent Interference</a><ul><li class=""><a class="menulink" href="/support/remote-interference">Remote Interference</a></li><li class=""><a class="menulink" href="/support/change-remote-address">Change Remote Address</a></li><li class=""><a class="menulink" href="/support/change-uhf-band-6">Change UHF Band - 6 Remote</a></li><li class=""><a class="menulink islong" href="/support/change-uhf-band-20-21">Change UHF Band - 20/21 Remote</a></li><li class=""><a class="menulink" href="/support/insert-uhf-antenna-extender">Insert UHF Antenna Extender</a></li></ul></li><li class="hasKids"><a class="menulink islong" href="/support/prevent-black-blue-snowy-screen">Prevent Black,Blue,Snowy Screen</a><ul><li class=""><a class="menulink" href="/support/set-limited-mode">Set Limited Mode</a></li><li class=""><a class="menulink" href="/support/sat-auto-tune">Set Sat Auto-Tune</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/teach-learning-remote">Teach Learning Remote</a><ul><li class=""><a class="menulink" href="/support/teach-learning-remote-20-21">20/21 Remote</a></li><li class=""><a class="menulink" href="/support/teach-learning-remote-32">32 Remote</a></li><li class=""><a class="menulink" href="/support/40-remote">40 Remote</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/back-up-receiver-settings">Back Up Receiver Settings</a><ul><li class=""><a class="menulink" href="/support/back-up-receiver-222k-722k">222k/722k Receiver</a></li><li class=""><a class="menulink" href="/support/back-up-receiver-922">922 Receiver</a></li><li class=""><a class="menulink" href="/support/back-up-receiver-hopper-joey">Hopper/Joey</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/restore-receiver-settings">Restore Receiver Settings</a><ul><li class=""><a class="menulink" href="/support/restore-receiver-settings-222k-722k">222k/722k Receiver</a></li><li class=""><a class="menulink" href="/support/restore-receiver-settings-922">922 Receiver</a></li><li class=""><a class="menulink" href="/support/hopper-joey-restore-receiver-settings">Hopper/Joey</a></li></ul></li></ul></li><li class="hasKids"><a class="menulink" href="/support/tech-signalflow">Signal Flow</a><ul><li class="hasKids"><a class="menulink" href="/support/ota-module">OTA Module</a><ul><li class=""><a class="menulink" href="/support/setup-ota-module">OTA Module Setup</a></li><li class=""><a class="menulink" href="/support/ota-module-922">922 Receiver</a></li><li class=""><a class="menulink" href="/support/ota-module-222k-722k">222k/722k Receiver</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/usb_digital_ota_tuner">USB Digital OTA Tuner</a><ul><li class=""><a class="menulink islong" href="/support/usb-digital-ota-tuner">Set Up USB Digital OTA Tuner</a></li><li class=""><a class="menulink islong" href="/support/usb_digital_ota_tuner_hopper">Configure USB Digital OTA Tuner</a></li></ul></li><li class=""><a class="menulink" href="/support/satellite-to-home-diagram">Satellite to Home</a></li><li class=""><a class="menulink" href="/support/at-the-home-diagram">At the Home</a></li><li class=""><a class="menulink" href="/support/signal-flow-signal-flow-devices-splitter">Splitter</a></li><li class=""><a class="menulink" href="/support/signal-flow-signal-flow-devices-separator">Separator</a></li><li class=""><a class="menulink" href="/support/signal-flow-signal-flow-devices-diplexer">Diplexer</a></li><li class=""><a class="menulink" href="/support/Triplexer">Triplexer</a></li><li class=""><a class="menulink" href="/support/tap">Tap</a></li><li class=""><a class="menulink" href="/support/isolator">Isolator</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/tech-internet">Internet</a><ul><li class="hasKids"><a class="menulink" href="/support/internet-general">General</a><ul><li class=""><a class="menulink" href="/support/internet-general-diagram">Diagram</a></li><li class=""><a class="menulink" href="/support/general-speed-size">Speed/Size</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/internet-dish-services">Dish Services</a><ul><li class=""><a class="menulink" href="/support/dish-services-ondemand">On Demand</a></li><li class="hasKids"><a class="menulink" href="/support/internet-dish-services-sling-compatibility">DISH Anywhere</a><ul><li class=""><a class="menulink" href="/support/sling-viewing-device">By Viewing Device</a></li></ul></li></ul></li><li class="hasKids"><a class="menulink" href="/support/internet-connectivity">Internet Connectivity</a><ul><li class="hasKids"><a class="menulink" href="/support/wifi-bb-connector">Wi-Fi BB Connector</a><ul><li class=""><a class="menulink" href="/support/wifi-bb-connector-setup">Wi-Fi BB Physical Setup</a></li><li class=""><a class="menulink" href="/support/wifi-connector-922">On-Screen Setup Hopper/922</a></li><li class=""><a class="menulink" href="/support/wifi-connector-non-922">On-Screen Setup Non-922</a></li></ul></li><li class=""><a class="menulink" href="/support/internet-devices-powerline-connector">Powerline BB Connector</a></li><li class=""><a class="menulink" href="/support/setup-broadband">Set Up Broadband</a></li><li class=""><a class="menulink" href="/support/hopper-internet-connector">Hopper Internet Connector</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/phone-line-connectivity">Phone Line Connectivity</a><ul><li class=""><a class="menulink" href="/support/phonex-phone-connector">PhoneEx Phone Connector</a></li><li class=""><a class="menulink" href="/support/setup-phone-line">Set Up Phone Line</a></li><li class="hasKids"><a class="menulink" href="/support/powerline-phone-connector">Powerline Phone Connector</a><ul><li class=""><a class="menulink" href="/support/powerline-phone-connector-setup">Powerline Physical Setup</a></li><li class=""><a class="menulink" href="/support/phone-connector-922">On-Screen Setup 922</a></li><li class=""><a class="menulink" href="/support/phone-connector-non-922">On-Screen Setup Non-922</a></li></ul></li></ul></li></ul></li><li class="hasKids"><a class="menulink" href="/support/tech-products">Products</a><ul><li class=""><a class="menulink" href="/support/sling-adapter">Sling Adapter</a></li><li class=""><a class="menulink" href="/support/tailgater">Tailgater Antenna</a></li><li class=""><a class="menulink" href="/support/pathway-x2">Pathway X2 Antenna</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/tech-phone">Phone</a><ul><li class=""><a class="menulink" href="/support/tech-phone/3-way-calling">3-Way Calling</a></li><li class=""><a class="menulink" href="/support/tech-phone/anonymous-call-rejection">Anonymous Call Rejection</a></li><li class=""><a class="menulink" href="/support/tech-phone/call-waiting">Call Waiting</a></li><li class=""><a class="menulink" href="/support/tech-phone/caller-id">Caller ID</a></li><li class=""><a class="menulink" href="/support/tech-phone/caller-id-blocking">Caller ID Blocking</a></li><li class=""><a class="menulink" href="/support/tech-phone/continuous-redial">Continuous Redial</a></li><li class=""><a class="menulink" href="/support/tech-phone/directory-assistance">Directory Assistance</a></li><li class=""><a class="menulink" href="/support/tech-phone/last-call-return">Last Call Return</a></li><li class=""><a class="menulink" href="/support/tech-phone/selective-call-forwarding">Selective Call Forwarding</a></li><li class=""><a class="menulink" href="/support/tech-phone/call-forwarding-variable">Call Forwarding Variable</a></li><li class=""><a class="menulink" href="/support/tech-phone/voicemail">Voicemail</a></li><li class=""><a class="menulink" href="/support/tech-phone/block-976">Block 900-976 Dialing</a></li><li class=""><a class="menulink" href="/support/tech-phone/block-collect-calls">Block Collect Calls</a></li></ul></li></ul></li><li class="hasKids"><a class="menuparent" href="/support/manuals">Manuals</a><span><div></div></span><ul><li class=""><a class="menulink" href="/support/receiver-manuals">Receiver Manuals</a></li><li class=""><a class="menulink" href="/support/remote-control-manual">Remote Control Manuals</a></li><li class=""><a class="menulink" href="/support/equipment-manuals">Equipment Manuals</a></li><li class=""><a class="menulink" href="/support/installation-manuals-page">Installation Manuals</a></li><li class=""><a class="menulink" href="/support/hd-monitor-manuals">Monitor Manuals</a></li></ul></li><li class="hasKids"><a class="menuparent" href="/support/tech-support">Troubleshooting</a><span><div></div></span><ul><li class="hasKids"><a class="menulink" href="/dishnetwireline">dishNET Wireline</a><ul><li class=""><a class="menulink" href="/troubleshooting/dishnetwireline/cant-connect-to-internet">Can't Connect To Internet</a></li><li class=""><a class="menulink" href="/troubleshooting/dishnetwireline/slow-internet-speed">Slow Internet Speed</a></li><li class=""><a class="menulink islong" href="/troubleshooting/dishnetwireline/certain-web-pages-do-not-load">Certain Web Pages Do Not Load</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/equipment-exchange">Equipment Exchange</a><ul><li class=""><a class="menulink" href="/support/receiver-not-activated">Replacement Receiver Setup</a></li><li class=""><a class="menulink islong" href="/support/replacement-receiver-setup-hopper">Replacement Receiver Setup - Hopper</a></li><li class=""><a class="menulink" href="/support/equipment-return-process">Equipment Return Process</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/audio-video">Audio/Video</a><ul><li class=""><a class="menulink" href="/support/complete-sig-loss">Complete Signal Loss (015)</a></li><li class=""><a class="menulink" href="/support/chan-sig-loss">Partial Signal Loss (002)</a></li><li class=""><a class="menulink islong" href="/support/missing-ota">Missing Over The Air Channels</a></li><li class=""><a class="menulink" href="/support/missing-chan">Missing Local Channels</a></li><li class=""><a class="menulink" href="/support/prog-not-auth">Programming Not Authorized</a></li><li class=""><a class="menulink islong" href="/support/no-guide">No Programming Guide Information</a></li><li class=""><a class="menulink islong" href="/support/bbs-screen">Black, Blue Or Snowy Screen - TV1</a></li><li class=""><a class="menulink islong" href="/support/black-blue-tv2">Black, Blue Or Snowy Screen - TV2</a></li><li class=""><a class="menulink" href="/support/frozen-video">Frozen Screen</a></li><li class=""><a class="menulink" href="/support/same-video-2-tvs">Same Video On Two TV's</a></li><li class=""><a class="menulink" href="/support/distorted-no-audio">Distorted, Low, or No Audio</a></li><li class=""><a class="menulink" href="/support/distorted-video">Distorted Video</a></li><li class=""><a class="menulink" href="/support/black-screen-banner">Black Screen With Banner</a></li><li class=""><a class="menulink islong" href="/support/black-screen-with-banner-hopper">Black Screen With Banner - Hopper</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/receiver-remote">Receiver/Remote</a><ul><li class=""><a class="menulink" href="/support/remote-control">Remote Control</a></li><li class=""><a class="menulink" href="/support/receiver-no-power">Receiver Won't Power On</a></li><li class=""><a class="menulink" href="/support/hard-drive-failure">Hard Drive Failure</a></li><li class=""><a class="menulink islong" href="/support/on-off">Receiver Turning On and Off by Itself</a></li><li class=""><a class="menulink" href="/support/bb-connection-not-working">No Broadband Connection</a></li></ul></li><li class="hasKids"><a class="menulink" href="/support/dishnet-sat-bb">dishNET Satellite Broadband</a><ul><li class=""><a class="menulink" href="/support/cant-connect">Can't Connect to Internet</a></li><li class=""><a class="menulink" href="/support/slow-internet">Slow Internet Speed</a></li><li class=""><a class="menulink islong" href="/support/pages-dont-load">Certain Web Pages Don't Load</a></li></ul></li><li class="hasKids"><a class="menulink islong" href="/support/dishnet-fixed-wireless-broadband">dishNET Fixed Wireless Broadband</a><ul><li class=""><a class="menulink" href="/support/fixed-wireless-cant-connect">Can't Connect To Internet</a></li><li class=""><a class="menulink" href="/support/fixed-wireless-slow-speed">Slow Internet Speed</a></li><li class=""><a class="menulink islong" href="/support/fixed-wireless-certain-web-pages-do-not-load">Certain Web Pages Do Not Load</a></li></ul></li><li class=""><a class="menulink islong" href="/support/email-change">Transferring dishMail.net Accounts to Gmail</a></li></ul></li><li class="hasKids"><a class="menuparent" href="/support/billing">Billing</a><span><div></div></span><ul><li class=""><a class="menulink" href="/support/ways-to-pay">Ways to Pay Your Bill</a></li><li class=""><a class="menulink" href="/support/fees">Fees</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=http://www.dish.com/support/tools-apps/pay-in-cash/">Pay-in-Cash Locator</a></li><li class=""><a class="menulink islong" href="/support/autopay-paperless">AutoPay and Paperless Billing</a></li><li class=""><a class="menulink" href="/support/taxes-charges">Taxes and Charges</a></li><li class=""><a class="menulink" href="/support/due-date-change">Change Billing Due Date</a></li><li class="hasKids"><a class="menulink" href="/support/programming">Programming</a><ul><li class=""><a class="menulink" href="/Redirect.aspx?URL=http://affiliate.zap2it.com/tvlistings/ZCGrid.do?aid=dish">Realtime Program Guide</a></li><li class=""><a class="menulink" href="/support/blackouts">Blackout Restrictions</a></li><li class=""><a class="menulink" href="/support/rsn-maps">RSNet Maps</a></li><li class="hasKids"><a class="menulink" href="/support/team-maps">Team Maps</a><ul><li class=""><a class="menulink" href="/support/mlb-patterns">MLB Patterns and Teams</a></li><li class=""><a class="menulink" href="/support/nba-patterns">NBA Patterns and Teams</a></li><li class=""><a class="menulink" href="/support/nhl-patterns">NHL Patterns and Teams</a></li></ul></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=/gamefinder/">Game Finder Web Tool</a></li><li class=""><a class="menulink" href="/support/drm">Digital Rights Management</a></li><li class=""><a class="menulink" href="/support/closed-caption">Closed Caption</a></li></ul></li><li class="hasKids"><a class="menulink" href="/billing/dishnet-wireline">dishNET Wireline</a><ul><li class=""><a class="menulink" href="/billing/dishnet-wireline/taxes-and-fees">Taxes and Fees</a></li></ul></li></ul></li><li class="hasKids"><a class="menuparent" href="/support/installation">Installation</a><span><div></div></span><ul><li class=""><a class="menulink islong" href="/support/standard-professional-installation">Standard Professional Installation</a></li><li class=""><a class="menulink islong" href="/support/issues-getting-dish-service">Issues Getting DISH Service?</a></li></ul></li><li class="hasKids"><a class="menuparent" href="/support/sms">SMS (Text Message)</a><span><div></div></span><ul><li class=""><a class="menulink" href="/support/text">DISH Text Messages</a></li><li class=""><a class="menulink" href="/support/sms-check-balance">Check Balance</a></li><li class=""><a class="menulink" href="/support/sms-pay-bill">Pay Bill</a></li><li class=""><a class="menulink" href="/support/sms-order-ppv-movies">Order PPV Movies</a></li><li class=""><a class="menulink" href="/support/sms-order-ppv-events">Order PPV Events</a></li></ul></li><li class=""><a class="menulink" href="/support/getconnected">Get Connected</a></li><li class=""><a class="menulink" href="/support/equipmentservices">Equipment Services</a></li><li class="hasKids"><a class="menuparent" href="/support/helpful-tools">Helpful Tools</a><span><div></div></span><ul><li class=""><a class="menulink islong" href="/programmingguides">DISH Channels and Programming</a></li></ul></li><li class=""><a class="menulink" href="/support/consumer-protection">Consumer Protection</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=http://www.dish.com/chat/">Contact Us</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://support.dish.com/">Forums</a></li></li></ul></div>
+    </ul>		
+</div>
+<div id="sub-nav-my-account" class="sidebarmenu" style="display: block;">
+    <ul>
+	    <li><a href="https://my.dish.com/customercare/myprofile/prepAccountMaintenance.do">MY ACCOUNT HOME</a></li>
+        <div class="sidemenu suppnav menuborder"><ul id="sidemenu1"><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/paymybill/populateBillingDetails.do?1=1">My Billing</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/myprofile/prepAccountMaintenance.do">My Profile</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/myprogramming/showMyProgramming.do">My Programming</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/broadband/prepBroadBand.do">My Internet</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/equipment/showMyEquipmentDetails.do">My Equipment</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/myappointments/showMyAppointments.do">My Appointments</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/ordermanagement/getShipmentDetails.do">My Shipments</a></li><li class=""><a class="menulink islong" href="/Redirect.aspx?URL=https://my.dish.com/customercare/payperview/getPPVCertificatesList.do">My Pay-Per-View Certificates</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/clubdish/prepareMyReferralsHistory.do">My Referrals</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/myoffers/showInternetOffers.do">My Offers</a></li><li class=""><a class="menulink" href="/gamefinder">Game Finder</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/clubdish/prepareMyReferrals.do">Refer My Friend</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/payperview/getPPVMovieList.do">Order Pay-Per-View</a></li><li class=""><a class="menulink" href="/Redirect.aspx?URL=https://my.dish.com/customercare/ordermanagement/prepOrderAccessories.do?order=accessories">Order From Store</a></li></li></ul></div>
+    </ul>
+</div>
+</div>
+<div class="visible-lg">
+<ul>
+	<li>
+				<a href="https://my.dish.com/customercare/paymybill/populateBillingDetails.do">Pay My Bill</a>
+	</li>
+	<li>
+				<a href="https://my.dish.com/customercare/paymenthistory/populatePaymentHistory.do">My Payment History</a>
+	</li>
+	<li>
+				<a href="https://my.dish.com/customercare/mybillhistory/populateMyBillHistory.do">My Bill History</a>
+	</li>
+	<li>
+				<a href="https://my.dish.com/customercare/myprofile/prepAccountMaintenance.do">My Profile</a>
+	</li>
+	<li>
+				<a href="https://my.dish.com/customercare/mypreference/populatePreference.do">My Preferences</a>
+	</li>
+</ul>
+<ul>
+	<li>
+				<a href="https://my.dish.com/customercare/programming/prepChangeProgramming.do">My Programming</a>
+	</li>
+	<li>
+				<a href="https://my.dish.com/customercare/broadband/prepBroadBand.do">My Internet</a>
+	</li>
+	<li>
+				<a href="https://my.dish.com/customercare/equipment/showMyEquipmentDetails.do">My Equipment</a>
+	</li>
+	<li>
+				<a href="https://my.dish.com/customercare/myappointments/showMyAppointments.do">My Appointments</a>
+	</li>
+	<li>
+			<a href="https://my.dish.com/customercare/ordermanagement/getShipmentDetails.do">My Shipments</a>
+	</li>
+	</ul>
+	<ul>
+	<li>
+				<a href="https://my.dish.com/customercare/payperview/getPPVCertificatesList.do">My Pay-Per-View Certificates</a>
+	</li>
+	<li>
+				<a id="myAnchor11" href="https://my.dish.com/customercare/clubdish/prepareMyReferralsHistory.do">My Referrals</a>
+	</li>
+	<li>
+				<a href="https://my.dish.com/customercare/myoffers/showInternetOffers.do">My Offers</a>
+	</li>
+	<li>	
+				<a href="https://my.dish.com/customercare/mylocks/prepMyLocks.do">My Locks</a>
+	</li>
+	<li>
+			<a href="https://my.dish.com/customercare/myoffers/processGameFinder.do" target="_blank">Game Finder</a>
+	</li>
+</ul>
+<ul>	
+	<li>
+				<a id="myAnchor15" href="https://my.dish.com/customercare/clubdish/prepareMyReferrals.do">Refer a Friend</a>
+	</li>
+	<li>
+				<a href="https://my.dish.com/customercare/payperview/getPPVMovieList.do">Order Pay-Per-View</a>
+	</li>
+	<li>
+				<a href="https://my.dish.com/customercare/VOD/prepVideoOnDemand.do">Order On Demand</a>
+	</li>
+	<li>
+				<a id="myAnchor19" href="https://my.dish.com/customercare/ordermanagement/prepOrderAccessories.do?order=accessories">Order From Store</a>
+	</li>
+</ul>
+</div>
+	
+    <script type="text/javascript">
+        //function enableSubmit()
+        //{
+        //$('#feedback').removeClass("button marginTop15 disabled").addClass("button marginTop15");
+        //$('#feedback').attr("href", "javascript:submitFeedbackRating()");
+        //}
+
+        function submitFeedbackRating() {
+            submitRating('login', 'login');
+        }
+	</script>
+ 	
+		<!--  Left Navigation End Here --->
+		<!-- Google Code for Current DISH Customers -->
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+<script type="text/javascript">
+    $('.mainmenu').click(function () {
+        $('.mainmenu').each(function () {
+            $(this).removeClass('activeMainMenu');
+        });
+        $(this).addClass('activeMainMenu');
+    });
+    function showSubNav(mainNavId) {
+        $('[id^="sub-nav-"]').each(function () {
+            $(this).hide();
+        });
+        $('#sub-nav-' + mainNavId).show();
+    }
+</script>
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 1054127808;
+    var google_conversion_label = "V9YnCKKsyQUQwO3S9gM";
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    var google_conversion_format = "3";
+    /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+        
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1054127808/?value=0&amp;amp;label=V9YnCKKsyQUQwO3S9gM&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+
+
+
+
+
+
+			</div>
+    
+
+    <form name="aspnetForm" method="post" action="content.aspx?title=mydish" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNTU1MDY5MTc1ZGSL1altftm0ZG0Fqw2v49/4IyfxtammMsDBXrrtmKioVg==" />
+
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBgLKkd9gAtev5O4MAtWv5O4MAtSv5O4MAtrATgLs5v3tA/V/2x9EBxOVKekwKb2Wn6VjnRXrDG6PzxzWs+AJDqul" />
+
+            <div id="main" class="col-lg-12">
+                <div id="mainmid">
+                    
+        
+                    
+                        
+    <!--googleon: index-->
+    
+    <!--googleoff: index-->
+
+                    
+            
+                    
+                        <!--googleon: index-->
+                        
+    <div id="contentArea" class="col-md-12">
+        
+    <span id="ctl00_ctl00_cph_main_cph_main_PageTitle"></span>
+    
+    
+    <div id="pageContent">
+        <span class="sectionTracker" id="cont0"></span>
+        <div class="bannerHero" id="banner1">
+<div class="row">
+<div class="col-xs-12 col-lg-7 lightfont">
+<div class="row">
+<div class="col-xs-12 col-lg-6 col-lg-pull-1 keyArt" id="dmmLogo"><img alt="DISH Movie Mania" src="/filestream.ashx?ID=4681" /></div>
+
+<div class="col-xs-12 col-lg-6 col-lg-pull-1" id="dmmHeader">
+<h1>BIG MOVIES ON THE SMALL SCREEN</h1>
+</div>
+</div>
+
+<p>Over 40 FREE movies showcased on DISH Studio, Channel 102. Watch commercial-free movies on Friday, Saturday and Sunday evenings from February 6 through March 29, 2015.</p>
+<a class="button red" href="http://www.dishmoviemania.com" target="_blank">Learn More</a></div>
+
+<div class="col-xs-12 col-lg-5 keyArt" id="weekend"><img alt="Award Winners Weekend" src="/filestream.ashx?ID=4712" /></div>
+</div>
+</div>
+
+<div class="container ribbon"><span><img src="/images/ribbon.png" /></span>
+
+<ul>
+    <li><a href="http://www.mydish.com/dish-anywhere/">Dish Anywhere<sup>TM</sup></a></li>
+    <li><a href="/upgrades/products/internet-phone/">dishNET Internet</a></li>
+    <li><a href="/redirects/promotion/dishmover/">Move-In Deal<sup>TM</sup></a></li>
+    <li><a href="/redirects/promotion/competitive-advantage/">Why DISH</a></li>
+</ul>
+</div>
+
+<div class="container">
+<div class="row threecolumn lightfont">
+<div class="col-md-4 "><img alt="ICC Cricket World Cup 2015" src="/filestream.ashx?ID=4567" />
+<h3 class="lightfont">ICC Cricket World Cup</h3>
+Watch the world's best cricketers compete in ESPN's Production of the ICC Cricket World Cup 2015. 44 days. 49 matches. 14 cities throughout Australia and New Zealand. Order the entire tournament now on PPV!<br />
+<br />
+<a class="button red" href="/pay-per-view/sports-and-events/cricket#ICC">Learn More</a></div>
+
+<div class="col-md-4"><img alt="The Walking Dead" src="/filestream.ashx?ID=4528" title="" />
+<h3 class="lightfont">The Walking Dead Sweepstakes</h3>
+Want to talk The Walking Dead with the people that know it best? Enter daily and you could win a trip for two to Los Angeles to attend a live taping of Talking Dead and additional prizes to help keep you alive.<br />
+<br />
+<a class="button red" href="/redirects/promotion/TheWalkingDead">Learn More</a></div>
+
+<div class="col-md-4"><img alt="" src="/FileStream.ashx?ID=3169" title="" />
+<h3 class="lightfont">Get the Move-In Deal from DISH</h3>
+Only DISH gives you free installation, free premium channels, and exclusive sports package offers when you move.<br />
+<br />
+<br />
+<br />
+<a class="button red" href="/redirects/promotion/dishmover/">Learn More</a></div>
+</div>
+
+<hr />
+<h1 class="lightfont">FEATURED MOVIES</h1>
+
+<p class="lightfont">Available now. Catch the latest and greatest movies now playing on DISH Cinema. <a href="/pay-per-view/dishcinema">View all available movies</a>.</p>
+
+<div class="multicolumn lightfont" id="featured"><!--div><img alt="" src="https://my.dish.com/customer/images/payperview/dynamicload/GoneGirl_SQ.jpg" /><br />
+Gone Girl<br />
+<br />
+<a class="button red" href="https://my.dish.com/customercare/payperview/getPPVMovieList.do?&amp;hdSelected=Y&amp;progType=MOVIE&amp;csgEventId=138930">Order Now</a></div>
+
+<div><img alt="" src="https://my.dish.com/customer/images/payperview/dynamicload/TheEqualizer_SQ.jpg" /><br />
+The Equalizer<br />
+<br />
+<a class="button red" href="https://my.dish.com/customercare/payperview/getPPVMovieList.do?&amp;hdSelected=Y&amp;progType=MOVIE&amp;csgEventId=138137">Order Now</a></div>
+
+<div><img alt="" src="https://my.dish.com/customer/images/payperview/dynamicload/NoGoodDeed_SQ.jpg" /><br />
+No Good Deed<br />
+<br />
+<a class="button red" href="https://my.dish.com/customercare/payperview/getPPVMovieList.do?&amp;hdSelected=Y&amp;progType=MOVIE&amp;csgEventId=138934">Order Now</a></div>
+
+<div><img alt="" src="https://my.dish.com/customer/images/payperview/dynamicload/GetOnUp_SQ.jpg" /><br />
+Get On Up<br />
+<br />
+<a class="button red" href="https://my.dish.com/customercare/payperview/getPPVMovieList.do?&amp;hdSelected=Y&amp;progType=MOVIE&amp;csgEventId=138938">Order Now</a></div>
+
+<div><img alt="" src="https://my.dish.com/customer/images/payperview/dynamicload/AWalkAmonTomb_SQ.jpg" /><br />
+A Walk Among<br />
+The Tombstones<br />
+<a class="button red" href="https://my.dish.com/customercare/payperview/getPPVMovieList.do?&amp;hdSelected=Y&amp;progType=MOVIE&amp;csgEventId=138939">Order Now</a></div>
+
+<Leave this <br> here; it fixes mobile --></div>
+
+<p style="clear:both">&nbsp;</p>
+
+<hr />
+<h1 class="lightfont">DISH NEWS &amp; SOCIAL FEEDS <a href="http://www.facebook.com/dishnetwork"><img alt="" src="/filestream.ashx?ID=3232" style="margin-left:25px;" /></a> <a href="http://www.twitter.com/dish"><img alt="" src="/filestream.ashx?ID=3233" style="margin-left:25px;" /></a></h1>
+
+<p class="lightfont">We're on Facebook and Twitter – join the conversation! Get the most up to date info from DISH on new channels, the latest programming, contests, new technology and more!</p>
+
+<div class="row twocolumn">
+<div class="col-md-6"><!-- Facebook SDK starts -->
+<div id="fb-root">&nbsp;</div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script><!-- Facebook SDK ends -->
+
+<div class="fb-like-box" data-colorscheme="light" data-header="false" data-href="https://www.facebook.com/dish" data-show-border="false" data-show-faces="false" data-stream="true">&nbsp;</div>
+</div>
+
+<div class="col-md-6"><a class="twitter-timeline" data-widget-id="552945390777942016" href="https://twitter.com/dish">Tweets by @dish</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+</div>
+
+<p><!--<ul class="whitelist">
+    <li><img src="/images/shared/littledish.png" /><b>DISH News</b><br />
+        Enter daily and you could win a trip for two to Los Angeles to attend a live taping of AMC The Walking Dead "Talking Dead" talkshow.<a href="/perks/sweepstakes/the-walking-dead">Enter Now</a></li>
+    <li><img src="/images/shared/littletwitter.png" /><b>Twitter</b><br />
+        Love DISH? Tell your friends! Every time you refer a friend to DISH, you both save $50.<a href="/redirects/promotion/hopper-rewards/">Learn More</a></li>
+    <li><img src="/images/shared/littledish.png" /><b>DISH News</b><br />
+        Don't miss our newest channel - The SEC Network.<a href="/perks/new-channels">Learn More</a></li>
+    <li><img src="/images/shared/littletwitter.png" /><b>Twitter</b><br />
+        The Hopper gives you the power to take your live and recorded TV everywhere - no matter what falls your way.<a href="/redirects/promotion/hopper-features/">Learn More</a></li>
+    <li><img src="/images/shared/littlefacebook.png" /><b>Facebook</b><br />
+        Friday night’s movie night! Pop some popcorn and stay in with DISH Cinema. There are so many new hits to choose from and all from the convenience of your own home.<a href="/pay-per-view/dishcinema/">View All Movies</a></li>
+</ul>--></p>
+
+<hr />
+<p class="disclaimer" style="color: #F0F0F0;">All ICC matches are subject to delays and/or cancellations and such matches may not be replayed or replaced. ESPN is a registered trademark of ESPN, Inc.<br />
+GONE GIRL © 2014 Twentieth Century Fox Film Corporation. All rights reserved. (RATED R)<br />
+THE EQUALIZER © 2014 Columbia Pictures Industries, Inc. and LSC Film Corporation. All Rights Reserved. (RATED R)<br />
+NO GOOD DEED © 2014 Screen Gems, Inc. All Rights Reserved. (RATED PG-13</p>
+</div>
+<!--<div id="prePop" title="AVAILABLE NOW ON DISH CINEMA">
+<div><a href="/pay-per-view/dishcinema/"><img src="/filestream.ashx?ID=4236" /></a></div>
+</div>-->
+        
+    </div>
+
+
+    </div>
+
+                        <!--googleoff: index-->
+                    
+                    <br style="clear:both;" />
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-margin">
+
+
+
+
+
+
+
+
+        <div class="sub_nav feedbackfooter">
+				<div class="container"> 					
+					<div class="row contentArea">
+                    <!-- Rating Area -->
+                    <div class="form-horizontal">
+	                    <div class="col-lg-3 col-xs-12">
+		                    <div class="row PrimSec">
+			                    <div class="col-xs-12"><h2 class="primaryHeader">Was this page helpful?</h2></div>
+			                    <div class="row PrimSec" id="ratingContent">
+
+                                    <span id="ctl00_ctl00_RadioButtonList" class="radioratings"><input id="ctl00_ctl00_RadioButtonList_0" type="radio" name="ctl00$ctl00$RadioButtonList" value="3" /><label for="ctl00_ctl00_RadioButtonList_0">Yes</label><br /><input id="ctl00_ctl00_RadioButtonList_1" type="radio" name="ctl00$ctl00$RadioButtonList" value="1" /><label for="ctl00_ctl00_RadioButtonList_1">No</label><br /><input id="ctl00_ctl00_RadioButtonList_2" type="radio" name="ctl00$ctl00$RadioButtonList" value="2" /><label for="ctl00_ctl00_RadioButtonList_2">Somewhat</label></span>
+
+				                    
+
+				                    <div class="row">	
+					                    <div class="buttonPanel">
+                                            <a class="red_button" href="javascript:void(0)" onclick="ajaxRatePage()">SUBMIT</a>
+					                    </div>
+                                        <p style="display:none;">Thanks for your feedback!</p>
+				                    </div>
+			                    </div>		
+		                    </div>
+	                    </div>	
+                    </div>
+                    <!-- Report A Problem Area -->
+                    <div class="form-horizontal">
+	                    <div class=" col-xs-12 centerLine feedbackCenterLine "></div>
+	                    <div class="col-lg-8 col-xs-12">
+		                    <div class="row PrimSec">
+
+                                                    
+                                <div id="hopman">
+                                    <div class="head">            
+			                        <!-- Ears and top of head -->
+			                        <div class="ear1"></div>
+			                        <div class="ear2"></div>
+			                        <div class="ear3"></div>
+			                        <div class="body head-top"></div>
+
+			                        <!-- The neck parts -->
+			                        <div class="body neck2"></div>
+			                        <div class="no-border neck1"></div>
+
+			                        <!-- The mouth -->
+			                        <div class="mouth">
+				                    <div class="mouth1"></div>
+				                    <div class="mouth2"></div>
+			                        </div>
+
+			                        <!-- The right eye -->
+			                        <div class="right-eye">
+				                    <div class="no-border body eyelid-top"></div>
+				                    <div class="no-border body eyelid-bottom"></div>
+			                        </div>
+			                        <div class="right-eye2"></div>
+
+			                        <!-- The nose -->
+			                        <div class="body nose"></div>
+
+			                        <!-- The left eye -->
+			                        <div class="left-eye">
+				                    <div class="no-border body eyelid-top"></div>
+				                    <div class="no-border body eyelid-bottom"></div>
+			                        </div>
+			                        <div class="left-eye2"></div>
+
+			                        </div>
+                                </div>
+                                <div id="toggleheads"></div>
+                                
+
+			                    <div id="divInvalidProfMsg"></div>
+			                    <div class="col-xs-12"><h2 class="primaryHeader">How Can We Improve This Page?</h2></div>
+			                    <div class="PrimSec">
+			                    <div class="row">
+				                    <div class="col-lg-12 col-xs-12 label">
+				                    <div id="popupContentAreaMessage" style="display:none">Thanks for your feedback!</div> If you require immediate assistance, you can
+					                    <a href="#" onclick="PopupChat('https://dishnetwork.custhelp.com/app/chat/chat_request/p/280', 'myWindow',550,610);">chat with a representative</a>.	
+				                    </div>
+			                    </div>
+			                    <div id="popupContentArea">
+				                    <div class="row">
+					                    <div class="label col-lg-3 col-xs-12">Message</div>
+					                    <div class="col-lg-9 col-xs-12 form label labelFeedback ">
+                                            <textarea name="ctl00$ctl00$TextBoxMessage" rows="3" cols="20" id="ctl00_ctl00_TextBoxMessage" class="form-control">
+</textarea>
+					                    </div>
+				                    </div>	
+				                    <div class="row">
+                                        <div class="buttonPanel">
+                                            <a class="red_button" href="javascript:void(0)" onclick="ajaxFeedback()">SUBMIT</a>
+                                        </div>
+
+				                    </div>
+			                    </div>
+		                    </div>
+		                </div>
+	                </div>
+                </div>
+			</div>
+		</div>
+	</div>
+
+
+    </div>
+    <div id="dish-footer">
+
+		<div id="footer">
+
+            <div id="footerlinks" class="row">
+                <div class="col-md-4">
+                    <h3>CORPORATE</h3>
+                    <ul>
+                        <li><a href="http://about.dish.com">About DISH</a></li>
+                        <li><a href="http://about.dish.com/news">News</a></li>
+                        <li><a href="http://dish.client.shareholder.com/">Investor Relations</a></li>
+                        <li><a href="http://careers.dish.com/">Careers</a></li>
+                        <li><a href="http://www.dish.com/legal/">Legal</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>RESOURCES</h3>
+                    <ul>
+                        
+                        <li><a href="http://www.dishlatino.com/">DishLATINO</a></li>
+                        <li><a href="http://commercial.dish.com/business/">Business Owners</a></li>
+                        <li><a href="http://www.dishmediasales.com/">DISH Media Sales</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+			<div id="copyright">
+				<div class="container_12">
+				      <p>© 2015, DISH Network L.L.C. All rights reserved.</p>    
+				</div>  
+			</div>
+		</div>
+	</div>
+
+    </div> 
+
+    </div>
+
+    
+    <script type="text/javascript" src="/Scripts/common-functions.ashx"></script>
+    
+    
+    <script type="text/javascript">
+        function submitFeedbackRating() {
+            submitRating('login', 'login', layoutScopeVar, layoutScopeVal);
+        }
+        function submitReportFeedback() {
+            var pageGroupContext = 'login';
+            var pageGroupSubContext = 'login'
+            submitFeedback(pageGroupContext, pageGroupSubContext, layoutScopeVar, layoutScopeVal);
+        }
+        //var fields_to_be_highlighted = "null";
+        //if (fields_to_be_highlighted != null) {
+        //    highlightErrorFields(fields_to_be_highlighted);
+        //}
+        $(document).ready(function () {
+            //addclosebutton();
+            //monitorSessionTimeOut();
+            //showPhoneNumber();
+            //addDefaultButton();
+
+
+        });
+        /* ---Now I have two generic Approach for toggleClass. we can use anyone */
+        if (document.getElementById('toggleleft') !== null) {
+            document.getElementById('toggleleft').onclick = function toggleLeft() {
+                $("#rowoffcanvas").removeClass("row-offcanvas-right");
+                $("#rowoffcanvas").addClass("row-offcanvas-left");
+                window.setTimeout($(".row-offcanvas-left").toggleClass("active"), 10);
+                $("#rightmenu").hide();
+                $("#leftmenu").show();
+                showSubNav('my-account');
+                window.setTimeout(backToFixedLeft, 300);
+                $('.mainmenu').each(function () {
+                    $(this).removeClass('activeMainMenu');
+                });
+                $('.mainmenuDefault').each(function () {
+                    $(this).addClass('activeMainMenu');
+                });
+            }
+        }
+        if (document.getElementById('toggleright') !== null) {
+            document.getElementById('toggleright').onclick = function toggleRight() {
+                $("#rowoffcanvas").removeClass("row-offcanvas-left");
+                $("#rowoffcanvas").addClass("row-offcanvas-right");
+                $("#rightmenu").show();
+                $("#leftmenu").hide();
+                window.setTimeout($(".row-offcanvas-right").toggleClass("active"), 10);
+                window.setTimeout(backToFixedRight, 300);
+            }
+        }
+
+        // #Second Approach toggleClass in jquery does not support Mobile so I have change it to javascript in order to support both :) 
+        function toggleClass(elem, className) {
+            var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, " ") + ' ';
+            if (hasClass(elem, className)) {
+                while (newClass.indexOf(" " + className + " ") >= 0) {
+                    newClass = newClass.replace(" " + className + " ", " ");
+                }
+                elem.className = newClass.replace(/^\s+|\s+$/g, '');
+            } else {
+                elem.className += ' ' + className;
+            }
+        }
+
+        function backToFixedLeft() {
+            if ($(".row-offcanvas-left").hasClass("active")) {
+                backToFixed(true);
+            } else {
+                backToFixed(false);
+            }
+        }
+
+        function backToFixedRight() {
+            if ($(".row-offcanvas-right").hasClass("active")) {
+                backToFixed(true);
+            } else {
+                backToFixed(false);
+            }
+        }
+
+        function backToFixed(isMenuActive) {
+            if (isMenuActive) {
+                $("#rowoffcanvas").addClass("row-offcanvas-static");
+                $("#rowoffcanvas").removeClass("row-offcanvas-fixed");
+                $("#navbar-default").addClass("navbar-static-top");
+                $("#navbar-default").removeClass("navbar-fixed-top");
+            } else {
+                $("#rowoffcanvas").removeClass("row-offcanvas-static");
+                $("#rowoffcanvas").addClass("row-offcanvas-fixed");
+                $("#navbar-default").removeClass("navbar-static-top");
+                $("#navbar-default").addClass("navbar-fixed-top");
+            }
+        }
+        var displayOverlayCounter = 0;
+        if (displayOverlays.length > 0) {
+            showNextOverlay();
+        } else {
+            $(".overlayDataParsing").each(function () {
+                $(this).hide();
+            });
+            $(".overlayBlurDiv").each(function () {
+                $(this).hide();
+            });
+        }
+        backToFixedRight(); backToFixedRight();
+</script>
+    
+
+    
+    
+    
+
+
+    
+    
+    
+    
+    
+    <script type="text/javascript">
+
+        if (top != self) {
+            top.location = self.location;
+        }
+
+
+        $(document).on("click", "a[href^=http\\:\\/\\/www\\.mydish\\.com]", function () {
+            this.href= this.href.replace('http://www.mydish.com/', '\/');
+        });
+
+        function ajaxRatePage() {
+            var url = window.location.pathname;
+            var rtg = $("#ratingContent input[type='radio']:checked").val();
+            var ttl = document.title;
+            //alert("titl: " + ttl);
+            if (rtg != null) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Ajax/RatePage.ashx",
+                    data: ({ ID: url, Rating: rtg, Title: ttl, Action: "RatePage" }),
+                    cache: false
+                });
+                $("#ratingContent p, #ratingContent .red_button, #RadioButtonList").toggle();
+            }
+            else {
+                alert("Please select a rating before clicking Submit.");
+            }
+        }
+        function ajaxFeedback() {
+            var url = window.location.pathname;
+            var ttl = document.title;
+            var sub = "Support Feedback";
+            var msg = $("#ctl00_ctl00_TextBoxMessage").val();
+            if (sub != "" && msg != "") {
+                //alert("url: " + url + " sub: " + sub + " msg: " + msg);
+                $.ajax({
+                    type: "POST",
+                    url: "/Ajax/RatePage.ashx",
+                    data: ({ ID: url, Subject: sub, Message: msg, Title: ttl, Action: "Feedback" }),
+                    cache: false
+                });
+                $("#feedbackdialog p").text("Thanks for your feedback!");
+                $("#popupContentArea .row, #popupContentAreaMessage").toggle();
+            }
+            else {
+                alert("Please fill out all fields before clicking Submit.");
+            }
+        }
+        var tfn = '';
+        var kbid = '';
+        $(document).ready(function () {
+            tfn = '';
+            kbid = '';
+            if(tfn)
+            {
+                var newtel = "tel:+" + tfn;
+                $('a[href^="tel"]').not('.statictfn').attr('href', newtel).text(tfn);
+            }
+        });
+        
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            return (false);
+        }
+
+    </script>
+
+
+    <script src="/scripts/bootstrap.min.js"></script>
+
+    
+                    <script type="text/javascript">
+                        $(window).load(function () {
+                            $.post("/ajax/pageload.ashx", 
+                                {ID: '279020432', pID: '1', kbid: ''});
+                            //alert('');
+                        });
+                    </script>
+
+        </form>
+</body>
+</html>
+";i:2;s:4:"2146";}

@@ -1,0 +1,769 @@
+a:3:{i:0;s:22:"http://floodsmart.gov/";i:1;s:33333:"
+
+ 
+
+
+
+
+
+
+<!DOCTYPE HTML>
+
+<head>
+	<title>Flood Insurance | Flood Maps | Flood Risk | FloodSmart</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Flooding, flood maps, flood zones, flood plain map, flood insurance, flood smart, FEMA" />
+	<meta name="description" content="FloodSmart provides flood insurance, flood zone maps, floodplain maps and flood information to help protect your home from flooding and elevated water tables" />
+	<meta name="WT.ti" content="HP - Floodsmart Homepage" />
+	<meta name="google-site-verification" content="3S_wRfOpgYQtNqXPfOkIFB0oeuY2hNHauCATmjEyLno" />
+	<meta name="msvalidate.01" content="83082340286360B20767B39C28CA320D" />
+
+
+	<!-- below added for per page instance cononical tags -->
+	<!--  added by Mark on 11/19/09 -->
+	<!-- end added for per page instance cononical tags -->
+	
+	<link rel="shortcut icon" href="/floodsmart/favicon.ico" type="image/vnd.microsoft.icon" />
+	
+	<!--  begin web font inclusion -->
+	<link href="//fast.fonts.com/cssapi/49521b28-709f-49a6-b497-2bfbbc440b29.css" rel="stylesheet" type="text/css" />
+	<!--  end web font inclusion -->
+	
+	<link href="/floodsmart/css/themes/smoothness/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="/floodsmart/css/floodsmart_main.css" media="screen,projection,tv" />
+	<link rel="stylesheet" type="text/css" href="/floodsmart/css/print.css" media="print" />
+	
+	<link href="/floodsmart/css/themes/fema.css" rel="stylesheet" type="text/css"/>
+	<link href="/floodsmart/css/themes/default.css" rel="stylesheet" type="text/css"/>
+	<link href="/floodsmart/css/themes/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+	<!--  <link href="/floodsmart/css/themes/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css"/>-->
+	
+	<script type="text/javascript" src="/floodsmart/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="/floodsmart/js/jquery-ui-1.8.16.custom.min.js"></script>
+	
+	<script type="text/javascript" src="/floodsmart/js/script_tmt_validator.js"> </script>
+	
+	<!-- Overlay Stuff -->
+	
+	<script type="text/javascript" src="/floodsmart/js/thickbox.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="/floodsmart/css/thickbox.css" />
+	
+	<script type="text/javascript" src="/floodsmart/js/common.js"> </script>
+	<script type="text/javascript" src="/floodsmart/js/ufo.js"> </script>
+	<script type="text/javascript" src="/floodsmart/js/swfobject.js"> </script>
+	<script type="text/javascript" src="/floodsmart/js/jquery.swfobject.1-1-1.min.js"> </script>
+	<script type="text/javascript" src="/floodsmart/js/jquery.fancybox.pack.js"></script>
+	
+	<script type="text/javascript" src="/floodsmart/js/omniture_campaigns.js"></script>
+	<!--  <script type="text/javascript" src="/floodsmart/js/jquery.fancybox-1.3.4.pack.js"></script>-->
+	<script type="text/javascript" src="/floodsmart/js/jquery.tools.min.js"></script>
+    
+	<script type="text/javascript">
+	function querystring(key) 
+	{
+	   var re=new RegExp('(?:\\?|&)'+key+'=(.*?)(?=&|$)','gi');
+	   var r=[], m;
+	   while ((m=re.exec(document.location.search)) != null) r.push(m[1]);
+	   return r;
+	}
+	
+	/*
+	*	The following snippet of code is used to center any dialogs on the screen
+	*	from the JQuery UI library when the browser window is resized.
+	*
+	*/
+	if (!$.browser.msie || ($.browser.msie  && parseInt($.browser.version, 10) !== 7)) 
+	{
+		//JQuery 1.7.1 and below
+		$.ui.dialog.prototype.options.autoReposition = true;
+	
+		//JQuery 1.7.2 and higher
+		//$.ui.dialog.defaults.autoReposition = true;
+	
+		$( window ).resize(function() {
+			$( ".ui-dialog-content:visible" ).each(function() {
+				var dialog = $( this ).data( "dialog" );
+				if ( dialog.options.autoReposition ) {
+					dialog.option( "position", dialog.options.position );
+				}
+			});
+		});
+	}
+	
+	// script to activate cycle slide show
+	$(document).ready(function() {
+		$(".tooltip-trigger").each(function()
+		{
+			$(this).tooltip({opacity: 0.8});
+		});
+		
+		$(".tooltip-trigger-opaque").each(function()
+				{
+					$(this).tooltip();
+				});
+		
+		//Hide the font toggle on the newer pages. It does not work for those pages.
+		if(window.location.toString().indexOf("ffr_overview") > -1 || window.location.toString().indexOf("what_causes_flooding") > -1
+				|| window.location.toString().indexOf("flood_after_fire") > -1 || window.location.toString().indexOf("heavy_rains") > -1
+				|| window.location.toString().indexOf("ice_jams") > -1 || window.location.toString().indexOf("la_nina") > -1
+				|| window.location.toString().indexOf("levees") > -1 || window.location.toString().indexOf("mud_flows") > -1
+				|| window.location.toString().indexOf("snow_melt") > -1 || window.location.toString().indexOf("spring_thaw") > -1
+				|| window.location.toString().indexOf("tropical_storms") > -1 || window.location.toString().indexOf("west_coast") > -1
+				|| window.location.toString().indexOf("defining_flood_risks") > -1 || window.location.toString().indexOf("videos") > -1
+				|| window.location.toString().indexOf("flood_scenarios") > -1 || window.location.toString().indexOf("cost_of_flooding") > -1
+				|| window.location.toString().indexOf("levee_simulator") > -1 || window.location.toString().indexOf("cc_overview") > -1)
+		{
+			$("#font-toggle").hide();
+		}
+		
+		$('INPUT.auto-hint, TEXTAREA.auto-hint').focus(function(){
+		    if($(this).val() == $(this).attr('title')){
+		        $(this).val('');
+		        $(this).removeClass('auto-hint');
+		    }
+		});
+		
+		$('INPUT.auto-hint, TEXTAREA.auto-hint').blur(function(){
+		    if($(this).val() == '' && $(this).attr('title') != ''){
+		       $(this).val($(this).attr('title'));
+		       $(this).addClass('auto-hint');
+		    }
+		});
+		
+		$('INPUT.auto-hint, TEXTAREA.auto-hint').each(function(){
+		    if($(this).attr('title') == ''){ return; }
+		    if($(this).val() == ''){ $(this).val($(this).attr('title')); }
+		    else { $(this).removeClass('auto-hint'); }
+		});
+
+		// search form scripts
+		$('input#gobutton').mouseover(function() {
+			$(this).attr('src','/floodsmart/images/search-go-button-over.jpg');
+		}).mouseout(function() {
+			$(this).attr('src','/floodsmart/images/search-go-button.jpg');
+		});
+		
+		$('#updateAddressLinkImg').mouseover(function() 
+				{
+					$(this).attr('src','/floodsmart/images/flood_risks/change-addess-button-roll.jpg');
+				}).mouseout(function() 
+				{
+					$(this).attr('src','/floodsmart/images/flood_risks/change-addess-button.jpg');
+				});
+				
+		$('#update-address').mouseover(function() 
+				{
+					$(this).attr('src','/floodsmart/images/flood_risks/update-button-roll.jpg');
+				}).mouseout(function() 
+				{
+					$(this).attr('src','/floodsmart/images/flood_risks/update-button.jpg');
+				});
+		
+		// home page risk profile scripts
+		$('select#findagent_nav_state option:first-child').html('State/Territory');
+		
+		$('#flood-risk-container input#findagent_0').mouseover(function() {
+			$(this).attr('src','/floodsmart/images/risk-form/go-button-over.jpg');
+		}).mouseout(function() {
+			$(this).attr('src','/floodsmart/images/risk-form/risk-go-button.jpg');
+		});
+		
+		$('#errorDisplay').click(function() {
+			$(this).fadeOut('slow');
+		});
+		
+		$('input#q').blur(function() {
+			if ( $(this).val() === '' ) {
+				$(this).val('Search FloodSmart.gov');
+			}
+		});
+		
+		return false;
+	});
+	
+	function showFlashSlide(movie, firstframe, tr, cc) {
+		$('#slide-container').animate({'height': '412px'});
+		$('#video-player').show();
+		$('#video-player').flash({
+			id: 'floodsmartVideoPlayer',
+			name: 'floodsmartVideoPlayer',
+			swf: "/floodsmart/flash/FloodsmartVideoPlayer.swf?c=" + new Date().getTime().toString(),
+			width: 732,
+			height: 412,
+			menu: false,
+			allowFullScreen: true,
+			allowScriptAccess: "sameDomain",
+			wmode: "opaque",
+			expressInstaller: "/floodsmart/flash/expressInstall.swf",
+			bgColor: "#ffffff",
+			align: "middle",
+			quality: "high",
+			flashvars: {
+				video: movie,
+				autoPlay: "false",
+				autoHide: "true",
+			 	firstFrame: firstframe,
+			 	transcript: tr,
+			 	overlay: "true",
+			 	cc: cc
+			}
+		});
+	}
+
+	function hideFlashSlide() {
+		$('#slide-container').animate({'height': '303px'});
+		$('#video-player').flash().remove();
+		$('#video-player').hide();
+	}
+	
+	function checkError() {
+
+        
+	}
+	
+	function clearField(what) {
+		document.getElementById(what).value = '';
+	}
+
+    function validateSearch() {
+        if ($('#search_form #query').val() == '') {
+            alert('You must enter a search query');
+            return false;
+        }
+    }
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="/floodsmart/css/fontsize1.css" media="screen" />
+	
+	<script type="text/javascript" src="/floodsmart/js/changeStyle.js"></script>
+	<!--[if IE 7]>
+		<style type="text/css">
+			ul#slide-pager  {
+				list-style:none; margin:0; padding:0; width:625px;
+			}
+			
+			.nav-shime-one {
+				margin:0 0 0 0; padding:20px 0 0 0;	
+			}
+			.nav-shim-two {
+				margin:12px 0 0 0 !important; padding:4px 0 0 0;	
+			}
+			
+		</style>
+	<![endif]-->
+
+	<!--[if IE 6]>
+
+        <style type="text/css">
+
+
+
+        	#goodleSearchBOX{
+
+        		width: 700px;
+
+        		height: 100%;
+
+  				position: relative;
+
+  				top: 0px;
+
+  				left: 0px;
+
+  				bottom: 0px;
+
+			}
+			
+			#marker-container {display:none !important;}
+			
+			ul#slide-pager  {
+				list-style:none; margin:0; padding:0; width:625px;
+			}
+			
+			.video-links {
+				float:right; width:285px; margin:20px 6px 0 0;
+			}
+			
+			#content_container 
+			{
+				float:left;
+				width: 738px;
+				background-color: #fff;
+				margin-right:0px;
+				text-align: left;
+				margin-top: 0px;
+				margin-bottom: 0px;
+				margin-left: 0px;
+				padding-top: 0px;
+				padding-right: 0px;
+				padding-bottom: 10px;
+				padding-left: 0px;
+			}
+
+		</style>
+
+    <![endif]-->
+    <script type="text/javascript" src="/floodsmart/js/federated-analytics-DHS.js"></script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-49340349-1']);
+        _gaq.push(['_trackPageview']);
+        _gaq.push(["_gat._anonymizeIp"]);
+        _gaq.push(['_setVisitorCookieTimeout', 0]);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+</head>
+<body onLoad="javascript:checkError()">
+<!-- SiteCatalyst code version: H.23.3.
+Copyright 1996-2011 Adobe, Inc. All Rights Reserved
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="/floodsmart/includes/s_code.js"></script>
+    
+  
+<p style="position:absolute; top:-9999px; left:-9999px;"><a href="#content_main" title="Skip Navigation" accesskey="k" tabindex="1">Skip Navigation</a></p>
+<div id="container" class="clearfix">
+<!-- Master Head -->
+<!-- Row 1 -->
+	<div id="container_top">
+		<div id="logo"><h2>Floodsmart.gov The official site of the National Flood Insurance Program</h2><p><a href="/floodsmart/"  tabindex="1"><img src="/floodsmart/images/layout/logo.gif" alt="Floodsmart.gov The official site of the National Flood Insurance Program" width="233" height="55" border="0" title="Home" /></a></p></div>
+
+	    <div id="search">
+	    	<p style="margin-bottom:10px;" id="call-text">Call toll free: <span>1-888-379-9531</span> or <a href="/floodsmart/pages/click_to_call/initializeClickToCall.action">have us call you</a></p>
+			
+			<form accept-charset="UTF-8" action="/floodsmart/pages/search.action" onsubmit="return validateSearch()" id="search_form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+			<p class="entry"><span class="box">
+    <input id="affiliate" name="affiliate" type="hidden" value="floodsmart" />
+    <label for="query" class="hidden">Enter Search Term(s):</label>
+    <input autocomplete="off" class="usagov-search-autocomplete" id="query" name="q" type="text" onfocus="javascript:clearField('query')" value="Search FloodSmart.gov"/></span>
+                    <input id="gobutton" value="Search" type="image" src="/floodsmart/images/search-go-button.jpg"  alt="Go" accesskey="g" tabindex="2" /></p>
+ <!-- 
+    <input name="commit" type="submit" value="Search" />
+  -->
+</form>
+      </div>
+	  <div class="clear"></div>
+</div>
+<div class="topspacer"></div>	  
+<!-- End Row 1 -->
+<!-- Row 2 -->
+<!-- Left column START -->
+	<!-- LeftNav bar START -->
+	<div class="gutter"></div>
+	<div id="nav_container">
+		<a href="/floodsmart/" title="Home" class="main-home-link"><span>Home</span></a>	
+        
+        <a class="main-flood-link" href="/floodsmart/pages/flooding_flood_risks/ffr_overview.jsp" title="Flooding and Flood Risks" ></a>
+		<a class="main-nfip-link" href="/floodsmart/pages/about/nfip_overview.jsp" title="About the National Flood Insurance Program" ><span>About The National Insurance Program</span></a>
+	   <a class="main-rcoverage-link" href="/floodsmart/pages/residential_coverage/rc_overview.jsp" title="Residential Coverage" ><span>Residential Coverage</span></a>
+		<a class="main-ccoverage-link" href="/floodsmart/pages/commercial_coverage/cc_overview.jsp" title="Commercial Coverage" ><span>Commercial Coverage</span></a>
+		<a class="main-policyholder-link" href="/floodsmart/pages/policy_holder/policyholder_resources.jsp" title="Policy Holder Resources" ><span>PolicyHolder Resources</span></a>
+        <a class="main-pandr-link" href="/floodsmart/pages/preparation_recovery/pr_overview.jsp" title="Preparation &amp; Recovery" ><span>Preparation &amp; Recovery</span></a>
+		<p class="nav-shim-two"><img src="/floodsmart/images/general/dotted_line.gif" alt="dotted line" title="dotted line" width="217" height="1" /></p>
+		<!-- LeftNav bar END -->
+		<div class="clear"></div>
+		<!-- Additional Resources START -->
+		<div id="resources">
+			<p><img src="/floodsmart/images/layout/resources.gif" alt="Resources" title="Resources" width="67" height="10" /></p>
+			
+			<ul class="resources_nav">
+				 <li><a rel="nofollow" href="https://agents.floodsmart.gov/Agents/" target="_blank" title="Agent Site">Agent Site</a></li>
+				 <li><a rel="nofollow" href="/floodsmart/pages/choose_your_policy/agent_locator.jsp" title="Agent Locator" >Agent Locator</a></li>
+
+				 <li><a rel="nofollow" href="/floodsmart/pages/crs/community_rating_system.jsp" title="Community Rating System" >Community Rating System</a></li>
+				 <li><a href="/floodsmart/pages/partner/partner_index.jsp" title="Community Resources">Community Resources</a></li>
+				 <li><a rel="nofollow" href="/floodsmart/pages/preparation_recovery/file_your_claim.jsp" title="File Your Claim">File Your Claim</a></li>				 
+				 <li><a href="/floodsmart/pages/faqs.jsp" title="Frequently Asked Questions" >Frequently Asked Questions</a></li>
+				 <li><a href="/floodsmart/pages/glossary_A-I.jsp" title="Glossary" >Glossary</a></li>
+				 <li><a href="/floodsmart/pages/flood_facts.jsp" title="Flood Facts" >Flood Facts</a></li>
+				 <li><a rel="nofollow" href="/floodsmart/pages/media_resources.jsp" title="Media Resources" >Media Resources</a></li>
+                 <li><a rel="nofollow" href="https://www.floodsmart.gov/toolkits/" title="Toolkits" target="_blank">Toolkits</a></li>
+                 <li><a rel="nofollow" href="/floodsmart/pages/media_resources/subscribe.jsp" title="Subscribe to Email Updates"><img src="/floodsmart/images/general/envelope.jpg" width="18" height="12" alt="Email Updates" border="0" title="Email Updates" />&nbsp;Email Updates</a></li>
+            </ul>	
+			<div class="clear"></div>
+		</div>
+		<!-- Additional Resources START -->
+		
+		<div id="latest-news">
+		<p>
+			<img src="/floodsmart/images/latest-news-hdr.jpg" alt="Latest News" />
+		</p>
+		
+		<p style="margin:12px 0 0 0 !important;">
+			Find out more about the Preferred Risk Policy Eligibility Extension. <a href="/floodsmart/pages/prp_extension_information.jsp" class="red-arrow-link">Learn More</a>
+		</p>
+	</div>
+
+	<p style="margin:12px 0 0 -4px;">
+		<img src="/floodsmart/images/floodfacts/Floodfacts17.jpg" alt="Floodfact" />
+	</p>
+<!-- static flood fact pages -->
+<!-- Random Flood Fact Pages -->
+</div>
+<div class="gutter"></div>
+<!-- Left column END -->
+<a name="maincontent"></a>
+ 
+
+
+
+
+
+
+
+
+<!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: Visits FloodSmart
+URL of the webpage where the tag is expected to be placed: http://www.floodsmart.gov
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 10/18/2012
+-->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe title="doubleclick" src="//3174665.fls.doubleclick.net/activityi;src=3174665;type=femag709;cat=visit209;ord=1;num=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe title="doubleclick" src="//3174665.fls.doubleclick.net/activityi;src=3174665;type=femag709;cat=visit209;ord=1;num=1?" width="1" height="1" frameborder="0" style="display:none">&nbsp;</iframe>
+</noscript>
+
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+
+<script type="text/javascript" src="/floodsmart/js/jquery.cycle.all.js"> </script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	//build out links for custom pager nav items
+	function paginate(ind, el) {
+		// link for spring flooding slide <li class="slide-link" id="slide-one"><a href="#">Springtime Flooding</a></li>
+		if (ind == 0) return '<li class="slide-link" id="slide-one"><a href="#">Protect What Matters</a></li>';
+        else if (ind == 1) return '<li class="slide-link" id="slide-two"><a href="#">Winter Rainy Season</a></li>';
+        else if (ind == 2) return '<li class="slide-link" id="slide-three"><a href="#">Recent Changes</a></li>';
+		else if (ind == 3) return '<li class="slide-link" id="slide-four"><a href="#">New Flood Maps</a></li>';
+        else if (ind == 4) return '<li class="slide-link" id="slide-five"><a href="#">Flood After Fire</a></li>';
+		//else if (ind == 3) return '<li class="slide-link" id="slide-four"><a href="#">Video Testimonials</a></li>';
+	}
+	
+	$('#slide-container').css("z-index","0");
+ 	
+	$('#slide-container').cycle({ 
+		fx: 'scrollHorz', 
+		prev: 'li#prev',
+		next: 'li#next',
+		activePagerClass: 'activeSlide',
+		pager:  'ul#slide-pager',
+		sync: 'true',
+		after: checkSlide,
+		pagerAnchorBuilder: paginate,
+		pauseOnPagerHover: 1,
+		pause: 1,
+		timeout: 5000
+	});
+
+	$('.slide-link a').click(function(){
+		hideFlashSlide();
+	});
+	$('li#prev').click(function(){
+		hideFlashSlide();
+	});
+	$('li#next').click(function(){
+		hideFlashSlide();
+	});
+
+	function checkSlide() {
+		// these will change depending on the length of the words
+		// 120, 265, 390, 530
+		if ( $('li#slide-one').children('a').hasClass('activeSlide') ) {
+			$('#marker-container img').animate({marginLeft: '121px'});
+		} else if ( $('li#slide-two').children('a').hasClass('activeSlide') ) {
+			$('#marker-container img').animate({marginLeft: '262px'});
+		} else if ( $('li#slide-three').children('a').hasClass('activeSlide') ) {
+			$('#marker-container img').animate({marginLeft: '387px'});
+		} else if ( $('li#slide-four').children('a').hasClass('activeSlide') ) {
+			$('#marker-container img').animate({marginLeft: '511px'});
+        } else if ( $('li#slide-five').children('a').hasClass('activeSlide') ) {
+            $('#marker-container img').animate({marginLeft: '622px'});
+        }
+	}
+});
+</script>
+
+<div id="content_container">
+	<div id="content_main">
+		<div id="video-player" style="display:none; position:absolute; top:0; left:0; z-index:1; margin: 0;"></div>
+		<div id="slideshow">
+			<div id="slide-container">
+				<!--
+				<div class="slide" id="spring-slide">
+					<div class="slide-copy">
+						<h3>Spring Is Here.<br/>Are You Ready?</h3>
+						<p style="margin: 20px 0 20px 0">Melting snow and heavy rains can cause<br/>severe flooding.</p>
+						<p>
+							<a href="/floodsmart/pages/flooding_flood_risks/spring_thaw.jsp" class="learn-button"><span>Learn More</span></a>
+						</p>
+					</div>
+				</div>
+				-->
+
+				<div class="slide" id="psa-pwm-slide">
+					<div class="slide-copy">
+						<h3>Protect<br/>What Matters</h3>
+						<p style="margin: 20px 0 20px 0">Think about what your home means <br />
+                            to you. Have you done everything you <br />
+                            can to protect it?
+                        </p>
+						<p>
+							<a href="/floodsmart/pages/protect_what_matters_30/index.jsp" class="learn-your-risk-button"><span>Learn Your Risk</span></a>
+						</p>
+					</div>
+				</div>
+				<div class="slide" id="winter-slide">
+					<div class="slide-copy">
+						<h3 style="margin-top:10px;">Are You Ready for<br/>Winter Rainy Season?</h3>
+						<p style="margin: 20px 0 20px 0"></p>
+						<p>
+							<a href="/floodsmart/pages/flooding_flood_risks/winter_rainy_season.jsp" class="learn-button"><span>Learn more</span></a>
+						</p>
+					</div>
+				</div>
+
+                <div class="slide" id="levee-slide">
+                    <div class="slide-copy">
+                        <h3>What Does NFIP Reform <br/>Legislation Mean to You?</h3>
+                        <p style="margin: 20px 0 20px 0">Premiums are changing to reflect actual risk and sustain the program&mdash;within an affordable framework.</p>
+                        <p>
+                            <a href="/floodsmart/pages/hfira-2014.jsp" class="learn-button"><span>Learn more</span></a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="slide" id="flood-maps">
+					<div class="slide-copy">
+						<h3>How will the New<br />Flood Maps Affect<br />Your Flood Risk?</h3>
+						<p>Flood risk changes from year-to-year. Enter your zip code to see if there have been any recent map changes in your area.</p>
+						<p>
+							<a href="/floodsmart/pages/flooding_flood_risks/map_update_schedule.jsp" class="search-area-button"><span>Search Your Area</span></a>
+						</p>
+					</div>
+				</div>
+				<!--  end #flood-maps -->
+				
+				<div class="slide" id="flood-after-fire">
+					<div class="slide-copy">
+                        <h3>Wildfires Increase Flood Risk.<br />Are You Ready?</h3>
+                        <p style="margin: 20px 0 20px 0">Fires leave land dry, barren, and unable to<br/>absorb water.</p>
+                        <p>
+                            <a href="/floodsmart/pages/flooding_flood_risks/flood_after_fire.jsp" class="learn-button"><span>Learn more</span></a>
+                        </p>
+					</div>
+                </div>
+
+			</div>
+			<!--  end #slide-container -->
+			<div id="marker-container">
+				<p>
+					<img src="images/home-slideshow/slide-marker.png" alt="Marker" />
+				</p>
+			</div>
+			<div id="slide-controls">
+				<ul id="slide-nav">
+					<li id="prev"><a href="#" id="prev-button"><span>&laquo; Previous</span></a></li>
+					<li id="next"><a href="#" id="next-button"><span>Next &raquo;</span></a></li>
+				</ul>
+				<ul id="slide-pager">
+					
+				</ul>
+				<div class="clear">&nbsp;</div>
+			</div>
+			<!--  end #slide-controls -->
+		</div>
+		<!--  end #slideshow -->
+
+    	<div class="clear"></div>
+ 
+    </div>
+    <!--  end #content_main -->
+    <div class="clear"></div>
+    <div style="margin:0 0 0 6px">
+    	<div class="home-callout" style="margin:12px 8px 0 0;">
+			<p style="margin:0 0 12px 0;">
+				<img src="/floodsmart/images/get-coverage-image.jpg" alt="Get Coverage with Preferred Risk Policy" />
+			</p>
+			<p>
+				<img src="/floodsmart/images/get-coverage-header.jpg" alt="Get coverage for as low as $129 per year" />
+			</p>
+			<p>
+				Find out about our<br />Preferred Risk Policy for homes<br />in moderate-to-low risk areas.
+			</p>
+			<p>
+				<a class="small-learn-link" href="/floodsmart/pages/residential_coverage/homeowner.jsp"><span>Learn More</span></a>
+			</p>
+		</div>
+		
+		<div class="home-callout" style="margin:12px 8px 0 0;">
+			<p style="margin:0 0 12px 0;">
+				<img src="/floodsmart/images/flooding-callout-image.jpg" alt="Flooding Cost Tool" />
+			</p>
+			<p>
+				<img src="/floodsmart/images/flooding-callout-hdr.jpg" alt="What could flooding cost me?" />
+			</p>
+			<p>
+				This interactive tool<br />shows the cost of a flood to<br />your home, inch-by-inch.
+			</p>
+			<p>
+				<a class="small-learn-link" href="/floodsmart/pages/flooding_flood_risks/the_cost_of_flooding.jsp"><span>Learn More</span></a>
+			</p>
+		</div>
+		
+		<div id="flood-risk-container">
+			<div class="errorMessage">	
+	
+		
+		
+		
+		
+		
+		
+	 
+	
+</div>
+
+<div class="errorMessage" id="primary-residential-tooltip">
+<h2>PRIMARY RESIDENCE DISCLAIMER</h2><br/>
+For flood insurance rating purposes, a primary residence is a building that will be lived in by the insured or the insured's spouse for at least 80 percent of the 365 days following the policy effective date. If the building will be lived in for less than 80 percent of the policy year, it is considered to be a non-primary residence.
+</div>
+
+<form namespace="" id="findagent" action="oneStepFloodRiskAddressSearch.action" method="post" tmt:validate="true" tmt:callback="displayError" tmt:blocksubmit="false" >
+	<div id="errorDisplay"></div>
+	<p id="flood-risk-covered-p">
+		 <img src="/floodsmart/images/get-covered.png" alt="How Can I get Covered?" />
+	</p>
+	<ul style="margin:0px 0px 0 12px;">
+		<li>Rate your risk</li>
+		<li>Estimate your premiums</li>
+		<li>Find an agent</li>
+	</ul>
+	
+	<div class="inputWrapper clearfix">
+		<label id="nav_address_label" for="nav_address">Address:</label>
+		<input type="text" name="nav_address"  id="nav_address" class="address wide-risk" tmt:required="true" tmt:errorclass="addressError" tmt:message="Address required" accesskey="a" tabindex="500"   tmt:pattern="word" />
+	</div>
+
+	<div class="inputWrapper clearfix">
+		<label  id="nav_city_label" for="nav_city">City:</label>
+		<input type="text" name="nav_city"  id="nav_city" class="city wide-risk" tmt:required="true" tmt:errorclass="cityError" tmt:message="City required" accesskey="c" tabindex="501"  tmt:pattern="word"  />
+	</div>
+					
+	<div class="inputWrapper clearfix">
+		<label id="nav_state_label" for="findagent_nav_state">State:</label>
+		<select name="nav_state" id="findagent_nav_state" class="wide-risk" tmt:invalidindex="0" tmt:required="true" tmt:errorclass="stateError" tmt:message="State required" accesskey="t" tabindex="502">
+			<option value=""></option><option value="AK">AK</option><option value="AL">AL</option><option value="AR">AR</option><option value="AS">AS</option><option value="AZ">AZ</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DC">DC</option><option value="DE">DE</option><option value="FL">FL</option><option value="GA">GA</option><option value="GU">GU</option><option value="HI">HI</option><option value="IA">IA</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="MA">MA</option><option value="MD">MD</option><option value="ME">ME</option><option value="MI">MI</option><option value="MN">MN</option><option value="MO">MO</option><option value="MP">MP</option><option value="MS">MS</option><option value="MT">MT</option><option value="NC">NC</option><option value="ND">ND</option><option value="NE">NE</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NV">NV</option><option value="NY">NY</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PA">PA</option><option value="PR">PR</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VA">VA</option><option value="VI">VI</option><option value="VT">VT</option><option value="WA">WA</option><option value="WI">WI</option><option value="WV">WV</option><option value="WY">WY</option>		
+		</select>
+	</div>
+	
+	<div class="inputWrapper clearfix">
+		<label  id="nav_zipCode_label" for="nav_zipCode" >Zip code:</label>
+		<input type="text" name="nav_zipCode" size="5" maxlength="5"  id="nav_zipCode" class="zip risk-zip" tmt:required="true" tmt:errorclass="zipError" tmt:message="Zip required" tmt:filters="numbersonly" tmt:pattern="number" tmt:minlength="5" accesskey="z" tabindex="503" />
+	</div>
+
+	
+	<div class="inputWrapper clearfix">
+		<label id="residential_label">Residential?</label> 
+		<input type="radio" accesskey="y" tabindex="504" name="nav_residential" id="nav_residentialY" value="Y" class="flood-risk-radio-input" tmt:required="true" tmt:message="Residence type required" tmt:errorclass="residError"   />
+		<label for="nav_residentialY" id="nav_residentialY_label" class="flood-risk-radio-label">Yes&nbsp;</label> 
+		<input type="radio" accesskey="n" tabindex="505" name="nav_residential" id="nav_residentialN" value="N" class="flood-risk-radio-input" />
+		<label for="nav_residentialN" id="nav_residentialN_label" class="flood-risk-radio-label">No</label>
+	</div>	 						 
+	
+	<div>&nbsp;<br/></div>	
+	<p style="text-align:center;margin-top: .5em">
+		<input type="image" alt="go" src="/floodsmart/images/risk-form/risk-go-button.jpg" id="findagent_0" accesskey="o" tabindex="506" />
+	</p>
+</form>
+<div id="risk-profile-privacy"><a href="/floodsmart/pages/pius.jsp?TB_iframe=true&height=600&width=480&modal=true" class="thickbox">Privacy Policy</a></div>
+
+		</div>
+    </div>
+		
+		<div class="clear"></div>
+</div>
+
+<script language="JavaScript" type="text/javascript">
+if(!setOmnitureCampaignVariables())
+{
+	s.pageName="Home"
+	s.channel="Home"
+	s.prop1="Home"
+	s.prop2="Home"
+	s.prop3="Home"
+}
+</script>
+
+
+ 
+
+
+
+
+
+
+<!-- Row 3 -->
+
+  <div id="site_info">
+  	<a rel="nofollow" href="/floodsmart/pages/contact_us.jsp" target="_blank" title="Contact Us" class="pad_footer" >Contact Us</a> | <a href="/floodsmart/pages/site_map.jsp" title="Site Map" >Site Map</a> | 
+  	<a href="/floodsmart/pages/help.jsp" title="Help" >Help</a> | <a rel="nofollow" href="http://www.fema.gov/national-flood-insurance-program" title="NFIP" target="_blank" >NFIP</a>
+  	<div class="font_toggle" id="font-toggle" style="margin:0 12px 0 0;"><a href="#" onClick="styleToggle(nameOfCookie);" tabindex="3"><img src="/floodsmart/images/layout/type-shim.gif" alt="Change font size" border="0" /></a></div>
+  </div>
+
+	<div id="fema_info">
+		<div class="last_updated">Last Updated:  Friday, 30-Jan-2015, 3:26 PM (EST)</div>
+		<img src="/floodsmart/images/layout/fema_logo.gif" class="fema_logo"  width="57" height="75" alt="FEMA Logo" title="FEMA Logo" />
+		<p style="margin-top:8px;">
+		500 C Street SW, Washington, D.C. 20472 <br />
+		Disaster Assistance: (800) 621-FEMA, TTY (800) 462-7585<br />
+		U.S. Department of Homeland Security<br />
+		<a rel="nofollow" href="http://www.fema.gov/" title="FEMA Home" target="_blank" >FEMA Home</a> | <a rel="nofollow" href="http://www.fema.gov/faq" title="Contact FEMA" target="_blank" >Contact FEMA</a> |
+		<a rel="nofollow" href="http://www.fema.gov/privacy-comment-policy" title="Privacy Policy" target="_blank" >Privacy Policy</a> | <a rel="nofollow" href="http://www.fema.gov/required-notices" title="Required Notices" target="_blank" >Required Notices</a> |
+		<a rel="nofollow" href="http://www.fema.gov/fema-freedom-information-act" title="FOIA" target="_blank" >FOIA</a> | <a rel="nofollow" href="http://www.usa.gov/" title="USA.gov" target="_blank" >USA.gov</a> | <a rel="nofollow" href="http://www.dhs.gov/" target="_blank" title="DHS" >DHS</a>
+		| <a rel="nofollow" href="https://agents.floodsmart.gov/Agents/" target="_blank" title="Agent Site">Agent Site</a>
+		|  <a rel="nofollow" href="http://www.fema.gov/accessibility" target="_blank" title="Accessilbility">Accessibility</a>
+		</p> 
+		<div class="clear"></div>
+	</div>
+</div>
+<!-- End Row 3 -->
+
+<!-- SiteCatalyst code version: H.23.3.
+Copyright 1996-2011 Adobe, Inc. All Rights Reserved
+More info available at http://www.omniture.com -->
+<script>var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript" type="text/javascript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script><noscript><img src="http://bluewatermedia.112.2o7.net/b/ss/bluewatermedia-floodsmartprod/1/H.24.2--NS/0"
+height="1" width="1" border="0" alt="SiteCatalyst" /></noscript><!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.24.2. -->
+<script type="text/javascript">
+//<![CDATA[
+      var usasearch_config = { siteHandle:"floodsmart" };
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://search.usa.gov/javascripts/remote.loader.js";
+      document.getElementsByTagName("head")[0].appendChild(script);
+//]]>
+</script>
+</body>
+</html>
+    
+
+
+
+
+";i:2;s:4:"5579";}

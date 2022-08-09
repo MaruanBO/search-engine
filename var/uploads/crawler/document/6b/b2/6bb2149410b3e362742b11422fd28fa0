@@ -1,0 +1,1160 @@
+a:3:{i:0;s:22:"http://alexandani.com/";i:1;s:62845:"<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UA4CU19aGwECXFZSAAY="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:18,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:18,2:19,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:19,2:18,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:19,2:18,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:19,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){p.proto="https"===d.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=p.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=window,c=s.document,u="addEventListener",f="attachEvent",d=(""+location).split("?")[0],p=e.exports={offset:i(),origin:d,features:{}};c[u]?(c[u]("DOMContentLoaded",o,!1),s[u]("load",n,!1)):(c[f]("onreadystatechange",r),s[f]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}],18:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],19:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:18,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Alex and Ani – Bangle Bracelets, Necklaces, Earrings and Rings</title>
+<meta name="description" content="Alex and Ani designs and creates bangle bracelets, necklaces, earrings and rings that adorn the body, enlighten the mind, and empower the spirit.  Our artistry can be seen in our various single charm and embellished bangle bracelet sets, as well as our expandable necklaces.  Visit our site to learn more about Alex and Ani, or to browse through our selection of bracelets, necklaces, earrings, rings, and more." />
+<meta name="keywords" content="alex and ani, bangle bracelets, bangle bracelet, bangle bracelet set, necklaces, earrings, rings, single charm bangles, charm bangles, bangles, single charm bangle bracelets, single embellished bangles, single embellished bangle bracelet, single embellished bangle bracelets, embellished bangle bracelets, embellished bangle bracelet, embellished bracelet, embellished bracelets, expandable necklaces" />
+<meta name="robots" content="INDEX,FOLLOW" />
+<link rel="icon" href="http://www.alexandani.com/media/favicon/default/favicon_2.png" type="image/x-icon" />
+<link rel="shortcut icon" href="http://www.alexandani.com/media/favicon/default/favicon_2.png" type="image/x-icon" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="http://www.alexandani.com/skin/frontend/enterprise/responsive/css/responsive.css"/>
+
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = 'http://www.alexandani.com/js/blank.html';
+    var BLANK_IMG = 'http://www.alexandani.com/js/spacer.gif';
+//]]>
+</script>
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="http://www.alexandani.com/skin/frontend/enterprise/responsive/fonts/aa_fonts/aa_font.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.alexandani.com/skin/frontend/enterprise/responsive/css.82/iwd/opc/opc.css" media="all" />
+<script type="text/javascript" src="http://www.alexandani.com/js.82/prototype/prototype.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/lib/ccard.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/prototype/validation.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/scriptaculous/builder.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/scriptaculous/effects.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/scriptaculous/dragdrop.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/scriptaculous/controls.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/scriptaculous/slider.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/varien/js.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/varien/form.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/varien/menu.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/mage/translate.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/mage/cookies.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/varien/product.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/varien/configurable.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/vendor/jquery.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/vendor/icheck.min.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/vendor/custom.modernizr.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/foundation/foundation.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/foundation/foundation.forms.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/foundation/foundation.orbit.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/vendor/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/vendor/jquery.zoom-min.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/vendor/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/vendor/swipe.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/vendor/pushy.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/vendor/bxslider.min.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/vendor/countdown.min.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/mirasvit/core/underscore.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/mirasvit/core/backbone.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/mirasvit/code/banner/tabbed.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/mirasvit/code/banner/carousel.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/js.82/homepage_popup.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/skin/frontend/enterprise/default/js.82/scripts.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/skin/frontend/enterprise/responsive/js.82/responsive.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/skin/frontend/enterprise/default/js.82/enterprise/catalogevent.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/skin/frontend/enterprise/default/js.82/enterprise/wishlist.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/skin/frontend/base/default/js.82/adobeanalytics/global.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/skin/frontend/base/default/js.82/adobeanalytics/catalog.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/skin/frontend/base/default/js.82/adobeanalytics/product.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/skin/frontend/base/default/js.82/adobeanalytics/cart.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/skin/frontend/base/default/js.82/adobeanalytics/checkout.js"></script>
+<script type="text/javascript" src="http://www.alexandani.com/skin/frontend/base/default/js.82/adobeanalytics/bootstrap.js"></script>
+<!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="/skin/frontend/enterprise/responsive/css/responsive.css" />
+    <script type="text/javascript" src="/skin/frontend/enterprise/responsive/js/respond.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+//<![CDATA[
+Mage.Cookies.path     = '/';
+Mage.Cookies.domain   = '.www.alexandani.com';
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+optionalZipCountries = [];
+//]]>
+</script>
+    <!-- BEGIN: Adobe DTM Data Layer -->
+    <script type="text/javascript">
+        var digitalData = {"page":{"category":{"pageType":"aa:us:homepage","subCategory1":"aa:us:homepage","subCategory2":"aa:us:homepage","primaryCategory":"aa:us:homepage"},"pageInfo":{"pageName":"aa:us:homepage"}},"user":[{"profile":[{"profileInfo":{"type":"anonymous"}}]}]};
+    </script>
+    <!-- END: Adobe DTM Data Layer -->
+
+    <!-- BEGIN: Adobe DTM satelliteLib -->
+    <script src="//assets.adobedtm.com/e131e1dd1b8f53e227909aa7fcb90bef215c3c4a/satelliteLib-de9376aacfd470ae7fc3788be91b9b903ad1097c.js" ></script>
+    <!-- END: Adobe DTM satelliteLib -->
+<script type="text/javascript">//<![CDATA[
+        var Translator = new Translate([]);
+        //]]></script></head>
+<body class=" cms-index-index cms-home">
+<!-- BEGIN: Google Trusted Store -->
+<script type="text/javascript">
+//<![CDATA[
+  var gts = gts || [];
+
+  gts.push(["id", "232831"]);
+  gts.push(["google_base_subaccount_id", "9284644--"]);
+
+  (function() {
+    var scheme = (("https:" == document.location.protocol) ? "https://" : "http://");
+    var gts = document.createElement("script");
+    gts.type = "text/javascript";
+    gts.async = true;
+    gts.src = scheme + "www.googlecommerce.com/trustedstores/gtmp_compiled.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(gts, s);
+  })();
+//]]>
+</script>
+<!-- END: Google Trusted Store -->
+<!-- Tealium CMS page javascript -->
+<script type="text/javascript">
+    var utag_data={
+        site_region: "en_US",
+        site_currency: "USD",
+        page_name: "Alex and Ani – Bangle Bracelets, Necklaces, Earrings and Rings",
+        page_type: "cms page"
+    };
+</script>
+<!-- Tealium Base javascript -->
+<script type="text/javascript">
+    (function(a,b,c,d){
+      a='//tags.tiqcdn.com/utag/alexandani/main/prod/utag.js';
+      b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.
+            async=true;
+        a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+    })();
+</script><div class="wrapper">
+        <noscript>
+        <div class="global-site-notice noscript">
+            <div class="notice-inner">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
+            </div>
+        </div>
+    </noscript>
+        <div class="page">
+        <div class="header-container hide-for-small">
+    <div class="header-panel">
+        <div id="header-panel-wrap">
+            
+
+<!--{HEADER_SIGNUP_FORM_6f6f267b6437c1e83bc9e0ea3902e6be}--><div id="header-signup-form" class="row" style="display:none;">
+    <form class="large-9 columns" action="https://www.alexandani.com/customer/account/loginPost/" method="post">
+        <div class="signup-title">
+            <h1>Sign in to your account</h1>
+        </div>
+        <div class="input-fields">
+            <input style="display:none" type="text" name="usernameaf" />
+            <input style="display:none" type="password" name="passwordaf" />
+            <input name="form_key" type="hidden" value="3kTFvG7wgxjxGfiX" />
+            <input id="hs-email" name="login[username]" type="text" placeholder="Email Address" />
+            <input id="hs-pass" name="login[password]" type="password" placeholder="Password" autocomplete="off" />
+            <input type="hidden" name="referer" value="aHR0cDovL3d3dy5hbGV4YW5kYW5pLmNvbS8," />
+        </div>
+        <button type="button" class="button action-btn" name="send" id="sign-in-button"><span><span>Sign In</span></span></button>
+        <div class="clear"></div>
+        <div>
+            <a class="forgot-pass" href="https://www.alexandani.com/customer/account/forgotpassword/">I forgot my password :(</a>
+        </div>
+    </form>
+    <div class="large-3 columns">
+        <div class="signup-title">
+            <h1>New Here?</h1>
+        </div>
+        <button type="button" class="button action-btn" name="send" id="send2"><span><span>Create An Account</span></span></button>
+    </div>
+</div><!--/{HEADER_SIGNUP_FORM_6f6f267b6437c1e83bc9e0ea3902e6be}-->
+<div class="header-create-form large-12" style="display:none;">
+    <div class="signup-title">
+        <h1>Register</h1>
+    </div>
+
+    <form action="https://www.alexandani.com/customer/account/createpost/" method="post" id="regis-form">
+                <input style="display:none" type="text" name="usernameaf">
+        <input style="display:none" type="password" name="passwordaf">
+        <div class="form-list personal-info large-3 columns">
+            <div class="input-box large-12 columns">
+                <input type="text" id="firstname" name="firstname" value="" title="First Name" class="input-text required-entry short" placeholder="First Name">
+            </div>
+            <div class="input-box large-12 columns">
+                <input type="text" id="lastname" name="lastname" value="" title="Last Name" class="input-text required-entry short" placeholder="Last Name">
+            </div>
+        </div>
+
+        <div class="form-list email-confirm large-3 columns">
+            <div class="input-box large-12 columns">
+                <input type="text" name="email" id="email_address" value="" title="Email Address" class="input-text validate-email required-entry long" placeholder="Email Address" autocomplete="off">
+            </div>
+            <div class="input-box large-12 columns">
+                <input type="text" name="email_verify" id="email_address_verify" value="" title="Verify Email Address" class="input-text validate-email required-entry long" placeholder="Verify Email Address" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="form-list password-confirm large-3 columns">
+            <div class="input-box">
+                <input type="password" value="" name="password" id="password-header" title="Password" class="input-text required-entry validate-password long" placeholder="Password" autocomplete="off">
+            </div>
+            <div class="input-box">
+                <input type="password" value="" name="confirmation" title="Confirm Password" id="confirmation-header" class="input-text required-entry validate-cpassword long" placeholder="Password" autocomplete="off">
+            </div>
+        </div>
+        <div class="t_fieldset control large-3 columns">
+            <div class="newsletter-check">
+                <div class="input-box">
+                    <input type="checkbox" name="is_subscribed" title="Sign Up for Newsletter" value="1" id="is_subscribed" class="checkbox ui-helper-hidden-accessible"><span class="ui-checkbox"></span>
+                </div>
+                <p>Sign up to receive exclusive offers and updates.</p>
+            </div>
+            <button type="button" onclick="return register_ajax();" class="button action-btn" title="Submit"><span><span>Register</span></span></button>
+        </div>
+    </form>
+</div>
+
+<div id="header-newsletter-form" style="display:none;" class="large-12">
+
+        <div class="large-3 columns top-news-welcome" style="display:block">
+            <h1>Never miss a thing!</h1>
+        </div>
+        <form action="https://www.alexandani.com/newsletter/subscriber/new/" method="post" id="newsletter-validate-header" class="large-6 columns">
+            <div class="form-subscribe">
+                <div class="form-subscribe-header large-6 columns">
+                    <span>Sign up to receive exclusive offers and updates.</span>
+                </div>
+                <div class="large-6 columns">
+                    <input name="fake" value="true" class="hide">
+                    <input name="email" type="text" id="newsletter" value="email address" onclick="this.value=='email address'?this.value='':''" onblur="this.value==''?this.value='email address':''" class="input-text required-entry validate-email">
+                    <input type="hidden" name="news_source" value="organic_header_initial_visit">
+                    <button type="button" class="button" title="Subscribe" onclick="newsletter_header('newsletter-validate-header')"><span><span>Subscribe</span></span></button>
+                </div>
+            </div>
+            <div class="sub-error-msg hide"><p></p></div>
+        </form>
+        <script type="text/javascript">
+        //<![CDATA[
+        var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-header');
+        //]]>
+        jQuery("#newsletter-validate-header #newsletter").keypress(function(e){
+        var evt = e || window.event;
+        var keyPress = evt.which || evt.keyCode;
+        if(keyPress == 13 || keyPress == 13){ //Enter key pressed
+            newsletter_header('newsletter-validate-header');
+        }
+        });
+        </script>
+        <div id="close-newsletter-header" class="large-3 columns"><span class="close">close</span></div>
+
+</div>
+
+            <div class="switches">
+
+</div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="quick-access">
+            <div class="row large-12">
+                
+<div class="top-cart">
+        <div class="block-title no-items">
+        <strong id="cartHeader">Bag </strong>
+    </div>
+    <div id="topCartContent" class="block-content" style="display:none">
+        <div class="inner-wrapper">                            <p class="block-subtitle hide">
+                <span onclick="Enterprise.TopCart.hideCart()" class="close-btn">Close</span>
+                Recently added item(s)            </p>
+            <p class="cart-empty">
+                Your shopping bag is empty.            </p>
+            <div class="empty-cart-inner">
+                <img src="http://www.alexandani.com/skin/frontend/enterprise/responsive/images/empty-bag.jpg">
+                <a class="cta button" id="mini-cart-close" onclick="Enterprise.TopCart.hideCart()">keep shopping</a>
+            </div>
+            <!--
+            <p class="cart-empty">
+                You have no items in your shopping cart.            </p>
+            -->
+                                    </div>
+    </div>
+<script type="text/javascript">
+    Enterprise.TopCart.initialize('topCartContent');
+    // Below can be used to show minicart after item added
+    // Enterprise.TopCart.showCart(7);
+</script>
+</div>
+                
+<div id="free-shipping">
+    $2.95 SHIPPING</div>
+
+<div id="global-nav-links">
+				<li class="hide li-welcom li-show"><span class="welcome"></span></li>
+			<li class="hide li-show" ><a href="https://www.alexandani.com/customer/account/" class="customer_link account" >My Account</a></li>
+			<li class="hide li-show" ><a class="customer_link sign-out" name="http://www.alexandani.com/customer/account/logout/">Sign Out</a></li>
+			<li class="li-sign-in"><a class="customer_link_toggle sign-in">Sign In</a></li>
+	</div>
+                <a style="color:#FFF;margin-right:25px;" href="/faqs">FAQs</a>
+<a style="color:#FFF;margin-right:25px;" href="/contact-us">Contact Us</a>
+<a style="color:#FFF;margin-right:25px;" href="https://www.alexandani.com/sales/order/guest/">Order Status</a>
+<a style="color:#FFF;margin-right:5px;" href="/locations">Find Store</a>                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    
+<div id="nav-wrap" class="hide-for-small">
+
+  <div class="top_nav wrapper hide-for-small">
+    <div class="row">
+
+      <div class="store_logo" name="store_logo">
+        <div class="logo">
+          <a href="/" title="Alex and Ani" class="logo">
+            <img src="http://www.alexandani.com/skin/frontend/enterprise/responsive/images/alex-and-ani-logo.png" alt="Alex and Ani">
+          </a>
+        </div>
+      </div>
+
+      <ul class="top_nav_links left-items">
+                <li class="top_nav_new" name="top_nav_new">
+          <p>what's new</p>
+        </li>
+                <li class="top_nav_shop" name="top_nav_shop">
+          <p>shop</p>
+        </li>
+        <li class="top_nav_gift" name="top_nav_gift">
+          <p>gifts</p>
+        </li>
+      </ul>
+
+      <ul class="top_nav_links right-items">
+        <li class="top_nav_about" name="top_nav_about">
+          <p>about</p>
+        </li>
+        <li class="top_nav_exp" name="top_nav_exp">
+          <p>experience</p>
+        </li>
+        <li class="top_nav_search" name="top_nav_search">
+          <p>search</p><div class="search-icon"></div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+
+  <div class="top-cat-container hide" style="display: none;">
+    <div class="wrapper row">
+
+            <ul class="top_nav_new nav-cat link-list hide row" style="display: none;">
+        <li>
+  <a href="/collections/infinite-love.html">
+    <img src="/media/wysiwyg/ExpandableHeart_whatsnew.jpg">
+    <p class="cat_name">SHOP</br>THE COLLECTION</p>
+  </a>
+</li>
+<li>
+  <a href="/2014-gabriel-scarves-collection-look-book">
+    <img src="/media/wysiwyg/top-nav/scarves_new_nav.jpg">
+    <p class="cat_name">SHOP</br>LOOKBOOK</p>
+  </a>
+</li>
+<li>
+  <a href="http://www.alexandani.com/new-arrivals.html">
+    <img src="/media/wysiwyg/top-nav/new_arrivals_top_nav.jpg">
+    <p class="cat_name">NEW</br>ARRIVALS</p>
+  </a>
+</li>
+<li>
+  <a href="http://www.alexandani.com/2014-precious-providence-collection-look-book">
+    <img src="/media/wysiwyg/top-nav/providence_precious_new_nav_v2.jpg">
+    <p class="cat_name">SHOP</br>LOOKBOOK</p>
+  </a>
+</li>
+<li>
+  <a href="/2015-february-bangle-of-the-month.html">
+    <img src="/media/wysiwyg/Feb_BOM_whats_new_v2.jpg">
+    <p class="cat_name">BANGLE OF</br>THE MONTH</p>
+  </a>
+</li>      </ul>
+      
+      <ul class="top_nav_shop nav-cat hide row" style="display: none;">
+              <li>
+          <div class="category">
+            <a href="http://www.alexandani.com/bangles.html">
+              <img src="http://www.alexandani.com/media/catalog/category/AA_nav_bangles_6.jpg" alt="bangles" title="bangles">
+              <p class="cat_name">bangles</p>
+            </a>
+          </div>
+        </li>
+                      <li>
+          <div class="category">
+            <a href="http://www.alexandani.com/necklaces.html">
+              <img src="http://www.alexandani.com/media/catalog/category/necklace_nav.jpg" alt="necklaces" title="necklaces">
+              <p class="cat_name">necklaces</p>
+            </a>
+          </div>
+        </li>
+                      <li>
+          <div class="category">
+            <a href="http://www.alexandani.com/earrings.html">
+              <img src="http://www.alexandani.com/media/catalog/category/earrings_shop_nav.jpg" alt="earrings" title="earrings">
+              <p class="cat_name">earrings</p>
+            </a>
+          </div>
+        </li>
+                      <li>
+          <div class="category">
+            <a href="http://www.alexandani.com/rings.html">
+              <img src="http://www.alexandani.com/media/catalog/category/rings_shop_nav.jpg" alt="rings" title="rings">
+              <p class="cat_name">rings</p>
+            </a>
+          </div>
+        </li>
+                      <li>
+          <div class="category">
+            <a href="http://www.alexandani.com/handbags-1.html">
+              <img src="http://www.alexandani.com/media/catalog/category/leather_shop_nav.jpg" alt="Handbags" title="Handbags">
+              <p class="cat_name">Handbags</p>
+            </a>
+          </div>
+        </li>
+                      <li>
+          <div class="category">
+            <a href="http://www.alexandani.com/collections.html">
+              <img src="http://www.alexandani.com/media/catalog/category/collections_shop_nav.jpg" alt="collections" title="collections">
+              <p class="cat_name">collections</p>
+            </a>
+          </div>
+        </li>
+                    </ul>
+
+      <ul class="top_nav_gift nav-cat link-list hide row" style="display: none;">
+                <li>
+            <div class="category">
+              <a href="http://www.alexandani.com/gifts/e-gift-cards.html">
+                <img src="http://www.alexandani.com/media/catalog/category/gc-begiftedcopy.jpg" alt="E-Gift Cards" title="E-Gift Cards">
+                <p class="cat_name">E-Gift Cards</p>
+              </a>
+            </div>
+          </li>
+                            <li>
+            <div class="category">
+              <a href="http://www.alexandani.com/gifts/for-her.html">
+                <img src="http://www.alexandani.com/media/catalog/category/for_her_gift_nav.jpg" alt="for her" title="for her">
+                <p class="cat_name">for her</p>
+              </a>
+            </div>
+          </li>
+                            <li>
+            <div class="category">
+              <a href="http://www.alexandani.com/gifts/for-him.html">
+                <img src="http://www.alexandani.com/media/catalog/category/for_him_gift_nav.jpg" alt="for him" title="for him">
+                <p class="cat_name">for him</p>
+              </a>
+            </div>
+          </li>
+                            <li>
+            <div class="category">
+              <a href="http://www.alexandani.com/gifts/scarves.html">
+                <img src="http://www.alexandani.com/media/catalog/category/scarves_gifts_nav.jpg" alt="Scarves" title="Scarves">
+                <p class="cat_name">Scarves</p>
+              </a>
+            </div>
+          </li>
+                            <li>
+            <div class="category">
+              <a href="http://www.alexandani.com/gifts/home.html">
+                <img src="http://www.alexandani.com/media/catalog/category/home_gifts_nav.jpg" alt="(+) Home" title="(+) Home">
+                <p class="cat_name">(+) Home</p>
+              </a>
+            </div>
+          </li>
+                        </ul>
+
+      <ul class="top_nav_about nav-cat link-list hide row" style="display: none;">
+                <li>
+          <a href="http://www.alexandani.com/our-story">
+            <img src="/media/wysiwyg/top-nav/carolyn_about_nav.jpg">
+            <p class="cat_name">our<br>story</p>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.alexandani.com/affinity/">
+            <img src="/media/wysiwyg/about_affinity_nfl_spring.jpg">
+            <p class="cat_name">affinity<br>program</p>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.alexandani.com/charity-by-design/">
+            <img src="/media/wysiwyg/about_cbd_sweet_melody_spring.jpg">
+            <p class="cat_name">charity<br>by design</p>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.alexandani.com/vintage-sixty-six/">
+            <img src="/media/wysiwyg/about_v66_spring.jpg">
+            <p class="cat_name">vintage<br>sixty-six</p>
+          </a>
+        </li>      </ul>
+
+      <ul class="top_nav_exp nav-cat link-list hide" style="display: none;">
+                <li>
+          <a href="http://www.alexandani.com/blog/">
+            <img src="/media/wysiwyg/blog_heart_expandable.jpg">
+            <p class="cat_name">blog</p>
+          </a>
+        </li>
+                <li>
+          <a href="http://www.alexandani.com/charmed-arms/">
+            <img src="/media/wysiwyg/wear_share_nav_feb.jpg">
+            <p class="cat_name">wear and share</p>
+            </a>
+            </li>
+         <li>
+          <a href="http://www.alexandani.com/press/index/">
+            <img src="/media/wysiwyg/nav_press_wwd_spring.jpg">
+            <p class="cat_name">press worthy</p>
+          </a>
+        </li>
+            <li>
+        <a href="http://www.alexandani.com/entertainment">
+          <img src="/media/wysiwyg/entertainment_nav_ingrid_v2.png">
+          <p class="cat_name">entertainment</p></a>
+</li>
+             </ul>
+      <div class="nav-cat search-form-container top_nav_search hide" style="display: none;">
+        <form id="search_mini_form" action="/catalogsearch/result/" method="get">
+          <div class="form-search">
+            <input id="search" type="text" name="q" value="Have something in mind? Just type it..." class="input-text" maxlength="128" onclick="this.value=='Have something in mind? Just type it...'?this.value='':''" onblur="this.value==''?this.value='Have something in mind? Just type it...':''" autocomplete="off">
+            <div id="hit" class="hide">HIT ENTER</div>
+            <script type="text/javascript">
+              //<![CDATA[
+                  var searchForm = new Varien.searchForm('search_mini_form', 'search');
+              //]]>
+            </script>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="header-container hide-for-medium-up small">
+<div id="sticky-header">
+    <a href="/checkout/cart/" class="sticky-nav-right"><span class="m-nav-icon icon-shopping-bag"></span></a>
+    <a id="simple-menu" class="sticky-nav-left" href="#sidr"><span class="m-nav-icon icon-menu"></span></a>
+    <a class="sticky-logo" href="/"><img src="/skin/frontend/enterprise/responsive/images/alex-and-ani-logo.png"></a>
+</div>
+<div id="sidr">
+    <ul>
+        <li class="search-block">
+            <form id="search_mini_form_mobile" action="/catalogsearch/result/" method="get">
+                <div class="form-search">
+                    <div id="mobile-search-field">
+                        <input id="search_mobile" type="text" name="q" value="SEARCH..." class="input-text" maxlength="128" onclick="this.value=='SEARCH...'?this.value='':''" onblur="this.value==''?this.value='SEARCH...':''" autocomplete="off" \>
+                    </div>
+                    <div id="mobile-search-icon">
+                        <span onclick="document.getElementById('search_mini_form_mobile').submit();" class="m-nav-icon icon-search"></span>
+                    </div>
+                    <div class="clear"></div>
+                    <script type="text/javascript">
+                    //<![CDATA[
+                    var searchForm = new Varien.searchForm('search_mini_form_mobile', 'search_mobile');
+                    //]]>
+                    </script>
+                </div>
+            </form>
+            <div class="mobile-nav-seperator">Menu</div>
+        </li>
+            <li class="link"><a class="my-account" href="/customer/account/login/"><span class="m-nav-icon icon-user"></span>My Account </a></li>
+            <li class="link"><a href="/checkout/cart/"><span class="m-nav-icon icon-shopping-bag"></span>
+                    <a class="shopping-bag" href="http://www.alexandani.com/checkout/cart/">Bag </a>
+
+</a></li>
+        <li class="link"><a href="/locations"><span class="m-nav-icon icon-gps-location"></span>Find a Store</a></li>
+        <li class="mobile-nav-seperator">Shop</li>
+            <li class="link">
+        <a href="http://www.alexandani.com/bangles.html">
+            <span class="m-nav-icon icon-bangle"></span> bangles        </a>
+    </li>
+    <li class="link">
+        <a href="http://www.alexandani.com/necklaces.html">
+            <span class="m-nav-icon icon-necklace"></span> necklaces        </a>
+    </li>
+    <li class="link">
+        <a href="http://www.alexandani.com/earrings.html">
+            <span class="m-nav-icon icon-earring"></span> earrings        </a>
+    </li>
+    <li class="link">
+        <a href="http://www.alexandani.com/rings.html">
+            <span class="m-nav-icon icon-ring"></span> rings        </a>
+    </li>
+    <li class="link">
+        <a href="http://www.alexandani.com/handbags-1.html">
+            <span class="m-nav-icon icon-bangle"></span> Handbags        </a>
+    </li>
+    <li class="link">
+        <a href="http://www.alexandani.com/collections.html">
+            <span class="m-nav-icon icon-bangle"></span> collections        </a>
+    </li>
+
+    <li class="mobile-nav-seperator">Gifts</li>
+        <li class="link">
+        <a href="http://www.alexandani.com/gifts/e-gift-cards.html">
+            <span class="m-nav-icon icon-aa-shopping-bag"></span> E-Gift Cards        </a>
+    </li>
+        <li class="link">
+        <a href="http://www.alexandani.com/gifts/for-her.html">
+            <span class="m-nav-icon icon-aa-shopping-bag"></span> for her        </a>
+    </li>
+        <li class="link">
+        <a href="http://www.alexandani.com/gifts/for-him.html">
+            <span class="m-nav-icon icon-aa-shopping-bag"></span> for him        </a>
+    </li>
+        <li class="link">
+        <a href="http://www.alexandani.com/gifts/scarves.html">
+            <span class="m-nav-icon icon-aa-shopping-bag"></span> Scarves        </a>
+    </li>
+        <li class="link">
+        <a href="http://www.alexandani.com/gifts/home.html">
+            <span class="m-nav-icon icon-aa-shopping-bag"></span> (+) Home        </a>
+    </li>
+    
+    </ul>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+jQuery( document ).ready(function( $ ) {
+
+    if( !$(".header-container.hide-for-small").is(":visible")) {
+        $('#footer-links ul li').each(function( index ) {
+            if($(this).hasClass('toggler') == true){
+                $(this).parent().find('li').hide();
+            }
+        });
+        $('#footer-links ul li:first-child').show();
+
+
+
+        //temp hack to add pipes
+        var count = 0;
+        jQuery('#footer-links ul').each(function() {
+            if(count > 0){
+                var ul = this;
+                jQuery( ul ).find( 'li' ).each(function() {
+                    var li = this;
+                    var orig_content = jQuery( li ).find( 'a' ).html();
+                    if(jQuery( li ).is( ":last-child" ) == false){
+                         jQuery( li ).find( 'a' ).html(orig_content+'&nbsp |');
+                    }
+                });
+            }
+            count++;
+        });
+
+    }
+
+    $('#simple-menu').sidr({
+        onClose:function(){
+            $('#sticky-header').attr('style', 'position:fixed; top:0; left:0;');
+        },
+        onOpen:function(){
+            $('#sticky-header').attr('style', 'position:fixed; top:0;');
+        }
+    }
+    );
+
+    $(window).resize(function(){
+        if ( $(window).width() > 768 ) {
+            $.sidr('close', 'sidr');
+            $('body').attr('style', '');
+        }
+    });
+
+    $('#footer-links ul li.toggler').click(function(){
+
+        if( !$(".header-container.hide-for-small").is(":visible")) {
+            var ul = $(this).parent();
+            var count = 0;
+            $(ul).find('li').each(function( index ) {
+                if(count > 0){
+                    $(this).fadeToggle();
+                }
+                else{
+                    var toggle = $(this).find('.footer-toggle');
+                    if($(toggle).hasClass('tilted')){
+                        $(toggle).removeClass('tilted');
+                    }
+                    else{
+                        $(toggle).addClass('tilted');
+                    }
+                }
+                count++;
+            });
+        }
+    });
+
+});
+//]]>
+</script>
+
+</div>
+
+<!-- START CAROUSEL -->
+<div class="banner-carousel">
+    <ul id="main-slider" class="m-banner home" data-orbit class="hide-for-small">
+                <li location="http://www.alexandani.com/2015-charity-by-design-anniversary">
+            <img src="http://www.alexandani.com/media/banner/CBD-Anniversary_ecomm_SLIDE_1.jpg" alt="CHARITY BY DESIGN Anniversary" />
+        </li>
+                <li location="http://www.alexandani.com/collections/infinite-love.html">
+            <img src="http://www.alexandani.com/media/banner/ExpandableHeart_slide-150k.jpg" alt="Valentine's Day Heart Expandables" />
+        </li>
+                <li location="http://www.alexandani.com/collections/charity-by-design/little-brown-bear-charm-bangle.html">
+            <img src="http://www.alexandani.com/media/banner/BrownBear_slide.jpg" alt="Charity by Design Little Brown Bear Charm Bangle" />
+        </li>
+            </ul>
+</div>
+<!-- END CAROUSEL -->
+    <!-- START MOBILE CAROUSEL -->
+    <div id="banner-slider" class="swipe hide-for-medium-up">
+        <div class="swipe-wrap">
+                        <div class="banner-block-mobile">
+                                <noindex>
+                <a href="http://www.alexandani.com/2015-charity-by-design-anniversary" target="_self" rel="nofollow">
+                                    <img src="http://www.alexandani.com/media/banner/CBD-Anniversary_ecomm_MOBILESLIDE.jpg" alt="CHARITY BY DESIGN Anniversary" />
+                                </a>
+                </noindex>
+                            </div>
+                        <div class="banner-block-mobile">
+                                <noindex>
+                <a href="http://www.alexandani.com/2015-valentines-day.html" target="_self" rel="nofollow">
+                                    <img src="http://www.alexandani.com/media/banner/2015_vday_mobile_slide.jpg" alt="2015 Valentine's Day Favorites" />
+                                </a>
+                </noindex>
+                            </div>
+                        <div class="banner-block-mobile">
+                                <noindex>
+                <a href="http://www.alexandani.com/collections/infinite-love.html" target="_self" rel="nofollow">
+                                    <img src="http://www.alexandani.com/media/banner/ExpandableHeart_slideMobile-150k.jpg" alt="Valentine's Day Heart Expandables" />
+                                </a>
+                </noindex>
+                            </div>
+                    </div>
+    </div>
+    <script type="text/javascript">
+    jQuery( document ).ready(function($) {
+        window.mySwipe = new Swipe(document.getElementById('banner-slider'), {
+            startSlide: 0,
+            speed: 400,
+            auto: 3000,
+            continuous: true,
+            disableScroll: false,
+            stopPropagation: false,
+            callback: function(index, elem) {},
+            transitionEnd: function(index, elem) {}
+        });
+    });
+    </script>
+    <!-- END MOBILE CAROUSEL -->        <div class="main-container col1-layout">
+            <div class="main">
+                                <div class="col-main">
+                                        <div class="std"><style>
+  .cms-index-index .video-play {
+    margin-left: 220px !important;
+    margin-top: 100px !important;
+  }
+</style>
+<div class="tiles hide-for-small">
+    <div style="float:left;"> 
+      <div class="t1"> <a href="/2015-february-bangle-of-the-month.html"> 
+        <img src="/media/wysiwyg/Feb_BOM_T1_v2.jpg" alt="">
+        <h6>BE DAZZLED</h6>
+      </div>
+        <p class="tile-subtitle">Save on Beaded + Bangle of the Month</p>
+      </a> 
+    </div>
+    <div style="display:inline-block;">
+      <div class="tiles" title="wide"><a href="/2015-valentines-day.html"><img src="/media/wysiwyg/InfiniteLove_T2-3.jpg" alt="" /> 
+      </div>
+      <div> 
+        <h6>TIMELESS | LIMITLESS | BOUNDLESS</h6>
+      <p class="tile-subtitle">Shop our newest collection + other Valentine's Day favorites</p>
+    </a> 
+  </div>
+</div>
+<div style="display:inline-block; margin-left:10px;"> 
+  <a href="/collections/providence-collection.html"> <img src="/media/wysiwyg/providencenecklaces_T1.jpg" alt="">
+  <div> 
+    <h6>ELEGANT EMBELLISHMENTS</h6>
+  <p class="tile-subtitle">Necklaces in precious metals</p>
+</a> 
+</div>
+</div>
+<div style="display:inline-block;"> 
+  <a href="/collections/charity-by-design.html"> <img src="/media/wysiwyg/cbd_T4.jpg" alt="">
+    <div class="text-box bottom-center">
+      <h6>GIVE LOVE</h6>
+      <p class="tile-subtitle">Shop our Charity by Design Collection</p>
+    </div>
+  </a> 
+</div>
+  <div style="display:inline-block; margin-left:10px;"> <a href="/locations"> <img src="/media/wysiwyg/southampton_store_front_t5_v2.jpg" alt="">
+  <div> 
+    <h6>EXPERIENCE (+) ENERGY</h6>
+  <p class="tile-subtitle">Visit your Alex and Ani store</p>
+</a> 
+</div>
+</div>
+<div style="display:inline-block; margin-left:10px;"> <a href="/2015-ring-in-the-new-year-faith-charms.html"> <img src="/media/wysiwyg/Resolution_ecomm_T4.jpg" alt="">
+  <div> 
+    <h6>RING IN THE NEW</h6>
+  <p class="tile-subtitle">Shop inspiring and meaningful pieces</p>
+</a> 
+</div>
+</div>
+</div>
+
+
+<div id="olapic_specific_widget"></div>
+<script type="text/javascript" src="http://widgets.photorank.me/render?element_id=olapic_specific_widget&customer_id=216009&gallery=503069968&widget_config=1062933104" async></script>
+
+<script>
+  jQuery( document ).ready(function() {
+    jQuery('.orbit-slides-container').removeClass('hide-for-small');
+  });
+</script></div>                </div>
+            </div>
+        </div>
+        <div class="footer-container">
+    <div class="footer">
+      <div id="footer-links">
+        <div class="hide-for-medium-up columns small-12">
+          <h6><span class="m-nav-icon icon-gps-location"></span>FIND A STORE</h6>
+          <form id="mobile-store-search-form" method="post" action="/locations/zip/">
+                <div id="mobile-store-search-field">
+                    <input type="text" placeholder="ZIP CODE" name="zip" />
+                </div>
+                <button type="submit" onclick="document.getElementById('mobile-store-search-form').submit();" class="button" title="Search">
+                    <span><span>Search</span></span>
+                </button>
+                <div class="clear"></div>
+          </form>
+        </div>
+                        <ul id='footer-social' class="columns large-3 small-12 push-6">
+          <li class="first columns large-12 small-12">
+            <h6>Stay in touch</h6>
+          </li>
+
+          <li class="columns large-5 small-1"><a href="https://www.facebook.com/alexandaniusa" target="_blank"><span class="m-nav-icon icon-social-facebook"></span><span class="social-link-text">Facebook</span></a></li>
+
+          <li class="columns large-5 small-1"><a href="https://www.youtube.com/alexandani?sub_confirmation=1" target="_blank"><span class="m-nav-icon icon-social-youtube"></span><span class="social-link-text">Youtube</span></a></li>
+
+          <li class="columns large-5 small-1"><a href="https://twitter.com/alexandani" target="_blank"><span class="m-nav-icon icon-social-twitter"></span><span class="social-link-text">Twitter</span></a></li>
+
+          <li class="columns large-5 small-1"><a href="http://alexandani.tumblr.com/" target="_blank"><span class="m-nav-icon icon-social-tumblr"></span><span class="social-link-text">Tumblr</span></a></li>
+
+          <li class="columns large-5 small-1"><a href="http://pinterest.com/alexandani/" target="_blank"><span class="m-nav-icon icon-social-pinterest"></span><span class="social-link-text">Pinterest</span></a></li>
+
+          <li class="columns large-5 small-1"><a href="https://plus.google.com/109754642827952654413/posts" target="_blank"><span class="m-nav-icon icon-social-google-plus"></span><span class="social-link-text">Google+</span></a></li>
+
+          <li class="columns large-5 small-1"><a href="http://instagram.com/alexandani" target="_blank"><span class="m-nav-icon icon-social-instagram"></span><span class="social-link-text">Instagram</span></a></li>
+
+          <li class="columns large-5 small-1"><a href="http://www.linkedin.com/company/alexandani" target="_blank"><span class="m-nav-icon icon-social-linkedin"></span><span class="social-link-text">LinkedIn</span></a></li>
+
+<li class="columns large-5 small-1"><a href="https://vine.co/alexandani" target="_blank"><span class="m-nav-icon icon-social-vine"></span><span class="social-link-text">Vine</span></a></li>
+
+<li class="columns large-5 small-1"><a href="http://wanelo.com/alexandani" target="_blank"><span class="m-nav-icon icon-social-wanelo"></span><span class="social-link-text">Wanelo</span></a></li>
+
+        </ul>        <div class="newsletter-container columns large-3 small-12 push-6">
+          <h6>Never miss a thing!</h6>
+          <form action="https://www.alexandani.com/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail">
+    <div class="form-subscribe">
+        <div class="form-subscribe-header">
+            <label class="hide-for-small" for="newsletter">Sign up to receive exclusive offers and updates.</label>
+        </div>
+        <div class="v-fix">
+            <input name="email" type="text" id="newsletter" value="Enter Email address" onclick="this.value=='Enter Email address'?this.value='':''" onblur="this.value==''?this.value='Enter Email address':''" class="input-text required-entry validate-email" />
+        </div>
+        <input type="hidden" name="news_source" value="organic_footer">
+        <button type="submit" class="button" title="Subscribe">
+            <span><span>Subscribe</span></span>
+        </button>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+//]]>
+</script>
+          <div class="clear"></div>
+          <div class="hide-for-small" id="stella">
+              <a class="stella-seal"></a>
+              <script defer src="//media.stellaservice.com/public/js/seal.js"></script>
+              <div style="clear:both;">&nbsp;</div>
+          </div>
+        </div>
+                <ul class="columns large-3 small-12 pull-6">
+          <li class="toggler">
+            <div class="footer-toggle"></div>
+            <h6>Learn more</h6>
+          </li>
+          <li><a href="http://www.alexandani.com/the-company/">The Company</a></li>   
+          <li><a href="http://www.alexandani.com/about-international/">International</a></li>
+          <li><a href="http://www.alexandani.com/careers/">Careers</a></li>
+          <li><a href="http://www.alexandani.com/corporate-gifting-program/">Corporate Gifting Program</a></li>
+          <li><a href="http://www.alexandani.com/affiliate/">Affiliate Program</a></li>
+          <li><a href="http://www.alexandani.com/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="http://www.alexandani.com/terms-and-conditions/">Terms &amp; Conditions</a></li>
+        </ul>                <ul class="columns large-3 small-12 pull-6">
+          <li class="toggler">
+            <div class="footer-toggle"></div>
+            <h6>Need help?</h6>
+          </li>
+          <li><a href="http://www.alexandani.com/alexandani-locations">Your ALEX AND ANI Store</a></li>
+          <li><a href="http://www.alexandani.com/locations">Location Finder</a></li>
+          <li><a href="http://www.alexandani.com/faqs/">FAQs</a></li>
+          <li><a href="http://www.alexandani.com/product-care/">Product Care</a></li>
+          <li><a href="http://www.alexandani.com/shipping-and-returns/">Shipping &amp; Returns</a></li>
+          <li><a href="http://www.alexandani.com/contact-us/">Contact Us</a></li>
+          <li><a href="http://www.alexandani.com/virtual-gift-cards.html/">E-Gift Cards</a></li>
+        </ul>      </div>
+      <div class="clear"></div>
+      <div class="bottom-footer">
+        <address>&copy; 2015 Alex and Ani, LLC</address>
+        <a class="energy">ENERGY</a>
+            <a class="response-switch" href="http://www.alexandani.com/responsive/set/index/state/false/">View Desktop Site</a>
+
+        <div class="clear"></div>
+      </div>
+    </div>
+</div>
+<img style="width:0px;height:0px;" width="1" height="1" src="/skin/frontend/enterprise/responsive/images/waiting_animation.gif"/>
+            <!-- BEGIN: Adobe DTM Call -->
+    <script type="text/javascript">if(typeof window.__satellite=='object')__satellite.pageBottom()</script>
+    <!-- END: Adobe DTM Call -->
+        
+<!-- popup styles -->
+<style type="text/css">
+.coupon-popup{
+	text-align:center;
+	width:400px;
+	margin-left:auto;
+	margin-right:auto;
+	/*padding: 10px;*/
+}
+
+.coupon-popup-container{
+	text-align:center;
+	border: 1px solid #000;
+	padding: 10px;
+}
+
+.coupon-popup-header{
+	margin-bottom:10px;
+}
+
+.coupon-popup-body{
+	font-size:16px;
+}
+
+.coupon-popup-button{
+	margin-top:10px;
+	margin-bottom:5px;
+}
+
+.coupon-popup-button button > span{
+	padding:10px 25px !important;
+}
+
+.coupon-popup-button span{
+	font-weight:bold !important;
+	font-size:13px;
+}
+
+</style>
+
+
+<div style='display:none'>
+	<div id="free-shipping-coupon" class="coupon-popup">
+	    <div class="coupon-popup-container">
+	        <div class="coupon-popup-header">
+	            <h1 class="title">Alex and Ani</h1>
+	        </div>
+	        <div class="coupon-popup-body">
+	            We're glad you're back! Free shipping has been applied to your order.
+	        </div>
+	        <div class="coupon-popup-button">
+	            <button class="button color-close" popup="free-shipping-coupon" title="ok" type="button">
+	                <span>
+	                    <span>Continue &raquo;</span>
+	                </span>
+	            </button>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+
+<div style='display:none'>
+	<div id="image-coupon" class="image-coupon-popup">
+	    <div class="image-coupon-popup-container">
+
+	    </div>
+	</div>
+</div>
+
+
+
+
+<script>
+jQuery(document).ready(function(){
+
+	/*--> international popup start <--*/
+	var canSee = 'false';
+
+	//forcing popup off on next line
+	canSee = 'false';
+	if(canSee == 'true'){
+		Jquery.colorbox({
+			html:'<p> <a href="/international"><img src="//cdn.alexandani.com/media/popup.jpg"/> </a> </p>',
+			innerWidth: 550,
+			innerHeight: 200,
+			scrolling:false
+		});
+	}
+
+	/*--> international popup end <--*/
+
+
+
+	/*--> coupon popup start <--*/
+	var coupon = {"promo_code":"","label":"","hide_codes":false,"show_popup":false};
+
+	if(coupon.show_popup == true){
+
+		var label = coupon.label;
+		//var current_code = coupon.promo_code;
+
+		//free shipping coupon start
+		if(coupon.promo_code == 'free_shipping_abandoned_cart_2'){
+
+			jQuery.colorbox({
+				inline:true,
+				href:"#free-shipping-coupon",
+				innerWidth: 420,
+				scrolling:false
+			});
+		}
+		//free shipping coupon end
+
+		//EWAY START
+		if(coupon.label == 'Free Shipping --'){
+
+			var image = '<img class="color-close" src="//cdn.alexandani.com/media/coupon_images/coupon-complementary-shipping.jpg"/>';
+			jQuery('#image-coupon').find('.image-coupon-popup-container').html(image);
+			jQuery.colorbox({
+				inline:true,
+				href:"#image-coupon",
+				innerWidth: 500,
+				innerHeight:175,
+				scrolling:false
+			});
+		}
+		if(coupon.label == 'Free Shipping Comp --'){
+
+			var image = '<img class="color-close" src="//cdn.alexandani.com/media/coupon_images/coupon-our-appreciation.jpg"/>';
+			jQuery('#image-coupon').find('.image-coupon-popup-container').html(image);
+			jQuery.colorbox({
+				inline:true,
+				href:"#image-coupon",
+				innerWidth: 500,
+				innerHeight:175,
+				scrolling:false
+			});
+		}
+		if(coupon.label == 'Free shipping and 15 percent off --'){
+
+			var image = '<img class="color-close" src="//cdn.alexandani.com/media/coupon_images/coupon-15-pct-off.jpg"/>';
+			jQuery('#image-coupon').find('.image-coupon-popup-container').html(image);
+			jQuery.colorbox({
+				inline:true,
+				href:"#image-coupon",
+				innerWidth: 500,
+				innerHeight:175,
+				scrolling:false
+			});
+		}
+		if(coupon.label == '5 dollars off --'){
+
+			var image = '<img class="color-close" src="//cdn.alexandani.com/media/coupon_images/coupon-first-time-5-dollars-off.jpg"/>';
+			jQuery('#image-coupon').find('.image-coupon-popup-container').html(image);
+			jQuery.colorbox({
+				inline:true,
+				href:"#image-coupon",
+				innerWidth: 500,
+				innerHeight:175,
+				scrolling:false
+			});
+		}
+		if(coupon.label == '10% off item --'){
+
+			var image = '<img class="color-close" src="//cdn.alexandani.com/media/coupon_images/coupon-10-pct-off.jpg"/>';
+			jQuery('#image-coupon').find('.image-coupon-popup-container').html(image);
+			jQuery.colorbox({
+				inline:true,
+				href:"#image-coupon",
+				innerWidth: 500,
+				innerHeight:175,
+				scrolling:false
+			});
+		}
+		//EWAY END
+
+		//--> other coupon specific popups
+		//-->
+		//-->
+		//-->
+
+	}
+	//This is coupon agnostic and will hide various shipping information if free shipping is
+	//applied by the current promotion
+	if(coupon.hide_codes == true) {
+		var message = "Congrats! You've reached Free Shipping!";
+
+		jQuery('.free-shipping-note').html(message);
+		jQuery('.free-shipping-msg').html(message);
+
+		jQuery('#coupon_code').val(coupon.label);
+		jQuery('#discount-coupon-form .button.cta').hide();
+
+	}
+	/*--> coupon popup end <--*/
+
+
+
+
+
+	//used to close popups
+	jQuery('.color-close').click(function(){
+		var parent = jQuery(this).attr('popup');
+		jQuery('#'+parent).colorbox.close()
+
+	});
+
+
+});
+</script>
+    </div>
+</div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-4.newrelic.com","licenseKey":"ddb2f37630","applicationID":"2287077","transactionName":"YVUDYkIEChAEUEdfXVgfIFVEDAsNSkNSUVdVUQJeVUoWBhRGVkVGGUATWVMAFxA=","queueTime":0,"applicationTime":108,"ttGuid":"","agentToken":"","userAttributes":"","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-476.min.js"}</script></body>
+</html>
+";i:2;s:4:"2478";}

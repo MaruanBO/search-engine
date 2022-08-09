@@ -1,0 +1,207 @@
+a:3:{i:0;s:21:"http://godriveby.com/";i:1;s:8878:"<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<title>Driveby</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/assets/css/front-end/imageflow.css" type="text/css"/>
+	<script src="/assets/javascript/front-end/imageflow.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/assets/css/shared/qtip/jquery.qtip.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/assets/css/admin/select2/select2.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/assets/css/jquery.ui.themes/custom/jquery.ui.theme.css" type="text/css" media="screen">
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/assets/javascript/shared/jquery.ui.dialog.js"></script>
+<script type="text/javascript" src="/assets/javascript/admin/local.js"></script>
+<script type="text/javascript" src="/assets/javascript/shared/jquery.mask.js"></script>
+<script type="text/javascript" src="/assets/javascript/shared/jquery.qtip.js"></script>
+<script type="text/javascript" src="/assets/javascript/admin/select2.js"></script>
+<script type="text/javascript" src="/assets/javascript/shared/jquery.placeholder.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/webfont/1.5.1/webfont.js"></script>
+<script type="text/javascript" src="/assets/javascript/shared/signup.js"></script>
+
+
+	<link href="/assets/images/shared/db.ico" rel="shortcut icon" >
+<link href="/assets/css/front-end/styles.css" media="screen" rel="stylesheet" type="text/css" >
+	<script>
+		var imageIdToClassMap = {
+			'c1': 'report',
+			'c2': 'optimize',
+			'c3': 'driveby',
+			'c4': 'create',
+			'c5': 'control',
+			'c6': 'adapt',
+			'c7': 'manage'
+		};
+
+		var nextprevMap = {
+			'report': ['Manage', 'Optimize'],
+			'optimize': ['Report', 'Driveby'],
+			'driveby': ['Optimize', 'Create'],
+			'create': ['Driveby', 'Control'],
+			'control': ['Create', 'Adapt'],
+			'adapt': ['Control', 'Manage'],
+			'manage': ['Adapt', 'Report']
+		};
+
+		var carousel = new ImageFlow();
+		$(document).ready(function () {
+			var $prev = $('.prev');
+			var $next = $('.next');
+
+			carousel.init({
+				ImageFlowID: 'carousel',
+				imageCursor: 'pointer',
+				reflections: false,
+				reflectionP: 0.3,
+				startID: 3,
+				circular: true,
+				slider: false,
+				captions: false,
+				imageFocusMax: 2,
+				aspectRatio: 2.83,
+				imagesHeight: 1,
+				imagesM: 0.72,
+				xStep: 50,
+				imagePlaneM: 3,
+				imageSpacingM: 0.6,
+				verticalAlignmentP: 1,
+				mouseWheel: false,
+				onChange: function (image) {
+					var cls = imageIdToClassMap[$(image).attr('id')];
+					$('body').attr('class', cls);
+
+					$prev.children().html(nextprevMap[cls][0]);
+					$next.children().html(nextprevMap[cls][1]);
+				}
+			});
+
+			$prev.click(function () {
+				carousel.MouseWheel.handle(1);
+			});
+
+			$next.click(function () {
+				carousel.MouseWheel.handle(-1);
+			});
+		});
+	</script>
+</head>
+<body>
+<div class="topnav  blue">
+	<ul class="topnavLinks">
+    <li>
+        <a id="signup_menu" href="/sign-up">sign up</a>
+    </li>
+    <li>
+        <a href="/admin/login">login</a>
+    </li>
+    <li>
+        <a href="/support">support</a>
+    </li>
+    <li>
+        <a href="/pricing">pricing</a>
+    </li>
+    <li>
+        <a href="/create">features</a>
+    </li>
+</ul>
+	<div class="logoS">
+		<a href="/"><img src="/assets/images/front-end/logo-home-blue.png"/></a>
+	</div>
+</div>
+
+<div class="carousel">
+	<div class="carouselinner">
+		<div id="carousel" class="imageflow">
+			<img id="c1" src="/assets/images/front-end/carousel-1.png" longdesc="/report" width="360" height="468" alt="Report"/>
+			<img id="c2" src="/assets/images/front-end/carousel-2.png" longdesc="/optimize" width="360" height="468" alt="Optimize"/>
+			<img id="c3" src="/assets/images/front-end/carousel-3.png" longdesc="/" width="360" height="468" alt="Driveby"/>
+			<img id="c4" src="/assets/images/front-end/carousel-4.png" longdesc="/create" width="360" height="468" alt="Create"/>
+			<img id="c5" src="/assets/images/front-end/carousel-5.png" longdesc="/control" width="360" height="468" alt="Control"/>
+			<img id="c6" src="/assets/images/front-end/carousel-6.png" longdesc="/adapt" width="360" height="468" alt="Adapt"/>
+			<img id="c7" src="/assets/images/front-end/carousel-7.png" longdesc="/manage" width="360" height="468" alt="Manage"/>
+		</div>
+		<a href="javascript:void(0)" class="prev"><span>Optimize</span></a>
+		<a href="javascript:void(0)" class="next"><span>Create</span></a>
+	</div>
+</div>
+
+<div class="botwrap">
+	<div id="signup-form" class="signup-form">
+    <div id="app_form_sign_up_index_wrapper">
+	<form id="app_form_sign_up_index" name="app_form_sign_up_index" enctype="application/x-www-form-urlencoded" method="post" action="//godriveby.com/sign-up"><ul class="form-list"><ul>
+<li class="element">
+<input type="text"  name="name" id="name" value="" placeholder="Account Name..." class="input"></li>
+<li class="element">
+<input type="email"  name="email" id="email" value="" placeholder="Your Email..." class="input"></li>
+<li class="element">
+<input type="password" name="password" id="password" value="" placeholder="Your Password..." class="input"></li>
+<li class="action-bar">
+<input type="submit" name="create" id="create" value="Get Started" class="submit"></li>
+<li class="hidden">
+<input type="text"  name="first_name" id="first_name" value="" hidden="1" class="input"></li>
+<li class="hidden">
+<input type="text"  name="last_name" id="last_name" value="" hidden="1" class="input"></li>
+<li class="hidden">
+<input type="text"  name="company_name" id="company_name" value="" hidden="1" class="input"></li>
+<li class="hidden">
+<input type="text"  name="address" id="address" value="" hidden="1" class="input"></li>
+<li class="hidden">
+<input type="text"  name="city" id="city" value="" hidden="1" class="input"></li>
+<li class="hidden">
+<select name="state" id="state" hidden="1" class="select">
+    <option value="" label="-">-</option>
+</select></li>
+<li class="hidden">
+<input type="text"  name="zip" id="zip" value="" hidden="1" class="input"></li>
+<li class="hidden">
+<input type="text"  name="phone" id="phone" value="" hidden="1" class="input"></li></ul></ul></form>
+</div>
+    <p id="signuptext">Already have an account: <a href="/admin/login">login here</a></p>
+</div>
+
+<!--[if lte IE 8]>
+<p class=chromeframe align="center">Your browser is <em>ancient!</em>
+    <a href="http://browsehappy.com/" style="color: #ffffff;">Upgrade to a different browser</a>
+    or <a href="http://www.google.com/chromeframe/?redirect=true " style="color: #ffffff;">
+    install Google Chrome Frame</a> to experience this site.</p>
+<![endif]-->
+	<div class="copy">
+		<div class="report">
+			<h1>Report With Driveby</h1>
+			<p>Report and track every action on your pages. View both short-term and long-term metrics to identify trends and capitalize on them.</p>
+		</div>
+		<div class="optimize">
+			<h1>Optimize With Driveby</h1>
+			<p>Optimize your revenue flows to a greater extent than ever. Utilize our reporting suite to spot trends, and then our adaptive tools to optimize your pages.</p>
+		</div>
+		<div class="driveby">
+			<h1>Build With Driveby</h1>
+			<p>Driveby is a comprehensive landing page management platform that tracks performance-based marketing campaigns.</p>
+		</div>
+		<div class="create">
+			<h1>Create With Driveby</h1>
+			<p>Create rigorously tested and optimized content with Driveby. You are in the driver's seat for every aspect of the creation process.</p>
+		</div>
+		<div class="control">
+			<h1>Control With Driveby</h1>
+			<p>Take command of your operation with Driveby. A suite of tools is at your disposal for controlling every element of your page.</p>
+		</div>
+		<div class="adapt">
+			<h1>Adapt With Driveby</h1>
+			<p>Adapt or be left behind by the competition. Use Driveby to change content on your page quickly in order to meet the needs of publishers and consumers.</p>
+		</div>
+		<div class="manage">
+			<h1>Manage With Driveby</h1>
+			<p>Manage your assets from a global level and dominate. Driveby provides you with an integrated tool set to administer all your pages and users.</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>";i:2;s:4:"2611";}

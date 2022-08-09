@@ -1,0 +1,3044 @@
+a:3:{i:0;s:24:"http://jacksonville.com/";i:1;s:140552:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwIBV1NbGwIGUlJRBgQ="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:19,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:19,2:20,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:20,2:19,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:20,2:19,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:20,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:18,handle:"D5DuLP"}],18:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],19:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],20:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:19,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="Jacksonville, Florida, Georgia, First Coast, Mayport, Fernandina, St. Augustine, World Golf Village, beach, Jaguars, Suns, Gators, Seminoles, Bulldogs, Dolphins, movie, music, golf, Orange Park, golfing, Players Championship, TPC, Sawgrass, Duval, St. Johns, Clay, Putnam" />
+<meta name="description" content="The Florida Times-Union is the number one source for Jacksonville News, Sports, Entertainment, Real Estate, Job Listings, Photos and Video." />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/sites/all/themes/premium/favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/sites/all/themes/premium/favicon.ico" type="image/x-icon" />
+
+  		<script src='//www.googletagservices.com/tag/js/gpt.js'></script>
+  		<script src='http://mdw-cdn.com/cdn-static/nmt_data/nmt_data.js'></script>
+  		<script src='http://mdw-cdn.com/cdn-static/nmt_data/mbu/nmt_ads_jax.js'></script>
+<title>Jacksonville News, Sports and Entertainment | jacksonville.com</title>
+<meta name="application-name" content="Jacksonville.com"/>
+<meta name="msapplication-TileColor" content="#426ab2"/>
+<meta name="msapplication-TileImage" content="http://jacksonville.com/files/img/Win8icon.png"/>
+<meta name="msapplication-square70x70logo" content="http://jacksonville.com/files/img/editorial/Win8Tiles/Win8icon70x70tiny1.png" />
+<meta name="msapplication-square150x150logo" content="http://jacksonville.com/files/img/editorial/Win8Tiles/Win8icon150x150square1.png"/>
+<meta name="msapplication-wide310x150logo" content="http://jacksonville.com/files/img/editorial/Win8Tiles/wide310x150.png"/>
+<meta name="msapplication-square310x310logo" content="http://jacksonville.com/files/img/editorial/Win8Tiles/Win8iconLarge1.png"/>
+<meta name="cXenseParse:recs:publishtime" content="1970-01-01T00:00:00Z" />
+<meta name="cXenseParse:recs:articleid" content="">
+<link type="text/css" rel="stylesheet" media="all" href="http://jacksonville.com/sites/default/files/css/css_c40be55c78c865b62f0fca5c23dd20ac.css" />
+<link type="text/css" rel="stylesheet" media="screen" href="http://jacksonville.com/sites/default/files/css/css_06f6bf64f8b92e26af6c1194411d63d0.css" />
+<script type="text/javascript" src="http://jacksonville.com/sites/default/files/js/js_7830f1531b132601416bd51e4fe9464a.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","Lightbox":{"fileLoadingImage":"\/sites\/all\/modules\/contrib\/jlightbox\/images\/loading.gif","fileBottomNavCloseImage":"\/sites\/all\/modules\/contrib\/jlightbox\/images\/closelabel.gif"},"msms_slideshows":{"apt:ad_north":"728x90_1","apt:ad_lrec":"300x250_1","apt:ad_inline":"300x250_1","apt:ad_comments":"","ga:company":"UA-6287136-1","ga:division":"UA-6365892-3","ga:mbu":"UA-6450631-7","ga:product":"UA-6302221-11"},"alert":{"transitionSpeed":"normal","transitionDuration":"8000"}});
+//--><!]]>
+</script>
+
+<!--[if lt IE 8]>
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/premium/assets/css/ie7.css" />
+<![endif]-->
+
+<!--[if IE 8]>
+<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/premium/assets/css/ie8.css" />
+<![endif]-->
+
+</head>
+<body class="front not-logged-in page-home one-sidebar sidebar-right">
+
+  
+
+  <script type="text/javascript">
+  var utag_data={
+  taxonomy: "Home Page",};
+  </script>
+  <script type="text/javascript">
+(function(a,b,c,d){
+a='//tags.tiqcdn.com/utag/mpg/jacksonville.com/prod/utag.js';
+b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+})();
+</script>
+<div id="container">
+  <div id="top-header">
+      <div id="block-block-72" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 			<style>
+#top-header {
+width: 1006px;
+margin: 0 auto;
+padding: 10px 0;
+}
+
+#top-header .wl-block, .footer_upper_area  .wl-block { display: inline-block;}
+.footer { width: 1006px;}
+
+.ad728 {
+float: left;
+display: inline-block;
+margin-right: 15px;
+}
+
+.ad950 {
+margin-left: 30px;
+}
+.ad250 {
+float: left;
+display: inline-block;
+}
+
+.ad300 {
+display: inline-block;
+width: 100%;
+background: #F1F1F1;
+}
+.adclear { clear: left; width: 100% !important; margin-bottom: 10px; text-align: center;}
+#mini-panel-dealtobias {margin-bottom: 10px;}
+
+#toc-wrapper-footer {margin-top: 10px;}
+.footer .footer_lower_area {margin-bottom: 20px; margin-top: 10px;}
+#pane-views-premium_lead_1 .wl-footer a, #pane-views-aggregator_feeds .wl-footer a {font-family: 'bitter', serif;
+font-weight: bold;
+text-transform: uppercase;
+text-decoration: none;
+float: right;
+text-transform: uppercase;
+font-size: 12px;
+text-align: right;
+color: #333;}
+#pane-views-aggregator_feeds .wl-footer {
+background-color: #FFF;
+margin-top: 10px;
+padding: 0;
+text-align: right;
+}
+.view-aggregator-feeds .view-content {background-color: #FFF !important; padding: 0;  border: 0;}
+.commentsmodule .item-list {margin-bottom: 20px;}
+img.wl-more-icon {display: none;}
+
+.links_more a {
+font-family: 'bitter', serif;
+font-weight: bold;
+text-transform: uppercase;
+text-decoration: none;
+float: right;
+color: #333;
+text-transform: uppercase;
+font-size: 12px;
+text-align: right;
+}
+#container  {width: 1006px; background-color: white; padding: 2px;}
+#top-header {width: 1006px; background-color: white;}
+.middle_section {width: 1006px; background-color: #FFF; padding: 2px;}
+.footer {width: 1006px; background-color: #FFF; padding: 2px;}
+.middle_section .home_page_side_bar {padding-right: 25px; margin-left: 5px;}
+.homepage_main_content {margin-right: 5px;}
+#mini-panel-table_of_contents, .footer .footer_lower_area {margin-left: 5px;}
+#lightbox {z-index: 70000000;}
+#overlay {z-index: 60000002;}
+#sharebar li a span, #sharebarx li a span, #sharebar li.google-plusone a, #sharebarx li.google-plusone a {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("http://jacksonville.com/sites/all/themes/premium/assets/css/../images/story-share-icons.png");
+    background-origin: padding-box;
+    background-repeat: no-repeat;
+    background-size: 112px auto !important;
+    box-shadow: 0 0 3px #E5E5E5;
+    display: block;
+    height: 33px;
+    overflow: hidden;
+    width: 56px; 
+ }
+</style>			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+  <div id="block-block-71" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 			<div id='728x90_1' class='ad728''>
+<script type='text/javascript'>
+googletag.defineSlot(NMTdata.ads.dfp_adunit_prefix+NMTdata.ads.dfp_adunit, [[728,90]],'728x90_1')
+    .addService(googletag.pubads())
+    .setTargeting('pos',['728x90_1'])
+    .setTargeting("g", utag_data.gender) .setTargeting("age", NMTdata.data.yearToAge(utag_data.birthdate))
+    .setTargeting("Taxonomy", utag_data.taxonomy).setTargeting('pplogin', $.cookie('ppUser')? 'y': 'n')
+    .setTargeting('ccc',NMTdata.ads.dfp_ccc);
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+googletag.display('728x90_1');
+</script>
+</div>			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+  <div id="block-block-73" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 			<div id='250x90_1' class='ad250' >
+<script type='text/javascript'>
+googletag.defineSlot(NMTdata.ads.dfp_adunit_prefix+NMTdata.ads.dfp_adunit, [[250,90]],'250x90_1')
+    .addService(googletag.pubads())
+    .setTargeting('pos',['250x90_1'])
+    .setTargeting("g", utag_data.gender) .setTargeting("age", NMTdata.data.yearToAge(utag_data.birthdate))
+    .setTargeting("Taxonomy", utag_data.taxonomy).setTargeting('pplogin', $.cookie('ppUser')? 'y': 'n')
+    .setTargeting('ccc',NMTdata.ads.dfp_ccc);
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+googletag.display('250x90_1');
+</script>
+</div>			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+  </div>
+  <div class="top_section">
+    <div class="header">
+      <div class="header_content">
+        <div class="logo_area three-hundred">
+          <a href="/" title="Jacksonville.com">
+          	<img src="http://jacksonville.com/sites/default/files/premium_logo.png" alt="" />
+          </a>
+          <div class="free-site-link"><a href="http://jacksonville.com">Visit Jacksonville.com</a></div>
+        </div>
+        <div class="weather_area three-thirty-eight">
+          <ul class="weather_list display_font">
+	            <div id="block-block-22" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 			<a href="http://weather.jacksonville.com/" class="weather_area_href"><div class="weather_area three-thirty-eight">
+<ul class="weather_list display_font">
+<li class="weather_list_item current_weather_day"><span class="weather_list_item_number "><span id="weatherTodayTemp"></span>&deg;</span>Now</li>
+<li class="weather_list_item"><span class="weather_list_item_number"><span id="weatherTomorrowTemp"></span>&deg;</span>Tomorrow</li>
+<li class="weather_list_item"><span class="weather_list_item_number"><span id="weatherNextdayTemp"></span>&deg;</span><span id="weatherNextdayName"></span></li>
+</ul>
+</div></a>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  populateWeather();
+});
+</script>			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+          </ul>
+        </div>
+        <div class="login_search_area three-hundred">
+	        <div class="login_area">
+		        <p class="login_name_sign_out">
+            <a href="http://eedition.jacksonville.com/cgi-bin/ee.cgi" class="login_eedition_link">eEdition</a>
+			                      <script type="text/javascript">premUserBox();</script>
+	        </div>
+
+          <div class="search_area">
+            
+
+<div id="google-custom-search" style="margin-left:-10px;">
+								<script>
+  (function() {
+    var cx = '018350439693521963140:fmddw_mn9ag';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+									
+									
+									</div>
+
+
+          </div>
+          </div>
+
+        </div>
+        <div class="clear">
+        </div>
+      </div>
+    </div>
+
+    <div id="main_menu" class="nav display_font">
+        <div id="block-block-74" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 			<div id="staticnav">
+<ul class="menu">
+ <li class="active"><a href="/">Home</a></li>
+ <li><a href="/news">News</a>
+  <ul>
+   <li><a href="/news/local">Local</a></li>
+
+<li><a href="/current">Current >></a>
+	<ul class="areas">
+   <li><a href="/current">Current</a></li>
+
+      <li><a href="/current/mandarin-st-johns">Mandarin-St. Johns</a></li>
+	     <li><a href="/current/town">Town</a></li>
+		 		    <li><a href="/current/southside-beaches">Southside-Beaches</a></li>
+  </ul>
+	</li>
+
+    <li><a href="#">Areas >></a>
+	<ul class="areas">
+   <!-- <li><a href="/community/arlington">Arlington</a></li> -->
+   <li><a href="/claysun">Clay</a></li>
+ <!--  <li><a href="/community/mandarin">Mandarin</a></li>
+   <li><a href="/community/nassau">Nassau</a></li>
+      <li><a href="/community/northside">Northside</a></li>
+	     <li><a href="/community/riverside">Riverside</a></li>
+		    <li><a href="/community/westside">Westside</a></li>  -->
+      <li><a href="/community/shorelines">Beaches</a></li>
+	     <li><a href="/community/southside">Southside</a></li>
+		 		    <li><a href="/news/georgia">South Georgia</a></li>
+      <li><a href="/community/st-johns">St. Johns</a></li>
+	     <li><a href="/ap/florida">Florida</a></li>
+		       <li><a href="/ap/nation">Nation</a></li>
+	     <li><a href="/ap/world">World</a></li>
+  </ul>
+
+	</li>
+<li><a href="http://weather.jacksonville.com ">Weather</a></li>
+   <li><a href="/news/crime">Crime</a></li>
+<li><a href="http://jacksonville.com/interactives/">Interactives</a></li>
+<li><a href="http://jacksonville.com/traffic">Traffic</a></li>
+   <li><a href="/news/databases">Databases</a></li>
+   <li><a href="/news/health-and-fitness">Health & Fitness</a></li>
+    <li><a href="/news/military">Military</a></li>
+   <li><a href="http://www.legacy.com/obituaries/timesunion/">Obituaries</a></li>
+   <li><a href="/news/pets">Pets</a></li>
+   <li><a href="/news/politics">Politics & Government</a></li>
+    <li><a href="http://schools.jacksonville.com/">Schools</a></li>
+   <li><a href="/news/transportation">Transportation</a></li>
+   <li><a href="/news/values-and-religion">Values & Religion</a></li>
+
+  </ul>
+ </li>
+ <li><a href="/sports">Sports</a>
+  <ul>
+   <li><a href="/jaguars">Jaguars</a></li>
+   <li><a href="/sports/uf-gators">UF Gators</a></li>
+   <li><a href="/sports/uga-bulldogs">UGa Bulldogs</a></li>
+   <li><a href="/sports/fsu-seminoles">FSU Seminoles</a></li>
+      <li><a href="/sports/unf-ospreys">UNF Ospreys</a></li>
+	     <li><a href="/sports/ju-dolphins">JU Dolphins</a></li>
+		    <li><a href="/sports/high-schools">High Schools</a></li>
+      <li><a href="http://runningjacksonville.com/">Running</a></li>
+         <li><a href="/sports/golf">Golf</a></li>
+	 <li><a href="/sports/jacksonville_suns">Suns</a></li>
+         <li><a href="/sports/football/sharks-0">Sharks</a></li>
+            <li><a href="/sports/other-sports/armada-fc">Armada-FC</a></li>
+      <li><a href="/sports/outdoors">Outdoors</a></li>
+	     <li><a href="/sports/racing">Auto Racing</a></li>
+  </ul>
+ </li>
+ <li><a href="/business/local">Money</a>
+  <ul>
+   <li><a href="/opinion/blog/business">Blogs</a></li>
+   <li><a href="/business/real-estate">Real Estate</a></li>
+   <li><a href="/business/small-business">Small Business</a></li>
+   <li><a href="/business/submitnews">Submit News</a></li>
+      <li><a href="/business/your-money">Personal Finance</a></li>
+  </ul>
+ </li>
+  <li><a href="/entertainment">Life</a>
+  <ul>
+   <li><a href="/entertainment/arts">Arts</a></li>
+   <li><a href="/entertainment/comics">Comics</a></li>
+   <li><a href="/entertainment/contests">Contests</a></li>
+   <li><a href="http://www.ecolatino.com/publicationes-especiales/2012-05-30/story/de-paseo-en-espa%C3%B1ol">De Paseo</a></li>
+      <li><a href="/entertainment/food-and-dining">Food & Dining</a></li>
+   <li><a href="/prime-time-0">PrimeTime</a></li>
+	     <li><a href="/content/games">Games</a></li>
+   <li><a href="/entertainment/home-and-garden">Home & Garden</a></li>
+   <li><a href="/entertainment/horoscopes">Horoscope</a></li>
+   <li><a href="/entertainment/lottery">Lottery</a></li>
+      <li><a href="http://affiliate.zap2it.com/movies/mvhome.do?aid=jac&location=32231">Movies</a></li>
+	     <li><a href="/entertainment/relationships">Relationships</a></li>
+   <li><a href="http://events.jacksonville.com/">Events </a></li>
+      <li><a href="http://affiliate.zap2it.com/tvlistings/ZCGrid.do?aid=jac">TV</a></li>
+  </ul>
+ </li>
+ <li><a href="/reason">Reason</a></li>
+   <li><a href="/opinion">Opinion</a>
+  <ul>
+   <li><a href="/opinion/editorials">Editorials</a></li>
+<li><a href="jacksonville.com/content/taxonomy/term/321536">Ron Littlepage</a></li>
+    <li><a href="/forum">Forums</a></li>
+   <li><a href="/opinion/letters-readers">Letters from Readers</a></li>
+      <li><a href="/opinion/blog/editorial-page-0">Opinion Page Blog</a></li>
+	     <li><a href="/forums/rants-raves-forum">Rants & Raves</a></li>
+   <li><a href="/content/contacting-your-governments-and-officials-0">Savvy Citizen</a></li>
+   <li><a href="/opinion/site-help">Site Help</a></li>
+  </ul>
+ </li>
+   <li><a href="http://www.legacy.com/obituaries/timesunion">Obits</a>
+    </li><li><a href="http://news.jacksonville.com/photos">Photos</a>
+  <ul>
+   <li><a href="/opinion/blog/pixeljax">Photos Blog</a></li>
+   <li><a href="http://photos.jacksonville.com/mycapture/category.asp?CategoryID=10409">Entertainment</a></li>
+   <li><a href="http://photos.jacksonville.com/mycapture/category.asp?CategoryID=10410">Sports</a></li>
+   <li><a href="http://photos.jacksonville.com/mycapture/category.asp?CategoryID=57821">News</a></li>
+      <li><a href="http://photos.jacksonville.com/mycapture/photos/index.aspx">Share</a></li>
+	     <li><a href="http://photos.jacksonville.com/mycapture/category.asp?CategoryID=14301">Areas of Town</a></li>
+   <li><a href="http://news.jacksonville.com/photos/tu-photographers/">T-U Photographers</a></li>
+   <li><a href="http://news.jacksonville.com/photos/community-photographers/">Community Photographers</a></li>
+      <li><a href="http://photos.jacksonville.com/mycapture/category.asp?CategoryID=14333">Groups</a></li>
+   <li><a href="http://photos.jacksonville.com/mycapture/category.asp">Most Recent</a></li>
+  </ul>
+ </li>
+     <li><a href="/video">Videos</a>
+  <ul>
+   <li><a href="/video/news">News</a></li>
+   <li><a href="/video/entertainment">Entertainment</a></li>
+   <li><a href="/video/sports">Sports</a></li>
+   <li><a href="/video/jaguars">Jaguars</a></li>
+      <li><a href="http://studio.ndnmediaservices.com/jacksonville">Florida/Nation/World</a></li>
+	     <li><a href="/greatparks">Great Parks</a></li>
+   <li><a href="/mattaboutjax">MATTAboutJAX</a></li>
+      <li><a href="/video/community">Community Video</a></li>
+  </ul>
+ </li>
+      <li><a href="/classifieds">Classifieds</a>
+  <ul>
+   <li><a href="/place-an-ad">Place an Ad</a></li>
+   <li><a href="http://secure.adpay.com/searchresults.aspx?p=2064&&region=2064&catid=RESale">Homes</a></li>
+   <li><a href="http://secure.adpay.com/searchresults.aspx?p=2064&&region=2064&catid=Transportation">Autos</a></li>
+   <li><a href="http://secure.adpay.com/searchresults.aspx?p=2064&&region=2064&catid=merchandise">Merchandise</a></li>
+      <li><a href="http://secure.adpay.com/searchresults.aspx?p=2064&&region=2064&catid=6249">Garage Sales</a></li>
+	     <li><a href="http://secure.adpay.com/searchresults.aspx?p=2064&&region=2064&catid=Pets_Animals">Pets</a></li>
+   <li><a href="http://secure.adpay.com/searchresults.aspx?p=2064&&region=2064&catid=Announcements">Announcements</a></li>
+   <li><a href="http://secure.adpay.com/searchresults.aspx?p=2064&&region=2064&catid=Service_Directory">Services</a></li>
+      <li><a href="http://www.legalnotice.org/pl/jacksonville/landing1.aspx#">Legals</a></li>
+	        <li><a href="http://youpayhalf.jacksonville.com/">YouPayHalf</a></li>
+  </ul>
+ </li>
+       <li><a href="http://autos.jacksonville.com/">Cars</a>
+  <ul>
+   <li><a href="http://forge.autos.jacksonville.com/Autos?tp=AUTOS.JACKSONVILLE.COM&category=Search&temp_type=search">Find A Vehicle</a></li>
+   <li><a href="http://forge.autos.jacksonville.com/Autos?tp=AUTOS.JACKSONVILLE.COM&category=Research&temp_type=search&v=3#find_dealer">Find a Dealer</a></li>
+   <li><a href="http://autos.jacksonville.com/Autos?tp=AUTOS.JACKSONVILLE.COM&category=search&temp_type=detail&tl=2&max_price=10000&zipcode=32231">Under $9,999</a></li>
+   <li><a href="http://forge.autos.jacksonville.com/Autos?tp=AUTOS.JACKSONVILLE.COM&category=Research&temp_type=search&v=3#find_dealer">Research Vehicles</a></li>
+      <li><a href="http://forge.autos.jacksonville.com/Autos?tp=AUTOS.JACKSONVILLE.COM&category=Search&temp_type=clipboard&tl=1">Compare Cars</a></li>
+	     <li><a href="http://forge.autos.jacksonville.com/Autos?tp=AUTOS.JACKSONVILLE.COM&category=Lifestyles&temp_type=detail">Search by Lifestyle</a></li>
+   <li><a href="http://forge.autos.jacksonville.com/Autos?tp=AUTOS.JACKSONVILLE.COM&category=search&temp_type=detail&tl=2&from=justin">New on the Lot</a></li>
+   <li><a href="/auto/podrods">Pod Rods</a></li>
+      <li><a href="/firstcoastgears">First Coast Gears</a></li>
+  </ul>
+ </li>
+<li><a href="http://jobs.jacksonville.com/?utm_source=jacksonville.com&utm_medium=NavBar&utm_campaign=JacksonvilleJobs">Jobs</a>
+  <ul>
+   <li><a href="http://job-search.jacksonville.com/jobs/search/results?location=Jacksonville%2C+Fl&radius=25&view=List_Detail&sort=IsFeatured+desc%2CPostDate+desc%2Cgeo_distance+asc&rows=15&utm_source=jacksonville.com&utm_medium=NavBar&utm_campaign=JacksonvilleJobs">Top Jobs</a></li>
+   <li><a href="http://job-search.jacksonville.com/jobs/products?utm_source=jacksonville.com&utm_medium=NavBar&utm_campaign=JacksonvilleJobs">Post A Job</a></li>
+   <li><a href="http://job-search.jacksonville.com/careers/resumes/?utm_source=jacksonville.com&utm_medium=NavBar&utm_campaign=JacksonvilleJobs">Resumes</a></li>
+   <li><a href="http://www.jacksonville.com/postjobs">Contact Us</a></li>
+  </ul>
+ </li>
+ <li><a href="/homes">Homes</a></li>
+         <li><a href="http://dailydeals.jacksonville.com/">Deals</a>
+  <ul class="last">
+   <li><a href="http://dailydeals.jacksonville.com/">Daily Deal</a></li>
+   <li><a href="/business/your-money">Your Money</a></li>
+   <li><a href="/aggregator/categories/42">Deals from the Web</a></li>
+   <li><a href="/aggregator/sources/138">Grocery Coupons</a></li>
+      <li><a href="/coupon-queen">Couponing Tips</a></li>
+	     <li><a href="/deals/cheap-gas">Find Cheap Gas</a></li>
+  </ul>
+ </li>
+</ul>
+</div>
+
+<style>
+.nav .block-block .wl-container {
+display: block;
+}
+#staticnav .menu,
+#staticnav .menu ul,
+#staticnav .menu li,
+#staticnav .menu a {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+}
+
+#staticnav .menu {
+	height: 35px;
+	width: 990px;
+	background: none;
+margin-left: 35px;
+z-index: 60;
+}
+
+#staticnav .menu li {
+	position: relative;
+	list-style: none;
+	float: left;
+	display: block;
+	height: 35px;
+	background: #CCD9DF;
+}
+#staticnav .menu li a {
+	display: block;
+	padding: 10px 7px;
+	margin:  0;
+	line-height: 1.2;
+	text-decoration: none;
+    text-transform: uppercase;
+	border-left: 1px solid #E9F3F8;
+	border-right: 1px solid #E9F3F8;
+	font-family: "Bitter", sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+	color: #1C4477;
+	-webkit-transition: color .2s ease-in-out;
+	-moz-transition: color .2s ease-in-out;
+	-o-transition: color .2s ease-in-out;
+	-ms-transition: color .2s ease-in-out;
+	transition: color .2s ease-in-out;
+}
+
+#staticnav .menu li:first-child a { border-left: none; }
+#staticnav .menu li:last-child a{ border-right: none; }
+
+#staticnav .menu li:hover  { background-color: #FFC800; 	 }
+
+#staticnav .menu ul {
+	position: absolute;
+	top: 35px;
+	left: 0;
+        display: none;
+	opacity: 0;
+	background: #CCD9DF;
+	-webkit-transition: opacity .25s ease .1s;
+	-moz-transition: opacity .25s ease .1s;
+	-o-transition: opacity .25s ease .1s;
+	-ms-transition: opacity .25s ease .1s;
+	transition: opacity .25s ease .1s;
+}
+
+#staticnav .menu ul  a {
+	color: #1C4477;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: none;
+}
+
+
+#staticnav .menu li:hover > ul { opacity: 1; display: block; }
+
+#staticnav .menu ul li {
+	height: 0;
+	overflow: hidden;
+	padding: 0;
+	-webkit-transition: height .25s ease .1s;
+	-moz-transition: height .25s ease .1s;
+	-o-transition: height .25s ease .1s;
+	-ms-transition: height .25s ease .1s;
+	transition: height .25s ease .1s;
+background: none;
+}
+
+#staticnav .menu li:hover > ul li {
+	height: 20px;
+	overflow: visible;
+	padding: 0;
+}
+#staticnav .menu ul li a {
+	width: 180px;
+	padding: 4px;
+	margin: 0;
+
+	border: none;
+	border-bottom: none;
+}
+
+#staticnav .menu ul li:last-child a { border: none; padding-bottom: 5px;}
+
+#staticnav .menu ul.areas {
+	position: absolute;
+	top: 0px;
+	margin-left: 178px;
+
+	opacity: 0;
+	background: #ccc;
+	-webkit-transition: opacity .25s ease .1s;
+	-moz-transition: opacity .25s ease .1s;
+	-o-transition: opacity .25s ease .1s;
+	-ms-transition: opacity .25s ease .1s;
+	transition: opacity .25s ease .1s;
+}
+#staticnav .menu ul.last {
+	position: absolute;
+	top: 35px;
+	margin-left: -130px;
+	opacity: 0;
+	background: #CCD9DF;
+	-webkit-transition: opacity .25s ease .1s;
+	-moz-transition: opacity .25s ease .1s;
+	-o-transition: opacity .25s ease .1s;
+	-ms-transition: opacity .25s ease .1s;
+	transition: opacity .25s ease .1s;
+}
+#staticnav ul.menu li ul li ul.areas li a {
+	background: #F0F0F0;
+}
+#staticnav ul.menu li ul li ul.areas li a:hover {
+	background: #FFC800;
+}
+
+#staticnav .menu ul a:hover { color: #1C4477; }
+
+#staticnav .menu li a {
+*font-size: 13px /* IE7 and below */
+}
+/* IE8 and below */
+#staticnav .menu li a {
+font-size: 13px\9;  } 
+
+#staticnav .menu ul li a {
+font-size: 12px\9;  } 
+
+#staticnav  {
+position: relative;
+z-index: 60000001;
+clear: both;
+}
+
+.top_section .more_dots {display: none;}
+.nav { width: 990px;}
+#main_menu {
+  height: 60px;
+width: 1006px;
+background-color: #fff;
+}
+</style>			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="more_dots">
+    </div>
+
+  </div>
+
+  <div class="middle_section">
+                <div id="block-block-54" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 			<div id='div-gpt-ad-514228821436635671-oop' class='adslot' width='1'>
+<script type='text/javascript'>
+googletag.defineOutOfPageSlot(NMTdata.ads.dfp_adunit_prefix+NMTdata.ads.dfp_adunit, 'div-gpt-ad-514228821436635671-oop')
+      .addService(googletag.pubads())
+      .setTargeting("g", utag_data.gender) .setTargeting("age", NMTdata.data.yearToAge(utag_data.birthdate))
+      .setTargeting("Taxonomy", utag_data.taxonomy).setTargeting('pplogin', $.cookie('ppUser')? 'y': 'n')
+      .setTargeting("ccc", NMTdata.ads.dfp_ccc);
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();googletag.display('div-gpt-ad-514228821436635671-oop');
+</script></div>
+			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+  <div id="block-block-55" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 			<div id='950x30_1'  width='950'  class="ad950">
+<script type='text/javascript'>
+googletag.defineSlot(NMTdata.ads.dfp_adunit_prefix+NMTdata.ads.dfp_adunit, [[950,30]],'950x30_1')
+    .addService(googletag.pubads())
+    .setTargeting('pos',['950x30_1'])
+    .setTargeting("g", utag_data.gender) .setTargeting("age", NMTdata.data.yearToAge(utag_data.birthdate))
+    .setTargeting("Taxonomy", utag_data.taxonomy).setTargeting('pplogin', $.cookie('ppUser')? 'y': 'n')
+    .setTargeting('ccc',NMTdata.ads.dfp_ccc);
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+googletag.display('950x30_1');
+</script>
+</div>
+			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+
+    
+        		
+		<div class='top-tier'>
+	<div class="panel-pane pane-custom pane-1" >
+  
+  
+  
+  <div class="pane-content">
+    <style>
+#redesign2014.subscriberbox { float: left; width: 300px; margin-right: 20px; margin-top: 10px;}
+#redesign2014.localedgesearch { float: left; width: 300px; margin-right: 20px; margin-top: 10px;}
+#redesign2014.localbizbox { float: left;  margin-top: 10px;}
+#redesign2014.promoboxes p.photos_headline, p.photos_headline a {font-family: "Bitter", serif; color: #333; font-weight: bold;}
+#redesign2014.promoboxes p.photos_headline:hover, p.photos_headline a:hover { color: #1E477C; text-decoration: none;}
+#redesign2014.promoboxes .featured_photos_wrapper {margin-bottom: 30px; margin-right: 10px; width: 140px;}
+#redesign2014.promoboxes .featured_photos_wrapper img {margin-bottom: 0px; width: 140px; height: auto;}
+#redesign2014.cxensehomepage .pane-content {margin-top: 10px;}
+#redesign2014.premiumslider {width: 660px; height: 540px; margin-top: -10px; overflow: hidden;}
+#redesign2014.premiumslider .fslider-photo {height: 495px; width: 660px;}
+#redesign2014.premiumslider #tabs .menu li em {display: none !important;}
+#redesign2014.premiumslider .fslider-photo a img {width: 660px !important; height: 495px !important;}
+#redesign2014.premiumslider .fslider {width: 660px; bottom: 0; top: auto; padding: 0; }
+#redesign2014.premiumslider .fslider h2 a { color: #FFF; font-size: 26px; line-height: 28px; font-family: "bitter", serif; text-decoration: none; display: block;background: black; padding: 10px; opacity: .8;}
+#redesign2014.premiumslider #page-wrap {width: 660px; overflow: hidden;}
+#redesign2014.premiumslider .ui-tabs .ui-tabs-nav {top: 6px !important;}
+#redesign2014.premiumslider  a.mover {bottom: -30px;}
+#redesign2014.premiumslider #page-wrap a.tabs {background: none;  color: #FFF; padding: 8px;width: 10px; height: 20px;}
+#redesign2014.premiumslider .ui-tabs .ui-tabs-nav li {background: #1E477C;}
+#redesign2014.premiumslider #page-wrap a.tabs:hover {background-color: gold; color: #333;}
+#redesign2014.premiumslider #page-wrap #tabs ul.menu li.ui-corner-top.ui-tabs-selected.ui-state-active {background: gold;}
+#redesign2014.premiumslider #page-wrap .ui-tabs .ui-tabs-nav li {border: 0;}
+#redesign2014.premiumslider  #page-wrap .ui-tabs-hide { display: none !important;  overflow: hidden !important; }
+#redesign2014.premiumslider .summary {display: none !important;}
+.homepage_main_content .main_content_left_column .medium_story h2 a, .homepage_main_content .small_story h2 a {font-size: 20px !important; font-weight: bold !important;}
+.job_search_widget, #jobframe {font-family: Arial, Helvetica, sans-serif;}
+.jobsHolder ul li.title a {font-family: "Bitter", Georgia, serif; color: #1E477C; text-decoration: none;}
+#jobSearchAdvancedForm input {margin-top: 5px; margin-bottom: 5px;}
+#jobSearchAdvancedForm ul li span a { font-family: Arial, Helvetica, sans-serif; color: #1E477C; text-decoration: none;}
+.jobsHolder ul li.title a { font-size: 14px; line-height: 16px;}
+#jobSearchAdvancedForm ul li.atCol2 {margin-bottom: 5px;}
+#mini-panel-military_sites a  {font-family: "Bitter", Georgia, serif; color: #333; text-decoration: none; padding-bottom: 5px; display: block; font-weight: bold;}
+#mini-panel-military_sites a:hover  {color: #1E477C; }
+#mini-panel-military_sites .wl-footer a {float: left; font-family:Arial, Helvetica, sans-serif; color: #333;  padding-bottom: 10px; FONT-SIZE: 12px; padding-top: 10px;}
+.top_section {margin-bottom: 0;}
+#main_menu {height: 50px;}
+#main_menu {z-index: 60000001;}
+#mini-panel-jaxeats_button img {padding: 0; margin: 0; float: none;}
+.blogger_wrapper {margin-bottom: 0px;}
+.blogger_name p {font-family: "Bitter", Georgia, serif; color: #224E86; font-weight: bold; }
+.featured_gallery_headline p a { font-size: 20px; line-height: 1.2;}
+.small_story_summary p, .main_content_left_column .medium_story_summary p {line-height: 16px; font-size: 14px;}
+#news_slider_outer a img {width: 285px;}
+#jobs_widget_wrapper {width: 295px !important;}
+.byline_text p span.Term a {text-decoration: none; color: #1E477C ; background: #CCD9DF; padding: 2px 4px; border-radius: 2px; font-size: 11px; border: 1px solid #EBEBEB;}
+.byline_text p span.Term a:hover {text-decoration: none; color: #1E477C; background: gold; padding: 2px 4px; border-radius: 2px; font-size: 11px; border: 1px solid #EBEBEB;}
+.byline_text p span.Term {color: #FFF;}
+
+#pane-views-contests .field-content a img {
+float: left;
+margin-right: 10px;
+}
+#pane-views-contests .field-content a, #pane-views-contests .wl-footer a {font: 15px "Bitter", Georgia, serif;
+font-weight: bold;
+float: left;
+width: 148px;}
+#pane-views-contests .wl-footer a {float: right; text-transform: uppercase;
+font-size: 12px;
+text-align: right;
+color: #333;}
+#pane-views-contests .views-field-counter, #pane-views-contests .views-field-field-summary-value, #pane-views-contests .views-field-body {display: none;}
+#pane-views-contests {margin-bottom: 10px;}
+.homepage_main_content .pane-most-commented-titles a {
+font-family: 'bitter',serif;
+font-weight: bold;
+font-size: 15px;
+color: #333;
+text-decoration: none;
+line-height: 1.4;
+margin-top: 5px;
+display: block;
+}
+
+.homepage_main_content .pane-most-commented-titles a:hover {color: #1E477C;
+text-decoration: underline;
+}
+#pane-views-premium_lead_1 {margin-top: 0;}
+.home_page_side_bar, .homepage_main_content {margin-top: 10px;}
+#mini-panel-dealtobias img {
+padding-left: 0px;
+margin-right: 0px;
+float: none;
+margin-bottom: 0;
+}
+</style>  </div>
+
+  
+  </div>
+</div>
+
+<div class='middle_section'>
+	<div class='home_page_side_bar'>
+		<div id="pane-views-premium_lead_1" class="wl-pane  wl-wrapper-default">
+	  <div class="wl-container">
+		<div class="wl-corners-top">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	 	<div class="wl-content">
+	 					<div class="wl-inside">
+	 		<div class="view view-premium-lead-1 view-id-premium_lead_1 view-display-id-block_1 view-dom-id-2">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <div class="featured_gallery">
+
+	<a href="/content/ballots-and-brews-intuition-ale-works" class="imagecache imagecache-premium_330x150_scale_crop imagecache-linked imagecache-premium_330x150_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_330x150_scale_crop/ballotsandbrews330_0.jpg" alt="" title=""  class="imagecache imagecache-premium_330x150_scale_crop" width="330" height="150" /></a>	
+	<div class="featured_gallery_headline">
+		<p>
+			<a href="/content/ballots-and-brews-intuition-ale-works">BALLOTS AND BREWS: At Intuition Ale Works</a>		</p>
+	</div>
+
+</div>
+
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <div class="featured_gallery">
+
+	<a href="/content/busted-first-coast-jail-mugshots-feb-19" class="imagecache imagecache-premium_330x150_scale_crop imagecache-linked imagecache-premium_330x150_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_330x150_scale_crop/busted021915_330.jpg" alt="" title=""  class="imagecache imagecache-premium_330x150_scale_crop" width="330" height="150" /></a>	
+	<div class="featured_gallery_headline">
+		<p>
+			<a href="/content/busted-first-coast-jail-mugshots-feb-19" title="BUSTED! First Coast jail mugshots for Feb. 19 ">BUSTED! First Coast jail mugshots for Feb. 19</a>		</p>
+	</div>
+
+</div>
+
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    <div class="featured_gallery">
+
+	<a href="/content/beaches-hospitality-network-gathering" class="imagecache imagecache-premium_330x150_scale_crop imagecache-linked imagecache-premium_330x150_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_330x150_scale_crop/beacheshospitality330.jpg" alt="" title=""  class="imagecache imagecache-premium_330x150_scale_crop" width="330" height="150" /></a>	
+	<div class="featured_gallery_headline">
+		<p>
+			<a href="/content/beaches-hospitality-network-gathering">NETWORKING AT THE BEACH: With the Beaches Hospitality Group</a>		</p>
+	</div>
+
+</div>
+
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+    <div class="featured_gallery">
+
+	<a href="/content/best-laid-plans-shipyard-schemes-through-years" class="imagecache imagecache-premium_330x150_scale_crop imagecache-linked imagecache-premium_330x150_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_330x150_scale_crop/newpromo_21.jpg" alt="" title=""  class="imagecache imagecache-premium_330x150_scale_crop" width="330" height="150" /></a>	
+	<div class="featured_gallery_headline">
+		<p>
+			<a href="/content/best-laid-plans-shipyard-schemes-through-years">BEST-LAID PLANS: Shipyard schemes through the years</a>		</p>
+	</div>
+
+</div>
+
+  </div>
+  <div class="views-row views-row-5 views-row-odd">
+    <div class="featured_gallery">
+
+	<a href="/content/cold-outside-chilly-today-freezing-tomorrow" class="imagecache imagecache-premium_330x150_scale_crop imagecache-linked imagecache-premium_330x150_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_330x150_scale_crop/2promoColdWeather021915.jpg" alt="" title=""  class="imagecache imagecache-premium_330x150_scale_crop" width="330" height="150" /></a>	
+	<div class="featured_gallery_headline">
+		<p>
+			<a href="/content/cold-outside-chilly-today-freezing-tomorrow">COLD OUTSIDE: Chilly Today, Freezing Tomorrow</a>		</p>
+	</div>
+
+</div>
+
+  </div>
+  <div class="views-row views-row-6 views-row-even views-row-last">
+    <div class="featured_gallery">
+
+	<a href="/content/ten-years-ago-week-times-union-photographs-ten-years-ago-week-february-16-2005" class="imagecache imagecache-premium_330x150_scale_crop imagecache-linked imagecache-premium_330x150_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_330x150_scale_crop/ACARsmall.jpg" alt="" title=""  class="imagecache imagecache-premium_330x150_scale_crop" width="330" height="150" /></a>	
+	<div class="featured_gallery_headline">
+		<p>
+			<a href="/content/ten-years-ago-week-times-union-photographs-ten-years-ago-week-february-16-2005">10 FROM 10: Times-Union photos from 10 years ago this week (Feb. 16)</a>		</p>
+	</div>
+
+</div>
+
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div> 			</div>
+            <div class="wl-footer">
+        <a href="http://jacksonville.com/slideshows" title="More Slideshows">More Slideshows<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-more-icon" /></a>		<span class="wl-clear"></span>
+      </div>
+      	 	</div>
+		<div class="wl-corners-bottom">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	</div>
+</div>
+
+<div class="panel-pane pane-custom pane-5" >
+  
+  
+  
+  <div class="pane-content">
+    <style>
+#news_slider_outer {
+  border-bottom:1px solid #ccc;
+  padding:0 0 2px 0;
+  margin:0 0 20px 0;
+  width:300px;
+  position:relative;
+}
+
+#news_lider_outer a img{
+  border-bottom:0 none;
+  margin: 0 0 2px;
+  display:inline;
+}
+
+#news_slider{
+  line-height:1.5em;
+  margin:0 18px;
+}
+
+#news_slider, #news_slider li{
+  height:25px;
+  overflow:hidden;
+  width:285px;
+}
+
+#news_slider ul, #news_slider li{
+  list-style : none outside none;
+  padding: 0;
+  margin: 0;
+}
+
+#news_slider li a{
+  color: #4169af;
+  text-decoration: none;
+  font-size:12px;
+}
+
+span#prev, span#next{
+  background: url("/sites/all/themes/jacksonville/images/wl-sprite.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  height: 14px;
+    left: 0;
+    position: absolute;
+    top: 30px;
+    width: 14px;
+}
+span#prev{
+  background-position:0 -586px;
+  text-indent: -9999px;
+  display:block !important;
+}
+
+span#next{
+  background-position:-19px -586px;
+  left:auto;
+  right:0;
+  text-indent:-9999px;
+   display:block !important;
+}
+</style>  </div>
+
+  
+  </div>
+<div class="panel-pane pane-views pane-sliders" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-sliders view-id-sliders view-display-id-block_1 view-dom-id-2">
+        <div class="view-header">
+      <style type="text/css">
+#news_slider_outer {
+  border-bottom:1px solid #ccc;
+  padding:0 0 2px 0;
+  margin:0 0 20px 0;
+}
+</style>    </div>
+  
+  
+  
+      <div class="view-content">
+      <script type="text/javascript">
+( function($) {
+$(document).ready(function(){
+    $.noConflict();
+    $("#news_slider").easySlider({
+        loop: true,                           // Looping
+        orientation: 'horizontal',                  // Fading
+        autoplayDuration: 2500,               // Autoplay with 1 second intervals
+        autogeneratePagination: true,         // Automatically generate pagination links
+        restartDuration: 2500,                // In case of user interaction, restart the autoplay after 2.5 seconds
+        nextId: 'next',
+        prevId: 'prev',
+        pauseable: true                       // Pause by hovering over the image!  Then restart after 2.5 seconds (see above)
+    });
+   
+ });
+} ) ( jQuery );
+/*xfinity*/
+var axel = Math.random() + "";
+var num = axel * 1000000000000000000;
+document.writeln('<IMG SRC="http://ad.doubleclick.net/ad/N8667.127315.CENTRO/B8057706.14;sz=1x1;ord='+ num +'?" BORDER=0 WIDTH=1 HEIGHT=1 ALT="Advertisement">');
+/*end xfinity*/
+</script>
+<noscript>
+<IMG SRC="http://ad.doubleclick.net/ad/N8667.127315.CENTRO/B8057706.14;sz=1x1;ord=123456789??" BORDER=0 WIDTH=1 HEIGHT=1 ALT="Advertisement">
+</noscript>
+<div id="news_slider_outer">
+<a href="/news/blog"><img src="http://jacksonville.com/files/img/advertising/sponsorships/xfinity-hp.png" width="320" height="25" alt="Latest News"/></a><div id="news_slider">
+	<ul>
+    <li><a href="/news/metro/2015-02-19/story/swisher-sister-company-enter-e-cigarette-and-tobacco-vapor-market">Swisher sister company to enter e-cigarette and...</a></li>
+<li><a href="/news/metro/2015-02-19/story/cancellation-rules-committee-meeting-pension-bill-could-postpone-final">Cancellation of Rules Committee meeting on...</a></li>
+<li><a href="/breaking-news/2015-02-19/story/convicted-savannah-police-chief-collect-six-figure-pension-while">Convicted Savannah police chief to collect six-...</a></li>
+<li><a href="/breaking-news/2015-02-19/story/universal-orlando-reverses-outside-bottle-ban">Universal Orlando reverses outside bottle ban</a></li>
+<li><a href="/news/metro/2015-02-19/story/leading-economic-indicators-paint-positive-picture-first-coast">Leading economic indicators paint a positive...</a></li>
+<li><a href="/business/columnists/2015-02-19/story/guest-column-nikolai-vitti-deserves-support-and-time">Guest column: Nikolai Vitti deserves support and...</a></li>
+	</ul>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#news_slider ul li a").each(function() {
+   var _href = $(this).attr("href"); 
+   $(this).attr("href", _href + '?mmo_ccc=xfinity');
+  });
+});
+</script>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+<div class="panel-pane pane-panels-mini pane-jobs-widget-2014" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="panel-display panel-1col clear-block" id="mini-panel-jobs_widget_2014">
+  <div class="panel-panel panel-col">
+    <div><div class="panel-pane pane-custom pane-6" >
+  
+  
+  
+  <div class="pane-content">
+    <script type="text/JavaScript" src="http://slb.adicio.com/js/xmlScrollView1.2.js"></script>
+<script type="text/JavaScript" src="http://job-search.jacksonville.com/jobs/search/results?IsFeatured=Y&Sort=random&rows=3&format=jsxml&location=jacksonville&radius=50"></script>
+<style type="text/css">
+  #jobs_widget_wrapper {
+    width: 94%;
+		margin-bottom: 10px;
+		margin-top: 10px;
+  }
+   #jobs_widget_wrapper .jobs_widget_Featured { 
+    width: 100%; padding: 4px 4px 4px 4px; background-color: #edeff1; font-family: verdana,arial,helvetica,sans-serif; color: #000;
+  }
+    #jobs_widget_wrapper .jobs_widget_FeaturedSearch { 
+    width: 100%; padding: 4px 4px 4px 4px; background-color: #FFF; font-family: verdana,arial,helvetica,sans-serif; color: #000; height: 118px; margin-bottom: 5px;
+  }
+    #jobs_widget_wrapper .featuredJobs {
+    color: #fff; font-weight: bold; text-align:center; padding: 5px 0 5px 0;
+  }
+  #jobframe {
+    font-size: .85em; overflow: hidden;
+  }
+  #jobframe .jobsHolder ul {
+    /*margin-left: -25px;*/
+    padding: 7px;
+    font-size: 12px;
+  }
+  #jobframe .jobsHolder li{
+    list-style-type: none; padding-left: 4px;
+  }
+  #jobframe .jobsHolder .title {
+    font-weight: bold;
+  }
+  #jobframe .jobsHolder .employer {
+    font-size: 1em;
+  }
+  #jobframe .jobsHolder .location {
+    font-style: italic;
+  }
+ #jobframe .job_search_widget {
+    margin:10px 0;
+  }
+  .job_search_widget_title {
+    font-weight: bold;
+  }
+  #kwsPrimary {
+    width:287px !important;
+    display:block;
+  }
+  #autocomplete_jobswidgetlocation {
+    width: 210px !important;
+  }
+  #jobs_widget_wrapper .jobs_lede_img {
+    width: 85%;
+    border:0;
+  }
+</style>
+
+<div id="jobs_widget_wrapper">
+  <div class="jobs_widget_Featured">
+    <div class="featuredJobs"><a href="http://jobs.jacksonville.com/?utm_source=jacksonville.com&utm_medium=Widget&utm_campaign=JacksonvilleJobs"><img src="http://jacksonville.com/sites/default/files/images/jacksonvilleLogoJobs.png" alt="Search Jacksonville Jobs" class="jobs_lede_img" /></a></div>
+    <div id="jobframe"></div>
+  </div>
+  <div class="jobs_widget_FeaturedSearch">
+    <div class="job_search_widget">
+      <span class="job_search_widget_title">Search Jacksonville jobs</span>
+      <script src="http://job-search.jacksonville.com/widgets/jobs/search?clientid=jacksonville"></script>
+    </div>
+  </div>
+</div>
+
+
+<!-- scrolling featured jobs script -->
+<script language="JavaScript" type="text/JavaScript">
+var myFeaturedFrame = new xmlScrollView();
+myFeaturedFrame.disableScroll();
+myFeaturedFrame.setOutPutElement('jobframe');
+myFeaturedFrame.setItemRoot('Job');
+myFeaturedFrame.declareVariable('JobTitle', '%jobTitle%');
+myFeaturedFrame.declareVariable('Company', '%jobEmployer%');
+myFeaturedFrame.declareVariable('City', '%jobCity%');
+myFeaturedFrame.declareVariable('State', '%jobState%');
+myFeaturedFrame.declareVariable('Url', '%jobLink%');
+myFeaturedFrame.setTemplate('<div class="jobsHolder" onmouseover="this.style.background=\'#cccccc\';" \ onmouseout="this.style.background=\'\';" style="cursor: pointer;">\ <ul><li class="title"><a href="%jobLink%&jacksonville.com&utm_medium=Widget&utm_campaign=JacksonvilleJobs">%jobTitle%</a></li>\ <li class="employer">%jobEmployer%</li>\ <li class="location">%jobCity%, %jobState%</li>\ </ul></div>');
+myFeaturedFrame.setScrollDelay(30);
+myFeaturedFrame.outputFromString(xmlString);
+</script>
+<!-- end scrolling featured jobs script -->
+  </div>
+
+  
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+
+  
+  </div>
+<div class="panel-pane pane-block pane-block-62" >
+  
+  
+  
+  <div class="pane-content">
+    <div id='300x600_1' width="300" class="ad300 adclear">
+<script type='text/javascript'>
+googletag.defineSlot(NMTdata.ads.dfp_adunit_prefix+NMTdata.ads.dfp_adunit, [[300, 600], [160, 600]], '300x600_1')
+    .addService(googletag.pubads())
+    .setTargeting('pos',['300x600_1'])
+    .setTargeting("g", utag_data.gender) .setTargeting("age", NMTdata.data.yearToAge(utag_data.birthdate))
+    .setTargeting("Taxonomy", utag_data.taxonomy).setTargeting('pplogin', $.cookie('ppUser')? 'y': 'n')
+    .setTargeting('ccc',NMTdata.ads.dfp_ccc);
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+googletag.display('300x600_1');
+</script></div>
+  </div>
+
+  
+  </div>
+<div class="panel-pane pane-panels-mini pane-jaxeats-button" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="panel-display panel-1col clear-block" id="mini-panel-jaxeats_button">
+  <div class="panel-panel panel-col">
+    <div><div class="panel-pane pane-custom pane-7" >
+  
+  
+  
+  <div class="pane-content">
+    <a href="http://jacksonville.com/jaxeats"><img src="http://static.jacksonville.com/images/Jax_eats_button.jpg" /></a>  </div>
+
+  
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+
+  
+  </div>
+<div id="pane-views-contests" class="wl-pane  wl-wrapper-blog-list">
+	  <div class="wl-container">
+		<div class="wl-corners-top">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	 	<div class="wl-content">
+	 						  	<h2 class="wl-title">
+      		    <img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-cap" />									          		          
+					 									  <div class="block-subject">
+							  	<a href="/entertainment/contests">Contests</a>							  </div>
+					    		       </h2>
+						<div class="wl-inside">
+	 		<div class="view view-contests view-id-contests view-display-id-block_1 view-dom-id-3">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+      
+  <div class="views-field-field-lead-photo-fid">
+                <span class="field-content"><a href="/content/win-tickets-see-journey-and-steve-miller-band-jacksonville-veterans-memorial-arena-march-0" class="imagecache imagecache-130x90 imagecache-linked imagecache-130x90_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/130x90/Journey990.jpg" alt="" title=""  class="imagecache imagecache-130x90" width="130" height="98" /></a></span>
+  </div>
+  
+  <div class="views-field-title">
+                <span class="field-content"><a href="/content/win-tickets-see-journey-and-steve-miller-band-jacksonville-veterans-memorial-arena-march-0">Win tickets to see Journey and The Steve Miller Band at The Jacksonville Veterans Memorial Arena on March 12th.</a></span>
+  </div>
+  
+  <div class="views-field-counter">
+                <span class="field-content">1</span>
+  </div>
+  
+  <div class="views-field-field-summary-value">
+          <label class="views-label-field-summary-value">
+        Summary:
+      </label>
+                <div class="field-content"></div>
+  </div>
+  
+  <div class="views-field-body">
+                <div class="field-content"><p>JOURNEY and STEVE MILLER BAND will perform at the Jacksonville Veterans Memorial Arena with special guest Tower of Power. The tour, produced by Live Nation, will bring two of the iconic groups that helped define the "San Francisco Sound" - Journey and Steve Miller Band. Diamond-certified album holder Journey has sold 80 million albums worldwide. One of rock music's all-time greats, the Steve Miller Band has sold more than 30 million records in a career spanning more than 40 years.</p>
+<p>The deadline to enter for a chance to win is midnight on March 1, 2015. Winners will be drawn at random and notified via email on the morning of March 2, 2015. Winners are required to pickup their tickets at the front counter of The Florida Times-Union at Once Riverside avenue, between the hours of 8 a.m. and 5 p.m. Monday through Friday. Tickets not claimed within seven (7) days from email notification will be forfeited and given to the next randomly-chosen winner. Times-Union employees, members of their household, related or not, and other family members are not eligible to participate in any Times-Union/Jacksonville.com contest. Winners will be subject to a verification process to include the winner's or winner's name(s), address(es) and phone number(s). All winners will be announced upon conclusion of the contest.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p></div>
+  </div>
+  </div>
+    </div>
+  
+      <div class="item-list"><ul class="pager"><li class="pager-current first">1</li>
+<li class="pager-item"><a href="/home/2?page=0%2C1" title="Go to page 2" class="active">2</a></li>
+<li class="pager-item"><a href="/home/2?page=0%2C2" title="Go to page 3" class="active">3</a></li>
+<li class="pager-item"><a href="/home/2?page=0%2C3" title="Go to page 4" class="active">4</a></li>
+<li class="pager-item"><a href="/home/2?page=0%2C4" title="Go to page 5" class="active">5</a></li>
+<li class="pager-next"><a href="/home/2?page=0%2C1" title="Go to next page" class="active">next ›</a></li>
+<li class="pager-last last"><a href="/home/2?page=0%2C4" title="Go to last page" class="active">last »</a></li>
+</ul></div>  
+  
+  
+  
+  
+</div> 			</div>
+            <div class="wl-footer">
+        <a href="/entertainment/contests" title="All Contests">All Contests<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-more-icon" /></a>		<span class="wl-clear"></span>
+      </div>
+      	 	</div>
+		<div class="wl-corners-bottom">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	</div>
+</div>
+
+<div class="panel-pane pane-custom pane-8" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="eventsheader"> <a href="http://events.jacksonville.com">events.jacksonville.com</a> </div>
+<style>
+.eventsheader a {font-family: 'bitter',serif;
+font-weight: bold;
+margin-bottom: -20px;
+color: #E92F4A;
+text-decoration: none;
+font-size: 24px;}
+.panel-pane.pane-panels-mini.pane-events-jax-widget2014 {
+margin-top: -20px;}
+</style>  </div>
+
+  
+  </div>
+<div class="panel-pane pane-panels-mini pane-events-jax-widget2014" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="panel-display panel-1col clear-block" id="mini-panel-events_jax_widget2014">
+  <div class="panel-panel panel-col">
+    <div><div class="panel-pane pane-custom pane-9" >
+  
+  
+  
+  <div class="pane-content">
+    <br>
+<div id="eventwidget2014">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+$.noConflict();
+</script>
+
+<div id="eventsbox">
+  <script async id='events-script' target="_blank" src='http://events.jacksonville.com/sites/all/themes/eventstwo/widget/widget.min.js' data-numitems='3'></script>
+</div>
+
+</div>
+  </div>
+
+  
+  </div>
+<div class="panel-region-separator"></div><div class="panel-pane pane-custom pane-10" >
+  
+  
+  
+  <div class="pane-content">
+    <style>
+ #events-button .events-add{
+display: block;
+width: 300px;
+height: auto;
+text-decoration: none;
+background-color: #E92F4A;
+color: #FFF;
+text-align: center;
+letter-spacing: .05em;
+font: normal .9em/130% "tahoma", arial, sans-serif;
+padding: .8em 0 1em;
+position: relative;
+margin-bottom: 10px;
+
+font-size: 14px;
+}
+ #events-button .events-add span {
+position: relative;
+padding: 0 3em 0 0;
+color: #FFF;
+padding-left: 30px;
+}
+#events-widget
+{
+width:300px !important;
+}
+
+</style><div id="events-button">
+<a href="http://events.jacksonville.com/node/add" target="_blank" class="events-add"><span>Add Events</span></a>
+</div>
+  </div>
+
+  
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+
+  
+  </div>
+<div class="panel-pane pane-custom pane-11" >
+  
+  
+  
+  <div class="pane-content">
+    <script type="text/javascript">
+( function($) {
+$(document).ready(function(){
+	$.noConflict();
+	$("#news_slider").easySlider({
+		loop: true,                           // Looping
+		orientation: 'horizontal',                  // Fading
+		autoplayDuration: 2500,               // Autoplay with 1 second intervals
+		autogeneratePagination: true,         // Automatically generate pagination links
+		restartDuration: 2500,                // In case of user interaction, restart the autoplay after 2.5 seconds
+		nextId: 'next',
+		prevId: 'prev',
+		pauseable: true                       // Pause by hovering over the image!  Then restart after 2.5 seconds (see above)
+	});
+        $("#news_slider ul li a").each(function() {
+   var _href = $(this).attr("href"); 
+   $(this).attr("href", _href + '?mmo_ccc=xfinity');
+  });
+	
+});
+} ) ( jQuery );
+</script>  </div>
+
+  
+  </div>
+<div class="panel-pane pane-views pane-promo-bank-premium promoboxes"  id="redesign2014">
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-promo-bank-premium view-id-promo_bank_premium view-display-id-block_1 view-dom-id-4">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    
+<div class="featured_photos_wrapper">
+		  <div class="promo-container">
+	    <div class="promo-item">
+	      <a href="http://jacksonville.com/slideshow/2015-02-19/shipyards-showpiece-architects-used-game-changing-ideas"><img src="http://jacksonville.com/sites/default/files/imagecache/130x90/SHIPYARDS-STAY-1_CRE_43_0.jpg" alt="" title=""  class="imagecache imagecache-130x90 imagecache-default imagecache-130x90_default" width="130" height="98" /></a>	    </div>
+	    <p class="photos_headline">
+        	      <a href="http://jacksonville.com/slideshow/2015-02-19/shipyards-showpiece-architects-used-game-changing-ideas">SHIPYARDS SHOWPIECE: Architects used to game-changing ideas</a>	    </p>
+	  </div>
+	
+	</div>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    
+<div class="featured_photos_wrapper">
+		  <div class="promo-container">
+	    <div class="promo-item">
+	      <a href="/slideshow/2015-02-13/weeks-worst-restaurant-inspections-feb-16"><img src="http://jacksonville.com/sites/default/files/imagecache/130x90/Mascaras4x3.jpg" alt="" title=""  class="imagecache imagecache-130x90 imagecache-default imagecache-130x90_default" width="130" height="98" /></a>	    </div>
+	    <p class="photos_headline">
+        	      <a href="/slideshow/2015-02-13/weeks-worst-restaurant-inspections-feb-16">ROACHES AND FOOD TEMPERATURE ABUSE: This week&#039;s worst restaurant inspections</a>	    </p>
+	  </div>
+	
+	</div>
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    
+<div class="featured_photos_wrapper">
+		  <div class="promo-container">
+	    <div class="promo-item">
+	      <a href="http://jacksonville.com/slideshow/2015-02-19/germ-zapper-baptist-health-deploys-robots#slide-1"><img src="http://jacksonville.com/sites/default/files/imagecache/130x90/1promoGermZappingRobot021815_0.jpg" alt="" title=""  class="imagecache imagecache-130x90 imagecache-default imagecache-130x90_default" width="130" height="98" /></a>	    </div>
+	    <p class="photos_headline">
+        	      <a href="http://jacksonville.com/slideshow/2015-02-19/germ-zapper-baptist-health-deploys-robots#slide-1">GERM ZAPPER: Baptist Health Deploys Robots</a>	    </p>
+	  </div>
+	
+	</div>
+  </div>
+  <div class="views-row views-row-4 views-row-even views-row-last">
+    
+<div class="featured_photos_wrapper">
+		  <div class="promo-container">
+	    <div class="promo-item">
+	      <a href="/slideshow/2015-02-19/picture-perfect-top-25-photos-day-thursday-february-19"><img src="http://jacksonville.com/sites/default/files/imagecache/130x90/promo_APTOPIX%20Netherlands%282%29_0.jpg" alt="" title=""  class="imagecache imagecache-130x90 imagecache-default imagecache-130x90_default" width="130" height="98" /></a>	    </div>
+	    <p class="photos_headline">
+        	      <a href="/slideshow/2015-02-19/picture-perfect-top-25-photos-day-thursday-february-19">PICTURE PERFECT: Top 25 photos of the day for Thursday, February 19</a>	    </p>
+	  </div>
+	
+	</div>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+<div class="panel-pane pane-block pane-sms-block-30" >
+  
+      <h2 class="pane-title">STAFF BLOGS</h2>
+  
+  
+  <div class="pane-content">
+    <div class="blogger_container">
+			<div class="blogger_wrapper">
+			<div class="bloggers_sig">
+				<div class="premium-avatar"><a href="/users/vito-stellino" title="Vito Stellino"><img src="/sites/default/files/imagecache/premium_avatar_75x75_scale_crop/pictures/picture-25292.jpg" alt="Vito Stellino" title="Vito Stellino"  width="75" height="75" /></a></div>				<div class="blogger_name"><p>Vito Stellino</p></div>
+				<div class="blogger_text"><p><a href="/opinion/blog/513351/vito-stellino/2015-02-19/denver-gm-john-elway-says-peyton-manning-hasnt-decided">Denver GM John Elway says Peyton Manning hasn&#039;t decided whether to play this fall</a></p></div>
+			</div>
+	  </div>
+  		<div class="blogger_wrapper">
+			<div class="bloggers_sig">
+				<div class="premium-avatar"><a href="/users/ryan-ohalloran" title="Ryan O&#039;Halloran"><img src="/sites/default/files/imagecache/premium_avatar_75x75_scale_crop/pictures/picture-1005111371162888.jpg" alt="Ryan O&#039;Halloran" title="Ryan O&#039;Halloran"  width="75" height="75" /></a></div>				<div class="blogger_name"><p>Ryan O'Halloran</p></div>
+				<div class="blogger_text"><p><a href="/opinion/blog/544821/ryan-ohalloran/2015-02-19/bradley-talks-denard-gerhart-bortles-combine">Bradley talks Denard, Gerhart, Bortles at Combine</a></p></div>
+			</div>
+	  </div>
+  		<div class="blogger_wrapper">
+			<div class="bloggers_sig">
+				<div class="premium-avatar"><a href="/users/garry-smits" title="Garry Smits"><img src="/sites/default/files/imagecache/premium_avatar_75x75_scale_crop/pictures/picture-901352290318.jpg" alt="Garry Smits" title="Garry Smits"  width="75" height="75" /></a></div>				<div class="blogger_name"><p>Garry Smits</p></div>
+				<div class="blogger_text"><p><a href="/opinion/blog/486649/garry-smits/2015-02-19/over-analyzation-jameis-winston">The over-analyzation of Jameis Winston </a></p></div>
+			</div>
+	  </div>
+  		<div class="blogger_wrapper">
+			<div class="bloggers_sig">
+				<div class="premium-avatar"><a href="/users/tia-mitchell" title="Tia Mitchell"><img src="/sites/default/files/imagecache/premium_avatar_75x75_scale_crop/pictures/picture-1221418761621.jpg" alt="Tia Mitchell" title="Tia Mitchell"  width="75" height="75" /></a></div>				<div class="blogger_name"><p>Tia Mitchell</p></div>
+				<div class="blogger_text"><p><a href="/opinion/blog/403455/tia-mitchell/2015-02-19/floridas-health-exchange-still-struggling-sales">Florida&#039;s health exchange still struggling for sales in Obamacare era</a></p></div>
+			</div>
+	  </div>
+    <div class="links_more"><a href="opinion/blogs/staff">More staff voices</a> </div>
+</div>
+
+  </div>
+
+  
+  </div>
+<div id="pane-views-aggregator_feeds" class="wl-pane  wl-wrapper-default">
+	  <div class="wl-container">
+		<div class="wl-corners-top">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	 	<div class="wl-content">
+	 						  	<h2 class="wl-title">
+      		    <img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-cap" />									          		          
+					 									  <div class="block-subject">
+							  	From the wires							  </div>					    							   
+					    		       </h2>
+						<div class="wl-inside">
+	 		<div class="view view-aggregator-feeds view-id-aggregator_feeds view-display-id-block_3 view-dom-id-4">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <span class="views-field-title">
+                <span class="field-content"><a href="http://hosted2.ap.org/FLJAJ/96c4981832534f969182ee66c3b3cca4/Article_2015-02-19-US-Senate-Rubio/id-62e5cb9cbac94bab8ce45c65346f7c27">Rubio facing pressure to run for Senate re-election</a></span>
+  </span>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <span class="views-field-title">
+                <span class="field-content"><a href="http://hosted2.ap.org/FLJAJ/96c4981832534f969182ee66c3b3cca4/Article_2015-02-19-US--Ex-Assembly Speaker-Indictment/id-5cd8afd86f5d4336b59d332861855180">Ex-NY Assembly Speaker Sheldon Silver indicted on 3 charges</a></span>
+  </span>
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+      
+  <span class="views-field-title">
+                <span class="field-content"><a href="http://hosted2.ap.org/FLJAJ/96c4981832534f969182ee66c3b3cca4/Article_2015-02-19-US--Obama-National Monuments/id-208c42f7b5894ebea65eca80f2ed4fd2">Designating monuments, Obama touts conservation as US ideal</a></span>
+  </span>
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+      
+  <span class="views-field-title">
+                <span class="field-content"><a href="http://hosted2.ap.org/FLJAJ/96c4981832534f969182ee66c3b3cca4/Article_2015-02-19-US--NJ Lottery-Audit/id-1ac2c39de8984a7ebcde63a42fadaa61">Lottery audit: Winners used dead people&#039;s IDs to collect</a></span>
+  </span>
+  </div>
+  <div class="views-row views-row-5 views-row-odd">
+      
+  <span class="views-field-title">
+                <span class="field-content"><a href="http://hosted2.ap.org/FLJAJ/96c4981832534f969182ee66c3b3cca4/Article_2015-02-19-US--Santa Barbara Rampage/id-190439573d5649f08788b91eec41ba57">Man in Santa Barbara rampage sought ways to silently kill</a></span>
+  </span>
+  </div>
+  <div class="views-row views-row-6 views-row-even">
+      
+  <span class="views-field-title">
+                <span class="field-content"><a href="http://hosted2.ap.org/FLJAJ/96c4981832534f969182ee66c3b3cca4/Article_2015-02-19-US--Music Review-Sweet and Lynch/id-3caa5838d69c404aac85ef3f939a91fd">Review: &#039;80s hair metal giants join forces for Sweet &amp; Lynch</a></span>
+  </span>
+  </div>
+  <div class="views-row views-row-7 views-row-odd views-row-last">
+      
+  <span class="views-field-title">
+                <span class="field-content"><a href="http://hosted2.ap.org/FLJAJ/96c4981832534f969182ee66c3b3cca4/Article_2015-02-19-US--Dietary Guidelines/id-39691f9959cd4242aa9f8a31d06a6317">Healthful diet report: Sugary drinks out; coffee, eggs in</a></span>
+  </span>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div> 			</div>
+            <div class="wl-footer">
+        <a href="/aggregator/sources/175" title="more from the wires">more from the wires<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-more-icon" /></a>		<span class="wl-clear"></span>
+      </div>
+      	 	</div>
+		<div class="wl-corners-bottom">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	</div>
+</div>
+
+<div class="panel-pane pane-panels-mini pane-military-sites" >
+  
+      <h2 class="pane-title">Military Publications</h2>
+  
+  
+  <div class="pane-content">
+    <div class="panel-display panel-1col clear-block" id="mini-panel-military_sites">
+  <div class="panel-panel panel-col">
+    <div><div id="pane-views-military_teases" class="wl-pane  wl-wrapper-headline-list">
+	  <div class="wl-container">
+		<div class="wl-corners-top">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	 	<div class="wl-content">
+	 					<div class="wl-inside">
+	 		<div class="view view-military-teases view-id-military_teases view-display-id-block_10 view-dom-id-5">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field-path">
+                <span class="field-content"><a href="http://kingsbayperiscope.jacksonville.com/military/periscope/2015-02-18/story/mayor-all-seasons">A mayor for all seasons</a></span>
+  </div>
+  </div>
+  <div class="views-row views-row-2 views-row-even views-row-last">
+      
+  <div class="views-field-path">
+                <span class="field-content"><a href="http://kingsbayperiscope.jacksonville.com/military/periscope/2015-02-18/story/big-changes-works-fitness-center">Big changes in works at Fitness Center</a></span>
+  </div>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div> 			</div>
+            <div class="wl-footer">
+        <a href="http://kingsbayperiscope.com/" title="King&#039;s Bay Periscope">King's Bay Periscope<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-more-icon" /></a>		<span class="wl-clear"></span>
+      </div>
+      	 	</div>
+		<div class="wl-corners-bottom">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	</div>
+</div>
+
+<div class="panel-region-separator"></div><div id="pane-views-military_teases" class="wl-pane  wl-wrapper-headline-list">
+	  <div class="wl-container">
+		<div class="wl-corners-top">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	 	<div class="wl-content">
+	 					<div class="wl-inside">
+	 		<div class="view view-military-teases view-id-military_teases view-display-id-block_8 view-dom-id-6">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field-path-1">
+                <span class="field-content"><a href="http://jaxairnews.jacksonville.com/military/jax-air-news/2015-02-18/story/wanamaker-take-helm-nas-jacksonville">Wanamaker to take helm of NAS Jacksonville</a></span>
+  </div>
+  </div>
+  <div class="views-row views-row-2 views-row-even views-row-last">
+      
+  <div class="views-field-path-1">
+                <span class="field-content"><a href="http://jaxairnews.jacksonville.com/military/jax-air-news/2015-02-18/story/undersander-praises-team-successful-tour">Undersander praises team for successful tour</a></span>
+  </div>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div> 			</div>
+            <div class="wl-footer">
+        <a href="http://jaxairnews.jacksonville.com/" title="Jax Air News">Jax Air News<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-more-icon" /></a>		<span class="wl-clear"></span>
+      </div>
+      	 	</div>
+		<div class="wl-corners-bottom">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	</div>
+</div>
+
+<div class="panel-region-separator"></div><div id="pane-views-military_teases" class="wl-pane  wl-wrapper-headline-list">
+	  <div class="wl-container">
+		<div class="wl-corners-top">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	 	<div class="wl-content">
+	 					<div class="wl-inside">
+	 		<div class="view view-military-teases view-id-military_teases view-display-id-block_1 view-dom-id-7">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field-path">
+                <span class="field-content"><a href="http://mayportmirror.jacksonville.com/military/mayport-mirror/2015-02-18/story/micro-mart-opens-sermc">‘Micro Mart’ Opens In SERMC</a></span>
+  </div>
+  </div>
+  <div class="views-row views-row-2 views-row-even views-row-last">
+      
+  <div class="views-field-path">
+                <span class="field-content"><a href="http://mayportmirror.jacksonville.com/military/mayport-mirror/2015-02-18/story/mayport-sailor-week">Mayport Sailor of the Week</a></span>
+  </div>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div> 			</div>
+            <div class="wl-footer">
+        <a href="http://mayportmirror.com/" title="Mayport Mirror">Mayport Mirror<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-more-icon" /></a>		<span class="wl-clear"></span>
+      </div>
+      	 	</div>
+		<div class="wl-corners-bottom">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	</div>
+</div>
+
+</div>
+  </div>
+</div>
+  </div>
+
+  
+  </div>
+<div class="panel-pane pane-custom pane-12 localedgesearch"  id="redesign2014">
+  
+  
+  
+  <div class="pane-content">
+    <form action="http://local.jacksonville.com/search" method="get">
+<div id="localedge_integratedSearch">
+<div class="localedge_header">
+	<div class="localedge_header-left"></div>
+	<span class="localedge_label">
+		<img src="http://jacksonville.com/files/img/localedge/jacksonville.png" alt="Florida Times-Union" />
+	</span>
+	<span class="localedge_buttons">
+		<input type="text" name="keyword" class="localedge_text localedge_searchInput" value="Search Local Businesses" />
+		<input type="submit" name="Submit" value="" class="localedge_submit" />
+	</span>
+	<div class="localedge_header-right"></div>
+</div>
+<div class="localedge_searchContents">
+	<ul>
+	    <li><a href="http://local.jacksonville.com/s/FL-Jacksonville/Auto-Sales">Jacksonville Auto Sales</a></li>
+        <li><a href="http://local.jacksonville.com/s/FL-Jacksonville/Banking">Jacksonville Banking</a></li>
+        <li><a href="http://local.jacksonville.com/s/FL-Jacksonville/Beauty-Care">Jacksonville Beauty Care</a></li>
+        <li><a href="http://local.jacksonville.com/s/FL-Jacksonville/Dentists">Jacksonville Dentists</a></li>
+        <li><a href="http://local.jacksonville.com/s/FL-Jacksonville/Florists">Jacksonville Florists</a></li>
+
+        <li><a href="http://local.jacksonville.com/s/FL-Jacksonville/Insurance-Coverage">Jacksonville Insurance</a></li>
+        <li><a href="http://local.jacksonville.com/s/FL-Jacksonville/Lawyers">Jacksonville Lawyers</a></li>
+        <li><a href="http://local.jacksonville.com/s/FL-Jacksonville/Movers">Jacksonville Movers</a></li>
+        <li><a href="http://local.jacksonville.com/s/FL-Jacksonville/Physicians">Jacksonville Physicians</a></li>
+        <li><a href="http://local.jacksonville.com/s/FL-Jacksonville/Restaurants">Jacksonville Restaurants</a></li>
+        <li><a href="http://local.jacksonville.com/s/FL-Jacksonville/Real-Estate-Property">Jacksonville Real Estate</a></li>
+	</ul>
+</div>
+<div class="localedge_footer">
+	<div class="localedge_footer-left"></div>
+	<a href="http://local.jacksonville.com/">Discover and Review More Local Businesses &#187;</a>
+	<div class="localedge_footer-right"></div>
+</div>
+</div>
+</form>
+<script type="text/javascript">
+$(document).ready(function() {
+	var searchInputUnselectedText = "Search Local Businesses";
+	if(searchInputUnselectedText != $("div#localedge_integratedSearch div.localedge_header span.localedge_buttons input.localedge_searchInput").val() )
+	{
+		$("div#localedge_integratedSearch div.localedge_header span.localedge_buttons input.localedge_searchInput").addClass("localedge_focus");
+	}
+	
+	$("div#localedge_integratedSearch div.localedge_header span.localedge_buttons input.localedge_searchInput").focus( function() {
+		if(searchInputUnselectedText == $(this).val())
+		{ 
+			$(this).val("");
+			$(this).addClass("localedge_focus");
+		}
+	});
+	$("div#localedge_integratedSearch div.localedge_header span.localedge_buttons input.localedge_searchInput").blur( function() {
+		if("" == $(this).val())
+		{ 
+			$(this).val(searchInputUnselectedText);
+			$(this).removeClass("localedge_focus");
+		}
+	} );
+	//don't submit form if they didn't type anything
+	$("div#localedge_integratedSearch .localedge_submit").click(function (event) {
+		var currentValue = $("div#localedge_integratedSearch div.localedge_header span.localedge_buttons input.localedge_searchInput").val();
+		if (currentValue == searchInputUnselectedText) {
+			event.preventDefault();
+		}
+	});
+});
+</script>  </div>
+
+  
+  </div>
+	</div>
+	<div class='homepage_main_content'>
+		<div class='main_content_top'>
+			<div class="panel-pane pane-views pane-fslider premiumslider"  id="redesign2014">
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-fslider view-id-fslider view-display-id-block_1 view-dom-id-1">
+    
+  
+  
+      <div class="view-content">
+      								
+
+<div id="page-wrap">
+	<div id="tabs">
+				
+							<div id="fragment-1" class="ui-tabs-panel ui-tabs-hide">
+					<div class="fslider-photo">
+
+		<div class="desc">
+			<div class="summary">
+				<a href="/news/georgia/2015-02-19/story/record-freeze-tap-northeast-florida-southeast-georgia-will-be-close">A record low of 20 degrees is forecast for Northeast Florida for Friday morning, breaking a record set in 1958</a>			</div>
+	</div>
+	
+	
+			<a href="/news/georgia/2015-02-19/story/record-freeze-tap-northeast-florida-southeast-georgia-will-be-close"><a href="/news/georgia/2015-02-19/story/record-freeze-tap-northeast-florida-southeast-georgia-will-be-close" class="imagecache imagecache-homepageslider_660x495_scalecrop imagecache-linked imagecache-homepageslider_660x495_scalecrop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/homepageslider_660x495_scalecrop/Lows_0.JPG" alt="" title=""  class="imagecache imagecache-homepageslider_660x495_scalecrop" width="660" height="495" /></a></a>	
+</div>
+
+<div class="fslider">
+	<h2><a href="/news/georgia/2015-02-19/story/record-freeze-tap-northeast-florida-southeast-georgia-will-be-close">Record freeze on tap for Northeast Florida; Southeast Georgia will be close</a></h2>
+</div>
+
+
+				</div>
+							
+							<div id="fragment-2" class="ui-tabs-panel ui-tabs-hide">
+					<div class="fslider-photo">
+
+		<div class="desc">
+			<div class="summary">
+				<a href="/business/2015-02-18/story/bank-america-laying-69-jacksonville-workers">Bank of America laying off 69 Jacksonville workers. The company will lay off the workers on April 13, according to a notice posted online.</a>			</div>
+	</div>
+	
+	
+			<a href="/business/2015-02-18/story/bank-america-laying-69-jacksonville-workers"><a href="/business/2015-02-18/story/bank-america-laying-69-jacksonville-workers" class="imagecache imagecache-homepageslider_660x495_scalecrop imagecache-linked imagecache-homepageslider_660x495_scalecrop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/homepageslider_660x495_scalecrop/promo_BankofAmerica.jpg" alt="" title=""  class="imagecache imagecache-homepageslider_660x495_scalecrop" width="660" height="495" /></a></a>	
+</div>
+
+<div class="fslider">
+	<h2><a href="/business/2015-02-18/story/bank-america-laying-69-jacksonville-workers">Bank of America laying off 69 Jacksonville workers at Southside location</a></h2>
+</div>
+
+
+				</div>
+							
+							<div id="fragment-3" class="ui-tabs-panel ui-tabs-hide">
+					<div class="fslider-photo">
+
+		<div class="desc">
+			<div class="summary">
+				<a href="/business/2015-02-19/story/trader-joes-wegmans-boot-publix-top-spot-customer-satisfaction-ranking">Shoppers are less satisfied with grocery stores than they were a year ago, according to a new report. And Publix no longer tops that satisfaction list.</a>			</div>
+	</div>
+	
+	
+			<a href="/business/2015-02-19/story/trader-joes-wegmans-boot-publix-top-spot-customer-satisfaction-ranking"><a href="/business/2015-02-19/story/trader-joes-wegmans-boot-publix-top-spot-customer-satisfaction-ranking" class="imagecache imagecache-homepageslider_660x495_scalecrop imagecache-linked imagecache-homepageslider_660x495_scalecrop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/homepageslider_660x495_scalecrop/biz_5TraderJoes10011_43_0.jpg" alt="" title=""  class="imagecache imagecache-homepageslider_660x495_scalecrop" width="660" height="495" /></a></a>	
+</div>
+
+<div class="fslider">
+	<h2><a href="/business/2015-02-19/story/trader-joes-wegmans-boot-publix-top-spot-customer-satisfaction-ranking">Trader  Joe&#039;s, Wegmans boot Publix from top spot in customer satisfaction ranking</a></h2>
+</div>
+
+
+				</div>
+							
+							<div id="fragment-4" class="ui-tabs-panel ui-tabs-hide">
+					<div class="fslider-photo">
+
+		<div class="desc">
+			<div class="summary">
+				<a href="/news/health-and-fitness/2015-02-19/story/no-date-set-next-surgical-procedure-separate-conjoined">Wolfson Children&#039;s Hospital issued a statement Thursday saying that no date has been set for the next surgical procedure to separate conjoined twins Conner and Carter Mirabal.
+The twins, who were born shortly before midnight on Dec. 12, remain in the Wolfson&#039;s Newborn Intensive Care Unit where they are being continuously monitored by a team of University of Florida College of Medicine - Jacksonville neonatologists and Wolfson neonatal nurses and other health care professionals, the statement said.</a>			</div>
+	</div>
+	
+	
+			<a href="/news/health-and-fitness/2015-02-19/story/no-date-set-next-surgical-procedure-separate-conjoined"><a href="/news/health-and-fitness/2015-02-19/story/no-date-set-next-surgical-procedure-separate-conjoined" class="imagecache imagecache-homepageslider_660x495_scalecrop imagecache-linked imagecache-homepageslider_660x495_scalecrop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/homepageslider_660x495_scalecrop/met_Conjoined_Twins_43_0.jpg" alt="" title=""  class="imagecache imagecache-homepageslider_660x495_scalecrop" width="660" height="495" /></a></a>	
+</div>
+
+<div class="fslider">
+	<h2><a href="/news/health-and-fitness/2015-02-19/story/no-date-set-next-surgical-procedure-separate-conjoined">No date set for next surgical procedure to separate conjoined twins at Wolfson Children&#039;s Hospital</a></h2>
+</div>
+
+
+				</div>
+							
+							<div id="fragment-5" class="ui-tabs-panel ui-tabs-hide">
+					<div class="fslider-photo">
+
+		<div class="desc">
+			<div class="summary">
+				<a href="/news/metro/2015-02-18/story/mayoral-candidates-split-whether-tax-increases-are-needed-improve">Mayor Alvin brown and challenger Lenny Curry say they won&#039;t support any tax increases; Councilman Bill Bishop says that pledge is uninformed and unworkable</a>			</div>
+	</div>
+	
+	
+			<a href="/news/metro/2015-02-18/story/mayoral-candidates-split-whether-tax-increases-are-needed-improve"><a href="/news/metro/2015-02-18/story/mayoral-candidates-split-whether-tax-increases-are-needed-improve" class="imagecache imagecache-homepageslider_660x495_scalecrop imagecache-linked imagecache-homepageslider_660x495_scalecrop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/homepageslider_660x495_scalecrop/MayorsRace990_2012photo.jpg" alt="" title=""  class="imagecache imagecache-homepageslider_660x495_scalecrop" width="660" height="495" /></a></a>	
+</div>
+
+<div class="fslider">
+	<h2><a href="/news/metro/2015-02-18/story/mayoral-candidates-split-whether-tax-increases-are-needed-improve">Mayoral candidates split on whether tax increases are needed to improve Jacksonville&#039;s quality of life</a></h2>
+</div>
+
+
+				</div>
+							
+		<ul class="menu">
+			<li>
+				<a class="tabs" href="#fragment-1">1</a>
+				<em>Record freeze on tap for Northeast Florida; Southeast Georgia will be close</em>
+			</li>
+			<li>
+				<a class="tabs" href="#fragment-2">2</a>
+				<em>Bank of America laying off 69 Jacksonville workers at Southside location</em>
+			</li>
+			<li>
+				<a class="tabs" href="#fragment-3">3</a>
+				<em>Trader  Joe's, Wegmans boot Publix from top spot in customer satisfaction ranking</em>
+			</li>
+			<li>
+				<a class="tabs" href="#fragment-4">4</a>
+				<em>No date set for next surgical procedure to separate conjoined twins at Wolfson Children's Hospital</em>
+			</li>
+			<li>
+				<a class="tabs" href="#fragment-5">5</a>
+				<em>Mayoral candidates split on whether tax increases are needed to improve Jacksonville's quality of life</em>
+			</li>
+
+		</ul> 
+		
+	</div>
+</div>    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+<div class="panel-pane pane-custom pane-3 cxensehomepage"  id="redesign2014">
+  
+      <h2 class="pane-title">Recommended for you</h2>
+  
+  
+  <div class="pane-content">
+    <div id="topTargetElement6"></div>
+<script type="text/javascript">    
+        var cX = cX || {}; cX.callQueue = cX.callQueue || [];   
+
+       cX.callQueue.push(['insertWidget',{
+            width: 1009, height: 200,    
+            insertBeforeElementId: 'topTargetElement6',   
+            renderTemplateUrl: 'http://cdn.cxpublic.com/jacksonville_membershome_top.html',    
+            resizeToContentSize : false,   
+            widgetId: '152f900ce54c738fa0da1de3f7e437906abd8f34',   
+
+        }]);
+</script>  </div>
+
+  
+  </div>
+<div class="panel-pane pane-custom pane-4" >
+  
+  
+  
+  <div class="pane-content">
+    <!--[if lte IE 7]>
+<style>
+.columnist_wrap P {margin-left: 10px; }
+</style>
+<![endif]-->  </div>
+
+  
+  </div>
+		</div>
+		<div class='main_content_left_column'>
+			<div class="panel-pane pane-views pane-premium-lead-2" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-premium-lead-2 view-id-premium_lead_2 view-display-id-block_4 view-dom-id-8">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <div class="medium_story">
+
+	<a href="/opinion/blog/544821/ryan-ohalloran/2015-02-19/bradley-talks-denard-gerhart-bortles-combine" class="imagecache imagecache-premium_335x225_scale_crop imagecache-linked imagecache-premium_335x225_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_335x225_scale_crop/spt_05bsJagsVsBrowns_43.jpg" alt="" title=""  class="imagecache imagecache-premium_335x225_scale_crop" /></a>	<h2><a href="/amber-waves/2012-07-07/story/models-reignite-american-dream-honor-americas-independence-day-was"><a href="/opinion/blog/544821/ryan-ohalloran/2015-02-19/bradley-talks-denard-gerhart-bortles-combine">Bradley talks Denard, Gerhart, Bortles at Combine</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 3:51pm						
+    </p>
+  </div>
+
+
+
+  
+  <div class="medium_story_summary">
+				<p>Jaguars coach Gus Bradley took the podium this morning at the Scouting Combine.</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <div class="medium_story">
+
+	<a href="/breaking-news/2015-02-19/story/woman-set-die-georgias-death-row-month-orders-big-final-meal" class="imagecache imagecache-premium_335x225_scale_crop imagecache-linked imagecache-premium_335x225_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_335x225_scale_crop/Kelly-Renee-Gissendaner_43.jpg" alt="" title=""  class="imagecache imagecache-premium_335x225_scale_crop" width="335" height="225" /></a>	<h2><a href="/amber-waves/2012-07-07/story/models-reignite-american-dream-honor-americas-independence-day-was"><a href="/breaking-news/2015-02-19/story/woman-set-die-georgias-death-row-month-orders-big-final-meal">Woman set to die on Georgia&#039;s Death Row this month orders big final meal</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 4:17pm			<span class="comment-count">1 </span>			
+    </p>
+  </div>
+
+
+
+  
+  <div class="medium_story_summary">
+				<p>Kelly Renee Gissendaner is set to become the first woman to be executed in seven decades,</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-3 views-row-odd views-row-last">
+    <div class="medium_story">
+
+	<a href="/breaking-news/2015-02-19/story/jameis-winston-aims-become-jimbo-fishers-first-quarterback-find-nfl" class="imagecache imagecache-premium_335x225_scale_crop imagecache-linked imagecache-premium_335x225_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_335x225_scale_crop/cover_image_43.jpg" alt="" title=""  class="imagecache imagecache-premium_335x225_scale_crop" width="335" height="225" /></a>	<h2><a href="/amber-waves/2012-07-07/story/models-reignite-american-dream-honor-americas-independence-day-was"><a href="/breaking-news/2015-02-19/story/jameis-winston-aims-become-jimbo-fishers-first-quarterback-find-nfl">Jameis Winston aims to become Jimbo Fisher&#039;s first quarterback to find NFL stardom</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 2:32pm						
+    </p>
+  </div>
+
+
+
+  
+  <div class="medium_story_summary">
+				<p>In just a few weeks, Florida State coach Jimbo Fisher will see one of his quarterbacks begin an NFL career for the eighth time when ...</p>  </div>
+
+</div>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+<div class="panel-pane pane-block pane-block-65 adclear" >
+  
+  
+  
+  <div class="pane-content">
+    <div id='300x250_2' class='ad300 adclear'>
+<script type='text/javascript'>
+googletag.defineSlot(NMTdata.ads.dfp_adunit_prefix+NMTdata.ads.dfp_adunit, [[300,250]],'300x250_2')
+    .addService(googletag.pubads())
+    .setTargeting('pos',['300x250_2'])
+    .setTargeting("g", utag_data.gender) .setTargeting("age", NMTdata.data.yearToAge(utag_data.birthdate))
+    .setTargeting("Taxonomy", utag_data.taxonomy).setTargeting('pplogin', $.cookie('ppUser')? 'y': 'n')
+    .setTargeting('ccc',NMTdata.ads.dfp_ccc);
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+googletag.display('300x250_2');
+</script></div>
+  </div>
+
+  
+  </div>
+<div class="panel-pane pane-views pane-premium-lead-2" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-premium-lead-2 view-id-premium_lead_2 view-display-id-block_4 view-dom-id-9">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <div class="medium_story">
+
+	<a href="/entertainment/2015-02-19/story/get-close-and-personal-monster-trucks-saturdays-big-event-everbank" class="imagecache imagecache-premium_335x225_scale_crop imagecache-linked imagecache-premium_335x225_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_335x225_scale_crop/MonsterJam_1259.jpg" alt="" title=""  class="imagecache imagecache-premium_335x225_scale_crop" width="335" height="225" /></a>	<h2><a href="/amber-waves/2012-07-07/story/models-reignite-american-dream-honor-americas-independence-day-was"><a href="/entertainment/2015-02-19/story/get-close-and-personal-monster-trucks-saturdays-big-event-everbank">Get up close and personal with Monster Trucks before Saturday&#039;s big event at EverBank Field</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 12:43pm						
+    </p>
+  </div>
+
+
+
+  
+  <div class="medium_story_summary">
+				<p>Monster truck fans can get an up-close look at some of the machines that will participate in this weekend’s Monster Jam when the trucks ...</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <div class="medium_story">
+
+	<a href="/news/florida/2015-02-18/story/publix-walmart-disagree-whether-grocery-stores-should-sell-hard-liquor" class="imagecache imagecache-premium_335x225_scale_crop imagecache-linked imagecache-premium_335x225_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_335x225_scale_crop/liquor1.gif" alt="" title=""  class="imagecache imagecache-premium_335x225_scale_crop" width="335" height="225" /></a>	<h2><a href="/amber-waves/2012-07-07/story/models-reignite-american-dream-honor-americas-independence-day-was"><a href="/news/florida/2015-02-18/story/publix-walmart-disagree-whether-grocery-stores-should-sell-hard-liquor">Publix, Wal-Mart disagree on whether to sell hard liquor amid proposed changes in state law</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 8:53am			<span class="comment-count">2 </span>			
+    </p>
+  </div>
+
+
+
+  
+  <div class="medium_story_summary">
+				<p>Two of Florida&#039;s largest retailers are on opposing sides of a debate whether Florida law should be changed to allow  grocery stores ...</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-3 views-row-odd views-row-last">
+    <div class="medium_story">
+
+	<a href="/opinion/blog/544821/ryan-ohalloran/2015-02-19/staff-changes-result-different-schedule-jaguars" class="imagecache imagecache-premium_335x225_scale_crop imagecache-linked imagecache-premium_335x225_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_335x225_scale_crop/spt_63JagsVGiantsBM1.jpg" alt="" title=""  class="imagecache imagecache-premium_335x225_scale_crop" width="335" height="225" /></a>	<h2><a href="/amber-waves/2012-07-07/story/models-reignite-american-dream-honor-americas-independence-day-was"><a href="/opinion/blog/544821/ryan-ohalloran/2015-02-19/staff-changes-result-different-schedule-jaguars">Staff changes result in different schedule for Jaguars coaches</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 11:55am			<span class="comment-count">1 </span>			
+    </p>
+  </div>
+
+
+
+  
+  <div class="medium_story_summary">
+				<p>The addition of four offensive coaches meant Dave Caldwell and Gus Bradley altered their free agent evaluation schedule.</p>  </div>
+
+</div>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+<div class="panel-pane pane-block pane-block-57 adclear" >
+  
+  
+  
+  <div class="pane-content">
+    <div id='300x250_1' class="ad300 adclear">
+<script type='text/javascript'>
+googletag.defineSlot(NMTdata.ads.dfp_adunit_prefix+NMTdata.ads.dfp_adunit, [[300,250]],'300x250_1')
+    .addService(googletag.pubads())
+    .setTargeting('pos',['300x250_1'])
+    .setTargeting("g", utag_data.gender) .setTargeting("age", NMTdata.data.yearToAge(utag_data.birthdate))
+    .setTargeting("Taxonomy", utag_data.taxonomy)
+    .setTargeting('ccc',NMTdata.ads.dfp_ccc);
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+googletag.display('300x250_1');
+</script></div>
+  </div>
+
+  
+  </div>
+<div class="panel-pane pane-views pane-premium-lead-2" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-premium-lead-2 view-id-premium_lead_2 view-display-id-block_4 view-dom-id-10">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <div class="medium_story">
+
+	<a href="/news/crime/2015-02-19/story/high-speed-police-chase-ends-car-crashing-through-jacksonville" class="imagecache imagecache-premium_335x225_scale_crop imagecache-linked imagecache-premium_335x225_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_335x225_scale_crop/promo_ChaseCrash.jpg" alt="" title=""  class="imagecache imagecache-premium_335x225_scale_crop" width="335" height="225" /></a>	<h2><a href="/amber-waves/2012-07-07/story/models-reignite-american-dream-honor-americas-independence-day-was"><a href="/news/crime/2015-02-19/story/high-speed-police-chase-ends-car-crashing-through-jacksonville">High-speed police chase ends with car crashing through Jacksonville convenience store</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 4:26pm			<span class="comment-count">2 </span>			
+    </p>
+  </div>
+
+
+
+  
+  <div class="medium_story_summary">
+				<p>The chase hit speeds of 100 mph and ended with the suspect crashing his car into a convenience store on Edgewood Avenue North.</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <div class="medium_story">
+
+	<a href="/news/crime/2015-02-19/story/putnam-tree-service-operator-sentenced-15-years-teens-accidental-death" class="imagecache imagecache-premium_335x225_scale_crop imagecache-linked imagecache-premium_335x225_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_335x225_scale_crop/PutnamCase990x743.jpg" alt="" title=""  class="imagecache imagecache-premium_335x225_scale_crop" width="335" height="225" /></a>	<h2><a href="/amber-waves/2012-07-07/story/models-reignite-american-dream-honor-americas-independence-day-was"><a href="/news/crime/2015-02-19/story/putnam-tree-service-operator-sentenced-15-years-teens-accidental-death">Putnam tree service operator sentenced to 15 years in teen&#039;s accidental death</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 12:01pm			<span class="comment-count">2 </span>			
+    </p>
+  </div>
+
+
+
+  
+  <div class="medium_story_summary">
+				<p>The former owner of a Putnam County tree service has been sentenced to 15 years in prison for the 2013 death of a teen who was working ...</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-3 views-row-odd views-row-last">
+    <div class="medium_story">
+
+	<a href="/news/metro/2015-02-18/story/hundreds-show-ballots-brews-intuition-ale-works" class="imagecache imagecache-premium_335x225_scale_crop imagecache-linked imagecache-premium_335x225_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_335x225_scale_crop/brews0219.jpg" alt="" title=""  class="imagecache imagecache-premium_335x225_scale_crop" width="335" height="225" /></a>	<h2><a href="/amber-waves/2012-07-07/story/models-reignite-american-dream-honor-americas-independence-day-was"><a href="/news/metro/2015-02-18/story/hundreds-show-ballots-brews-intuition-ale-works">Jacksonville mayoral candidates woo young voters at Ballots &amp; Brews event</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 11:48am			<span class="comment-count">3 </span>			
+    </p>
+  </div>
+
+
+
+  
+  <div class="medium_story_summary">
+				<p>Hundreds of people showed up Wednesday night at Intuition Ale Works for Ballots &amp; Brews, where young voters mixed with politicians ...</p>  </div>
+
+</div>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+<div class="panel-pane pane-views pane-most-commented-titles" >
+  
+      <h2 class="pane-title">Most Commented</h2>
+  
+  
+  <div class="pane-content">
+    <div class="view view-most-commented-titles view-id-most_commented_titles view-display-id-block_1 view-dom-id-11">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field-title">
+                <span class="field-content"><a href="/news/metro/2015-02-18/story/mayoral-candidates-split-whether-tax-increases-are-needed-improve">Mayoral candidates split on whether tax increases are needed to improve Jacksonville&#039;s quality of life (14 comments)</a></span>
+  </div>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field-title">
+                <span class="field-content"><a href="/breaking-news/2015-02-18/story/jeb-bush-note-differences-former-president-brother">Former Florida Gov. Jeb Bush asserts &#039;I am my own man,&#039; not my brother or father (8 comments)</a></span>
+  </div>
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+      
+  <div class="views-field-title">
+                <span class="field-content"><a href="/opinion/letters-readers/2015-02-18/story/lead-letter-shad-khans-breathtaking-vision-shipyards">Lead Letter: Shad Khan&#039;s breathtaking vision for Shipyards  (7 comments)</a></span>
+  </div>
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+      
+  <div class="views-field-title">
+                <span class="field-content"><a href="/opinion/letters-readers/2015-02-18/story/thursdays-letters-why-opposition-pension-fund-audit">Thursday&#039;s Letters: Why the opposition to a pension fund audit? (5 comments)</a></span>
+  </div>
+  </div>
+  <div class="views-row views-row-5 views-row-odd">
+      
+  <div class="views-field-title">
+                <span class="field-content"><a href="/breaking-news/2015-02-18/story/nassau-county-school-board-says-god-bless-america-not-constitutional">Nassau County School Board says &#039;God Bless America&#039; is not a constitutional violation (5 comments)</a></span>
+  </div>
+  </div>
+  <div class="views-row views-row-6 views-row-even views-row-last">
+      
+  <div class="views-field-title">
+                <span class="field-content"><a href="/opinion/ron-littlepage/2015-02-18/story/ron-littlepage-talk-must-soon-become-action-pension-reform">Ron Littlepage: Talk must soon become action on pension reform (5 comments)</a></span>
+  </div>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+		</div>
+		<div class='main_content_right_column'>
+			<div class="panel-pane pane-block pane-block-58 adclear" >
+  
+  
+  
+  <div class="pane-content">
+    <div id='300x250_3' width='300'>
+<script type='text/javascript'>
+googletag.defineSlot(NMTdata.ads.dfp_adunit_prefix+NMTdata.ads.dfp_adunit, [[300,250]],'300x250_3')
+    .addService(googletag.pubads())
+    .setTargeting('pos',['300x250_3'])
+    .setTargeting("g", utag_data.gender) .setTargeting("age", NMTdata.data.yearToAge(utag_data.birthdate))
+    .setTargeting("Taxonomy", utag_data.taxonomy).setTargeting('pplogin', $.cookie('ppUser')? 'y': 'n')
+    .setTargeting('ccc',NMTdata.ads.dfp_ccc);
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+googletag.display('300x250_3');
+</script></div>
+  </div>
+
+  
+  </div>
+<div class="panel-pane pane-custom pane-13" >
+  
+  
+  
+  <div class="pane-content">
+    
+<h2 class="pane-title">JUST IN</h2>
+<style>
+
+</style>  </div>
+
+  
+  </div>
+<div id="pane-views-premium_lead_1" class="wl-pane  wl-wrapper-default">
+	  <div class="wl-container">
+		<div class="wl-corners-top">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	 	<div class="wl-content">
+	 					<div class="wl-inside">
+	 		<div class="view view-premium-lead-1 view-id-premium_lead_1 view-display-id-block_4 view-dom-id-14">
+    
+  
+  
+      <div class="view-content">
+      <div class="other_story">
+	<ul class="other_story_list">
+					<li class="other_story_list_item"><a href="/news/metro/2015-02-19/story/cancellation-rules-committee-meeting-pension-bill-could-postpone-final">Cancellation of Rules Committee meeting on pension bill could postpone final City Council action</a><div class="byline_text"><p>4:10pm</p></div></li>					<li class="other_story_list_item"><a href="/breaking-news/2015-02-19/story/convicted-savannah-police-chief-collect-six-figure-pension-while">Convicted Savannah police chief to collect six-figure pension while in prison</a><div class="byline_text"><p>4:05pm</p></div></li>					<li class="other_story_list_item"><a href="/breaking-news/2015-02-19/story/universal-orlando-reverses-outside-bottle-ban">Universal Orlando reverses outside bottle ban</a><div class="byline_text"><p>4:03pm</p></div></li>					<li class="other_story_list_item"><a href="/breaking-news/2015-02-19/story/woman-set-die-georgias-death-row-month-orders-big-final-meal">Woman set to die on Georgia&#039;s Death Row this month orders big final meal</a><div class="byline_text"><p>4:17pm</p></div></li>					<li class="other_story_list_item"><a href="/news/metro/2015-02-19/story/leading-economic-indicators-paint-positive-picture-first-coast">Leading economic indicators paint a positive picture for the First Coast</a><div class="byline_text"><p>3:23pm</p></div></li>					<li class="other_story_list_item"><a href="/business/columnists/2015-02-19/story/guest-column-nikolai-vitti-deserves-support-and-time">Guest column: Nikolai Vitti deserves support and time</a><div class="byline_text"><p>3:20pm</p></div></li>					<li class="other_story_list_item"><a href="/business/columnists/2015-02-19/story/tonyaa-weathersbee-where-are-jobs-those-who-badly-need-them">Tonyaa Weathersbee: Where are the jobs for those who badly need them?</a><div class="byline_text"><p>3:17pm</p></div></li>					<li class="other_story_list_item"><a href="/opinion/letters-readers/2015-02-19/story/fridays-letters-calling-people-names-hardly-showing">Friday&#039;s Letters: Calling people names is hardly showing civility</a><div class="byline_text"><p>3:11pm</p></div></li>			</ul>
+</div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div> 			</div>
+            <div class="wl-footer">
+        <a href="/news/all" title="more latest news">more latest news<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-more-icon" /></a>		<span class="wl-clear"></span>
+      </div>
+      	 	</div>
+		<div class="wl-corners-bottom">
+			<img src="/sites/all/modules/contrib/panels/images/blank.gif" alt="" title="" width="1" height="1" class="wl-corner-right" />			<span class="wl-clear"></span>
+		</div>
+	</div>
+</div>
+
+<div class="panel-pane pane-panels-mini pane-dealtobias" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="panel-display panel-1col clear-block" id="mini-panel-dealtobias">
+  <div class="panel-panel panel-col">
+    <div><div id="nimbleBuyWidget14072">loading...</div><a id="key14072" href="http://www.nimblebuy.com" style="display:none;"></a><script id="nimbleBuyWidgetScript14072" src="http://widget.imshopping.com/widget.action?wId=14072"></script>
+
+<!--
+<style type="text/css">
+a:link {border:0;}      /* unvisited link */
+a:visited {border:0;}   /* visited link */
+a:hover {border:0;}    /* mouse over link */
+a:active {border:0;}  
+
+
+#containerDeal{
+margin: 10px 0px 5px 3px;
+width:300px;
+	height: 200px;
+	background-image: url(http://jacksonville.com/ads/dd2013logo/png3.png);
+	background-position: 0px -148px;
+	
+	}
+#containerDeal a:link {
+	color:#0F4B6A;
+	text-decoration:none;
+}      /* unvisited link */
+#containerDeal a:visited {
+	color:#0F4B6A;
+}  /* visited link */
+#containerDeal a:hover {
+	color:#0F4B6A;
+}  /* mouse over link */
+#containerDeal a:active {
+	color:#0F4B6A;
+}  /* selected link */
+
+.sidedealtitle{
+	font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: 12px;
+color: #0F4B6A;
+display: inline-block;
+width: 275px;
+text-align: center;
+padding: 10px 17px 0px 10px;
+
+}
+
+.logoimage {
+height: 123px;
+width: 135px;
+float: left;
+padding: 4px 0px 0px 4px;
+
+	}
+
+
+.logoimage img{
+height: auto;
+width: 159px;
+
+
+	}
+
+.sidedealimage {
+height: 123px;
+width: 135px;
+float: right;
+overflow: hidden;
+padding: 4px 0px 0px 10px;
+margin-right: 6px;
+	}
+.sidedealimage img{
+	width:100%;
+	height:100%;
+	
+	}
+
+</style>
+<div id="containerDeal">
+	
+	<div class="sidedealimage"></div>
+        <div class="sidedealtitle"></div>
+        
+		</div>
+<script>
+	
+	
+	$(document).ready(function() {
+    	populateDeals();
+			    
+	});
+  </script>
+--></div>
+  </div>
+</div>
+  </div>
+
+  
+  </div>
+<div class="panel-pane pane-views pane-premium-lead-2" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-premium-lead-2 view-id-premium_lead_2 view-display-id-block_5 view-dom-id-12">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <div class="small_story">
+	<a href="/breaking-news/2015-02-19/story/augusta-family-buries-wrong-body-after-mixup-gbi-crime-lab" class="imagecache imagecache-premium_300x200_scale_crop imagecache-linked imagecache-premium_300x200_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_300x200_scale_crop/467356931.jpg" alt="" title=""  class="imagecache imagecache-premium_300x200_scale_crop" width="300" height="200" /></a>	
+	<h2><a href="/breaking-news/2015-02-19/story/augusta-family-buries-wrong-body-after-mixup-gbi-crime-lab"><a href="/breaking-news/2015-02-19/story/augusta-family-buries-wrong-body-after-mixup-gbi-crime-lab">Augusta family buries wrong body after mixup at GBI crime lab</a></a></h2>
+	<div class="byline_text">
+		<p>
+			8:23am<span class="comment-count">1</span>    </p>
+  </div>
+
+
+
+  <div class="small_story_summary">
+				<p>A mixup at the GBI crime lab in Atlanta caused an Augusta area family to bury the wrong man.
+
+
+
+A graveside service for Johnny ...</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <div class="small_story">
+	<a href="/breaking-news/2015-02-19/story/wal-mart-spending-1-billion-give-nearly-40-percent-its-workers-pay" class="imagecache imagecache-premium_300x200_scale_crop imagecache-linked imagecache-premium_300x200_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_300x200_scale_crop/Earns-Wal-Mart-Stores.jpg" alt="" title=""  class="imagecache imagecache-premium_300x200_scale_crop" width="300" height="200" /></a>	
+	<h2><a href="/breaking-news/2015-02-19/story/wal-mart-spending-1-billion-give-nearly-40-percent-its-workers-pay"><a href="/breaking-news/2015-02-19/story/wal-mart-spending-1-billion-give-nearly-40-percent-its-workers-pay" title="Wal-Mart spending $1 billion to give nearly 40 percent of its workers pay raises ">Wal-Mart spending $1 billion to give nearly 40 percent of its workers pay raises</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 8:48am    </p>
+  </div>
+
+
+
+  <div class="small_story_summary">
+				<p>NEW YORK — Wal-Mart Stores Inc. is spending $1 billion to make changes to how it pays and trains hourly workers as the embattled ...</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    <div class="small_story">
+	<a href="/news/metro/2015-02-18/story/salvation-army-opens-interim-housing-center-jacksonville-these-people" class="imagecache imagecache-premium_300x200_scale_crop imagecache-linked imagecache-premium_300x200_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_300x200_scale_crop/met_1SalvationArmyHo_1.jpg" alt="" title=""  class="imagecache imagecache-premium_300x200_scale_crop" width="300" height="200" /></a>	
+	<h2><a href="/news/metro/2015-02-18/story/salvation-army-opens-interim-housing-center-jacksonville-these-people"><a href="/news/metro/2015-02-18/story/salvation-army-opens-interim-housing-center-jacksonville-these-people">Salvation Army opens interim housing center in Jacksonville: &#039;These people saved me&#039;</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 8:12am    </p>
+  </div>
+
+
+
+  <div class="small_story_summary">
+				<p>The Salvation Army of Northeast Florida&#039;s new Towers Center of Hope interim housing program provides interim housing for men ...</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+    <div class="small_story">
+	<a href="/news/metro/2015-02-18/story/2-council-committees-pass-pension-bill" class="imagecache imagecache-premium_300x200_scale_crop imagecache-linked imagecache-premium_300x200_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_300x200_scale_crop/PensionSkylineArt990.jpg" alt="" title=""  class="imagecache imagecache-premium_300x200_scale_crop" width="300" height="200" /></a>	
+	<h2><a href="/news/metro/2015-02-18/story/2-council-committees-pass-pension-bill"><a href="/news/metro/2015-02-18/story/2-council-committees-pass-pension-bill">2 Jacksonville council committees pass pension bill</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 7:53am    </p>
+  </div>
+
+
+
+  <div class="small_story_summary">
+				<p>Finance Committee voted 5-2 in favor of pension reform bill that mirrors version approved in January by the Police and Fire Pension Fund ...</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-5 views-row-odd">
+    <div class="small_story">
+	<a href="/business/2015-02-18/story/incentive-agreement-volkswagen-includes-almost-18-million-jaxport-16" class="imagecache imagecache-premium_300x200_scale_crop imagecache-linked imagecache-premium_300x200_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_300x200_scale_crop/biz_1JAXPORTannounce_43_1.jpg" alt="" title=""  class="imagecache imagecache-premium_300x200_scale_crop" width="300" height="200" /></a>	
+	<h2><a href="/business/2015-02-18/story/incentive-agreement-volkswagen-includes-almost-18-million-jaxport-16"><a href="/business/2015-02-18/story/incentive-agreement-volkswagen-includes-almost-18-million-jaxport-16" title="Incentive agreement for Volkswagen includes almost $18 million from JaxPort, $16 million from state ">Incentive agreement for Volkswagen includes almost $18 million from JaxPort, $16 million from state</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 7:56pm<span class="comment-count">3</span>    </p>
+  </div>
+
+
+
+  <div class="small_story_summary">
+				<p>JaxPort promised Volkswagen Group almost $18 million over five years, depending on how many cars it imports, for the company to make ...</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-6 views-row-even">
+    <div class="small_story">
+	<a href="/news/metro/2015-02-18/story/jccis-chief-resign-nonprofit-solid-footing" class="imagecache imagecache-premium_300x200_scale_crop imagecache-linked imagecache-premium_300x200_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_300x200_scale_crop/BenWarner.jpg" alt="" title=""  class="imagecache imagecache-premium_300x200_scale_crop" width="300" height="200" /></a>	
+	<h2><a href="/news/metro/2015-02-18/story/jccis-chief-resign-nonprofit-solid-footing"><a href="/news/metro/2015-02-18/story/jccis-chief-resign-nonprofit-solid-footing">JCCI chief Ben Warner to resign; nonprofit on &#039;solid footing&#039;</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 6:43am<span class="comment-count">1</span>    </p>
+  </div>
+
+
+
+  <div class="small_story_summary">
+				<p>Ben Warner will resign as president and CEO of the Jacksonville Community Council in May to move to Italy.</p>  </div>
+
+</div>
+  </div>
+  <div class="views-row views-row-7 views-row-odd views-row-last">
+    <div class="small_story">
+	<a href="/entertainment/food-and-dining/2015-02-18/story/new-dining-trend-shows-more-people-are-eating-alone" class="imagecache imagecache-premium_300x200_scale_crop imagecache-linked imagecache-premium_300x200_scale_crop_linked"><img src="http://jacksonville.com/sites/default/files/imagecache/premium_300x200_scale_crop/eating0219.jpg" alt="" title=""  class="imagecache imagecache-premium_300x200_scale_crop" width="300" height="200" /></a>	
+	<h2><a href="/entertainment/food-and-dining/2015-02-18/story/new-dining-trend-shows-more-people-are-eating-alone"><a href="/entertainment/food-and-dining/2015-02-18/story/new-dining-trend-shows-more-people-are-eating-alone">New dining trend shows more people are eating alone</a></a></h2>
+	<div class="byline_text">
+		<p>
+			updated 8:55am    </p>
+  </div>
+
+
+
+  <div class="small_story_summary">
+				<p>If you&#039;re a frequent solo diner, you&#039;re not alone.</p>  </div>
+
+</div>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+<div class="panel-pane pane-custom pane-15" >
+  
+  
+  
+  <div class="pane-content">
+    <script type="text/javascript">
+var pittmanimage = "http://news.jacksonville.com/images/pittman/thumb.jpg?cache=" + (new Date()).getTime();
+</script>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+  <style>
+  #pittmanhomepage {
+font-family: 'Open Sans Condensed', sans-serif;
+line-height: 1.3;
+}
+ #pittmanhomepage {width: 300px;  float: left; overflow: hidden; clear: both; margin-bottom: 10px;}
+
+ #pittmanhomepage .pittmanbio {width: 100%; }
+ #pittmanhomepage .pittmanbio p {font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.2; color: #333; padding-bottom: 5px;}
+ #pittmanhomepage .portfolioheader {width: 300px; height: 80px; margin-bottom: 10px;}
+ #pittmanhomepage .pittmanlogo p { font-size: 35px; float: right; margin-top: 5px; width: 120px; line-height: 0.9;}
+ #pittmanhomepage .pittmanmug  {float: left;}
+ #pittmanhomepage .pittmanmug  img { width: 120px; margin-left: -30px; }
+ #pittmanhomepage .pittmanlogo {float: left;}
+ #pittmanhomepage .pittmanlogo p {
+font-size: 30px;
+color: #86acf0;
+font-family: 'Open Sans Condensed', sans-serif !important;
+text-transform: uppercase;
+margin-left: 10px;
+margin-top: 25px;
+font-weight: bold;
+}
+ #pittmanhomepage .pittmanlogo p span.logocolor { color: white; font-weight: normal; }
+#pittmanhomepage ul li {
+float: left; margin-right: 5px; display: inline;
+}
+#pittmanhomepage ul li  a {
+text-decoration: none; color: #1e477c; font-weight: bold; font-size: 13px;
+}
+#pittmanhomepage ul li  a:hover {
+text-decoration: none; color: orange;
+}
+#pittmanhomepage a.portfoliolink { text-decoration: none; color: #1e477c; font-weight: bolder;}
+
+  #pittmanhomepage a:hover.portfoliolink { color: orange;}
+
+  .portfolioheader {
+width: 100%;
+height:  140px;
+position: relative;
+float: left;
+background-color: black;
+overflow: hidden;
+margin-bottom: 20px;
+}
+  </style>
+
+ <div id="pittmanhomepage">
+
+ 		<a href="http://jacksonville.com/matt-pittman"> <div class="portfolioheader">
+
+					<div class="pittmanmug">
+					<img src="http://jacksonville.com/files/img/MattPittmanPhoto.png" alt="Matt Pittman" width="200" border="0" />
+					</div>
+					
+					<div class="pittmanlogo">
+					<p>MATT<span class="logocolor">ABOUT</span>JAX</p>
+					</div>
+	</div> </a>
+<a href="http://jacksonville.com/matt-pittman"><script type="text/javascript">document.write('<img src="' + pittmanimage + '" alt="Matt Pitman video" border="0" />');</script></a>
+
+	       <div class="pittmanbio">
+		 <ul>
+            <li> <a href="https://www.facebook.com/MattPittmanFTU" target="new">Facebook</a>  </li>
+			<li>  <a href="https://twitter.com/mattpittmanftu" target="new">Twitter</a>   </li>
+			<li>  <a href="http://instagram.com/mattpittmanftu" target="new"> Instagram</a>   </li>
+		</ul>
+		</div>
+
+	  
+	
+		
+
+	    
+
+ </div>
+<br />
+<br />  </div>
+
+  
+  </div>
+<div class="panel-pane pane-block pane-block-82"  id="adsense2014">
+  
+  
+  
+  <div class="pane-content">
+    <div id='300x250_adsense' class='adslot footer_ad_300_left_rail' >
+<script type='text/javascript'>
+googletag.defineSlot(NMTdata.ads.dfp_adunit_prefix+NMTdata.ads.dfp_adunit, [[300,250]],'300x250_adsense')
+    .addService(googletag.pubads())
+    .setTargeting('pos',['300x250_adsense'])
+    .setTargeting('google_page_url','http://' + location.hostname)
+    .setTargeting("g", utag_data.gender) .setTargeting("age", NMTdata.data.yearToAge(utag_data.birthdate)) 
+    .setTargeting('ccc',NMTdata.ads.dfp_ccc);
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+googletag.display('300x250_adsense');
+</script>
+</div>  </div>
+
+  
+  </div>
+		</div>
+		<div class='main_content_bottom'>
+					</div>
+
+	</div>
+</div>
+
+<div class='bottom-tier'>
+	<div class="panel-pane pane-custom pane-2" >
+  
+  
+  
+  <div class="pane-content">
+    <style>
+.promo-slider ul li {
+    height: 200px !important;
+    padding: 3px 6px !important;
+    width: 110px !important;
+    margin:1px !important;
+}
+
+.pane-title {
+    font-size: 18px !important;
+}
+.promo-slider {
+    border-bottom: 2px dotted #CCCCCC !important;
+    padding-bottom: 20px;
+}
+.view-id-promo .promo-item img {
+    width: 110px !important;
+}
+</style>  </div>
+
+  
+  </div>
+</div>
+
+
+
+  </div>
+
+<!-- ad footer -->
+	
+			
+<div class="wl-content mbu_footer_ad">
+</div>
+
+<!-- /ad footer -->
+
+
+  <div class="footer">
+
+    <div class="footer_upper_area">
+    	  <div id="block-block-53" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 			<div id='728x90_2' class='ad728'  >
+<script type='text/javascript'>
+googletag.defineSlot(NMTdata.ads.dfp_adunit_prefix+NMTdata.ads.dfp_adunit, [[728,90]],'728x90_2')
+    .addService(googletag.pubads())
+    .setTargeting('pos',['728x90_2'])
+    .setTargeting("g", utag_data.gender) .setTargeting("age", NMTdata.data.yearToAge(utag_data.birthdate))
+    .setTargeting("Taxonomy", utag_data.taxonomy).setTargeting('pplogin', $.cookie('ppUser')? 'y': 'n')
+    .setTargeting('ccc',NMTdata.ads.dfp_ccc);
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+googletag.display('728x90_2');
+</script></div>
+			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+  <div id="block-block-90" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 			<div id='250x90_2' class='ad250'  >
+<script type='text/javascript'>
+googletag.defineSlot(NMTdata.ads.dfp_adunit_prefix+NMTdata.ads.dfp_adunit, [[250,90]],'250x90_2')
+    .addService(googletag.pubads())
+    .setTargeting('pos',['250x90_2'])
+    .setTargeting("g", utag_data.gender) .setTargeting("age", NMTdata.data.yearToAge(utag_data.birthdate))
+    .setTargeting("Taxonomy", utag_data.taxonomy).setTargeting('pplogin', $.cookie('ppUser')? 'y': 'n')
+    .setTargeting('ccc',NMTdata.ads.dfp_ccc);
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+googletag.display('250x90_2');
+</script>
+</div>			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+  <div id="block-panels_mini-table_of_contents" class="wl-block block-panels_mini">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 					  <h2 class="wl-title">
+			  	Table of Contents		    </h2>
+			
+			<div class="wl-inside">
+	 			<div class="panel-display panel-1col clear-block" id="mini-panel-table_of_contents">
+  <div class="panel-panel panel-col">
+    <div><div class="panel-pane pane-custom pane-4" >
+  
+  
+  
+  <div class="pane-content">
+    <div id="toc-wrapper-footer">
+	
+		<div class="toc-col1">
+			<p class="toc-footer-label">
+					Times-Union/Jacksonville.com
+			</p>
+             <ul>
+				<li><a href="/customerservice">Visit our Customer Service Center</a></li>
+				<li><a href="/contact">Contact Us/Staff Directory</a></li>
+				<li><a href="/subscription">Times-Union Subscriber Services</a></li>
+				<li><a href="/classifieds/">Times-Union Classifieds</a></li>
+				<li><a href="http://www.timesunionmedia.com">Advertising</a></li>
+				<li><a href="http://photos.jacksonville.com/mycapture/timesunionstore.asp?event=45272">Company Store</a></li>
+				<li><a href="/resources/history">Company History</a></li>
+				<li><a href="http://www.newslibrary.com/sites/ftub/">Archives/Search</a></li>
+
+			 </ul>
+		</div>
+		<div class="toc-col2">
+			 <ul>
+				
+<li><a href="http://clicks.skem1.com/signup/?c=J51GZ">Sign up for newsletters</a></li>
+				<li><a href="/mobile">Mobile & apps</a></li>
+				<li><a href="/text-alerts">Text Alerts</a></li>
+				<li><a href="/rss-feeds">RSS feeds</a></li>
+				<li><a href="http://eedition.jacksonville.com/cgi-bin/ee.cgi">Times-Union e-Edition</a></li>
+				<li><a href="http://jacksonville.com/local/">Local Business Directory</a></li>
+				<!-- <li><a href="/resources/faq">FAQ</a></li> -->
+				<li><a href="http://jobs.jacksonville.com/?utm_source=jacksonville.com&utm_medium=NavBar&utm_campaign=JacksonvilleJobs">jobs.jacksonville.com</a></li>
+                                   
+			 </ul>
+		</div>
+		<div class="toc-col3">
+			<p class="toc-footer-label">
+					Our Network
+			</p>
+			 <ul>
+				<li><a href="/community/clay">Clay Sun</a></li>
+				<li><a href="http://schools.jacksonville.com">schools.jacksonville.com</a></li>
+				<li><a href="http://running.jacksonville.com">Running.jacksonville.com</a></li>
+				<li><a href="http://jaxairnews.com/">Jax Air News</a></li>
+				<li><a href="http://kingsbayperiscope.com/">Kings Bay Periscope</a></li>
+				<li><a href="http://mayportmirror.com/">Mayport Mirror</a></li>
+                                <li><a href="http://ecolatino.com/">Eco Latino</a></li>
+				<li><a href="http://hopefund.org/">Hope Fund</a></li>
+				<li><a href="/eve_awards">Eve Awards</a></li> 
+			 </ul>
+		</div>
+		<div class="toc-col4">
+			 <ul>
+				 <li><a href="/spottournament">Spot Tournament</a></li> 
+				 <li><a href="/nie">Newspapers in Education (NIE)</a></li> 
+				 <li><a href="/nie/spelling">Times-Union Spelling Bee</a></li>
+				 <li><a href="/nie/journalism">High School Journalism Awards</a></li>
+				 <li><a href="http://straighttalk.jacksonville.com/">Jags Teen Talk</a></li>
+				 <li><a href="/firstcoastfugitives/">First Coast Fugitives</a></li>
+				 <li><a href="http://staugustine.com/">StAugustine.com</a></li>
+				 <li><a href="http://savannahnow.com/">SavannahNow.com</a></li>
+				<!-- <li><a href="http://www.nefar.com/">NEFAR</a></li> -->
+			 </ul>	 
+		</div>
+</div>  </div>
+
+  
+  </div>
+</div>
+  </div>
+</div>
+			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+		</div>
+    <div class="footer_lower_area">
+    	  <div id="block-block-24" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 						<div class="logo">
+       <a href="/" title="Jacksonville.com"><img src="/sites/all/themes/premium/assets/images/timesunionlogo.png" alt="Jacksonville.com" /></a>
+      </div>
+
+			<a href="http://weather.jacksonville.com/" class="weather_area_href"><div class="weather_area three-thirty-eight">
+			<ul class="weather_list display_font" id="footer_weather">
+			<li class="weather_list_item current_weather_day"><span class="weather_list_item_number "><span id="weatherTodayTempFooter"></span>&deg;</span>Now</li>
+			<li class="weather_list_item"><span class="weather_list_item_number"><span id="weatherTomorrowTempFooter"></span>&deg;</span>Tomorrow</li>
+			<li class="weather_list_item"><span class="weather_list_item_number"><span id="weatherNextdayTempFooter"></span>&deg;</span><span id="weatherNextdayNameFooter"></span></li>
+			</ul>
+			</div></a>
+
+           
+  		<div class="clear">
+      </div>			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+    </div>
+    <div class="footer_most_lower_area">
+    	  <div id="block-block-26" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 			<style type="text/css">
+@media not all and (-webkit-min-device-pixel-ratio:0) {  
+    body {  
+        content:inherit;  
+    }  
+} 
+</style>			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+  <div id="block-block-42" class="wl-block block-block">
+  <div class="wl-container">
+
+	 	<div class="wl-content">
+
+	 		
+			<div class="wl-inside">
+	 			<!-- cXense script begin -->
+<div id="cX-root" style="display:none"></div>
+<script type="text/javascript">
+var msmsusername = getCook('msmsusername');
+msmsusername = urldecode(msmsusername);
+var cX = cX || {}; cX.callQueue = cX.callQueue || [];
+if (msmsusername) {
+cX.callQueue.push(['addExternalId', { id: msmsusername, type: 'mmr'}]);
+}
+cX.callQueue.push(['setAccountId', '9222300729399686917']);
+cX.callQueue.push(['setSiteId', '9222300729399686919']);
+cX.callQueue.push(['sendPageViewEvent']);
+</script>
+<script type="text/javascript">
+(function() { try { var scriptEl = document.createElement('script'); scriptEl.type = 'text/javascript'; scriptEl.async = 'async';
+scriptEl.src = ('https:' == document.location.protocol) ? 'https://scdn.cxense.com/cx.js' : 'http://cdn.cxense.com/cx.js';
+var targetEl = document.getElementsByTagName('script')[0]; targetEl.parentNode.insertBefore(scriptEl, targetEl); } catch (e) {};} ());
+</script>
+<!-- cXense script end -->			</div>
+
+	 		
+	 	</div>
+	</div>
+	<span class="wl-clear"></span>
+</div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="http://jacksonville.com/sites/default/files/js/js_0ae516ae88c05a3c5b59873a5ac8a3de.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"CToolsAJAX":{"scripts":{"\/sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery.min.js?I":true,"\/misc\/drupal.js?I":true,"\/sites\/all\/modules\/contrib\/ignore_user\/ignore_user.js?I":true,"\/sites\/all\/modules\/contrib\/jlightbox\/js\/jlightbox.uncompressed.js?I":true,"\/sites\/all\/modules\/contrib\/swftools\/shared\/swfobject2\/swfobject.js?I":true,"\/sites\/all\/modules\/features\/msms_slideshows\/lib\/ultimateslider\/bin\/ultimateslider.min.js?I":true,"\/sites\/all\/modules\/features\/msms_slideshows\/js\/app.min.js?I":true,"\/sites\/all\/modules\/morris\/alert\/alert.fade.js?I":true,"\/sites\/all\/modules\/contrib\/panels\/js\/panels.js?I":true,"\/sites\/all\/themes\/premium\/assets\/js\/jquery-1.3.2.min.js?I":true,"\/sites\/all\/themes\/premium\/assets\/js\/captify.tiny.js?I":true,"\/sites\/all\/themes\/premium\/assets\/js\/captify.js?I":true,"\/sites\/all\/themes\/premium\/assets\/js\/jquery-ui-1.7.custom.min.js?I":true,"\/sites\/all\/modules\/contrib\/ajax\/jquery\/jquery.a_form.packed.js?I":true,"\/sites\/all\/modules\/contrib\/ajax\/ajax.js?I":true,"\/sites\/all\/themes\/premium\/assets\/js\/fix_business_submenu.js?I":true,"\/sites\/all\/modules\/contrib\/swftools\/onepixelout\/onepixelout.js?I":true},"css":{"\/sites\/all\/modules\/morris\/breakouts\/breakouts.css?I":true,"\/modules\/aggregator\/aggregator.css?I":true,"\/modules\/node\/node.css?I":true,"\/modules\/poll\/poll.css?I":true,"\/modules\/system\/defaults.css?I":true,"\/modules\/system\/system.css?I":true,"\/modules\/system\/system-menus.css?I":true,"\/modules\/user\/user.css?I":true,"\/sites\/all\/modules\/contrib\/cck\/theme\/content-module.css?I":true,"\/sites\/all\/modules\/contrib\/ctools\/css\/ctools.css?I":true,"\/sites\/all\/modules\/contrib\/date\/date.css?I":true,"\/sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.css?I":true,"\/sites\/all\/modules\/contrib\/date\/date_popup\/themes\/timeentry.css?I":true,"\/sites\/all\/modules\/contrib\/domain\/domain_nav\/domain_nav.css?I":true,"\/sites\/all\/modules\/contrib\/filefield\/filefield.css?I":true,"\/modules\/forum\/forum.css?I":true,"\/misc\/farbtastic\/farbtastic.css?I":true,"\/sites\/all\/modules\/contrib\/calendar\/calendar.css?I":true,"\/sites\/all\/modules\/contrib\/cck\/modules\/fieldgroup\/fieldgroup.css?I":true,"\/sites\/all\/modules\/contrib\/panels\/css\/panels.css?I":true,"\/sites\/all\/modules\/contrib\/views\/css\/views.css?I":true,"\/sites\/all\/modules\/morris\/sms\/plugins\/layouts\/front_middle_section\/front_middle_section.css?I":true,"\/sites\/all\/themes\/premium\/assets\/css\/tabs.css?I":true,"\/sites\/all\/modules\/contrib\/panels\/plugins\/layouts\/onecol\/onecol.css?I":true,"\/sites\/all\/themes\/premium\/assets\/css\/premium.css?I":true,"\/sites\/all\/modules\/features\/msms_slideshows\/lib\/ultimateslider\/bin\/ultimateslider.min.css?I":true,"\/sites\/all\/modules\/contrib\/jlightbox\/css\/jlightbox.css?I":true}}});
+//--><!]]>
+</script>
+
+    
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-2.newrelic.com","licenseKey":"a8b68eb780","applicationID":"1663315","transactionName":"NFdWZUdSChEEVUReVg0ddVJBWgsMSkZRUFw8X1VfVFQBEDpGUVBcPFdMVFZGEAc=","queueTime":0,"applicationTime":4715,"atts":"GBBVEw9IGR8=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-515.min.js"}</script></body>
+</html>
+";i:2;s:4:"8048";}

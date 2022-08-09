@@ -1,0 +1,383 @@
+a:3:{i:0;s:19:"http://penzeys.com/";i:1;s:18945:"
+    <!DOCTYPE html>
+    <html xmlns:umbraco="http://umbraco.org" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+  
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Spices at Penzeys</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- <meta http-equiv="Cache-control" content="no-cache, must-revalidate"> -->
+        <!-- <meta http-equiv="Pragma" content="no-cache"> -->
+        <!-- <META HTTP-EQUIV="Expires" CONTENT="-1"> -->
+		
+		<!-- FAVICON -->
+		<link rel="shortcut icon" href="/img/favicon.ico">
+
+		<LINK href="/css/bootstrap.min.css" rel="stylesheet">
+		<LINK href="/css/penzeys.css" rel="stylesheet" media="screen"> 
+		<LINK href="/css/angular-carousel.css" rel="stylesheet" media="screen"> 
+		
+        <LINK href="/css/toastr.min.css" rel="stylesheet">
+		
+		
+        <script src="/scripts/jquery-1.10.2.min.js"></script>
+		
+        
+        
+		
+        <script src="/scripts/angular.min.js"></script>
+		<script src="/scripts/angular-touch.min.js"></script>
+		
+        
+        <script src="/scripts/toastr.min.js"></script>
+		
+        <script src="/scripts/underscore.min.js"></script>
+        <script src="/scripts/ucommerce.bootstrap.js"></script>
+        <script src="/scripts/ucommerce.servicestack.js"></script>
+        <script src="/scripts/ucommerce.jquery.js"></script>
+		<script src="/scripts/uCommerce.facets.js"></script>
+		<script src="/scripts/bootstrap.min.js"></script>
+		<script src="/scripts/angular-carousel.js"></script>
+        <script src="/scripts/spin.min.js"></script>
+		<script src="/scripts/penzeys.app.js"></script>
+		<script src="/scripts/penzeys.jQuery.js"></script>
+		<script src="/scripts/penzeys.common.js"></script>
+		<script src="/scripts/penzeys.directives.js"></script>
+		<script src="/scripts/penzeys.services.js"></script>
+		<script src="/scripts/penzeys.shell.js"></script>
+		<script src="/scripts/penzeys.topnavigation.js"></script>
+				
+		<!--[if lt IE 9]>
+		  <script src="/scripts/html5shiv.min.js"></script>
+		  <script src="/scripts/respond.min.js"></script>
+		<![endif]-->
+        
+		
+	<script src="/scripts/penzeys.home.js"></script>
+
+		
+        <script>var PenzeysTollFree = '1-800-741-7787';</script>
+	</head>
+    <body class="product-template" ng-app="penzeysOnline">
+                <div ng-cloak class="ng-cloak">
+            <div data-ng-controller="poShellCtrl" style="clear: both">
+                <div data-ng-show="cartService.isBusy" class="overlayBackground"> 
+                    <div data-cc-spinner="spinnerOptions"></div>
+                 </div>
+            </div>
+        </div>
+       		<HEADER>
+		<!-- navigation -->
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+				<div class="container" ng-controller="poShellCtrl">
+					<div class="logincontainer">
+                        <span class="logincontainer-item">
+                            <span ng-show="loggedin">Welcome! <b>{{currentMember.FirstName}} {{currentMember.LastName}}</b> | </span>
+
+                            <a href="#" ng-click="logOut()" ng-show="loggedin">
+                                <span>Signout</span>
+                            </a>
+                            <a href="/login/" ng-hide="loggedin">
+                                <span>Signin</span>
+                            </a>
+
+                        </span>
+
+					</div>
+					
+                    <a href="#" ng-click="goToCart()" class="basket" ng-show="cartService.showCart">
+                        <table>
+                            <tr>
+                                <td class="hidden-xs hidden-sm">
+                                    <img alt="Checkout" src="/images/ShopcIcon_30x35.png" />
+                                </td>
+						        <td>
+                                    <div class="basket-detail"><span class="basket-item">{{cartService.itemCount}}</span> item(s) <span class="basket-price">{{cartService.formattedSubTotal}}</span> <button type="button" class="btn btn-primary btn-checkout btn-xs">Checkout</button></div>
+                                    <div class="basket-detail-freeshipping"><span>{{getCartMessage(cartService.totalAmount)}}</span></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </a>
+				   <div class="navbar-header">
+					  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>			
+						<a class="navbar-brand" href="/"><div class="logo"></div></a>
+					</div>
+			
+					<div class="navbar-collapse collapse navbar-sec">
+						<ul class="nav navbar-nav navbar-right">
+							<li title="One Click Kindness"><a id="OneClickKindness" href="#" ng-click="goToOneClickKindness()"><span class="glyphicon glyphicon-heart navbar-sec-special"></span><span class="navbar-sm"> One Click Kindness</span></a></li>
+							<li title=" My Penzeys"><a href="/account/"><span class="glyphicon glyphicon-user"></span><span class="navbar-sm"> My Penzeys</span></a></li>
+							<li title=" Store Locator"><a href="/locations/"><span class="glyphicon glyphicon-map-marker"></span><span class="navbar-sm"> Store Locator</span></a></li>
+							<li><a href="#">call us at : <b><script>document.write(PenzeysTollFree)</script></b></a></li>
+						</ul>
+						<form class="navbar-form" role="form">
+							<div class="input-group col-md-offset-2">
+								<input id="searchTerm" type="text" ng-model="searchTerm" class="form-control navbar-globalsearch" placeholder="Search Penzeys" />
+								  <span class="input-group-btn">
+									<button ng-click="goToSearch()" class="btn btn-default navbar-globalsearch-button" type="button"><span class="glyphicon glyphicon-search"></span></button>
+								  </span>
+							</div><!-- /input-group -->
+						</form>
+					</div><!--/.navbar-collapse -->
+				</div>
+			
+				
+				
+                <div ng-controller="topNavigationCtrl">
+                    
+    <input type="hidden" id='selectedMenu' value="SHOP" />
+    <script type="text/javascript">
+        var qs = (function (a) {
+            if (a == "") return {};
+            var b = {};
+            for (var i = 0; i < a.length; ++i) {
+                var p = a[i].split('=');
+                if (p.length != 2) continue;
+                b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+            return b;
+        })(window.location.search.substr(1).split('&'));
+
+        if (qs['m']) {
+            if (qs['m'] == 's') {
+                document.getElementById('selectedMenu').value = 'SHOP';
+            }
+            if (qs['m'] == 'c') {
+                document.getElementById('selectedMenu').value = 'COOK';
+            }
+        }
+    </script>
+
+                    
+
+<div class="navbar-site-sections-container">
+            <div id="CookingMenu" class="navbar-site-sections-cooking" ng-class="getMenuClass('COOK')"><a href="/?m=c" ng-click="setMenu('COOK')"><span ng-show="isMenuActive('COOK')"><font size="1">&#9660;</font></span><font size="1">&nbsp;</font> COOKING<font size="1">&nbsp;</font></a></div>
+            <div id="ShoppingMenu" class="navbar-site-sections-shopping" ng-class="getMenuClass('SHOP')"><a href="/?m=s" ng-click="setMenu('SHOP')"><font size="1">&nbsp;</font>SPICES <span ng-show="isMenuActive('SHOP')"><font size="1">&#9660;</font></span><font size="1">&nbsp;</font></a></div>
+</div>
+
+        <div class="navbar-subnav-cooking navbar-active" ng-show="showMenu('COOK')">
+                <a href="/cook/themes/">Stories and Recipes</a>
+                <a href="/cook/cooking-teasers/"></a>
+                <a href="/cook/one-click-kindness/"></a>
+        </div>
+        <div class="navbar-subnav-shopping navbar-active" ng-show="showMenu('SHOP')">
+                <a href="/shop/spices/">Spices</a>
+                <a href="/shop/gift-boxes/">Gift Boxes</a>
+                <a href="/shop/fun-stuff/">Fun Stuff</a>
+                <a href="/shop/express-order/">Express Order</a>
+                <a href="/shop/shopping-slider-teasers/"></a>
+                <a href="/shop/shopping-ad-teasers/"></a>
+        </div>
+
+                </div>
+			</nav>
+		</HEADER><!-- //header -->
+
+ 
+
+        
+	
+
+
+
+<div class="container" ng-app="penzeysOnline" ng-controller="homeCtrl">
+    <div>
+        <div class="row" ng-show="selectedMenu == 'COOK'">
+           <!-- Current Cook -->
+            <div class="col-lg-8 col-md-12 col-sm-12 home-containers">
+
+                <div class="home-tiles home-currentcook">
+                    <!--Carousel-->
+ 					<ul rn-carousel rn-carousel-indicator rn-carousel-control class="my-slider ng-cloak">
+                        <li ng-repeat="srd in storyRecipeDisplay">
+                            <img class="img-responsive" ng-src="{{srd.ImageUrl}}" />
+                            <div class="carousel-home-caption-background">
+                            </div>
+                            <div class="carousel-home-caption">
+								<div class="carousel-caption-transparent">
+                                <span ng-class="srd.TitleAClass">{{srd.TitleA}}</span>
+                                <span ng-class="srd.TitleBClass">{{srd.TitleB}}</span>
+                                <p>{{srd.Caption}}</p>
+								</div>
+                                <button type="button" class="btn btn-primary btn-xs" ng-click="navToUrl(srd.ButtonUrl)">{{srd.ButtonText}}</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--Carousel-->
+                </div>
+            </div><!-- //Current Cook -->
+			<!-- Current Theme -->
+            <div class="col-lg-4 col-md-12 col-sm-12 home-containers">
+                <div class="home-tiles home-currenttheme">
+                    <div style="width:100%; height:385px; overflow:hidden;">
+                        <h4>{{theme.Title}}</h4>
+                        <p ng-bind-html="renderHtml(theme.MainContent)" style="width:100%; height:390px; overflow:hidden;"></p>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-xs" style="position: absolute; bottom: 14px; right: 15px;" ng-click="navToUrl(theme.Url)">Read More</button>
+                </div>
+            </div>
+            <!-- //Current Theme -->
+        </div> <!-- //row-->
+
+        <div class="row" ng-show="selectedMenu == 'SHOP'">
+            <!-- Shopping Home Story -->
+            <!-- Large Teasers -->
+            <div class="col-lg-8 col-md-12 col-sm-12 home-containers">
+                <div class="home-tiles home-currentcook">
+                    <!--Carousel-->
+                    <ul rn-carousel rn-carousel-indicator rn-carousel-control class="my-slider ng-cloak">
+                        <li ng-repeat="largeTeaser in largeTeasers">
+                            <img class="img-responsive" ng-src="{{largeTeaser.ImageUrl}}" />
+                            <div class="carousel-home-caption-background">
+                            </div>
+                            <div class="carousel-home-caption" ng-show="largeTeaser.MainContent">
+                                <p ng-bind-html="renderHtml(largeTeaser.MainContent)"></p>
+                                <button type="button" class="btn btn-primary btn-xs" ng-click="navToUrl(largeTeaser.ButtonUrl)" ng-show="largeTeaser.ButtonText">{{largeTeaser.ButtonText}}</button>
+                            </div>
+                            <div class="carousel-home-caption" ng-show="!largeTeaser.MainContent">
+                                <button type="button" class="btn btn-primary btn-xs" ng-click="navToUrl(largeTeaser.ButtonUrl)" ng-show="largeTeaser.ButtonText">{{largeTeaser.ButtonText}}</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--/Carousel-->
+                </div>
+            </div><!-- Large Teasers -->
+			<!-- Shopping Home Story -->
+            <div class="col-lg-4 col-md-12 col-sm-12 home-containers">
+                <div class="home-tiles home-currenttheme">
+                    <p ng-bind-html="renderHtml(shopHome.MainContent)" style="width:100%; height:393px; overflow:hidden;"></p>
+                    <button type="button" class="btn btn-primary btn-xs" style="position: absolute; bottom: 14px; right: 15px;" ng-click="navToUrl(shopHome.ButtonUrl)" ng-show="shopHome.ButtonText">{{shopHome.ButtonText}}</button>
+                </div>
+            </div>
+        </div> <!-- //row-->
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 home-containers" ng-repeat="smallTeaser in smallTeasers">
+                <!-- Other Selected Content -->
+                <div class="home-tiles home-others">
+                    <div id="j1" class="home-others-wrapper" ng-show="smallTeaser.ImageUrl && smallTeaser.MainContent">
+                        <img ng-src="{{smallTeaser.ImageUrl}}" ng-show="!smallTeaser.ButtonText" />
+                        <a title="{{smallTeaser.ButtonText}}" href="{{smallTeaser.ButtonUrl}}" ng-show="smallTeaser.ButtonText">
+                            <img ng-src="{{smallTeaser.ImageUrl}}" />
+                        </a>
+                        <p ng-bind-html="renderHtml(smallTeaser.MainContent)"></p>
+                    </div>
+                    <div id="j2" class="home-others-wrapper" ng-show="smallTeaser.ImageUrl && !smallTeaser.MainContent">
+                        <img ng-src="{{smallTeaser.ImageUrl}}" ng-show="!smallTeaser.ButtonText" />
+                        <a title="{{smallTeaser.ButtonText}}" href="{{smallTeaser.ButtonUrl}}" ng-show="smallTeaser.ButtonText">
+                            <img ng-src="{{smallTeaser.ImageUrl}}" />
+                        </a>
+                    </div>
+                    <div id="j3" class="home-others-wrapper" ng-show="!smallTeaser.ImageUrl && smallTeaser.MainContent">
+                        <p ng-bind-html="renderHtml(smallTeaser.MainContent)"></p>
+                    </div>
+                    <div id="j4" class="home-others-wrapper" ng-show="!smallTeaser.ImageUrl && !smallTeaser.MainContent">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-xs" style="position: absolute; bottom: 14px; right: 15px;" ng-click="navToUrl(smallTeaser.ButtonUrl)" ng-show="smallTeaser.ButtonText">{{smallTeaser.ButtonText}}</button>
+                </div>
+                <!-- //Other Selected Content -->
+            </div>
+        </div>
+    </div>
+</div>
+
+        <FOOTER>
+            
+            <div class="container">
+				<div class="row" class="footer-hordivider">			
+			        <div class="col-sm-7 col-md-5">
+					    <img src="/images/penzeys-whitelogo.png" alt="...">
+					    <span class="footer-copyright">Penzeys Spices &#169; copyright 2015	</span>
+				    </div>
+				
+				    <div class="col-sm-5 col-md-7 footer-group-policies">
+					    <span><a href="/contact-us/"> &#9670; Contact us</a></span>
+					    <span><a href="/return-policy/"> &#9670; Return Policy</a></span>
+					    <span><a href="/shipping-policy/"> &#9670; * Shipping Policy</a></span>
+					    <span><a href="/Privacy-policy/"> &#9670; Privacy Policy</a></span>				
+				    </div>
+			    </div>
+			
+			    <div class="row">
+                    
+
+        <div class="col-lg-3 col-md-3 col-sm-6 footer-group-about">
+		    <div class="footer-sectionheader"><span class="glyphicon glyphicon-heart-empty"></span> Get to Know Us</div>
+                <a href="/cook/themes/">Stories</a>
+                <a href="/cook/career-with-us/">Careers</a>
+                <a href="/cook/cooking-teasers/"></a>
+                <a href="/cook/one-click-kindness/"></a>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-6 footer-group-browse">
+            <div class="footer-sectionheader"><span class="glyphicon glyphicon-globe"></span> Browse By</div>
+                <a href="/shop/spices/">Spices</a>
+                <a href="/shop/gift-boxes/">Gift Boxes</a>
+                <a href="/shop/fun-stuff/">Fun Stuff</a>
+                <a href="/shop/express-order/">Express Order</a>
+                <a href="/shop/recipes/">Recipes</a>
+                <a href="/shop/my-cart/"></a>
+                <a href="/shop/shopping-slider-teasers/"></a>
+                <a href="/shop/shopping-ad-teasers/"></a>
+        </div>
+
+
+
+				    <div class="col-lg-3 col-md-2 col-sm-6 footer-group-mypenzeys">
+					    	<div class="footer-sectionheader"><span class="glyphicon glyphicon-user"></span> My Penzeys </div>
+						    <a href="/login/"> Sign in / Sign out</a>
+						    <a href="/account/"> Account Details</a>
+						    <a href="/subscription-request/"> Subscriptions</a>
+				    </div>
+				
+				    <div class="col-lg-3 col-md-4 col-sm-6 footer-group-contact">
+					    <p><b>Feel free to contact us.</b></p>
+					    <p><span class="glyphicon glyphicon-phone"></span> call us toll-free at <a href="/contact-us/"><script>document.write(PenzeysTollFree)</script></a></p>
+				        <p><span class="glyphicon glyphicon-envelope"></span> <a href="mailto:customerservice@penzeys.com">customerservice@penzeys.com</a></p>
+					    <p><span class="glyphicon glyphicon-map-marker"></span> <a href="/locations/">Store Locator</a>
+					
+				    </div>	  
+			    </div>
+
+		    </div>		             
+        </FOOTER>		
+        	
+		
+		<script type="text/javascript">
+			var _mfq = _mfq || [];
+			(function () {
+			var mf = document.createElement("script"); mf.type = "text/javascript"; mf.async = true;
+			mf.src = "//cdn.mouseflow.com/projects/b2ef72ae-6178-467f-9a96-02dedf6332d5.js";
+			document.getElementsByTagName("head")[0].appendChild(mf);
+		  })();
+		</script>
+ 	</body>
+	
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		//_gaq.push(['_setAccount', 'UA-9195707-3']);     // non-Production
+		_gaq.push(['_setAccount', 'UA-52040741-1']);  // Production
+		_gaq.push(['_setDomainName', 'none']);
+		_gaq.push(['_trackPageview']);
+
+		(function () {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	
+	</HTML>
+";i:2;s:4:"8610";}

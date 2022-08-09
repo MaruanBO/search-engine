@@ -1,0 +1,813 @@
+a:3:{i:0;s:23:"http://alotresults.com/";i:1;s:52668:"<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 lt-ie9"> <![endif]-->
+<!--[if IE 9]>    <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en" class="">
+<!--<![endif]-->
+<head><script id="f5_cspm">(function(){var f5_cspm={f5_p:'GMIPLJBELACFIABMFBBNMKIPJPKMLJKNJCKBKIPJCFLBFEHHLPDCMOPMEONANFGNPCMCJKHAEGOLIMDBBJNOLOLHNMKJPKIOOJGNOECPLMAFFDFHMJPNBDDIGJAJKOKO',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,32,(latency>>8));str=f5_cspm.set_byte(str,33,(latency&0xff));str=f5_cspm.set_byte(str,27,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='aaaaaaaaaaaaaaa='+encodeURIComponent(cookie_val)+';path=/';}
+return;}}
+catch(err){return;}
+setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='f5_cspm'){if(pair[1]=='1234'){var d=new Date();d.setTime(d.getTime()-1);window.document.cookie='f5_cspm=;expires='+d.toUTCString()+';path=/;';setTimeout(f5_cspm.wait_perf_data,100);}}}}}
+f5_cspm.go();}());</script>
+
+    <title>ALOT Local</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <link rel="icon" href="/assets/sites/Local/img/favicon_new.ico" type="image/x-icon">
+    
+    <meta name="description" content="Find businesses near you with Alot Local." />
+
+    <link rel="stylesheet" media="all" href="/assets/sites/Local/css/site.css" />
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        /*
+            I'd rather all this be in a document.ready, but window.load seems to
+            work much better with the timing of loaded assets and equalizing
+            column widths.
+            http://www.codeproject.com/Tips/632672/JavaScripts-document-ready-vs-window-load
+        */
+
+        $(function () {
+
+            // click handler for opening panels
+            $('.js--mobile-action').on('click', function (e) {
+                var action = $(this);
+                if (action.hasClass('toggled')) {
+                    e.preventDefault();
+                    hideAllPanels();
+                } else {
+                    e.preventDefault();
+                    hideAllPanels();
+                    var target = action.attr('href');
+                    $(this).addClass('toggled');
+                    showPanel(target);
+                }
+            });
+
+            $('.network-dropdown-container').hover(function (e) {
+                showNetworkPanel($(this));
+            }, function (e) {
+                hideNetworkPanel($(this));
+            });
+
+            // click handler for closing panels
+            $('.js--close, .overlay').on('click', function (e) {
+                e.preventDefault();
+                hideAllPanels();
+            });
+
+            // click handler for subnav slidedowns in main menu
+            $('.js--subnav-expand').on('click', function (e) {
+                e.preventDefault();
+                var nav_expand = $(this);
+                toggleSubnav(nav_expand);
+            });
+
+            // when the user clicks a link inside a panel, hide the panel and return true
+            $('.mobile-panel a').on('click', function (e) {
+                if (!$(this).hasClass('subnav-expand')) {
+                    hideAllPanels();
+                }
+                return true;
+            });
+
+            // emulate placeholder attr in IE8
+            if ($('html').hasClass('lt-ie9') || $('html').hasClass('ie9')) {
+                var search_input = $('.site-header .search-input');
+                search_input.val('Search...');
+                search_input.focus(function () {
+                    $(this).val('');
+                });
+                search_input.blur(function () {
+                    $(this).val('Search...');
+                });
+            }
+
+            // watch esc key - hide panels/modals when pressed
+            $(document).keyup(function (e) {
+                if (e.keyCode == 27) {
+                    hideAllPanels();
+                }
+            });
+
+            $('.js--big-touch').on('click', function () {
+                var thing = $(this);
+                var link = thing.find('.js--big-touch-link').attr('href');
+                window.location = link;
+            });
+
+            $('.back-to-top').on('click', function (e) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 350);
+            });
+
+            // opens panel based on ID of jquery object
+            function showPanel(target) {
+                $('.js--close').addClass('toggled');
+                $('.overlay').addClass('toggled');
+                $(target).addClass('toggled');
+                if (target == '#site_search') {
+                    $('#site_search').find('input[type="text"]').focus();
+                }
+            }
+            // hides all panels and resets panel-related classes
+            function hideAllPanels() {
+                $('.toggled').removeClass('toggled');
+                $('.search-input').blur();
+            }
+
+            // functions for opening and closing network panels
+            function showNetworkPanel(network_link) {
+                var network_link = network_link;
+                var network_color = network_link.find('i').css('color');
+                var network_dropdown = network_link.children('.network-teaser-dropdown');
+                var network_list = network_link.parents('.network-nav');
+
+                network_link.addClass('toggled');
+                network_link.find('.alot-brand').after('<div class="network-dropdown-hover-border" style="border-bottom-color:' + network_color + '"></div>');
+                network_list.addClass('toggled');
+                network_dropdown.addClass('toggled').css({
+                    borderTopColor: network_color
+                });
+            }
+            function hideNetworkPanel(network_link) {
+                var network_link = network_link;
+                var network_dropdown = network_link.children('.network-teaser-dropdown');
+                var network_list = network_link.parents('.network-nav');
+
+                network_link.removeClass('toggled');
+                $('.network-dropdown-hover-border').remove();
+                network_list.removeClass('toggled');
+                network_dropdown.removeClass('toggled');
+            }
+
+            // shows and hides the subnav
+            function toggleSubnav(nav_expand) {
+                nav_expand.toggleClass('toggled');
+                nav_expand.next().toggleClass('toggled');
+            }
+
+        });
+    </script>
+
+    <script type='text/javascript'>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function () {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+    </script>
+
+    
+</head>
+<body class="local-homepage local">
+
+    
+
+<header class="site-header" id="site_header">
+    <div class="g  site-header-guts">
+        <div class="unit-9">
+            <div class="logo-and-network-nav">
+                <a href="/">
+                    <div class="site-logo">
+                        <!--[if gte IE 9]><!-->
+                        <svg class="site-logo-svg" version="1.1" id="alot_logo_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 59 26" enable-background="new 0 0 59 26" xml:space="preserve">
+                        <g>
+                        <path fill="#111111" d="M58.8,23.8c0-0.1-0.1-0.2-0.2-0.3c-0.1-0.1-0.2-0.1-0.3-0.2c-0.1,0-0.2-0.1-0.3-0.1c-0.1,0-0.2,0-0.3,0.1
+                            c-0.1,0-0.2,0.1-0.3,0.2c-0.1,0.1-0.1,0.2-0.2,0.3s-0.1,0.2-0.1,0.4c0,0.1,0,0.2,0.1,0.3c0,0.1,0.1,0.2,0.2,0.3
+                            c0.1,0.1,0.2,0.1,0.3,0.2c0.1,0,0.2,0.1,0.3,0.1c0.1,0,0.2,0,0.3-0.1c0.1,0,0.2-0.1,0.3-0.2c0.1-0.1,0.1-0.2,0.2-0.3
+                            c0-0.1,0.1-0.2,0.1-0.3C58.9,24,58.8,23.9,58.8,23.8z M58.7,24.5c0,0.1-0.1,0.2-0.2,0.2c-0.1,0.1-0.2,0.1-0.2,0.2
+                            c-0.1,0-0.2,0.1-0.3,0.1c-0.1,0-0.2,0-0.3-0.1c-0.1,0-0.2-0.1-0.2-0.2c-0.1-0.1-0.1-0.2-0.2-0.2c0-0.1-0.1-0.2-0.1-0.3
+                            c0-0.1,0-0.2,0.1-0.3c0-0.1,0.1-0.2,0.2-0.2c0.1-0.1,0.2-0.1,0.2-0.2c0.1,0,0.2-0.1,0.3-0.1c0.1,0,0.2,0,0.3,0.1
+                            c0.1,0,0.2,0.1,0.2,0.2c0.1,0.1,0.1,0.2,0.2,0.2c0,0.1,0.1,0.2,0.1,0.3C58.7,24.3,58.7,24.4,58.7,24.5z" />
+                        <path fill="#111111" d="M58.1,24.2c0.1,0,0.1-0.1,0.2-0.1c0-0.1,0.1-0.1,0.1-0.2c0-0.1,0-0.1,0-0.1c0,0-0.1-0.1-0.1-0.1
+                            c0,0-0.1,0-0.1-0.1s-0.1,0-0.1,0h-0.3v1.1h0.1v-0.5h0.1h0c0,0.1,0.1,0.2,0.1,0.3c0,0.1,0.1,0.2,0.1,0.3h0.1c0-0.1-0.1-0.2-0.1-0.3
+                            C58.2,24.4,58.1,24.3,58.1,24.2z M58,24.1h-0.2v-0.4H58c0.1,0,0.1,0,0.2,0.1c0,0,0.1,0.1,0.1,0.1c0,0,0,0,0,0.1c0,0,0,0,0,0.1
+                            c0,0,0,0-0.1,0.1C58.1,24.1,58,24.1,58,24.1z" />
+                                            </g>
+                        <path fill="#111111" d="M25.5,20.5V0.6h-3.1v20.4c0,4,2.5,4.5,4.3,4.5c0.5,0,2.4,0,2.4,0v-2.7c0,0-1.7,0-2,0
+                        C26.2,22.8,25.5,22.4,25.5,20.5z" />
+                        <path fill="#111111" d="M52.7,20.5V7.3h2.9V4.2h-2.9V0.6h-3.1v3.6h-1.2v3.1h1.2v13.8c0,4,2.5,4.5,4.3,4.5c0.5,0,2.4,0,2.4,0v-2.7
+                        c0,0-1.7,0-2,0C53.4,22.8,52.7,22.4,52.7,20.5z" />
+                        <g>
+                        <path fill="#111111" d="M19.1,20.5V7.4H16v2c-0.8-0.8-1.7-1.4-2.8-1.9c-0.9-0.4-1.9-0.7-3-0.7v0c-0.1,0-0.2,0-0.3,0c0,0,0,0,0,0
+                            c-0.1,0-0.2,0-0.3,0c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1,0c-0.1,0-0.2,0-0.3,0c0,0,0,0,0,0c-0.1,0-0.2,0-0.3,0v0c-1.1,0.1-2,0.3-3,0.7
+                            c-1.2,0.5-2.2,1.2-3,2.1c-0.8,0.9-1.5,1.9-2,3c-0.5,1.1-0.7,2.3-0.7,3.6c0,1.3,0.2,2.5,0.7,3.6c0.5,1.1,1.2,2.1,2,3
+                            c0.8,0.8,1.8,1.5,3,2c0.9,0.4,1.9,0.6,3,0.7v0c0.2,0,0.4,0,0.6,0c0,0,0.1,0,0.1,0c0,0,0.1,0,0.1,0c0.2,0,0.4,0,0.6,0v0
+                            c1.1-0.1,2-0.3,3-0.7c1.2-0.5,2.2-1.2,3-2c0.6,2.4,2.6,2.7,4.1,2.7c0.2,0,0.5,0,0.7,0v-2.7c-0.1,0-0.2,0-0.2,0
+                            C19.8,22.8,19.1,22.4,19.1,20.5z M15.5,18.7c-0.3,0.8-0.8,1.5-1.4,2c-0.6,0.6-1.3,1-2.1,1.4c-0.8,0.3-1.6,0.5-2.5,0.5
+                            c-0.9,0-1.7-0.2-2.5-0.5c-0.8-0.3-1.5-0.8-2.1-1.4c-0.6-0.6-1-1.2-1.4-2c-0.3-0.8-0.5-1.6-0.5-2.6c0-0.9,0.2-1.7,0.5-2.5
+                            C4,12.8,4.4,12.1,5,11.6c0.6-0.6,1.3-1,2.1-1.4c0.8-0.3,1.6-0.5,2.5-0.5c0.9,0,1.7,0.2,2.5,0.5c0.8,0.3,1.5,0.8,2.1,1.4
+                            c0.6,0.6,1,1.3,1.4,2.1c0.3,0.8,0.5,1.6,0.5,2.5C16,17.1,15.8,17.9,15.5,18.7z" />
+                                            </g>
+                        <path fill="#111111" d="M46.7,12.6c-0.5-1.1-1.2-2.1-2-3c-0.8-0.9-1.8-1.5-3-2.1c-0.9-0.4-1.9-0.7-3-0.7v0c-0.1,0-0.2,0-0.3,0
+                        c0,0,0,0,0,0c-0.1,0-0.2,0-0.3,0c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1,0c-0.1,0-0.2,0-0.3,0c0,0,0,0,0,0c-0.1,0-0.2,0-0.3,0v0
+                        c-1.1,0.1-2,0.3-3,0.7c-1.2,0.5-2.2,1.2-3,2.1c-0.8,0.9-1.5,1.9-2,3c-0.5,1.1-0.7,2.3-0.7,3.6c0,1.3,0.2,2.5,0.7,3.6
+                        c0.5,1.1,1.2,2.1,2,3c0.8,0.8,1.8,1.5,3,2c0.9,0.4,1.9,0.6,3,0.7v0c0.2,0,0.4,0,0.6,0c0,0,0.1,0,0.1,0c0,0,0.1,0,0.1,0
+                        c0.2,0,0.4,0,0.6,0v0c1.1-0.1,2-0.3,3-0.7c1.2-0.5,2.2-1.2,3-2c0.8-0.8,1.5-1.8,2-3c0.5-1.1,0.7-2.3,0.7-3.6
+                        C47.4,14.9,47.2,13.7,46.7,12.6z M38,22.6c-3.6,0-6.4-2.9-6.4-6.4s2.9-6.4,6.4-6.4s6.4,2.9,6.4,6.4S41.5,22.6,38,22.6z" />
+                        </svg>
+                        <!--<![endif]-->
+
+                    </div>
+                </a>
+                <a href="#network_nav" class="network-toggle js--mobile-action">
+                    <div class="alot-brand">
+                        <span class="alot-brand-name">Local</span>
+                        <span class="alot-brand-logo"><i class="icon-alot_local"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div id="network_nav" class="mobile-panel network-nav-panel">
+                <nav class="nav network-nav  network-nav">
+                    <div class="cf">
+                            <div class="network-dropdown-container">
+
+                                <a href="http://health.alot.com" class="network-nav-item ">
+                                    <div class="alot-brand alot-brand--health">
+                                        <span class="alot-brand-name">Health</span>
+                                        <span class="alot-brand-logo"><i class="icon-alot_health"></i></span>
+                                    </div>
+                                </a>
+
+                                    <div class="network-teaser-dropdown">
+                                        <div class="cf g">
+                                            <div class="unit-3">
+                                                <nav class="nav--vertical  pad-right">
+                                            <a href="http://health.alot.com/doctor">Find a Doctor</a>
+                                            <a href="http://health.alot.com/conditions">Conditions</a>
+                                            <a href="http://health.alot.com/wellness">Wellness</a>
+                                            <a href="http://health.alot.com/pregnancy">Pregnancy</a>
+                                                </nav>
+                                            </div>
+                                            <div class="unit-9">
+                                                <div class="cf">
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://health.alot.com/conditions/5-foods-that-fight-heart-disease--2882" class="cf">
+                                                        <img src="http://health.alot.com/assets/common/conditions/u2882_60x60.jpg" alt="people choosing between foods that fight heart disease" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            5 Foods that Fight Heart Disease
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://health.alot.com/conditions/4-ways-to-fight-foot-pain--5953" class="cf">
+                                                        <img src="http://health.alot.com/assets/common/conditions/u5953_60x60.jpg" alt="a man experiencing foot pain" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            4 Ways to Fight Foot Pain
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                </div>
+                                                <div class="cf">
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://health.alot.com/conditions/7-struggles-only-diabetic-people-understand--5874" class="cf">
+                                                        <img src="http://health.alot.com/assets/common/conditions/u5874_60x60.jpg" alt="a woman who knows about diabetes struggles" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            7 Struggles Only Diabetic People Understand
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://health.alot.com/wellness/5-reasons-your-family-needs-a-first-aid-kit--5383" class="cf">
+                                                        <img src="http://health.alot.com/assets/common/wellness/u5383_60x60.jpg" alt="a woman who is thankful her family owns a first aid kit" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            5 Reasons Your Family Needs a First Aid Kit
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="network-dropdown-container">
+
+                                <a href="http://finance.alot.com" class="network-nav-item ">
+                                    <div class="alot-brand alot-brand--finance">
+                                        <span class="alot-brand-name">Finance</span>
+                                        <span class="alot-brand-logo"><i class="icon-alot_finance"></i></span>
+                                    </div>
+                                </a>
+
+                                    <div class="network-teaser-dropdown">
+                                        <div class="cf g">
+                                            <div class="unit-3">
+                                                <nav class="nav--vertical  pad-right">
+                                            <a href="http://finance.alot.com/advisor">Find an Advisor</a>
+                                            <a href="http://finance.alot.com/investing">Investing</a>
+                                            <a href="http://finance.alot.com/personal-finance">Personal Finance</a>
+                                            <a href="http://finance.alot.com/insurance">Insurance</a>
+                                            <a href="http://finance.alot.com/legal">Legal</a>
+                                                </nav>
+                                            </div>
+                                            <div class="unit-9">
+                                                <div class="cf">
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://finance.alot.com/personal-finance/boost-your-finances-with-a-professional-life-coach--5162" class="cf">
+                                                        <img src="http://finance.alot.com/assets/common/personal_finance/u5162_60x60.jpg" alt="A woman reviewing her finances with a life coach" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            Boost Your Finances With A Professional Life Coach
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://finance.alot.com/personal-finance/7-steps-to-forecasting-cash-flow-for-your-business--5685" class="cf">
+                                                        <img src="http://finance.alot.com/assets/common/personal_finance/u5685_60x60.jpg" alt="A businessman who has successfully forecast his cash flow" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            7 Steps to Forecasting Cash Flow For Your Business
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                </div>
+                                                <div class="cf">
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://finance.alot.com/personal-finance/10-things-you-should-know-about-paying-for-college--5353" class="cf">
+                                                        <img src="http://finance.alot.com/assets/common/personal_finance/u5353_60x60.jpg" alt="Money flowing out of a brown bag, a poor college savings plan" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            10 Things You Should Know About Paying For College
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://finance.alot.com/personal-finance/3-budgeting-apps-you-need--2397" class="cf">
+                                                        <img src="http://finance.alot.com/assets/common/personal_finance/u2397_60x60.jpg" alt="Man smiling as he checks his bank balance from a smartphone budgeting app" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            3 Budgeting Apps You Need
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="network-dropdown-container">
+
+                                <a href="http://careers.alot.com" class="network-nav-item ">
+                                    <div class="alot-brand alot-brand--careers">
+                                        <span class="alot-brand-name">Careers</span>
+                                        <span class="alot-brand-logo"><i class="icon-alot_careers"></i></span>
+                                    </div>
+                                </a>
+
+                                    <div class="network-teaser-dropdown">
+                                        <div class="cf g">
+                                            <div class="unit-3">
+                                                <nav class="nav--vertical  pad-right">
+                                            <a href="http://careers.alot.com/school">Find a School</a>
+                                            <a href="http://careers.alot.com/education">Education</a>
+                                            <a href="http://careers.alot.com/career">Career</a>
+                                            <a href="http://careers.alot.com/planning">Planning</a>
+                                                </nav>
+                                            </div>
+                                            <div class="unit-9">
+                                                <div class="cf">
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://careers.alot.com/planning/5-easy-hairstyles-for-the-office--6022" class="cf">
+                                                        <img src="http://careers.alot.com/assets/common/planning/u6022_60x60.jpg" alt="A girl wears a simple hairstyle to work" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            5 Easy Hairstyles for the Office
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://careers.alot.com/career/5-crazy-things-that-always-happen-at-new-york-fashion-week--3466" class="cf">
+                                                        <img src="http://careers.alot.com/assets/common/career/u3466_60x60.jpg" alt="Models strut on the catwalk at New York Fashion Week" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            5 Crazy Things That Always Happen at New York Fashion Week
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                </div>
+                                                <div class="cf">
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://careers.alot.com/planning/where-to-shop-5-affordable-stores-for-the-professional-twentysomething--6014" class="cf">
+                                                        <img src="http://careers.alot.com/assets/common/planning/u6014_60x60.jpg" alt="A young girl shops for work clothes" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            Where to Shop: 5 Affordable Stores for the Professional Twentysomething
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://careers.alot.com/career/are-you-too-sick-for-work--5639" class="cf">
+                                                        <img src="http://careers.alot.com/assets/common/career/u5639_60x60.jpg" alt="A man lies in bed and takes his temperature" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            Are You Too Sick for Work?
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="network-dropdown-container">
+
+                                <a href="http://local.alot.com" class="network-nav-item current">
+                                    <div class="alot-brand alot-brand--local">
+                                        <span class="alot-brand-name">Local</span>
+                                        <span class="alot-brand-logo"><i class="icon-alot_local"></i></span>
+                                    </div>
+                                </a>
+
+                            </div>
+                            <div class="network-dropdown-container">
+
+                                <a href="http://travel.alot.com" class="network-nav-item ">
+                                    <div class="alot-brand alot-brand--travel">
+                                        <span class="alot-brand-name">Travel</span>
+                                        <span class="alot-brand-logo"><i class="icon-alot_travel"></i></span>
+                                    </div>
+                                </a>
+
+                                    <div class="network-teaser-dropdown">
+                                        <div class="cf g">
+                                            <div class="unit-3">
+                                                <nav class="nav--vertical  pad-right">
+                                            <a href="http://travel.alot.com/destinations">Destinations</a>
+                                            <a href="http://travel.alot.com/themes">Themes</a>
+                                            <a href="http://travel.alot.com/travel-tips">Travel Tips</a>
+                                                </nav>
+                                            </div>
+                                            <div class="unit-9">
+                                                <div class="cf">
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://travel.alot.com/destinations/-can-americans-travel-to-cuba--5997" class="cf">
+                                                        <img src="http://travel.alot.com/assets/common/destinations/u5997_60x60.jpg" alt="an american couple explores the cities of Cuba" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                             Can Americans Travel to Cuba?
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://travel.alot.com/destinations/5-family-friendly-sonoma-hotels--4922" class="cf">
+                                                        <img src="http://travel.alot.com/assets/common/destinations/u4922_60x60.jpg" alt="2 children play on a bed in a sonoma hotel" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            5 Family-Friendly Sonoma Hotels
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                </div>
+                                                <div class="cf">
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://travel.alot.com/destinations/top-5-grand-canyon-hikes--2306" class="cf">
+                                                        <img src="http://travel.alot.com/assets/common/destinations/u2306_60x60.jpg" alt="a landscape view of the Grand Canyon and its striped walls" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            Top 5 Grand Canyon Hikes
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://travel.alot.com/themes/island-golf-best-caribbean-golf-destinations--2273" class="cf">
+                                                        <img src="http://travel.alot.com/assets/common/themes/u2273_60x60.jpg" alt="a sand bunker next to a golf green with the ocean in the background" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            Island Golf: Best Caribbean Golf Destinations
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="network-dropdown-container">
+
+                                <a href="http://living.alot.com" class="network-nav-item ">
+                                    <div class="alot-brand alot-brand--living">
+                                        <span class="alot-brand-name">Living</span>
+                                        <span class="alot-brand-logo"><i class="icon-alot_living"></i></span>
+                                    </div>
+                                </a>
+
+                                    <div class="network-teaser-dropdown">
+                                        <div class="cf g">
+                                            <div class="unit-3">
+                                                <nav class="nav--vertical  pad-right">
+                                            <a href="http://living.alot.com/family">Family</a>
+                                            <a href="http://living.alot.com/home">Home</a>
+                                            <a href="http://living.alot.com/relationships">Relationships</a>
+                                            <a href="http://living.alot.com/beauty">Beauty</a>
+                                            <a href="http://living.alot.com/entertainment">Entertainment</a>
+                                                </nav>
+                                            </div>
+                                            <div class="unit-9">
+                                                <div class="cf">
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://living.alot.com/entertainment/chinese-new-year-2015-year-of-the-goat--5941" class="cf">
+                                                        <img src="http://living.alot.com/assets/common/entertainment/u5941_60x60.jpg" alt="A Chinese New Year dragon." class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            Chinese New Year 2015: Year of The Goat
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://living.alot.com/entertainment/2015-oscars-drinking-game-lights-camera-drink--6080" class="cf">
+                                                        <img src="http://living.alot.com/assets/common/entertainment/u6080_60x60.jpg" alt="The Oscars award" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            2015 Oscars Drinking Game: Lights, Camera, Drink!
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                </div>
+                                                <div class="cf">
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://living.alot.com/entertainment/2015-victorias-secret-swim-special-drinking-game--6079" class="cf">
+                                                        <img src="http://living.alot.com/assets/common/entertainment/u6079_60x60.jpg" alt="A model poses in the water wearing a bikini and a hat" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            2015 Victoria&#39;s Secret Swim Special Drinking Game
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="unit-6">
+                                                <div class="tiny-article">
+                                                    <a href="http://living.alot.com/entertainment/9-times-molly-ringwald-was-your-spirit-animal--6077" class="cf">
+                                                        <img src="http://living.alot.com/assets/common/entertainment/u6077_60x60.jpg" alt="Molly Ringwald in The Breakfast Club" class="tiny-article-img" />
+                                                        <span class="tiny-article-title">
+                                                            9 Times Molly Ringwald Was Your Spirit Animal
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                            </div>
+
+                    </div>
+                    <a href="http://alot.com" class="mothership-link">The <span>alOt</span> network.</a>
+                </nav>
+            </div>
+
+        </div>
+
+
+        <div id="site_search" class="mobile-panel search-panel unit-3">
+            <form method="get" action="/business" class="search-form">
+                <input tabindex="1" placeholder="Search..." type="text" class="search-input input--fit" name="query" />
+                <button tabindex="2" type="submit" class="search-submit"><i class="icon-search"></i></button>
+            </form>
+        </div>
+
+
+        <a href="#site_nav" class="mobile-header-action menu-open js--mobile-action">
+            <i class="icon-navicon icon-fw"></i>
+            <span>menu</span>
+        </a>
+            <a href="#site_sidebar" class="mobile-header-action menu-open--article js--mobile-action">
+                <i class="icon-navicon icon-fw"></i>
+                <span>menu</span>
+            </a>
+
+        <a href="#site_search" class="mobile-header-action search-toggle js--mobile-action">
+            <i class="icon-search"></i>
+            <span>search</span>
+        </a>
+
+        <a href="#" class="mobile-header-action menu-close js--close">
+            <i class="icon-times"></i>
+            <span>close</span>
+        </a>
+    </div>
+</header>
+
+    <div class="g  page">
+
+        <div class="cf">
+            
+
+<div class="local-hero  g">
+    <h1 class="local-hero-title  text-center">Search Local</h1>
+    <div class="local-hero-extras  unit-6  offset-3  pad-sides  text-center">
+        <form class="local-hero-search-form" method="get" action="/business">
+            <fieldset class="no-layout pad-sides">
+                <input type="text" class="local-hero-search-input  input--fit" name="query" placeholder="Coffee shops..." />
+                <button type="submit" class="button--main  local-hero-search-submit"><i class="icon-search"></i></button>
+            </fieldset>
+        </form>
+
+        <a href="/deals" class="button--link  local-hero-hollow-button">See deals near you</a>
+        <div class="social-networks-list  cf">
+    <a href="http://www.facebook.com/alotsites" target="_blank" class="social-network-link  sn-facebook  unit-mobile-third">Facebook</a>
+    <a href="http://www.twitter.com/alotliving" target="_blank" class="social-network-link  sn-twitter  unit-mobile-third">Twitter</a>
+    <a href="https://plus.google.com/104592434081970476957/posts" target="_blank" class="social-network-link  sn-google  unit-mobile-third">Google +</a>
+</div>
+
+    </div>
+</div>
+
+<div class="cf">
+    <div class="unit-9">
+        <div class="deals  pad-sides pad-bottom  cf">
+            <h4>Great deals from Groupon</h4>
+                <p class="text-center">No Groupon deals available for your area.</p>
+
+                    <!-- ALot Local_728x90 -->
+    <div class="cf local-homepage-728  pad-bottom  hidden-on-hand">
+        <div id='div-gpt-ad-1389213091236-0' class="ad--728">
+            <script type='text/javascript'>
+                googletag.cmd.push(function () {
+                    googletag.defineSlot('/3551897/ALOT_Local_NEW_728x90', [728, 90], 'div-gpt-ad-1389213091236-0').addService(googletag.pubads());
+                    googletag.enableServices();
+                    googletag.display('div-gpt-ad-1389213091236-0');
+                });
+            </script>
+        </div>
+    </div>
+
+
+
+        </div>
+    </div>
+        <div class="unit-3 pad-sides">
+            <h4>Your local weather</h4>
+
+            <div class="weather-widget  cf">
+                <div class="weather-widget-section">
+                    <h4 class="weather-widget-heading">, </h4>
+                    <div class="current-temp">
+                        <h2 class="big-temp">0&deg;</h2>
+                        <p>H 0&deg; <span class="low">L 0&deg;</span></p>
+                        <p class="last-updated">Last Updated: </p>
+                    </div>
+                </div>
+                <div class="weather-widget-section">
+                    <h4 class="weather-widget-heading"></h4>
+                    <img class="current-icon" src="/assets/weathericons/large/" alt="" />
+                    <p class="conditions">Wind:  at 0 MPH</p>
+                    <p class="conditions">Humidity: </p>
+                </div>
+                <div class="weather-widget-section">
+                    <h4 class="weather-widget-heading">3 Day Outlook</h4>
+                    <table>
+                    </table>
+                    <a class="forecast-link" target="_blank">Forecast Details</a>
+                    <img class="weather-logo" src="/assets/weathericons/aw_logo.png" />
+                </div>
+            </div>
+
+
+        </div>
+</div>
+
+
+            <div class="cf pad-sides pad-bottom hidden-on-mobile">
+                <nav class="nav  no-layout nav--horizontal  text-center pad-sides pad-bottom">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Use</a>
+                    <a href="/sitemap">Site Map</a>
+                    <a href="mailto:info_local@alot.com">Contact</a>
+                </nav>
+            </div>
+
+            <div class="sidebar  sidebar--left  fixed--160  js--column-stretch">
+
+                
+<div class="mobile-panel  " id="site_nav">
+    <nav class="nav  nav--vertical site-nav">
+
+<a class="" href="/business">Find a Business</a><a class="" href="/deals">Deals</a>
+    </nav>
+</div>
+
+
+                <footer class="site-footer">
+                    <div class="social-networks-list  cf">
+    <a href="http://www.facebook.com/alotsites" target="_blank" class="social-network-link  sn-facebook  unit-mobile-third">Facebook</a>
+    <a href="http://www.twitter.com/alotliving" target="_blank" class="social-network-link  sn-twitter  unit-mobile-third">Twitter</a>
+    <a href="https://plus.google.com/104592434081970476957/posts" target="_blank" class="social-network-link  sn-google  unit-mobile-third">Google +</a>
+</div>
+                    <nav class="nav--vertical  footer-nav">
+                        <a href="/privacy">Privacy Policy</a>
+                        <a href="/terms">Terms of Use</a>
+                        <a href="/sitemap">Site Map</a>
+                        <a href="mailto:info_local@alot.com">Contact</a>
+                    </nav>
+                </footer>
+
+            </div>
+
+        </div>
+        <footer class="copyright  pad-sides  cf">
+            <a href="#site_header" class="back-to-top"><i class="icon-chevron-up"></i></a>
+            <p>
+                <a href="http://www.inuvo.com">&copy;2015 Inuvo, Inc.</a>
+            </p>
+        </footer>
+    </div>
+
+
+    <div class="overlay"></div>
+
+    
+    <script type="text/javascript">
+    var ianalytics = {};
+    ianalytics.docCookies = { getItem: function (n) { return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(n).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null }, setItem: function (n, t, i, r, u, f) { if (!n || /^(?:expires|max\-age|path|domain|secure)$/i.test(n)) return !1; var e = ""; if (i) switch (i.constructor) { case Number: e = i === Infinity ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "; max-age=" + i; break; case String: e = "; expires=" + i; break; case Date: e = "; expires=" + i.toUTCString() } return document.cookie = encodeURIComponent(n) + "=" + encodeURIComponent(t) + e + (u ? "; domain=" + u : "") + (r ? "; path=" + r : "") + (f ? "; secure" : ""), !0 }, removeItem: function (n, t, i) { return !n || !this.hasItem(n) ? !1 : (document.cookie = encodeURIComponent(n) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (i ? "; domain=" + i : "") + (t ? "; path=" + t : ""), !0) }, hasItem: function (n) { return new RegExp("(?:^|;\\s*)" + encodeURIComponent(n).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=").test(document.cookie) }, keys: function () { for (var n = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/), t = 0; t < n.length; t++) n[t] = decodeURIComponent(n[t]); return n } }
+    ianalytics.siteid = 4;
+    ianalytics.visitorid = ianalytics.docCookies.getItem('visitorID') ? ianalytics.docCookies.getItem('visitorID') : '';
+    ianalytics.referrer = encodeURIComponent(document.referrer);
+    ianalytics.url = encodeURIComponent(document.URL);
+    ianalytics.useragent = encodeURIComponent(navigator.userAgent);
+    (function () {
+        var src = 'http://ats.alot.com/ia.js?siteid='
+            + ianalytics.siteid + '&event=homepageload&visitorid=' + ianalytics.visitorid + '&referrer='
+            + ianalytics.referrer + '&url=' + ianalytics.url + '&useragent=' + ianalytics.useragent + '&campid=' + '3734';
+        $.getScript(src);
+    })();
+</script>
+
+
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4224885-6']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+
+    <!--[if lt IE 9]>
+        <script type="text/javascript">
+            // refresh pseudo-elements to redraw icons
+            var head = document.getElementsByTagName('head')[0],
+            style = document.createElement('style');
+            style.type = 'text/css';
+            style.styleSheet.cssText = 'i:before,i:after,.social-network-link:before{content:none !important;}';
+            head.appendChild(style);
+            setTimeout(function(){
+                head.removeChild(style);
+            }, 0);
+        </script>
+    <![endif]-->
+
+
+</body>
+</html>
+";i:2;s:4:"6432";}

@@ -1,0 +1,413 @@
+a:3:{i:0;s:32:"http://unitedstateszipcodes.org/";i:1;s:18516:"<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Free ZIP code map, zip code lookup, and shipping comparisons</title>
+	<meta name="description" content="">
+	<meta name="Keywords" content="zip code map, zip code list, zip codes by state" />
+
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="/style.css" type="text/css" />
+
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- Responsive Ad code here since it isn't supported in external stylesheets -->
+	<style type="text/css">
+
+		.banner-ad-unit {
+			height:250px;
+			width: 300px;
+		}
+
+		.banner-ad-container {
+			text-align: center;
+			margin: 15px 0;
+		}
+
+		/* sm */
+		@media(min-width:768px){
+
+			.banner-ad-unit {
+				height:60px;
+				width:468px;
+			}
+		}
+
+		/* md */
+		@media(min-width:992px){
+
+		}
+
+		/* lg */
+		@media(min-width:1200px){
+
+			.banner-ad-unit {
+				height:90px;
+				width:728px;
+			}
+		}
+
+	</style>
+
+	
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDerBkq4P7BDiWtVSgOdB_bV9LbYnT5knw&sensor=false&libraries=places"></script>
+<script type="text/javascript" src="/includes/map_functions.js"></script>
+</head>
+<body>
+
+
+
+
+
+<div id="top-wrapper">
+
+	<div id="top">
+		<img src="/images/envelope/top3.png" alt=""/>
+	</div>
+
+<div class="container">
+
+	<div id="header" class="row">
+		<div class="col-xs-12 col-sm-4 logo-container">
+			<a href="/"><img src="/images/logo.png" class="img-responsive"></a>
+		</div>
+		<div class="col-xs-12 col-sm-5 social-media-row">
+
+			<ul class="social-media-list">
+				<li class="google">
+					<div class="g-plusone" data-size="medium" data-annotation="inline" data-width="120" data-href="http://www.unitedstateszipcodes.org/"></div>
+				</li>
+
+				<li class="twitter">
+					<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.unitedstateszipcodes.org/" data-text="United States Zip Codes - ZIP code lookup, maps, and shipping comparisons" data-count="horizontal"></a>
+				</li>
+
+				<li class="fb">
+					<div class="fb-like" data-href="http://www.unitedstateszipcodes.org/" data-send="true" data-layout="button_count" data-width="20" data-show-faces="true"></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-8 col-sm-push-4">
+			<div id="blue-bar">
+				<a href="/">Home</a>
+				<a href="/printable-zip-code-maps/">Printable Maps</a>
+				<a href="/shipping-calculator/">Shipping Calculator</a>
+				<a href="/zip-code-database/">ZIP Code Database</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="navbar navbar-inverse" role="navigation">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/">Home</a></li>
+				<li><a href="/printable-zip-code-maps/">Printable Maps</a></li>
+				<li><a href="/shipping-calculator/">Shipping Calculator</a></li>
+				<li><a href="/zip-code-database/">ZIP Code Database</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="page-content">
+
+
+
+	<div class="row" id="search-forms">
+	<div class="col-xs-12 col-md-8">
+		<h2>Search by address, city, or county</h2>
+
+		<form role="form" id="q_form" action="/" method="post">
+			<div class="form-group col-xs-12 col-sm-10 col-md-8">
+				<input type="text" name="q" id="q" class="form-control" placeholder="Enter a location" value="">
+			</div>
+
+			<button type="submit" class="btn btn-default col-xs-12 col-sm-2 col-md-2">Search</button>
+		</form>
+
+	</div>
+
+	<div class="col-xs-12 col-md-4">
+		<h2>Search by ZIP Code</h2>
+
+		<form role="form" id="z_form" action="/" method="post">
+			<div class="form-group col-xs-12 col-sm-10 col-md-7">
+				<input type="text" name="zip" id="zip" class="form-control" placeholder="Enter a ZIP code" value="">
+			</div>
+
+			<button type="submit" class="btn btn-default col-xs-12 col-sm-2 col-md-5">Search</button>
+		</form>
+
+	</div>
+</div>	<div>
+			<div class="row">
+			<div class="col-xs-12">
+				<div id="map_canvas"></div>
+			</div>
+		</div>
+			</div>
+	
+
+
+
+
+
+	<h2>About US ZIP Codes</h2>
+	<div style="margin: 10px 0; border-top: 1px solid #999999; border-bottom: 1px solid #999999; padding: 4px 0 2px 4px">
+	<table cellspacing=0 width="320">
+		<tr>
+			<td><fb:like href="http://www.unitedstateszipcodes.org/" layout="button_count" width="100" send="false" show_faces="false" action="like"></fb:like></td>
+			<td align=left><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.unitedstateszipcodes.org/" data-text="United States Zip Codes - ZIP code lookup, maps, and shipping comparisons" data-count="horizontal"></a></td>
+			<td align=right><g:plusone href="http://www.unitedstateszipcodes.org/" size="medium"></g:plusone></td>
+		</tr>
+	</table>
+	</div>
+
+	<div class="ad-unit right">
+		<script type="text/javascript"><!--
+			google_ad_client = "ca-pub-0709341197255740";
+			/* 300x250, general purpose for url channels created 1/20/11 */
+			google_ad_slot = "2396333505";
+			google_ad_width = 300;
+			google_ad_height = 250;
+			//-->
+		</script>
+		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div>
+
+	<p>US ZIP codes are a type of postal code used within the United States to help the United States Postal Service (USPS) route mail more efficiently.
+	Some still refer to ZIP codes as US postal codes. The term ZIP stands for Zone Improvement Plan. The basic 5-digit format was first introduced in 1963 and later 
+	extended to add an additional 4 digits after a dash to form a
+	ZIP+4 code. The additional 4 digits help USPS more precisely group mail for delivery. Though ZIP codes were originally developed
+	for USPS, many other shipping companies such as United Parcel Service (UPS), Federal Express (FedEx), DHL, and others make use of ZIP codes for
+	sorting packages and calculating the time and cost of shipping a package (the shipping rate).</p>
+
+	<h3>Types of Zip Codes</h3>
+	<ol>
+	<li>Unique/single high volume address (ex. 20505 for the CIA in Washington, DC)</li>
+	<li>PO Box only (ex. 22313 for the PO Boxes of Alexandria, VA)</li>
+	<li>Military</li>
+	<li>Standard (all other ZIP codes)</li>
+	</ol>
+	
+	<h3>Assignment of ZIP codes and Mail Sorting</h3>
+	<p>The first digit of a USA ZIP code generally represents a group of U.S. states. ZIP codes are designed for efficient delivery of mail so some ZIP codes will span
+	multiple states in order to make mail routing and delivery more efficient. 
+	The first 3 digits of a ZIP code determine the central mail processing facility, also called sectional center facility or "sec center", that is used to process and 
+	sort mail. All mail with the same first 3 digits is first delivered to the same sec center where it is sorted according to the last 2 digits and distributed to
+	local post offices. The sec centers are not open to the public and usually do most sorting overnight.</p>
+	
+	<p>The ZIP+4 code is not required, but it aids the post office in additional sorting of mail. A ZIP+4 code may correspond to a city block, group of apartments, or
+	an individual high-volume receiver. It is also common for each PO Box number to correspond to a unique ZIP+4 code. Sometimes, several PO Box numbers are grouped into
+	the same ZIP+4 code by using the last several digits of the PO Box number. This method isn't a universal rule though so the ZIP+4 must still be looked up for each PO Box.</p>
+
+	<div class="ad-unit left">
+		<script type="text/javascript"><!--
+			google_ad_client = "ca-pub-0709341197255740";
+			/* 300x250, general purpose for url channels created 1/20/11 */
+			google_ad_slot = "2396333505";
+			google_ad_width = 300;
+			google_ad_height = 250;
+			//-->
+		</script>
+		<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div>
+
+	<h3>USA ZIP Code Boundaries</h3>
+	<p>Despite the fact that ZIP codes seem to be geographic in nature, that wasn't their intended purpose. They are intended to group mail to allow the USPS to deliver mail
+	more efficiently. In most cases, addresses in close proximity to each other are grouped in the same ZIP code which gives the appearance that ZIP codes are defined by
+	a clear geographic boundary. However, some ZIP codes have nothing to do with geogaphic areas. For instance, a single ZIP code is used for all US Navy mail. 
+	When ZIP codes appear to be geographically grouped, a clear shape cannot always be drawn around the ZIP code because ZIP codes are only assigned to a point of delivery and not the spaces between 
+	delivery points. In areas without a regular postal route or no mail delivery, ZIP codes may not be defined or have unclear boundaries.</p>
+
+	<h3>US ZIP Code Map</h3>
+	<p>No official ZIP code map according to actual USPS data exists. The main issue is discussed above: there simply isn't always
+	a clear geographic boundary for a ZIP code. The Census Bureau and many other commercial services
+	will try to interpolate the data to create polygons (shapes using straight lines) to represent the approximate area covered
+	by a ZIP code, but none of these maps are official or entirely accurate. </p> 
+
+	<p>On this site, all ZIP code maps use the ZIP Code Tabulation Areas (ZCTAs) as specified by the United States Census Bureau in 2010 and discussed below. 
+	They provide a very close approximation of the area covered by a ZIP code. You can easily notice some of the boundary issues when viewing our maps.
+	Very rural areas aren't labeled as belonging to a ZIP code (such as much of <a href="/nv/">Nevada</a> and <a href="/ut/">Utah</a>) where there are
+	few, if any, addresses to deliver mail. If the address is on the same street as a ZIP code boundary on the map, be sure to search for the full street
+	address to determine the ZIP code instead of relying on the map.</p>
+
+	<h3>ZIP Code Tabulation Areas (ZCTAs)</h3>
+	<p>ZIP code tabulation areas were developed by the United States Census Bureau. Their purpose is to convey statistical data about regions that are familiar to
+	most citizens. However, ZCTAs are not exactly the same as ZIP codes. As discussed above, it is
+	difficult to precisely define a geographic area covered by a ZIP code. ZCTAs were developed to account for some of the difficulties in assigning an area to
+	a ZIP code and to precisely define a geographic area. Also, ZCTAs are not updated as frequently as ZIP codes. In general, they are updated once every
+	10 years for the Census.</p>
+
+	<div id="city-block">
+		<img src="/images/city-block.png" class="img-responsive">
+	</div>
+
+	<p>The Census assigns an area to a ZCTA according to census blocks (the smallest geographic unit used by the census). Imagine a city block
+	that makes up a typical census block as pictured to the right. It is bounded on all 4 sides by portions of city streets that each have their own name
+	and addresses. The issue is that census blocks almost always split down the middle of the street. ZIP codes rarely do because that would require 
+	two postal workers delivering mail to that street - one for each side of the street. In the example, one mail carrier may deliver to 3 sides of the
+	block via one ZIP code while another mail carrier delivers mail on the other street in a different ZIP code. When this happens, the Census Bureau
+	will assign the entire block to a single ZCTA (in this case, 21044) because the census block is the area that is precisely measured. 
+	If you are getting very precise (usually a matter of meters, not miles), census block boundaries near the edge of a ZIP code almost always split ZIP codes.</p>
+
+ 	<h3 style="clear: both">Matching ZIP Codes with States, Counties, and Cities</h3>
+	<p>Remember that ZIP codes were made to make mail delivery easier. They weren't made to correspond to existing boundaries such 
+	as cities, counties, or even states. If it is more efficient for a mail carrier to drive across a state line to deliver mail, the ZIP code
+	"boundary" will cross the state lines. ZIP codes don't usually cross state lines, but some do (65733 is a good example).</p>
+	
+	<p>It gets even more complicated when trying to assign a ZIP code to a specific county (about 10% cross county lines), congressional district,
+	metro area, time zone, area code, etc. The edges of the boundaries commonly overlap. For the purposes of our <a href="/zip-code-database/">free zip
+	code database</a> downloads, we will commonly list either the most common region for the ZIP code or list multiple regions if several exist in the ZIP code.</p>
+
+	<p>For cities, the assignment is somewhat more complicated. USPS does not always use the city in which the ZIP code is located. The assignment of
+	cities to ZIP codes is more general. The city is usually the name of the main post office. For instance, almost all ZIP codes in St. Louis County in
+	Missouri have a city of Saint Louis when they may be more accurately described as the name of a smaller city where they are located.</p>
+
+	
+	<div class="state-list">
+		<a name="by_state"></a>
+		<h2>Zip Codes by State</h2>
+
+		<ul class="list-unstyled state-links">
+							<li><a href="/al/">Alabama</a></li>
+							<li><a href="/ak/">Alaska</a></li>
+							<li><a href="/az/">Arizona</a></li>
+							<li><a href="/ar/">Arkansas</a></li>
+							<li><a href="/ca/">California</a></li>
+							<li><a href="/co/">Colorado</a></li>
+							<li><a href="/ct/">Connecticut</a></li>
+							<li><a href="/de/">Delaware</a></li>
+							<li><a href="/fl/">Florida</a></li>
+							<li><a href="/ga/">Georgia</a></li>
+							<li><a href="/hi/">Hawaii</a></li>
+							<li><a href="/id/">Idaho</a></li>
+							<li><a href="/il/">Illinois</a></li>
+							<li><a href="/in/">Indiana</a></li>
+							<li><a href="/ia/">Iowa</a></li>
+							<li><a href="/ks/">Kansas</a></li>
+							<li><a href="/ky/">Kentucky</a></li>
+							<li><a href="/la/">Louisiana</a></li>
+							<li><a href="/me/">Maine</a></li>
+							<li><a href="/md/">Maryland</a></li>
+							<li><a href="/ma/">Massachusetts</a></li>
+							<li><a href="/mi/">Michigan</a></li>
+							<li><a href="/mn/">Minnesota</a></li>
+							<li><a href="/ms/">Mississippi</a></li>
+							<li><a href="/mo/">Missouri</a></li>
+							<li><a href="/mt/">Montana</a></li>
+							<li><a href="/ne/">Nebraska</a></li>
+							<li><a href="/nv/">Nevada</a></li>
+							<li><a href="/nh/">New Hampshire</a></li>
+							<li><a href="/nj/">New Jersey</a></li>
+							<li><a href="/nm/">New Mexico</a></li>
+							<li><a href="/ny/">New York</a></li>
+							<li><a href="/nc/">North Carolina</a></li>
+							<li><a href="/nd/">North Dakota</a></li>
+							<li><a href="/oh/">Ohio</a></li>
+							<li><a href="/ok/">Oklahoma</a></li>
+							<li><a href="/or/">Oregon</a></li>
+							<li><a href="/pa/">Pennsylvania</a></li>
+							<li><a href="/pr/">Puerto Rico</a></li>
+							<li><a href="/ri/">Rhode Island</a></li>
+							<li><a href="/sc/">South Carolina</a></li>
+							<li><a href="/sd/">South Dakota</a></li>
+							<li><a href="/tn/">Tennessee</a></li>
+							<li><a href="/tx/">Texas</a></li>
+							<li><a href="/ut/">Utah</a></li>
+							<li><a href="/vt/">Vermont</a></li>
+							<li><a href="/va/">Virginia</a></li>
+							<li><a href="/wa/">Washington</a></li>
+							<li><a href="/dc/">Washington, DC</a></li>
+							<li><a href="/wv/">West Virginia</a></li>
+							<li><a href="/wi/">Wisconsin</a></li>
+							<li><a href="/wy/">Wyoming</a></li>
+					</ul>
+	</div>
+	</div>
+
+
+</div>
+
+
+
+	<div class="row footer">
+
+		<div class="col-xs-12">
+
+			<ul class="footer-nav">
+				<li><a href="/">Home</a></li>
+				<li><a href="http://www.allareacodes.com">Area Codes</a></li>
+				<li><a href="/policies.php">Terms of Use &amp; Privacy Policy</a></li>
+				<li><a href="/contact.php">Contact</a></li>
+			</ul>
+
+			<p>
+				Data sources include the United States Postal Service, U.S. Census Bureau, Yahoo, Google, FedEx, and UPS.
+			</p>
+
+			<p>
+				&copy; 2014 UnitedStatesZipCodes.org
+			</p>
+
+		</div>
+
+	</div>
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//www.google.com/jsapi"></script>
+<script type="text/javascript" src="/includes/site.js"></script>
+
+
+<script type="text/javascript">
+	function loadScript(src) {
+		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		po.src = src;
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(po, s);
+	}
+
+	(function() {
+		loadScript('https://apis.google.com/js/plusone.js');
+		loadScript('http://connect.facebook.net/en_US/all.js#xfbml=1');
+		loadScript('http://platform.twitter.com/widgets.js');
+	})();
+	window.fbAsyncInit = function() {
+		FB.init({ 'channelUrl': 'http://www.unitedstateszipcodes.org/channel.html' });
+	};
+</script>
+
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://aatrk.com/stats/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 29]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+    g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="http://aatrk.com/stats/piwik.php?idsite=29" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+</body>
+</html>";i:2;s:4:"8906";}

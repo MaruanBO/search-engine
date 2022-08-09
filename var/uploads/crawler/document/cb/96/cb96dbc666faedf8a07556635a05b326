@@ -1,0 +1,898 @@
+a:3:{i:0;s:16:"http://lung.org/";i:1;s:35102:"<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+
+
+
+<meta name="generator" content="Convio CMS" /> 
+<script language="JavaScript" type="text/javascript" src="/components/cookie/cookie.js"></script>
+
+
+<script language="JavaScript" type="text/javascript" src="/components/print/printer-friendly.js"></script>
+
+
+
+<script type="text/javascript">
+if (typeof CONVIO=="undefined" || ! CONVIO) { var CONVIO = {}; }
+CONVIO.pageUserName = '3264:0';
+CONVIO.pageSessionID = '8B21FCD3939AB8102FFD01572F942AE8.app340b';
+CONVIO.pageSessionName = 'JSESSIONID';
+</script>
+
+<script type="text/javascript" src="/system/auth/session-status.jsp?nocache=1424382393089"></script>
+<script type="text/javascript">
+
+// The original referrer may have been lost from the session-status.jsp javascript redirect.
+// Read the original referrer from the cookie.
+if (typeof CONVIO=="undefined" || ! CONVIO) { var CONVIO = {}; }
+CONVIO.referrer = getCookie("CONVIO.referrer");
+deleteCookie("CONVIO.referrer");
+</script>
+
+
+
+<!-- Convio's CRM JS library -->
+<script type="text/javascript" src="http://action.lung.org/js/utils.js"></script>
+
+
+
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta content="secure3.convio.net/bfre/site/" name="linksite_{Secure}"/>
+<link rel="SHORTCUT ICON" href="http://www.lung.org/assets/images/favicon.ico"/>
+<link rel="stylesheet" type="text/css" media="all" href="http://www.lung.org/assets/css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="http://www.lung.org/assets/css/styles.css" id="regular"/>
+<link rel="stylesheet" type="text/css" media="print" href="http://www.lung.org/assets/css/print.css" />
+<link rel="alternate stylesheet" type="text/css" media="screen" href="http://www.lung.org/assets/css/font-larger.css" title="larger" id="larger" rev="stylesheet"/>
+<link rel="alternate stylesheet" type="text/css" media="screen" href="http://www.lung.org/assets/css/font-largest.css" title="largest" id="largest" rev="stylesheet"/>
+<link rel="alternate stylesheet" type="text/css" media="screen" href="http://www.lung.org/assets/css/print.css" title="Print Preview" id="printPreviewStyle" rev="stylesheet"/>
+<link rel="image_src" href="http://www.lung.org/assets/images/wrpr/header-logo.png" />
+<script type="text/javascript" src="http://www.lung.org/assets/js/scripts.js"></script>
+<!-- <script type="text/javascript" src="http://www.lung.org/assets/js/jquery-packed.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.lung.org/assets/js/ui.js"></script>
+<script type="text/javascript" src="http://www.lung.org/assets/js/ui-tabs.js"></script>
+<script type="text/javascript" src="http://www.lung.org/assets/js/css_browser_selector.js"></script>
+
+<!-- start scripts for Action Lightbox -->
+<script src="https://secure3.convio.net/ala/js/jquery.form.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+function del_cookie(sawLightBoxTest00) {
+document.cookie = name +
+'=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+} 
+
+$(document).ready(function() {
+            $('form#action-form input:text').each(function () {
+         $(this).focus( function(){
+          var labelVal = $(this).prev('label').html();
+
+          if ($(this).val() == labelVal) $(this).val('');
+          });
+
+          $(this).blur( function(){
+          var labelVal = $(this).prev('label').html();
+          if ($(this).val() =='') $(this).val(labelVal);
+          });
+
+       });
+
+
+    var options = {
+        dataType:  'xml',
+        beforeSubmit:  checkInputs,  // pre-submit callback
+        error: showResponse,
+        success:       showResponse  // post-submit callback
+    };
+
+    // bind form using 'ajaxForm'
+    $('form#action-form').ajaxForm(options);
+
+ var hasSeen=getCookie("sawLightBoxTest01");
+          if(hasSeen!=null && hasSeen=='1'){
+          //showSplash();
+return false;
+          } else{
+                    setCookie("sawLightBoxTest01",'1',30);
+             showSplash();
+          };
+
+ $('#overlaySplash').click(function(){
+       hideSplash();
+ });
+
+});
+
+// pre-submit callback
+function checkInputs() {
+$('input#btn-submit').hide('fast');
+$('#throbber').show('fast');
+     // check for an email
+var emailPattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)\b/;
+       var emailVal = $('#inp-email').val();
+       var emailTest = emailPattern.test(emailVal);
+        var fieldsCheck = true;
+       $('form#action-form input').each(function () {
+         if ($(this).val() == '') fieldsCheck = false;
+
+       });
+
+       if ($('input#inp-firstName').val()=='First Name') fieldsCheck = false;
+         if ($('input#inp-lastName').val()=='Last Name') fieldsCheck = false;
+         if ($('input#inp-street').val()=='Street Address') fieldsCheck = false;
+         if ($('input#inp-zip').val()=='Zip Code') fieldsCheck = false;
+         if ($('input#inp-email').val()=='Email') fieldsCheck = false;
+         if ($('input#inp-state').val()=='-&nbsp;&nbsp;-') fieldsCheck = false;
+       // if both checkout, go ahead
+       if (emailTest == true && fieldsCheck == true){
+return true;
+       }else{  // if not, throw an error
+       var actionErr = 'Please complete all fields';
+       if (emailTest == true && fieldsCheck == false) actionErr = 'Please complete all fields';
+       if (emailTest == false && fieldsCheck == false) actionErr = 'Please enter a valid email address and complete all fields';
+       if (emailTest == false && fieldsCheck == true) actionErr = 'Please enter a valid email address';
+       $('#actionFormErrReport').html(actionErr);
+       $('#actionFormErrReport').show('fast');
+       $('#throbber').hide('fast');
+       $('input#btn-submit').show('fast');
+       return false;
+       }
+
+
+};
+
+
+// post-submit callback
+function showResponse()  {
+$('#throbber').hide('fast');
+$('#actionStepOne').hide('fast');
+$('#actionStepTwo').show('fast');
+};
+                 // get cookie function
+function getCookie(c_name)
+{
+var i,x,y,ARRcookies=document.cookie.split(";");
+for (i=0;i<ARRcookies.length;i++)
+{
+  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  x=x.replace(/^\s+|\s+$/g,"");
+  if (x==c_name)
+    {
+    return unescape(y);
+    }
+  }
+}
+        // set cookie function
+function setCookie(c_name,value,exdays)
+{
+var exdate=new Date();
+exdate.setDate(exdate.getDate() + exdays);
+var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+document.cookie=c_name + "=" + c_value;
+};
+
+
+	function hideSplash() {
+		document.getElementById('overlaySplash').style.visibility='hidden';
+		document.getElementById('overlaySplashinner').style.visibility='hidden';
+		document.getElementById('overlaySplash').style.display='none';
+		document.getElementById('overlaySplashinner').style.display='none';
+	};
+
+	function showSplash(){
+		document.getElementById('overlaySplash').style.visibility='visible';
+		document.getElementById('overlaySplashinner').style.visibility='visible';
+		document.getElementById('overlaySplash').style.display='inline';
+		document.getElementById('overlaySplashinner').style.display='inline';
+	};
+
+</script>
+
+
+<link type="text/css" href="http://www.lung.org/assets/css/uitabs3.css" rel="stylesheet" />
+<!--[if IE 8]><link rel="stylesheet" type="text/css" media="all" href="http://www.lung.org/assets/css/ie8.css" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="http://www.lung.org/assets/css/ie7.css" /><![endif]-->
+<!--[if  IE 6]><link rel="stylesheet" type="text/css" media="all" href="http://www.lung.org/assets/css/ie6.css" /><![endif]-->
+
+
+<title>Homepage - American Lung Association</title>
+
+
+<meta name="description" content="Learn how to improve your lung health. Make efforts towards clean air and smokefree living. Find facts about lung diseases, such as lung cancer, COPD, asthma." />
+<script type="text/javascript">addOnLoadHandler(addLinkerEvents);</script>
+<meta name="google-site-verification" content="Q99LEq_TZR1RSU4ahpFPNjOWjZmYga1ZNOL60pSm35Q" />
+<meta name="msvalidate.01" content="A78F1CF174184BD73706FC231410878E" />
+</head>
+<body>
+
+<div id="wrapper">
+  <div id="header">
+    <h1><a href="http://www.lung.org/"><img src="http://www.lung.org/assets/images/wrpr/header-logo.png" width="184" height="79" alt="American Lung Association - Fighting For Air" class="logo"/></a></h1>
+    <div id="item-57189578" style="DISPLAY: inline">
+
+
+
+
+
+  
+
+<ul id="topnav">
+  <li id="first-topnav"><a href="http://www.lung.org/about-us/" title="About Us">About Us</a><span class="stick">|</span></li>
+  <li><a href="http://www.lung.org/about-us/publications">Publications</a><span class="stick">|</span></li>
+  <li><a href="http://www.lung.org/press-room/" title="Press Room">Press Room</a><span class="stick">|</span></li>
+  <li id="spanish"><a href="http://www.lung.org/espanol/" title="Bienvenidos a la American Lung Association!">Recursos en Espa&ntilde;ol</a><span class="stick">|</span></li>
+  <li id="last-topnav">
+    
+     <a href="http://action.lung.org/site/UserLogin?NEXTURL=http://www.lung.org/index.jsp" class="lock">My Lung.org Login</a> 
+    
+  </li>
+</ul>
+
+</div>
+    <div id="search">
+      <form name="searchform" id="searchform" action="http://action.lung.org/site/Search" method="get">
+        <input type="text" name="query" maxlength="100" class="text" value="Search" onfocus="if (this.value=='Search') {this.value='';}" />
+        <input type="image" src="http://www.lung.org/assets/images/wrpr/go.gif" value="Go" class="go"/>
+      </form>
+    </div>
+<div id="item-57605977" style="DISPLAY: inline">
+
+
+
+
+
+  
+
+<ul class="nav" id="nav">
+<li><a class="nav-yourlungs" href="http://www.lung.org/your-lungs/">Your Lungs</a></li> 
+<li><a class="nav-lungdisease" href="http://www.lung.org/lung-disease/">Lung Disease</a></li> 
+<li><a class="nav-findingcures" href="http://www.lung.org/finding-cures/">Finding Cures</a></li> 
+<li><a class="nav-healthyair" href="http://www.lung.org/healthy-air/">Healthy Air</a></li> 
+<li><a class="nav-stopsmoking" href="http://www.lung.org/stop-smoking/">Stop Smoking</a></li> 
+<li class="getinvolved"><a href="http://www.lung.org/get-involved/">Get Involved</a></li> 
+<li class="donate"><a href="http://www.lung.org/donate/">Donate</a></li></ul>
+</div>
+  </div>
+  <!-- #header -->
+  <div id="page" class="layout-hp">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="contentDiv">
+
+
+<script type="text/javascript" src="/components/form/form.js"></script>
+
+<style>
+.layout-hp #content-well {display: inline-block;}
+.flash {height: inherit; margin-top: 3px;}
+.web-banner {width: 635px; height: 110px; margin: 1.1em 0 0 0; padding: 0; display: block;}
+
+#sidebar-constrainer {height: 475px; width: 285px;}
+h2.enewsletter  {background: url(http://www.lung.org/assets/images/wrpr/enewsletter.png) top left no-repeat; margin: 13px 0 0 0 !important;}
+h2.inthespotlight {background: url(http://www.lung.org/assets/images/wrpr/inthespotlight.png) top left no-repeat; margin: 16px 0 0 0 !important;}
+</style>
+<div id="content"><!-- CONTENT -->
+<div id="content-well"><!-- CONTENT-WELL -->
+
+<div class="flash"><!-- FLASH -->
+<script src="http://www.lung.org/assets/js/swfobject_modified.js" type="text/javascript"></script>
+<object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="621" height="219">
+<param name="movie" value="http://www.lung.org/assets/flash/flash.swf?datafile=http://www.lung.org/assets/flash/homepage/homepage-flash.xml" />
+<param name="quality" value="high" />
+<param name="wmode" value="opaque" />
+<param name="swfversion" value="9.0.28">
+<!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don't want users to see the prompt. -->
+<param name="expressinstall" value="http://www.lung.org/assets/flash/express-install.swf" />
+<!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="http://www.lung.org/assets/flash/flash.swf?datafile=http://www.lung.org/assets/flash/homepage/homepage-flash.xml" width="621" height="219">
+<!--<![endif]-->
+<param name="quality" value="high" />
+<param name="wmode" value="opaque" />
+<param name="swfversion" value="9.0.28">
+<param name="expressinstall" value="http://www.lung.org/assets/flash/express-install.swf" />
+<!-- The browser displays the following alternative content for users with Flash Player 6.0 and older. -->
+<div><a href="http://action.lung.org/site/Donation2?df_id=25961&25961.donation=form1" onClick="_gaq.push(['_trackEvent', 'End-of-Year', 'no Flash', 'home']);"><img src="http://www.lung.org/assets/flash/homepage/eoygiving-noflash.jpg" alt="What's Your Reason to Give? Make a Donation to the American Lung Association. Lung.org/reasontogive" /></a></div>
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+<script type="text/javascript">
+<!--
+swfobject.registerObject("FlashID");
+//-->
+</script>
+</div><!-- #FLASH -->
+
+<div class="web-banner">
+<div id="item-548093253" style="display: inline;">
+
+
+
+
+
+  
+
+<p><a href="http://www.lungforce.org/walk" target="_blank"><img alt="LUNG FORCE Walk" border="0" src="http://www.lung.org/assets/images/homepage/lfwalk-banner-635x110.png" /></a></p>
+</div>
+</div>
+<div class="boxed-content topstories"><!-- BOXED-CONTENT TOPSTORIES -->
+<h2>Top Stories</h2>
+<div id="body-tabs" class="toggler"><!-- BODY-TABS -->
+<ul class="nav-tabs">
+<li><a href="#lungnews"><span><h3 class="fromlung">From American Lung Association</h3></span></a></li>
+<li><a href="#othernews"><span><h3  class="inthenews" >In the News</h3></span></a></li>
+</ul>
+<!-- used in VERY special circumstances, no need to reddot? -->
+<div id="lungnews" class="tabbed-content"><!-- LUNGSNEWS -->
+<!-- this is where you truly connect the content for this tab! -->
+<div id="templatelist-64857897" style="DISPLAY: inline">
+
+
+
+
+  
+
+<ul>
+
+<li>
+
+<a href="http://www.lung.org/about-us/our-impact/top-stories/personalized-medicine.html">
+Personalized Medicine: Don't Guess. Test</a>
+
+</li>
+
+<li>
+
+<a href="http://www.lung.org/about-us/our-impact/top-stories/parents-help-your-child-breathe-easier-2015.html">
+Help Your Child Breathe Easier in 2015</a>
+
+</li>
+
+<li>
+
+<a href="http://www.stateoftobaccocontrol.org/roadmap/" target="_blank">
+10 Year Road Map to End Tobacco-Caused Death and Disease</a>
+
+</li>
+
+</ul>
+<div id="pagination-68933751" style="DISPLAY: inline">
+
+
+
+
+</div>
+</div>
+</div><!-- #LUNGNEWS -->
+<div id="othernews" class="tabbed-content"><!-- OTHERNEWS -->
+<!-- this is where you truly connect the content for this tab! -->
+<div id="templatelist-64857954" style="DISPLAY: inline">
+
+
+
+
+  
+
+<ul>
+
+<li>
+
+<a href="http://www.washingtonpost.com/blogs/wonkblog/wp/2015/02/18/david-carrs-death-and-the-stigma-of-lung-cancer/" target="_blank">
+David Carr’s Death and the Stigma of Lung Cancer</a>
+
+</li>
+
+<li>
+
+<a href="http://www.lung.org/about-us/our-impact/top-stories/states-racing-to-regulate-ecigs.html">
+States Racing to Regulate E-cigarettes</a>
+
+</li>
+
+<li>
+
+<a href="http://www.medpagetoday.com/Pulmonology/LungCancer/49923" target="_blank">
+Medicare Lung Cancer Screening Gets Down to Business</a>
+
+</li>
+
+</ul>
+<div id="pagination-68933751" style="DISPLAY: inline">
+
+
+
+
+</div>
+</div>
+</div><!-- #OTHERNEWS -->
+</div><!-- #BODY-TABS -->
+<script type="text/javascript">
+//Initiate all tabs that will occur on the page
+//IDs must match the GUIDs that will be generated for each toggler
+$(function() {
+$('#body-tabs > ul').tabs();
+});
+</script>
+<a href="http://www.lung.org/about-us/our-impact/top-stories/" class="button"><img src="http://www.lung.org/assets/images/wrpr/seealltopstories.gif" width="153" height="23" alt="See all Top Stories" /></a>
+</div><!-- #BOXED-CONTENT TOPSTORIES -->
+<!-- Take Action -->
+<div id="templatelist-59546175" style="DISPLAY: inline">
+
+
+
+
+  
+
+<div class="boxed-content takeaction">
+<h2>Take Action</h2>
+
+<!-- <div class="topitem"> 
+<t:if test="thumb.length > 0"><t:list id="thumb"><img src="http://www.lung.org/assets/promos/advocacy/take-action-headline.html" alt="" class="headline-img" /></t:list></t:if>
+<h3>Join Our Fight Today!</h3>
+</div> -->
+<p style="margin-top: 0.75em; margin-top: 0.9em \9; margin-left: 0em; margin-right: 0em; margin-bottom: 0em; padding: 0em; z-index: 1;"><a href="http://www.lung.org/stop-smoking"><img src="http://www.lung.org/assets/images/promo-thumbs/ready-to-quit-205x187.jpg" alt="Ready to Quit?" border="0"></a></p>
+
+<link href="http://www.lung.org/assets/video/colorbox/colorbox.css" rel="stylesheet">
+<script src="http://www.lung.org/assets/js/jquerycolorbox.js" type="text/javascript"></script>
+<script type="text/javascript">// <![CDATA[
+$(document).ready(function(){
+//Examples of how to assign the ColorBox event to elements
+$(".youtube").colorbox({iframe:true, innerWidth:590, innerHeight:350});
+$(".callbacks").colorbox({
+onOpen:function(){ alert('onOpen: colorbox is about to open'); },
+onLoad:function(){ alert('onLoad: colorbox has started to load the targeted content'); },
+onComplete:function(){ alert('onComplete: colorbox has displayed the loaded content'); },
+onCleanup:function(){ alert('onCleanup: colorbox has begun the close process'); },
+onClosed:function(){ alert('onClosed: colorbox has completely closed'); }
+});
+//Example of preserving a JavaScript event for inline calls.
+$("#click").click(function(){ 
+$('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+return false;
+});
+});
+// ]]></script>
+
+<!-- HAROLD CDC VIDEO IMAGE -->
+<!-- <div style="padding-top:8px">
+<a class="youtube cboxElement" href="http://www.youtube.com/embed/rTleeTWMGGw?rel=0&amp;autoplay=1" onclick="nationalTracker._trackPageview('/external/' + this.href );" title="" onmouseover='haroldVid.src="http://www.lung.org/assets/images/harold-video-home-hvr.jpg"' onmouseout='haroldVid.src="http://www.lung.org/assets/images/harold-video-home-lnk.jpg"'><img border="0" alt="" src="/preview!www.lung.org/assets/images/harold-video-home-lnk.jpg" title="" name="haroldVid"></a>
+<div style="padding-top:6px;">
+<a class="highlight" href="/preview!www.lung.org/stop-smoking/tobacco-control-advocacy/" style="margin-left: -1px; ">&raquo; Tobacco Control&nbsp;Advocacy</a>
+</div>
+</div> -->
+<!-- <a class="button" href="/preview!www.lung.org/get-involved/" onclick="nationalTracker._trackPageview('/external/' + this.href );"><img width="154" height="22" alt="Get Involved" src="/preview!www.lung.org/assets/images/wrpr/getinvolved.gif"></a> -->
+
+<!-- <a href="http://www.lung.org/get-involved/" class="button"><img src="http://www.lung.org/assets/images/wrpr/getinvolved.gif" width="154" height="22" alt="Get Involved" /></a> -->
+</div>
+</div>
+<!-- Support Our Work -->
+<div id="templatelist-59552466" style="DISPLAY: inline">
+
+
+
+
+  
+
+<div class="boxed-content supportourwork">
+<h2>Support our Work</h2>
+
+<!--
+<div class="topitem"> 
+<t:if test="thumb.length > 0"><t:list id="thumb"><img src="http://www.lung.org/assets/promos/donate/donate-headline.html" alt="" class="headline-img" /></t:list></t:if>
+<h3>Help Make Our Mission a Reality</h3>
+</div>
+-->
+<p style="font-size: 13px;"><img src="http://www.lung.org/assets/images/promo-thumbs/support.gif" style="margin: 0px 8px 0px 0px; float: left;" alt="Support Our Work with an Online Donation"><strong>Help Make Our&nbsp;Mission a Reality</strong></p>
+<p style="margin-top: 0px;">Together we can save lives by preventing lung disease and promoting lung&nbsp;health.</p>
+<p style="margin-top: 0px;"><a class="highlight" href="http://www.lung.org/donate/" title="Donate">&raquo;&nbsp;Donate&nbsp;Online</a></p>
+
+<a href="http://www.lung.org/donate/ways-to-give/" class="button"><img src="http://www.lung.org/assets/images/wrpr/morewaystogive.gif" width="154" height="22" alt="More Ways to Give" /></a> </div>
+</div>    
+</div><!-- #CONTENT-WELL -->
+</div><!-- #CONTENT -->
+<div id="sidebar"><!-- #SIDEBAR -->  
+
+
+
+
+
+
+  
+
+<!-- Item 118858154 has expired or is not published.-->
+
+<!-- Tools -->
+<div id="sidebar-content"><!--#SIDEBAR-CONTENT -->
+<div id="sidebar-constrainer"><!--SIDEBAR-CONSTRAINER -->
+
+
+<div id="item-59424493" style="DISPLAY: inline">
+
+
+
+
+
+  
+
+<div class="toggler" id="sidebar-tabs">
+<ul class="nav-tabs">
+<li><a href="#mylungusa"><span><h3 class="mylung">My Lung</h3></span></a>
+<li class="ui-tabs-selected"><a href="#inmycommunity" ><span><h3 class=community>In My Community</h3></span></a></li>
+</ul>
+<div class="tabbed-content" id="mylungusa">
+<p>Customize our&nbsp;web&nbsp;content&nbsp;to suit your needs.</p>
+ <a href="http://ala.convio.net/site/UserLogin?NEXTURL=http://www.lung.org/index.jsp" class="highlight">Login Now</a> 
+
+</div>
+<div class="tabbed-content" id="inmycommunity">
+<form id="zipfinder" name="zipfinder" action="http://www.lung.org/get-involved/in-your-community/#tabs">
+<input type="hidden" name="radius" value="100">
+<input class="text" name="zip" onFocus="if (this.value=='Enter Your Zip Code') {this.value='';}" maxLength=100 value="Enter Your Zip Code">
+<input class="go" type="image" value="Go" src="http://www.lung.org/assets/images/wrpr/go.gif">
+</form>
+<a class="viewmap" href="http://www.lung.org/get-involved/in-your-community/">View Map</a>
+</div>
+</div>
+<script type="text/javascript">
+//Initiate all tabs that will occur on the page
+//IDs must match the GUIDs that will be generated for each toggler
+$(function() {
+$('#sidebar-tabs > ul').tabs();
+});
+</script>
+
+</div>    
+<!-- Lung Helpline -->
+<div id="item-59420706" style="DISPLAY: inline">
+
+
+
+
+
+  
+
+<h2 class="lunghelpline">Lung HelpLine</h2>
+<p>Questions about your lung health? Need help finding healthcare? Ask an expert. Call 1&nbsp;800&nbsp;LUNGUSA  or 1&nbsp;800&nbsp;586&nbsp;4872.<br /><a class="highlight" href="http://www.lung.org/about-us/lung-helpline.html" title="Lung HelpLine">&raquo;&nbsp;Learn&nbsp;More</a></p>
+</div>
+<!-- ENewsletter -->
+<div id="item-59421191" style="DISPLAY: inline">
+
+
+
+
+
+  
+
+<H2 class=enewsletter>ENewsletter</H2>
+<P>Receive the latest information on lung health and healthy air&nbsp;in your&nbsp;email.<BR><A class=highlight href="http://www.lung.org/get-involved/sign-up.html">&raquo; Register for E-News</A></P>
+</div>
+<!-- In the Spotlight -->
+<div id="item-156561504" style="DISPLAY: inline">
+
+
+
+
+
+  
+
+<h2 class="inthespotlight">In the Spotlight</h2>
+<p style="margin-left: 0px;"><a href="http://www.lungcancerscreeningsaveslives.org" target="_blank"><img src="http://www.lung.org/assets/images/homepage/lungcancerscreeningsaveslives-277x89.jpg" style="clear: both; margin-bottom: 15px;"/></a></p>
+</div>
+<!-- Facing Lung Cancer banner -->
+<div id="item-409841732" style="display: inline;">
+
+
+
+
+
+  
+
+<p><a href="http://www.mylungcancersupport.org" target="_blank"><img style="margin-left: -15px;" alt="Are you living with lung cancer? Visit www.mylungcancersupport.org" border="0" src="http://www.lung.org/assets/images/promo-thumbs/facing-lung-cancer-home-promo.png" /></a></p>
+</div>
+
+</div><!--#SIDEBAR-CONTENT -->
+</div><!--#SIDEBAR-CONSTRAINER -->
+</div><!-- #SIDEBAR -->  
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/system/components/logging/logging.js"></script>
+
+
+
+
+<script type="text/javascript">
+if (typeof CONVIO=="undefined" || ! CONVIO) { var CONVIO = {}; }
+
+if (! CONVIO.page) { CONVIO.page = {}; }
+
+CONVIO.page.folderID = '55336064';
+CONVIO.page.hostID = '55336062';
+CONVIO.page.adminURL = 'https://cmsadmin30.convio.net';
+
+
+CONVIO.page.navFolderID = '55336064';
+CONVIO.page.navFolderTitle = 'Home';
+
+
+
+CONVIO.page.draftID = '58277259';
+CONVIO.page.hasForm = false;
+
+
+
+CONVIO.page.typeID = '57852340';
+CONVIO.page.typeLabel = 'Standard Webpage';
+
+
+
+CONVIO.page.hasEditorStep = true;
+
+
+if (! CONVIO.user) { CONVIO.user = {}; }
+CONVIO.user.isAnonymous = true;
+</script>
+
+
+
+<script type="text/javascript" src="https://cmsadmin30.convio.net/system/auth/author-toolbar.jsp"></script>
+
+
+<script type="text/javascript" src="/components/floatbar/floatbar.js"></script>
+
+
+
+
+				 
+
+
+  </div>
+  <!-- #page -->
+  <div id="footer"> <div id="item-57864687" style="DISPLAY: inline">
+
+
+
+
+
+  
+
+<div id="org-info"><!-- ORG-INFO -->
+<strong>American Lung Association</strong><br />55 W. Wacker Drive, Suite 1150, Chicago, IL 60601<br />T: <a href="tel:18005864872" style="color: #000000; text-decoration: none;">1-800-LUNGUSA</a> | F: <a href="fax:2024251805" style="color: #000000; text-decoration: none;">202-452-1805</a> | <a href="http://www.lung.org/about-us/contact-us.html" title="Contact Us">Contact Us</a><br /><img src="http://www.lung.org/assets/images/wrpr/charitynavigator-bbb.gif" border="0" style="margin-top: 10px;" alt="Charity Navigator">
+</div><!--#ORG-INFO-->
+<div id="links-info"><!-- LINKS-INFO -->
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td align="right">
+<table cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td><font style="font-size: 10px;"><strong>Connect with Us:</strong></font></td>
+<td width="8"></td>
+<td><a href="http://www.lung.org/rss/" title="RSS Feeds"><img src="http://www.lung.org/assets/images/wrpr/rss-icon.gif" border="0" alt="RSS"></a></td>
+<td width="7"></td>
+<td><a href="http://www.facebook.com/lungusa" target="_blank"><img src="http://www.lung.org/assets/images/wrpr/facebook-icon.gif" border="0" alt="Facebook"></a></td>
+<td width="7"></td>
+<td><a href="http://twitter.com/lungassociation" target="_blank"><img src="http://www.lung.org/assets/images/wrpr/twitter-icon.gif" border="0" alt="Twitter"></a></td>
+<td width="7"></td>
+<td><a href="http://www.youtube.com/user/americanlung" target="_blank"><img src="http://www.lung.org/assets/images/wrpr/youtube-icon.gif" border="0" alt="YouTube"></a></td>
+<td width="7"></td>
+<td><!-- Place this code where you want the badge to render. -->
+<a href="https://plus.google.com/117579164691479256809/posts" rel="publisher" target="_blank" style="text-decoration:none;"><img src="https://ssl.gstatic.com/images/icons/gplus-16.png" alt="Google+" style="border:0;width:16px;height:16px;"/></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+American Lung Association &copy;<script language="JavaScript">document.write(copyright_string)</script><br /><a href="http://www.lung.org/rss">RSS</a> | <a href="http://www.lung.org/about-us/terms-of-use.html" title="Terms of Use">Terms of Use</a> | <a href="http://www.lung.org/about-us/privacy-policy.html" title="Privacy Policy">Privacy Policy</a>
+</div><!-- #LINKS-INFO -->
+</div>
+  </div>
+  <!-- #footer -->
+  <div id="poweredBy" style="DISPLAY: inline">
+
+
+
+
+
+<!-- BEGIN: Powered By -->
+<style type="text/css">
+#cv-poweredBy {
+  text-align: center;
+}
+
+#cv-poweredBy a {
+  color: #ccc;
+  font-family: arial,sans-serif;
+  font-size: 9px;
+  text-decoration: none;
+}
+</style>
+
+<div id="cv-poweredBy">
+  <a href="http://www.convio.com" title="online fundraising, advocacy &amp; donor database">
+    <img src="/assets/poweredby.gif" border="0" alt="Powered by Convio" /><br />
+    nonprofit software</a>
+</div>
+<!-- END: Powered By -->
+</div>
+</div>
+<!-- #wrapper -->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+try{
+var nationalTracker = _gat._getTracker("UA-2228733-13");
+nationalTracker._setAllowLinker(true);
+nationalTracker._setAllowHash(false);
+if (CONVIO.referrer.length > 0) {
+    nationalTracker._setReferrerOverride(CONVIO.referrer);
+}
+nationalTracker._trackPageview();
+} catch(err) {}
+
+if ( document.location.href.indexOf("lung.org") != -1 ) {
+     nationalTracker._setDomainName(".lung.org");
+} else {
+     nationalTracker._setDomainName("none");
+}
+</script>
+<!-- LUNG FORCE Lightbox -->
+<div id="item-524328932" style="display: inline;">
+
+
+
+
+
+  
+
+<script type="text/javascript" src="//use.typekit.net/vpd7twy.js"></script>
+
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+<style>
+#overlaySplash {background-color: #000000; width: 100%; height: 100%; position: fixed; left: 0px; top: 0px; filter: alpha(opacity=70); -moz-opacity: .70; opacity: .70; opacity: .7; visibility: hidden; display: none; /* position: absolute; ----- original value --*/ z-index: 100;}
+
+.win.gecko #overlaySplash {background-color: #000000; width: 100%; height: 100%; /* height: 736px; ----- original value --*/ position: absolute; left: 0px; top: 0px; filter: alpha(opacity=70); -moz-opacity: .70; opacity: .70; opacity: .7; visibility: hidden; display: none; z-index: 100;}
+
+#overlaySplashinner {background-color: #ffffff; width: 724px !important; height: 333px; position: fixed; /* position: absolute; ----- original value --*/ top: 115px; left: 50%; margin-left: -362px; border: 0px solid #461b04; display: none; visibility: hidden; z-index: 102;}
+
+#overlayContent {}
+
+#lboxContentWrap {}
+
+#lboxClose {float: right; position: relative; right: 0px; top: 5px; margin-right: 5px; margin-bottom: -22px; z-index: 105;}
+
+#actionleft {width: 363px; min-height: 116px; float: left;}
+
+#actionBlurb {text-align: center; margin-top: 20px; margin-left: 20px;}
+
+#actionBlurb h1 {font-family: "museo-sans-condensed",sans-serif; font-weight: 900; font-size: 38px; line-height: 35px; color: #3d3e3f; text-transform: uppercase; margin-bottom: 15px;}
+
+#actionBlurb h2 {font-family: "museo-sans",sans-serif; font-weight: 900; font-size: 13px; line-height: 16px; color: #3d3e3f; text-transform: uppercase;}
+
+#actionBlurb p {font-family: "museo-sans",sans-serif; font-weight: 500; font-size: 13px; line-height: 16px; color: #3d3e3f;}
+
+#actionRight {width: 361px; float: right;}
+
+#actionBottom {background-image: url('http://www.lung.org/assets/images/lung-force/lightbox-lf-curve.png'); background-repeat: no-repeat; background-position: -2px 1px; background-color: #2e2e30; width: 100%; min-height: 86px; clear: both; display: inline-block;}
+
+#actionBottomLeft {width: 415px; float: left;}
+
+#actionBottomLeftButton {margin-top: 26px; margin-left: 0px;}
+
+#actionBottomLeftButton a.lfButton {font-family: "museo-sans",sans-serif; font-weight: 900; font-size: 13px; text-decoration: none; background: url('http://www.lung.org/assets/images/lung-force/lightbox-button.png') no-repeat scroll 0px 0px transparent; max-height: 40px; padding: 7px 15px 8px 15px;}
+
+#actionBottomLeftButton a.lfButton:hover {background: url('http://www.lung.org/assets/images/lung-force/lightbox-button.png') no-repeat scroll 0px -31px transparent;}
+
+#actionBottomLeftButton a {font-family: "museo-sans",sans-serif; font-weight: 700; font-size: 10px; color: #ffffff; text-transform: uppercase; text-decoration: underline;}
+
+#actionBottomLeftButton a:hover {color: #00bbd2; text-decoration: none;}
+
+#actionBottomRight {width: 309px; float: right;}
+
+#actionBottomRightLogos {text-align: right; margin-top: 17px; margin-right: 20px;}
+
+</style>
+
+<!--[if lte IE 8]>
+<style>
+div#actionleft, div#actionLetter {filter: alpha(opacity=90);}
+</style>
+<![endif]-->
+
+<!--[if lte IE 7]>
+<style>
+div#actionleft, div#actionLetter {filter: alpha(opacity=100); height: 290px !important;}
+</style>
+<![endif]-->
+
+<!--[if lte IE 6]>
+<style>
+#overlaySplashinner {width: 440px !important;}
+</style>
+<![endif]-->
+
+<!-- start Action Lightbox Markup -->
+<div id="overlaySplash"></div>
+<div id="overlaySplashinner" style="width: 450px;"><!-- overlaySplashinner -->
+<div id="lboxClose"><a href="#" onClick="hideSplash();"><img src="http://www.lung.org/assets/images/lung-force/lightbox-close.png" alt="Close" /></a></div>
+<div id="overlayContent"><!-- overlayContent -->
+<div id="lboxContentWrap"><!-- lboxContentWrap -->
+<div id="actionStepOne"><!-- actionStepOne -->
+<div id="actionleft"><!-- actionleft -->
+<div id="actionBlurb"><!-- actionBlurb -->
+<h2>Lung Disease is a formidable foe &mdash; but&nbsp;we&nbsp;are&nbsp;a&nbsp;force to be reckoned with</h2>
+<h1><span style="color: #00bbd2;">Join Us</span> and Help Save Women's Lives</h1>
+<p>LUNG FORCE, led by the American Lung Association, will&nbsp;unite women to stand together against lung&nbsp;cancer&nbsp;and&nbsp;for lung&nbsp;health.</p>
+<p>Join LUNG FORCE and pledge to fight lung&nbsp;cancer.</p>
+</div><!-- #actionBlurb -->
+</div><!-- #actionleft -->
+<div id="actionRight"><!-- actionRight -->
+<div id="actionLetter"><!-- actionLetter -->
+<img src="http://www.lung.org/assets/images/lung-force/lightbox-women.png" border="0" alt="LUNG FORCE" />
+</div><!-- #actionLetter -->
+</div><!-- #actionRight -->
+</div><!-- #actionStepOne -->
+<div id="actionBottom"><!-- actionBottom -->
+<div id="actionBottomLeft"><!-- actionBottomLeft -->
+<div id="actionBottomLeftButton"><!-- actionBottomLeftButton -->
+<p><a href="http://www.lungforce.org/take-pledge" target="_blank" class="lfButton">Pledge to Fight Lung Cancer at LUNGFORCE.org</a></p>
+<p style="margin-top: 5px; padding-top: 5px;"><a href="#" onClick="hideSplash();">Continue to Lung.org</a></p>
+</div><!-- #actionBottomLeftButton -->
+</div><!-- #actionBottomLeft -->
+<div id="actionBottomRight"><!-- actionBottomRight -->
+<div id="actionBottomRightLogos"><!-- actionBottomRightLogos -->
+<p><a href="http://www.lung.org/" target="_blank" onClick="hideSplash();" title="Homepage"><img src="http://www.lung.org/assets/images/lung-force/lightbox-ala-logo.png" border="0" alt="American Lung Association" /></a>&nbsp;&nbsp;<a href="http://www.lungforce.org" target="_blank" onClick="hideSplash();"><img src="http://www.lung.org/assets/images/lung-force/lightbox-lf-logo.png" border="0" alt="LUNG FORCE" /></a>
+</div><!-- actionBottomRightLogos -->
+</div><!-- #actionBottomRight -->
+</div><!-- #actionBottom -->
+</div><!-- #lboxContentWrap -->
+</div><!-- #overlayContent -->
+</div><!-- #overlaySplashinner -->
+<!-- END Action Lightbox Markup -->
+</div>
+<style>
+#sidebar-constrainer {height: 600px;}
+</style>
+</body>
+</html><!-- Powered by Convio -->
+<!-- 10.12.0.40:8901 -->
+
+";i:2;s:4:"9218";}

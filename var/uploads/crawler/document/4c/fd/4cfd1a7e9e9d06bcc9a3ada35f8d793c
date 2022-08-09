@@ -1,0 +1,111 @@
+a:3:{i:0;s:14:"http://v9.com/";i:1;s:16822:"<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><base target="_blank"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>v9</title><link rel="stylesheet" href="../local/css/simple2.css?version=2015021101531"><script type="text/javascript">
+    try{cpmSeq;}catch(e){cpmSeq=Math.floor(Math.random()*(new Date()).valueOf());}
+    var elex=window.elex||{};
+    elex.datacache=true;
+    elex.pageName = "simple_index_new";
+    elex.common={
+        get_domain:function(){
+            var matches = window.location.hostname.match(/([^\.]+).(com|net|me|org)$/);
+            if(matches!=null){
+                return matches[1];
+            }else{
+                return null;
+            }
+        },
+        set_cookie:function(key,val,expires){
+            var _this=this;
+            var date = new Date();
+            date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
+            document.cookie = key+'='+encodeURIComponent(val)+'; domain=.'+_this.get_domain()+'.com; path=/; expires='+date.toGMTString();
+        },
+        get_cookie:function(key){
+            var value = document.cookie.match('(?:^|;)\\s*' + key + '=([^;]*)');
+            return (value) ? decodeURIComponent(value[1]) : null;
+        }
+    };
+    elex.tabTypes=["web","image","video","news"];
+    var conf = window.conf || {};
+    (function(){
+        window.properties = {};
+        elex.langs={
+            "ar":"العربية",
+            "de":"Deutsch",
+            "es":"Español",
+            "fa":"فارسی",
+            "fr":"Français",
+            "he":"עברית",
+            "hi":"हिन्दी",
+            "it":"Italiano",
+            "ja":"日本語",
+            "nl":"Nederlands",
+            "pl":"Polski",
+            "pt":"Português",
+            "ro":"Română",
+            "ru":"Русский",
+            "th":"ภาษาไทย",
+            "tr":"Türkçe",
+            "zh":"繁體中文",
+            "en":"English"
+        };
+        elex.lang3nation = {
+            "de":"de",
+            "es":"es",
+            "fr":"fr",
+            "it":"it",
+            "nl":"nl",
+            "pl":"pl",
+            "pt":"br",
+            "th":"th",
+            "tr":"tr",
+            "zh":"tw",
+            "en":"us"
+        };
+        properties["lang"] = "en";
+        if(elex.common.get_cookie("language") && (elex.common.get_cookie("language") in elex.langs)){
+            properties["lang"] = elex.common.get_cookie("language");
+        }
+        if(elex.common.get_cookie("set-language") && (elex.common.get_cookie("set-language") in elex.langs)){
+            properties["lang"] = elex.common.get_cookie("set-language");
+        }
+    })();
+    document.write("<script type='text/javascript' src='/global/js/lang/"+properties["lang"]+".js'><\/scr"+"ipt>");
+</script></head><body><div id="container" class="container"><div class="hd" monkey="hd_tabs"><div id="translateWord" class="translate-word"><a class="translate selected">Web</a> <a class="translate">Images</a> <a class="translate">Videos</a> <a class="translate">News</a> <a href="http://www.gaggame.com/" class="downchecked games-en translate">Games</a></div></div><div class="s-box"></div><div id="search" class="search-box"><form action="/web" id="searchForm" target="_blank" search-type="web"><input name="q" type="text" class="q" autocomplete="off" autofocus><input id="nation" type="hidden" name="nation" value><input id="sq" name="s" type="submit" value="Search" class="btn"></form></div><div id="hot-icons" class="E-widget hot-icons" event-type="clickEvent"><div class="pic-popular-list"><ul class="hot-web-intro E-tabs-title"><li id="hotTabTitle1" class="select">Popular Sites</li><li id="hotTabTitle2">Shopping</li><li id="hotTabTitle3">Games</li></ul><div class="E-tabs-list pic-popular-images"><ul id="veryHot" class="pic-popular-ul" monkey="hotsites_en_hot1"></ul><ul id="veryHotBehind" class="pic-popular-ul ajax-load" data-url="http://adplus.goo.mx/gif.php?z=41&pl=429&cpmsize=48x48&request_ad_num=10" data-jsonp="jsonp" data-cachetime="50" temid="j-tmpl" monkey="hotsites_en_hot2"></ul></div><ul id="hotSitesShopping" class="E-tabs-list ajax-load pic-popular-images none" data-trigger="show" data-url="http://adplus.goo.mx/gif.php?z=41&pl=429&cpmsize=48x48&request_ad_num=14&adtype=2" data-jsonp="jsonp" data-cachetime="50" temid="j-tmpl" monkey="hotsites_en_shopping"></ul><ul id="hotSitesGame" class="E-tabs-list ajax-load pic-popular-images none" data-trigger="show" data-url="http://adplus.goo.mx/gif.php?z=41&pl=429&cpmsize=48x48&request_ad_num=14&adtype=1" data-jsonp="jsonp" data-cachetime="50" temid="j-tmpl" monkey="hotsites_en_game"></ul></div></div><div id="iframe-ad" class="iframe-ad"></div><div id="footer" monkey="foot_infor" class="footList"><div class="langs" monkey="change_lang" id="langs"></div><a href="/license_agreement.html" target="_blank">License</a> <a href="/privacy_policy.html" target="_blank">Privacy</a> <a href="/about.html" target="_blank">About</a> <a href="/uninstall.html" target="_blank">Uninstall</a> <a href="/suggest.html" target="_blank">Suggest</a></div></div><script id="j-tmpl" type="text/template">{{ for (var i = 0, l = it.data.length; i < l; i++) { }} <li> <a href="{{=it.data[i].link}}"> <i> <img class="lazyload" src="http://b.thanksearch.com/ftpup/images/me/n2/deafault_img.png" _src="{{=it.data[i].img}}"> </i>{{=it.data[i].title}} </a> </li> {{ } }}</script><script type="text/javascript">
+    var hot_html = '';
+    switch(properties["lang"]){
+        case "pt":
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://b.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindexpt_hot_margin1_4_b4afd377c4e07af7f9eeb41969e74ecf.png);}</style> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Facebook </a> </li> <li> <a title="Twitter" href="https://twitter.com/"> <i class="site-link-image" style="background-position:-49px 0px"></i> Twitter </a> </li> <li> <a title="UOL" href="http://www.uol.com.br/"> <i class="site-link-image" style="background-position:-98px 0px"></i> UOL </a> </li> <li> <a title="Globo" href="http://www.globo.com/"> <i class="site-link-image" style="background-position:-147px 0px"></i> Globo </a> </li>';
+            break;
+        case "pl":
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://b.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindexpl_hot_margin1_4_10acf84364945c90b1c9a04d4873dc97.png);}</style> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Facebook </a> </li> <li> <a title="Twitter" href="https://twitter.com/"> <i class="site-link-image" style="background-position:-49px 0px"></i> Twitter </a> </li> <li> <a title="Big Farm" href="http://click.v9.com/click?id=689"> <i class="site-link-image" style="background-position:-98px 0px"></i> Big Farm </a> </li> <li> <a title="Empire" href="http://click.v9.com/click?id=690"> <i class="site-link-image" style="background-position:-147px 0px"></i> Empire </a> </li>';
+            break;
+        case "es":
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://e.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindexes_hot_margin1_4_a3f046cfd6de1306a32de73202e70af7.png);}</style> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Facebook </a> </li> <li> <a title="Twitter" href="https://twitter.com/"> <i class="site-link-image" style="background-position:-49px 0px"></i> Twitter </a> </li> <li> <a title="Empire" href="http://click.v9.com/click?id=690"> <i class="site-link-image" style="background-position:-98px 0px"></i> Empire </a> </li> <li> <a title="Booking" href="http://click.v9.com/click?id=886"> <i class="site-link-image" style="background-position:-147px 0px"></i> Booking </a> </li>';
+            break;
+        case "hi":
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://b.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindexhi_hot_margin1_4_021744812cd7aff1ed553ed9b3071d0d.png);}</style> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Facebook </a> </li> <li> <a title="Flipkart" href="http://click.v9.com/click?id=915"> <i class="site-link-image" style="background-position:-49px 0px"></i> Flipkart </a> </li> <li> <a title="Amazon" href="http://click.v9.com/click?id=329"> <i class="site-link-image" style="background-position:-98px 0px"></i> Amazon </a> </li> <li> <a title="Snapdeal" href="http://click.v9.com/click?id=979"> <i class="site-link-image" style="background-position:-147px 0px"></i> Snapdeal </a> </li>';
+            break;
+        case "zh":
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://d.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindexzh_hot_margin1_4_4b0327da2e3d5322d15c4d8c470664cf.png);}</style> <li> <a title="Yahoo" href="https://www.yahoo.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Yahoo </a> </li> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:-49px 0px"></i> Facebook </a> </li> <li> <a title="Ashford" href="http://goo.mx/UV7JZn"> <i class="site-link-image" style="background-position:-98px 0px"></i> Ashford </a> </li> <li> <a title="ETtoday" href="http://www.ettoday.net/"> <i class="site-link-image" style="background-position:-147px 0px"></i> ETtoday </a> </li>';
+            break;
+        case "tr":
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://d.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindextr_hot_margin1_4_cdbc4b64a44e85c3856c9656555016eb.png);}</style> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Facebook </a> </li> <li> <a title="Twitter" href="https://twitter.com/"> <i class="site-link-image" style="background-position:-49px 0px"></i> Twitter </a> </li> <li> <a title="gittigidiyor" href="http://click.v9.com/click?id=1000"> <i class="site-link-image" style="background-position:-98px 0px"></i> gittigidiyor </a> </li> <li> <a title="Empire" href="http://click.v9.com/click?id=690"> <i class="site-link-image" style="background-position:-147px 0px"></i> Empire </a> </li>';
+            break;
+        case "de":
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://f.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindexde_hot_margin1_4_911a59a68ebc37d74ec60e2f6f528e5a.png);}</style> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Facebook </a> </li> <li> <a title="Twitter" href="https://twitter.com/"> <i class="site-link-image" style="background-position:-49px 0px"></i> Twitter </a> </li> <li> <a title="Big Farm" href="http://click.v9.com/click?id=689"> <i class="site-link-image" style="background-position:-98px 0px"></i> Big Farm </a> </li> <li> <a title="Empire" href="http://click.v9.com/click?id=690"> <i class="site-link-image" style="background-position:-147px 0px"></i> Empire </a> </li>';
+            break;
+        case "fr":
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://c.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindexfr_hot_margin1_4_911a59a68ebc37d74ec60e2f6f528e5a.png);}</style> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Facebook </a> </li> <li> <a title="Twitter" href="https://twitter.com/"> <i class="site-link-image" style="background-position:-49px 0px"></i> Twitter </a> </li> <li> <a title="Big Farm" href="http://click.v9.com/click?id=689"> <i class="site-link-image" style="background-position:-98px 0px"></i> Big Farm </a> </li> <li> <a title="Empire" href="http://click.v9.com/click?id=690"> <i class="site-link-image" style="background-position:-147px 0px"></i> Empire </a> </li>';
+            break;
+        case "it":
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://b.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindexit_hot_margin1_4_911a59a68ebc37d74ec60e2f6f528e5a.png);}</style> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Facebook </a> </li> <li> <a title="Twitter" href="https://twitter.com/"> <i class="site-link-image" style="background-position:-49px 0px"></i> Twitter </a> </li> <li> <a title="Big Farm" href="http://click.v9.com/click?id=689"> <i class="site-link-image" style="background-position:-98px 0px"></i> Big Farm </a> </li> <li> <a title="Empire" href="http://click.v9.com/click?id=690"> <i class="site-link-image" style="background-position:-147px 0px"></i> Empire </a> </li>';
+            break;
+        case "us":
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://d.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindexus_hot_margin1_4_911a59a68ebc37d74ec60e2f6f528e5a.png);}</style> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Facebook </a> </li> <li> <a title="Twitter" href="https://twitter.com/"> <i class="site-link-image" style="background-position:-49px 0px"></i> Twitter </a> </li> <li> <a title="Big Farm" href="http://click.v9.com/click?id=689"> <i class="site-link-image" style="background-position:-98px 0px"></i> Big Farm </a> </li> <li> <a title="Empire" href="http://click.v9.com/click?id=690"> <i class="site-link-image" style="background-position:-147px 0px"></i> Empire </a> </li>';
+            break;
+        case "ru":
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://a.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindexru_hot_margin1_4_6c31f9203485ef4c06fb2fa0d385a5a6.png);}</style> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Facebook </a> </li> <li> <a title="Booking" href="http://click.v9.com/click?id=816"> <i class="site-link-image" style="background-position:-49px 0px"></i> Booking </a> </li> <li> <a title="ScratchCards" href="http://click.v9.com/click?id=1239"> <i class="site-link-image" style="background-position:-98px 0px"></i> ScratchCards </a> </li> <li> <a title="Aliexpress" href="http://click.v9.com/click?id=809"> <i class="site-link-image" style="background-position:-147px 0px"></i> Aliexpress </a> </li>';
+            break;
+        default:
+            hot_html = '<style type="text/css"> .site-link-image{ background-image: url(http://f.thanksearch.com/ftpup/images/img/sprite/sprite_simpleindexen_hot_margin1_4_97f57c9a701273336e61e58cff6a8b2c.png);}</style> <li> <a title="Facebook" href="http://www.facebook.com/"> <i class="site-link-image" style="background-position:0px 0px"></i> Facebook </a> </li> <li> <a title="Twitter" href="https://twitter.com/"> <i class="site-link-image" style="background-position:-49px 0px"></i> Twitter </a> </li> <li> <a title="Yahoo" href="https://www.yahoo.com/"> <i class="site-link-image" style="background-position:-98px 0px"></i> Yahoo </a> </li> <li> <a title="Empire" href="http://click.v9.com/click?id=690"> <i class="site-link-image" style="background-position:-147px 0px"></i> Empire </a> </li>';
+    };
+</script><script src="/global/js/jquery.js?version=20150211"></script><script src="/local/js/simple2.js?version=2015021101533"></script><div class="ads-lazyload" id="nextPage" adsid="bottomRightAds"><script type="text/template" id="bottomRightAds"><iframe width="200" height="180" frameborder="0" allowtransparency="true" scrolling="no" vspace="0" hspace="0" marginheight="0" marginwidth="0" src="/global/ad/adplus.html?z=7&pl=85&cpmsize=200x180&seq={{=cpmSeq}}&u={{=$.cookie('uid')}}"></iframe></script></div><div class="ads-lazyload2" id="humorHidden" adsid="humorHidden-ad" style="display:none;"><script type="text/template" id="humorHidden-ad"><iframe src="http://adplus.goo.mx/gif.php?z=71&pl=1641&seq={{=cpmSeq}}&cpmsize=130x130&u={{=$.cookie('uid')}}" width="130" height="130" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" allowTransparency="true"></iframe></script></div></body></html>";i:2;s:5:"10157";}

@@ -1,0 +1,1281 @@
+a:3:{i:0;s:20:"http://thefader.com/";i:1;s:66244:"<!DOCTYPE html>
+<!--[if IE 8 ]> <html lang="en" class="ie8 lte8 lte9 lte10">    <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="ie9 lte9 lte10">    <![endif]-->
+<!--[if (gt IE 9)]><!--><html lang="en"><!--<![endif]-->
+<!--[if !IE]><!--><html lang="en"><!--<![endif]-->
+  <head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"d4bedaeb31","applicationID":"4336031","transactionName":"cgtbRxFeClVXR0tBV0IQRhwKXwJcSg==","queueTime":9,"applicationTime":201,"agentToken":null,"agent":"js-agent.newrelic.com/nr-536.min.js"}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwYBVlRWGwcDV1dSBAA="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(5),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e;try{throw new Error}catch(u){"stack"in u&&(t(3),t(4),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:6,4:5,5:20,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:20,2:21,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:21,2:20,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:21,2:20,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:21,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],10:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","trackUserAction","finished","traceEvent","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:19,2:20,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=(t(2),window),u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-536.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:19,2:10,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],19:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],20:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],21:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:20,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+    <title>The FADER</title>
+
+    <script type='text/javascript'>
+  googletag = googletag || {};
+  var googletag = googletag;
+  googletag.cmd = googletag.cmd || [];
+  (function() {
+  var gads = document.createElement('script');
+  gads.async = true;
+  gads.type = 'text/javascript';
+  var useSSL = 'https:' == document.location.protocol;
+  gads.src = (useSSL ? 'https:' : 'http:') + 
+      '//www.googletagservices.com/tag/js/gpt.js';
+  var node = document.getElementsByTagName('script')[0];
+  node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+  googletag.cmd.push(function() {
+
+  // Infinite scroll requires SRA
+  googletag.pubads().enableSingleRequest();
+
+  // Disable initial load, we will use refresh() to fetch ads.
+  // Calling this function means that display() calls just
+  // register the slot as ready, but do not fetch ads for it.
+  googletag.pubads().disableInitialLoad();
+
+  googletag.enableServices();
+});
+</script>
+
+    
+    <link href="http://dx9nn400oyhrd.cloudfront.net/assets/application-ce38835ef95b795311289b51ae25f081.css" media="all" rel="stylesheet" />
+    <script src="http://dx9nn400oyhrd.cloudfront.net/assets/application-1c6ec2218c21f58514dad86c9cd44a05.js"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="4+4pdopOU3mqnfLqBrV/3teqPUsE66a0vCycRyaBqek=" name="csrf-token" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-272695-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <script type="text/javascript" src="//use.typekit.net/uaq6epl.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+    <script type="text/javascript">
+
+      WebFontConfig = { fontdeck: { id: '47973' } };
+
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+
+    <meta name="msvalidate.01" content="CFDCCD68D11A9B3C2CE7EE854D821682" />
+    <link rel="canonical" href="http://www.thefader.com/" />
+    
+      <meta name="description" content="The FADER is the definitive voice of music and the lifestyle that surrounds it."/>
+      <meta property="og:title" content="The FADER" />
+      <meta property="og:description" content="The FADER is the definitive voice of music and the lifestyle that surrounds it." />
+      <meta property="og:url" content="http://www.thefader.com" />
+      <meta property="og:image" content="https://s3.amazonaws.com/thefader-v3-assets/images/logo_full.png" />
+
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  _fbq.push(['addPixelId', '821719824565990']);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', 'PixelInitialized', {}]);
+</script>
+    
+
+  </head>
+  <body>
+    <div class="main_wrapper" id='main_wrapper'>
+      <!-- HEADER -->
+ <!-- NEED TO CHECK IF WE ARE ON THE HOMEPAGE, if not, no war story -->
+  <nav class="full">
+
+    <!-- only include war story/expanded nav if it is NOT a mobile device -->
+
+
+        <div class="expanded">
+            <div class="ad top-ad banner_ad">
+  
+  <div class="ad-container">
+    <div id='div-leaderboard-ad' class="">
+  <script type='text/javascript'>
+    displayAdSlot('div-leaderboard-ad', 'fader_v3_home_top_728_90', [728, 90]);
+  </script>
+</div>
+
+  </div>
+
+        </div>
+
+      <div class="header_wrap gutter_left">
+        <a href="/" class="logo_wrap">
+          <div class="logo "></div>
+        </a>
+          <a href="/magazine/96" class="current_issue_link">
+            <div class="current_issue">
+              <div class="issue_info">
+                <span class="mono_heading size_16">Current Issue</span>
+                <div class="wrapper">
+                  <div class="issue_number_wrapper" style="color: #ffffff; border-color: #ffffff">
+                      <div class="issue_number">96</div>
+                  </div>
+                  <div class="issue_title">
+                    <span class="date">Feb/Mar 2015</span>
+                    <span>Spring Style</span>
+                  </div>
+                </div>
+              </div>
+              <div class="issue_img">
+                <img src="http://res.cloudinary.com/thefader/image/upload/s--RPL3FcrR--/w_200,c_limit,q_jpegmini/niuz4s337ztrhbyj0ox0.jpg" class="fit_w" alt="" />
+              </div>
+            </div>
+          </a>
+        <form action='/search' method='GET' name='search_form' id='search_form' class="gutter_left" autocomplete="off" data-search='true'>
+  <input type='text' name='query' value='' placeholder="" id=''>
+</form>
+
+        <span class="icon_wrap search_wrap">
+          <div class="icon search_icon"></div>
+        </span>
+      </div>
+    </div>
+
+
+    <div class="main_nav">
+      <div class="small_logo_wrap">
+        <a href="/"><div class="small_logo"></div></a>
+      </div>
+      <div class="nav_inner_wrap">
+        <div class="verticals_wrap">
+          <ul class="verticals_links">
+            <li class="music "><a href="/music"><span>Music</span></a></li>
+            <li class="style "><a href="/style"><span>Style</span></a></li>
+            <li class="culture "><a href="/culture"><span>Culture</span></a></li>
+          </ul>
+        </div>
+        <div class="links_wrap ui_control_element" ui-toggle="Menu">
+          <div class="search_wrap">
+            <form action='/search' method='GET' name='search_form_small' id='search_form_small' class="gutter_left" autocomplete="off" data-search='true'>
+  <input type='text' name='query' value='' placeholder="" id=''>
+</form>
+
+            <div class="icon search_icon_sm"></div>
+          </div>
+          <div class="hamburger_wrap ui_control" ui-toggle="Menu" ui-toggle-el=".links_wrap">
+            <div class="hamburger"></div>
+          </div>
+          <ul class="links">
+            <li class="mobile_only accordion"><a class="gutter_left" href="#"><span>Feed</span><span class="mobile_only icon_arrow"></span></a>
+              <ul class="mobile_only mobile_filter">
+                <li><a class="active" href="?">All Posts</a></li>
+                <li><a href="/posts/featured">Featured Posts</a></li>
+                <li><a class="" href="?f=p">Popular Posts</a></li>
+              </ul>
+            </li>
+            <li class="li_fadertv "><a class="gutter_left" href="/fader-tv"><span>Fader TV</span></a></li>
+            <li class="li_magazine "><a class="gutter_left" href="/magazine"><span>Magazine</span></a></li>
+            <li class="li_events "><a class="gutter_left" href="/events"><span>Events</span></a></li>
+            <li class="li_shop"><a class="gutter_left" target="_blank" href="http://shop.thefader.com/"><span>Shop</span></a></li>
+            <li class="mobile_only ui_control" ui-toggle="faderRadio"><a class="gutter_left" href="#"><span>Fader Radio</span></a></li>
+            <li class="follow ui_control li_follow" ui-toggle="followOverlay" ui-toggle-el=".follow_overlay"><a class="gutter_left" href="#"><span>Follow</span></a></li>
+            <li class="follow_mobile accordion mobile_only"><a class="gutter_left" href="#"><span>Follow the Fader</span><span class="mobile_only icon_arrow"></span></a>
+              <!-- FOLLOW LINKS LIST MOBILE -->
+
+                <ul class="mobile_only mobile_follow">
+                  <li><a target="_blank" href="https://twitter.com/thefader">Twitter</a></li>
+                  <li><a target="_blank" href="https://www.facebook.com/thefader">Facebook</a></li>
+                  <li><a target="_blank" href="http://plus.google.com/+TheFADER">Google+</a></li>
+                  <li><a target="_blank" href="http://www.youtube.com/user/TheFaderTeam?sub_confirmation=1">Youtube</a></li>
+                  <li><a target="_blank" href="http://thefader.tumblr.com/">Tumblr</a></li>
+                  <li><a target="_blank" href="http://instagram.com/thefader">Instagram</a></li>
+                  <li><a target="_blank" href="http://soundcloud.com/fadermedia">Soundcloud</a></li>
+                  <li><a target="_blank" href="http://open.spotify.com/app/thefader">Spotify</a></li>
+                  <li><a target="_blank" href="http://feeds.feedburner.com/TheFaderMagazine/">RSS</a></li>
+
+                </ul>
+
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+       <div class="icon_wrap search_wrap ui_control " ui-toggle="collapsedSearch" ui-toggle-el=".collapsed_search">
+          <div class="icon search_icon_sm "></div>
+        </div>
+        <div class='nav_radio_wrap'>
+          <div class='nav_radio_controls'>
+            <ul><li class='prev'><span></span></li><li class='toggle'><span></span></li><li class='next'><span></span></li></ul>
+          </div>
+          <div class="icon_wrap radio_wrap ui_control ui_control_element" ui-toggle="faderRadio" style="display:none;">
+            <div class="icon radio_icon"></div>
+            <div class="icon radio_icon_close"></div>
+          </div>
+        </div>
+    </div>
+    <!-- FOLLOW OVERLAY desktop -->
+    <div class="follow_overlay ui_control_element gutter_left gutter_right" ui-toggle="followOverlay">
+      <div class="icon_close"></div>
+      <h2 class="mono_heading size_28">Follow the Fader</h2>
+      <ul class="follow_links">
+        <li class="social twitter"><a class="twitter" target="_blank" href="https://twitter.com/thefader"></a></li>
+        <li class="social facebook"><a class="facebook" target="_blank" href="https://www.facebook.com/thefader"></a></li>
+        <li class="social google"><a class="google" target="_blank" href="http://plus.google.com/+TheFADER"></a></li>
+        <li class="social youtube"><a class="youtube" target="_blank" href="http://www.youtube.com/user/TheFaderTeam?sub_confirmation=1"></a></li>
+        <li class="social tumblr"><a class="tumblr" target="_blank" href="http://thefader.tumblr.com/"></a></li>
+        <li class="social instagram"><a class="instagram" target="_blank" href="http://instagram.com/thefader"></a></li>
+        <li class="social soundcloud"><a class="soundcloud" target="_blank" href="http://soundcloud.com/fadermedia"></a></li>
+        <li class="social spotify"><a class="spotify" target="_blank" href="http://open.spotify.com/app/thefader"></a></li>
+        <li class="social RSS"><a class="rss" target="_blank" href="http://feeds.feedburner.com/TheFaderMagazine/"></a></li>
+      </ul>
+    </div>
+    <div class="collapsed_search ui_control_element gutter_left " ui-toggle="collapsedSearch" >
+      <div class="icon search_icon"></div>
+      <form action='/search' method='GET' name='search_form_small' id='search_form_small' class="gutter_left" autocomplete="off" data-search='true'>
+  <input type='text' name='query' value='' placeholder="" id=''>
+</form>
+
+      <div class='right_text'>
+        <span class='enter_to_search'>Press Enter to Search</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile_nav_wrapper">
+    <div class="links_wrapper">
+      <ul class="links">
+        <li class="mobile_only accordion"><span class="gutter_left"><span>Feed</span><span class="mobile_only icon_arrow"></span></span>
+          <ul class="mobile_only mobile_filter">
+            <li><a class="active" href="/">All Posts</a></li>
+            <li><a class="" href="/home/featured_posts">Featured Posts</a></li>
+            <li><a class="" href="/home/popular_posts">Popular Posts</a></li>
+          </ul>
+        </li>
+        <li ><a class="gutter_left" href="/fader-tv"><span>Fader TV</span></a></li>
+        <li  ><a class="gutter_left" href="/magazine"><span>Magazine</span></a></li>
+        <li ><a class="gutter_left" href="/events"><span>Events</span></a></li>
+        <li><a class="gutter_left" target="_blank" href="http://shop.thefader.com/"><span>Shop</span></a></li>
+        <li class="mobile_only ui_control" ui-toggle="faderRadio"><a class="gutter_left" href="#"><span>Fader Radio</span></a></li>
+        <li class="follow_mobile accordion mobile_only"><span class="gutter_left"><span>Follow the Fader</span><span class="mobile_only icon_arrow"></span></span>
+          <!-- FOLLOW LINKS LIST MOBILE -->
+          <ul class="mobile_only mobile_follow">
+            <li><a target="_blank" href="https://twitter.com/thefader">Twitter</a></li>
+            <li><a target="_blank" href="https://www.facebook.com/thefader">Facebook</a></li>
+            <li><a target="_blank" href="http://plus.google.com/+TheFADER">Google+</a></li>
+            <li><a target="_blank" href="http://www.youtube.com/user/TheFaderTeam">Youtube</a></li>
+            <li><a target="_blank" href="http://thefader.tumblr.com/">Tumblr</a></li>
+            <li><a target="_blank" href="http://instagram.com/thefader">Instagram</a></li>
+            <li><a target="_blank" href="http://soundcloud.com/fadermedia">Soundcloud</a></li>
+            <li><a target="_blank" href="http://open.spotify.com/app/thefader">Spotify</a></li>
+            <li><a target="_blank" href="http://feeds.feedburner.com/TheFaderMagazine/">RSS</a></li>
+          </ul>
+
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  
+<div class="popular_wrapper ui_control_element" ui-toggle="popularFlyout">
+  <div id="popular_flyout" class="flyout">
+  <div class="header_wrapper">
+      <div class="popular_header">
+        <h3 class="mono_heading size_28">Popular</h3>
+        <div class="close_wrapper gutter_right">
+          <div class="icon icon_close"></div>
+        </div>
+      </div>
+    </div>
+ 
+    <section class="popular_posts gutter_left gutter_right gutter_btm">
+      <div class="gutter_btm">
+          <div class="row">
+                <div class="card popular_post vertical music even gutter_btm">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug music"><a href="/music">music</a> / <a href="/?prefilter=news">News</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/17/young-artists-rick-rubin-likes" class="permalink">
+	  <div class="card_info">
+	    <h4>6 Young Artists Rick Rubin Likes Right Now</h4>
+	    <p class="card_summary">Rick Rubin&#39;s got his ear to the streets. Peep six young artists he&#39;s flown in for sessions. </p>
+	  </div>
+	    <div class="card_media">
+	      <img alt="rick" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--v0fkiGTS--/w_1000,c_limit,q_jpegmini/qjans6o7uhitpmcddyem.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+                <div class="card popular_post vertical music even gutter_btm">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug music"><a href="/music">music</a> / <a href="/?prefilter=video">Video</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/17/omarion-post-to-be-video" class="permalink">
+	  <div class="card_info">
+	    <h4>Omarion, Jhené Aiko, And Chris Brown Premiere "Post To Be" Video</h4>
+	    <p class="card_summary">This is a blessing. </p>
+	  </div>
+	    <div class="card_media">
+	      <img alt="jhene " class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--LiUo1zVx--/w_1000,c_limit/qksj6krt6amjrmgcfv9d.gif" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+           </div>
+          <div class="row">
+                <div class="card popular_post vertical style even gutter_btm">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug style"><a href="/style">style</a> / <a href="/?prefilter=feature">Feature</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/16/everlane-is-dressing-a-new-professional-class" class="permalink">
+	  <div class="card_info">
+	    <h4>How Everlane Turned Hipsters Basic</h4>
+	    <p class="card_summary">​The internet&#39;s smartest clothing brand is dressing a new professional class.</p>
+	  </div>
+	    <div class="card_media">
+	      <img alt="everlane social anxiety" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--XbdTJhV9--/w_1000,c_limit,q_jpegmini/abafc6s7cdnc1tgamlju.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+                <div class="card popular_post vertical music even gutter_btm">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug music"><a href="/music">music</a> / <a href="/?prefilter=news">News</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/13/what-does-drake-really-mean-when-he-talks-about-his-woe" class="permalink">
+	  <div class="card_info">
+	    <h4>What Drake Really Means When He Talks About "Woe"</h4>
+	    <p class="card_summary">Hint: Working On Excellence</p>
+	  </div>
+	    <div class="card_media">
+	      <img alt="drake woe" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--5bpJLtpQ--/w_1000,c_limit,q_jpegmini/hlml32o4nn1ke1cmylos.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+           </div>
+          <div class="row">
+                <div class="card popular_post vertical music odd gutter_btm">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug music"><a href="/music">music</a> / <a href="/?prefilter=video">Video</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/18/master-p-relives-his-20s-in-money-mafias-drug-dealer-video" class="permalink">
+	  <div class="card_info">
+	    <h4>Master P Relives His Twenties In Money Mafia's "Drug Dealer" Video</h4>
+	    <p class="card_summary">Watch a new clip from Master P&#39;s latest No Limit chapter, Money Mafia.</p>
+	  </div>
+	    <div class="card_media">
+	      <img alt="master p" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--YoqShKEk--/w_1000,c_limit,q_jpegmini/yzxmr4so8kdap6zb6nly.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+                <div class="card popular_post vertical music even gutter_btm">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug music"><a href="/music">music</a> / <a href="/?prefilter=news">News</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/18/nicki-minaj-tour-manager-was-killed-last-night-in-philly" class="permalink">
+	  <div class="card_info">
+	    <h4>Nicki Minaj's Tour Manager Was Killed Last Night In Philadelphia</h4>
+	    <p class="card_summary">De&#39;Von Pickett was fatally stabbed last night while in town rehearsing for Nicki Minaj and Meek Mill&#39;s upcoming tour.</p>
+	  </div>
+	    <div class="card_media">
+	      <img alt="nicki" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--t4FP4joa--/w_1000,c_limit,q_jpegmini/x5hm3xwbzzycetvdjpna.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+           </div>
+          <div class="row">
+                <div class="card popular_post vertical music even gutter_btm">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug music"><a href="/music">music</a> / <a href="/?prefilter=feature">Feature</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/17/cover-story-tink-is-a-no-bullshit-feminist-with-a-timbaland-deal" class="permalink">
+	  <div class="card_info">
+	    <h4>Meet Tink, A New Voice For Proudly Imperfect Women</h4>
+	    <p class="card_summary">A no-bullshit teenage feminist covers FADER&#39;s 2015 Spring Style issue.</p>
+	  </div>
+	    <div class="card_media">
+	      <img alt="tink fader" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--2liIPa9N--/w_1000,c_limit,q_jpegmini/mmnjgssouuhi8hydoksm.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+                <div class="card popular_post vertical music even gutter_btm">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug music"><a href="/music">music</a> / <a href="/?prefilter=audio">Audio</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/18/bloody-beetroots-member-sbcrs-the-grid-is-nasty-gigantic-electro" class="permalink">
+	  <div class="card_info">
+	    <h4>Bloody Beetroots Founder SBCR's "The Grid" Is Nasty, Gigantic Electro</h4>
+	    <p class="card_summary">&quot;The Grid&quot; sounds like LFO, which is sweet.</p>
+	  </div>
+	    <div class="card_media">
+	      <img alt="sbcr" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--S9fnNlOX--/w_1000,c_limit,q_jpegmini/kxce9fktjcbupvrj8w5p.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+           </div>
+          <div class="row">
+                <div class="card popular_post vertical style even gutter_btm">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug style"><a href="/style">style</a> / <a href="/?prefilter=news">News</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/19/jncos-are-being-revived" class="permalink">
+	  <div class="card_info">
+	    <h4>JNCOs Are Being Revived</h4>
+	    <p class="card_summary">20 inch leg openings coming back hard.</p>
+	  </div>
+	    <div class="card_media">
+	      <img alt="JNCO" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--l8XpFIqK--/w_1000,c_limit,q_jpegmini/itptxd9guscex0jhsx6i.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+                <div class="card popular_post vertical style even gutter_btm">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug style"><a href="/style">style</a> / <a href="/?prefilter=feature">Feature</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/18/when-will-womenswear-catch-up-to-the-way-women-actually-dress" class="permalink">
+	  <div class="card_info">
+	    <h4>When Will Womenswear Catch Up To The Way Women Actually Dress?</h4>
+	    <p class="card_summary">​Eight creative women on why tomboy style isn&#39;t just a trend.</p>
+	  </div>
+	    <div class="card_media">
+	      <img alt="When Will Womenswear Catch Up To The Way Women Actually Dress?" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--p_8FZM7S--/w_1000,c_limit,q_jpegmini/ljsrvdujpxnfo7mr42sw.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+           </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+
+<div class="main_content">
+  <section class="main homepage" data-page-type="home">
+  
+<section class="frontpage gutter_all_margin">
+	<section class="first_position row mobile_only">
+		
+<div class="card vertical pinned_post gutter_btm music">
+  <div class="card_inner_wrapper">
+    <div class="top">
+      <span class="card_slug"><a class="vertical" href="/music">music</a> / <a class="category" href="/?prefilter=feature">Feature</a><div class="fader_premiere">Premiere</div></span>
+    </div>
+    <div class="bottom card_info_wrapper">
+      <a href="/2015/02/19/we-needed-that" class="permalink">
+	<div class="card_info">
+	  <h3 class="card_headline">The Powerful, Radical "We" Of Black Musicians On The World's Stage</h3>
+	  <p class="card_summary">Beyoncé, Pharrell, and Kendrick Lamar have all recently used their music to express collective pain. We needed that.</p>
+	</div>
+
+	<div class="card_media">
+	    <img alt="beyonce grammys hands up" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--wXNHOqob--/w_1000,c_limit,q_jpegmini/nsntl73bcxzo0ybygbys.jpg" />
+	</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+	</section>
+	<!-- pinned -->
+		<section class="pinned_posts column two_thirds">
+		    <div class="row">
+    
+<div class="card vertical pinned_post even gutter_btm music">
+  <div class="card_inner_wrapper">
+    <div class="top">
+      <span class="card_slug"><a class="vertical" href="/music">music</a> / <a class="category" href="/?prefilter=feature">Feature</a><div class="fader_premiere">Premiere</div></span>
+    </div>
+    <div class="bottom card_info_wrapper">
+      <a href="/2015/02/19/we-needed-that" class="permalink">
+	<div class="card_info">
+	  <h3 class="card_headline">The Powerful, Radical "We" Of Black Musicians On The World's Stage</h3>
+	  <p class="card_summary">Beyoncé, Pharrell, and Kendrick Lamar have all recently used their music to express collective pain. We needed that.</p>
+	</div>
+
+	<div class="card_media">
+	    <img alt="beyonce grammys hands up" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--wXNHOqob--/w_1000,c_limit,q_jpegmini/nsntl73bcxzo0ybygbys.jpg" />
+	</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+    
+<div class="card vertical pinned_post odd gutter_btm music">
+  <div class="card_inner_wrapper">
+    <div class="top">
+      <span class="card_slug"><a class="vertical" href="/music">music</a> / <a class="category" href="/?prefilter=feature">Feature</a><div class="fader_premiere">Premiere</div></span>
+    </div>
+    <div class="bottom card_info_wrapper">
+      <a href="/2015/02/17/cover-story-tink-is-a-no-bullshit-feminist-with-a-timbaland-deal" class="permalink">
+	<div class="card_info">
+	  <h3 class="card_headline">Meet Tink, A New Voice For Proudly Imperfect Women</h3>
+	  <p class="card_summary">A no-bullshit teenage feminist covers FADER's 2015 Spring Style issue.</p>
+	</div>
+
+	<div class="card_media">
+	    <img alt="tink fader" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--2liIPa9N--/w_1000,c_limit,q_jpegmini/mmnjgssouuhi8hydoksm.jpg" />
+	</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <div class="row">
+    <!--  only the pinned first position is laid out imagetotext -->
+
+	<!--  default layout is texttoimage -->
+	<div class="card horizontal pinned_post gutter_btm style">
+		<div class="card_text golden_61">
+			<div class="card_text_inner_wrapper">
+				<div class="top">
+					<span class="card_slug"><a href="/style">style</a> / <a href="/?prefilter=feature">Feature</a></span>
+				</div>
+				<div class="bottom card_info_wrapper">
+					<a href="/2015/02/19/best-all-denim-looks-for-spring" class="permalink">
+						<div class="card_info">
+							<div class="headline_wrapper"><h3 class="card_headline">All-Denim Looks For Spring In The Streets And Valleys Of Las Vegas</h3></div>
+							<p class="card_summary">The flyest jeans to wear this spring.</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="card_media golden_38">
+			<a href="/2015/02/19/best-all-denim-looks-for-spring" class="permalink">
+					<img alt="jacket" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--lUHszMjg--/w_1000,c_limit,q_jpegmini/tc91ojw6i0ssmy1xmalv.jpg" />
+			</a>
+		</div>
+	</div>
+
+
+  </div>
+
+  <div class="row">
+    
+<div class="card vertical pinned_post even gutter_btm style">
+  <div class="card_inner_wrapper">
+    <div class="top">
+      <span class="card_slug"><a class="vertical" href="/style">style</a> / <a class="category" href="/?prefilter=feature">Feature</a><div class="fader_premiere">Premiere</div></span>
+    </div>
+    <div class="bottom card_info_wrapper">
+      <a href="/2015/02/18/when-will-womenswear-catch-up-to-the-way-women-actually-dress" class="permalink">
+	<div class="card_info">
+	  <h3 class="card_headline">When Will Womenswear Catch Up To The Way Women Actually Dress?</h3>
+	  <p class="card_summary">​Eight creative women on why tomboy style isn't just a trend.</p>
+	</div>
+
+	<div class="card_media">
+	    <img alt="When Will Womenswear Catch Up To The Way Women Actually Dress?" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--p_8FZM7S--/w_1000,c_limit,q_jpegmini/ljsrvdujpxnfo7mr42sw.jpg" />
+	</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+    
+<div class="card vertical pinned_post odd gutter_btm music">
+  <div class="card_inner_wrapper">
+    <div class="top">
+      <span class="card_slug"><a class="vertical" href="/music">music</a> / <a class="category" href="/?prefilter=news">News</a><div class="fader_premiere">Premiere</div></span>
+    </div>
+    <div class="bottom card_info_wrapper">
+      <a href="/2015/02/17/young-artists-rick-rubin-likes" class="permalink">
+	<div class="card_info">
+	  <h3 class="card_headline">6 Young Artists Rick Rubin Likes Right Now</h3>
+	  <p class="card_summary">Rick Rubin's got his ear to the streets. Peep six young artists he's flown in for sessions. </p>
+	</div>
+
+	<div class="card_media">
+	    <img alt="rick" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--v0fkiGTS--/w_1000,c_limit,q_jpegmini/qjans6o7uhitpmcddyem.jpg" />
+	</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+		</section>
+
+	<!-- latest -->
+	<aside class="right_rail column">
+		<!-- 320 ad -->
+		<div class="ad square_ad latest_ad">
+                  <div id='div-above-latest-ad' style='width:300px; height:250px;'>
+  <script type='text/javascript'>
+    displayAdSlot('div-above-latest-ad', 'fader_v3_home_above_latest_300x250', [300, 250]);
+  </script>
+</div>
+
+
+
+                </div>
+		<div class="column_heading">
+			<span class="mono_heading size_28">Latest</span>
+		</div>
+		<div class="latest_feed">
+                  <div class="mini_card latest_post ">
+      <a href="/2015/02/19/meet-the-music-industrys-go-to-guy-for-emoji-music-videos" class="permalink">
+  
+    <div class="mini_card_media">
+      <img alt="i b cool" class="photo fit_h" src="http://res.cloudinary.com/thefader/image/upload/s--v2WznnIb--/w_100,h_100,c_fill,g_face,q_jpegmini/dv9kbitdudesjxpna1kh.jpg" />
+    </div>
+    <div class="mini_card_info">
+      <h3 class="mini_card_headline"><span>The Music Industry's Go-To Guy For Emoji Music Videos Doesn't Even Use Emoji</span></h3>
+    </div>
+  </a>
+</div>
+<div class="mini_card latest_post ">
+      <a href="/2015/02/19/the-kicks-eckhaus-latta-designed-for-nikeid-are-amazing" class="permalink">
+  
+    <div class="mini_card_media">
+      <img alt="nike" class="photo fit_h" src="http://res.cloudinary.com/thefader/image/upload/s--Lj1V0Fpw--/w_100,h_100,c_fill,g_face,q_jpegmini/jsyiwfjmirlqktxhqj60.jpg" />
+    </div>
+    <div class="mini_card_info">
+      <h3 class="mini_card_headline"><span>These Kicks That Eckhaus Latta Designed For NikeID Are Amazing</span></h3>
+    </div>
+  </a>
+</div>
+<div class="mini_card latest_post ">
+      <a href="/2015/02/19/tlc-raised-430000-on-kickstarter-for-their-new-album" class="permalink">
+  
+    <div class="mini_card_media">
+      <img alt="tlc" class="photo fit_h" src="http://res.cloudinary.com/thefader/image/upload/s--PW9gZKQe--/w_100,h_100,c_fill,g_face,q_jpegmini/ic4kwzfz2oghhgd4lxph.jpg" />
+    </div>
+    <div class="mini_card_info">
+      <h3 class="mini_card_headline"><span>TLC Raised $430,000 On Kickstarter For Their New Album</span></h3>
+    </div>
+  </a>
+</div>
+<div class="mini_card latest_post ">
+      <a href="/2015/02/19/suge-knight-is-back-in-the-hospital-again" class="permalink">
+  
+    <div class="mini_card_media">
+      <img alt="suge" class="photo fit_h" src="http://res.cloudinary.com/thefader/image/upload/s--d8lW4yeY--/w_100,h_100,c_fill,g_face,q_jpegmini/x7ofbqvdv3att3vf31jz.jpg" />
+    </div>
+    <div class="mini_card_info">
+      <h3 class="mini_card_headline"><span>Suge Knight Is Back In The Hospital Again</span></h3>
+    </div>
+  </a>
+</div>
+
+
+		</div>
+		<div class="column_footer">
+			<a href="#" class="border_btn more_feed">More</a>
+		</div>
+                <div class="ad square_ad latest_ad" style="margin-top: 40px;">
+                  <div id='div-below-fold-latest-ad' style='width:300px; height:250px;'>
+  <script type='text/javascript'>
+    displayAdSlot('div-below-fold-latest-ad', 'fader_v3_home_below_the_fold_300x250', [300, 250]);
+  </script>
+</div>
+
+
+
+                </div>
+	</aside>
+
+</section>
+<!-- popular -->
+
+  <section class="popular_posts row gutter_top gutter_btm">
+    <div class="gutter_top gutter_btm">
+      <h3 class="mono_heading size_28">Popular</h3>
+      <div class="row gutter_left">
+          <div class="card popular_post vertical music gutter_right">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug music"><a href="/music">music</a> / <a href="/?prefilter=news">News</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/17/young-artists-rick-rubin-likes" class="permalink">
+	  <div class="card_info">
+	    <h4 class="card_headline">6 Young Artists Rick Rubin Likes Right Now</h4>
+	  </div>
+	    <div class="card_media">
+	      <img alt="rick" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--yFl2HNsU--/w_300,c_limit,q_jpegmini/qjans6o7uhitpmcddyem.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+  <div class="card popular_post vertical music gutter_right">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug music"><a href="/music">music</a> / <a href="/?prefilter=video">Video</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/17/omarion-post-to-be-video" class="permalink">
+	  <div class="card_info">
+	    <h4 class="card_headline">Omarion, Jhené Aiko, And Chris Brown Premiere "Post To Be" Video</h4>
+	  </div>
+	    <div class="card_media">
+	      <img alt="jhene " class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--rcSvjexT--/w_300,c_limit/qksj6krt6amjrmgcfv9d.gif" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+  <div class="card popular_post vertical style gutter_right">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug style"><a href="/style">style</a> / <a href="/?prefilter=feature">Feature</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/16/everlane-is-dressing-a-new-professional-class" class="permalink">
+	  <div class="card_info">
+	    <h4 class="card_headline">How Everlane Turned Hipsters Basic</h4>
+	  </div>
+	    <div class="card_media">
+	      <img alt="everlane social anxiety" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--ST25RhTZ--/w_300,c_limit,q_jpegmini/abafc6s7cdnc1tgamlju.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+  <div class="card popular_post vertical music gutter_right">
+    <div class="card_inner_wrapper">
+      <div class="top">
+	<span class="card_slug music"><a href="/music">music</a> / <a href="/?prefilter=news">News</a></span>
+      </div>
+      <div class="bottom card_info_wrapper">
+	<a href="/2015/02/13/what-does-drake-really-mean-when-he-talks-about-his-woe" class="permalink">
+	  <div class="card_info">
+	    <h4 class="card_headline">What Drake Really Means When He Talks About "Woe"</h4>
+	  </div>
+	    <div class="card_media">
+	      <img alt="drake woe" class="photo fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--DpLlb1BJ--/w_300,c_limit,q_jpegmini/hlml32o4nn1ke1cmylos.jpg" />
+	    </div>
+	</a>
+      </div>
+    </div>
+  </div>
+
+	<div class="card popular_post gutter_right vertical more_popular ui_control" ui-toggle="popularFlyout" ui-toggle-el=".popular_wrapper">
+	  <div class="card_inner_wrapper">
+	    <h4>More<br> Popular<br> Posts</h4>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- ad -->
+  <section class="ad full_width_ad banner_ad row">
+  <div class="ad_outer_wrapper">
+    <div class="ad_inner_wrapper">
+      <div id='div-full_width-ad' class="">
+  <script type='text/javascript'>
+    displayAdSlot('div-full_width-ad', 'fader_v3_home_middle_728_90', [728, 90]);
+  </script>
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="all_posts" class="below_fold gutter_top">
+  <span class="mono_heading size_28 gutter_top">More</span>
+  
+  <!-- filter -->
+  <div class="filter_options"><ul><li class='border_btn filter_opt active' data-filter='all'>All Posts</li><li class='border_btn filter_opt ' data-filter='features'>Features</li><li class='border_btn filter_opt ' data-filter='photos'>Photos</li><li class='border_btn filter_opt ' data-filter='videos'>Videos</li><li class='border_btn filter_opt ' data-filter='audio'>Audio</li><li class='border_btn filter_opt ' data-filter='news'>News</li></ul></div>
+
+  <!-- featured -->
+  <section class="featured_posts half_gutter_left half_gutter_right">
+    <div class="posts">
+    </div>
+  </section>
+
+  <span class="border_btn more_stories gutter_all_margin">
+    More Stories
+  </span>
+
+  <a href="/home/paged/2" style="display: none;">More Stories</a>
+
+</section>
+
+
+<script type="text/html" id="vcard_template">
+	<div class="card vertical featured_post gutter_btm half_gutter_left half_gutter_right {vertical}">
+		<div class="card_inner_wrapper">
+			<div class="top">
+				<span class="card_slug">
+					<a href="/{vertical}" class="vertical">{vertical}</a> / <a href="/?prefilter={category_lowercase}" class="category">{category}</a>
+					<div class="fader_premiere">Premiere</div>
+				</span>
+			</div>
+			<div class="bottom card_info_wrapper">
+				<a href="{permalink}" class="permalink">
+					<div class="card_info">
+						<h3 class="card_headline">{headline}</h3>
+						<p class="card_summary">{summary_short}</p>
+					</div>
+					<div class="card_media">
+						{card_media}
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="mcard_template">
+	<div class="mini_card latest_post">
+		<a href="{permalink}" class="permalink">
+			<div class="mini_card_media">
+				{card_media}
+			</div>
+		    <div class="mini_card_info">
+		      <h3 class="mini_card_headline"><span>{headline}</span></h3>
+		    </div>
+		</a>
+	</div>
+</script>
+
+<script type="text/html" id="adcard_template">
+	<div class="card vertical featured_post advertisement gutter_btm half_gutter_left half_gutter_right">
+		<div class="card_inner_wrapper">
+			<div class="top">
+				<span class="card_slug">Advertisement</span>
+			</div>
+			<div class="bottom card_info_wrapper">
+				<div class="card_media">
+                                  <div class="square_ad">
+          	                    <div id='div-vertical-card-{id}' style="width:300px; height:250px;"></div>
+                                  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id='mp3_vcard_template'>
+	<div class="soundplayer vcard" data-soundcloud-src={media.mp3_src} data-player-type={media.src_type} data-player-ui='card'>
+		<img src="" class="photo fit_w artwork" />
+		<div class="progress_overlay">
+			<span class="icon"></span>
+		</div>
+		<{tag:script} type='text/html' data-id='radio_tmpl'>
+			{tmpl:include(radio_mp3)}
+		</{tag:script}>
+	</div>
+</script>
+
+<script type="text/html" id='mp3_mcard_template'>
+	<div class="soundplayer minicard" data-soundcloud-src={media.mp3_src} data-player-type={media.src_type} data-player-ui='article'>
+		<div class="artwork">
+			<div class="cover_overlay"></div>
+			<span class="icon"></span>
+		</div>
+		<div class="trackdata">
+			<div class="info">
+				<div class="info_wrapper mini_card_info no_image">
+					<h3 class="mini_card_headline"><span>Stream: {media.artist}, &ldquo;{media.title}&rdquo;</span></h3>
+				</div>
+			</div>
+		</div>
+		<{tag:script} type='text/html' data-id='radio_tmpl'>
+			{tmpl:include(radio_mp3)}
+		</{tag:script}>
+	</div>
+</script>
+
+<script type='text/html' id='radio_mp3'>
+	<div class='soundplayer radio' data-soundcloud-src={media.mp3_src} data-player-type={media.src_type} data-player-ui='radio'>
+		<div class='now_playing'><span>Now Playing</span></div>
+		<div class='large_artwork'>
+			<img src=''>
+			<a href='#' class='close_expanded'></a>
+		</div>
+		<div class='artwork'>
+			<div class="cover_overlay"></div><span class='icon'></span></div>
+		<div class='trackdata'>
+			<div class='info'>
+				<div class="info_wrapper">
+					<span class='artistname'>{media.artist}, </span><span class='trackname'>&ldquo;{media.title}&rdquo;</span>
+				</div>
+				{tmpl:if(media.info)}
+					<a href='#' class='icon_info'></a>
+				{/tmpl:if}
+			</div>
+		</div>
+		{tmpl:if(media.info)}
+			<div class='expanded_info'>
+				<a href="{permalink}">{media.info}</a>
+			</div>
+		{/tmpl:if}
+	</div>
+</script>
+
+
+</section>
+
+  <section class="ad banner_ad row footer_ad">
+  <div class="ad_outer_wrapper">
+    <div class="ad_inner_wrapper">
+      <div id='div-footer-ad' class="">
+  <script type='text/javascript'>
+    displayAdSlot('div-footer-ad', 'fader_v3_home_footer_728_90', [728, 90]);
+  </script>
+</div>
+
+    </div>
+  </div>
+</section>
+
+  
+  <footer class="gutter_right gutter_left">
+    <div class="footer_top_row">
+      <a class="logo_wrapper" href="/"> <div class="footer_logo"></div></a>
+      <div class="footer_links gutter_left">
+        <ul class="footer_page_links">
+          <li><a href="/contact">Contact</a></li>
+          <li><a target="_blank" href="http://advertising.thefader.com/">Advertising</a></li>
+          <li><a href="/terms-of-use">Terms of Use</a></li>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a target="_blank" href="http://apps.thefader.com/field_reps">Field Reps</a></li>
+          <li><a target="_blank" href="http://www.faderlabel.com">Fader Label</a></li>
+        </ul>
+        <ul class="footer_social_links">
+          <li><a target="_blank" href="https://twitter.com/thefader">Twitter</a></li>
+          <li><a target="_blank" href="https://www.facebook.com/thefader">Facebook</a></li>
+          <li><a target="_blank" href="http://plus.google.com/+TheFADER">Google+</a></li>
+          <li><a target="_blank" href="http://www.youtube.com/user/TheFaderTeam">Youtube</a></li>
+          <li><a target="_blank" href="http://thefader.tumblr.com/">Tumblr</a></li>
+          <li><a target="_blank" href="http://instagram.com/thefader">Instagram</a></li>
+          <li><a target="_blank" href="http://soundcloud.com/fadermedia">Soundcloud</a></li>
+          <li><a target="_blank" href="http://open.spotify.com/app/thefader">Spotify</a></li>
+          <li><a target="_blank" href="http://feeds.feedburner.com/TheFaderMagazine/">RSS</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="footer_content">
+      <div class="current_issue">
+        <div class="wrapper">
+          <a href="/magazine" class="header mono_heading size_21">Magazine</a>
+          <div class="issue_info gutter_left">
+            <div class="issue_number_wrapper">
+              <a href="/magazine/96">
+                <div class="issue_number_sm" style="color: #ffffff; border:2px solid #ffffff">96</div>
+              </a>
+            </div>
+            
+            <a href="/magazine/96" class="issue_text_wrapper">
+              <div class="issue_date">Feb/Mar 2015</div>
+              <div class="issue_title">Spring Style</div>
+            </a>
+          </div>
+        </div>
+        <a href="/magazine/96" class="issue_cover">
+          <img alt="" class="fit_w" src="http://res.cloudinary.com/thefader/image/upload/s--AWj-vLE6--/w_320,c_limit,q_jpegmini/niuz4s337ztrhbyj0ox0.jpg" />
+        </a>
+        <a class="subscribe_button border_btn white" href="http://shop.thefader.com/categories/Subscriptions/" target="_blank">Subscribe</a>
+      </div>
+      <div class="updates_form">
+        <form id="updates">
+          <div class="header mono_heading size_21">Updates</div>
+          <div class="options">
+            <input type="checkbox" id="daily" name="daily" value="daily" checked>
+            <label for="daily"><span></span>Daily</label>
+            <input type="checkbox" id="events" name="events" value="events" checked>
+            <label for="events"><span></span>Events</label>
+          </div>
+          <div class="signup">
+            <span class="first_name"><input type="text" class="first_name" placeholder="First Name" name="first" /></span>
+            <span class="last_name"><input type="text" class="last_name" placeholder="Last Name" name="last" /></span>
+            <input type="text" class="email" placeholder="Email address" name="email" />
+            <div class="state_wrapper">
+              <div class="states_dropdown" id="state">
+                <div class="more_states_btn border_btn"><span class="selected_state" data-state-abbr="">State</span><span class="icon_arrow"></span></div>
+                <ul>
+                      <li data-state-abbr="International">International</li>
+                      <li data-state-abbr="AL">Alabama</li>
+                      <li data-state-abbr="AK">Alaska</li>
+                      <li data-state-abbr="AZ">Arizona</li>
+                      <li data-state-abbr="AR">Arkansas</li>
+                      <li data-state-abbr="CA">California</li>
+                      <li data-state-abbr="CO">Colorado</li>
+                      <li data-state-abbr="CT">Connecticut</li>
+                      <li data-state-abbr="DE">Delaware</li>
+                      <li data-state-abbr="DC">District Of Columbia</li>
+                      <li data-state-abbr="FL">Florida</li>
+                      <li data-state-abbr="GA">Georgia</li>
+                      <li data-state-abbr="HI">Hawaii</li>
+                      <li data-state-abbr="ID">Idaho</li>
+                      <li data-state-abbr="IL">Illinois</li>
+                      <li data-state-abbr="IN">Indiana</li>
+                      <li data-state-abbr="IA">Iowa</li>
+                      <li data-state-abbr="KS">Kansas</li>
+                      <li data-state-abbr="KY">Kentucky</li>
+                      <li data-state-abbr="LA">Louisiana</li>
+                      <li data-state-abbr="ME">Maine</li>
+                      <li data-state-abbr="MD">Maryland</li>
+                      <li data-state-abbr="MA">Massachusetts</li>
+                      <li data-state-abbr="MI">Michigan</li>
+                      <li data-state-abbr="MN">Minnesota</li>
+                      <li data-state-abbr="MS">Mississippi</li>
+                      <li data-state-abbr="MO">Missouri</li>
+                      <li data-state-abbr="MT">Montana</li>
+                      <li data-state-abbr="NE">Nebraska</li>
+                      <li data-state-abbr="NV">Nevada</li>
+                      <li data-state-abbr="NH">New Hampshire</li>
+                      <li data-state-abbr="NJ">New Jersey</li>
+                      <li data-state-abbr="NM">New Mexico</li>
+                      <li data-state-abbr="NY">New York</li>
+                      <li data-state-abbr="NC">North Carolina</li>
+                      <li data-state-abbr="ND">North Dakota</li>
+                      <li data-state-abbr="OH">Ohio</li>
+                      <li data-state-abbr="OK">Oklahoma</li>
+                      <li data-state-abbr="OR">Oregon</li>
+                      <li data-state-abbr="PA">Pennsylvania</li>
+                      <li data-state-abbr="RI">Rhode Island</li>
+                      <li data-state-abbr="SC">South Carolina</li>
+                      <li data-state-abbr="SD">South Dakota</li>
+                      <li data-state-abbr="TN">Tennessee</li>
+                      <li data-state-abbr="TX">Texas</li>
+                      <li data-state-abbr="UT">Utah</li>
+                      <li data-state-abbr="VT">Vermont</li>
+                      <li data-state-abbr="VA">Virginia</li>
+                      <li data-state-abbr="WA">Washington</li>
+                      <li data-state-abbr="WV">West Virginia</li>
+                      <li data-state-abbr="WI">Wisconsin</li>
+                      <li data-state-abbr="WY">Wyoming</li>
+                </ul>
+              </div>
+            </div>
+            <input type="submit" class="submit border_btn white" value="Sign Up" >
+          </div>
+        </form>
+      </div>
+
+      
+
+    </div>
+    <div class="credits">
+      <div class="fader_copyright">©2015  The Fader, Inc. All rights reserved.</div>
+      <div class="ws_credit">
+        <a href="http://www.wondersauce.com" target="_blank">
+          <div class="ws_logo"></div>
+          <span>Site By Wondersauce</span>
+        </a>
+      </div>
+  </footer>
+
+
+  <div class="overlay"></div>
+</div>
+
+    <!-- Start Quantcast tag -->
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <script type="text/javascript">_qacct="p-579gYVoxaB70s";quantserve();</script>
+    <noscript>
+      <a href="http://www.quantcast.com/p-579gYVoxaB70s" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-579gYVoxaB70s.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></a>
+    </noscript>
+    <!-- End Quantcast tag -->
+
+    <!-- START Nielsen Online SiteCensus V6.0 -->
+    <!-- COPYRIGHT 2010 Nielsen Online -->
+    <script type="text/javascript">
+      (function () {
+        var d = new Image(1, 1);
+        d.onerror = d.onload = function () {
+        d.onerror = d.onload = null;
+      };
+      d.src = ["//secure-us.imrworldwide.com/cgi-bin/m?ci=us-706645h&cg=0&cc=1&si=", escape(window.location.href), "&rp=", escape(document.referrer), "&ts=compact&rnd=", (new Date()).getTime()].join('');
+      })();
+    </script>
+    <noscript>
+      <div>
+        <img src="//secure-us.imrworldwide.com/cgi-bin/m?ci=us-706645h&amp;cg=0&amp;cc=1&amp;ts=noscript" width="1" height="1" alt="" />
+      </div>
+    </noscript>
+    <!-- END Nielsen Online SiteCensus V6.0 -->
+
+    <!-- newsbeat -->
+    <script type='text/javascript'>
+
+      var _sf_async_config={};
+      /** CONFIGURATION START **/
+      _sf_async_config.uid = 8132;
+      _sf_async_config.domain = 'thefader.com';
+      _sf_async_config.sections = '';
+
+    (function(){
+      function loadChartbeat() {
+        window._sf_endpt=(new Date()).getTime();
+        var e = document.createElement('script');
+        e.setAttribute('language', 'javascript');
+        e.setAttribute('type', 'text/javascript');
+        e.setAttribute('src',
+           (('https:' == document.location.protocol) ? 'https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/' : 'http://static.chartbeat.com/') +
+           'js/chartbeat.js');
+        document.body.appendChild(e);
+      }
+      var oldonload = window.onload;
+      window.onload = (typeof window.onload != 'function') ?
+         loadChartbeat : function() { oldonload(); loadChartbeat(); };
+    })();
+    </script>
+
+    <!-- Begin comScore Tag -->
+    <script>
+      var _comscore = _comscore || [];
+      _comscore.push({ c1: "2", c2: "16442793" });
+      (function() {
+      var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+      s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+      el.parentNode.insertBefore(s, el);
+      })();
+    </script>
+    <noscript>
+      <img src="http://b.scorecardresearch.com/p?c1=2&c2=16442793&cv=2.0&cj=1" />
+    </noscript>
+    <!-- End comScore Tag -->
+
+    <!-- Compete CrossPoint Tag for thefader.com -->
+    <script type="text/javascript">
+      __compete_code = '263c2c9fe835809b1e09226c394f400a';
+      /* Set control variables below this line. */ 
+    </script>
+    <script type="text/javascript" src="//c.compete.com/bootstrap/s/263c2c9fe835809b1e09226c394f400a/thefader-com/bootstrap.js"></script>
+    <noscript>
+      <img width="1" height="1" src="https://ssl-thefader-com-263c2c.c-col.com"/>
+    </noscript>
+
+    <script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0025/8418.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+    <script>
+        (function(w,d) {
+            w.hj = w.hj || function() { (w.hj.q=w.hj.q||[]).push(arguments); };
+            w._hjSettings = { hjid: 1249 };
+            var s = d.createElement('script');
+            s.src = '//insights.hotjar.com/static/client/insights.js';
+            d.getElementsByTagName('head')[0].appendChild(s);
+        }(window,document));
+    </script>
+
+<!-- Google Code for Fader - Official Site - 540 Days Conversion Page -->
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 978260866;
+var google_conversion_label = "7rhUCJm7u1cQgqe80gM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/978260866/?value=1.00&currency_code=USD&label=7rhUCJm7u1cQgqe80gM&guid=ON&script=0"/>
+</div>
+</noscript>
+
+<!-- START Parse.ly Include: Standard -->
+<div id="parsely-root" style="display: none">
+  <div id="parsely-cfg" data-parsely-site="thefader.com"></div>
+</div>
+<script>
+(function(s, p, d) {
+  var h=d.location.protocol, i=p+"-"+s,
+      e=d.getElementById(i), r=d.getElementById(p+"-root"),
+      u=h==="https:"?"d1z2jf7jlzjs58.cloudfront.net"
+      :"static."+p+".com";
+  if (e) return;
+  e = d.createElement(s); e.id = i; e.async = true;
+  e.src = h+"//"+u+"/p.js"; r.appendChild(e);
+})("script", "parsely", document);
+</script>
+<!-- END Parse.ly Include -->
+
+
+
+    </div>
+
+  </body>
+</html>
+";i:2;s:4:"1530";}

@@ -1,0 +1,200 @@
+a:3:{i:0;s:23:"http://aurorasuite.com/";i:1;s:8454:"
+ <div id="content" class="textpage">
+        <link href="/Content/LoginStyle.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="/Scripts/jquery-ui-1.8.18.js" type="text/javascript"></script>
+<script src="/Scripts/Pages/RazorLogin/RazorLogin.js" type="text/javascript"></script>
+<link href="/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/css/Site.css">
+<link rel="shortcut icon" href="/icons/dm-icon.ico">
+<style>
+    html, body
+    {
+        background: #FFF;
+        font-family: Verdana;
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    input.button_login
+    {
+        background-image: url(/images/login.gif); /* 16px x 16px */
+        background-color: transparent;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer; /* make the cursor like hovering over an <a> element */
+        height: 40px;
+        width: 93px;
+        color: White; /* make text start to the right of the image */
+        vertical-align: middle;
+        font-size: 0;
+    }
+</style>
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        showErroMessage1 = false;
+        showErroMessage = false;
+        $.ajax({
+
+            url: "/api/Dashboard/PopulateAccountNameFromCookie",
+            success: function (result) {
+                var username = result.split(",");
+                if (result == '') {
+                    $("#remember_me").attr("checked", false);
+                    $('#username').val(username[0]);
+                    $('#password').val(username[1]);
+                }
+                else {
+                    $("#remember_me").attr("checked", true);
+                    $('#username').val(username[0]);
+                    $('#password').val(username[1]);
+
+                }
+
+            },
+            error: function () {
+                HideBusyContent();
+                $("#body").load("/Shared/Error");
+            }
+        });
+
+
+
+        var pathname = window.location.href;
+        if (pathname.indexOf('midealersolutions') != -1) {
+            $("#loginLogo").attr("src", "/Images/mds/logo.png");
+        }
+        else {
+            $("#loginLogo").attr("src", "/Images/auroralogo.png");
+        }
+        if (pathname.indexOf('honda') != -1) {
+            $("#linkEng").hide();
+            $("#linkFr").hide();
+            $("#linkEng").attr('href', 'http://honda.aurorasuite.com');
+            $("#linkFr").attr('href', 'http://hondafr.aurorasuite.com');
+        }
+        if (pathname.indexOf('acura') != -1) {
+            $("#linkEng").show();
+            $("#linkFr").show();
+            $("#linkEng").attr('href', 'http://acura.aurorasuite.com');
+            $("#linkFr").attr('href', 'http://acurafr.aurorasuite.com');
+        }
+        if (pathname.indexOf('acurausa') != -1) {
+            $("#linkEng").hide();
+            $("#linkFr").hide();
+        }
+        if (pathname.indexOf('hondausa') != -1) {
+            $("#linkEng").hide();
+            $("#linkFr").hide();
+        }
+        invaliduser = getParameterByName('e')
+        if (invaliduser == 1) {
+            $("#divError1").show();
+        }
+
+    });
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regexS = "[\\?&]" + name + "=([^&#]*)";
+        var regex = new RegExp(regexS);
+        var results = regex.exec(window.location.search);
+
+        if (results == null)
+            return "";
+        else
+            return decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+</script>
+    <form name="formLogin" method="post">
+    <div id="additional">
+    </div>
+    <div id="formWrapper">
+        <table border="0" style="height: 100%; vertical-align: middle; margin: auto;" width="100%">
+            <tr align="center" style="margin: auto;">
+                <td>
+                    <input type="hidden" name="hiddenKey" id="hdKey" />
+                    <div id="formCasing" style="height: 350px;">
+                        <h1>
+                            <img id="loginLogo" style="height: 80px;" /></h1>
+                        <div id="loginForm" style="float: left; width: 100%;">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="left" valign="top">
+                                        <label for="username" style="vertical-align: top; text-align: center;">
+                                            Username</label>
+                                    </td>
+                                    <td align="left">
+                                        <input name="username" id="username" style="float: left; width: 255px;" tabindex="1"
+                                            type="text" class="inp" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <br />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top">
+                                        <label for="password" style="vertical-align: top; text-align: center;">
+                                            Password</label>
+                                    </td>
+                                    <td align="left">
+                                        <input type="password" name="password" style="float: left; width: 255px;" id="password"
+                                            value="" tabindex="2" class="inp" autocomplete="off" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="middle">
+                                        <label>
+                                            &nbsp;</label>
+                                    </td>
+                                    <td align="left">
+                                        <span><a href="/forgotpassword.aspx" class="forgot">I forgot my password</a></span>
+                                        <a id="linkEng" style="margin-left: 50px; display: none;">English</a> <a id="linkFr"
+                                            style="margin-left: 5px; display: none;">French</a>
+                                        <br />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>
+                                            &nbsp;</label>
+                                    </td>
+                                    <td align="left">
+                                        <input name="remember_me" id="remember_me" tabindex="3" value="true" class="checkbox"
+                                            type="checkbox" style="margin: 10px 0 0 0;" /><span class="remeber">Remember me on this
+                                                computer</span><br />
+                                        <label for="terms">
+                                            &nbsp;</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="left">
+                                        <input id="btnSubmit" name="btnSubmit" value="login" class="button_login" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="formFooter">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+<style type="text/css">
+    p, label
+    {
+        color: black;
+    }
+</style>
+
+
+    </div>
+
+";i:2;s:4:"2134";}

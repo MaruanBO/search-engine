@@ -1,0 +1,813 @@
+a:3:{i:0;s:21:"http://ninjakiwi.com/";i:1;s:51313:"<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-6.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"58db2ecb99","applicationID":"1555067","transactionName":"Ig5WEUdeXg0DS0pEXBUEFwxbVVcZ","queueTime":0,"applicationTime":58,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-536.min.js"}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"Vw4CUFJACQYFUVFUAA=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(5),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e;try{throw new Error}catch(u){"stack"in u&&(t(3),t(4),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:6,4:5,5:20,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:20,2:21,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:21,2:20,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:21,2:20,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:21,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],10:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","trackUserAction","finished","traceEvent","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:19,2:20,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=(t(2),window),u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-536.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:19,2:10,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],19:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],20:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],21:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:20,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+  <title>Ninja Kiwi - Free Online Games, Mobile Games &amp; Tower Defense Games</title>
+    <meta name="description" content="Ninja Kiwi, creators of the world's most awesome, original free games including Bloons, Bloons Tower Defense and SAS Zombie Assault games, and so much more!" />
+
+  <link rel="shortcut icon" href="/favicon.ico?v=2" />
+  <link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Nobile:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="//apis.google.com/js/plusone.js"></script>
+  <!-- BEGIN TRIGGER TAG INITIALIZATION -->
+  <script type="text/javascript" src="//cdn.triggertag.gorillanation.com/js/triggertag.js"></script>
+  <script type="text/javascript">getTrigger('4892');</script>
+  <!-- END TRIGGER TAG INITIALIZATION -->
+
+  <link href="//assets.ninjakiwi.com/assets/application-df6af3a0ed61b63fefdb424ae9ff699b.css" media="screen" rel="stylesheet" type="text/css" />
+      <link href='http://assets.ninjakiwi.com/website/style/lightbox.css?v=20150219' rel='stylesheet' type='text/css'>
+  
+  <script src="//connect.facebook.net/en_US/all.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+  <!-- BEGIN PINGDOM TRACKING -->
+    <script>
+      var _prum = [['id', '517ebf4dabe53d2715000000'],
+      ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+          var s = document.getElementsByTagName('script')[0]
+            , p = document.createElement('script');
+          p.async = 'async';
+          p.src = '//rum-static.pingdom.net/prum.min.js';
+          s.parentNode.insertBefore(p, s);
+      })();
+  </script>
+  <!-- END PINGDOM TRACKING -->
+  <!-- BEGIN ANALYTICS TRACKING -->
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-626139-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+  <!-- END ANALYTICS TRACKING -->
+      <script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/1010029/New_Site_Category_300x250_Bottom_BTF', [300, 250], 'div-gpt-ad-1374799820435-0').addService(googletag.pubads());
+googletag.defineSlot('/1010029/New_Site_Category_300x250_Top_ATF', [300, 250], 'div-gpt-ad-1374799820435-1').addService(googletag.pubads());
+googletag.defineSlot('/1010029/New_Site_Category_728x90_Bottom_BTF', [728, 90], 'div-gpt-ad-1374799820435-2').addService(googletag.pubads());
+googletag.defineSlot('/1010029/New_Site_Category_728x90_Top_ATF', [728, 90], 'div-gpt-ad-1374799820435-3').addService(googletag.pubads());
+googletag.defineSlot('/1010029/Home_Page_970x90', [970, 90], 'div-gpt-ad-1375928519617-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+<script type="text/javascript">
+if (top != self) {
+	top.location.replace(self.location.href);
+}
+</script>
+
+  
+    <script src="//assets.ninjakiwi.com/assets/application-3e2ac8cf04d11c63937e2c9a66509f9a.js" type="text/javascript"></script>
+  
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="CwxgdvAffLB1l0oLAsgNTNCo7yrdC5rbsnB+rWAnB+I=" name="csrf-token" />
+</head>
+  <body id="home-page" data-user="" class="games-area">
+    <div class="header-bar">
+      <div class="wrap">
+        <div id="header">
+          <div id="nav">
+            <a id="logo" href="http://ninjakiwi.com/"><img alt="Nk-logo-main" src="//assets.ninjakiwi.com/website/logos/nk-logo-main.png" /></a>
+            <ul class="">
+              <li class="home-pg"><a href="http://ninjakiwi.com/">Home</a></li> 
+	            <li class="games-pg">
+	              <a href="/all-games">Games</a>
+	              <div class="dropdown2col">
+	                <div class="popularGamesNav">
+	                  <h3>Most Popular Games</h3>
+                    <ul>
+                        <li>
+                          <a href="/Games/Tower-Defense/Bloons-Tower-Defense-5.html">
+                            <img alt="Bloons-tower-defense5-med" src="http://cdn.ninjakiwi.com/thumbs/medium/bloons-tower-defense5-med.jpg" />
+</a>                        </li>
+                        <li>
+                          <a href="/Games/Tower-Defense/Bloons-TD-Battles.html">
+                            <img alt="Battlesnk-110x74-icon-snowycastle" src="http://cdn.ninjakiwi.com/thumbs/medium/BattlesNK-110x74-Icon-SnowyCastle.jpg" />
+</a>                        </li>
+                        <li>
+                          <a href="/Games/Arcade/Bloons-Super-Monkey-2.html">
+                            <img alt="Bsm2110x74-icon" src="http://cdn.ninjakiwi.com/thumbs/medium/BSM2110x74-Icon.jpg" />
+</a>                        </li>
+                    </ul>
+	                </div>
+	                <div class="categoryLists">
+	                  <h3>Categories</h3>
+	                  <ul>
+	                      <li class="tower-defense"><a href="/Games/Tower-Defense">Tower Defense</a></li>
+	                      <li class="puzzle"><a href="/Games/Puzzle">Puzzle</a></li>
+	                      <li class="action"><a href="/Games/Action">Action</a></li>
+	                      <li class="strategy"><a href="/Games/Strategy">Strategy</a></li>
+	                      <li class="multiplayer"><a href="/Games/Multiplayer">Multiplayer</a></li>
+	                      <li class="mobile"><a href="/Games/Mobile"><span class="translation_missing" title="translation missing: en.game_categories.mobile">Mobile</span></a></li>
+	                      <li class="level-editors"><a href="/Games/Level-Editors"><span class="translation_missing" title="translation missing: en.game_categories.level_editors">Level Editors</span></a></li>
+	                      <li class="bloons-games"><a href="/Games/Bloons-Games"><span class="translation_missing" title="translation missing: en.game_categories.bloons_games">Bloons Games</span></a></li>
+	                      <li class="arcade"><a href="/Games/Arcade">Arcade</a></li>
+	                    <li class="all-games"><a href="/all-games">All Games</a></li>
+	                  </ul>
+	                </div>
+	              </div>
+	            </li>
+              <li class="blog-pg"><a href="http://www.ntensify.com/bloons/" target="_blank">Store</a>
+              <li class="forums-pg"><a href="/forums">Social</a>
+	              <div class="dropdown1col">
+                  <div class="categoryLists">
+                    <h3>Get Involved</h3>
+                    <ul>
+                      <li class="forumsdd"><a href="/forums">Forums</a></li>
+                      <li class="blogdd"><a href="/blog">Blog</a></li>
+                      <li class="facebookdd"><a href="https://www.facebook.com/ninjakiwigames" target="_blank">Facebook</a></li>
+                      <li class="twitterdd"><a href="https://twitter.com/ninjakiwigames/" target="_blank">Twitter</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+                <li class="clans-pg"><a href="/clans"><span class="translation_missing" title="translation missing: en.clans">Clans</span></a></li>
+            </ul>
+              <div id="login">
+                <form accept-charset="UTF-8" action="http://ninjakiwi.com/login" class="group" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CwxgdvAffLB1l0oLAsgNTNCo7yrdC5rbsnB+rWAnB+I=" /></div>
+                  <input id="username" name="username" placeholder="Username/Email" type="text" value="" />
+                  <input id="password" name="password" placeholder="Password" type="password" value="" />
+                  <label for="remember_me" class="remember-me">
+                    <input id="remember_me" name="remember_me" type="checkbox" value="1" /> Keep me logged in
+                  </label>
+                  <input class="submit btn btn-inverse btn-red" name="commit" type="submit" value="log in" />
+</form>                <a href="/auth/facebook" class="fb-login">
+                  <img alt="Fb-login-small" src="//assets.ninjakiwi.com/assets/fb-login-small-324a5736578b7e31220d3bb1b07fcbc8.png" />
+</a>                <a href="/auth/google_oauth2" class="google-login">
+                  <img alt="Google-login-button-small" src="//assets.ninjakiwi.com/assets/google-login-button-small-8528861a097fdbb9304fa359f70466f8.png" />
+</a>                <div class="account-links">
+                  <a href="/reset_password" class="reset-password">Login help?</a>
+                  <a href="/register" class="reset-password">new account</a>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap group " id="content">
+      <a href="#" class="show-header"></a>
+        <div class="banner">
+          <div class="top-ad-728x90">    <!-- BEGIN GN Ad Tag for Ninja Kiwi 728x90 home -->
+<script type="text/javascript">
+  if(typeof(gnm_ord)=='undefined') gnm_ord=Math.random()*10000000000000000; if(typeof(gnm_tile) == 'undefined') gnm_tile=1;
+  document.write('<scr'+'ipt src="http://n4403ad.doubleclick.net/adj/gn.ninjakiwi.com/home;sect=home;mtfInline=true;sz=728x90;dcopt=ist;type=pop;type=int;tile='+(gnm_tile++)+';ord='+gnm_ord+'?" type="text/javascript"></scr'+'ipt>');
+</script>
+<!-- END AD TAG -->
+</div>
+            <div class="top-small-promo">
+              <div id="slideshow1" class="pics" style="position: relative;"></div>
+              <div class="cycler">
+                <a href="/register">
+                  <img alt="Small-clan-promos-white-tigers" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-white-tigers-5f6cefd3909744a7b833d5ec9e44232e.jpg" width="220" />
+                  <img alt="Small-clan-promos-join-nk" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-join-nk-8f687a1f00635b33497aeb7122c26f46.jpg" width="220" />
+                  <img alt="Small-clan-promos-red-storm" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-red-storm-8b22c66989b5528a219a20f124d08222.jpg" width="220" />
+                  <img alt="Small-clan-promos-be-part-of" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-be-part-of-748a9520cd290ecc17efb8e7a5de578e.jpg" width="220" />
+                  <img alt="Small-clan-promos-dark-matter" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-dark-matter-8371b9e3f903a173b9ea49c89c4c40e3.jpg" width="220" />
+                  <img alt="Small-clan-promos-scorpions" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-scorpions-efa368033928da479b892c82b86ced25.jpg" width="220" />
+                </a>
+              </div>
+            </div>
+              <div style="clear:both; height:auto;">
+<!-- BEGIN GN Ad Tag for Ninja Kiwi 970x90 home -->
+<script type="text/javascript">
+if ((typeof(f448213)=='undefined' || f448213 > 0) ) {
+  if(typeof(gnm_ord)=='undefined') gnm_ord=Math.random()*10000000000000000; if(typeof(gnm_tile) == 'undefined') gnm_tile=1;
+  document.write('<scr'+'ipt src="http://n4403ad.doubleclick.net/adj/gn.ninjakiwi.com/home;sect=home;mtfInline=true;sz=970x90;tile='+(gnm_tile++)+';ord='+gnm_ord+'?" type="text/javascript"></scr'+'ipt>');
+}else{
+//insert default static image here as default ad
+}
+</script>
+<!-- END AD TAG -->
+</div>
+
+          <div class="clear"></div>
+        </div>
+      <div id="primary">
+        
+
+  <!-- BEGIN TOP FEATURE UNIT -->
+  <div id="slider1_container" class="slider1cont">
+
+      <!-- Loading Screen -->
+      <div u="loading" class="sliderLoader">
+          <div class="sliderLoaderInt">
+          </div>
+          <div class="sliderLoaderInt2">
+          </div>
+      </div>
+
+      <!-- Slides Container -->
+      <div u="slides" class="slidesContainer">
+            <div>
+              <a href="/Games/Action/SAS-Zombie-Assault-4.html">
+                <img alt="Sas4-update7-650x254" src="http://cdn.ninjakiwi.com/thumbs/slides/SAS4-Update7-650x254.png" />
+              </a>
+            </div>
+            <div>
+              <a href="/Games/Tower-Defense/Bloons-Monkey-City.html">
+                <img alt="Monkeycity-650x254" src="http://cdn.ninjakiwi.com/thumbs/slides/MonkeyCity-650x254.png" />
+              </a>
+            </div>
+            <div>
+              <a href="/Games/Tower-Defense/Bloons-Tower-Defense-5.html">
+                <img alt="Btd5-650x254" src="http://cdn.ninjakiwi.com/thumbs/slides/BTD5-650x254.png" />
+              </a>
+            </div>
+            <div>
+              <a href="/Games/Tower-Defense/Bloons-TD-Battles.html">
+                <img alt="Btdbattles-650x254" src="http://cdn.ninjakiwi.com/thumbs/slides/BTDBattles-650x254.png" />
+              </a>
+            </div>
+      </div>
+
+      <!-- bullet navigator container -->
+      <div u="navigator" class="jssorb05 sliderBulletNav">
+          <!-- bullet navigator item prototype -->
+          <div u="prototype" class="sliderProto"></div>
+      </div>
+      <!-- Bullet Navigator Skin End -->
+      <!-- Arrow Navigator Skin Begin -->
+     
+      <!-- Arrow Left -->
+      <span u="arrowleft" class="jssora12l sliderArrowL"></span>
+      <!-- Arrow Right -->
+      <span u="arrowright" class="jssora12r sliderArrowR"></span>
+      <!-- Arrow Navigator Skin End -->
+      <!-- Featured Games Title - Image -->
+      <img src="//assets.ninjakiwi.com/assets/slider-assets/title-e0780fece30a65605102df322252fe8d.png" style="position:absolute; top:0px; left:0px;" />
+      
+  </div>
+  <!-- Jssor Slider End --> 
+
+  
+
+  
+
+  <!--END TOP FEATURE UNITS-->
+
+
+  
+  <div class="wideWidgetWrapper">
+    <span class="widgetTitle-L orange-L">Mobile Games</span>
+
+
+    <div class="thumbsWrapOrange group">
+          <span class="gameThumbOuter">
+            <a href="/Games/Mobile/Bloons-Monkey-City-Mobile.html">
+              <img alt="Bmc-mobile-110x85-1" src="http://cdn.ninjakiwi.com/thumbs/mobile/BMC-Mobile-110x85-1.png" />
+              <p>BMC Mobile</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="176" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Mobile/SAS-Zombie-Assault-4-Mobile.html">
+              <img alt="Sas4-mobile-110x85-1" src="http://cdn.ninjakiwi.com/thumbs/mobile/SAS4-Mobile-110x85-1.png" />
+              <p>SAS ZA 4 Mobile</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="175" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Mobile/Bloons-Tower-Defense-5-Mobile.html">
+              <img alt="Btd5-mobile-110x85-1" src="http://cdn.ninjakiwi.com/thumbs/mobile/BTD5-Mobile-110x85-1.png" />
+              <p>BTD5 Mobile</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="150" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Mobile/Bloons-TD-Battles-Mobile.html">
+              <img alt="Battles-mobile-110x85-1" src="http://cdn.ninjakiwi.com/thumbs/mobile/Battles-Mobile-110x85-1.png" />
+              <p>Battles Mobile</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="167" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Mobile/SAS-Zombie-Assault-3-Mobile.html">
+              <img alt="Sas3-mobile-110x85-1" src="http://cdn.ninjakiwi.com/thumbs/mobile/SAS3-Mobile-110x85-1.png" />
+              <p>SAS ZA 3 Mobile</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="165" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+    </div>
+  </div>
+  
+
+  <!--END TOP FEATURE UNITS-->
+
+  <div class="wideWidgetWrapper"> <span class="widgetTitle-L grey-L"> Sponsor Games </span>
+    <div class="thumbsWrapGrey">
+      <div id='cpmstar_dynamicEditorial'> </div>
+      <script type="text/javascript" src="http://server.cpmstar.com/view.aspx?poolid=12498&multi=6&script=1"></script>
+      <script type="text/javascript" src="http://cdn.cpmstar.com/cached/textadv3.js"></script>
+      <script type="text/javascript">
+          var cpmstar_src = document.getElementById('cpmstar_dynamicEditorial');
+          while (cpmStar.adsLeft() > 0) {
+              var span = document.createElement('span');
+              span.setAttribute('class', 'gameThumbOuter');
+              span.innerHTML = "<a href='" + cpmStar.getLink() + "' target='_blank'>" +
+                                   "<img src='" + cpmStar.getImageUrl(90, 60) + "'>" +
+                                    "<p>" + cpmstar_trim_title(cpmStar.getTitle(), 18) + "</p>" +
+                                "</a>";
+              cpmstar_src.appendChild(span);
+              cpmStar.nextAd();
+          }
+          function cpmstar_trim_title(title, maxLength) {
+              if (title.length > maxLength) {
+                  title = title.substr(0, maxLength - 3) + '...';
+              }
+              return title;
+          }
+      </script>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+  <div class="wideWidgetWrapper">
+    <span class="widgetTitle-L mauve-L">Editor's Choice</span>
+    <div class="thumbsWrapMauve group">
+          <span class="gameThumbOuter">
+            <a href="/Games/Action/SAS-Zombie-Assault-TD.html">
+              <img alt="Zatd-med" src="http://cdn.ninjakiwi.com/thumbs/medium/ZATD-med.jpg" />
+              <p>SAS TD</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="1" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Action/SAS-Zombie-Assault-3.html">
+              <img alt="Sas3-plain-icon" src="http://cdn.ninjakiwi.com/thumbs/medium/SAS3-Plain-Icon.jpg" />
+              <p>SAS 3</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="106" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Arcade/Bloons-Super-Monkey-2.html">
+              <img alt="Bsm2110x74-icon" src="http://cdn.ninjakiwi.com/thumbs/medium/BSM2110x74-Icon.jpg" />
+              <p>BSM2</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group " data-id="164" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Tower-Defense/Bloons-Tower-Defense-5.html">
+              <img alt="Bloons-tower-defense5-med" src="http://cdn.ninjakiwi.com/thumbs/medium/bloons-tower-defense5-med.jpg" />
+              <p>Bloons TD5</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="2" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Tower-Defense/Bloons-Tower-Defense-4.html">
+              <img alt="Bloons-tower-defence4-med" src="http://cdn.ninjakiwi.com/thumbs/medium/bloons-tower-defence4-med.jpg" />
+              <p>Bloons TD 4</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="14" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Tower-Defense/Bloons-TD-Battles.html">
+              <img alt="Battlesnk-110x74-icon-snowycastle" src="http://cdn.ninjakiwi.com/thumbs/medium/BattlesNK-110x74-Icon-SnowyCastle.jpg" />
+              <p>BTD Battles</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="20" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Tower-Defense/Bloons-Monkey-City.html">
+              <img alt="Monkeycity-ctevents-110x74-icon" src="http://cdn.ninjakiwi.com/thumbs/medium/MonkeyCity-CTEvents-110x74-Icon.jpg" />
+              <p>Monkey City</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="169" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Puzzle/Rings.html">
+              <img alt="Rings-med" src="http://cdn.ninjakiwi.com/thumbs/medium/rings-med.jpg" />
+              <p>Rings</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="38" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Action/SAS-Zombie-Assault-4.html">
+              <img alt="Sas4_update7_110x74_icon" src="http://cdn.ninjakiwi.com/thumbs/medium/SAS4_Update7_110x74_Icon.jpg" />
+              <p>SAS 4</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="171" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+          <span class="gameThumbOuter">
+            <a href="/Games/Arcade/Powerpool-2.html">
+              <img alt="Powerpool2-med" src="http://cdn.ninjakiwi.com/thumbs/medium/powerpool2-med.jpg" />
+              <p>Powerpool 2</p>
+            </a>
+            <span class="likeCount">
+              <div class="thumbs group has-likes" data-id="76" data-type="game">
+                  <span class="btn btn-inverse btn-mini register">
+  <a href="/register" class="btn-like"></a>
+</span>
+              </div>
+            </span>
+          </span>  
+    </div>
+  </div>
+
+      </div>
+      <div id="secondary">
+        <div class="list">
+              <div class="arrow-container-blue">
+      <span class="widgetTitle-R blue-R">register now - it's free!</span>
+      <form accept-charset="UTF-8" action="/register" class="group" id="register" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        <p class="padding-bottom-10">Not a Ninja Kiwi member yet? Click register to sign up</p>
+        <input class="submit btn btn-inverse btn-red" name="commit" type="submit" value="Register" />
+</form>    </div>
+
+                <!-- BEGIN GN Ad Tag for Ninja Kiwi 300x250,300x600 home -->
+<script type="text/javascript">
+  if(typeof(gnm_ord)=='undefined') gnm_ord=Math.random()*10000000000000000; if(typeof(gnm_tile) == 'undefined') gnm_tile=1;
+  document.write('<scr'+'ipt src="http://n4403ad.doubleclick.net/adj/gn.ninjakiwi.com/home;sect=home;mtfInline=true;sz=300x250,300x600;tile='+(gnm_tile++)+';ord='+gnm_ord+'?" type="text/javascript"></scr'+'ipt>');
+</script>
+<!-- END AD TAG -->
+
+              <div class="sidebar-widget group" id="clan_this_week">
+    <span class="title dark">Most Awesome Clan This Week</span>
+    <div class="content group">
+      <div class="countdown">
+        <small>Resets in:</small>
+        <span class="timer" data-refresh="2015,02,23"></span>
+      </div>
+      <ul>
+            <li class="clan">
+              <a href="/clans/iron-phoenix">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="Iron-phoenix" src="http://cdn.ninjakiwi.com/clans/shields/iron-phoenix/thumb/iron-phoenix.png" />
+                </div>
+                <div class="details">
+                  <span class="name">Iron Phoenix</span>
+                  <span class="awesome">506,215</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/scorpions">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="The-scorpions" src="http://cdn.ninjakiwi.com/clans/shields/scorpions/thumb/the-scorpions.png" />
+                </div>
+                <div class="details">
+                  <span class="name">Scorpions</span>
+                  <span class="awesome">340,285</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/red-storm">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="Red-storm" src="http://cdn.ninjakiwi.com/clans/shields/red-storm/thumb/red-storm.png" />
+                </div>
+                <div class="details">
+                  <span class="name">Red Storm</span>
+                  <span class="awesome">298,730</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/white-tigers">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="White-tigers" src="http://cdn.ninjakiwi.com/clans/shields/white-tigers/thumb/white-tigers.png" />
+                </div>
+                <div class="details">
+                  <span class="name">White Tigers</span>
+                  <span class="awesome">291,910</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/xiii">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="Xiii" src="http://cdn.ninjakiwi.com/clans/shields/xiii/thumb/XIII.png" />
+                </div>
+                <div class="details">
+                  <span class="name">XIII</span>
+                  <span class="awesome">290,750</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/dark-matter">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="Dark-matter" src="http://cdn.ninjakiwi.com/clans/shields/dark-matter/thumb/dark-matter.png" />
+                </div>
+                <div class="details">
+                  <span class="name">Dark Matter</span>
+                  <span class="awesome">289,450</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/falcons">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="Falcons" src="http://cdn.ninjakiwi.com/clans/shields/falcons/thumb/falcons.png" />
+                </div>
+                <div class="details">
+                  <span class="name">Falcons</span>
+                  <span class="awesome">285,010</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/the-watchers">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="The-watchers" src="http://cdn.ninjakiwi.com/clans/shields/the-watchers/thumb/the-watchers.png" />
+                </div>
+                <div class="details">
+                  <span class="name">The Watchers</span>
+                  <span class="awesome">281,825</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/thunderbolts">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="Thunderbolts" src="http://cdn.ninjakiwi.com/clans/shields/thunderbolts/thumb/Thunderbolts.png" />
+                </div>
+                <div class="details">
+                  <span class="name">Thunderbolts</span>
+                  <span class="awesome">275,960</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/blue-wolves">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="Blue-wolves" src="http://cdn.ninjakiwi.com/clans/shields/blue-wolves/thumb/blue-wolves.png" />
+                </div>
+                <div class="details">
+                  <span class="name">Blue Wolves</span>
+                  <span class="awesome">274,865</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/black-cobras">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="Black-cobras" src="http://cdn.ninjakiwi.com/clans/shields/black-cobras/thumb/black-cobras.png" />
+                </div>
+                <div class="details">
+                  <span class="name">Black Cobras</span>
+                  <span class="awesome">272,705</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/night-jackals">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="Night-jackal" src="http://cdn.ninjakiwi.com/clans/shields/night-jackals/thumb/night-jackal.png" />
+                </div>
+                <div class="details">
+                  <span class="name">Night Jackals</span>
+                  <span class="awesome">270,805</span>
+                </div>
+              </div>
+              </a>
+            </li>
+            <li class="clan">
+              <a href="/clans/shining-blade">
+              <div class="type-content group">
+                <div class="avatar mini">
+                  <img alt="Shining-blade" src="http://cdn.ninjakiwi.com/clans/shields/shining-blade/thumb/shining-blade.png" />
+                </div>
+                <div class="details">
+                  <span class="name">Shining Blade</span>
+                  <span class="awesome">268,475</span>
+                </div>
+              </div>
+              </a>
+            </li>
+      </ul>
+    </div>
+  </div>
+
+                <!-- BEGIN GN Ad Tag for Ninja Kiwi 300x250,300x600 home_btf -->
+<script type="text/javascript">
+  if(typeof(gnm_ord)=='undefined') gnm_ord=Math.random()*10000000000000000; if(typeof(gnm_tile) == 'undefined') gnm_tile=1;
+  document.write('<scr'+'ipt src="http://n4403ad.doubleclick.net/adj/gn.ninjakiwi.com/home_btf;sect=home_btf;mtfInline=true;sz=300x250,300x600;tile='+(gnm_tile++)+';ord='+gnm_ord+'?" type="text/javascript"></scr'+'ipt>');
+</script>
+<!-- END AD TAG -->
+
+            
+        </div>
+      </div>
+        <div class="footer-banner">
+            <div class="top-small-promo">
+              <div id="slideshow1" class="pics" style="position: relative;"></div>
+              <div class="cycler">
+                <a href="/register">
+                  <img alt="Small-clan-promos-white-tigers" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-white-tigers-5f6cefd3909744a7b833d5ec9e44232e.jpg" width="220" />
+                  <img alt="Small-clan-promos-join-nk" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-join-nk-8f687a1f00635b33497aeb7122c26f46.jpg" width="220" />
+                  <img alt="Small-clan-promos-red-storm" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-red-storm-8b22c66989b5528a219a20f124d08222.jpg" width="220" />
+                  <img alt="Small-clan-promos-be-part-of" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-be-part-of-748a9520cd290ecc17efb8e7a5de578e.jpg" width="220" />
+                  <img alt="Small-clan-promos-dark-matter" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-dark-matter-8371b9e3f903a173b9ea49c89c4c40e3.jpg" width="220" />
+                  <img alt="Small-clan-promos-scorpions" class="active" height="78" src="//assets.ninjakiwi.com/assets/small-clan-promos-scorpions-efa368033928da479b892c82b86ced25.jpg" width="220" />
+                </a>
+              </div>
+            </div>
+          <div class="bottom-ad-728x90">    <!-- BEGIN GN Ad Tag for Ninja Kiwi 728x90 home_btf -->
+<script type="text/javascript">
+  if(typeof(gnm_ord)=='undefined') gnm_ord=Math.random()*10000000000000000; if(typeof(gnm_tile) == 'undefined') gnm_tile=1;
+  document.write('<scr'+'ipt src="http://n4403ad.doubleclick.net/adj/gn.ninjakiwi.com/home_btf;sect=home_btf;mtfInline=true;sz=728x90;tile='+(gnm_tile++)+';ord='+gnm_ord+'?" type="text/javascript"></scr'+'ipt>');
+</script>
+<!-- END AD TAG -->
+</div>
+          <div class="clear"></div>
+        </div>
+      <div id="international">
+        <ul class="group">
+          <li><a href="/" class="english">English</a></li>
+          <li><a href="/Francais/" class="francais">Français</a></li>
+          <li><a href="/Deutsch/" class="deutsch">Deutsch</a></li>
+          <li><a href="/Portugues/" class="portugues">Português</a></li>
+          <li><a href="/Espanol/" class="espanol">Español</a></li>
+          <li><a href="/Polski/" class="polski">Polski</a></li>
+          <li><a href="/Svenska/" class="svenska">Svenska</a></li>
+          <li><a href="/Nederlands/" class="nederlands">Nederlands</a></li>
+          <li><a href="/Norsk/" class="norsk">Norsk</a></li>
+          <li><a href="/Japanese/" class="japanese">Japanese</a></li>
+          <li><a href="/Korean/" class="korean">Korean</a></li>
+          <li><a href="/Chinese/" class="chinese">Chinese</a></li>
+        </ul>
+      </div>
+      <div id="footer">
+        <ul class="nav">
+          <li><a href="http://ninjakiwi.com/support" target="_blank">Support</a></li>
+          <li><a href="http://ninjakiwi.com/privacy_policy" target="_blank">Privacy Policy</a></li>
+          <li><a href="http://ninjakiwi.com/business_contact" target="_blank">Business Contact</a></li>
+          <li><a href="http://ninjakiwi.com/advertisers" target="_blank">Advertisers</a></li>
+          <li><a href="http://ninjakiwi.com/terms" target="_blank">Terms</a></li>
+          <li><a href="http://ninjakiwi.com/advertisers" target="_blank">TotallyKidz</a></li>
+          <li><a href="http://ninjakiwi.com/?mobile=1" target="_blank">Mobile Site</a></li>
+        </ul>
+        <ul class="nav social">
+          <li class="facebook"><span></span><a href="https://www.facebook.com/ninjakiwigames" target="_blank">Facebook</a></li>
+          <li class="twitter"><span></span><a href="https://twitter.com/ninjakiwigames/" target="_blank">Twitter</a></li>
+        </ul>
+        <p id="disclaimer">Ninja Kiwi and Bloons are trademarks of Ninja Kiwi Limited, registered in the U.S. and other countries
+        iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
+      </div>	
+    </div>
+      <div id="btd5_ios">
+  <a href="#" class="close">Close IOS Window</a>
+  <a href="http://newgam.es/bmclbox" class="full-link" target="_blank"></a>
+  <a href="http://newgam.es/bmclbox" class="buy-iphone" target="_blank">Play Now iPhone</a>
+</div>
+<div id="btd5_osx">
+  <a href="#" class="close">Close OSX Window</a>
+  <a href="http://newgam.es/bmclbox" class="full-link" target="_blank"></a>
+  <a href="http://newgam.es/bmclbox" class="buy-iphone" target="_blank">Play Now iPhone</a>
+</div>
+
+        <script type="text/javascript">
+      if((typeof(f330082)=='undefined' || f330082 > 0) ){
+        if(typeof(gnm_ord)=='undefined') gnm_ord=Math.random()*10000000000000000; if(typeof(gnm_tile) == 'undefined') gnm_tile=1;
+        document.write('<scr'+'ipt src="http://n4403ad.doubleclick.net/adj/gn.ninjakiwi.com/home;sect=home;mtfInline=true;sz=1000x1000;tile='+(gnm_tile++)+';ord='+gnm_ord+'?" type="text/javascript"></scr'+'ipt>');
+      }else{
+      	//insert default static image here as default ad
+      }
+</script>
+
+  	<!-- Start Quantcast tag -->
+	  <script type="text/javascript">
+	    _qoptions={
+	      qacct:"p-cddeOSj7LLd62"
+	    };
+	  </script>
+	  <script type="text/javascript" src="//edge.quantserve.com/quant.js"></script>
+  	<noscript>
+  	  <img src="//pixel.quantserve.com/pixel/p-cddeOSj7LLd62.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+  	</noscript>
+	  <!-- End Quantcast tag -->
+    
+    <img alt="Ajax-loader" class="loader-img" src="//assets.ninjakiwi.com/assets/ajax-loader-770bf8cdf531ce793e27e0285e6a14ed.gif" />
+  </body>
+</html>
+";i:2;s:4:"2813";}

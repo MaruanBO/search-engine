@@ -1,0 +1,642 @@
+a:3:{i:0;s:20:"http://santikos.com/";i:1;s:29415:"<!doctype html> <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Santikos Theatres</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<script src="/js/mobile.js"></script>
+		<link rel="stylesheet" href="/js/nivo-slider/nivo-slider.css">
+		<link rel="stylesheet" href="/js/nivo-slider/themes/default/default.css">
+        
+		<link rel="stylesheet" href="/css/style.css?v=1.1">
+        <link rel="stylesheet" type="text/css" href="/js/lightbox/source/jquery.fancybox.css?v=2.1" media="screen" />
+   		
+        <!-- FACEBOOK -->
+        <div id="fb-root"></div>
+		<script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        
+        
+        <script type="text/javascript">
+		
+		var IMAXpictureArchive= ['http://www.movienewsletters.net/photos/204398H2.jpg','http://www.movienewsletters.net/photos/184104H2.jpg','http://www.movienewsletters.net/photos/154147H2.jpg'];
+		var IMAXhrefArchive = ['/movie_details?movie_id=204398','/movie_details?movie_id=184104','/movie_details?movie_id=154147'];
+		var IMAXinnerArchive = ['<b>Fifty Shades of Grey: The IMAX Experience</b> (R)','<b>Jupiter Ascending: An IMAX 3D Experience</b> (PG13)','<b>The Seventh Son: An IMAX 3D Experience</b> (PG13)'];	
+			
+		var DBOXpictureArchive= ['http://www.movienewsletters.net/photos/160773H2.jpg','http://www.movienewsletters.net/photos/170809H2.jpg'];
+		var DBOXhrefArchive = ['/movie_details?movie_id=160773','/movie_details?movie_id=170809'];
+		var DBOXinnerArchive = ['<b>Kingsman: The Secret Service</b> (R)','<b>Jupiter Ascending 3D</b> (PG13)'];
+		
+		var AVXpictureArchive= ['http://www.movienewsletters.net/photos/191161H2.jpg','http://www.movienewsletters.net/photos/174582H2.jpg','http://www.movienewsletters.net/photos/171649H2.jpg','http://www.movienewsletters.net/photos/166449H2.jpg','http://www.movienewsletters.net/photos/160773H2.jpg','http://www.movienewsletters.net/photos/168395H2.jpg','http://www.movienewsletters.net/photos/136929H2.jpg','http://www.movienewsletters.net/photos/187166H2.jpg'];
+		var AVXhrefArchive = ['/movie_details?movie_id=191161','/movie_details?movie_id=174582','/movie_details?movie_id=171649','/movie_details?movie_id=166449','/movie_details?movie_id=160773','/movie_details?movie_id=168395','/movie_details?movie_id=136929','/movie_details?movie_id=187166'];
+		var AVXinnerArchive = ['<b>The DUFF</b> (PG13)','<b>Hot Tub Time Machine 2</b> (R)','<b>McFarland, USA</b> (PG)','<b>Fifty Shades of Grey</b> (R)','<b>Kingsman: The Secret Service</b> (R)','<b>The SpongeBob Movie: Sponge Out of Water</b> (PG)','<b>Paddington</b> (PG)','<b>The Imitation Game</b> (PG13)'];
+		
+		window.onload=function() {
+		//var o=document.createElement('img');
+		//o.setAttribute('id', 'dbox_list');
+		//o.setAttribute('src', pictureArchive[0]);
+		//o.setAttribute('alt', '');
+		//document.body.appendChild(o);
+		rotate(DBOXpictureArchive.length,IMAXpictureArchive.length,AVXpictureArchive.length);
+		}
+		
+		
+		function rotate(DBOXidx,IMAXidx,AVXidx) {
+			if(DBOXidx>=DBOXpictureArchive.length) {
+				DBOXidx=0;
+				DBOXjdx=0;
+				DBOXkdx=0;
+			}
+			if(IMAXidx>=IMAXpictureArchive.length) {
+				IMAXidx=0;
+				IMAXjdx=0;
+				IMAXkdx=0;
+			}
+			if(AVXidx>=AVXpictureArchive.length) {
+				AVXidx=0;
+				AVXjdx=0;
+				AVXkdx=0;
+			}
+			//alert(DBOXpictureArchive[DBOXidx++]);
+			if(DBOXidx < DBOXpictureArchive.length) {
+				//alert(DBOXidx);
+				document.getElementById('dboxlist').src=DBOXpictureArchive[DBOXidx++];
+				document.getElementById('dboxhref').setAttribute("href", DBOXhrefArchive[DBOXjdx++]); 
+				document.getElementById('dboxinner').innerHTML = DBOXinnerArchive[DBOXkdx++];
+			}
+			if(IMAXidx < IMAXpictureArchive.length) {
+				//alert(IMAXidx);
+				document.getElementById('imaxlist').src=IMAXpictureArchive[IMAXidx++];
+				document.getElementById('imaxhref').setAttribute("href", IMAXhrefArchive[IMAXjdx++]); 
+				document.getElementById('imaxinner').innerHTML = IMAXinnerArchive[IMAXkdx++];
+			}
+			if(AVXidx < AVXpictureArchive.length) {
+				//alert(IMAXidx);
+				document.getElementById('avxlist').src=AVXpictureArchive[AVXidx++];
+				document.getElementById('avxhref').setAttribute("href", AVXhrefArchive[AVXjdx++]); 
+				document.getElementById('avxinner').innerHTML = AVXinnerArchive[AVXkdx++];
+			}
+			timerID=setTimeout('rotate('+DBOXidx+','+IMAXidx+','+AVXidx+')', 4000);
+			
+			
+		}
+	</script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+	<script src="js/libs/modernizr-2.5.3.min.js"></script>
+    <script type="text/javascript" src="js/lightbox/source/jquery.fancybox.js?v=2.0.6"></script>
+        
+	        
+	</head>
+	<body>
+		<div id="wrapper" class="round">
+			<!-- header -->
+			<!--houston chronicle-->
+<script async src="http://i.simpli.fi/dpx.js?cid=11737&action=100&segment=santikos&m=1"></script>
+<!--houston chronicle end-->
+
+<!-- Begin comScore Tag -->
+<script>
+  var _comscore = _comscore || [];
+  _comscore.push({ c1: "2", c2: "16580712" });
+  (function() {
+    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+    el.parentNode.insertBefore(s, el);
+  })();
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=16580712&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+<!-- Doubleclick Ads -->
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/9518146/Santikos_Theatres', [1, 1], 'div-gpt-ad-1408467260697-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/9518146/Santikos_728x90', [728, 90], 'div-gpt-ad-1421166524284-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+
+
+</script>
+
+<!-- Santikos Theatres Skin -->
+<div id='div-gpt-ad-1408467260697-0' style='width:1px; height:1px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1408467260697-0'); });
+</script>
+</div>
+
+<header id="header">
+	<div id="header-top">
+		<div id="logo" style="display:inline">
+			<a href="/"><img src="/img/logo.png" alt="Santikos Theatres" height="119" /></a>
+		</div>
+		<div id="social-media" style="display:inline">
+			<a href="https://www.facebook.com/santikosfan" target="_blank"><img src="/img/facebook.png" alt="Facebook" title="Facebook" /></a>
+			<a href="https://twitter.com/santikostheatre" target="_blank"><img src="/img/twitter.png" alt="Twitter" title="Twitter" /></a>
+            <a href="http://instagram.com/santikostheatres" target="_blank"><img src="/img/instagram.png" alt="Instagram" width="46" title="Instagram" /></a>
+			<a href="http://www.youtube.com/user/TheSantikoschannel" target="_blank"><img src="/img/youtube.png" alt="YouTube" title="YouTube" /></a>
+			 <a href="http://santikos.us8.list-manage.com/subscribe?u=a4a87fa6b3e3bed3d95e80737&id=ae3c5feda4&iframe=true&width=600&height=400" class="various" data-fancybox-type="iframe" style="text-decoration:none"><img src="/img/nlsignup.png" alt="Email" title="Email" /></a>
+		</div>
+	</div>
+	<nav id="nav">
+		<ul>
+			<li id="subnav-container"><a href="/">Home</a></li>
+			<li id="subnav-container"><a href="/locations">Locations</a>
+            	<ul id="subnav">
+                	<li><span class="subnav-title">San Antonio Area</span></li>
+                    <li><a href="/locations/theatre?house_id=10367">Palladium IMAX-San Antonio</a></li>
+                    <li><a href="/locations/theatre?house_id=20456">Silverado 16-San Antonio</a></li>
+                    <li><a href="/locations/theatre?house_id=20457">Mayan Palace</a></li>
+                    <li><a href="/locations/theatre?house_id=20455">Embassy 14</a></li>
+                    <li><a href="/locations/theatre?house_id=20453">Northwest</a></li>
+                    <li><a href="/locations/theatre?house_id=9826">Rialto</a></li>
+                    <li><a href="/locations/theatre?house_id=20454">Bijou</a></li>
+                    <li></li>
+                    <li><span class="subnav-title">Houston Area</span></li>
+                    <li><a href="/locations/theatre?house_id=10792">Silverado IMAX-Tomball</a></li>
+					<li><a href="/locations/theatre?house_id=29811">Palladium AVX-West Houston</a></li>
+				</ul>	
+            </li>
+            
+			<li id="subnav-container"><a href="/movies?search=showall">Movies</a>
+            	<ul id="subnav">
+                	<li><a href="/movies?search=nowplaying">Now Playing</a></li>
+                    <li><a href="/movies?search=comingsoon">Coming Soon</a></li>
+                    <li><a href="/movies?search=events">Concerts & Events</a></li>
+                    <li><a href="/movies?search=art">Art & Independent</a></li>
+				</ul>	
+            </li>
+            
+			<li id="subnav-container"><a href="/technology/">Technology</a>
+				<ul id="subnav">
+                	<li><a href="/technology/avx">AVX</a></li>
+                    <li><a href="/technology/imax">IMAX</a></li>
+                    <li><a href="/technology/dbox">D-BOX</a></li>
+                    <li><a href="/technology/digital-projection">DIGITAL PROJECTION</a></li>
+					<li><a href="/technology/digital-sound">DIGITAL SOUND</a></li>
+				</ul>	
+			</li>
+            
+			<!--<li id="subnav-container"><a href="/menu/menu">Menu</a></li>-->
+           <!-- <li id="subnav-container"><a href="/bowling">Bowling</a></li>-->
+			<li id="subnav-container"><a href="/promotions/">Promotions</a>
+            	<ul id="subnav">
+                	<!--<li><a href="/promotions/promo?promotion=kidtoons">Kidtoons</a></li>-->
+                	<li><a href="/promotions/promo?promotion=freemovies">Free Movie Series</a></li>
+                	<li><a href="/promotions/promo?promotion=mommy">Mommy Matinees</a></li>
+                    <li><a href="/promotions/promo?promotion=evasheroes">Eva's Heroes</a></li>
+                	<li><a href="/promotions/promo?promotion=mikeysplace">Mikey's Place</a></li>
+                	<!--<li><a href="/promotions/promo?promotion=cineclassics">Cin&eacute; Classics Series</a></li>-->
+                    <li><a href="/promotions/promo?promotion=metopera">MET Opera Series</a></li>
+                    <li><a href="/promotions/promo?promotion=ntlive">National Theatre LIVE</a></li>
+                    <li><a href="/promotions/promo?promotion=fathomevents">Fathom Events</a></li>
+                    
+                   <!-- <li><a href="/promotions/freemovieseries">Free Summer Movies</a></li>-->
+                    <!--<li><a href="/promotions/discounts">Discounts</a></li>
+                	<li><a href="/promotions/extravaganza">Extravaganza & E Bird</a></li>-->
+<!--                    <li><a href="/promotions/promo?promotion=summermovieseries">Summer Movie Series</a></li>
+-->				</ul>	
+            </li>
+            
+			<li id="subnav-container"><a href="/privateevents">Book an Event</a> </li>
+            
+			<li id="subnav-container"><a href="/rewards">Rewards</a>
+            
+            </li>
+            
+            <li id="subnav-container"><a href="#">Store</a>
+            	<ul id="subnav">
+                	<li><a href="/store/giftcards">Gift Cards</a></li>
+                    <li><a href="/store/bulktix">Bulk Tickets/Super Savers</a></li>
+				</ul>	
+            </li>
+            
+			<li id="subnav-container"><a href="#">About</a>
+                <ul id="subnav">
+                	<li><a href="/connect/social">Social Media</a></li>
+                    <li><a href="/connect/contact">Contact Us</a></li>
+                    <li><a href="/press_gallery">Media Gallery</a></li>
+                    <li><a href="/advertise">Advertise</a></li>
+                    <li><a href="/connect/history">History</a></li>
+                    <li><a href="/employment">Careers</a></li>
+                     <li><a href="/faq">FAQ</a></li>
+				</ul>	
+            </li>
+		</ul>
+	</nav>
+	
+	<div id="quick_tickets" class="round">
+				<form id="frmQuickTix" name="frmQuickTix" method="post">
+					<label>Quick Tickets</label>
+					<select id="location" name="location" class="quick_tix">
+						<option value="">Select a Location</option>
+						<option value="">-- SAN ANTONIO AREA --</option>
+	                    <option value="10367">Palladium IMAX-San Antonio</option>
+	                    <option value="20456">Silverado 16-San Antonio</option>
+	                    <option value="20457">Mayan Palace</option>
+	                    <option value="20455">Embassy 14</option>
+	                    <option value="20453">Northwest</option>
+	                    <option value="9826">Rialto</option>
+	                    <option value="20454">Bijou</option>
+	                    <option value="">-- HOUSTON AREA --</option>
+	                    <option value="10792">Silverado IMAX-Tomball</option>
+						<option value="29811">Palladium AVX-West Houston</option>
+					</select>
+					<select id="movie" name="movie" class="quick_tix" disabled>
+						<option value="">Select a Movie</option>
+					</select>
+					<select id="date" name="date" class="quick_tix" disabled>
+						<option value="">Select a Date</option>
+					</select>
+					<select id="showtime" name="showtime" class="quick_tix" disabled>
+						<option value="">Select a Time</option>
+					</select>
+				</form>
+			</div>
+
+	<div class="clearfix"></div>
+</header>
+
+        <!-- JQuery Functions -->
+        <script type="text/javascript">
+		// Lightbox Code
+		$(document).ready(function() {
+			$(".various").fancybox({
+				maxWidth	: 940,
+				maxHeight	: 440,
+				width		: '70%',
+				height		: '70%',
+				fitToView	: true,
+				autoSize	: true,
+				closeClick	: false,
+				openEffect	: 'none',
+				closeEffect	: 'none'
+			});
+		});
+		
+		//various procedures for quick tickets feature
+		$(".quick_tix").change(function(e) {
+			
+			//get dropdown id and value
+			var id = $(this).attr("id");
+			var loading = "<option value=''>Loading..</option>";
+			
+			//prevet slecting empty values
+			if ($(this).val() == "") {
+				e.preventDefault();
+			}
+			
+			//location dropdown?
+			if (id == "location") {
+				
+				//disable other dropdowns as content has changed
+				$('#movie,#date,#showtime').attr('disabled', true);
+				
+				//get the house_id
+				var house_id = $(this).val();
+				
+				//get move list if not blank house id
+				if ($('#'+id).val() != "") {
+					//populate the movies dropdown
+					$('#movie').attr('disabled', false).html(loading).load("/include/load_data?t=movies&h="+house_id);
+				}
+				
+			} else if (id == "movie" && $('#'+id).val() != "") {
+			
+				//get the house_id
+				var house_id = $('#location').val();
+				var movie_id = $(this).val();
+				
+				//get showdate for this movie
+				$('#date').attr('disabled', false).html(loading).load("/include/load_data?t=dates&h="+house_id+"&m="+movie_id);
+			} else if (id == "date" && $('#'+id).val() != "") {
+			
+				//get the house_id
+				var house_id = $('#location').val();
+				var movie_id = $('#movie').val();
+				var showdate = $(this).val();
+				
+				//get showdate for this movie
+				$('#showtime').attr('disabled', false).html(loading).load("/include/load_data?t=showtimes&h="+house_id+"&m="+movie_id+"&d="+showdate);
+			} else if (id == "showtime") {
+				
+				var url = $(this).val();
+				$("#quick_tix_select").val("yes");
+				window.location = url;
+			}
+		})
+		</script>			<!-- main -->
+			<div role="main">
+				<div id="left">
+					<div id="theatres" class="small-box round">
+						<h2>Select a theatre for <b>SHOWTIMES &amp; TICKETS</b></h2>
+						<h3>San Antonio Area</h3>
+						<a href='/locations/theatre?house_id=10367'>Palladium IMAX - San Antonio</a><a href='/locations/theatre?house_id=20456'>Silverado 16 - San Antonio</a><a href='/locations/theatre?house_id=20457'>Mayan Palace</a><a href='/locations/theatre?house_id=20455'>Embassy 14</a><a href='/locations/theatre?house_id=20453'>Northwest</a><a href='/locations/theatre?house_id=9826'>Rialto</a><a href='/locations/theatre?house_id=20454'>Bijou</a><a href='/locations/CasaBlanca'>Casa Blanca&nbsp;&nbsp;&nbsp;&nbsp; <font color=#891200 size=-1>Opening 2015</font></a>						<h3>Houston Area</h3>
+						<a href='/locations/theatre?house_id=10792'>Silverado IMAX - Tomball</a><a href='/locations/theatre?house_id=29811'>Palladium AVX-West Houston</a>					</div>
+                    
+                    <!-- Advance Tix -->
+                    <div class="small-box round" style="padding-bottom: 0px; padding-left:0px; padding-right:4px; padding-top:4px;  width: 245px;">
+                    <p class="advance_tix_subhed" align="center"><strong>ADVANCE TICKETS</strong><p>
+<div id="advtix" class="slider_small round" style="padding-bottom: 4px">
+            <div class='advtix_image'>
+<a href='http://santikos.com/movie_details?movie_id=171649http://santikos.com/movie_details?movie_id=162784' >
+<img src='http://www.filmsxpress.com/images/Carousel/161/adv_cinderella.jpg'  />
+</a>
+</div>
+                    </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div style="position:relative; float:left; margin:15px 0px 0px 6px"><img src="../img/butFacebook_big.png" alt="Facebook" style="cursor:pointer" id="butFacebook"><img src="../img/butTwitter_big.png" alt="Twitter" style="cursor:pointer" id="butTwitter"></div>
+                    <div style="position:relative; float:left; background-color:#3b5997; width:248px; height:300px; padding:3px 0px 5px 0px; text-align:center; margin:0px 0px 0px 6px " id="socialWrapper">
+                    	
+                        <div style="overflow:hidden; width:238px; margin-left:4px">
+                        	<div class="fb-like-box" id="fb-like-box" data-href="http://www.facebook.com/santikosfan" data-width="235" data-height="300" data-show-faces="false" data-stream="true" data-border-color="#900" data-header="true" style="background-color:#FFF"></div>
+                        </div>
+                        
+                        <div style="position:relative; float:left; width:248px; height:300px" id="twitter-box" style="padding:3px 0px 3px 0px;">
+                        <a class="twitter-timeline" href="https://twitter.com/santikostheatre" data-widget-id="308640463039111168" width="242" height="300">Tweets by @santikostheatre</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+              </div>
+                    <!-- End Social Media -->
+ 
+				</div>
+				<div id="right">
+					<div class="big-box round" style="padding-bottom: 0">
+						<div class="slider-wrapper theme-default">
+							<div id="slider" class="nivoSlider">
+                            	<a href='http://www.santikos.com/movie_details?movie_id=174582' >
+<img src='http://www.filmsxpress.com/images/Carousel/161/hottubtimemachine2.jpg'  />
+</a>
+<a href='http://www.santikos.com/movie_details?movie_id=171649' >
+<img src='http://www.filmsxpress.com/images/Carousel/161/mcfarland.jpg'  />
+</a>
+<a href='http://www.santikos.com/movie_details?movie_id=191161' >
+<img src='http://www.filmsxpress.com/images/Carousel/161/duff.jpg'  />
+</a>
+<a href='http://santikos.com/movie_details?movie_id=192218http://www.santikos.com/movie_details?movie_id=178796' >
+<img src='http://www.filmsxpress.com/images/Carousel/161/twodaysonenight.jpg'  />
+</a>
+<a href='http://santikos.com/movie_details?movie_id=182151' >
+<img src='http://www.filmsxpress.com/images/Carousel/161/focus.jpg'  />
+</a>
+<a href='http://santikos.com/movie_details?movie_id=178925' >
+<img src='http://www.filmsxpress.com/images/Carousel/161/lazarus.jpg'  />
+</a>
+<a href='http://santikos.com/movie_details?movie_id=178925http://santikos.com/movie_details?movie_id=201779' >
+<img src='http://www.filmsxpress.com/images/Carousel/161/alamala.jpg'  />
+</a>
+							</div>
+						</div>
+					</div>
+					<div class="big-box round">
+						<div id="scroller-nav">
+							<a class="round scrollbutton selected" id="nowplaying">NOW PLAYING</a>
+							<a class="round scrollbutton" id="comingsoon">COMING SOON</a>
+							<a class="round scrollbutton" id="events">CONCERTS &amp; EVENTS</a>
+							<a class="round scrollbutton" id="artindependent">ART &amp; INDEPENDENT</a>
+						</div>
+						
+						<div id="scroller"></div>
+					</div>
+					
+					<div class="big-box round" >
+                    <h3 style="color: #891200;font-size: 22px;font-weight: bold;margin: 2px;text-align: center; text-transform:uppercase;">The Santikos Difference </h3>
+                    	
+                        
+                       
+
+						<div id="bottombanner">
+                        <div class="slider-wrapper theme-default">
+                                <div id="slider90" class="nivoSlider">
+                                    <a href='http://www.santikos.com/rewards/'><img src='http://www.filmsxpress.com/images/Carousel/161/bannerweb_slr.png' ' /></a><a href='http://santikos.com/technology/avx'><img src='http://www.filmsxpress.com/images/Carousel/161/bannerweb_avx.png' ' /></a><a href=''><img src='http://www.filmsxpress.com/images/Carousel/161/bannerweb_reserved.png' ' /></a>                                </div>
+                            </div>
+                        
+                        
+                     </div>
+                      <br>
+                     <div id="bottombanner" align="center">
+                        <!-- Santikos_728x90 -->
+
+
+                        <div id='div-gpt-ad-1421166524284-0' style='width:710px; height:90px;'>
+                        
+                        
+                        <script type='text/javascript'>
+                        
+                        
+                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1421166524284-0'); });
+                        
+                        
+                        </script>
+                        
+                        
+                        </div>
+                        </div>
+                     </div> 
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- footer -->
+		<footer id="footer" class="round">
+	<a href="/">Home</a>&nbsp;|&nbsp;
+    <a href="/locations/">Locations</a>&nbsp;|&nbsp;
+    <a href="/movies">Movies</a>&nbsp;|&nbsp;
+    <a href="/promotions/">Promotions</a>&nbsp;|&nbsp;
+    <a href="/privateevents/">Private Events</a>&nbsp;|&nbsp;
+    <a href="/faq">FAQ</a>&nbsp;|&nbsp;
+    <a href="/rewards/">Rewards</a>&nbsp;|&nbsp;
+    <a href="/store/giftcards">Store</a>&nbsp;|&nbsp;
+    <a href="/connect/contact">Connect</a>&nbsp;|&nbsp;
+    <a href="/realestate/index.html">Real Estate</a>&nbsp;|&nbsp;
+    <a href="employment.php" style="text-decoration:none">Employment</a>&nbsp;|&nbsp;
+    <!--<a href="http://form.jotform.us/form/23205929891158"  class="various" data-fancybox-type="iframe" style="text-decoration:none">Employment</a>&nbsp;|&nbsp;-->
+    <a href="http://www.santikos.com/advertise">Advertise</a>&nbsp;&nbsp;&nbsp;&copy;2015 Santikos Theatres
+    
+</footer>
+<center>
+<a href="http://westworldmedia.com/" target="_blank"><img src="/img/wwm-logo.png" alt="Powered By West World Media" /></a>
+</center>
+<br /><br /><br /><br />
+<script src="/js/libs/tracking.js"></script>
+<script src="/js/libs/gas.setup.js"></script>
+
+<input type="hidden" id="quick_tix_select" value="no">
+<script type="text/javascript">
+	$(function() {
+		if ($("#quick_tix_select").val() == "yes") {
+			location.reload();
+		}
+	})
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35541457-1', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- JQuery Functions -->
+
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-LQhqg88a1y9J8"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-LQhqg88a1y9J8.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+<!--AdRoll-->
+<script type="text/javascript">
+adroll_adv_id = "SVFNV3GHU5BBDPGEN2VWWA";
+adroll_pix_id = "AK6FQJUGWBAQHFAYIPMPWV";
+(function () {
+var oldonload = window.onload;
+window.onload = function(){
+   __adroll_loaded=true;
+   var scr = document.createElement("script");
+   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+   scr.setAttribute('async', 'true');
+   scr.type = "text/javascript";
+   scr.src = host + "/j/roundtrip.js";
+   ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+   if(oldonload){oldonload()}};
+}());
+</script>
+ 
+		<footer>
+		</footer>
+		<script src="js/nivo-slider/jquery.nivo.slider.pack.js"></script>
+		<script type="text/javascript">
+			$(window).load(function() {
+			    $('#slider').nivoSlider();
+			});
+			$(window).load(function() {
+                    $('#slider90').nivoSlider();
+                });
+			
+			$(function() {
+				
+				// hide all but first IMG in the adv tix box
+				var advtix_divs = $('div[class^="advtix_image"]').hide(), i = 0;
+				
+				//cycle through the divs
+				(function advtix_cycle() { 
+				
+					//fade timer
+					advtix_divs.eq(i).fadeIn(400).delay(5000).fadeOut(400, advtix_cycle);
+					
+					// increment i and reset to 0 when it equals divs.length
+					i = ++i % advtix_divs.length;
+				})();
+
+				//Load the slider
+				$('#slider').nivoSlider({
+					effect:'fade'
+				});
+				$('#slider90').nivoSlider({
+					effect:'fade'
+				});
+				$('.profilePic').hide();
+				
+				//load the scroller to Now Playing to start
+				$('#scroller').load("include/data/nowplaying.html");
+				
+				//change the content based on button click
+				$('.scrollbutton').click(function() {
+				
+					//remove selected from all the buttons first
+					$('.scrollbutton').each(function() {
+						$('.scrollbutton').removeClass("selected");
+					})
+					
+					//get the button id and load the HTML
+					var type = $(this).attr("id");
+					$('#scroller').load("include/data/"+type+".html");
+					
+					//ad dthis selected class to this button
+					$(this).addClass("selected");
+				});
+				
+				//Hide the twitter div
+				$('#twitter-box').hide();
+				
+				//Bind click events to Facebook and Twitter buttons
+				$('#butFacebook').click(function()
+				{
+					$('#twitter-box').hide();
+					$('#fb-like-box').show();
+					$('#socialWrapper').css('background-color','#3b5997');
+				});
+				
+				$('#butTwitter').click(function()
+				{
+					$('#fb-like-box').hide();
+					$('#twitter-box').show();
+					$('#socialWrapper').css('background-color','#94e4e8');
+				});
+			});
+			
+		</script>
+	</body>
+</html>";i:2;s:4:"8932";}

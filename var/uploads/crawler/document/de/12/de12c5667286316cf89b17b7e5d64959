@@ -1,0 +1,354 @@
+a:3:{i:0;s:19:"http://bookbub.com/";i:1;s:30075:"<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-6.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"4f87f71b56","applicationID":"2069853,4454743","transactionName":"dglaEhAKD1RUEBxEUlIDR0kKCg5d","queueTime":1,"applicationTime":39,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-536.min.js"}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwcOVV5bGwEAUlhaAgI="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(5),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e;try{throw new Error}catch(f){"stack"in f&&(t(1),t(4),"addEventListener"in window&&t(2),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(3),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:8,2:5,3:9,4:7,5:22,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1);t("loader").features.stn=!0,t(2),n.on("fn-start",function(t){var e=t[0];e instanceof Event&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof Event&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:8,2:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:22,2:23,ee:"QJf3ax",gos:"7eSDFh"}],6:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState"],"-")},{1:23,2:22,ee:"QJf3ax"}],7:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:23,2:22,ee:"QJf3ax"}],8:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:23,2:22,ee:"QJf3ax"}],9:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),f=s(a),u=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new u(t);try{i.emit("new-xhr",[],e),f.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=u.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:5,2:23,ee:"QJf3ax"}],10:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=e(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=e(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var u=0;c>u;u++)n.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:11,3:9,4:5,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],11:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],12:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","trackUserAction","finished","traceEvent","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:21,2:22,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&f&&f.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=f.createElement("script");e.src=l.proto+t.agent,f.body.appendChild(e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=(t(2),window),f=c.document,u="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-536.min.js"},l=e.exports={offset:i(),origin:p,features:{}};f[u]?(f[u]("DOMContentLoaded",o,!1),c[u]("load",n,!1)):(f[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:21,2:12,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],21:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],22:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],23:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:22,ee:"QJf3ax"}]},{},["G9z0Bl",3,10,4]);</script>
+
+<script>
+  (function(e){var t={kitId:"jpk0bht",scriptTimeout:3e3};var n=e.documentElement;var r=e.createElement("script");var i=false;var s=e.getElementsByTagName("script")[0];var o;r.src="//use.typekit.net/"+t.kitId+".js";r.async=true;r.onload=r.onreadystatechange=function(){o=this.readyState;if(i||o&&o!="complete"&&o!="loaded")return;i=true;try{Typekit.load(t)}catch(e){}};s.parentNode.insertBefore(r,s)})(document)
+</script>
+<title>BookBub: Free Ebooks - Great deals on bestsellers you'll love</title>
+<link href="//d2616tuem1neks.cloudfront.net/assets/pages/homepage-6dea274f3a611ff1c2e1ff67ebf31868.css" media="all" rel="stylesheet" />
+<!--[if lt IE 9]>
+<script src="//d2616tuem1neks.cloudfront.net/assets/html5shiv-ba025bfb3d3439404071539f75f9788c.js"></script>
+<script src="//d2616tuem1neks.cloudfront.net/assets/respond-5b620239919931f00a9dd9c302890ffb.js"></script>
+<link href="//d2616tuem1neks.cloudfront.net/assets/respond-proxy-b93dba1d0f6258f3cbe8ea23b6546d94.html" id="respond-proxy" rel="respond-proxy" />
+<link href="https://www.bookbub.com/assets/respond.proxy-175adaafb61db414c24316e9450cdf8e.gif" id="respond-redirect" rel="respond-redirect" />
+<script src="https://www.bookbub.com/assets/respond.proxy-e507910b2d6b7ce6fd8cbfcf3903d680.js"></script>
+<![endif]-->
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="QG0BAeN5hSxPYjtovzPDKPEuIl9YD94RgjfX6ydb4oo=" name="csrf-token" />
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='Get free and bargain bestsellers for Kindle, Nook, and more. Sign up for free today, and start reading instantly!' name='description'>
+<meta content='311548868887910' property='fb:app_id'>
+<meta content='' property='og:title'>
+<meta content='' property='og:description'>
+<meta content='' property='og:url'>
+<link href='/favicon.ico?v=2' rel='shortcut icon'>
+<link href="//d2616tuem1neks.cloudfront.net/assets/modules/touch_icons/BB_196x196-defe58cfa1bc08ab0cf08bd414791783.png" rel="icon" sizes="196x196" type="image/vnd.microsoft.icon" />
+<link href="//d2616tuem1neks.cloudfront.net/assets/modules/touch_icons/BB_60x60-3eae433d6c4f90904864fbeb45bd8fa4.png" rel="apple-touch-icon" type="image/vnd.microsoft.icon" />
+<link href="//d2616tuem1neks.cloudfront.net/assets/modules/touch_icons/BB_76x76-423da14b07c9bace12eab6fbc3d49297.png" rel="apple-touch-icon" sizes="76x76" type="image/vnd.microsoft.icon" />
+<link href="//d2616tuem1neks.cloudfront.net/assets/modules/touch_icons/BB_120x120-477916e65cb6bbda28a55285a54359f5.png" rel="apple-touch-icon" sizes="120x120" type="image/vnd.microsoft.icon" />
+<link href="//d2616tuem1neks.cloudfront.net/assets/modules/touch_icons/BB_152x152-2a71f8a2d6ce8a9899dc753db15ff373.png" rel="apple-touch-icon" sizes="152x152" type="image/vnd.microsoft.icon" />
+<link href='http://www.bookbub.com/home/' rel='canonical'>
+<script type="text/javascript">
+  var bb_jsdata = {}
+</script>
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27140214-5']);
+  _gaq.push(['_setDomainName', 'bookbub.com']);
+  _gaq.push(['_setCustomVar', 1, 'Platform', 'lello', 3]);
+  _gaq.push(['_setCustomVar', 2, 'Design', 'new', 3]);
+  _gaq.push(['_setCustomVar', 3, 'Deals Design', 'current', 3]);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview' ]);
+  
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+    <script src="//cdn.optimizely.com/js/341799421.js"></script>
+    <script>
+    window.mixpanel = {}
+    window.mixpanel.track = function() {}
+    window.mixpanel.identify = function() {}
+    window.mixpanel.alias = function() {}
+    window.mixpanel.register = function() {}
+    window.mixpanel.track_links = function() {}
+    window.mixpanel.get_distinct_id = function() {}
+    window.mixpanel.people = {}
+    window.mixpanel.people.set = function() {}
+    </script>
+    <script type="text/javascript">
+      var heap=heap||[];heap.load=function(a){window._heapid=a;var b=document.createElement("script");b.type="text/javascript",b.async=!0,b.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d=function(a){return function(){heap.push([a].concat(Array.prototype.slice.call(arguments,0)))}},e=["identify","track"];for(var f=0;f<e.length;f++)heap[e[f]]=d(e[f])};
+      heap.load("3458955194");
+    </script>
+
+</head>
+<body data-current-region='us' data-logged-in='false' data-subscribed='false'>
+<div class='site-alert' id='browser-notice' style='display:none; margin:0; padding:0'>
+<div class='container'>
+<p><strong>Great books are timeless, web browsers are not.</strong> It looks like your browser is out of date. We do our best to support a wide variety of browsers and devices, but BookBub works best in a modern browser. For help upgrading, check out <a href="http://www.whatbrowser.org/">http://www.whatbrowser.org/</a>.</p>
+</div>
+</div>
+<div class='site-alert' id='cookie-notice' style='display:none; margin: 0; padding: 0'>
+<div class='container'>
+<p><strong>BookBub offers a great personalized experience.</strong> Unfortunately, your browser doesn't accept cookies, which limits how good an experience we can provide.  For more info on how to enable cookies, check out <a href="http://www.whatarecookies.com/enable.asp">http://www.whatarecookies.com/</a>.</p>
+</div>
+</div>
+
+<div id='page-viewport'>
+<div id='page-content'>
+  <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KMTG65"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KMTG65');</script>
+  <!-- End Google Tag Manager -->
+
+<div id='page-content'>
+<div class='topbar' id='top'>
+<div class='container'>
+<div class='menuitem'>
+<div class='tagline'>
+<p>Join millions of happy readers!</p>
+</div>
+</div>
+<div class='menuitem'>
+<div id='logo'>
+<img alt="Logo" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/logo-7371ab8547ec8da72d51d75c2eb8b7bb.png" />
+</div>
+</div>
+<div class='menuitem'>
+<p class='sign-in'>
+<span class='sign-in1'>Already a member?</span>
+<a class="sign-in2" href="/users/sign_in">Sign In</a>
+</p>
+</div>
+</div>
+</div>
+<div class='section1 top-wrapper' id='top'>
+<div class='container homepage-content'>
+<div class='row-inner'>
+<div class='left-side'>
+<div class='blackoverlay'>
+<div class='header'>Great Deals <span class="nextline"><br></span> on Bestselling Ebooks</div>
+<div class='desktop-signup-form'>
+<form accept-charset="UTF-8" action="/user_signups" class="form-borderless subscribe-form" id="new_user" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="QG0BAeN5hSxPYjtovzPDKPEuIl9YD94RgjfX6ydb4oo=" /></div><div class='nav_text'>
+<div class="form-group"><label class="sr-only control-label" for="user_email_address">Email address</label><input class="form-control user_email_address" id="user_email_address" name="user[email_address]" placeholder="Enter Your Email Address..." type="email" /></div>
+<input class="subscribe-submit submitButton" id="subscribe-submit" name="commit" type="submit" value="Start Reading - It&#39;s Free!" />
+</div>
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<span class='arrow-circle'>
+<a href='#section2' id='arrow' rel='relativeanchor'>
+<img alt="Arrow" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/arrow-ca19194e00f8b9be9a81e1fb05b7eee3.png" />
+</a>
+</span>
+</div>
+</div>
+<div class='section2' id='section2'>
+<div class='container'>
+<div class='row-inner'>
+<div class='center-align'>
+<div class='header'>How it works</div>
+<div class='subheader'>BookBub alerts you to limited-time free & discounted ebooks matching your interests.</div>
+<div class='subheader'>It's free to join, you can read on any device, and the books are yours to own.</div>
+<div class='icons-container'>
+<ul id='list'>
+<li class='icon1'>
+<img alt="2 icon1" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/2_icon1-65ccbf69fafc6b867595c7f1e5fbc72f.png" />
+<p>Tell us what you<br> like to read</p>
+</li>
+<li class='icon2'>
+<img alt="2 icon2" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/2_icon2-c148ba80e6b4da3b8c51e5d03b5cf8d6.png" />
+<p>Get the daily email and browse your deals</p>
+</li>
+<li class='icon3'>
+<img alt="2 icon3" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/2_icon3-7498810e0e83699c6784e4435fc44a48.png" />
+<p>Download to any<br>device & enjoy</p>
+</li>
+</ul>
+</div>
+<div class='hr-style'>
+<hr>
+</div>
+<div class='devices-wrapper'>
+<img alt="Devices icons1" class="devices_icons1" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/devices-icons1-cc11786c6b678e775ff775d1840921d9.png" />
+<img alt="Devices icons2" class="devices_icons2" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/devices-icons2-3f51b1a1443bb20984eeb07daf3f8ce2.png" />
+</div>
+<a href='#section3' id='arrow' rel='relativeanchor'>
+<img alt="Arrow black" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/arrow-black-df459e74f46d1ecb98c48dab024475b8.png" />
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class='section3' id='section3'>
+<div class='container'>
+<div class='row-inner'>
+<div class='header'>Recent ebook deals</div>
+<div class='subheader'>Our expert editorial team sifts through thousands of titles, selecting only the best to feature.</div>
+<div id='slideshow'></div>
+</div>
+<a href='#section4' id='arrow' rel='relativeanchor'>
+<img alt="Arrow" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/arrow-ca19194e00f8b9be9a81e1fb05b7eee3.png" />
+</a>
+</div>
+</div>
+<div class='section4' id='section4'>
+<div class='container'>
+<div class='row-inner'>
+<div>
+<div class='header'>Join millions of happy readers</div>
+<div id='testimonial-wrap'>
+<div class='testimonial_container'>
+<img alt="Bubble1" class="bubble" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/bubble1-f5f006d7504c7b390f789b6a0c7f6047.png" />
+<p class='blurb'>“It's fantastic, and I'm super happy to open my email every morning to another set of books to choose from!”</p>
+<div id='extra_space'></div>
+<img alt="Reader1" class="reader" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/reader1-5770ee4cb0f114bacafd6854cf6e202e.png" />
+</div>
+<div class='testimonial_container'>
+<img alt="Bubble2" class="bubble" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/bubble2-23aba41b8422dd6b7e2b18ad0156a342.png" />
+<p class='blurb'>“I would tell anyone to just sign up without reservation. I now have more books than I can read in a lifetime.”</p>
+<div id='extra_space' style='height: 84px;'></div>
+<img alt="Reader2" class="reader" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/reader2-c096437cf6dae08e2f02bcdb1f37db50.png" />
+</div>
+<span class='bubble_block'></span>
+<div class='testimonial_container'>
+<img alt="Bubble1" class="bubble" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/bubble1-f5f006d7504c7b390f789b6a0c7f6047.png" />
+<p class='blurb'>“There are series I would have never discovered if it weren’t for BookBub, and I always feel like I got a deal, always.”</p>
+<div id='extra_space' style='height: 73px;'></div>
+<img alt="Reader3" class="reader" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/reader3-4928d838cba9635605ecebe9055f0e85.png" />
+</div>
+<div class='testimonial_container'>
+<img alt="Bubble4" class="bubble" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/bubble4-447cb433a1dedbf27b715516b2b8f26c.png" />
+<p class='blurb'>“I actually download several books a week...I would say I’ve saved approximately $40 or more each month using BookBub.”</p>
+<div id='extra_space' style='height: 65px;'></div>
+<img alt="Reader4" class="reader" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/reader4-078568cef61dcb52dbdd969b600fa79c.png" />
+</div>
+</div>
+<a href='#section5' id='arrow' rel='relativeanchor'>
+<img alt="Arrow" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/arrow-ca19194e00f8b9be9a81e1fb05b7eee3.png" />
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class='news-section'>
+<div class='container'>
+<div class='row-inner'>
+<div class='center'>
+As seen in:
+<!-- #{link_to "Sign In", new_user_session_path} -->
+<img alt="News 1" class="news_icons1" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/news-1-3bed6dfbdf19a008059f409f8d7b5695.png" />
+<img alt="News 2" class="news_icons2" src="//d2616tuem1neks.cloudfront.net/assets/pages/home/news-2-2a83e0cbf024d941801d8eada91aaae6.png" />
+</div>
+</div>
+</div>
+</div>
+<div class='section5' id='section5'>
+<div class='container'>
+<div class='row-inner'>
+<div>
+<div class='player'>
+<div class='embed-container'>
+<iframe frameborder='0' src='https://player.vimeo.com/video/110519060'></iframe>
+</div>
+</div>
+<div class='header'>
+<span>Discover free & bargain ebooks</span>
+</div>
+<a href='#top' rel='relativeanchor'>
+<div class='submitButton smoothScroll'>Start Reading - It's Free!</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class='page-footer'>
+<div class='footer stackable'>
+<div class='container'>
+<div class='row'>
+<div class='col-md-3 col-sm-3'>
+<div class='row footer-header'>
+<div class='col-lg-7 col-md-8 col-sm-10 col-xs-6 footer-logo-container'>
+<a href="/home"><img alt="Logo footer" class="footer-logo img-responsive" src="//d2616tuem1neks.cloudfront.net/assets/modules/footer/logo-footer-eff10576391fe74469cbdfe36cbbe709.png" /></a>
+</div>
+<div class='col-sm-12 col-xs-6 footer-social-container'>
+<span>
+<a class="social-links" href="http://www.facebook.com/BookBub"><i class='fa fa-facebook-square fa-lg'></i></a>
+<a class="social-links" href="http://twitter.com/BookBub"><i class='fa fa-twitter-square fa-lg'></i></a>
+<a class="social-links" href="http://pinterest.com/BookBub"><i class='fa fa-pinterest-square fa-lg'></i></a>
+</span>
+</div>
+</div>
+</div>
+<div class='link-panel col-md-3 col-sm-3'>
+<h4>Company</h4>
+<ul class='list-unstyled'>
+<li><a href="/home/about.php">About</a></li>
+<li><a href="/careers">Careers</a></li>
+<li><a href="/for-the-press">For the Press</a></li>
+<li><a href="/home/privacy.php">Privacy &amp; Terms</a></li>
+<li><a href="/contact/new">Contact</a></li>
+</ul>
+</div>
+<div class='link-panel col-md-3 col-sm-3'>
+<h4>Readers</h4>
+<ul class='list-unstyled'>
+<li><a href="/home/overview.php">What is BookBub?</a></li>
+<li><a href="/home/in_the_news">In the News</a></li>
+<li><a href="/ebook-deals/free-ebooks">Free Ebooks</a></li>
+<li><a href="/ebook-deals/free-kindle-books">Free Kindle Books</a></li>
+<li><a href="http://media.bookbub.com/">The BookBub Blog</a></li>
+<li><a href="/deals/invite">Invite Your Friends</a></li>
+<li><a href="http://help.bookbub.com/">Help</a></li>
+</ul>
+</div>
+<div class='link-panel col-md-3 col-sm-3'>
+<h4>Publishers &amp; Authors</h4>
+<ul class='list-unstyled'>
+<li><a href="/partners">Partners Overview</a></li>
+<li><a href="/submit-order/new">Submission Form</a></li>
+<li><a href="http://unbound.bookbub.com">Unbound Blog</a></li>
+<li><a href="/partners/faq">Partner FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class='row'>
+<div class='link-panel copyright col-sm-12'>
+<p class='small'>&copy; 2015 BookBub.  All rights reserved.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<script src="//d2616tuem1neks.cloudfront.net/assets/pages/homepage-8ff115ac51ccf9911f20dde0d37fb77a.js"></script>
+<!--[if lte IE 9]>
+<script src="//d2616tuem1neks.cloudfront.net/assets/placeholder-shim-0fbd4bcdae65009b2198d50b19a267f8.js"></script>
+<script>
+  $(function () {$('input, textarea').placeholder();});
+</script>
+<![endif]-->
+    <div style="display:none">
+      <script type="text/javascript">
+      /* <![CDATA[ */
+        var google_conversion_id = 953595422;
+        var google_conversion_label = "_aL4CILphwQQnuzaxgM";
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+      /* ]]> */
+      </script>
+      <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+      </script>
+    </div>
+    <noscript>
+    <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/953595422/?value=0&amp;label=_aL4CILphwQQnuzaxgM&amp;guid=ON&amp;script=0"/>
+    </div>
+    </noscript>
+
+</div>
+</div>
+
+</body>
+</html>
+";i:2;s:4:"2235";}

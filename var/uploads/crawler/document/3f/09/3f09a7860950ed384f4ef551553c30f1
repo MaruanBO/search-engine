@@ -1,0 +1,685 @@
+a:3:{i:0;s:29:"http://mymortgageinsider.org/";i:1;s:38575:"<html>
+<head>
+  <title>My Mortgage Insider</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+  <script defer src="http://dttlnk.com/app/geoip.php" type="text/javascript" language="javascript"></script>
+
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/dark-hive/jquery-ui.css" type="text/css" />
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" language="javascript"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" type="text/javascript" language="javascript"></script>
+  <script src="js/jquery.maskedinput.min.js" type="text/javascript" language="javascript"></script>
+
+  
+  <script type='text/javascript'>
+  $(document).ready( function() {
+
+     $.fx.speeds._default = 1000;
+     $(function() {
+          $( "#dialog" ).dialog({
+                  autoOpen: false,
+                  show: "fold",
+                  hide: "explode",
+                                    width: "auto",
+                  height: "auto"
+          });
+  
+               });
+
+     var clicked = false;
+
+     $('.input-btn').click(
+           function() {
+               if( clicked )
+               {
+                   return false;
+               }
+               clicked = true;
+               return true;
+           }
+     );
+
+     if( $('#phone1').length )
+     {
+         $('#phone1, #phone2, #phone3').autotab_magic().autotab_filter('numeric');
+         $('#alt_phone1, #alt_phone2, #alt_phone3').autotab_magic().autotab_filter('numeric');
+     }
+
+  
+ $('.field_error').focus(function(){
+     $(this).removeClass('field_error');
+ });
+
+
+   if( typeof geoip_postal_code == 'function' ) 
+   {
+       if( $('#zip').val() == "" )
+       {
+           $('#zip').val( geoip_postal_code() );
+       }
+
+       if( $('#state').val() == "" )
+       {
+           $('#state').val( geoip_region() );
+       }
+
+       if( $('#city').val() == "" )
+       {
+           $('#city').val( geoip_city() );
+       }
+   }
+
+
+});
+</script>
+
+<script type="text/javascript">
+<!--
+  $(document).ready( function() {
+     $("#phone").mask("(999) 999-9999");
+  });
+
+    function validate( pg )
+    {
+        if( pg == 1 )
+        {
+            if( $('#address').val() == "" || $('#city').val() == "" ||
+                $('#state').val() == "" || $('#zip').val() == "" )
+            {
+                $( '#dialog' ).html( '<p>Please Fill out all fields.<p>' ); 
+                $( '#dialog' ).dialog( 'open' ); 
+                return false;
+            }
+        }
+
+        if( pg == 2 )
+        {
+        }
+
+        if( pg == 3 )
+        {
+            if( $('#first_name').val() == "" || $('#last_name').val() == "" ||
+                $('#phone').val() == "" || $('#email').val() == "" )
+            {
+                $( '#dialog' ).html( '<p>Please Fill out all fields.<p>' ); 
+                $( '#dialog' ).dialog( 'open' ); 
+                return false;
+            }
+        }
+
+        if( pg == 4 )
+        {
+        }
+
+        return true;
+    }
+
+    function nextPage(pg)
+    {
+        $( '#pg1' ).hide();
+        $( '#pg2' ).hide();
+        $( '#pg3' ).hide();
+        $( '#pg4' ).hide();
+
+        switch( pg )
+        {
+            case 1: $( '#pg1' ).show(); break;
+            case 2: $( '#pg2' ).show(); break;
+            case 3: $( '#pg3' ).show(); break;
+            case 4: 
+                    if( $('#months_behind').val() != 0 )
+                    {
+                        $( '#pg4' ).show(); 
+                        break;
+                    }
+
+                    var url = 'http://rd.adticr.com/?rdt=34778&sub_id=204&prepop=firstname|'+$('#first_name').val()+';lastname|'+$('#last_name').val()+';email|'+$('#email').val()+';bill_zip|'+$('#zip').val()+';zip|'+$('#zip').val()+';phone1|'+$('#phone').val().substr(0,3)+';phone2|'+$('#phone').val().substr(3,3)+';phone3|'+$('#phone').val().substr(6,4);
+
+// Pop test
+$('#btn').trigger('click');
+                    $( '#offer_form' ).submit(); 
+                    break;
+
+            case 5: 
+
+// Pop test
+$('#btn').trigger('click');
+                    $( '#offer_form' ).submit(); 
+                    break;
+        }
+
+        return false;
+    }
+
+
+-->
+</script>
+
+<body>
+  <form method="post" action="submit.php" name="offer_form" id="offer_form">
+    <input type="hidden" name="progress" value="1" />
+    <input type="hidden" name="universal_leadid" id="leadid_token" value=""/>
+    <input type="hidden" name="ptest" id="btn" value=""/>
+    <input type="hidden" name="aid" value="204" />
+    <input type="hidden" name="offer_id" value="243" />
+    <input type="hidden" name="subid" value="" />
+    <input type="hidden" name="subid2" value="" />
+
+<div class="container" style="background-color:#2b547f">
+  <div class="header"><div style="float:right; font-size:28px; color:#434343; padding:35px 20px 20px; width:600px; font-family:'open sans'; line-height:100%"><strong>President Obama announces<br />affordable refinance programs*</strong></div><img src="images/logo.png" width="307" height="140" /></div>
+<div class="green_arrow"></div>
+<div style="background-color:#434343; text-align:center;padding:10px; font-size:28px; color:#ffffff"><strong>Find out now if you qualify for these programs!</strong></div>
+  <div class="sidebar1">
+
+  	    <div id="form">
+    
+    		<div class="stepsWrap" style="font-size:14px; font-family:Georgia, 'Times New Roman', Times, serif;">
+                      <div id="pg1" style="position: absolute; width: 448px;">
+                    
+                      <table class="twidth" style="font-family:Verdana, Geneva, sans-serif;font-size: 15px;">
+                      
+                      <tr>
+                      <td width="156" style="text-align:left;">Street Address<br /><input type="text" id="address" name="address" value=""/></td>
+
+                      </tr>
+                      
+                      <tr>
+                        <td style="text-align:left;">Property Type<br />
+                        <select name="property_type" id="property_description">
+                            <option value="Single" >Single Family Residence </option>
+                            <option value="Condominium" >Condo</option>
+                            <option value="MultiFamily" >Multi-Family Residence</option>
+                        </select>
+                        </td>
+                      </tr>                    
+
+                      <tr>
+                        <td style="text-align:left;">City<br /><input type="text" name="city" id="city" value=""/></td>
+                      </tr>                    
+                      
+                      <tr>
+                        <td style="text-align:left;">State<br />
+                          <select name="state" id="state">
+                             <option value=""></option>
+                                    <option value="AL">AL</option>
+<option value="AK">AK</option>
+<option value="AZ">AZ</option>
+<option value="AR">AR</option>
+<option value="CA">CA</option>
+<option value="CO">CO</option>
+<option value="CT">CT</option>
+<option value="DE">DE</option>
+<option value="DC">DC</option>
+<option value="FL">FL</option>
+<option value="GA">GA</option>
+<option value="HI">HI</option>
+<option value="ID">ID</option>
+<option value="IL">IL</option>
+<option value="IN">IN</option>
+<option value="IA">IA</option>
+<option value="KS">KS</option>
+<option value="KY">KY</option>
+<option value="LA">LA</option>
+<option value="ME">ME</option>
+<option value="MD">MD</option>
+<option value="MA">MA</option>
+<option value="MI">MI</option>
+<option value="MN">MN</option>
+<option value="MS">MS</option>
+<option value="MO">MO</option>
+<option value="MT">MT</option>
+<option value="NE">NE</option>
+<option value="NV">NV</option>
+<option value="NH">NH</option>
+<option value="NJ">NJ</option>
+<option value="NM">NM</option>
+<option value="NY">NY</option>
+<option value="NC">NC</option>
+<option value="ND">ND</option>
+<option value="OH">OH</option>
+<option value="OK">OK</option>
+<option value="OR">OR</option>
+<option value="PA">PA</option>
+<option value="RI">RI</option>
+<option value="SC">SC</option>
+<option value="SD">SD</option>
+<option value="TN">TN</option>
+<option value="TX">TX</option>
+<option value="UT">UT</option>
+<option value="VT">VT</option>
+<option value="VA">VA</option>
+<option value="WA">WA</option>
+<option value="WI">WI</option>
+<option value="WV">WV</option>
+<option value="WY">WY</option>
+                          </select>
+                        </td>
+                      </tr>                    
+                      
+                      <tr>
+                        <td style="text-align:left;">Zip Code<br /><input type="text" name="zip" id="zip" value=""/></td>
+                      </tr>
+
+                      </table>
+
+                      <a href="#" onclick="if( validate(1) ) { nextPage(2); } return false;"><img src="images/continue.png" style="margin-top: 20px;"></a>
+                    
+                    </div><!-- end #step1 -->
+
+                    <div id="pg2" style="display: none; position: absolute; width: 448px;">
+
+                      <table class="twidth" style="font-family:Verdana, Geneva, sans-serif">
+                      
+                      <tr>
+                        <td style="text-align:left;">Loan Amount<br />
+                        <select name="mortgage_balance" id="mortgage_balance">
+                            <option value="75000" >Under $100,000</option>
+                            <option value="100000" >$100,001 - $110,000</option>
+                            <option value="110000" >$110,001 - $120,000</option>
+                            <option value="125000" >$120,001 - $130,000</option>
+                            <option value="130000" >$130,001 - $140,000</option>
+                            <option value="140000" >$140,001 - $150,000</option>
+                            <option value="150000" >$150,001 - $160,000</option>
+                            <option value="160000" >$160,001 - $170,000</option>
+                            <option value="170000" >$170,001 - $180,000</option>
+                            <option value="180000" >$180,001 - $190,000</option>
+                            <option value="190000" >$190,001 - $200,000</option>
+                            <option value="200000" selected="selected">$200,001 - $225,000</option>
+                            <option value="225000" >$225,001 - $250,000</option>
+                            <option value="250000" >$250,001 - $275,000</option>
+                            <option value="275000" >$275,001 - $300,000</option>
+                            <option value="300000" >$300,001 - $325,000</option>
+                            <option value="325000" >$325,001 - $350,000</option>
+                            <option value="350000" >$350,001 - $375,000</option>
+                            <option value="375000" >$375,001 - $400,000</option>
+                            <option value="400000" >$400,001 - $425,000</option>
+                            <option value="425000" >$425,001 - $450,000</option>
+                            <option value="450000" >$450,001 - $475,000</option>
+                            <option value="475000" >$475,001 - $500,000</option>
+                            <option value="500000" >$500,001 - $550,000</option>
+                            <option value="550000" >$550,001 - $600,000</option>
+                            <option value="600000" >$600,001 - $650,000</option>
+                            <option value="650000" >$650,001 - $700,000</option>
+                            <option value="700000" >$700,001 - $750,000</option>
+                            <option value="750000" >$750,001 - $800,000</option>
+                            <option value="800000" >$800,001 - $850,000</option>
+                            <option value="850000" >$850,001 - $900,000</option>
+                            <option value="900000" >$900,001 - $950,000</option>
+                            <option value="950000" >$950,001 - $1,000,000</option>
+                            <option value="1000000" >$1,000,001 - $1,100,000</option>
+                            <option value="1100000" >$1,100,001 - $1,200,000</option>
+                            <option value="1200000" >$1,200,001 - $1,300,000</option>
+                            <option value="1300000" >$1,300,001 - $1,400,000</option>
+                            <option value="1400000" >$1,400,001 - $1,500,000</option>
+                            <option value="1500000" >Over $1,500,000</option>
+                        </select>
+                        </td>
+                      </tr>
+
+                      <tr>
+                      <td style="text-align:left;">Interest Rate<br />
+                        <select name="rate" id="current_interest_rate">
+                            <option value="11" >11+</option>
+                            <option value="10.75" >10.75</option>
+                            <option value="10.50" >10.50</option>
+                            <option value="10.25" >10.25</option>
+                            <option value="10.00" >10.00</option>
+                            <option value="9.75" >9.75</option>
+                            <option value="9.50" >9.50</option>
+                            <option value="9.25" >9.25</option>
+                            <option value="9.00" >9.00</option>
+                            <option value="8.75" >8.75</option>
+                            <option value="8.50" >8.50</option>
+                            <option value="8.25" >8.25</option>
+                            <option value="8.00" >8.00</option>
+                            <option value="7.75" >7.75</option>
+                            <option value="7.50" >7.50</option>
+                            <option value="7.25" >7.25</option>
+                            <option value="7.00" >7.00</option>
+                            <option value="6.75" >6.75</option>
+                            <option value="6.50" >6.50</option>
+                            <option value="6.25" >6.25</option>
+                            <option value="6.00" >6.00</option>
+                            <option value="5.75" >5.75</option>
+                            <option value="5.50" >5.50</option>
+                            <option value="5.25" >5.25</option>
+                            <option value="5.00" >5.00</option>
+                            <option value="4.75" >4.75</option>
+                            <option value="4.50" selected="selected">4.50</option>
+                            <option value="4.25" >4.25</option>
+                            <option value="4.00" >4.00</option>
+                            <option value="3.75" >3.75</option>
+                            <option value="3.50" >3.50</option>
+                            <option value="3.25" >3.25</option>
+                            <option value="3.00" >3.00</option>
+                            <option value="2.75" >2.75</option>
+                            <option value="2.50" >2.50</option>
+                            <option value="2.25" >2.25</option>
+                            <option value="2.00" >2.00</option>
+                        </select>
+                        </td>
+                      </tr>                    
+                      
+                      <tr>
+                      <td style="text-align:left;">Estimated Home Value<br />
+                        <select name="home_value" id="home_value">
+                            <option value="75000" >&#36;50k to &#36;100k</option>
+                            <option value="112500" >&#36;100k to &#36;125k</option>
+                            <option value="137500" >&#36;125k to &#36;150k</option>
+                            <option value="162500" >&#36;150k to &#36;175k</option>
+                            <option value="187500" >&#36;175k to &#36;200k</option>
+                            <option value="212500" >&#36;200k to &#36;225k</option>
+                            <option value="237500" >&#36;225k to &#36;250k</option>
+                            <option value="262500" selected="selected">&#36;250k to &#36;275k</option>
+                            <option value="287500" >&#36;275k to &#36;300k</option>
+                            <option value="312500" >&#36;300k to &#36;325k</option>
+                            <option value="337500" >&#36;325k to &#36;350k</option>
+                            <option value="362500" >&#36;350k to &#36;375k</option>
+                            <option value="387500" >&#36;375k to &#36;400k</option>
+                            <option value="412500" >&#36;400k to &#36;425k</option>
+                            <option value="437500" >&#36;425k to &#36;450k</option>
+                            <option value="462500" >&#36;450k to &#36;475k</option>
+                            <option value="487500" >&#36;475k to &#36;500k</option>
+                            <option value="525000" >&#36;500k to &#36;550k</option>
+                            <option value="575000" >&#36;550k to &#36;600k</option>
+                            <option value="625000" >&#36;600k to &#36;650k</option>
+                            <option value="675000" >&#36;650k to &#36;700k</option>
+                            <option value="725000" >&#36;700k to &#36;750k</option>
+                            <option value="775000" >&#36;750k to &#36;800k</option>
+                            <option value="825000" >&#36;800k to &#36;850k</option>
+                            <option value="875000" >&#36;850k to &#36;900k</option>
+                            <option value="925000" >&#36;900k to &#36;950k</option>
+                            <option value="975000" >&#36;950k to &#36;1M</option>
+                            <option value="1500000" >More than &#36;1M</option>
+                        </select>
+                      </td>
+                      </tr>                    
+                      
+                      <tr>
+                      <td style="text-align:left;">Are you currently late on your mortgage?<br />
+                        <select name="months_behind" id="months_behind">
+                            <option value="0" selected="selected">I'm Not Behind</option>
+                            <option value="1" >1 Month</option>
+                            <option value="2" >2 Months</option>
+                            <option value="3" >3 Months</option>
+                            <option value="4" >4+ Months</option>
+                        </select>
+                      </td>
+                        
+                      </tr>
+                      </table>
+
+                      <a href="#" onclick="if( validate(2) ) { nextPage(3); } return false;"><img src="images/continue.png" style="margin-top: 20px;"></a>
+                   
+                    </div><!-- end #step2 -->
+
+                    <div id="pg3" style="display: none; position: absolute; width: 448px;">
+                     <table class="twidth" style="font-family:Verdana, Geneva, sans-serif">
+                      <tr>
+                        <td style="text-align:left;">First Name<br /><input type="text" name="first_name" id="first_name" value=""/></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align:left;">Last Name<br /><input type="text" name="last_name" id="last_name" value=""/></td>
+                      </tr>                    
+                      <tr>
+                        <td style="text-align:left;">Phone<br /><input type="text" name="phone" id="phone" value=""/></td>
+                      </tr>                    
+                      <tr>
+                        <td style="text-align:left;">Email<br /><input type="text" name="email" id="email" value=""/></td>
+                      </tr>                    
+                      <tr>
+                        <td style="text-align:left;">Credit Rating<br />
+                            <select name="credit_rating" id="credit_rating">
+                                <option value="Excellent" >Excellent</option>
+                                <option value="Good" selected="selected">Good</option>
+                                <option value="Fair" >Fair</option>
+                                <option value="Poor" >Poor</option>
+                            </select>
+                      </td>
+                      </tr>
+                      </table>
+
+                      <a href="#" onclick="if( validate(3) ) { nextPage(4); } return false;"><img src="images/continue.png" style="margin-top: 20px;"></a>
+                    </div> <!-- end #step3 -->
+
+                    <div id="pg4" style="display: none; position: absolute; width: 448px;">
+
+                      <table class="twidth" style="font-family:Verdana, Geneva, sans-serif">
+                      <tr>
+                      <td style="text-align:left;">Current Payment<br />
+                        <select name="monthly_payment" id="monthly_payment">
+                            <option value="0" >$0 - $99</option>
+                            <option value="100" >$100 - $199</option>
+                            <option value="200" >$200 - $299</option>
+                            <option value="300" >$300 - $399</option>
+                            <option value="400" >$400 - $499</option>
+                            <option value="500" >$500 - $599</option>
+                            <option value="600" >$600 - $699</option>
+                            <option value="700" >$700 - $799</option>
+                            <option value="800" >$800 - $899</option>
+                            <option value="900" >$900 - $999</option>
+                            <option value="1000" >$1000 - $1199</option>
+                            <option value="1200" >$1200 - $1399</option>
+                            <option value="1400" >$1400 - $1599</option>
+                            <option value="1600" >$1600 - $1799</option>
+                            <option value="1800" >$1800 - $1999</option>
+                            <option value="2000" >$2000 - $2199</option>
+                            <option value="2200" >$2200 - $2399</option>
+                            <option value="2400" >$2400 - $2599</option>
+                            <option value="2600" >$2600 - $2799</option>
+                            <option value="2800" >$2800 - $2999</option>
+                            <option value="3000" >$3000 - $3199</option>
+                            <option value="3200" >$3200 - $3399</option>
+                            <option value="3400" >$3400 - $3599</option>
+                            <option value="3600" >$3600 - $3799</option>
+                            <option value="3800" >$3800 - $3999</option>
+                            <option value="4000" >$4000 - $4199</option>
+                            <option value="4200" >$4200 - $4399</option>
+                            <option value="4400" >$4400 - $4599</option>
+                            <option value="4600" >$4600 - $4799</option>
+                            <option value="4800" >$4800 - $4999</option>
+                            <option value="5000" >$5000 - $5199</option>
+                            <option value="5200" >$5200 - $5399</option>
+                            <option value="5400" >$5400 - $5599</option>
+                            <option value="5600" >$5600 - $5799</option>
+                            <option value="5800" >$5800 - $5999</option>
+                            <option value="6000" >$6000 - $6199</option>
+                            <option value="6200" >$6200 - $6399</option>
+                            <option value="6400" >$6400 - $6599</option>
+                            <option value="6600" >$6600 - $6799</option>
+                            <option value="6800" >$6800 - $6999</option>
+                            <option value="7000" >$7000 - $7199</option>
+                            <option value="7200" >$7200 - $7399</option>
+                            <option value="7400" >$7400 - $7599</option>
+                            <option value="7600" >$7600 - $7799</option>
+                            <option value="7800" >$7800 - $7999</option>
+                            <option value="8000" >$8000 - $8199</option>
+                            <option value="8200" >$8200 - $8399</option>
+                            <option value="8400" >$8400 - $8599</option>
+                            <option value="8600" >$8600 - $8799</option>
+                            <option value="8800" >$8800 - $8999</option>
+                            <option value="9000" >$9000 - $9199</option>
+                            <option value="9200" >$9200 - $9399</option>
+                            <option value="9400" >$9400 - $9599</option>
+                            <option value="9600" >$9600 - $9799</option>
+                            <option value="9800" >$9800 - $9999</option>
+                            <option value="10000" >$10000 +</option>
+                        </select>
+                      </td>
+                      </tr>
+ 
+                      <tr>
+                      <td style="text-align:left;">Annual Income<br />
+                        <select name="income" title="Annual Income" id="income">
+                            <option value="5000" >$0 - $5,000</option>
+                            <option value="5000" >$5,001 - $10,000</option>
+                            <option value="10000" >$10,001 - $15,000</option>
+                            <option value="15000" >$15,001 - $20,000</option>
+                            <option value="20000" >$20,001 - $25,000</option>
+                            <option value="25000" >$25,001 - $30,000</option>
+                            <option value="30000" >$30,001 - $35,000</option>
+                            <option value="35000" >$35,001 - $40,000</option>
+                            <option value="40000" >$40,001 - $45,000</option>
+                            <option value="45000" >$45,001 - $50,000</option>
+                            <option value="50000" >$50,001 - $55,000</option>
+                            <option value="55000" >$55,001 - $60,000</option>
+                            <option value="60000" >$60,001 - $65,000</option>
+                            <option value="65000" >$65,001 - $70,000</option>
+                            <option value="70000" >$70,001 - $75,000</option>
+                            <option value="75000" >$75,001 - $80,000</option>
+                            <option value="80000" >$80,001 - $85,000</option>
+                            <option value="85000" >$85,001 - $90,000</option>
+                            <option value="90000" >$90,001 - $95,000</option>
+                            <option value="95000" >$95,001 - $100,000</option>
+                            <option value="100000" >$100,001 - $105,000</option>
+                            <option value="105000" >$105,001 - $110,000</option>
+                            <option value="110000" >$110,001 - $115,000</option>
+                            <option value="115000" >$115,001 - $120,000</option>
+                            <option value="120000" >$120,001 - $125,000</option>
+                            <option value="125000" >$125,001 - $130,000</option>
+                            <option value="130000" >$130,001 - $135,000</option>
+                            <option value="135000" >$135,001 - $140,000</option>
+                            <option value="140000" >$140,001 - $145,000</option>
+                            <option value="145000" >$145,001 - $150,000</option>
+                            <option value="150000" >$150,001 - $155,000</option>
+                            <option value="155000" >$155,001 - $160,000</option>
+                            <option value="160000" >$160,001 - $165,000</option>
+                            <option value="165000" >$165,001 - $170,000</option>
+                            <option value="170000" >$170,001 - $175,000</option>
+                            <option value="175000" >$175,001 - $180,000</option>
+                            <option value="180000" >$180,001 - $185,000</option>
+                            <option value="185000" >$185,001 - $190,000</option>
+                            <option value="190000" >$190,001 - $195,000</option>
+                            <option value="195000" >$195,001 - $200,000</option>
+                            <option value="200000" >$200,001 - $205,000</option>
+                            <option value="205000" >$205,001 - $210,000</option>
+                            <option value="210000" >$210,001 - $215,000</option>
+                            <option value="215000" >$215,001 - $220,000</option>
+                            <option value="220000" >$220,001 - $225,000</option>
+                            <option value="225000" >$225,001 - $230,000</option>
+                            <option value="230000" >$230,001 - $235,000</option>
+                            <option value="235000" >$235,001 - $240,000</option>
+                            <option value="240000" >$240,001 - $245,000</option>
+                            <option value="245000" >$245,001 - $250,000</option>
+                            <option value="250000" >$250,000 - $or more</option>
+                        </select>
+                     </td>
+                    </tr> 
+
+                    <tr>
+                     <td style="text-align:left;">Had a notice of default<br>
+                        <select name="default_notice" id="default_notice">
+                            <option value="N">No</option>
+                            <option value="Y" >Yes</option>
+                        </select>
+                    </td>
+                    </tr> 
+
+                    <tr> 
+                     <td style="text-align:left;">Lender<br>
+                        <select name="lender" id="lender" onchange="if( $('#lender').val() == 'Other') { $('#lender_other_tr').show(); $('#lender_other').focus(); }else{ $('#lender_other_tr').hide(); }">
+                            <option value="Wells Fargo" selected>Wells Fargo</option>
+                            <option value="Chase">Chase</option>
+                            <option value="Citibank">Citibank</option>
+                            <option value="GMAC">GMAC</option>
+                            <option value="BofA">BofA</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </td>
+                    </tr> 
+
+                   <tr id="lender_other_tr" style="display: none;">
+                     <td style="text-align:left;">Enter Lender<br>
+                      <input class="txtfield" name="lender_other" type="text" id="lender_other" value="" style="width: 188px;">
+                    </td>
+                  </tr> 
+                  </table> 
+
+                  <a href="#" onclick="if( validate(4) ) { nextPage(5); } return false;"><img src="images/continue.png" style="margin-top: 20px;"></a>
+                  </div>
+
+                    <div style="color: rgb(102, 102, 102); font-family: Verdana,Geneva,sans-serif; font-size: 9px; line-height: 120%; padding: 10px; position: absolute; text-align: center; top: 456px; width: 421px;">
+                        <p>
+                         <label><input type="hidden" id="leadid_tcpa_disclosure"/>
+        	                We take your privacy seriously. By clicking the button, you agree to be matched with 
+<a href="#" onclick="javascript:void window.open('partners.html','1381786088745','width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=0,left=0,top=0');return false;">partners</a> 
+from our network including Quicken Loans and loanDepot, and consent (not required as a condition to purchase a good/service) for us and/or them to contact you (including through automated means; e.g. autodialing, text and pre-recorded messaging) via telephone, mobile device (including SMS and MMS), and/or email, even if you are on a corporate, state or national Do Not Call Registry.
+                         </label>
+                        </p>
+                    </div>
+        </div> 
+    
+    </div>
+
+    <!-- end .sidebar1 --></div>
+  <div class="content">
+    <p style="color:#ffffff;text-shadow: 2px 2px 2px #000000; padding-top:10px;"><em>&quot;President Obama responded to growing concerns about the nation's battered housing market by unveiling a plan to help reduce the monthly mortgage payments of homeowners who owe more than their properties are worth.&quot;</em></p>
+    <div  style="text-align:right" ><img src="images/wash.png" width="200px" style="margin: 0 24px 20px 20px;"/></div>
+<!--
+    <object id="flashObj" width="500" height="300" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isSlim=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=1427752644001&linkBaseURL=http%3A%2F%2Fwww.usatoday.com%2Fvideo%2Findex.htm%3Fbctid%3D1427752644001&playerID=2207682275001&playerKey=AQ~~,AAAABvaL8JE~,ufBHq_I6Fnwgpz2JFHz_Jerf-MHxK_Ad&domain=embed&dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isSlim=1" bgcolor="#FFFFFF" flashVars="videoId=1427752644001&linkBaseURL=http%3A%2F%2Fwww.usatoday.com%2Fvideo%2Findex.htm%3Fbctid%3D1427752644001&playerID=2207682275001&playerKey=AQ~~,AAAABvaL8JE~,ufBHq_I6Fnwgpz2JFHz_Jerf-MHxK_Ad&domain=embed&dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="500" height="300" seamlesstabbing="false" type="application/x-shockwave-flash" allowFullScreen="true" swLiveConnect="true" allowScriptAccess="always" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed></object>
+-->
+     <iframe width="500" height="300" src="http://www.youtube.com/embed/o7kRJoLoI-E?rel=0" frameborder="0"></iframe>
+    <p><ul><li>Owe more than your home is worth</li>
+<li>Want to reduce your interest rate</li>
+<li>Need to lower your payment</li></ul></p>
+   
+    <!-- end .content --></div>
+  <div class="footer">
+  	<img src="images/logo_footer.jpg">
+    <span>*mymortgageinsider.org is not associated with The Washington Post or the government, and our service is not approved by the government or your lender; and even if you accept this offer and use our services, your lender may not agree to change your loan.
+ <br /><br />
+mymortgageinsider.org  is not a loan broker, lender, loan modification company or foreclosure prevention/ counseling company. mymortgageinsider.org is not associated with or an affiliate of your current lender or servicer. This is not an offer by mymortgageinsider.org to lend you money. Our goal is to provide an easy connection for homeowners seeking information on HARP eligibility with a private mortgage broker or attorney who can assist you.
+ </span>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
+
+<center><br /><br /><a href="privacy.php" target="_blank">Privacy Policy</a></center>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48777870-3', 'mymortgageinsider.org');
+  ga('send', 'pageview');
+
+</script>
+
+  <div id="dialog" title="Please fix the following issues">
+     <p>
+            </p>
+  </div>
+
+<script type="text/javascript">
+(function() {
+//    var field = 'xxTrustedFormCertUrl';
+    var field = 'cert';
+    var provideReferrer = false;
+    var tf = document.createElement('script');
+    tf.type = 'text/javascript'; tf.async = true; 
+    tf.src = 'http' + ('https:' == document.location.protocol ? 's' : '') +
+    '://api.trustedform.com/trustedform.js?provide_referrer=' + escape(provideReferrer) + '&field=' + escape(field) + '&l='+new Date().getTime()+Math.random();
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s); }
+)();
+</script>
+<noscript>
+    <img src="http://api.trustedform.com/ns.gif" />
+</noscript>
+
+<script id="LeadiDscript" type="text/javascript">(function() { var s = document.createElement('script'); s.id = 'LeadiDscript_campaign'; s.type = 'text/javascript'; s.async = true; s.src = (document.location.protocol + '//d1tprjo2w7krrh.cloudfront.net/campaign/fced95e1-8f0d-dbeb-f631-5679b1555a86.js'); var LeadiDscript = document.getElementById('LeadiDscript'); LeadiDscript.parentNode.insertBefore(s, LeadiDscript);})();</script>
+
+</form>
+
+<script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0022/0988.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+</body>
+</html>
+";i:2;s:4:"6930";}

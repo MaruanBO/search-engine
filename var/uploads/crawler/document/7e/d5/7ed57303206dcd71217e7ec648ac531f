@@ -1,0 +1,1400 @@
+a:3:{i:0;s:25:"http://rating-widget.com/";i:1;s:71701:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwMHWFZaGwIIV1ZWBAk="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:19,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:19,2:20,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:20,2:19,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:20,2:19,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:20,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(s(h,function(e,n){e in t||(t[e]=n)}),t&&t.agent&&t.licenseKey&&t.applicationID&&u&&u.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-488.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:18,handle:"D5DuLP"}],18:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],19:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],20:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:19,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+<meta http-equiv="Lang" content="en">
+<meta name="viewport" content="width=960"/>
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
+ 
+<meta name="description" content="RatingWidget is a FREE Customizable, Multilingual, Thumb & Star Rating System for your Blog, Online Shop or Website. Get it now!">
+<meta property="og:description" content="RatingWidget is a FREE Customizable, Multilingual, Thumb & Star Rating System for your Blog, Online Shop or Website. Get it now!"/>
+<meta property="og:title" content="Star Rating System for Websites | RatingWidget"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="http://img.rating-widget.com/logo/100x100.png"/>
+<meta property="og:url" content="http://rating-widget.com/"/>
+<link rel="canonical" href="http://rating-widget.com/"/>
+<title>Star Rating System for Websites | RatingWidget</title>
+<link rel="stylesheet" type="text/css" href="//css.rating-widget.com/website/common.css?v=264"/>
+<link rel="stylesheet" type="text/css" href="//css.rating-widget.com/website/common-sass.css?v=264"/>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700|Montserrat:700,400"/>
+<link rel="stylesheet" type="text/css" href="//css.rating-widget.com/website/pages/main.css?v=264"/>
+<script src="//code.jquery.com/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="//js.rating-widget.com/init.js?v=264" type="text/javascript"></script>
+<script src="//js.rating-widget.com/action.js?v=264" type="text/javascript"></script>
+<script src="//js.rating-widget.com/rw/page.js?v=264" type="text/javascript"></script>
+<script src="//js.rating-widget.com/rw/user.js?v=264" type="text/javascript"></script>
+<script src="//js.rating-widget.com/rw/prototype.js?v=264" type="text/javascript"></script>
+<script src="//js.rating-widget.com/website/controls/notification.js?v=264" type="text/javascript"></script>
+<script src="//connect.facebook.net/en_US/all.js" type="text/javascript"></script>
+<script src="//js.rating-widget.com/website/login.js?v=264" type="text/javascript"></script>
+<script src="//js.rating-widget.com/website/controls/signin-window.js?v=264" type="text/javascript"></script>
+<script src="//js.rating-widget.com/website/controls/contact.js?v=264" type="text/javascript"></script>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-20070413-1']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_setDomainName', '.rating-widget.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>  
+<script type="text/javascript">
+    var k_push_vars = {
+        "display_after": 30,
+        "view_percentage": 40,
+        "popup_font_color": "#000000",
+        "popup_background": "#ffffff",
+        "popup_separator": "#D4E2F0",
+        "header": "Your feedback is important to us!",
+        "question": "Would you be willing to give us a short (1 minute) feedback?",
+        "footer": "Thank you for helping us improve our website",
+        "remind": "Remind me later",
+        "remind_font_color": "#3882C3",    
+        "yes": "Yes",
+        "no": "No",
+        "text_direction": "ltr",
+        "images_dir": "http://cf.kampyle.com/",
+        "yes_background": "#76AC78",
+        "no_background": "#8D9B86",
+        "site_code": 5474328
+    }
+</script>
+  <!--[if gte IE 9]>
+            <style type="text/css">
+                .rw-gradient {
+                    filter: none !important;
+                }
+            </style>
+        <![endif]-->
+<!--[if lt IE 9]>
+            <script type="text/javascript">
+                document.createElement('header');
+                document.createElement('nav');
+                document.createElement('section');
+                document.createElement('article');
+                document.createElement('aside');
+                document.createElement('footer');
+                document.createElement('hgroup');
+            </script>
+        <![endif]-->
+</head>
+<body class="rw-layout-main rw-context-index">
+ 
+ 
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter24440996 = new Ya.Metrika({id:24440996,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    trackHash:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+   
+<script type="text/javascript" id="inspectletjs">
+    window.__insp = window.__insp || [];
+    __insp.push(['wid', 461564707]);
+    (function() {
+        function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); }
+        if (window.attachEvent){
+            window.attachEvent('onload', __ldinsp);
+        }else{
+            window.addEventListener('load', __ldinsp, false);
+        }
+    })();
+</script>
+  <section id="wrap_section">
+<header>
+<nav>
+<div class="rw-ui-content-container">
+<a id="header_logo" href="/" title="Home"><img src="//img.rating-widget.com/website/layout/header-logo.png" alt="RatingWidget Logo"/></a>
+<ul class="nav-left">
+ 
+<li><a href="/wordpress-plugin/" title="Rating-Widget WordPress Plugin">WordPress</a></li>
+<li><a href="/showcase/" title="Customer Showcase">Showcase</a></li>
+<li><a href="/blog/" title="Blog">Blog</a></li>
+<li><a href="/pricing/" title="Pricing">Pricing</a></li>
+<li><a href="/support/" title="Support Center">Support</a></li>
+ 
+ 
+</ul>
+<ul class="nav-right">
+<li><a style="font-weight: normal;" class="trigger-signin" href="https://rating-widget.com/signin/" onclick="return false;">Sign In</a></li>
+<li><a class="cta" href="https://rating-widget.com/get/rating/" title="Get your FREE Widget">Get Free Widget <sub>&#8250;</sub></a></li>
+</ul>
+</div>
+</nav>
+</header>
+<script type="text/javascript">
+(function(){
+    var 
+        _header,
+        _stuck = function (e)
+        {
+            if ($(window).scrollTop() > 80)
+                _header.addClass('stuck');
+            else
+                _header.removeClass('stuck');
+        };
+    $(document).ready(function(){
+        _header = $('#wrap_section > header');
+        $(window).scroll(_stuck);
+        setTimeout(_stuck, 500);
+    });
+})();
+</script> <div>
+<div class="rw-ui-section-container" id="cta">
+<section>
+<header>
+<h2>Instant ratings for your website</h2>
+<div class="header-container">
+<h1>RatingWidget</h1><h3>&nbsp; makes it easy to have a <b>Star Rating System</b> for your <b>Blog, Online Shop or Website</b> in minutes.</h3>
+</div>
+</header>
+<div id="rating_styles">
+<div class="rw-ui-content-container">
+<div class="btn gradient green">
+<a href="/get/rating/" onclick="_gaq.push(['_trackEvent', 'get_cta', 'homepage', 'green']); document.location = '/get/rating/'; return false;"><button class="gradient primary"><span>Get My Free Widget <sub>&#8250;</sub></span></button></a>
+</div>
+<ul style="display: none;">
+<li><div id="rw_preview_star" class="rw-ui-container rw-ui-star rw-urid-3 rw-size-large rw-style-oxygen1 rw-class-page" data-sync="false"></div></li>
+<li><div id="rw_preview_nero" class="rw-ui-container rw-ui-nero rw-urid-17 rw-size-large rw-style-thumbs2" data-sync="false"></div></li>
+</ul>
+<script type="text/javascript">(function(d, t, e, m){
+        // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+                
+        RW.init({
+            huid: "1",
+            uid: "cfcd208495d565ef66e7dff9f98764da" 
+        });
+        RW.render({optimized: true, callback: function(){ $("#rw_preview_star").parents("ul").show(); }});
+    };
+        // Append Rating-Widget JavaScript library.
+    var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+        l = d.location, ck = "Y" + t.getFullYear() + 
+        "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+        f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+        a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+    if (d.getElementById(id)) return;              
+    rw = d.createElement(e);
+    rw.id = id; rw.async = true; rw.type = "text/javascript";
+    rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+    s.parentNode.insertBefore(rw, s);
+    }(document, new Date(), "script", "rating-widget.com/"));</script>
+</div>
+</div>
+<footer id="platforms">
+<div class="rw-ui-content-container">
+<span>Works with:</span>
+<i id="starfish"></i>
+<ul>
+<li><a class="wordpress" href="/wordpress-plugin/" title="WordPress"><i>WordPress</i></a></li>
+<li><a class="blogger" href="/get/rating/blogger/#editor" title="Blogger"><i>Blogger</i></a></li>
+<li><a class="squarespace" href="/get/rating/squarespace/#editor" title="Squarespace"><i>Squarespace</i></a></li>
+<li><a class="addthis" href="/get/rating/addthis/#editor" title="AddThis"><i>AddThis</i></a></li>
+<li><a class="tumblr" href="/get/rating/tumblr/#editor" title="Tumblr"><i>Tumblr</i></a></li>
+<li><a class="wix" href="http://www.wix.com/app-market/ratingwidget/overview" title="WiX" target="_blank"><i>WiX</i></a></li>
+<li><a class="shopify" href="http://apps.shopify.com/ratingwidget" title="Shopify" target="_blank"><i>Shopify</i></a></li>
+<li><a class="zepo" href="/get/rating/zepo/#editor" title="Zepo"><i>Zepo</i></a></li>
+<li><a class="jquery" href="/get/rating/jquery/#editor" title="jQuery"><i>jQuery</i></a></li>
+<li><a class="javascript" href="/get/rating/javascript/#editor" title="JavaScript"><i>JavaScript</i></a></li>
+</ul>
+</div>
+</footer>
+</section>
+</div>
+<div class="rw-ui-section-container rw-ui-cover-hr" id="testimonials">
+<section>
+<div>
+<ul style="left: -575px">
+<li>
+<article>
+<div class="testimonial-wrapper">
+<i class="profilepic areatic"></i>
+<blockquote>With RatingWidget I easily know the opinion of my readers so I can write blog posts more aligned with their needs. It's a great widget!</blockquote>
+<div class="user-details">
+<span>~ David Berdié Escolano,</span>
+<a href="http://www.areatic.net" target="_blank">Areatic.net</a>
+</div>
+</div>
+</article>
+</li>
+<li>
+<article>
+<div class="testimonial-wrapper">
+<i class="profilepic media140"></i>
+<blockquote><b>Great product, fabulous support!</b> We've used on a number of large scale projects and it worked very well.</blockquote>
+<div class="user-details">
+<span>~ Andrew Gregson,</span>
+<a href="http://www.media140.com" target="_blank">media140.com</a>
+</div>
+</div>
+</article>
+</li>
+<li>
+<article>
+<div class="testimonial-wrapper">
+<i class="profilepic midlifecollage"></i>
+<blockquote>The rating-widget has been critical to my website, which runs weekly writing contests. The team was always professional, receptive and replied to my messages promptly.</blockquote>
+<div class="user-details">
+<span>~ Donna Balon,</span>
+<a href="http://www.midlifecollage.com" target="_blank">MidlifeCollage.com</a>
+</div>
+</div>
+</article>
+</li>
+<li>
+<article>
+<div class="testimonial-wrapper">
+<i class="profilepic scgpr"></i>
+<blockquote>This plugin works slick and the customers service is very responsive and helpful.</blockquote>
+<div class="user-details">
+<span>~ Brian Larson,</span>
+<a href="http://www.scgpr.com" target="_blank">scgpr.com</a>
+</div>
+</div>
+</article>
+</li>
+<li>
+<article>
+<div class="testimonial-wrapper">
+<i class="profilepic litterpal"></i>
+<blockquote>Rating-Widget was an <b>ideal and unexpectedly simple solution</b> for gathering feedback on our website.</blockquote>
+<div class="user-details">
+<span>~ Alex Ghita,</span>
+<a href="http://www.litterpal.com" target="_blank">LitterPal.com</a>
+</div>
+</div>
+</article>
+</li>
+<li>
+<article style="width: 960px;">
+<div class="testimonial-wrapper">
+<i class="profilepic homedepot"></i>
+<blockquote><b>Quick to implement, simple to understand!</b> The ratings widget is a terrific tool.</blockquote>
+<div class="user-details">
+<span>~ Ricardo Mejia,</span>
+<a href="http://www.homedepot.com" target="_blank">HomeDepot.com</a>
+</div>
+</div>
+</article>
+</li>
+<li>
+<article>
+<div class="testimonial-wrapper">
+<i class="profilepic newcastle"></i>
+<blockquote><b>Cost effective way to enable us gathering feedback on our published knowledge base.</b> The feedback allows us to continually improve the quality and effectiveness of our knowledge articles.</blockquote>
+<div class="user-details">
+<span>~ Lisa Renney,</span>
+<a href="http://www.ncl.ac.uk (newcastle university)" target="_blank">ncl.ac.uk (Newcastle University)</a>
+</div>
+</div>
+</article>
+</li>
+<li>
+<article>
+<div class="testimonial-wrapper">
+<i class="profilepic geekwithenvy"></i>
+<blockquote>Rating-Widget adds another layer of interactivity to my website. Rating-Widget offers features that many other plug-ins don't have, including great support. <b>Best ratings plug-in hands down.</b></blockquote>
+<div class="user-details">
+<span>~ Richard Vincenti,</span>
+<a href="http://www.geekwithenvy.com" target="_blank">GeekWithEnvy.com</a>
+</div>
+</div>
+</article>
+</li>
+<li>
+<article>
+<div class="testimonial-wrapper">
+<i class="profilepic digitalpublishingaustralia"></i>
+<blockquote><b>Just what the client needed.</b> Ratings-Widget was easy to set-up and immediately the client could see which of his blog posts are more popular.</blockquote>
+<div class="user-details">
+<span>~ Alex Harris,</span>
+<a href="http://www.digitalpublishingaustralia.com.au" target="_blank">DigitalPublishingAustralia.com.au</a>
+</div>
+</div>
+</article>
+</li>
+<li>
+<article>
+<div class="testimonial-wrapper">
+<i class="profilepic smeak"></i>
+<blockquote>All plugin dev's should follow example of these guys, <b>great plugin, brilliant support!</b></blockquote>
+<div class="user-details">
+<span>~ Greg McEwan-Marriott,</span>
+<a href="http://www.smeak.com" target="_blank">Smeak.com</a>
+</div>
+</div>
+</article>
+</li>
+<li>
+<article>
+<div class="testimonial-wrapper">
+<i class="profilepic goodorbademail"></i>
+<blockquote>Our reviews website, GoodOrBadEmail.com, wouldn't have been possible without Rating-Widget.</blockquote>
+<div class="user-details">
+<span>~ Damian Davila,</span>
+<a href="http://www.goodorbademail.com" target="_blank">GoodOrBadEmail.com</a>
+</div>
+</div>
+</article>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<script type="text/javascript">
+( function( $ , undef ) {
+    var 
+        testimonials,
+        testimonialsList,
+        midPost = 5,
+        mostLeft = 0,
+        carouselInterval,
+        direction = -1,
+        resetCarousel = function ()
+        {
+            if (undef !== carouselInterval)
+                clearInterval(carouselInterval);
+                
+            carouselInterval = setInterval(function(){
+                spinCarousel(1);
+            }, 8000);
+        },
+        spinCarousel = function (diff){
+            $(testimonialsList).animate({left: '-=115'}, 300);
+            $(testimonials[(midPost + 1) % testimonials.length]).animate({width: '960px'}, 300);
+            $(testimonials[midPost]).animate({
+                width: '104px'
+            }, 300, function(){
+               // Relocate element.
+                var shifted = testimonials[mostLeft];
+                testimonialsList.append($(shifted).parents('li'));
+                
+                $(testimonialsList).css({left: '+=115'});
+                
+                mostLeft = (mostLeft + 1) % testimonials.length;
+                midPost = (midPost + 1) % testimonials.length;
+            });
+        };
+        
+    $(document).ready(function(){
+        testimonials = $('#testimonials article');
+        testimonialsList = $('#testimonials ul');
+        /*testimonials = $('#testimonials article .profilepic').click(function(){
+            
+        });*/
+    });
+    
+    $(document).ready(function(){
+        resetCarousel();
+    });        
+} )( jQuery );
+</script>
+<div class="rw-ui-section-container" id="features">
+<section>
+<header>
+<h1 class="title">Equipped with <strong>Powerful Features</strong></h1>
+</header>
+<div>
+<ul>
+<li>
+<article>
+<i class="feature-icon swift"></i>
+<div class="feature-details">
+<h2><b>Only 2 minutes to setup</b> | <strong>Swift Implementation</strong></h2>
+<p>We made the setup process so simple and fast that even your mom can do it.</p>
+</div>
+</article>
+</li>
+<li>
+<article>
+<i class="feature-icon lightweight"></i>
+<div class="feature-details">
+<h2><b>Zero effect on your load time</b> | <strong>Lightweight Footprint</strong></h2>
+<p>Our lightweight client side script is only 17kB minified and gzipped. Additionaly, it's loaded asynchronously.</p>
+</div>
+</article>
+</li>
+<li>
+<article>
+<i class="feature-icon seo"></i>
+<div class="feature-details">
+<h2><b>Boost your search traffic (*)</b> | <strong>SEO Optimized</strong></h2>
+<p>Increase your SERP CTR and boost your search traffic with Google Rich-Snippets integration.</p>
+</div>
+</article>
+</li>
+<li>
+<article>
+<i class="feature-icon hosted"></i>
+<div class="feature-details">
+<h2><b>Hassle free setup</b> | <strong>Hosted by us - no resource required</strong></h2>
+<p>We provide our ratings solution as a service.<br>No Servers, No Storage - No IT involved!</p>
+</div>
+</article>
+</li>
+<li>
+<article>
+<i class="feature-icon customizable"></i>
+<div class="feature-details">
+<h2><b> Make it shine</b> | <strong>Fully Customizable</strong></h2>
+<p>Customize your ratings' look and feel to match your unique website's personallity.</p>
+</div>
+</article>
+</li>
+<li>
+<article>
+<i class="feature-icon mobile"></i>
+<div class="feature-details">
+<h2><b>Keep your mobile users in front</b> | <strong>Mobile Optimized</strong></h2>
+<p>Don't leave your mobile users in the dark. We made the mobile user-experience highly intuitive and user-friendly.</p>
+</div>
+</article>
+</li>
+<li>
+<article>
+<i class="feature-icon multilingual"></i>
+<div class="feature-details">
+<h2><b>Select your favorite language</b> | <strong>Multilingual</strong></h2>
+<p>The Rating-Widget is multilingual and currently translated into 40 languages.</p>
+</div>
+</article>
+</li>
+</ul>
+<div style="clear: both;"> </div>
+<small style="font-size: 12px; line-height: 1.5em;">(*) Google Rich-Snippets integration is one of our <a href="/pricing/">Premium features</a>. If you are not using our WordPress or Shopify plugins, you might have to integrate with our <a href="http://docs.rw.apiary.io" target="_blank">API</a>.
+If you have any questions or if you are not sure how it will work, please don't hesitate to <a class="trigger-contact" data-subject="Rich-Snippets" href="/contact/?topic=Rich-Snippets" onclick="return false;">contact us</a>.
+Btw. if you are not tech Savvy, our Customization Team can set the Rich-Snippets for you with some extra setup fee.</small>
+</div>
+</section>
+</div>
+<div class="rw-ui-section-container" id="clients">
+<section>
+<header>
+<h1 class="title">Trusted by more than <strong>200,000 Blogs, online Shops & Websites!</strong></h1>
+</header>
+<div> </div>
+</section>
+</div>
+ 
+<div class="rw-ui-section-container" id="questions">
+<section>
+<header>
+<h1 class="title">Questions And <strong>Answers</strong></h1>
+</header>
+<div>
+<ul>
+<li>
+<article>
+<i class="question-icon"></i>
+<div class="question-details">
+<h2>What is Rating-Widget?</h2>
+<p>Rating-Widget is the Self-Hosted <strong>Star Rating System</strong> for your Blog or Website. i.e. a voting control which enable rating elements of content in your site by its readers.</p>
+</div>
+</article>
+</li>
+<li>
+<article>
+<i class="question-icon"></i>
+<div class="question-details">
+<h2>How is Rating-Widget's Star Rating System different?</h2>
+<p>The Rating-Widget star rating system can be added to any website (e.g. WordPress, Blogger, WiX), it is fully customizable, cross-browser & multilingual system. Our rating system has the largest collection of rating styles, both thumbs & stars. The implementation is easy as copy-paste, and the best part - we host the ratings for FREE.</p>
+</div>
+</article>
+</li>
+<li>
+<article>
+<i class="question-icon"></i>
+<div class="question-details">
+<h2>Why should I add a Rating System for my website?</h2>
+<p>It's a super-effective way of getting instant feedback from your readers, on the quality of your site content. Whether it's a blog post, web page, image or what ever piece/element of your website that you want rated. Plus our thumb & star ratings are beautiful and absolutly free!</p>
+</div>
+</article>
+</li>
+</ul>
+</div>
+</section>
+<div style="clear: both;"> </div>
+</div>
+</div>
+<footer>
+<div class="social-channels">
+<div class="rw-ui-content-container">
+<div>
+<h5>Follow us</h5>
+<ul>
+<li><a href="/blog/" title="Follow our Blog"><i class="blog"></i></a></li>
+<li><a href="https://www.facebook.com/rating.widget" title="Follow on Facebook"><i class="facebook"></i></a></li>
+<li><a href="https://twitter.com/ratingwidget" title="Follow on Twitter"><i class="twitter"></i></a></li>
+<li><a rel="publisher" href="https://plus.google.com/+RatingWidget" title="Follow on Google+"><i class="googleplus"></i></a></li>
+<li><a href="http://www.linkedin.com/company/1856639" title="Follow on LinkedIn"><i class="linkedin"></i></a></li>
+<li><a href="https://www.youtube.com/ratingwidget" title="Follow on YouTube"><i class="youtube"></i></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="rw-ui-content-container">
+<ul>
+<li>
+<h5>Product</h5>
+<ul>
+<li><a href="/showcase/" title="Customer Showcase">Customer Showcase</a></li>
+<li><a href="/pricing/wordpress/" title="WordPress Plugin">WordPress Pricing</a></li>
+<li><a href="/pricing/" title="Pricing">Pricing</a></li>
+<li><a href="/help-translate/" title="Help Localizing Rating-Widget">Language Database</a></li>
+<li><a href="/contribute-rating-design/" title="Contribute Rating-Widget Design">Designs Database</a></li>
+<li><a href="http://docs.rw.apiary.io" target="_blank" title="API Documentation">API Documentation</a></li>
+<li><a href="https://github.com/RatingWidget/php-sdk/" target="_blank" title="PHP SDK">PHP SDK</a></li>
+<li><a href="http://monitor.rating-widget.com" target="_blank" title="Monitor Service">System Status</a></li>
+</ul>
+</li>
+<li>
+<h5>Platforms</h5>
+<ul>
+<li><a href="/wordpress-plugin/" title="RatingWidget WordPress Plugin">WordPress Plugin</a></li>
+<li><a href="/get/rating/blogger/#editor" title="RatingWidget Blogger Gadget">Blogger Gadget</a></li>
+<li><a href="/get/rating/tumblr/#editor" title="RatingWidget Tumblr Add-On">Tumblr Add-On</a></li>
+<li><a href="/get/rating/squarespace/#editor" title="RatingWidget Squarespace Add-On">Squarespace Add-On</a></li>
+<li><a href="http://shopify.rating-widget.com/" title="RatingWidget Shopify App">Shopify App</a></li>
+<li><a href="/get/rating/addthis/#editor" title="RatingWidget for AddThis">AddThis Extension</a></li>
+<li><a href="/get/rating/zepo/#editor" title="RatingWidget Zepo.in App">Zepo App</a></li>
+<li><a href="http://www.wix.com/app-market/ratingwidget/overview" target="_blank" title="RatingWidget WiX App">WiX App</a></li>
+<li><a href="/get/rating/jquery/#editor" title="RatingWidget jQuery">jQuery</a></li>
+</ul>
+</li>
+<li>
+<h5>Support</h5>
+<ul>
+<li><a href="/support/faq/" title="FAQ">FAQ</a></li>
+<li><a href="/documentation/" title="Rating-Widget Documentation">Documentation</a></li>
+<li><a href="/contact/" title="Contact Us">Contact Us</a></li>
+ 
+ 
+<li><a href="/change-log/" title="Rating-Widget Change-Log">Change Log</a></li>
+<div class="search-box" itemscope itemtype="http://schema.org/WebSite">
+<meta itemprop="url" content="https://rating-widget.com/"/>
+<form itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" action="/support/search/">
+<meta itemprop="target" content="https://rating-widget.com/support/search/?q={search_term}#platform"/>
+<input itemprop="query-input" type="text" name="q" required placeholder="Search knowledge base..."/>
+<input type="submit" value="Search"/>
+</form>
+</div>
+</ul>
+</li>
+<li>
+<h5>Company</h5>
+<ul>
+ 
+ 
+<li><a href="/press/">Press</a></li>
+<li><a href="/contact/" title="Contact">Contact</a></li>
+ 
+<li><a href="/blog/" title="Blog">Blog</a></li>
+</ul>
+</li>
+<li>
+<h5>Privacy</h5>
+<ul>
+ 
+<li><a href="/privacy/" title="Privacy Polict">Privacy Policy</a></li>
+<li><a href="/terms-of-use/" title="Terms of Use">Terms of Service</a></li>
+</ul>
+</li>
+</ul>
+<img class="rackspace" src="//img.rating-widget.com/website/layout/rackspace.png" alt="Powered by Rackspace Hosting"/>
+<div style="clear: both;"> </div>
+</div>
+</footer> <div class="modal dark sticky" style="display: none;">
+<section id="register" class="message sticky register">
+<header class="dark">
+<h4>Create Account</h4>
+<span class="switch-but"><b>Already registered?</b> <a href="#">Sign in</a></span>
+<i class="close"></i>
+</header>
+<div>
+<div class="site-input">
+<div class="site-section">
+<label class="iconed-input site"><i class="site"></i><input type="text" name="domain" value="" placeholder="Your Site Address (E.g http://my.address.com)"/></label>
+<p>For localhost simply use http://localhost (you can edit the address later).</p>
+<label class="iconed-input site-title" style="display: none;"><i class="site"></i><input type="text" name="title" value="" placeholder="Your Site Title"/></label>
+</div>
+<div class="category-section">
+<label class="iconed-input category"><i class="category"></i><select name="category">
+<option value="-1">Select Category</option>
+<optgroup label="Official Categories">
+<option value="1">Adult</option>
+<option value="2">Art</option>
+<option value="3">Automobiles</option>
+<option value="4">Beauty</option>
+<option value="5">Business</option>
+<option value="259">eCommerce</option>
+<option value="6">Entertainment</option>
+<option value="7">Fashion</option>
+<option value="8">Finance</option>
+<option value="9">Fitness</option>
+<option value="10">Food</option>
+<option value="11">Games</option>
+<option value="12">Health</option>
+<option value="13">Home & Family</option>
+<option value="14">Humor</option>
+<option value="15">Internet Marketing</option>
+<option value="16">Kids & Teens</option>
+<option value="17">LifeStyle</option>
+<option value="18">Music</option>
+<option value="19">News</option>
+<option value="20">Parenting</option>
+<option value="21">Photography</option>
+<option value="23">Poetry & Literature</option>
+<option value="22">Pornography</option>
+<option value="24">Religion & Spirituality</option>
+<option value="25">Soccer</option>
+<option value="26">Society</option>
+<option value="27">Sports</option>
+<option value="28">Technology</option>
+<option value="29">Travel</option>
+<option value="30">Weddings</option>
+</optgroup>
+<optgroup label="User's Categories">
+<option value="976">(I wont tell)</option>
+<option value="888">123</option>
+<option value="31">3D Graphics</option>
+<option value="860">abc</option>
+<option value="771">About My Hometown</option>
+<option value="738">Academic</option>
+<option value="146">Accomodation</option>
+<option value="619">Activ-Gra</option>
+<option value="640">Adult Stories</option>
+<option value="768">Advertisement</option>
+<option value="247">Advertising</option>
+<option value="582">Advice</option>
+<option value="840">Affiliate</option>
+<option value="850">Agriculture - Instant Lawn</option>
+<option value="904">Albania</option>
+<option value="851">ali</option>
+<option value="656">all</option>
+<option value="908">Almost Gallery</option>
+<option value="985">amozesh</option>
+<option value="957">AMV's, Animes e Mangas</option>
+<option value="741">andet</option>
+<option value="100">Android</option>
+<option value="905">Animali</option>
+<option value="937">Animals</option>
+<option value="135">anime</option>
+<option value="105">Anime Music</option>
+<option value="258">Anime Pornography</option>
+<option value="942">Animes e Mangas</option>
+<option value="678">Annuities</option>
+<option value="683">App Store</option>
+<option value="708">application</option>
+<option value="796">Architecture & Design</option>
+<option value="243">arimia</option>
+<option value="625">Army Surplus</option>
+<option value="647">Art and Music Program</option>
+<option value="793">article</option>
+<option value="934">articles</option>
+<option value="855">Articles Directories</option>
+<option value="784">Articles Directory</option>
+<option value="748">asdf</option>
+<option value="902">assessorament lingüístic i tecnologia</option>
+<option value="106">Association</option>
+<option value="700">Astronomy</option>
+<option value="732">Autônomos</option>
+<option value="62">Auto</option>
+<option value="753">Aviation Q+A</option>
+<option value="979">awareness</option>
+<option value="227">Bantu dengan Like ya..</option>
+<option value="225">Bantu Kami dengan Like ya..</option>
+<option value="85">Beer</option>
+<option value="861">Biography</option>
+<option value="873">bla</option>
+<option value="54">Blend</option>
+<option value="205">Blended Learning</option>
+<option value="245">Blog</option>
+<option value="199">Blog technologiczny</option>
+<option value="820">Blogging</option>
+<option value="809">blogs</option>
+<option value="715">Boat Detailing Supplies</option>
+<option value="803">boats</option>
+<option value="153">boek</option>
+<option value="774">Bons Plans</option>
+<option value="938">Bonsai</option>
+<option value="907">Book</option>
+<option value="858">Book Blog</option>
+<option value="80">Books</option>
+<option value="755">Bouw</option>
+<option value="814">Brasil</option>
+<option value="168">Breeds</option>
+<option value="818">Browser Assistant</option>
+<option value="78">Car Keyless Remote</option>
+<option value="237">Career Management</option>
+<option value="725">carnaval</option>
+<option value="92">Casino</option>
+<option value="242">catamarans</option>
+<option value="103">cửa chống cháy</option>
+<option value="238">Celebrities</option>
+<option value="802">Cerita </option>
+<option value="107">Charity</option>
+<option value="239">Chat</option>
+<option value="44">Chat Room</option>
+<option value="952">chem</option>
+<option value="730">china</option>
+<option value="162">Cigar Reviews</option>
+<option value="896">cine</option>
+<option value="770">cine y series</option>
+<option value="628">Cinema</option>
+<option value="635">city</option>
+<option value="874">Civil Engineering</option>
+<option value="887">Class Assignment</option>
+<option value="45">Class Brands</option>
+<option value="865">classifide</option>
+<option value="806">Classified</option>
+<option value="910">Classifieds + Buy / Sell</option>
+<option value="131">Cleaning Services</option>
+<option value="779">Club</option>
+<option value="810">Coffee shop</option>
+<option value="884">Collection</option>
+<option value="757">Coments</option>
+<option value="646">Comics</option>
+<option value="706">commercial refrigeration</option>
+<option value="704">Community </option>
+<option value="655">Community manangent</option>
+<option value="953">Competition</option>
+<option value="191">Computer</option>
+<option value="681">Computer Guides</option>
+<option value="668">Computer Servies and Repair Centre</option>
+<option value="213">computer software</option>
+<option value="966">computer tricks</option>
+<option value="769">concurso</option>
+<option value="169">Conspiracy</option>
+<option value="125">Consulting</option>
+<option value="788">Consultoría - Desarrollo de Software a medida – Soporte</option>
+<option value="101">consumer electronics</option>
+<option value="964">Cooking</option>
+<option value="155">Cosplay</option>
+<option value="58">Coupon</option>
+<option value="854">coupons</option>
+<option value="719">cours de musique</option>
+<option value="909">Craft</option>
+<option value="961">Creative Design</option>
+<option value="202">Creativity Training</option>
+<option value="33">Credit / Debt & Loans</option>
+<option value="807">Criticisms</option>
+<option value="747">crochet</option>
+<option value="797">Custom</option>
+<option value="867">cvxc</option>
+<option value="727">Cycling Tours</option>
+<option value="196">Dance</option>
+<option value="679">Dating</option>
+<option value="182">Dating sites</option>
+<option value="951">Debates</option>
+<option value="864">Dedetizadora em Americana</option>
+<option value="853">delivery service</option>
+<option value="781">demo site</option>
+<option value="798">Design</option>
+<option value="188">Design, Development & Photography</option>
+<option value="978">designers</option>
+<option value="935">Developer testing</option>
+<option value="161">Developpement personnel</option>
+<option value="815">di tate</option>
+<option value="759">Diamante</option>
+<option value="780">diary</option>
+<option value="925">Dilekçe Örnekleri</option>
+<option value="69">directory</option>
+<option value="70">discount</option>
+<option value="982">diverse</option>
+<option value="53">Diversion</option>
+<option value="267">divertissement</option>
+<option value="893">Documentary</option>
+<option value="963">Dog Training</option>
+<option value="241">dogs</option>
+<option value="661">download</option>
+<option value="185">Downloads</option>
+<option value="932">Доска объявлений</option>
+<option value="775">Женский журнал</option>
+<option value="643">Интернет портал </option>
+<option value="912">Сказки</option>
+<option value="252">Трудове навчання</option>
+<option value="653">E learning</option>
+<option value="662">e-Learning</option>
+<option value="826">Ebook</option>
+<option value="121">Ebooks</option>
+<option value="97">ecigarettes</option>
+<option value="696">Economy</option>
+<option value="39">Education</option>
+<option value="825">educational</option>
+<option value="989">electronic&computer</option>
+<option value="60">EMS</option>
+<option value="221">engineering</option>
+<option value="695">Enoteca</option>
+<option value="751">Escort</option>
+<option value="805">Eventlocations</option>
+<option value="179">Events Dortmund</option>
+<option value="193">Everything</option>
+<option value="929">f</option>
+<option value="723">Faith in Politics</option>
+<option value="933">Fansite</option>
+<option value="249">FAQ</option>
+<option value="219">Fejlesztés</option>
+<option value="282">film</option>
+<option value="109">Film - Videogiochi</option>
+<option value="680">film festivals</option>
+<option value="73">Film, Art, Music</option>
+<option value="777">Filme</option>
+<option value="983">Filmek, Sorozatok</option>
+<option value="903">Filmes</option>
+<option value="891">fishing</option>
+<option value="76">Florist</option>
+<option value="988">foroum</option>
+<option value="669">Forum</option>
+<option value="630">forum and download</option>
+<option value="871">Frases</option>
+<option value="743">Free Ads</option>
+<option value="714">Free Online Stuff</option>
+<option value="111">Freebies</option>
+<option value="845">Freelance</option>
+<option value="866">frisbee golf</option>
+<option value="650">Friseur</option>
+<option value="702">fuck off</option>
+<option value="645">Fun</option>
+<option value="848">FX</option>
+<option value="786">gallery</option>
+<option value="857">game</option>
+<option value="889">Game & PC</option>
+<option value="627">game and software</option>
+<option value="165">game mobile</option>
+<option value="689">Game/images</option>
+<option value="701">Gameing</option>
+<option value="626">gaming</option>
+<option value="253">Gaming Community</option>
+<option value="126">Gaming Laptops and Accessories</option>
+<option value="257">Gay Pornography</option>
+<option value="886">Gear</option>
+<option value="216">general</option>
+<option value="163">General Gaming</option>
+<option value="699">Gifts</option>
+<option value="973">Gigigity</option>
+<option value="772">gilan shenasi</option>
+<option value="79">Global Economy</option>
+<option value="127">GNU Linux</option>
+<option value="88">Goverment</option>
+<option value="46">Government</option>
+<option value="51">Graphic Design</option>
+<option value="172">Ground Support Equipment</option>
+<option value="883">Groups</option>
+<option value="969">gub</option>
+<option value="122">Guia</option>
+<option value="713">Guides & News technology</option>
+<option value="968">guild</option>
+<option value="762">Guns</option>
+<option value="140">Hacks</option>
+<option value="232">Hand Works</option>
+<option value="754">Happiness</option>
+<option value="862">Hate speech</option>
+<option value="648">health insurance</option>
+<option value="761">Health, Home and Business for busy moms</option>
+<option value="852">Healthcare</option>
+<option value="804">Holla</option>
+<option value="82">home & garden</option>
+<option value="263">Home Improvement</option>
+<option value="712">Homepage</option>
+<option value="283">Hostels</option>
+<option value="773">hosting</option>
+<option value="651">Hotel</option>
+<option value="256">Hotmail</option>
+<option value="918">hydroponics</option>
+<option value="895">industrie</option>
+<option value="735">information</option>
+<option value="187">Information Based</option>
+<option value="763">Informations</option>
+<option value="868">Informática</option>
+<option value="177">Ingenieros</option>
+<option value="670">inne</option>
+<option value="210">Inspirational</option>
+<option value="641">interior design</option>
+<option value="692">Internet</option>
+<option value="698">Internet Web Pages</option>
+<option value="821">Intranet</option>
+<option value="189">intrattenimento</option>
+<option value="208">iPad Accessories</option>
+<option value="87">iran</option>
+<option value="993">iraq</option>
+<option value="729">islamic</option>
+<option value="74">IT</option>
+<option value="240">IT & art</option>
+<option value="152">IT TIps</option>
+<option value="880">itinerari storici</option>
+<option value="214">Job</option>
+<option value="917">Job & Career</option>
+<option value="194">Jobs</option>
+<option value="948">jokes</option>
+<option value="264">Ju Jutsu</option>
+<option value="652">Kabaré</option>
+<option value="958">Kişisel</option>
+<option value="991">Kişisel Blog</option>
+<option value="198">knowledge</option>
+<option value="119">koleksi</option>
+<option value="972">Komentar anda</option>
+<option value="844">Kozijnen</option>
+<option value="841">kultura</option>
+<option value="118">Law</option>
+<option value="631">Lawer</option>
+<option value="175">League Ranking</option>
+<option value="897">Learning</option>
+<option value="722">Libros</option>
+<option value="733">Life</option>
+<option value="228">Like aku dong</option>
+<option value="224">Linux</option>
+<option value="659">Listing</option>
+<option value="800">Literatura</option>
+<option value="688">Literature</option>
+<option value="206">live radio</option>
+<option value="231">locksmith</option>
+<option value="184">London</option>
+<option value="799">Loodgieter</option>
+<option value="233">mactan</option>
+<option value="104">Magazine</option>
+<option value="157">management</option>
+<option value="639">Manga</option>
+<option value="981">mangutuba</option>
+<option value="636">Marijuana</option>
+<option value="215">Marine Boating</option>
+<option value="900">Marketplace</option>
+<option value="99">Marseille</option>
+<option value="977">Massage</option>
+<option value="984">Mazhabi</option>
+<option value="40">Media</option>
+<option value="226">Media Server</option>
+<option value="246">Medicine</option>
+<option value="875">Meeting website</option>
+<option value="879">MEGA links</option>
+<option value="767">meme</option>
+<option value="150">Memoirs and Writing</option>
+<option value="143">menuiseries et stores</option>
+<option value="703">Military</option>
+<option value="190">Minecraft</option>
+<option value="752">Minecraft-Server Blog</option>
+<option value="186">Misc</option>
+<option value="945">Mix</option>
+<option value="170">mobile</option>
+<option value="43">Mobile Applications Development and Technology</option>
+<option value="690">mods</option>
+<option value="787">module</option>
+<option value="742">Mold Removal</option>
+<option value="846">Money Making</option>
+<option value="823">Monstercraft</option>
+<option value="766">moonstruck</option>
+<option value="236">Motorbikes</option>
+<option value="921">Motorcyle Tires</option>
+<option value="936">MOUNTAIN LIVING</option>
+<option value="93">Movie</option>
+<option value="68">Movies</option>
+<option value="954">Muckrakery</option>
+<option value="145">Multi Site Blogging</option>
+<option value="885">Multi Theme</option>
+<option value="75">Mundo hipotecario</option>
+<option value="142">Musica</option>
+<option value="77">myblog</option>
+<option value="50">MyLittlePony</option>
+<option value="778">mysite</option>
+<option value="831">Natural</option>
+<option value="269">Network Marketing</option>
+<option value="89">News portal</option>
+<option value="98">NGO</option>
+<option value="892">Nightlife</option>
+<option value="959">NLP Coaching</option>
+<option value="745">No profit</option>
+<option value="171">Non-profit</option>
+<option value="924">Notícias</option>
+<option value="211">obelisk</option>
+<option value="882">ofonoch.sk</option>
+<option value="112">online directory</option>
+<option value="812">Online Portal Manipur Help-line</option>
+<option value="137">Online Shop</option>
+<option value="859">online shopping</option>
+<option value="744">Opinion</option>
+<option value="91">opportunitues</option>
+<option value="81">Optic</option>
+<option value="876">organisation</option>
+<option value="156">Organization</option>
+<option value="923">oszukani</option>
+<option value="928">Otaku</option>
+<option value="154">Other</option>
+<option value="911">Otzivy</option>
+<option value="801">Packaging</option>
+<option value="922">Paid To Click Review</option>
+<option value="64">Park</option>
+<option value="949">party</option>
+<option value="147">Party Entertainment</option>
+<option value="201">Peace News</option>
+<option value="665">pelotudeces</option>
+<option value="123">Personal</option>
+<option value="128">Personal Development and Money</option>
+<option value="808">Personal Experiences</option>
+<option value="906">personel site</option>
+<option value="750">Pet Transportation</option>
+<option value="32">Pets</option>
+<option value="176">Pharmaceutical</option>
+<option value="764">Philosophy</option>
+<option value="931">Photo Retail</option>
+<option value="693">Photogherapher</option>
+<option value="838">photographer rating</option>
+<option value="836">Pic</option>
+<option value="901">pick</option>
+<option value="133">Picture sharing</option>
+<option value="644">place</option>
+<option value="181">po</option>
+<option value="914">Poetic </option>
+<option value="974">Poetry</option>
+<option value="634">Poetry By John P. Boyle</option>
+<option value="740">Poetry, and Expressions</option>
+<option value="47">Poker</option>
+<option value="710">Política</option>
+<option value="96">Police</option>
+<option value="36">Politic</option>
+<option value="711">Politica</option>
+<option value="41">Politics</option>
+<option value="666">Politika</option>
+<option value="164">Porn</option>
+<option value="102">Portal</option>
+<option value="223">Portal Regional</option>
+<option value="167">Post</option>
+<option value="59">posts</option>
+<option value="789">Poultry</option>
+<option value="881">power</option>
+<option value="195">PreDB</option>
+<option value="207">Presidential History</option>
+<option value="940">press</option>
+<option value="847">price</option>
+<option value="266">Printcenter</option>
+<option value="955">Private</option>
+<option value="217">Professional Development</option>
+<option value="716">Profiles</option>
+<option value="664">promotion</option>
+<option value="124">Promotional embroidery, clothing and textile</option>
+<option value="130">Promotional Products</option>
+<option value="947">psdmaroc</option>
+<option value="642">Public Libraries</option>
+<option value="971">Public Relations</option>
+<option value="795">Purchase</option>
+<option value="113">Q&A</option>
+<option value="129">Quality of Life</option>
+<option value="736">Racing Game Kit for Unity</option>
+<option value="765">radio</option>
+<option value="756">radio program</option>
+<option value="724">Random</option>
+<option value="65">ranking system</option>
+<option value="720">rating</option>
+<option value="828">Rating/Review</option>
+<option value="66">Ratings</option>
+<option value="684">RC</option>
+<option value="117">reading</option>
+<option value="84">Real Estate</option>
+<option value="839">realstate</option>
+<option value="67">realty</option>
+<option value="813">Recipes</option>
+<option value="824">Recreation</option>
+<option value="697">Reference</option>
+<option value="234">Rehber</option>
+<option value="218">Relationships</option>
+<option value="672">relig</option>
+<option value="623">religion</option>
+<option value="785">Remodeling, Renovations, Construction</option>
+<option value="624">renting services</option>
+<option value="671">Research</option>
+<option value="52">Restaurant</option>
+<option value="183">Resume/CV </option>
+<option value="149">Reviews</option>
+<option value="718">Riquor</option>
+<option value="38">Roleplay</option>
+<option value="944">San Diego Transportation Limos Buses Sedans Shuttle Service</option>
+<option value="734">Sandbox</option>
+<option value="837">sante naturelle</option>
+<option value="663">sargarmi</option>
+<option value="230">Satu like kamu sangat berharga buat saya</option>
+<option value="782">Scentsy</option>
+<option value="134">school</option>
+<option value="166">school mass murder</option>
+<option value="151">Science</option>
+<option value="970">Sciencetalks</option>
+<option value="622">Scootmobile</option>
+<option value="816">sdfsdfdsf</option>
+<option value="254">Search Engine Directory</option>
+<option value="159">Security, Video Surveliance</option>
+<option value="832">Self</option>
+<option value="709">Self-Development</option>
+<option value="178">Seminar</option>
+<option value="790">Senior Citizen Club</option>
+<option value="56">SEO</option>
+<option value="83">Services</option>
+<option value="34">Sex</option>
+<option value="139">Shia Islam</option>
+<option value="110">ships</option>
+<option value="222">Shop blog</option>
+<option value="57">Shopping</option>
+<option value="204">Short Stories</option>
+<option value="192">Silesia</option>
+<option value="943">sindical</option>
+<option value="531">Site </option>
+<option value="863">Sjamanisme</option>
+<option value="49">Social</option>
+<option value="633">Social Dynamics</option>
+<option value="829">Social Guanare</option>
+<option value="160">Social Media</option>
+<option value="63">Social Network</option>
+<option value="141">Social services/community</option>
+<option value="737">Social, Politic, Fun, News</option>
+<option value="95">Software</option>
+<option value="913">Software Development</option>
+<option value="739">Songwriting</option>
+<option value="843">Speleology</option>
+<option value="872">Spiritual Motivational Speaking</option>
+<option value="728">Spirituality</option>
+<option value="649">Sports/Fanclub</option>
+<option value="138">sreaming</option>
+<option value="960">Stickers</option>
+<option value="927">Story</option>
+<option value="915">Strippers</option>
+<option value="200">study</option>
+<option value="685">Subversión</option>
+<option value="637">Survival/Preparedness</option>
+<option value="265">sustainability</option>
+<option value="114">Swimming Pool</option>
+<option value="197">Tabletop Wargame</option>
+<option value="174">Tajrobiyat</option>
+<option value="941">Tango</option>
+<option value="869">Tattoos</option>
+<option value="268">taxi</option>
+<option value="115">tópicos forum</option>
+<option value="920">Teachers</option>
+<option value="37">Teaching</option>
+<option value="776">Tech</option>
+<option value="220">Teen Idols</option>
+<option value="987">Tekloji</option>
+<option value="173">Telephone Number Tracking</option>
+<option value="760">Telephone Services</option>
+<option value="86">test</option>
+<option value="811">test categ delete later</option>
+<option value="746">teste</option>
+<option value="660">Testes</option>
+<option value="71">Testimonial</option>
+<option value="132">The best life rules</option>
+<option value="930">Themes</option>
+<option value="244">Tierhilfe</option>
+<option value="849">tip</option>
+<option value="946">Top ten everything</option>
+<option value="783">Tourism</option>
+<option value="898">touriste</option>
+<option value="890">Tours & Travel</option>
+<option value="262">Toys</option>
+<option value="657">trabajo</option>
+<option value="72">treba</option>
+<option value="878">truyen tre em</option>
+<option value="916">TSIO</option>
+<option value="967">Tutoriales Etc.</option>
+<option value="48">Tutorials</option>
+<option value="251">TV & HomeVideo Series</option>
+<option value="749">Tv show</option>
+<option value="835">Tweaks</option>
+<option value="717">twitter</option>
+<option value="834">uncatagrogy</option>
+<option value="0">Unknown</option>
+<option value="731">user rating</option>
+<option value="629">Usługi Czyszczenia </option>
+<option value="992">مطالعات فرهنگی</option>
+<option value="919">varios</option>
+<option value="61">Vegyes</option>
+<option value="877">Vendita e assistenza Electtrodomestici FamagliaBlog </option>
+<option value="819">Veteran Politics</option>
+<option value="148">video</option>
+<option value="792">Video Blog</option>
+<option value="894">Video Games</option>
+<option value="42">Video Sharing</option>
+<option value="939">videogames</option>
+<option value="791">Videos</option>
+<option value="926">Vinyl Decals</option>
+<option value="255">Violence</option>
+<option value="120">Virtual Assistance</option>
+<option value="899">visitore</option>
+<option value="687">Vliegtuig maatschapijen</option>
+<option value="707">Vllage</option>
+<option value="827">voice artist</option>
+<option value="856">Voting</option>
+<option value="136">warez</option>
+<option value="212">Watches</option>
+<option value="203">wealth management</option>
+<option value="108">Weather</option>
+<option value="658">Web design</option>
+<option value="116">Web Development</option>
+<option value="638">Web development & Design resources</option>
+<option value="229">Web Directories</option>
+<option value="965">web-design</option>
+<option value="980">webhosting</option>
+<option value="248">website</option>
+<option value="817">Wedding</option>
+<option value="35">Welt und Hobby</option>
+<option value="721">Westervoort</option>
+<option value="956">Wildlife Safaris,Beach Holidays & Mountain Climbing</option>
+<option value="250">wine</option>
+<option value="260">WiX</option>
+<option value="794">Won't be CENSORED here.</option>
+<option value="55">Woocommerce</option>
+<option value="870">Woodworking</option>
+<option value="158">WordPress</option>
+<option value="654">work</option>
+<option value="180">Writing</option>
+<option value="986">www.shahrekadkan.ir</option>
+<option value="90">Yellow Pages</option>
+<option value="842">yiyecek icecek</option>
+<option value="667">YouTube rating</option>
+<option value="94">Zdjęcia</option>
+<option value="962">Zonnebrillen</option>
+<option value="144">şehirler hakkında</option>
+<option value="726">מאמרים</option>
+<option value="235">اسلامی</option>
+<option value="833">بوابة مصر</option>
+<option value="758">تفریح و سرگرمی</option>
+<option value="830">خلاقیت Creativity</option>
+<option value="209">خبر</option>
+<option value="990">سیستم اعلام حریق</option>
+</optgroup>
+</select></label>
+</div>
+</div>
+<div class="social-signin">
+<div class="section-separator">
+<hr>
+<span>Activate with</span>
+</div>
+<div>
+<button class="google" data-url="https://accounts.google.com/o/oauth2/auth?response_type=code&redirect_uri=http%3A%2F%2Frating-widget.com%2Faction%2Fwebsite%2Fuser%2Fsignin%2Fgoogle.php&client_id=1077095386550.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&access_type=offline&approval_prompt=force"></button>
+<button class="linkedin" data-url="https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=gnewa7s38j19&scope=r_basicprofile+r_emailaddress&state=54e658c897e3e7.81717712&redirect_uri=http%3A%2F%2Frating-widget.com%2Faction%2Fwebsite%2Fuser%2Fsignin%2Flinkedin.php"></button>
+<button class="facebook" data-url="https://www.facebook.com/dialog/oauth?client_id=230520603773713&redirect_uri=http%3A%2F%2Frating-widget.com%2Faction%2Fwebsite%2Fuser%2Fsignin%2Ffacebook.php&state=19e1751c0ae93c0b312eebf81ecb5620&scope=email"></button>
+</div>
+</div>
+<div class="section-separator pass-recover-hidden">
+<hr>
+<span>Or</span>
+</div>
+<div>
+<label class="iconed-input name"><i class="name"></i><input type="text" name="name" value="" placeholder="First and Last Name"/></label>
+<p class="instructions pass-recover-only">Enter your email below and we will send you a link to reset your password.</p>
+<label class="iconed-input"><i class="email"></i><input type="email" name="email" value="" placeholder="Your Email Address"/></label>
+<p style="display: none;" class="email-desc">We ask your email for you to be able to log in your management dashboard. The email will be also used to keep you informed about maintenance and new updates.</p>
+<label class="iconed-input password"><i class="password"></i><input type="password" name="password" value="" placeholder="Set your Password"/><a class="password-recovery-trigger" href="#">Forgot your password?</a></label>
+<p class="pass-recover-only">
+<b>Important:</b> If you registered for RatingWidget by connecting via Facebook, Google or LinkedIn, please <a class="trigger-signin-internal" href="/signin/">Sign In</a> via that service before retrieving your password.
+</p>
+</div>
+<p class="pass-sent-only">
+We've sent a message to your email address. Please click the link in the message to reset your password.
+<br><br>
+<a class="trigger-signin-internal" href="/signin/">Return to Sign In</a>
+</p>
+</div>
+<footer>
+<button class="primary large"><span>Create Account <sub>&#8250;</sub></span></button>
+<p class="terms">By clicking "CREATE ACCOUNT", you certify that you are at least 13 years old,<br>and agree to our <a href="/privacy/" target="_blank">Privacy Policy</a> and <a href="/terms-of-use/" target="_blank">Terms of Service</a>.</p>
+</footer>
+</section>
+</div>
+<div class="modal dark sticky" style="display: none;"><section id="contact_form" class="message sticky">
+<header class="dark">
+<h4>Have questions? We're happy to help!</h4>
+<i class="close"></i>
+<i class="starfish"></i>
+</header>
+<div>
+<fieldset>
+<input name="security" type="hidden" value="s_secure=f6e810233c2eaabf224859c83e82830c&s_ts=1424382152">
+<input name="site_id" type="hidden" value="">
+<input name="user_id" type="hidden" value="">
+<label class="iconed-input name"><i class="name"></i><input type="text" name="name" value="" placeholder="First and Last Name"/></label>
+<label class="iconed-input"><i class="email"></i><input type="email" name="email" value="" placeholder="Your Email Address"/></label>
+<label class="iconed-input">
+<i class="msg"></i>
+<select name="subject">
+<option value="Select Subject">Select Subject</option>
+<option value="General Feedback">General Feedback</option>
+<option value="Feature Request">Feature Request</option>
+<option value="Rich-Snippets">Rich-Snippets</option>
+<option value="Report an Issue">Report an Issue</option>
+<option value="Customization">Customization</option>
+<option value="Pre-Sale">Pre-Sale</option>
+<option value="Quote Request">Quote Request</option>
+<option value="Bulk Pricing">Bulk Pricing</option>
+<option value="Press">Press</option>
+<option value="Other">Other</option>
+</select>
+</label>
+<label class="iconed-input">
+<i class="platform"></i>
+<select name="platform">
+<option value="">Select Platform</option>
+<option value="WordPress">WordPress</option>
+<option value="Blogger">Blogger</option>
+<option value="Squarespace">Squarespace</option>
+<option value="AddThis">AddThis</option>
+<option value="Tumblr">Tumblr</option>
+<option value="WiX">WiX</option>
+<option value="Shopify">Shopify</option>
+<option value="Zepo">Zepo</option>
+<option value="jQuery">jQuery</option>
+<option value="JavaScript">JavaScript</option>
+<option value="other">Other</option>
+</select>
+</label>
+<label class="iconed-input site"><i class="site"></i><input type="text" name="domain" value="" placeholder="Your Site Address (E.g http://my.address.com)"/></label>
+<label id="contact_msg" class="iconed-input">
+<i class="edit"></i>
+<textarea name="message" cols="44" rows="10" placeholder="Your Message, Question or Feedback"></textarea>
+</label>
+<p style="margin-top: 10px;"><b>Note:</b> If you have a question about a specific page on your site, please add a link to the relevant page which has the ratings code already embedded.</p>
+<label class="iconed-input site"><i class="site"></i><input type="text" name="link" value="" placeholder="Relevant Page on Your Site (E.g. http://my.address.com/page-with-ratings/)"></label>
+<div id="rw_captcha_container" style="display: none;"></div>
+</fieldset>
+<div class="message-sent">
+<p>Your message has been sent! We'll get back to you within one business day.</p>
+<h5>Be AWESOME and spread the word:</h5>
+</div>
+</div>
+<footer>
+<button class="primary large"><span>Submit <sub>&#8250;</sub></span></button>
+<div class="social-buttons">
+<a href="https://twitter.com/intent/tweet?text=Check+out+%40RatingWidget%2C+free+%26+easy+way+to+add+star+ratings+for+your+website.+http%3A%2F%2Fratingwidget.com%2Fget%2Frating%2F" target="_blank"><button class="twitter"><i></i> Tweet</button></a>
+<a href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http%3A%2F%2Fratingwidget.com%2Fget%2Frating%2F&p[title]=Check out @RatingWidget, free & easy way to add star ratings for your site. http://ratingwidget.com/get/rating/" target="_blank"><button class="facebook"><i></i> Share</button></a>
+<a href="/cdn-cgi/l/email-protection#546b2721363e31372069173c31373f7166643b2120716664203c3d2771666424263b302137207572363b302d691c312d757166641d716664203c3d3a3f7166642d3bXu%20will%20be%20interested%20in%20this%20cool%20solution%20by%20RatingWidget.%20They%20help%20you%20get%20star%20ratings%20for%20your%20website%20in%20minutes.%20It%27s%20really%20simple%20and%20they%20have%20a%20free%20solution%20as%20well.%20Here%27s%20the%20link%3A%0Ahttp%3A%2F%2Fratingwidget.com%2Fget%2Frating%2F"><button class="email"><i></i> Email to Friend</button></a>
+</div>
+</footer>
+</section>
+</div></section>
+<a id="contact_tab" class="trigger-contact" title="Contact Us"></a> <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-4.newrelic.com","licenseKey":"2d80db403b","applicationID":"1837438","transactionName":"NlAAbEICXUADU0xbVg8aN0pZTFpdBlVAHEkJRQ==","queueTime":0,"applicationTime":115,"ttGuid":"","agentToken":"","atts":"GhcDGgoYTk4=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-488.min.js"}</script><script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l=document.getElementsByTagName("a"),t=document.createElement("textarea");for(i=0;l.length-i;i++){try{a=l[i].getAttribute("href");if(a&&a.indexOf("/cdn-cgi/l/email-protection") > -1  && (a.length > 28)){s='';j=27+ 1 + a.indexOf("/cdn-cgi/l/email-protection");if (a.length > j) {r=parseInt(a.substr(j,2),16);for(j+=2;a.length>j&&a.substr(j,1)!='X';j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}j+=1;s+=a.substr(j,a.length-j);}t.innerHTML=s.replace(/</g,"&lt;").replace(/>/g,"&gt;");l[i].setAttribute("href","mailto:"+t.value);}}catch(e){}}}catch(e){}})();
+/* ]]> */
+</script>
+</body>
+</html>";i:2;s:4:"9500";}

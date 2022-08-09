@@ -1,0 +1,255 @@
+a:3:{i:0;s:23:"http://tirekingdom.com/";i:1;s:7580:"
+<html>
+<head></head>
+<body>
+
+<noscript> <meta http-equiv="refresh" content="0;URL=http://www.tirekingdom.com/tires/?postSessionRedirect=http%3A//tirekingdom.com/tires/&noRedirectJavaScript=true"></meta> </noscript>
+
+<script type="text/javascript">
+
+// this fixes an issue with the old method, ambiguous values
+// with this test document.cookie.indexOf( name + "=" );
+function Get_Cookie( check_name ) {
+  // first we'll split this cookie up into name/value pairs
+  // note: document.cookie only returns name=value, not the other components
+  var a_all_cookies = document.cookie.split( ';' );
+  var a_temp_cookie = '';
+  var cookie_name = '';
+  var cookie_value = '';
+  var b_cookie_found = false; // set boolean t/f default f
+
+  for ( i = 0; i < a_all_cookies.length; i++ )
+  {
+    // now we'll split apart each name=value pair
+    a_temp_cookie = a_all_cookies[i].split( '=' );
+
+    // and trim left/right whitespace while we're at it
+    cookie_name = a_temp_cookie[0].replace(/^\s+|\s+$/g, '');
+
+    // if the extracted name matches passed check_name
+    if ( cookie_name == check_name )
+    {
+      b_cookie_found = true;
+      // we need to handle case where cookie has no value but exists (no = sign, that is):
+      if ( a_temp_cookie.length > 1 )
+      {
+        cookie_value = unescape( a_temp_cookie[1].replace(/^\s+|\s+$/g, '') );
+      }
+      // note that in cases where cookie is initialized but no value, null is returned
+      return cookie_value;
+      break;
+    }
+    a_temp_cookie = null;
+    cookie_name = '';
+  }
+  if ( !b_cookie_found )
+  {
+    return null;
+  }
+}
+
+function Set_Cookie( name, value, expires, path, domain, secure, httpOnly )
+{
+  // set time, it's in milliseconds
+  var today = new Date();
+  today.setTime( today.getTime() );
+
+  
+  if ( expires && (expires != -1) ) {
+    expires = expires * 1000 * 60;
+  }
+  var expires_date = new Date( today.getTime() + expires );
+
+  document.cookie = name + "=" + value +
+    ( ( expires != -1 ) ? ";expires=" + expires_date.toGMTString() : "" ) +
+    ( ( path ) ? ";path=" + path : "" ) +
+    ( ( domain ) ? ";domain=" + domain : "" ) +
+    ( ( secure ) ? ";secure" : "" ) +
+    ( ( httpOnly ) ? ";HttpOnly" : "" );
+
+}
+
+function setSessionCookie(sessionId) {
+    if (sessionId != Get_Cookie("JSESSIONID")) {
+      // first try to delete existing, if possible
+      Set_Cookie("JSESSIONID", sessionId, -2, "/", null, false);
+      // then try setting new
+      Set_Cookie("JSESSIONID", sessionId, -1, "/", null, false, false);
+    }
+    return (sessionId == Get_Cookie("JSESSIONID"));
+}
+
+
+function receiveMessage(event) {
+  
+  
+  
+      
+  
+
+  if (event.origin &&
+      (event.origin != "http://www.tirekingdom.com") &&
+      (event.origin != "http://www.tirekingdom.com:80")) {
+    alert("event origin mismatch");
+    // prevent any messages from any other source
+    return;
+  }
+  if (event.domain && (event.domain != "www.tirekingdom.com")) {
+    alert("event domain mismatch");
+  }
+  var txt = event.data;
+  
+
+  processFetchedSessionResponse(txt);
+}
+
+function processFetchedSessionResponse(txt) {
+  var parts = txt.split(";");
+  var sessionIdFromCanonical = parts[0];
+  var remoteCookieSetFailed = false;
+  if (parts.length > 0) {
+    remoteCookieSetFailed = (parts[1] == "failed");
+  }
+
+  if (remoteCookieSetFailed) {
+   
+   
+   var redirectUrl = "http://www.tirekingdom.com/tires/;jsessionid=(;;;)?postSessionRedirect=http%3A//tirekingdom.com/tires/";
+   redirectUrl = redirectUrl.replace("(;;;)", sessionIdFromCanonical);
+   var localSessionCookie = Get_Cookie("JSESSIONID");
+   if (localSessionCookie) {
+     // we know the no script URL must already have a query param.
+     redirectUrl = redirectUrl + "&sessionIdFromCookie=" +
+       encodeURIComponent(localSessionCookie);
+   }
+   else {
+      // try to set the remote session cookie locally
+      if (setSessionCookie(sessionIdFromCanonical)) {
+        redirectUrl = redirectUrl + "&sessionIdFromCookie=" +
+          encodeURIComponent(sessionIdFromCanonical);
+      }            
+      else {
+        
+        redirectUrl = "http://www.tirekingdom.com/tires/;jsessionid=(;;;)?postSessionRedirect=http%3A//tirekingdom.com/tires/&noRedirectJavaScript=true"
+   	  .replace("(;;;)", sessionIdFromCanonical);
+        
+      }
+   }
+   window.location.href = redirectUrl;
+   return;
+ }
+
+  handleSessionIdInfoString(parts[0]);
+}
+
+var originalUrl = window.location.href;
+
+function handleSessionIdInfoString(txt) {
+  var sessionIdFromCanonical = txt;
+
+  // go ahead and try to set our local cookie, so it will be here,
+  // regardless of anything else
+  if (setSessionCookie(sessionIdFromCanonical)) {
+    
+    if (window.location.href != originalUrl) {
+      window.location.href = originalUrl;
+      setTimeout("window.location.reload()", 500);
+    }
+    else {
+      window.location.reload();
+    }
+  }
+  else {
+    
+    var newUrl = "http://tirekingdom.com/tires/;jsessionid=(;;;)";
+    newUrl = newUrl.replace("(;;;)", sessionIdFromCanonical);
+    window.location.href = newUrl;
+  }
+}
+
+var originalHash = document.location.hash;
+var timerId = null;
+
+function checkForChangedUrl() {
+  if (originalHash != document.location.hash) {
+    if (timerId != null) {
+      clearInterval(timerId);
+      timerId = null;
+    }
+    
+    var txt = decodeURIComponent(document.location.hash.substring(1));
+    // reset the location, so it won't have our hash on it
+    processFetchedSessionResponse(txt); 
+  }
+  else {
+    
+  }
+}
+
+function processIframeLoad() {
+  timerId = setInterval("checkForChangedUrl();", 100);
+}  
+
+
+
+var requested = false;
+
+if(window["XMLHttpRequest"])
+{
+  var url = "http://www.tirekingdom.com/tires/?canonicalSessionRenderSessionId=true";
+  var request = new XMLHttpRequest();
+  if("withCredentials" in request)
+  {
+   // Firefox 3.5+ and Safari 4+
+   request.open('GET', url, true);
+   request.withCredentials = "true";
+   request.onabort = function(evt) {
+       
+       window.location.href = 'http://www.tirekingdom.com/tires/?postSessionRedirect=http%3A//tirekingdom.com/tires/&noRedirectJavaScript=true';
+   };
+   request.onerror = function(evt) {
+     
+     window.location.href = 'http://www.tirekingdom.com/tires/?postSessionRedirect=http%3A//tirekingdom.com/tires/&noRedirectJavaScript=true';
+   };
+   request.onreadystatechange = function(evt) {
+     if (request.readyState != 4) { return; }
+     
+     if (request.status != 200) {
+       window.location.href = 'http://www.tirekingdom.com/tires/?postSessionRedirect=http%3A//tirekingdom.com/tires/&noRedirectJavaScript=true';
+     }
+     else {
+        handleSessionIdInfoString(request.responseText);
+     }
+   };
+   request.send();
+   requested = true;
+  }
+
+
+}
+
+
+if (!requested) {
+  if (window.addEventListener) {
+    window.addEventListener("message", receiveMessage, false);
+  }
+  if (document.attachEvent) {
+     document.attachEvent("onmessage", receiveMessage);
+  }
+  if (window.attachEvent) {
+    window.attachEvent("onmessage", receiveMessage);
+  }
+
+  document.writeln('<iframe src="http://www.tirekingdom.com/tires/?postSessionRedirect=http%3A//tirekingdom.com/tires/&fromIframe=true" name="redirectIframe" style="width:0px; height:0px; border: 0px"  onload="processIframeLoad()">');
+  document.writeln('<meta http-equiv="refresh" content="0;URL=http://www.tirekingdom.com/tires/?postSessionRedirect=http%3A//tirekingdom.com/tires/" />');
+  document.writeln('</iframe>');
+}
+
+setTimeout("window.location.href = 'http://www.tirekingdom.com/tires/?postSessionRedirect=http%3A//tirekingdom.com/tires/&noRedirectJavaScript=true'", 5000);
+
+</script>
+
+</body>
+
+</html>
+";i:2;s:4:"6265";}

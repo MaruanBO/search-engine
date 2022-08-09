@@ -1,0 +1,4622 @@
+a:3:{i:0;s:19:"http://8tracks.com/";i:1;s:186780:"<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en" lang="en">
+
+<script type="text/javascript">
+if (window.console && typeof(window.console.log) == 'function') {
+  console.log('Come here often? 8tracks is hiring. http://8tracks.com/jobs')
+}
+</script>
+
+<head>
+  <script>
+    var now=function() { return new Date().getTime();};
+    var headTimestamp=now();
+  </script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="imagetoolbar" content="no" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+  <meta property="og:site_name" content="8tracks" />
+  <meta property="fb:app_id" content="166738216681933" />
+  <meta property="fb:admins" content="500734952" />
+
+  <meta name="google" content="notranslate"/>
+
+    <title>8tracks internet radio | Free music playlists | Best app for music</title>
+    <meta content="playlists, free music, internet radio, mobile apps, online, mixes" name="keywords" />
+    <meta content="Welcome to 8tracks, the best place for music discovery on the internet. Create your own playlist to share with the world, or listen for free to perfect music for any taste, time and place. " name="description" />
+
+
+    <meta content="app" property="twitter:card" />
+
+    <meta content="8tracks Radio provides the best music for any taste, time &amp; place." property="twitter:description" />
+    <meta content="8tracks app" property="twitter:app:name:iphone" />
+    <meta content="346194763" property="twitter:app:id:iphone" />
+    <meta content="346194763" property="twitter:app:id:ipad" />
+    <meta content="eighttracks:// " property="twitter:app:url:iphone" />
+    <meta content="eighttracks:// " property="twitter:app:url:ipad" />
+
+    <meta content="8tracks Radio" property="twitter:app:name:googleplay" />
+    <meta content="com.e8tracks" property="twitter:app:id:googleplay" />
+
+
+
+
+
+  <meta name="robots" content="index,follow" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon"/>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/brand/favicon-144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/brand/favicon-114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/brand/favicon-72.png">
+  <link rel="apple-touch-icon-precomposed" href="/images/brand/favicon-57.png">
+  <link rel="search" type="application/opensearchdescription+xml" href="http://8tracks.com/opensearch.xml" title="8tracks" />
+
+  
+
+    <link href="//dmuuhinfkryqs.cloudfront.net/assets/application-32ece9836ca8a3d89e8684132d3c93ae.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+  <link href="//dmuuhinfkryqs.cloudfront.net/assets/_home-4a536f15ac6f4c744c7b0f613c5d4166.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <meta name="p:domain_verify" content="bd4e0544263cc36b5f9aae7840920ca2"/>
+</head>
+
+
+<body>
+
+
+<script type="text/javascript">
+//<![CDATA[
+    PAGE = {}; // used for legacy code
+
+    SOUNDCLOUD_CLIENT_ID = '3904229f42df3999df223f6ebf39a8fe';
+    GOOGLE_CLIENT_ID = '745447711784.apps.googleusercontent.com';
+    FMA_API_KEY = 'P412SCI2RWQJ5DMF';
+    ECHONEST_SEARCH_API_KEY = '1DVESWHASHV4OXKEY';
+    CHROMECAST_APP_ID = 'BEAF7BA5';
+    CHROMECAST_MSG_NS = 'urn:x-cast:com.e8tracks.cast';
+    MIXPANEL_API_KEY = 'dadf933344ddfcca08de04377cbaf811';
+    PREROLL_ENABLED  = true;
+    MASTHEAD_ENABLED = true;
+    IMGIX_PREFERRED_SIZES =  [56, 100, 200, 320, 400, 640, 750, 960, 1024, 1280, 1536, 2048]
+
+    App = {
+      Collections : {},
+      Models      : {},
+      models      : {},
+      Views       : {},
+      views       : {},
+      currentPage : 'home_first_time',
+      env         : 'production',
+      subdomain   : '',
+      isMobileWeb : false
+    };
+
+
+
+  //window.devicePixelRatio = 2;
+  window.dpr = window.devicePixelRatio;
+
+  if (window.dpr <= 1) {
+    window.dpr = 1;
+  } else if (window.dpr <= 2) {
+    window.dpr = 2;
+  } else if (window.dpr > 2) {
+    window.dpr = 3;
+  } else {
+    window.dpr = 1;
+  }
+
+  imgix_img = function(src, class_attr, name, onload, max_size) {
+    if (src.match('imgix') && (window.dpr == 2 || window.dpr == 3)) {
+      var preferred_sizes =  IMGIX_PREFERRED_SIZES; // TODO use different sizes for avatars and last.fm images
+      var w = src.match(/w=(\d+)/i);
+
+      if (w) {
+        var w_dpr = w[1] * window.dpr;
+        var i = 0;
+        while (i < IMGIX_PREFERRED_SIZES.length) {
+          if ( IMGIX_PREFERRED_SIZES[i] >= w_dpr || (i == IMGIX_PREFERRED_SIZES.length - 1) ){
+            w_dpr = IMGIX_PREFERRED_SIZES[i];
+            break;
+          }
+          i += 1;
+        }
+
+        if (max_size && (w_dpr > max_size)) {
+          //show original if we're requesting something larger
+          src = src.replace('w='+w[1], '').replace('h='+w[1], '');
+        } else {
+          //use smallest preferred size at least as big as DPR'd image size
+          src = src.replace('w='+w[1], 'w='+w_dpr).replace('h='+w[1], 'h='+w_dpr);
+        }
+      }
+    }
+
+    var os = (onload ? ' onload="' + onload + '"' : '');
+    return '<img src="' + src + '" class="' + class_attr + '" alt="' + name + '"' + os + '/>';
+  };
+
+  external_image_url = function(src, size){
+    if (src.match('last.fm')) { //LAST.FM
+      var sizes = [50, 64, 85, 126, 252, 500];
+      var i = 0;
+      var lfmsize = 50;
+      while (sizes[i]) {
+        lfmsize = sizes[i];
+        if (lfmsize >= size) break;
+        i++;
+      }
+      src = src.replace(new RegExp('\/([0-9]+|_)\/'), '/'+lfmsize+'/');
+
+    } else if (src.match('fbcdn.net')) { // FACEBOOK
+      src = src.replace(/\/s[0-9]*x[0-9]*\//, '/s'+size+'x'+size+'/');
+
+    } else if (src.match('wikipedia.org')) { // WIKIPEDIA
+      if (src.match('/commons')) {
+        src = src.replace('/commons/', '/commons/thumb/');
+        src += '/' + size + 'px-' + src.split('/').slice(-1);
+      }
+    }
+
+    return src;
+  };
+
+  // This is to prevent elements hidden in an A/B test from flashing in and out during page load.
+  if (window.navigator.userAgent.match(/googlebot/i) === null) {
+    document.write('<style id="initial_a_b_test_styles" type="text/css">'    +
+                      '.a_b_test_initially_hidden { visibility: hidden; }'   +
+                      '.a_b_test_initially_not_displayed { display: none; }' +
+                    '</style>');
+  }
+
+ 
+//]]>
+</script>
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+
+
+<script src="http://dmuuhinfkryqs.cloudfront.net/assets/libs-be88353155b154ae6a69fcec7677bb91.js" type="text/javascript"></script>
+<script>
+  // Defines the configuration options, these must be set before you load
+  // the plusone.js file.
+  window.___gcfg = {
+    lang: 'en-US',
+    parsetags: 'explicit',
+    isSignedOut: true,
+    include_granted_scopes: true
+  }
+
+  function firstGooglePlusLoad() {
+    //loads the +1 button for 8tracks.com
+    $(document).ready(function() {
+      if (window.gapi) {
+        gapi.plusone.go();  
+      }
+    });
+  }
+</script>
+
+<script src="//apis.google.com/js/client:plusone.js?onload=firstGooglePlusLoad"></script> 
+
+
+        <script>var require = {"baseUrl":"/assets","paths":{"global_trax":"http://dmuuhinfkryqs.cloudfront.net/assets/global_trax-5cc5948de94b73bc7a408e757aaf4a5b","initializer":"http://dmuuhinfkryqs.cloudfront.net/assets/initializer-3d907a10167e5c6c52114e0e4338f35a","pages/favorite_tracks":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/favorite_tracks-d4950b6bf14131a89a7ef98394e69acd","pages/reviews":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/reviews-7815ddfb37e3ae38377cf6dfa091b43a","pages/follows_users":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/follows_users-b0a27e651ec2adb25ee3e838fc439d8b","pages/home_first_time":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/home_first_time-ab44acfeceee4ad13bfe2e7bd309ec7d","pages/home_returning":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/home_returning-9598e61ddbbee998f4091ca1aa00b52e","pages/home_logged_in":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/home_logged_in-b9c6d7dfb134bf053426450b8135c184","pages/mixes_index":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/mixes_index-6adf6f581620472104277b8d1c20c410","pages/mixes_show":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/mixes_show-447d6082bed9fc70d8ca271107205bd1","pages/mixes_stats":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/mixes_stats-6a69fe87f524f1e78f0de1ceb3b14a0b","pages/collection_edit":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/collection_edit-e5d96eaeb5f8f8f0aa90ba83e0fcb52f","pages/users_edit":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/users_edit-4f7f7e61257ab243b7f160c86d47dd21","pages/users_show":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/users_show-b4a30e578b8f10347abe16250e2bb0f4","pages/iphone":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/iphone-5239f75c483736c250482397b59c7bf5","pages/android":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/android-3cf5214583b47f5de95c921151799b58","pages/track":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/track-07e316c24e7875edca2febb3d5082a45","pages/player":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/player-24a5f7823f59332c59164208bcf920cc","pages/news_feed":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/news_feed-c195ece0f8d09723d67f37f9a4dc328e","pages/notifications":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/notifications-c70c288c07f89d763afc0c94831f8c6e","pages/sonos_house_party":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/sonos_house_party-cd047dacf9078e31215376510a3c51e5","pages/search_results":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/search_results-2fa70bc60ba3213047a3c0d4f8296c00","pages/mixmadness":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/mixmadness-65adc3c6fdab46fb35aeab7fb454e425","pages/mobile_tips":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/mobile_tips-a2f1dd5d05f014dff1dc8d7a0773afcf","pages/mix_set_debug":"http://dmuuhinfkryqs.cloudfront.net/assets/pages/mix_set_debug-ad64ac03744b279fb7fb8473303ac780","views/moderator_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/moderator_view-ed91fad48c09d64a6c4cd21590c18ca1","views/mix_edit_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/mix_edit_view-3e326849829c500c8fbf4f95ac6127b5","views/embed_mix_lightbox_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/embed_mix_lightbox_view-ff4d3a40ee717dcfab08d6fafa11fc78","views/faq_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/faq_view-61a23c0a6b44f299c07dbce39163a539","views/signup_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/signup_view-f457a391cb52a57f742ad8e72cdb8226","views/troubleshoot_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/troubleshoot_view-5373b4d694d0ec95f93a430d5d499998","views/basic_upload_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/basic_upload_view-923784ff144c629da544c8ae132396b6","views/google_plus_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/google_plus_view-f6ed5e00c6ad827e7f33986983669e8a","views/mix_recommend_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/mix_recommend_view-f406f8bc2eac1e683ef1111e61872204","views/preroll_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/preroll_view-eb40882908c10452210b7121bd5110e4","views/autocomplete_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/autocomplete_view-c06dce4bfde312968eba84ab65d04980","views/mix_stats_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/mix_stats_view-5ca99ceef3ae0b7dcd11290e8d402f14","views/8888_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/8888_view-54d06b011e8612569d0df9dbe89819f7","views/admin/users_admin_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/users_admin_view-1499d71af1fab461629b06763264adf0","views/admin/admin_tag_searches_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/admin_tag_searches_view-7e765012e0c2b3bb00d8609a03507c98","views/admin/admin_tag_mappings_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/admin_tag_mappings_view-c3db3f34bdd2e3a136e2a30caec4dedc","views/admin/explore_filters_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/explore_filters_view-b5a1d1d1cc8189279df0ca1152c68fb1","views/admin/admin_identified_tracks_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/admin_identified_tracks_view-5cbcbb3aec66a5f65e633b32cd8f0a53","views/admin/reviews_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/reviews_view-9ecb9a6aec9617ddb3f7e4619ab6ab8e","views/admin/translations_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/translations_view-312a61de4b31edde9b9b1602715ba879","views/admin/faq_edit_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/faq_edit_view-c5c4534bb06a07707cf57efc77254fce","views/admin/reports_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/reports_view-c254f6bbb4ed37647e02c41dc12b0a5b","views/admin/orders_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/orders_view-09dd924d9c54cdb3688ee4d618068098","views/admin/page_optimizations_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/page_optimizations_view-aeb0760dd2671ff18c753e39bf4ac206","views/admin/soundcloud_identifier_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/admin/soundcloud_identifier_view-9d0eee382f0fc4d3503225d420561ecf","views/nsfw_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/nsfw_view-52e71957f33cc2c24d02bb895ebdae8c","views/next_mix_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/next_mix_view-5d8a9d54914d596cd0ce359059e8bf93","views/tshirt_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/tshirt_view-14f0f5518ee4805fcb56271e9d2dce28","views/checkout_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/checkout_view-d296c45542471ef82fabb3f937a46ca0","views/fb_player_iframe_view":"http://dmuuhinfkryqs.cloudfront.net/assets/views/fb_player_iframe_view-0df3b50637882524084039ffa36e8f72","ima":"https://s0.2mdn.net/instream/html5/ima3"},"shim":{"jquery_ui":{"deps":["vendor/jquery/jquery-migrate-1.0.0.min","jquery_ui_easing"]},"jquery_ui_interactions":{"deps":["jquery_ui"]},"jquery.textboxlist.autocomplete":{"deps":["jquery.class"]},"jquery.class":{"exports":"window.Class"},"facebox":{"exports":"jQuery.facebox"},"select2":{"exports":"jQuery.select2"},"highcharts":{"exports":"Highcharts"},"vendor/soundcloud":{"exports":"SC"}},"waitSeconds":60};</script>
+      <script  src="http://dmuuhinfkryqs.cloudfront.net/assets/require-b72e6df48e8869231a56b0d5e767bb74.js"></script>
+
+
+
+
+<div id="body_container">
+
+<div id="belly_container">
+
+  <div id="superheader" style="display: none;"></div>
+
+  <!-- thin search header -->
+  <div id="thin_header" style="display:none;">
+    <div class="wrapper" id="header_content">
+      <div class="navlinks" id="main_links">
+        <a href="/" title="8tracks | Refreshingly human playlists." rel="home" class="home-link default">
+          <span class="i logo_small_8">&#xe100;</span><span> Home</span>
+        </a>
+
+        <a href="/news-feed" title="Feed" class="p p_logged_in off feed-link">
+          <span class="i i-feed"></span> Feed
+        </a>
+
+        <a href="/explore" title="Explore" class="explore-link">
+          <span class="i i-explore-large"></span> Explore
+        </a>
+
+        <div id="loading" style="display: none;"><div class="loader"></div></div>
+      </div>
+
+      <div id="header_middle">
+      </div>
+
+      <div id="header_right">
+        <div id="search" class="searchbox header_item">
+          <form accept-charset="UTF-8" action="/search" class="search" method="get">
+            <input autocomplete="off" class="text q" id="q" name="q" placeholder="Search" type="text">
+            <input type="submit" class="search_submit" value=" "/>
+          </form>
+          <span class="i i-search"></span>
+        </div>
+      </div>
+    </div>
+  </div><!-- thin_header -->
+
+  <div id="interstitial_container"></div>
+
+  <div class="wrapper">
+    <div id="headerboard" style="display: none;"></div>
+    <div id="video_masthead" class="video_masthead" style="display: none;"></div>
+    <div id="sm2-container"></div>
+  </div>
+
+    <div id="first_time_splash" class="arrow">
+		<div class="wrapper">
+	   	<div id="header_right">
+      	<a href="https://8tracks.com/login" class="login" rel="login_required">Log in</a>
+        <a href="https://8tracks.com/signup" class="signup" id="signup_link" rel="signup_required">Sign up</a>
+      	<a href="https://8tracks.com/create_mix">Create playlist</a>
+	    </div>
+	    
+      <div id="masthead">
+				<div id="logo_medium"><span class="i-logotype"></span></div>
+				<p id="tagline">
+					Internet radio created by people, not algorithms.<br />
+					Choose a theme or genre below to start discovering new music.
+				</p>
+			</div>
+
+      <div id="splash_search" class="punchout">
+			  <a id="back" href="#" style="display: none;" title="Back"><span class="i-arrow-left"></span></a>
+
+<h1 id="splash_title" class="center">
+  
+  Play me some <span id="ellipsis">...</span>
+</h1>
+
+<div class="slider" style="display: none;">
+  <div class="slider_inner">
+    <div class="page page1">
+      <a class="next_page page_horizontal" href="#"><span class="i-chevron-right"></span></a>
+      <a class="prev_page page_horizontal disabled" href="#"><span class="i-chevron-left"></span></a>
+      <div class="splash_tags tags clearfix"><div class="tags_pages"></div></div>
+
+      <div id="splash_search_container">
+      </div>
+    </div>
+
+    <div class="page page2">
+      <a class="next_page page_horizontal" href="#"><span class="i-chevron-right"></span></a>
+      <a class="prev_page page_horizontal disabled" href="#"><span class="i-chevron-left"></span></a>
+      <div class="splash_tags tags clearfix"><div class="tags_pages"></div></div>
+      <div class="collection_preview"></div>
+      <div class="view_all_link"></div>
+    </div>
+    
+    <div class="page page3">
+      <div class="collection_preview"></div>
+    </div>
+  </div>
+  
+  <div id="big_search" class="searchbox clearfix">
+    <form accept-charset="UTF-8" action="/search" class="search" method="get">
+      <span class="i-plus"></span>
+      <input autocomplete="off" class="text q" id="splash_q" name="q" placeholder="Enter any artist, genre, activity, or mood" type="text">
+      <input type="submit" class="search_submit" value=" "/>
+    </form>
+  </div>
+</div>
+      </div>
+
+			<div class="facepile clear" class="clearfix">
+					<div class="js-connected-sites login clearfix">
+            
+      <div>
+        <a href="/auth/facebook" class="facebook_connect_button facebook-signup js-connect " data-site="facebook" data-win-height="362" data-win-name="facebook" data-win-width="640" rel="popup" target="_blank" title="Connect with Facebook">
+          <span class="i-facebook icon"></span>
+          <span class="facebook-signup-text">Sign in</span>
+        </a>
+      </div>
+    
+            
+    <div class="google-plus-container" id="gplus-button">
+      <span class="g-signin"
+        data-scope="https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.login"
+        data-clientid="745447711784.apps.googleusercontent.com"
+        data-redirecturi="postmessage"
+        data-apppackagename="com.e8tracks"
+        data-requestvisibleactions="http://schemas.google.com/ListenActivity"
+        data-cookiepolicy="single_host_origin"
+        data-callback="googlePlusCallback">
+      </span>
+    </div>
+    
+			    </div>
+
+			    <div id="facepile_placeholder"></div>
+			</div>
+
+      <div id="splash-loading" style="display: none;"><div class="loader"></div></div>
+
+		</div>
+	</div>
+
+
+  <div id="wrapper">
+
+      <div id="belly" class="clear">
+        <div id="content" class="content">
+          <div class="flash_container">
+            
+          </div>
+
+          
+
+
+
+
+<div class="wrapper clear" id="homepage_body">
+  <div class="content split">
+
+    <div id="featured_collection_unit"></div>
+    <div id="featured_collection" style="display: none;"></div>
+
+    <div id="collections">
+
+    		<div class="mix_set_row gridview" data-smart_id="collection:staff-picks" data-total_pages="50">
+  <a name="collection:staff-picks"></a>
+  <h4 class="collection_title clear  collection tooltip_container">
+
+  <a href="/collections/staff-picks" title="Staff picks">
+
+      <span class="collecticon  i-collection"></span>
+      Staff picks
+
+
+  </a>
+
+
+  <div class="right">
+  </div>
+</h4>
+
+<div class="mixes  ">
+  <div class="slider">
+<div class="mix " data-id="757315" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/superbassomatic/paul-s-boutique-revisited-in-memory-of-mca#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/001/176/081/82715.original-2702.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Paul&#39;s Boutique... revisited (in memory of MCA)', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/001/176/081/82715.original-2702.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Paul&#39;s Boutique... revisited (in memory of MCA)"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/superbassomatic/paul-s-boutique-revisited-in-memory-of-mca#smart_id=collection:staff-picks&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="757315" data-mix_name="Paul&#39;s Boutique... revisited (in memory of MCA)" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/superbassomatic/paul-s-boutique-revisited-in-memory-of-mca#smart_id=collection:staff-picks" class="mix_name">
+        <strong class="propername">Paul&#39;s Boutique... revisited (in memory of MCA)</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/funk" class="tag" title="funk">funk</a> <a href="/explore/original_samples" class="tag" title="original samples">original samples</a> <a href="/explore/70s" class="tag" title="70s">70s</a> <a href="/explore/%23mc045" class="tag" title="#mc045">#mc045</a> <a href="/explore/mixchallenge" class="tag" title="mixchallenge">mixchallenge</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            1,380
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           125
+          </span>
+        </span>
+
+        <span class="length">1hr 36min
+          (25 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      In 1989, the Beastie Boys released their second album, &quot;Paul&#39;s Boutique&quot;, a sonic collage of a whopping 105 song samples put together by the Boys and t...
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1336224641">May 05, 2012</abbr>
+    </span>
+
+    <a href="/superbassomatic/paul-s-boutique-revisited-in-memory-of-mca#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/001/176/081/82715.original-2702.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Paul&#39;s Boutique... revisited (in memory of MCA)', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/001/176/081/82715.original-2702.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Paul&#39;s Boutique... revisited (in memory of MCA)"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/superbassomatic/paul-s-boutique-revisited-in-memory-of-mca#smart_id=collection:staff-picks&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="757315" data-mix_name="Paul&#39;s Boutique... revisited (in memory of MCA)" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5310298" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/riadrakeford/lovely-balance#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/002/879/385/lovely_balance-4746.jpg?rect=0,17,505,505&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Lovely Balance', false, '505'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/002/879/385/lovely_balance-4746.jpg?rect=0,17,505,505&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Lovely Balance"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/riadrakeford/lovely-balance#smart_id=collection:staff-picks&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5310298" data-mix_name="Lovely Balance" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/riadrakeford/lovely-balance#smart_id=collection:staff-picks" class="mix_name">
+        <strong class="propername">Lovely Balance</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/study" class="tag" title="study">study</a> <a href="/explore/chillwave" class="tag" title="chillwave">chillwave</a> <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/happy" class="tag" title="happy">happy</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            23,099
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           926
+          </span>
+        </span>
+
+        <span class="length">1hr 48min
+          (27 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Songs I listen to when I&#39;m having a bad day.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1418130878">December 09, 2014</abbr>
+    </span>
+
+    <a href="/riadrakeford/lovely-balance#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/002/879/385/lovely_balance-4746.jpg?rect=0,17,505,505&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Lovely Balance', false, '505'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/002/879/385/lovely_balance-4746.jpg?rect=0,17,505,505&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Lovely Balance"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/riadrakeford/lovely-balance#smart_id=collection:staff-picks&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5310298" data-mix_name="Lovely Balance" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5168811" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/robcol/into-my-arms#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/426/080/maxresdefault-3351.jpg?rect=280,0,720,720&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'into my arms', false, '720'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/426/080/maxresdefault-3351.jpg?rect=280,0,720,720&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="into my arms"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/robcol/into-my-arms#smart_id=collection:staff-picks&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5168811" data-mix_name="into my arms" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/robcol/into-my-arms#smart_id=collection:staff-picks" class="mix_name">
+        <strong class="propername">into my arms</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/sleep" class="tag" title="sleep">sleep</a> <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/insomnia" class="tag" title="insomnia">insomnia</a> <a href="/explore/study" class="tag" title="study">study</a> <a href="/explore/sad" class="tag" title="sad">sad</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            8,362
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           219
+          </span>
+        </span>
+
+        <span class="length">41min
+          (17 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Sleeping Playlist: Andrew Bird, Cherry Ghost, Conor Oberst, Nick Cave .
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1418920453">December 18, 2014</abbr>
+    </span>
+
+    <a href="/robcol/into-my-arms#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/426/080/maxresdefault-3351.jpg?rect=280,0,720,720&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'into my arms', false, '720'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/426/080/maxresdefault-3351.jpg?rect=280,0,720,720&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="into my arms"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/robcol/into-my-arms#smart_id=collection:staff-picks&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5168811" data-mix_name="into my arms" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5762184" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/robcol/viva-8tracks#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/672/653/fountainbymarcelduchamp-3094.jpg?rect=0,34,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Viva 8tracks!', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/672/653/fountainbymarcelduchamp-3094.jpg?rect=0,34,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Viva 8tracks!"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/robcol/viva-8tracks#smart_id=collection:staff-picks&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5762184" data-mix_name="Viva 8tracks!" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/robcol/viva-8tracks#smart_id=collection:staff-picks" class="mix_name">
+        <strong class="propername">Viva 8tracks!</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/alternative_rock" class="tag" title="alternative rock">alternative rock</a> <a href="/explore/roadtrip" class="tag" title="roadtrip">roadtrip</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            14,443
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           451
+          </span>
+        </span>
+
+        <span class="length">
+          (18 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Eighteen tracks including music by 13 &amp; God, Alexander, and Arkells.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1423836256">February 13, 2015</abbr>
+    </span>
+
+    <a href="/robcol/viva-8tracks#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/672/653/fountainbymarcelduchamp-3094.jpg?rect=0,34,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Viva 8tracks!', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/672/653/fountainbymarcelduchamp-3094.jpg?rect=0,34,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Viva 8tracks!"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/robcol/viva-8tracks#smart_id=collection:staff-picks&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5762184" data-mix_name="Viva 8tracks!" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		  </div>
+</div>
+
+
+</div>
+
+
+    		<div class="mix_set_row gridview" data-smart_id="collection:homepage" data-total_pages="2">
+  <a name="collection:homepage"></a>
+  <h4 class="collection_title clear  collection tooltip_container">
+
+  <a href="/collections/homepage" title="Featured">
+
+      <span class="collecticon  i-collection"></span>
+      Featured
+
+
+  </a>
+
+
+  <div class="right">
+  </div>
+</h4>
+
+<div class="mixes  ">
+  <div class="slider">
+<div class="mix " data-id="5667509" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/royenglish/february-feel-good#smart_id=collection:homepage" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/606/399/roy8tracks-9572.png?rect=0,0,1144,1144&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'February Feel Good', false, '1144'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/606/399/roy8tracks-9572.png?rect=0,0,1144,1144&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="February Feel Good"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/royenglish/february-feel-good#smart_id=collection:homepage&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5667509" data-mix_name="February Feel Good" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/royenglish/february-feel-good#smart_id=collection:homepage" class="mix_name">
+        <strong class="propername">February Feel Good</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/valentine%27s_day" class="tag" title="valentine&#39;s day">valentine&#39;s day</a> <a href="/explore/love" class="tag" title="love">love</a> <a href="/explore/hearts" class="tag" title="hearts">hearts</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            2,159
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           88
+          </span>
+        </span>
+
+        <span class="length">35min
+          (10 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      This playlist is included in an 8tracks official collection.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1422576914">January 30, 2015</abbr>
+    </span>
+
+    <a href="/royenglish/february-feel-good#smart_id=collection:homepage" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/606/399/roy8tracks-9572.png?rect=0,0,1144,1144&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'February Feel Good', false, '1144'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/606/399/roy8tracks-9572.png?rect=0,0,1144,1144&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="February Feel Good"/>
+        </noscript>
+      
+      
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/royenglish/february-feel-good#smart_id=collection:homepage&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5667509" data-mix_name="February Feel Good" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="225394" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/duoce/bluest-blues-iii-by-duoce#smart_id=collection:homepage" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/000/953/709/54688.original-9165.jpg?rect=288,0,1712,1712&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Bluest blues III by duoce', false, '1712'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/000/953/709/54688.original-9165.jpg?rect=288,0,1712,1712&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Bluest blues III by duoce"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/duoce/bluest-blues-iii-by-duoce#smart_id=collection:homepage&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="225394" data-mix_name="Bluest blues III by duoce" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/duoce/bluest-blues-iii-by-duoce#smart_id=collection:homepage" class="mix_name">
+        <strong class="propername">Bluest blues III by duoce</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/blues" class="tag" title="blues">blues</a> <a href="/explore/blues_rock" class="tag" title="blues rock">blues rock</a> <a href="/explore/southern_rock" class="tag" title="southern rock">southern rock</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            3,084
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           284
+          </span>
+        </span>
+
+        <span class="length">7hr 8min
+          (79 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Seventy-nine tracks including music by Blackberry Smoke, Blindside Blues Band and Blues Company.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1296383452">January 30, 2011</abbr>
+    </span>
+
+    <a href="/duoce/bluest-blues-iii-by-duoce#smart_id=collection:homepage" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/000/953/709/54688.original-9165.jpg?rect=288,0,1712,1712&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Bluest blues III by duoce', false, '1712'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/000/953/709/54688.original-9165.jpg?rect=288,0,1712,1712&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Bluest blues III by duoce"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/duoce/bluest-blues-iii-by-duoce#smart_id=collection:homepage&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="225394" data-mix_name="Bluest blues III by duoce" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="4237088" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/damone/while-i-m-away#smart_id=collection:homepage" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/002/267/449/ARTWRRRK-2125.png?rect=0,0,793,793&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'While I&#39;m Away...', false, '793'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/002/267/449/ARTWRRRK-2125.png?rect=0,0,793,793&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="While I&#39;m Away..."/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/damone/while-i-m-away#smart_id=collection:homepage&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="4237088" data-mix_name="While I&#39;m Away..." title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/damone/while-i-m-away#smart_id=collection:homepage" class="mix_name">
+        <strong class="propername">While I&#39;m Away...</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/downtempo" class="tag" title="downtempo">downtempo</a> <a href="/explore/hip_hop" class="tag" title="hip hop">hip hop</a> <a href="/explore/trip-hop" class="tag" title="trip-hop">trip-hop</a> <a href="/explore/electronica" class="tag" title="electronica">electronica</a> <a href="/explore/turntablism" class="tag" title="turntablism">turntablism</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            2,313
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           187
+          </span>
+        </span>
+
+        <span class="length">1hr 35min
+          (22 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      We wander for distraction, but we travel for fulfillment.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1402531440">June 12, 2014</abbr>
+    </span>
+
+    <a href="/damone/while-i-m-away#smart_id=collection:homepage" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/002/267/449/ARTWRRRK-2125.png?rect=0,0,793,793&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'While I&#39;m Away...', false, '793'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/002/267/449/ARTWRRRK-2125.png?rect=0,0,793,793&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="While I&#39;m Away..."/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/damone/while-i-m-away#smart_id=collection:homepage&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="4237088" data-mix_name="While I&#39;m Away..." title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5735802" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/crecensio_varela8701/satisfy-my-soul#smart_id=collection:homepage" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/654/310/beach-boy-cigarro-crazy-Favim.com-1914182-8463.jpg?rect=0,0,610,610&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Satisfy My Soul', false, '610'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/654/310/beach-boy-cigarro-crazy-Favim.com-1914182-8463.jpg?rect=0,0,610,610&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Satisfy My Soul"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/crecensio_varela8701/satisfy-my-soul#smart_id=collection:homepage&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5735802" data-mix_name="Satisfy My Soul" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/crecensio_varela8701/satisfy-my-soul#smart_id=collection:homepage" class="mix_name">
+        <strong class="propername">Satisfy My Soul</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/reggae" class="tag" title="reggae">reggae</a> <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/smoke" class="tag" title="smoke">smoke</a> <a href="/explore/goodvibes" class="tag" title="goodvibes">goodvibes</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            4,105
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           275
+          </span>
+        </span>
+
+        <span class="length">15min
+          (30 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Shalom.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1423459153">February 09, 2015</abbr>
+    </span>
+
+    <a href="/crecensio_varela8701/satisfy-my-soul#smart_id=collection:homepage" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/654/310/beach-boy-cigarro-crazy-Favim.com-1914182-8463.jpg?rect=0,0,610,610&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Satisfy My Soul', false, '610'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/654/310/beach-boy-cigarro-crazy-Favim.com-1914182-8463.jpg?rect=0,0,610,610&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Satisfy My Soul"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/crecensio_varela8701/satisfy-my-soul#smart_id=collection:homepage&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5735802" data-mix_name="Satisfy My Soul" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		  </div>
+</div>
+
+
+</div>
+
+
+    		<div class="mix_set_row gridview" data-smart_id="collection:13204859:valentine-s-day" data-total_pages="26">
+  <a name="collection:13204859:valentine-s-day"></a>
+  <h4 class="collection_title clear  collection tooltip_container">
+
+  <a href="/themed-collections/collections/valentine-s-day" title="Valentine&#39;s Day">
+
+      <span class="collecticon  i-collection"></span>
+      Valentine's Day
+
+
+  </a>
+
+
+  <div class="right">
+  </div>
+</h4>
+
+<div class="mixes  ">
+  <div class="slider">
+<div class="mix " data-id="5651732" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/6-he3/binary-love-synthetic-desires-pt-2#smart_id=collection:13204859:valentine-s-day" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/595/400/bride-5861.jpg?rect=192,0,1444,1441&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Binary Love &amp; Synthetic Desires pt 2', false, '1444'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/595/400/bride-5861.jpg?rect=192,0,1444,1441&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Binary Love &amp; Synthetic Desires pt 2"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/6-he3/binary-love-synthetic-desires-pt-2#smart_id=collection:13204859:valentine-s-day&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5651732" data-mix_name="Binary Love &amp; Synthetic Desires pt 2" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/6-he3/binary-love-synthetic-desires-pt-2#smart_id=collection:13204859:valentine-s-day" class="mix_name">
+        <strong class="propername">Binary Love &amp; Synthetic Desires pt 2</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/synth_wave" class="tag" title="synth wave">synth wave</a> <a href="/explore/valentine%27s_day" class="tag" title="valentine&#39;s day">valentine&#39;s day</a> <a href="/explore/electronic" class="tag" title="electronic">electronic</a> <a href="/explore/ambient" class="tag" title="ambient">ambient</a> <a href="/explore/dark_pop" class="tag" title="dark pop">dark pop</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            6,873
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           527
+          </span>
+        </span>
+
+        <span class="length">1hr 55min
+          (40 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Darker side of electronic pop exploring themes in relationships good and bad with tracks from HTRK, FKA Twigs and Ricky Eat Acid.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1422339167">January 27, 2015</abbr>
+    </span>
+
+    <a href="/6-he3/binary-love-synthetic-desires-pt-2#smart_id=collection:13204859:valentine-s-day" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/595/400/bride-5861.jpg?rect=192,0,1444,1441&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Binary Love &amp; Synthetic Desires pt 2', false, '1444'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/595/400/bride-5861.jpg?rect=192,0,1444,1441&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Binary Love &amp; Synthetic Desires pt 2"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/6-he3/binary-love-synthetic-desires-pt-2#smart_id=collection:13204859:valentine-s-day&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5651732" data-mix_name="Binary Love &amp; Synthetic Desires pt 2" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5539641" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/cleohehn/love-not-dead#smart_id=collection:13204859:valentine-s-day" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/517/211/RedHeart-5001.jpg?rect=200,0,1200,1200&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Love Not Dead', false, '1200'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/517/211/RedHeart-5001.jpg?rect=200,0,1200,1200&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Love Not Dead"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/cleohehn/love-not-dead#smart_id=collection:13204859:valentine-s-day&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5539641" data-mix_name="Love Not Dead" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/cleohehn/love-not-dead#smart_id=collection:13204859:valentine-s-day" class="mix_name">
+        <strong class="propername">Love Not Dead</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/valentine%27s_day" class="tag" title="valentine&#39;s day">valentine&#39;s day</a> <a href="/explore/post-punk" class="tag" title="post-punk">post-punk</a> <a href="/explore/violent_femmes" class="tag" title="violent femmes">violent femmes</a> <a href="/explore/daniel_johnston" class="tag" title="daniel johnston">daniel johnston</a> <a href="/explore/the_brian_jonestown_massacre" class="tag" title="the brian jonestown massacre">the brian jonestown massacre</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            7,219
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           410
+          </span>
+        </span>
+
+        <span class="length">26min
+          (15 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      A post-punk love list.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1420824213">January 09, 2015</abbr>
+    </span>
+
+    <a href="/cleohehn/love-not-dead#smart_id=collection:13204859:valentine-s-day" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/517/211/RedHeart-5001.jpg?rect=200,0,1200,1200&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Love Not Dead', false, '1200'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/517/211/RedHeart-5001.jpg?rect=200,0,1200,1200&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Love Not Dead"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/cleohehn/love-not-dead#smart_id=collection:13204859:valentine-s-day&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5539641" data-mix_name="Love Not Dead" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5497516" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/vibemachine/rolling-on-love#smart_id=collection:13204859:valentine-s-day" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/582/803/lovE3-2915.jpg?rect=100,0,400,400&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Rolling on Love', false, '400'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/582/803/lovE3-2915.jpg?rect=100,0,400,400&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Rolling on Love"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/vibemachine/rolling-on-love#smart_id=collection:13204859:valentine-s-day&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5497516" data-mix_name="Rolling on Love" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/vibemachine/rolling-on-love#smart_id=collection:13204859:valentine-s-day" class="mix_name">
+        <strong class="propername">Rolling on Love</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/love" class="tag" title="love">love</a> <a href="/explore/valentine%27s_day" class="tag" title="valentine&#39;s day">valentine&#39;s day</a> <a href="/explore/happy" class="tag" title="happy">happy</a> <a href="/explore/sad" class="tag" title="sad">sad</a> <a href="/explore/chill" class="tag" title="chill">chill</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            23,483
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           1,175
+          </span>
+        </span>
+
+        <span class="length">1hr 11min
+          (18 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Here is your dose of loving vibes :) 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This playlist is included in an 8tracks official collection.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1422276827">January 26, 2015</abbr>
+    </span>
+
+    <a href="/vibemachine/rolling-on-love#smart_id=collection:13204859:valentine-s-day" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/582/803/lovE3-2915.jpg?rect=100,0,400,400&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Rolling on Love', false, '400'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/582/803/lovE3-2915.jpg?rect=100,0,400,400&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Rolling on Love"/>
+        </noscript>
+      
+      <span class="certification platinum" title="platinum"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/vibemachine/rolling-on-love#smart_id=collection:13204859:valentine-s-day&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5497516" data-mix_name="Rolling on Love" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="3390771" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/tamtomo/all-you-need-is-love#smart_id=collection:13204859:valentine-s-day" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/001/807/218/4b32bd4694e111e3984b12c331d64df6_8-481.jpg?rect=0,0,640,640&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'All You Need Is LOVE', false, '640'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/001/807/218/4b32bd4694e111e3984b12c331d64df6_8-481.jpg?rect=0,0,640,640&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="All You Need Is LOVE"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/tamtomo/all-you-need-is-love#smart_id=collection:13204859:valentine-s-day&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="3390771" data-mix_name="All You Need Is LOVE" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/tamtomo/all-you-need-is-love#smart_id=collection:13204859:valentine-s-day" class="mix_name">
+        <strong class="propername">All You Need Is LOVE</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/valentine%27s_day" class="tag" title="valentine&#39;s day">valentine&#39;s day</a> <a href="/explore/love" class="tag" title="love">love</a> <a href="/explore/love_songs" class="tag" title="love songs">love songs</a> <a href="/explore/sex" class="tag" title="sex">sex</a> <a href="/explore/pop" class="tag" title="pop">pop</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            25,747
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           1,615
+          </span>
+        </span>
+
+        <span class="length">3hr 32min
+          (60 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      All You Need Is LOVE: In honor of Valentine&#39;s day, we&#39;ve listed the 60 Best Love Songs Of All Time.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1392318557">February 13, 2014</abbr>
+    </span>
+
+    <a href="/tamtomo/all-you-need-is-love#smart_id=collection:13204859:valentine-s-day" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/001/807/218/4b32bd4694e111e3984b12c331d64df6_8-481.jpg?rect=0,0,640,640&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'All You Need Is LOVE', false, '640'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/001/807/218/4b32bd4694e111e3984b12c331d64df6_8-481.jpg?rect=0,0,640,640&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="All You Need Is LOVE"/>
+        </noscript>
+      
+      <span class="certification platinum" title="platinum"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/tamtomo/all-you-need-is-love#smart_id=collection:13204859:valentine-s-day&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="3390771" data-mix_name="All You Need Is LOVE" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		  </div>
+</div>
+
+
+</div>
+
+
+    		<div class="mix_set_row gridview" data-smart_id="collection:staff-picks" data-total_pages="50">
+  <a name="collection:staff-picks"></a>
+  <h4 class="collection_title clear  collection tooltip_container">
+
+  <a href="/collections/staff-picks" title="Staff picks">
+
+      <span class="collecticon  i-collection"></span>
+      Staff picks
+
+
+  </a>
+
+
+  <div class="right">
+  </div>
+</h4>
+
+<div class="mixes  ">
+  <div class="slider">
+<div class="mix " data-id="757315" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/superbassomatic/paul-s-boutique-revisited-in-memory-of-mca#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/001/176/081/82715.original-2702.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Paul&#39;s Boutique... revisited (in memory of MCA)', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/001/176/081/82715.original-2702.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Paul&#39;s Boutique... revisited (in memory of MCA)"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/superbassomatic/paul-s-boutique-revisited-in-memory-of-mca#smart_id=collection:staff-picks&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="757315" data-mix_name="Paul&#39;s Boutique... revisited (in memory of MCA)" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/superbassomatic/paul-s-boutique-revisited-in-memory-of-mca#smart_id=collection:staff-picks" class="mix_name">
+        <strong class="propername">Paul&#39;s Boutique... revisited (in memory of MCA)</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/funk" class="tag" title="funk">funk</a> <a href="/explore/original_samples" class="tag" title="original samples">original samples</a> <a href="/explore/70s" class="tag" title="70s">70s</a> <a href="/explore/%23mc045" class="tag" title="#mc045">#mc045</a> <a href="/explore/mixchallenge" class="tag" title="mixchallenge">mixchallenge</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            1,380
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           125
+          </span>
+        </span>
+
+        <span class="length">1hr 36min
+          (25 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      In 1989, the Beastie Boys released their second album, &quot;Paul&#39;s Boutique&quot;, a sonic collage of a whopping 105 song samples put together by the Boys and t...
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1336224641">May 05, 2012</abbr>
+    </span>
+
+    <a href="/superbassomatic/paul-s-boutique-revisited-in-memory-of-mca#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/001/176/081/82715.original-2702.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Paul&#39;s Boutique... revisited (in memory of MCA)', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/001/176/081/82715.original-2702.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Paul&#39;s Boutique... revisited (in memory of MCA)"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/superbassomatic/paul-s-boutique-revisited-in-memory-of-mca#smart_id=collection:staff-picks&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="757315" data-mix_name="Paul&#39;s Boutique... revisited (in memory of MCA)" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5310298" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/riadrakeford/lovely-balance#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/002/879/385/lovely_balance-4746.jpg?rect=0,17,505,505&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Lovely Balance', false, '505'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/002/879/385/lovely_balance-4746.jpg?rect=0,17,505,505&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Lovely Balance"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/riadrakeford/lovely-balance#smart_id=collection:staff-picks&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5310298" data-mix_name="Lovely Balance" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/riadrakeford/lovely-balance#smart_id=collection:staff-picks" class="mix_name">
+        <strong class="propername">Lovely Balance</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/study" class="tag" title="study">study</a> <a href="/explore/chillwave" class="tag" title="chillwave">chillwave</a> <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/happy" class="tag" title="happy">happy</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            23,099
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           926
+          </span>
+        </span>
+
+        <span class="length">1hr 48min
+          (27 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Songs I listen to when I&#39;m having a bad day.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1418130878">December 09, 2014</abbr>
+    </span>
+
+    <a href="/riadrakeford/lovely-balance#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/002/879/385/lovely_balance-4746.jpg?rect=0,17,505,505&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Lovely Balance', false, '505'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/002/879/385/lovely_balance-4746.jpg?rect=0,17,505,505&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Lovely Balance"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/riadrakeford/lovely-balance#smart_id=collection:staff-picks&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5310298" data-mix_name="Lovely Balance" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5168811" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/robcol/into-my-arms#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/426/080/maxresdefault-3351.jpg?rect=280,0,720,720&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'into my arms', false, '720'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/426/080/maxresdefault-3351.jpg?rect=280,0,720,720&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="into my arms"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/robcol/into-my-arms#smart_id=collection:staff-picks&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5168811" data-mix_name="into my arms" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/robcol/into-my-arms#smart_id=collection:staff-picks" class="mix_name">
+        <strong class="propername">into my arms</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/sleep" class="tag" title="sleep">sleep</a> <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/insomnia" class="tag" title="insomnia">insomnia</a> <a href="/explore/study" class="tag" title="study">study</a> <a href="/explore/sad" class="tag" title="sad">sad</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            8,362
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           219
+          </span>
+        </span>
+
+        <span class="length">41min
+          (17 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Sleeping Playlist: Andrew Bird, Cherry Ghost, Conor Oberst, Nick Cave .
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1418920453">December 18, 2014</abbr>
+    </span>
+
+    <a href="/robcol/into-my-arms#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/426/080/maxresdefault-3351.jpg?rect=280,0,720,720&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'into my arms', false, '720'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/426/080/maxresdefault-3351.jpg?rect=280,0,720,720&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="into my arms"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/robcol/into-my-arms#smart_id=collection:staff-picks&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5168811" data-mix_name="into my arms" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5762184" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/robcol/viva-8tracks#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/672/653/fountainbymarcelduchamp-3094.jpg?rect=0,34,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Viva 8tracks!', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/672/653/fountainbymarcelduchamp-3094.jpg?rect=0,34,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Viva 8tracks!"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/robcol/viva-8tracks#smart_id=collection:staff-picks&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5762184" data-mix_name="Viva 8tracks!" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/robcol/viva-8tracks#smart_id=collection:staff-picks" class="mix_name">
+        <strong class="propername">Viva 8tracks!</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/alternative_rock" class="tag" title="alternative rock">alternative rock</a> <a href="/explore/roadtrip" class="tag" title="roadtrip">roadtrip</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            14,443
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           451
+          </span>
+        </span>
+
+        <span class="length">
+          (18 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Eighteen tracks including music by 13 &amp; God, Alexander, and Arkells.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1423836256">February 13, 2015</abbr>
+    </span>
+
+    <a href="/robcol/viva-8tracks#smart_id=collection:staff-picks" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/672/653/fountainbymarcelduchamp-3094.jpg?rect=0,34,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Viva 8tracks!', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/672/653/fountainbymarcelduchamp-3094.jpg?rect=0,34,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Viva 8tracks!"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/robcol/viva-8tracks#smart_id=collection:staff-picks&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5762184" data-mix_name="Viva 8tracks!" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		  </div>
+</div>
+
+
+</div>
+
+
+    		<div class="mix_set_row gridview" data-smart_id="all" data-total_pages="469249">
+  <a name="all"></a>
+  <h4 class="collection_title clear hot all tooltip_container">
+
+  <a href="/explore/all/hot" title="Trending">
+
+      <span class="collecticon i-hot i-all"></span>
+      Trending
+
+
+  </a>
+
+
+  <div class="right">
+  </div>
+</h4>
+
+<div class="mixes  ">
+  <div class="slider">
+<div class="mix " data-id="5801217" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/miktsukami/that-girl-s-a-problem#smart_id=all" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/699/649/oka-9131.jpg?rect=0,114,431,431&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'that girl&#39;s a problem ', false, '431'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/699/649/oka-9131.jpg?rect=0,114,431,431&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="that girl&#39;s a problem "/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/miktsukami/that-girl-s-a-problem#smart_id=all&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5801217" data-mix_name="that girl&#39;s a problem " title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/miktsukami/that-girl-s-a-problem#smart_id=all" class="mix_name">
+        <strong class="propername">that girl&#39;s a problem </strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/femme_fatale" class="tag" title="femme fatale">femme fatale</a> <a href="/explore/feminism" class="tag" title="feminism">feminism</a> <a href="/explore/queens" class="tag" title="queens">queens</a> <a href="/explore/writing" class="tag" title="writing">writing</a> <a href="/explore/female_vocalists" class="tag" title="female vocalists">female vocalists</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            1,177
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           118
+          </span>
+        </span>
+
+        <span class="length">33min
+          (14 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      a mix for the women that you should ｆｅａｒ
+
+that ones that tear down creation, just to see if they can.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424318563">February 19, 2015</abbr>
+    </span>
+
+    <a href="/miktsukami/that-girl-s-a-problem#smart_id=all" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/699/649/oka-9131.jpg?rect=0,114,431,431&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'that girl&#39;s a problem ', false, '431'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/699/649/oka-9131.jpg?rect=0,114,431,431&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="that girl&#39;s a problem "/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/miktsukami/that-girl-s-a-problem#smart_id=all&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5801217" data-mix_name="that girl&#39;s a problem " title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5791089" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/zanzibarrio/mashed-up-like-taters#smart_id=all" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/693/692/tron-wars-darth-vader-tron-mashup-art-7279.jpg?rect=0,0,1000,1000&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Mashed Up Like &#39;Taters', false, '1000'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/693/692/tron-wars-darth-vader-tron-mashup-art-7279.jpg?rect=0,0,1000,1000&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Mashed Up Like &#39;Taters"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/zanzibarrio/mashed-up-like-taters#smart_id=all&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5791089" data-mix_name="Mashed Up Like &#39;Taters" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/zanzibarrio/mashed-up-like-taters#smart_id=all" class="mix_name">
+        <strong class="propername">Mashed Up Like &#39;Taters</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/mashup" class="tag" title="mashup">mashup</a> <a href="/explore/pop_mashups" class="tag" title="pop mashups">pop mashups</a> <a href="/explore/rap_mashups" class="tag" title="rap mashups">rap mashups</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            5,111
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           599
+          </span>
+        </span>
+
+        <span class="length">2hr 54min
+          (44 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Mashups as far as the eye can see.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424212218">February 17, 2015</abbr>
+    </span>
+
+    <a href="/zanzibarrio/mashed-up-like-taters#smart_id=all" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/693/692/tron-wars-darth-vader-tron-mashup-art-7279.jpg?rect=0,0,1000,1000&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Mashed Up Like &#39;Taters', false, '1000'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/693/692/tron-wars-darth-vader-tron-mashup-art-7279.jpg?rect=0,0,1000,1000&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Mashed Up Like &#39;Taters"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/zanzibarrio/mashed-up-like-taters#smart_id=all&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5791089" data-mix_name="Mashed Up Like &#39;Taters" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5795929" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/ladyleyn/your-mess-is-mine#smart_id=all" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/696/046/CLEXA_PLAYLIST-3378.png?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'your mess is mine', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/696/046/CLEXA_PLAYLIST-3378.png?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="your mess is mine"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/ladyleyn/your-mess-is-mine#smart_id=all&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5795929" data-mix_name="your mess is mine" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/ladyleyn/your-mess-is-mine#smart_id=all" class="mix_name">
+        <strong class="propername">your mess is mine</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/clexa" class="tag" title="clexa">clexa</a> <a href="/explore/the_100" class="tag" title="the 100">the 100</a> <a href="/explore/lexa" class="tag" title="lexa">lexa</a> <a href="/explore/clarke_griffin" class="tag" title="clarke griffin">clarke griffin</a> <a href="/explore/commander_lexa" class="tag" title="commander lexa">commander lexa</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            732
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           102
+          </span>
+        </span>
+
+        <span class="length">29min
+          (10 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      clexa ruined me.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424239856">February 18, 2015</abbr>
+    </span>
+
+    <a href="/ladyleyn/your-mess-is-mine#smart_id=all" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/696/046/CLEXA_PLAYLIST-3378.png?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'your mess is mine', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/696/046/CLEXA_PLAYLIST-3378.png?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="your mess is mine"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/ladyleyn/your-mess-is-mine#smart_id=all&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5795929" data-mix_name="your mess is mine" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5798343" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/handsomedevil/ghost-lights#smart_id=all" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/698/219/Colemix-9892.png?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'ghost lights', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/698/219/Colemix-9892.png?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="ghost lights"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/handsomedevil/ghost-lights#smart_id=all&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5798343" data-mix_name="ghost lights" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/handsomedevil/ghost-lights#smart_id=all" class="mix_name">
+        <strong class="propername">ghost lights</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/cole" class="tag" title="cole">cole</a> <a href="/explore/dragon_age" class="tag" title="dragon age">dragon age</a> <a href="/explore/dragon_age%3A_inquisition" class="tag" title="dragon age: inquisition">dragon age: inquisition</a> <a href="/explore/cole_dragon_age" class="tag" title="cole dragon age">cole dragon age</a> <a href="/explore/da%3Ai" class="tag" title="da:i">da:i</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            261
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           49
+          </span>
+        </span>
+
+        <span class="length">21min
+          (8 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      His name is Cole.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424296010">February 18, 2015</abbr>
+    </span>
+
+    <a href="/handsomedevil/ghost-lights#smart_id=all" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/698/219/Colemix-9892.png?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'ghost lights', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/698/219/Colemix-9892.png?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="ghost lights"/>
+        </noscript>
+      
+      <span class="certification gem" title="gem"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/handsomedevil/ghost-lights#smart_id=all&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5798343" data-mix_name="ghost lights" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		  </div>
+</div>
+
+  <a class="page_horizontal right  " href="/explore/all/hot" rel="nofollow"><span class="i-chevron-right"></span></a>
+  <a class="page_horizontal left   disabled" href="#" rel="nofollow"><span class="i-chevron-left"></span></a>
+
+</div>
+
+
+    		<div class="mix_set_row gridview" data-smart_id="all:recent" data-total_pages="469361">
+  <a name="all:recent"></a>
+  <h4 class="collection_title clear recent all tooltip_container">
+
+  <a href="/explore/all/recent" title="Newest">
+
+      <span class="collecticon i-recent i-all"></span>
+      Newest
+
+
+  </a>
+
+
+  <div class="right">
+  </div>
+</h4>
+
+<div class="mixes  ">
+  <div class="slider">
+<div class="mix " data-id="5804943" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/love_apathy/bad-city#smart_id=all:recent" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/702/121/agirlwalkshomealoneatnight_iranianfilmdaily-5636.jpg?rect=322,0,1276,1276&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Bad City', false, '1276'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/702/121/agirlwalkshomealoneatnight_iranianfilmdaily-5636.jpg?rect=322,0,1276,1276&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Bad City"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/love_apathy/bad-city#smart_id=all:recent&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5804943" data-mix_name="Bad City" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/love_apathy/bad-city#smart_id=all:recent" class="mix_name">
+        <strong class="propername">Bad City</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/dark" class="tag" title="dark">dark</a> <a href="/explore/alternative" class="tag" title="alternative">alternative</a> <a href="/explore/electronic" class="tag" title="electronic">electronic</a> <a href="/explore/melancholy" class="tag" title="melancholy">melancholy</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            0
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           0
+          </span>
+        </span>
+
+        <span class="length">1hr 14min
+          (15 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      15 tracks for walking home alone at night.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424380390">February 19, 2015</abbr>
+    </span>
+
+    <a href="/love_apathy/bad-city#smart_id=all:recent" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/702/121/agirlwalkshomealoneatnight_iranianfilmdaily-5636.jpg?rect=322,0,1276,1276&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Bad City', false, '1276'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/702/121/agirlwalkshomealoneatnight_iranianfilmdaily-5636.jpg?rect=322,0,1276,1276&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Bad City"/>
+        </noscript>
+      
+      
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/love_apathy/bad-city#smart_id=all:recent&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5804943" data-mix_name="Bad City" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5805003" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/lunartunes/upbeat-n-feelin-good#smart_id=all:recent" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/702/110/Hypolight-1878.jpg?rect=0,0,900,900&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Upbeat n Feelin&#39; Good', false, '900'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/702/110/Hypolight-1878.jpg?rect=0,0,900,900&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Upbeat n Feelin&#39; Good"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/lunartunes/upbeat-n-feelin-good#smart_id=all:recent&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5805003" data-mix_name="Upbeat n Feelin&#39; Good" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/lunartunes/upbeat-n-feelin-good#smart_id=all:recent" class="mix_name">
+        <strong class="propername">Upbeat n Feelin&#39; Good</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/summer" class="tag" title="summer">summer</a> <a href="/explore/fun" class="tag" title="fun">fun</a> <a href="/explore/upbeat" class="tag" title="upbeat">upbeat</a> <a href="/explore/happy" class="tag" title="happy">happy</a> <a href="/explore/chill" class="tag" title="chill">chill</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            0
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           0
+          </span>
+        </span>
+
+        <span class="length">22min
+          (9 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Summer is nearly here :))) Some of my guilty pleasures pop up.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424380370">February 19, 2015</abbr>
+    </span>
+
+    <a href="/lunartunes/upbeat-n-feelin-good#smart_id=all:recent" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/702/110/Hypolight-1878.jpg?rect=0,0,900,900&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Upbeat n Feelin&#39; Good', false, '900'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/702/110/Hypolight-1878.jpg?rect=0,0,900,900&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Upbeat n Feelin&#39; Good"/>
+        </noscript>
+      
+      
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/lunartunes/upbeat-n-feelin-good#smart_id=all:recent&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5805003" data-mix_name="Upbeat n Feelin&#39; Good" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5804340" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/buddyhclly/i-love-you#smart_id=all:recent" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/701/634/tumblr_mxumghvwQq1r8uem4o1_1280-7637.jpg?rect=0,0,834,834&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'i love you,', false, '834'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/701/634/tumblr_mxumghvwQq1r8uem4o1_1280-7637.jpg?rect=0,0,834,834&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="i love you,"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/buddyhclly/i-love-you#smart_id=all:recent&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5804340" data-mix_name="i love you," title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/buddyhclly/i-love-you#smart_id=all:recent" class="mix_name">
+        <strong class="propername">i love you,</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/lana_del_rey" class="tag" title="lana del rey">lana del rey</a> <a href="/explore/lights" class="tag" title="lights">lights</a> <a href="/explore/for_the_foxes" class="tag" title="for the foxes">for the foxes</a> <a href="/explore/love" class="tag" title="love">love</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            0
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           0
+          </span>
+        </span>
+
+        <span class="length">35min
+          (9 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      i wanna die in love.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424380295">February 19, 2015</abbr>
+    </span>
+
+    <a href="/buddyhclly/i-love-you#smart_id=all:recent" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/701/634/tumblr_mxumghvwQq1r8uem4o1_1280-7637.jpg?rect=0,0,834,834&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'i love you,', false, '834'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/701/634/tumblr_mxumghvwQq1r8uem4o1_1280-7637.jpg?rect=0,0,834,834&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="i love you,"/>
+        </noscript>
+      
+      
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/buddyhclly/i-love-you#smart_id=all:recent&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5804340" data-mix_name="i love you," title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5804385" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/xmadeofmusic/too-close-for-comfort#smart_id=all:recent" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/701/922/tumblr_meg74flvIK1qfnok0o1_500-3907.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'too close for comfort', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/701/922/tumblr_meg74flvIK1qfnok0o1_500-3907.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="too close for comfort"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/xmadeofmusic/too-close-for-comfort#smart_id=all:recent&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5804385" data-mix_name="too close for comfort" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/xmadeofmusic/too-close-for-comfort#smart_id=all:recent" class="mix_name">
+        <strong class="propername">too close for comfort</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/underground" class="tag" title="underground">underground</a> <a href="/explore/angry%2Fsad" class="tag" title="angry/sad">angry/sad</a> <a href="/explore/dream_pop" class="tag" title="dream pop">dream pop</a> <a href="/explore/kind_of_rnb" class="tag" title="kind of rnb">kind of rnb</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            0
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           0
+          </span>
+        </span>
+
+        <span class="length">24min
+          (8 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      it&#39;s a bit of a mix.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424380286">February 19, 2015</abbr>
+    </span>
+
+    <a href="/xmadeofmusic/too-close-for-comfort#smart_id=all:recent" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/701/922/tumblr_meg74flvIK1qfnok0o1_500-3907.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'too close for comfort', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/701/922/tumblr_meg74flvIK1qfnok0o1_500-3907.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="too close for comfort"/>
+        </noscript>
+      
+      
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/xmadeofmusic/too-close-for-comfort#smart_id=all:recent&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5804385" data-mix_name="too close for comfort" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		  </div>
+</div>
+
+  <a class="page_horizontal right  " href="/explore/all/recent" rel="nofollow"><span class="i-chevron-right"></span></a>
+  <a class="page_horizontal left   disabled" href="#" rel="nofollow"><span class="i-chevron-left"></span></a>
+
+</div>
+
+
+    		<div class="mix_set_row gridview" data-smart_id="tags:indie_rock" data-total_pages="32203">
+  <a name="tags:indie_rock"></a>
+  <h4 class="collection_title clear hot tags tooltip_container">
+
+  <a href="/explore/indie_rock/hot" title="Indie rock radio">
+
+      <span class="collecticon i-hot i-tags"></span>
+      Indie rock
+
+
+  </a>
+
+
+  <div class="right">
+  </div>
+</h4>
+
+<div class="mixes  ">
+  <div class="slider">
+<div class="mix " data-id="5541182" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/chevrolet-colorado/chevrolet-colorado-adventure#smart_id=tags:indie_rock" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.com/imgix_proxy/5541182/i/008/542/819/Chevy_CoverArt_v1-3902.jpg?rect=0,0,1040,1040&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Chevrolet Colorado Adventure', false, '1040'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.com/imgix_proxy/5541182/i/008/542/819/Chevy_CoverArt_v1-3902.jpg?rect=0,0,1040,1040&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Chevrolet Colorado Adventure"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/chevrolet-colorado/chevrolet-colorado-adventure#smart_id=tags:indie_rock&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5541182" data-mix_name="Chevrolet Colorado Adventure" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/chevrolet-colorado/chevrolet-colorado-adventure#smart_id=tags:indie_rock" class="mix_name">
+        <strong class="propername">Chevrolet Colorado Adventure</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/driving" class="tag" title="driving">driving</a> <a href="/explore/adventure" class="tag" title="adventure">adventure</a> <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/indie_rock" class="tag" title="indie rock">indie rock</a> <a href="/explore/hiking" class="tag" title="hiking">hiking</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            76,493
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           3,035
+          </span>
+        </span>
+
+        <span class="length">11min
+          (28 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Pick up and go, no maps, no destination, just the drive.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1421675540">January 19, 2015</abbr>
+    </span>
+
+    <a href="/chevrolet-colorado/chevrolet-colorado-adventure#smart_id=tags:indie_rock" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.com/imgix_proxy/5541182/i/008/542/819/Chevy_CoverArt_v1-3902.jpg?rect=0,0,1040,1040&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Chevrolet Colorado Adventure', false, '1040'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.com/imgix_proxy/5541182/i/008/542/819/Chevy_CoverArt_v1-3902.jpg?rect=0,0,1040,1040&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Chevrolet Colorado Adventure"/>
+        </noscript>
+      
+      <span class="certification platinum" title="platinum"></span>
+      <span class="sponsored" title="Sponsored mix" title="Sponsored"></span>
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/chevrolet-colorado/chevrolet-colorado-adventure#smart_id=tags:indie_rock&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5541182" data-mix_name="Chevrolet Colorado Adventure" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5784370" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/heyem/good-music-for-bad-days#smart_id=tags:indie_rock" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/687/975/tumblr_n7ygfxDxS01rcrcdeo1_500-2487.jpg?rect=6,0,488,488&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'good music for bad days', false, '488'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/687/975/tumblr_n7ygfxDxS01rcrcdeo1_500-2487.jpg?rect=6,0,488,488&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="good music for bad days"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/heyem/good-music-for-bad-days#smart_id=tags:indie_rock&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5784370" data-mix_name="good music for bad days" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/heyem/good-music-for-bad-days#smart_id=tags:indie_rock" class="mix_name">
+        <strong class="propername">good music for bad days</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/indie_rock" class="tag" title="indie rock">indie rock</a> <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/happy" class="tag" title="happy">happy</a> <a href="/explore/upbeat" class="tag" title="upbeat">upbeat</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            4,996
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           293
+          </span>
+        </span>
+
+        <span class="length">30min
+          (11 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      indie songs which will make you happy and want to dance
+[will be adding to this mix!].
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424104369">February 16, 2015</abbr>
+    </span>
+
+    <a href="/heyem/good-music-for-bad-days#smart_id=tags:indie_rock" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/687/975/tumblr_n7ygfxDxS01rcrcdeo1_500-2487.jpg?rect=6,0,488,488&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'good music for bad days', false, '488'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/687/975/tumblr_n7ygfxDxS01rcrcdeo1_500-2487.jpg?rect=6,0,488,488&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="good music for bad days"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/heyem/good-music-for-bad-days#smart_id=tags:indie_rock&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5784370" data-mix_name="good music for bad days" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5783872" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/the-suburbs/no-diggity#smart_id=tags:indie_rock" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/687/619/result-4190.jpg?rect=10,0,400,400&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'no diggity', false, '400'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/687/619/result-4190.jpg?rect=10,0,400,400&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="no diggity"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/the-suburbs/no-diggity#smart_id=tags:indie_rock&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5783872" data-mix_name="no diggity" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/the-suburbs/no-diggity#smart_id=tags:indie_rock" class="mix_name">
+        <strong class="propername">no diggity</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/indie_rock" class="tag" title="indie rock">indie rock</a> <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/chillwave" class="tag" title="chillwave">chillwave</a> <a href="/explore/electronic" class="tag" title="electronic">electronic</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            2,201
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           118
+          </span>
+        </span>
+
+        <span class="length">29min
+          (9 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      a collection of songs that i listen to during night.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424097369">February 16, 2015</abbr>
+    </span>
+
+    <a href="/the-suburbs/no-diggity#smart_id=tags:indie_rock" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/687/619/result-4190.jpg?rect=10,0,400,400&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'no diggity', false, '400'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/687/619/result-4190.jpg?rect=10,0,400,400&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="no diggity"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/the-suburbs/no-diggity#smart_id=tags:indie_rock&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5783872" data-mix_name="no diggity" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5786643" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/pepsico/she-hits-like-ecstasy#smart_id=tags:indie_rock" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/689/513/no_chill-9066.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'she hits like ecstasy', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/689/513/no_chill-9066.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="she hits like ecstasy"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/pepsico/she-hits-like-ecstasy#smart_id=tags:indie_rock&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5786643" data-mix_name="she hits like ecstasy" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/pepsico/she-hits-like-ecstasy#smart_id=tags:indie_rock" class="mix_name">
+        <strong class="propername">she hits like ecstasy</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/alternative_rock" class="tag" title="alternative rock">alternative rock</a> <a href="/explore/indie_rock" class="tag" title="indie rock">indie rock</a> <a href="/explore/indie_pop" class="tag" title="indie pop">indie pop</a> <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/alternative" class="tag" title="alternative">alternative</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            3,948
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           179
+          </span>
+        </span>
+
+        <span class="length">40min
+          (11 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424123185">February 16, 2015</abbr>
+    </span>
+
+    <a href="/pepsico/she-hits-like-ecstasy#smart_id=tags:indie_rock" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/689/513/no_chill-9066.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'she hits like ecstasy', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/689/513/no_chill-9066.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="she hits like ecstasy"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/pepsico/she-hits-like-ecstasy#smart_id=tags:indie_rock&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5786643" data-mix_name="she hits like ecstasy" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		  </div>
+</div>
+
+  <a class="page_horizontal right  " href="/explore/indie_rock/hot" rel="nofollow"><span class="i-chevron-right"></span></a>
+  <a class="page_horizontal left   disabled" href="#" rel="nofollow"><span class="i-chevron-left"></span></a>
+
+</div>
+
+
+    		<div class="mix_set_row gridview" data-smart_id="tags:hip_hop" data-total_pages="19161">
+  <a name="tags:hip_hop"></a>
+  <h4 class="collection_title clear hot tags tooltip_container">
+
+  <a href="/explore/hip_hop/hot" title="Hip hop radio">
+
+      <span class="collecticon i-hot i-tags"></span>
+      Hip hop
+
+
+  </a>
+
+
+  <div class="right">
+  </div>
+</h4>
+
+<div class="mixes  ">
+  <div class="slider">
+<div class="mix " data-id="5798625" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/harmonicvibration/harmonious-hundred-rap-revisited#smart_id=tags:hip_hop" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/697/753/tumblr_mriad8NONt1s388x7o1_500-209.gif?rect=5,0,489,489&q=65&fit=max&w=200&h=200', 'cover', 'Harmonious Hundred: Rap Revisited', false, '489'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/697/753/tumblr_mriad8NONt1s388x7o1_500-209.gif?rect=5,0,489,489&q=65&fit=max&w=200&h=200" class="cover" alt="Harmonious Hundred: Rap Revisited"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/harmonicvibration/harmonious-hundred-rap-revisited#smart_id=tags:hip_hop&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5798625" data-mix_name="Harmonious Hundred: Rap Revisited" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/harmonicvibration/harmonious-hundred-rap-revisited#smart_id=tags:hip_hop" class="mix_name">
+        <strong class="propername">Harmonious Hundred: Rap Revisited</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/hip_hop" class="tag" title="hip hop">hip hop</a> <a href="/explore/electronic" class="tag" title="electronic">electronic</a> <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/rap" class="tag" title="rap">rap</a> <a href="/explore/remix" class="tag" title="remix">remix</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            2,267
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           112
+          </span>
+        </span>
+
+        <span class="length">43min
+          (11 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Part 5 of my 100th mix; this one has all your favorites from the Rap Remixed series, with a special brand new treat a couple of songs in! 
+
+Find the fu...
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424292591">February 18, 2015</abbr>
+    </span>
+
+    <a href="/harmonicvibration/harmonious-hundred-rap-revisited#smart_id=tags:hip_hop" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/697/753/tumblr_mriad8NONt1s388x7o1_500-209.gif?rect=5,0,489,489&q=65&fit=max&w=200&h=200', 'cover', 'Harmonious Hundred: Rap Revisited', false, '489'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/697/753/tumblr_mriad8NONt1s388x7o1_500-209.gif?rect=5,0,489,489&q=65&fit=max&w=200&h=200" class="cover" alt="Harmonious Hundred: Rap Revisited"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/harmonicvibration/harmonious-hundred-rap-revisited#smart_id=tags:hip_hop&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5798625" data-mix_name="Harmonious Hundred: Rap Revisited" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5784755" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/olivia/do-d#smart_id=tags:hip_hop" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/688/435/tumblr_nbpt47p9tk1rezizro1_1280-9837.jpg?rect=142,0,896,896&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'doɥ dᴉɥ', false, '896'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/688/435/tumblr_nbpt47p9tk1rezizro1_1280-9837.jpg?rect=142,0,896,896&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="doɥ dᴉɥ"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/olivia/do-d#smart_id=tags:hip_hop&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5784755" data-mix_name="doɥ dᴉɥ" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/olivia/do-d#smart_id=tags:hip_hop" class="mix_name">
+        <strong class="propername">doɥ dᴉɥ</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/hip_hop" class="tag" title="hip hop">hip hop</a> <a href="/explore/rap" class="tag" title="rap">rap</a> <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/new" class="tag" title="new">new</a> <a href="/explore/rnb" class="tag" title="rnb">rnb</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            7,203
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           284
+          </span>
+        </span>
+
+        <span class="length">1hr 5min
+          (23 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      cause I&#39;m going through a rap phase rn, oops.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424110625">February 16, 2015</abbr>
+    </span>
+
+    <a href="/olivia/do-d#smart_id=tags:hip_hop" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/688/435/tumblr_nbpt47p9tk1rezizro1_1280-9837.jpg?rect=142,0,896,896&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'doɥ dᴉɥ', false, '896'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/688/435/tumblr_nbpt47p9tk1rezizro1_1280-9837.jpg?rect=142,0,896,896&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="doɥ dᴉɥ"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/olivia/do-d#smart_id=tags:hip_hop&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5784755" data-mix_name="doɥ dᴉɥ" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5768948" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/the-orange-mix-tape/the-orange-mix-tape-vol-16#smart_id=tags:hip_hop" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/677/026/b15825ee9c7c82c63cbce926b9e5b05f-9117.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'The Orange Mix Tape vol 16. ', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/677/026/b15825ee9c7c82c63cbce926b9e5b05f-9117.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="The Orange Mix Tape vol 16. "/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/the-orange-mix-tape/the-orange-mix-tape-vol-16#smart_id=tags:hip_hop&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5768948" data-mix_name="The Orange Mix Tape vol 16. " title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/the-orange-mix-tape/the-orange-mix-tape-vol-16#smart_id=tags:hip_hop" class="mix_name">
+        <strong class="propername">The Orange Mix Tape vol 16. </strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/hip_hop" class="tag" title="hip hop">hip hop</a> <a href="/explore/jazz" class="tag" title="jazz">jazz</a> <a href="/explore/underground" class="tag" title="underground">underground</a> <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/study" class="tag" title="study">study</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            3,478
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           136
+          </span>
+        </span>
+
+        <span class="length">1hr 12min
+          (21 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      21 jazzy, underground hip-hop tracks you can vibe to.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1423910861">February 14, 2015</abbr>
+    </span>
+
+    <a href="/the-orange-mix-tape/the-orange-mix-tape-vol-16#smart_id=tags:hip_hop" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/677/026/b15825ee9c7c82c63cbce926b9e5b05f-9117.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'The Orange Mix Tape vol 16. ', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/677/026/b15825ee9c7c82c63cbce926b9e5b05f-9117.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="The Orange Mix Tape vol 16. "/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/the-orange-mix-tape/the-orange-mix-tape-vol-16#smart_id=tags:hip_hop&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5768948" data-mix_name="The Orange Mix Tape vol 16. " title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5184636" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/odinganimako/that-s-my-sh-t#smart_id=tags:hip_hop" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/612/867/tumblr_ngmb5xtWXe1r09wbpo1_1280-9681.jpg?rect=0,190,600,600&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'That&#39;s My Sh*t', false, '600'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/612/867/tumblr_ngmb5xtWXe1r09wbpo1_1280-9681.jpg?rect=0,190,600,600&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="That&#39;s My Sh*t"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/odinganimako/that-s-my-sh-t#smart_id=tags:hip_hop&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5184636" data-mix_name="That&#39;s My Sh*t" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/odinganimako/that-s-my-sh-t#smart_id=tags:hip_hop" class="mix_name">
+        <strong class="propername">That&#39;s My Sh*t</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/hip_hop" class="tag" title="hip hop">hip hop</a> <a href="/explore/r%26b" class="tag" title="r&amp;b">r&amp;b</a> <a href="/explore/work" class="tag" title="work">work</a> <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/new" class="tag" title="new">new</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            1,812
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           5,596
+          </span>
+        </span>
+
+        <span class="length">3hr 58min
+          (67 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Over 4 hours of dopeness.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1422705909">January 31, 2015</abbr>
+    </span>
+
+    <a href="/odinganimako/that-s-my-sh-t#smart_id=tags:hip_hop" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/612/867/tumblr_ngmb5xtWXe1r09wbpo1_1280-9681.jpg?rect=0,190,600,600&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'That&#39;s My Sh*t', false, '600'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/612/867/tumblr_ngmb5xtWXe1r09wbpo1_1280-9681.jpg?rect=0,190,600,600&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="That&#39;s My Sh*t"/>
+        </noscript>
+      
+      <span class="certification platinum" title="platinum"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/odinganimako/that-s-my-sh-t#smart_id=tags:hip_hop&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5184636" data-mix_name="That&#39;s My Sh*t" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		  </div>
+</div>
+
+  <a class="page_horizontal right  " href="/explore/hip_hop/hot" rel="nofollow"><span class="i-chevron-right"></span></a>
+  <a class="page_horizontal left   disabled" href="#" rel="nofollow"><span class="i-chevron-left"></span></a>
+
+</div>
+
+
+    		<div class="mix_set_row gridview" data-smart_id="tags:country" data-total_pages="4757">
+  <a name="tags:country"></a>
+  <h4 class="collection_title clear hot tags tooltip_container">
+
+  <a href="/explore/country/hot" title="Country radio">
+
+      <span class="collecticon i-hot i-tags"></span>
+      Country
+
+
+  </a>
+
+
+  <div class="right">
+  </div>
+</h4>
+
+<div class="mixes  ">
+  <div class="slider">
+<div class="mix " data-id="5799989" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/anon-100000083496972/it-was-a-summer-in-my-favorite-jeans#smart_id=tags:country" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/698/752/10932581_399292710233307_1687519947_n-860.jpg?rect=0,0,640,640&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'It Was A Summer In My Favorite Jeans', false, '640'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/698/752/10932581_399292710233307_1687519947_n-860.jpg?rect=0,0,640,640&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="It Was A Summer In My Favorite Jeans"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/anon-100000083496972/it-was-a-summer-in-my-favorite-jeans#smart_id=tags:country&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5799989" data-mix_name="It Was A Summer In My Favorite Jeans" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/anon-100000083496972/it-was-a-summer-in-my-favorite-jeans#smart_id=tags:country" class="mix_name">
+        <strong class="propername">It Was A Summer In My Favorite Jeans</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/country" class="tag" title="country">country</a> <a href="/explore/pump_up" class="tag" title="pump up">pump up</a> <a href="/explore/upbeat" class="tag" title="upbeat">upbeat</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            800
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           15
+          </span>
+        </span>
+
+        <span class="length">36min
+          (10 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Roll the windows down and feel the bass vibrate under your seat.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424304185">February 19, 2015</abbr>
+    </span>
+
+    <a href="/anon-100000083496972/it-was-a-summer-in-my-favorite-jeans#smart_id=tags:country" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/698/752/10932581_399292710233307_1687519947_n-860.jpg?rect=0,0,640,640&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'It Was A Summer In My Favorite Jeans', false, '640'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/698/752/10932581_399292710233307_1687519947_n-860.jpg?rect=0,0,640,640&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="It Was A Summer In My Favorite Jeans"/>
+        </noscript>
+      
+      
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/anon-100000083496972/it-was-a-summer-in-my-favorite-jeans#smart_id=tags:country&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5799989" data-mix_name="It Was A Summer In My Favorite Jeans" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5728456" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/chamimsta/kick-it-in-the-sticks#smart_id=tags:country" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/657/046/large__1_-9449.png?rect=0,126,498,498&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Kick it in the Sticks', false, '498'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/657/046/large__1_-9449.png?rect=0,126,498,498&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Kick it in the Sticks"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/chamimsta/kick-it-in-the-sticks#smart_id=tags:country&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5728456" data-mix_name="Kick it in the Sticks" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/chamimsta/kick-it-in-the-sticks#smart_id=tags:country" class="mix_name">
+        <strong class="propername">Kick it in the Sticks</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/country" class="tag" title="country">country</a> <a href="/explore/country_rock" class="tag" title="country rock">country rock</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            10,582
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           255
+          </span>
+        </span>
+
+        <span class="length">37min
+          (10 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1423521041">February 09, 2015</abbr>
+    </span>
+
+    <a href="/chamimsta/kick-it-in-the-sticks#smart_id=tags:country" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/657/046/large__1_-9449.png?rect=0,126,498,498&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Kick it in the Sticks', false, '498'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/657/046/large__1_-9449.png?rect=0,126,498,498&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Kick it in the Sticks"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/chamimsta/kick-it-in-the-sticks#smart_id=tags:country&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5728456" data-mix_name="Kick it in the Sticks" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5779566" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/swilson701/trunk-music-and-headlight-fights-1#smart_id=tags:country" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/684/571/tumblr_mkajzyNcsR1r2rwiyo1_500-7842.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', '&#39;trunk music and headlight fights&#39;', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/684/571/tumblr_mkajzyNcsR1r2rwiyo1_500-7842.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="&#39;trunk music and headlight fights&#39;"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/swilson701/trunk-music-and-headlight-fights-1#smart_id=tags:country&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5779566" data-mix_name="&#39;trunk music and headlight fights&#39;" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/swilson701/trunk-music-and-headlight-fights-1#smart_id=tags:country" class="mix_name">
+        <strong class="propername">&#39;trunk music and headlight fights&#39;</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/country" class="tag" title="country">country</a> <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/love" class="tag" title="love">love</a> <a href="/explore/couple" class="tag" title="couple">couple</a> <a href="/explore/drive" class="tag" title="drive">drive</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            2,693
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           32
+          </span>
+        </span>
+
+        <span class="length">43min
+          (13 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      all I want to do is escape, just you and me.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424040678">February 15, 2015</abbr>
+    </span>
+
+    <a href="/swilson701/trunk-music-and-headlight-fights-1#smart_id=tags:country" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/684/571/tumblr_mkajzyNcsR1r2rwiyo1_500-7842.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', '&#39;trunk music and headlight fights&#39;', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/684/571/tumblr_mkajzyNcsR1r2rwiyo1_500-7842.jpg?rect=0,0,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="&#39;trunk music and headlight fights&#39;"/>
+        </noscript>
+      
+      
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/swilson701/trunk-music-and-headlight-fights-1#smart_id=tags:country&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5779566" data-mix_name="&#39;trunk music and headlight fights&#39;" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5793069" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/meganlikuski/wastin-gas#smart_id=tags:country" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/693/975/b1309bd6a4117bc1a3d8420b9a69ebe2-4617.jpg?rect=0,226,1000,1000&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Wastin&#39; Gas', false, '1000'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/693/975/b1309bd6a4117bc1a3d8420b9a69ebe2-4617.jpg?rect=0,226,1000,1000&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Wastin&#39; Gas"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/meganlikuski/wastin-gas#smart_id=tags:country&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5793069" data-mix_name="Wastin&#39; Gas" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/meganlikuski/wastin-gas#smart_id=tags:country" class="mix_name">
+        <strong class="propername">Wastin&#39; Gas</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/country" class="tag" title="country">country</a> <a href="/explore/dallas_smith" class="tag" title="dallas smith">dallas smith</a> <a href="/explore/sam_hunt" class="tag" title="sam hunt">sam hunt</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            764
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           23
+          </span>
+        </span>
+
+        <span class="length">1hr 56min
+          (36 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Some of my favorite country music right now.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424212650">February 17, 2015</abbr>
+    </span>
+
+    <a href="/meganlikuski/wastin-gas#smart_id=tags:country" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/693/975/b1309bd6a4117bc1a3d8420b9a69ebe2-4617.jpg?rect=0,226,1000,1000&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Wastin&#39; Gas', false, '1000'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/693/975/b1309bd6a4117bc1a3d8420b9a69ebe2-4617.jpg?rect=0,226,1000,1000&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Wastin&#39; Gas"/>
+        </noscript>
+      
+      
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/meganlikuski/wastin-gas#smart_id=tags:country&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5793069" data-mix_name="Wastin&#39; Gas" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		  </div>
+</div>
+
+  <a class="page_horizontal right  " href="/explore/country/hot" rel="nofollow"><span class="i-chevron-right"></span></a>
+  <a class="page_horizontal left   disabled" href="#" rel="nofollow"><span class="i-chevron-left"></span></a>
+
+</div>
+
+
+    		<div class="mix_set_row gridview" data-smart_id="tags:electronic" data-total_pages="29883">
+  <a name="tags:electronic"></a>
+  <h4 class="collection_title clear hot tags tooltip_container">
+
+  <a href="/explore/electronic/hot" title="Electronic radio">
+
+      <span class="collecticon i-hot i-tags"></span>
+      Electronic
+
+
+  </a>
+
+
+  <div class="right">
+  </div>
+</h4>
+
+<div class="mixes  ">
+  <div class="slider">
+<div class="mix " data-id="5740289" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/ramapijama/house#smart_id=tags:electronic" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/657/468/_EAVEh1Rkpw-1868.jpg?rect=0,0,450,450&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'House', false, '450'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/657/468/_EAVEh1Rkpw-1868.jpg?rect=0,0,450,450&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="House"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/ramapijama/house#smart_id=tags:electronic&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5740289" data-mix_name="House" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/ramapijama/house#smart_id=tags:electronic" class="mix_name">
+        <strong class="propername">House</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/house" class="tag" title="house">house</a> <a href="/explore/electronic" class="tag" title="electronic">electronic</a> <a href="/explore/deep_house" class="tag" title="deep house">deep house</a> <a href="/explore/edm" class="tag" title="edm">edm</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            15,481
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           500
+          </span>
+        </span>
+
+        <span class="length">40min
+          (8 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      On a little bit deeper note.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1423526422">February 10, 2015</abbr>
+    </span>
+
+    <a href="/ramapijama/house#smart_id=tags:electronic" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/657/468/_EAVEh1Rkpw-1868.jpg?rect=0,0,450,450&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'House', false, '450'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/657/468/_EAVEh1Rkpw-1868.jpg?rect=0,0,450,450&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="House"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/ramapijama/house#smart_id=tags:electronic&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5740289" data-mix_name="House" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5757331" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/duewets/temptation#smart_id=tags:electronic" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/669/301/6M2Z8P9-8974.gif?rect=83,0,333,333&q=65&fit=max&w=200&h=200', 'cover', 'Temptation', false, '333'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/669/301/6M2Z8P9-8974.gif?rect=83,0,333,333&q=65&fit=max&w=200&h=200" class="cover" alt="Temptation"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/duewets/temptation#smart_id=tags:electronic&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5757331" data-mix_name="Temptation" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/duewets/temptation#smart_id=tags:electronic" class="mix_name">
+        <strong class="propername">Temptation</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/electronic" class="tag" title="electronic">electronic</a> <a href="/explore/love" class="tag" title="love">love</a> <a href="/explore/sex" class="tag" title="sex">sex</a> <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/valentine%27s_day" class="tag" title="valentine&#39;s day">valentine&#39;s day</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            14,602
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           1,573
+          </span>
+        </span>
+
+        <span class="length">2hr 7min
+          (32 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      A chilled out sexy mix put together by your favorites in honor of Valentine&#39;s Day:
+
+@nhulz
+@HarmonicVibration
+@mattdimop
+
+So grab your main squeeze and...
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1423771481">February 12, 2015</abbr>
+    </span>
+
+    <a href="/duewets/temptation#smart_id=tags:electronic" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/669/301/6M2Z8P9-8974.gif?rect=83,0,333,333&q=65&fit=max&w=200&h=200', 'cover', 'Temptation', false, '333'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/669/301/6M2Z8P9-8974.gif?rect=83,0,333,333&q=65&fit=max&w=200&h=200" class="cover" alt="Temptation"/>
+        </noscript>
+      
+      <span class="certification platinum" title="platinum"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/duewets/temptation#smart_id=tags:electronic&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5757331" data-mix_name="Temptation" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5789989" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/zllynch/feel#smart_id=tags:electronic" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/691/811/tumblr_msggseD2yH1seidano1_500-8907.jpg?rect=0,108,466,466&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Feel', false, '466'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/691/811/tumblr_msggseD2yH1seidano1_500-8907.jpg?rect=0,108,466,466&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Feel"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/zllynch/feel#smart_id=tags:electronic&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5789989" data-mix_name="Feel" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/zllynch/feel#smart_id=tags:electronic" class="mix_name">
+        <strong class="propername">Feel</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/electronic" class="tag" title="electronic">electronic</a> <a href="/explore/bass" class="tag" title="bass">bass</a> <a href="/explore/future" class="tag" title="future">future</a> <a href="/explore/high" class="tag" title="high">high</a> <a href="/explore/chill" class="tag" title="chill">chill</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            802
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           53
+          </span>
+        </span>
+
+        <span class="length">50min
+          (15 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      xxx.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424155112">February 17, 2015</abbr>
+    </span>
+
+    <a href="/zllynch/feel#smart_id=tags:electronic" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/691/811/tumblr_msggseD2yH1seidano1_500-8907.jpg?rect=0,108,466,466&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Feel', false, '466'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/691/811/tumblr_msggseD2yH1seidano1_500-8907.jpg?rect=0,108,466,466&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Feel"/>
+        </noscript>
+      
+      
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/zllynch/feel#smart_id=tags:electronic&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5789989" data-mix_name="Feel" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5750356" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/mariane-pg/i-can-make-you-feel#smart_id=tags:electronic" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/689/084/giphy-34-4023.gif?rect=0,0,500,500&q=65&fit=max&w=200&h=200', 'cover', '• I CAN MAKE YOU FEEL •', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/689/084/giphy-34-4023.gif?rect=0,0,500,500&q=65&fit=max&w=200&h=200" class="cover" alt="• I CAN MAKE YOU FEEL •"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/mariane-pg/i-can-make-you-feel#smart_id=tags:electronic&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5750356" data-mix_name="• I CAN MAKE YOU FEEL •" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/mariane-pg/i-can-make-you-feel#smart_id=tags:electronic" class="mix_name">
+        <strong class="propername">• I CAN MAKE YOU FEEL •</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/electronic" class="tag" title="electronic">electronic</a> <a href="/explore/chillwave" class="tag" title="chillwave">chillwave</a> <a href="/explore/downtempo" class="tag" title="downtempo">downtempo</a> <a href="/explore/high" class="tag" title="high">high</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            5,460
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           309
+          </span>
+        </span>
+
+        <span class="length">1hr 48min
+          (29 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      // Listen long, long enough, you can love me
+I&#39;ll be just yours, you can hold me
+Even let you undress my mind
+save it, play it, watch it, then press re...
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1424121863">February 16, 2015</abbr>
+    </span>
+
+    <a href="/mariane-pg/i-can-make-you-feel#smart_id=tags:electronic" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/689/084/giphy-34-4023.gif?rect=0,0,500,500&q=65&fit=max&w=200&h=200', 'cover', '• I CAN MAKE YOU FEEL •', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/689/084/giphy-34-4023.gif?rect=0,0,500,500&q=65&fit=max&w=200&h=200" class="cover" alt="• I CAN MAKE YOU FEEL •"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/mariane-pg/i-can-make-you-feel#smart_id=tags:electronic&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5750356" data-mix_name="• I CAN MAKE YOU FEEL •" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		  </div>
+</div>
+
+  <a class="page_horizontal right  " href="/explore/electronic/hot" rel="nofollow"><span class="i-chevron-right"></span></a>
+  <a class="page_horizontal left   disabled" href="#" rel="nofollow"><span class="i-chevron-left"></span></a>
+
+</div>
+
+
+    		<div class="mix_set_row gridview" data-smart_id="tags:folk" data-total_pages="14181">
+  <a name="tags:folk"></a>
+  <h4 class="collection_title clear hot tags tooltip_container">
+
+  <a href="/explore/folk/hot" title="Folk radio">
+
+      <span class="collecticon i-hot i-tags"></span>
+      Folk
+
+
+  </a>
+
+
+  <div class="right">
+  </div>
+</h4>
+
+<div class="mixes  ">
+  <div class="slider">
+<div class="mix " data-id="5764019" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/deathcabforcutea/mountain-walks#smart_id=tags:folk" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/676/843/maxresdefault-6103.jpg?rect=420,0,1080,1080&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'mountain walks', false, '1080'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/676/843/maxresdefault-6103.jpg?rect=420,0,1080,1080&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="mountain walks"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/deathcabforcutea/mountain-walks#smart_id=tags:folk&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5764019" data-mix_name="mountain walks" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/deathcabforcutea/mountain-walks#smart_id=tags:folk" class="mix_name">
+        <strong class="propername">mountain walks</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/folk" class="tag" title="folk">folk</a> <a href="/explore/travel" class="tag" title="travel">travel</a> <a href="/explore/happy" class="tag" title="happy">happy</a> <a href="/explore/positive" class="tag" title="positive">positive</a> <a href="/explore/indie_folk" class="tag" title="indie folk">indie folk</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            6,779
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           494
+          </span>
+        </span>
+
+        <span class="length">
+          (10 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      uplifting songs that I would listen to if I was walking through the mountains that would make me love life basically
+(will be adding more tracks soon).
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1423904813">February 14, 2015</abbr>
+    </span>
+
+    <a href="/deathcabforcutea/mountain-walks#smart_id=tags:folk" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/676/843/maxresdefault-6103.jpg?rect=420,0,1080,1080&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'mountain walks', false, '1080'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/676/843/maxresdefault-6103.jpg?rect=420,0,1080,1080&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="mountain walks"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/deathcabforcutea/mountain-walks#smart_id=tags:folk&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5764019" data-mix_name="mountain walks" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5134387" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/cynthlinds/over-the-mountains-under-the-stars#smart_id=tags:folk" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/667/185/large-3289.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'over the mountains + under the stars', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/667/185/large-3289.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="over the mountains + under the stars"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/cynthlinds/over-the-mountains-under-the-stars#smart_id=tags:folk&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5134387" data-mix_name="over the mountains + under the stars" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/cynthlinds/over-the-mountains-under-the-stars#smart_id=tags:folk" class="mix_name">
+        <strong class="propername">over the mountains + under the stars</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/chill" class="tag" title="chill">chill</a> <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/folk" class="tag" title="folk">folk</a> <a href="/explore/indie_pop" class="tag" title="indie pop">indie pop</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            5,061
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           275
+          </span>
+        </span>
+
+        <span class="length">47min
+          (12 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      give me one good reason why I should ever make a change.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1423712994">February 12, 2015</abbr>
+    </span>
+
+    <a href="/cynthlinds/over-the-mountains-under-the-stars#smart_id=tags:folk" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/667/185/large-3289.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'over the mountains + under the stars', false, '500'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/667/185/large-3289.jpg?rect=0,125,500,500&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="over the mountains + under the stars"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/cynthlinds/over-the-mountains-under-the-stars#smart_id=tags:folk&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5134387" data-mix_name="over the mountains + under the stars" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="5769673" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/middle-sea-music/coastal-folk#smart_id=tags:folk" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/677/516/tumblr_n8euznhLGT1tgzco9o1_1280-9588.jpg?rect=0,321,1277,1277&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Coastal Folk', false, '1277'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/677/516/tumblr_n8euznhLGT1tgzco9o1_1280-9588.jpg?rect=0,321,1277,1277&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Coastal Folk"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/middle-sea-music/coastal-folk#smart_id=tags:folk&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5769673" data-mix_name="Coastal Folk" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/middle-sea-music/coastal-folk#smart_id=tags:folk" class="mix_name">
+        <strong class="propername">Coastal Folk</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/folk" class="tag" title="folk">folk</a> <a href="/explore/indie_folk" class="tag" title="indie folk">indie folk</a> <a href="/explore/acoustic" class="tag" title="acoustic">acoustic</a> <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/folk_rock" class="tag" title="folk rock">folk rock</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            1,212
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           46
+          </span>
+        </span>
+
+        <span class="length">33min
+          (8 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Cove Hithe, Jack Northover, Wooden Arms - Great music from the Far-East.
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1423937006">February 14, 2015</abbr>
+    </span>
+
+    <a href="/middle-sea-music/coastal-folk#smart_id=tags:folk" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/677/516/tumblr_n8euznhLGT1tgzco9o1_1280-9588.jpg?rect=0,321,1277,1277&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Coastal Folk', false, '1277'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/677/516/tumblr_n8euznhLGT1tgzco9o1_1280-9588.jpg?rect=0,321,1277,1277&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Coastal Folk"/>
+        </noscript>
+      
+      
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/middle-sea-music/coastal-folk#smart_id=tags:folk&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="5769673" data-mix_name="Coastal Folk" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		<div class="mix " data-id="4871815" data-nsfw="">
+
+
+<div class="mix_element">
+  <div class="grid_square tooltip_container">
+
+    <a href="/florian_l/folk-rock-indie-n-love#smart_id=tags:folk" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/650/398/on_the_road02_website_image_lsrl_wxga-9734.jpg?rect=200,0,800,800&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Folk,Rock,Indie n&#39; Love', false, '800'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/650/398/on_the_road02_website_image_lsrl_wxga-9734.jpg?rect=200,0,800,800&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Folk,Rock,Indie n&#39; Love"/>
+        </noscript>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/florian_l/folk-rock-indie-n-love#smart_id=tags:folk&play=1" title="play"><span class="i-miniplay"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="4871815" data-mix_name="Folk,Rock,Indie n&#39; Love" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+    </div>
+
+    <div class="text">
+      <a href="/florian_l/folk-rock-indie-n-love#smart_id=tags:folk" class="mix_name">
+        <strong class="propername">Folk,Rock,Indie n&#39; Love</strong>
+      </a>
+    </div>
+
+
+    <div class="grid_details">
+      <div class="grid_tags tags">
+        <a href="/explore/folk" class="tag" title="folk">folk</a> <a href="/explore/indie" class="tag" title="indie">indie</a> <a href="/explore/indie_rock" class="tag" title="indie rock">indie rock</a> <a href="/explore/singer-songwriter" class="tag" title="singer-songwriter">singer-songwriter</a> <a href="/explore/travel" class="tag" title="travel">travel</a>
+      </div>
+
+      <div class="mix-stats">
+       <span class="numbers">
+          <span class="plays_count i-miniplay" title="Number of plays">
+            8,662
+          </span>
+          &nbsp;
+          <span class="likes_count i-miniheart" title="Number of likes">
+           747
+          </span>
+        </span>
+
+        <span class="length">
+          (53 tracks)
+        </span>
+      </div>
+
+    </div>
+
+    <div class="description">
+      Enjoy :).
+    </div>
+
+    <span class="date">
+      <abbr class="timeago" title="1423408798">February 08, 2015</abbr>
+    </span>
+
+    <a href="/florian_l/folk-rock-indie-n-love#smart_id=tags:folk" class="mix_url">
+      
+        <script>
+          document.write(imgix_img('http://8tracks.imgix.net/i/008/650/398/on_the_road02_website_image_lsrl_wxga-9734.jpg?rect=200,0,800,800&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200', 'cover', 'Folk,Rock,Indie n&#39; Love', false, '800'));
+        </script>
+        <noscript>
+          <img src="http://8tracks.imgix.net/i/008/650/398/on_the_road02_website_image_lsrl_wxga-9734.jpg?rect=200,0,800,800&q=65&sharp=15&vib=10&fm=jpg&fit=max&w=200&h=200" class="cover" alt="Folk,Rock,Indie n&#39; Love"/>
+        </noscript>
+      
+      <span class="certification gold" title="gold"></span>
+      
+    </a>
+    <div class="quick_actions">
+      <a class="quick_play" href="/florian_l/folk-rock-indie-n-love#smart_id=tags:folk&play=1" title="play"><span class="i-play"></span></a>
+      <span class="pipe"></span>
+      <a class="quick_add" data-mix_id="4871815" data-mix_name="Folk,Rock,Indie n&#39; Love" title="Add to collection" href="#" ><span class="i-plus"></span></a>
+
+    </div>
+  </div>
+</div>
+
+</div>
+		  </div>
+</div>
+
+  <a class="page_horizontal right  " href="/explore/folk/hot" rel="nofollow"><span class="i-chevron-right"></span></a>
+  <a class="page_horizontal left   disabled" href="#" rel="nofollow"><span class="i-chevron-left"></span></a>
+
+</div>
+
+
+    </div>
+	</div>
+
+	<div class="sidebar">
+    <div class="sidebar_ad_wrapper">
+             <div id="sidebar_ad">
+             </div>
+             <div class="plus_cta">
+               <span id="plus_cta" style="display: none;"><a href="/plus">Remove ads</a></span>
+               <span class="p p_admin off"> | <a href="#" onclick="App.views.dfpView.showAdCode('#sidebar_ad');">Show ad code</a></span>
+            </div>
+           </div>
+
+    <br><br>
+    <hr>
+
+    <strong>What is 8tracks?</strong><br>
+
+<p>8tracks is internet radio created by people, not algorithms.</p>
+
+<p><strong>Know your music?</strong> <a href="/create_mix" rel="signup_required">Make</a> an online mixtape with 8 or more tracks.  Add a title, cover art, tags, and share your mix with friends or find your audience on 8tracks.</p>
+
+<p><strong>Just want to listen?</strong> Stream playlists for any mood or occasion, from every genre and country, delivering the best source for music discovery on the web.</p>
+
+<p>For free music on the go, check out our mobile apps on <a href="http://8tracks.com/iphone" target="_blank">iPhone</a> or <a href="http://8tracks.com/android" target="_blank">Android</a>.</p>
+	</div><!-- .sidebar -->
+</div><!-- .wrapper -->
+
+
+
+        </div>
+
+        <div id="sidebar" class="sidebar">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="fb-root"></div>
+  <div id="preroll_container"></div>
+
+<div id="player_container" class="displaymode">
+	<div id="you_tube_player" style="display: none;"></div>
+  <div id="player_box" style="display: none;">
+  <div id="player_artist_details" class="collapsed">
+  </div>
+	<div class="wrapper">
+	  <div id="player"></div>
+	  <div id="dialog"></div>
+	</div>
+  </div>
+  <div id="player_prop"></div>
+</div>
+
+<div id="footer">
+	<div class="wrapper">
+	<div id="footerboard"></div>
+
+	<div class="topfooter container">
+		<div id="safe_browse_container" class="disabled">
+			<div id="safe_browse" class="icon-link">
+				<span class="i-flag"></span>
+				Safe browse: <strong><span class="enabled">On</span><span class="disabled">Off</span></strong>
+			</div>
+			<div class="black_tooltip black_tooltip_up black_tooltip_solid">
+				<span class="disabled">Turn on safe browse to hide content that has been flagged by the community as not safe for work.</span>
+				<span class="enabled">Turn off safe browse to show content that has been flagged by the community as not safe for work.</span>
+			</div>
+		</div>
+
+		<div class="mobile_links">
+			<a href="https://itunes.apple.com/app/id346194763?mt=8" class="apple_appstore" rel="external" target="_blank" title="iPhone app"></a>
+			<a href="https://play.google.com/store/apps/details?id=com.e8tracks&amp;referrer=utm_source%3D8tracks.com%26utm_medium%3Dreferral%26utm_content%3Dfooter-v1-official-button%26utm_campaign%3Dapp-promo-android" class="android_appstore" rel="external" target="_blank" title="Get our Android app on Google Play"></a>
+			<a href="http://apps.microsoft.com/windows/en-US/app/8tracks-radio/956c13b6-fd21-419e-98a6-be86500523a8" class="windows_appstore" rel="external" target="_blank" title="Available on the Windows Store"></a>
+		</div>
+
+		<div class="facebook_like">
+			<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2F8tracks&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=132228608291" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+			<div class="g-plusone" data-size="medium" data-href="http://8tracks.com/" ></div>
+		</div>
+	</div>
+
+	<div class="container clearfix">
+		<ul class= "toe">
+			<li class="label">Extras</li>
+			<li><a href="/apps">Apps</a></li>
+			<li><a href="/plus">Ad free</a></li>
+			<li><a href="/store">Merchandise</a></li>
+			<li><a href="/developers">Developer API</a></li>
+			<li><a href="/tags">Tag map</a></li>
+			<li class="p p_admin off"><a href="/settings/1">[Admin]</a></li>
+		</ul>
+		<ul class= "toe">
+			<li class="label">Company</li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/team">Team</a></li>
+			<li><a href="/advertising">Advertising</a></li>
+			<li><a href="/media">Media</a></li>
+			<li><a href="http://blog.8tracks.com/">Blog</a></li>
+			<li><a href="/jobs">Jobs</a></li>
+		</ul>
+		<ul class= "toe">
+			<li class="label">Help</li>
+			<li><a href="/contact_us">Contact us</a></li>
+			<li><a href="/faq">FAQ</a></li>
+			<li><a href="/troubleshoot" target="_blank">Troubleshoot</a></li>
+			<li><a href="/create_playlist" target="_blank">Create a playlist</a></li>
+		</ul>
+		<ul class= "toe">
+			<li class="label">Legal</li>
+			<li><a href="/licensing">Licensing</a></li>
+			<li><a href="/copyright">Copyright</a></li>
+			<li><a href="/terms">Terms</a></li>
+			<li><a href="/privacy">Privacy</a></li>
+		</ul>
+		<ul class= "toe">
+			<li class="label">Social</li>
+			<li><a href="http://facebook.com/8tracks" title="Like us on FB" target="_blank">Facebook</a></li>
+			<li><a href="http://twitter.com/8tracks" title="Follow @8tracks" target="_blank">Twitter</a></li>
+			<li><a href="https://plus.google.com/117113324186866439402" title="+1 us on Google" target="_blank" rel="publisher">Google plus</a></li>
+			<li><a href="http://8tracks.tumblr.com/" title="Reblog us on Tumblr" target="_blank">Tumblr</a></li>
+			<li><a href="http://instagram.com/8tracks" title="Follow us on Instagram" target="_blank">Instagram</a></li>
+		</ul>
+	</div>
+
+	<div id="tagline" class="clear">
+		Listen to handcrafted internet radio. Share your own playlist online.
+		&copy;8tracks Inc. 2015
+
+		<div id="quote">
+			<a href="https://www.youtube.com/watch?v=ZeKaHBMKows" target="_blank">how could you ever walk away</a>
+		</div>
+
+		<div class="afs_ads">&nbsp;</div>
+
+	</div>
+
+	</div><!--.wrapper -->
+</div>
+
+
+   
+
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+
+
+    if (window.location.hash.length === 0) require(['pages/home_first_time']);
+  PAGE.sponsored_collection = {"mixes":[],"smart_id":"collection:86404545","smart_type":"collection","path":"/mix_sets/collection:86404545","name":"Web Sponsored","web_path":"/collections/web-sponsored","sort":null};
+
+
+    var _gaq = _gaq || [];
+    var mixpanel = mixpanel || [];
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    var _kiq = _kiq || [];
+    window.optimizely = window.optimizely || [];
+    var _vis_opt_queue = window._vis_opt_queue || [];
+
+    require(['initializer']);
+
+  
+//]]
+</script>
+
+
+
+<script>
+  ga_universal = true;
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+</script>
+
+
+<script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+<script>
+  window.__onGCastApiAvailable = function (loaded, errorInfo) {
+    if (!App.cast) {
+      var args = arguments;
+      setTimeout(function() { return args.callee(loaded, errorInfo)}, 1000);
+      return;
+    }
+
+    if (loaded) {
+      var sessionRequest = new chrome.cast.SessionRequest(CHROMECAST_APP_ID);
+      var apiConfig = new chrome.cast.ApiConfig(sessionRequest,
+                                                App.cast.sessionListener,
+                                                App.cast.receiverListener);
+      chrome.cast.initialize(apiConfig, App.cast.onInitSuccess, App.cast.onInitError);
+    } else {
+      console.log(errorInfo);
+    }
+  }
+</script>
+
+
+
+
+
+   
+
+
+<script>
+    document.write(unescape("%3Cscript src='" + (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js' %3E%3C/script%3E"));
+</script>
+
+<script>
+  try {
+    COMSCORE.beacon({
+      c1:2,
+      c2:7545734,
+      c3:"",
+      c4:"",
+      c5:"",
+      c6:"",
+      c15:""
+    });
+  } catch (e) { }
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=7545734&amp;c3=&amp;c4=&amp;c5=&amp;c6=&amp;c15=&amp;cj=1" />
+</noscript>
+
+
+
+
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-9fuIIK5ZReik6"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-9fuIIK5ZReik6.gif" style="border:0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+
+
+<!-- Quantcast tag for SPIN -->
+<div style="display:none;">
+  <img src="//pixel.quantserve.com/pixel/p-6cSRYUZSmTQbc.gif" style="border:0" height="1" width="1" alt="Quantcast"/>
+</div>
+
+
+
+
+
+<!-- Webengage survey -->
+<script id="_webengage_script_tag" type="text/javascript">
+  var _weq = _weq || {};
+  _weq['webengage.licenseCode'] = '~71681296';
+  _weq['webengage.widgetVersion'] = "4.0";
+  
+  (function(d){
+    var _we = d.createElement('script');
+    _we.type = 'text/javascript';
+    _we.async = true;
+    _we.src = (d.location.protocol == 'https:' ? "https://ssl.widgets.webengage.com" : "http://cdn.widgets.webengage.com") + "/js/widget/webengage-min-v-4.0.js";
+    var _sNode = d.getElementById('_webengage_script_tag');
+    _sNode.parentNode.insertBefore(_we, _sNode);
+  })(document);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+<script type="text/javascript">
+  //<![CDATA[
+  
+  //]]>
+</script>
+
+
+  </div>
+
+</body>
+</html>
+";i:2;s:4:"1764";}

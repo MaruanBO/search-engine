@@ -1,0 +1,672 @@
+a:3:{i:0;s:27:"http://novadevelopment.com/";i:1;s:50786:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Nova Development | Consumer Software for PC & Mac</title>
+<meta name="description" content="Nova Development is a leading developer and publisher of consumer software products for both Windows and Mac. Product lines include publishing, digital imaging, home design, language learning, kids'...">
+<meta name="keywords" content="Nova Development, consumer software, consumer apps, windows software, mac software, software for projects, software for education, greeting card software, digital photography software, print creativity software, family tree software, home, index">
+<meta name="google-site-verification" content="KwBSt94yXIGQcUKEFSQehQtnKfTDb4_Xkh8wwj8n0xM" />
+<META name="y_key" content="127028d8f0de00f6">
+<meta name="msvalidate.01" content="4A66D49C76E2FD34F2CF3FE5AC1A6122" />
+<meta name="google-site-verification" content="wkvkc1E6gFv64GhY6h_DOZVPfPo4HMOK2ofUbCNeCf4" />
+<meta>
+<link href="http://cdn3.novadevelopment.com/template/nova/css_cdn/allCss_sprite.css" rel="stylesheet" type="text/css"></link>
+<!--[if lt IE 8.]>
+<link href="http://cdn5.novadevelopment.com/template/nova/css_cdn/ie_fixes.css" rel="stylesheet" type="text/css"></link>
+<![endif]-->
+<link href="http://cdn1.novadevelopment.com/template/nova/homeSpecific_styles.css" rel="stylesheet" type="text/css"></link>
+
+<script src="http://cdn5.novadevelopment.com/template/nova/js/allJSJoomla.js"></script>
+<script src="http://cdn5.novadevelopment.com/template/nova/js/lazyLoad.js"></script>
+<script type="text/javascript" language="javascript">
+	var crossSiteSearchRequest = "/rpc.php";
+	var searchText = "Search for";
+	var searchUrl = '/search.html';
+	var storeId = 47</script>
+<style>
+.menu_nav_btn{
+	height:20px;
+	width:43px;
+	color:#fff;
+	display:block;
+	border:0px;
+	float:left;
+	text-align:center;
+	line-height:20px;
+	background:url(http://cdn.novadevelopment.com/template/nova/media/images/menu_nav_btn.gif) no-repeat left -20px;
+}
+.menu_nav_btn:hover{
+	height:20px;
+	width:43px;
+	color:#fff;
+	display:block;
+	border:0px;
+	float:left;
+	text-align:center;
+	line-height:20px;
+	text-decoration:none;
+	background:url(http://cdn2.novadevelopment.com/template/nova/media/images/menu_nav_btn.png) no-repeat left top;
+}
+
+.transBtn{
+	background:url(http://cdn2.novadevelopment.com/template/nova/media/images/menu_nav_btn.png) no-repeat left bottom !important;
+	color:#bebebe !important;
+	cursor:default !important;
+}
+
+.transBtn:hover{
+	background:url(http://cdn2.novadevelopment.com/template/nova/media/images/menu_nav_btn.png) no-repeat left bottom !important;
+	color:#bebebe !important;
+	cursor:default !important;
+}
+.menu_paging{
+	float:left;
+	margin-bottom:-10px;
+	margin-left:10px;
+	margin-top:10px;
+}
+.menu_paging_count{
+padding-left:30px;
+color:#fff;
+height:20px;
+line-height:20px;
+}
+a {
+outline: none;
+}
+
+a:focus {
+outline: none;
+}
+</style>
+<script>
+ $(document).ready(function() {
+
+		$("a").click(function() {
+			//make sure the link is in the 'footer links'
+			if($(this).parent().attr('id') == 'footer_topCat')
+			{
+				var linkHref = $(this).attr("href").replace(/(<([^>]+)>)/ig,"");
+				
+				// if the link href is not relative
+				if(linkHref.charAt(0) != '/')
+				{
+					//create the base url
+					var baseURI = location.protocol + '://' + location.hostname;
+				
+										
+					// fetermine whether or not the clicked on link is external or not
+					if(!linkHref.match("^" + baseURI))
+					{
+						//return false;
+						
+						var analyticsAccountNo = 'UA-223533-11';
+						
+  						try
+  						{
+    						var pageTracker=_gat._getTracker(analyticsAccountNo);
+    						pageTracker._trackEvent('Outbound Links', linkHref);
+    						setTimeout('document.location = "' + linkHref + '"', 100);
+    						return false;
+  						}catch(err){}
+						
+					}
+				
+				}
+			}
+		});
+
+        $(".next").click(function () {
+			//alert('working');
+			var menuPossitem = $(this).parents('.menu_paging').attr('id');
+			//alert('menuPossitem ='+menuPossitem);
+			menuPossitem = menuPossitem.replace('menu_paging_','');
+			//alert('menuPossitem ='+menuPossitem);
+			var itemsMax = $(this).parents('.menu_paging').attr('rel');
+			//alert('itemsMax ='+itemsMax);
+			var count = $('#next_'+menuPossitem).attr('rel');
+			//alert('count ='+count);
+			if (count < itemsMax)
+			{
+					$('#next_'+menuPossitem).removeClass('transBtn');
+					$('#prev_'+menuPossitem).removeClass('transBtn');
+				//alert(count);
+			  $(".menu_list_"+menuPossitem+"_"+count).fadeOut(120, function () {
+				$(this).next().fadeIn(80);
+				count++;
+				if (count >= itemsMax)
+				{
+					$('#next_'+menuPossitem).addClass('transBtn');
+					//$('#prev_'+menuPossitem).removeClass('transBtn');
+				}
+				$('#menu_paging_count_'+menuPossitem).text(count+'/'+itemsMax);
+				//alert(count);
+				$('#next_'+menuPossitem).attr('rel',count);
+				$('#prev_'+menuPossitem).attr('rel',count);
+			  });
+		}
+          return false;
+        }); 
+        $(".prev").click(function () {
+			//alert('working');
+			var menuPossitem = $(this).parents('.menu_paging').attr('id');
+			//alert('menuPossitem ='+menuPossitem);
+			menuPossitem = menuPossitem.replace('menu_paging_','');
+			//alert('menuPossitem ='+menuPossitem);
+			var itemsMax = $(this).parents('.menu_paging').attr('rel');
+			var itemsMin = 1;
+			var count = $('#prev_'+menuPossitem).attr('rel');
+			if (count > itemsMin)
+			{
+				$('#prev_'+menuPossitem).removeClass('transBtn');
+				$('#next_'+menuPossitem).removeClass('transBtn');
+			  $(".menu_list_"+menuPossitem+"_"+count).fadeOut(120, function () {
+				$(this).prev().fadeIn(80);
+				count--;
+				if (count <= itemsMin)
+				{
+					$('#prev_'+menuPossitem).addClass('transBtn');
+				}
+				$('#menu_paging_count_'+menuPossitem).text(count+'/'+itemsMax);
+				//alert(count);
+				$('#next_'+menuPossitem).attr('rel',count);
+				$('#prev_'+menuPossitem).attr('rel',count);
+			  });
+		  }
+          return false;
+        }); 
+	  }); 
+</script>
+
+<!-- Recaptcha Scripts -->
+<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+<script type="text/javascript">
+    function showRecaptcha(element) {
+       Recaptcha.create("6LcC3sMSAAAAACc2a-PzijkPH90C57iQa1m17Qkp", element, {
+          theme: "red",
+       callback: Recaptcha.focus_response_field});
+        }
+</script>
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  _fbq.push(['addPixelId', '1455534658011798']);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', 'PixelInitialized', {}]);
+</script>
+</head>
+
+<body >
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-223533-11");
+pageTracker._trackPageview();
+} catch(err) {}</script><div id="overlay" class="overlay close" style="display:none">
+</div>
+<div id="customlightbox" class="popup_container" style="display:none;">
+	<table cellpadding="0" cellspacing="0">
+
+		<tr>
+			<td class="pu_top_left"></td>
+			<td class="pu_top_mid"></td>
+			<td class="pu_top_right"></td>
+		</tr>
+		<tr>
+			<td class="pu_mid_left"></td>
+			<td class="pu_mid_mid">
+			<a href="#" class="close popup_close">&nbsp;</a>
+
+				<div>
+					<div class="popup_mid_img">
+					
+					</div>
+				</div>
+			</td>
+			<td class="pu_mid_right"></td>
+		</tr>
+		<tr>
+
+			<td class="pu_bottom_left"></td>
+			<td class="pu_bottom_mid"></td>
+			<td class="pu_bottom_right"></td>
+		</tr>
+	</table>
+</div>
+<div id="wrapper">
+	<div id="content_wrapper">
+		<div id="content_pane">
+<A HREF="http://ad.doubleclick.net/jump/N5558.avanquest.com/B7421103.2;sz=720x220;ord=071002166439727?">
+
+<IMG SRC="http://ad.doubleclick.net/ad/N5558.avanquest.com/B7421103.2;sz=720x220;ord=071002166439727?" BORDER=0 WIDTH=720 HEIGHT=220 ALT="Advertisement"></A><A HREF="http://ad.doubleclick.net/jump/N5558.avanquest.com/B7421103;sz=235x220;ord=851146057406331?">
+
+<IMG SRC="http://ad.doubleclick.net/ad/N5558.avanquest.com/B7421103;sz=235x220;ord=851146057406331?" BORDER=0 WIDTH=235 HEIGHT=220 ALT="Advertisement"></A><style>.homeH1{font-weight:100;text-shadow:1px 1px 2px #000;width:901px;line-height:32px;background:url(http://www.novadevelopment.com/template/nova/media/images/h1_bg.png);color:#DDD6D6;font-size:17px;margin:5px auto 10px;text-indent:20px;border-left:1px solid #88888b;border-right:1px solid #88888b;text-align:center;}</style><h1 class="homeH1">Welcome to Nova - Award-Winning Photo Explosion, Ancestry, HGTV and Nickelodeon Software</h1>
+
+<div class="slider">
+	<div class="slider_menu">
+		<a id="menu_print" href="/software/print-creativity-software/" rel="#print">Print Creativity</a>
+		<a id="menu_digital" class="menu_on" href="/software/digital-photography-software/" rel="#digital">Digital Photography</a>
+		<a id="menu_home" href="/software/home-design-software/" rel="#home">Home & Living</a>
+		<a id="menu_family" href="/software/family-tree-maker/" rel="#family">Family Tree</a>
+		<a id="menu_language" href="/software/language-learning-software/" rel="#language">Language Learning</a>
+		<a id="menu_kids" href="/software/kids-educational-software/" rel="#kids">Kids' Corner</a>
+		<a id="menu_office" href="/software/home-office-software/" rel="#office">Office & Utility</a>
+		<a id="menu_mac" href="/software/software-for-macs/" rel="#mac">Mac Products</a>
+	</div>
+	<div class="slider_right">
+		<div class="slide_item" id="print">
+			<a href="/software/print-creativity-software/"><img src="https://shop.avanquest.com/admin/Joomla/jimages/nova/homePagesBanners/20141230-03m_printcreativity.png" width="762" height="241" title="" alt="" /></a>
+		</div>
+		<div class="slide_item menu_on" id="digital">
+			<a href="/software/digital-photography-software/"><img src="http://www.novadevelopment.com/template/nova/media/images/new_banners/02_DigitalPhotography_ver01.png" width="762" height="241" title="" alt="" /></a>
+		</div>
+		<div class="slide_item" id="home">
+			<a href="/software/home-design-software/"><img src="https://shop.avanquest.com/admin/Joomla/jimages/nova/homePagesBanners/20141230-09m_hgtvhomeandliving.png" width="762" height="241" title="" alt="" /></a>
+		</div>
+		<div class="slide_item" id="family">
+			<a href="/software/family-tree-maker/"><img src="http://www.novadevelopment.com/template/nova/media/images/new_banners/04_familytree_762x241.png" width="762" height="241" title="" alt="" /></a>
+		</div>
+		<div class="slide_item" id="language">
+			<a href="/software/language-learning-software/"><img src="http://www.novadevelopment.com/template/nova/media/images/new_banners/05_languangelearning_762x241v2.png" width="762" height="241" title="" alt="" /></a>
+		</div>
+		<div class="slide_item" id="kids">
+			<a href="/software/kids-educational-software/"><img src="http://www.novadevelopment.com/template/nova/media/images/new_banners/06_kidscorner_762x241.png" width="762" height="241" title="" alt="" /></a>
+		</div>
+		<div class="slide_item" id="office">
+			<a href="/software/home-office-software/"><img src="https://shop.avanquest.com/admin/Joomla/jimages/nova/homePagesBanners/20141230-05m_officeutility.png" width="762" height="241" title="" alt="" /></a>
+		</div>
+		<div class="slide_item" id="mac">
+			<a href="/software/software-for-macs/"><img src="https://shop.avanquest.com/admin/Joomla/jimages/nova/homePagesBanners/08_mac-product-762x241.png" width="762" height="241" title="" alt="" /></a>
+		</div>
+	</div>
+</div><div id="specialProd1" class="specialProd"><div class="minorProductBox">
+                                    <a href="/software/print-artist-platinum-501370?meta=software&cat=print-creativity-software"><img src="http://cdn1.novadevelopment.com/jimages/nova/products/PrintArtistPlatinum25/parp_box-shot_140x140.png" alt="Print Artist® 25 Platinum  " border="0" vspace="4"></a>
+                            </div>
+                            <div class="minorProductDescription">
+                                    <span class="minorProductTitle"><a href="/software/print-artist-platinum-501370?meta=software&cat=print-creativity-software">Print Artist® 25 Platinum  </a></span><br>
+                                    <span class="minorProductDescriptionTxt">The Fast, Easy and Fun Way to Create Spectacular Print Projects</span>
+                                    <span class="learnLink"><strong>•</strong> <a href="/software/print-artist-platinum-501370?meta=software&cat=print-creativity-software">Learn more</a></span>
+                            </div></div><div id="specialProd2" class="specialProd"><div class="minorProductBox">
+                                    <a href="/software/art-explosion-500000-145781?meta=software&cat=print-creativity-software"><img src="http://cdn.novadevelopment.com/images/3D_Box_w140_tcm23-145761.png" alt="Art Explosion 500,000" border="0" vspace="4"></a>
+                            </div>
+                            <div class="minorProductDescription">
+                                    <span class="minorProductTitle"><a href="/software/art-explosion-500000-145781?meta=software&cat=print-creativity-software">Art Explosion 500,000</a></span><br>
+                                    <span class="minorProductDescriptionTxt">#1 Selling Brand of Clip Art</span>
+                                    <span class="learnLink"><strong>•</strong> <a href="/software/art-explosion-500000-145781?meta=software&cat=print-creativity-software">Learn more</a></span>
+                            </div></div><div id="specialProd3" class="specialProd"><div class="minorProductBox">
+                                    <a href="/software/scrapbook-factory-deluxe-129016?meta=software&cat=print-creativity-software"><img src="http://cdn1.novadevelopment.com/images/SNWT-3D-Box_w140_tcm23-137450.png" alt="Scrapbook Factory<sup>&reg;</sup> Deluxe 5.0" border="0" vspace="4"></a>
+                            </div>
+                            <div class="minorProductDescription">
+                                    <span class="minorProductTitle"><a href="/software/scrapbook-factory-deluxe-129016?meta=software&cat=print-creativity-software">Scrapbook Factory<sup>&reg;</sup> Deluxe 5.0</a></span><br>
+                                    <span class="minorProductDescriptionTxt">Create memories to last a lifetime.</span>
+                                    <span class="learnLink"><strong>•</strong> <a href="/software/scrapbook-factory-deluxe-129016?meta=software&cat=print-creativity-software">Learn more</a></span>
+                            </div></div><div id="specialProd4" class="specialProd"><div class="minorProductBox">
+                                    <a href="/software/business-card-factory-deluxe-128998?meta=software&cat=print-creativity-software&sub=desktop-publishing-software"><img src="http://cdn5.novadevelopment.com/images/3D_box_w140_tcm23-143922.png" alt="Business Card Factory<sup>&reg;</sup> Deluxe 4.0" border="0" vspace="4"></a>
+                            </div>
+                            <div class="minorProductDescription">
+                                    <span class="minorProductTitle"><a href="/software/business-card-factory-deluxe-128998?meta=software&cat=print-creativity-software&sub=desktop-publishing-software">Business Card Factory<sup>&reg;</sup> Deluxe 4.0</a></span><br>
+                                    <span class="minorProductDescriptionTxt">	The Fastest, Easiest Way to Create Business Cards ... and More!</span>
+                                    <span class="learnLink"><strong>•</strong> <a href="/software/business-card-factory-deluxe-128998?meta=software&cat=print-creativity-software&sub=desktop-publishing-software">Learn more</a></span>
+                            </div></div><script type="text/javascript" src="http://static.criteo.net/js/ld/ld.js" async="true"></script>
+		<script type="text/javascript"> 
+		window.criteo_q = window.criteo_q || []; 
+		window.criteo_q.push( 
+			{ event: "setAccount", account: 15238}, 
+			{ event: "setCustomerId", id: ""}, 
+			{ event: "setSiteType", type: "d"}, 
+			{ event: "viewHome"} 
+		); 
+		</script>
+		<script>
+$(document).ready(function(){
+	$('.slider_menu a').mouseover(function() {
+		if (!$(this).hasClass("menu_on")) {
+			$(".slider_menu a").removeClass("menu_on");
+			$(this).addClass("menu_on");
+			var activeTab = $(this).attr("rel");
+			$(".slide_item").slideUp();
+			$(activeTab).slideDown();
+			return false;
+		}
+	});
+});
+</script>
+<!-- Start AliveChat Tracking Code -->
+<script type="text/javascript">
+function wsa_include_js(){
+	var wsa_host = (("https:" == document.location.protocol) ? "https://" : "http://");
+	var js = document.createElement('script');
+	js.setAttribute('language', 'javascript');
+	js.setAttribute('type', 'text/javascript');
+	js.setAttribute('src',wsa_host + 'a3.websitealive.com/1231/Visitor/vTracker_v2.asp?websiteid=151&groupid=1231');
+	document.getElementsByTagName('head').item(0).appendChild(js);
+}
+if (window.attachEvent) {window.attachEvent('onload', wsa_include_js);}
+else if (window.addEventListener) {window.addEventListener('load', wsa_include_js, false);}
+else {document.addEventListener('load', wsa_include_js, false);}
+</script>
+<!-- End AliveChat Tracking Code -->
+		</div>
+	</div>
+</div>
+	<div id="footer_wrapper">
+		<div id="footer_wingBG">
+			<div id="footer_mainBG">
+								<div id="footer_contentRegion">
+					<div id="footer_topCat" style="margin-top:15px;">
+							Top Software Products:&nbsp;
+							<a href="/software/print-artist-platinum-501370?meta=software&cat=print-creativity-software" class="footer_link">Print Artist</a>&nbsp;|&nbsp;<a href="/software/photo-explosion-129011?meta=software&cat=print-creativity-software&sub=digital-photography-editing-software" class="footer_link">Photo Explosion</a>&nbsp;|&nbsp;<a href="/software/greeting-card-factory-deluxe-129405" class="footer_link">Greeting Card Factory</a>&nbsp;|&nbsp;<a href="/software/hgtv-home-landscape-platinum-128983" class="footer_link">HGTV Software</a><br />							
+					</div>
+					<div class="footer_lowerwrap">
+										<div id="footer_lowerLinks">
+					<a href="/company/about-us/index.html" class="footer_lowerLink">Company</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+					<a href="/support/customer_service/index.html" class="footer_lowerLink">Support</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+					<a href="/company/reseller-center/retail.html" class="footer_lowerLink">Retail Locations</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/company/legal-privacy/terms.html" class="footer_lowerLink">Terms of Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/company/legal-privacy/index.html" class="footer_lowerLink">Privacy Policy</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/company/sitemap.html" class="footer_lowerLink">Site Map</a>					<br /><br /> Copyright 2015 Nova Development. All rights reserved.
+					</div>
+					<div class="bizratefoot">
+<!-- BEGIN: Bizrate Medal (112x37 pixels) -->
+<a href="http://www.bizrate.com/ratings_guide/cust_reviews__mid--246808.html" target="_blank">
+<img src=" http://medals.bizrate.com/medals/dynamic/small/246808_medal.gif" 
+alt="See Reviews at Bizrate.com" 
+width="112" height="37" align="top" border="0" ></a>
+<!-- END: Bizrate Medal (112x37 pixels) -->
+</div>
+</div>
+				</div>
+							</div>
+		</div>
+	</div>
+	<div id="header">
+		<div id="header_LeftBG">
+		</div>
+	</div>
+	<div id="header_mainBG">
+		<div id="header_mainBG_inner">
+			<div class="fixpng header_mainBG_inner_left">
+			</div>
+			<div class="fixpng header_mainBG_inner_right">
+			</div>
+			<div id="header_innerWrapper">
+				<div id="header_logo">
+					<a href="/">
+						<img src="http://cdn5.novadevelopment.com/template/nova/media/images/header_logo.png" alt="Consumer Software" width="356" height="54" border="0" />
+					</a>
+				</div>
+								<div id="header_searchBox">
+					<form method="get" action="/search.html" class="fixpng search_form">
+						<input type="text" class="fixpng search_input" name="search" />
+						<input type="image" class="fixpng search_btn" name="searchButton" src="http://cdn4.novadevelopment.com/template/nova/media/images/search_btn.png" width="67px" height="34px" />
+					</form>
+					
+										<div class="head_divide"></div>
+											<div id="cart_button" class="fixpng cart_button"> </div>
+									</div>
+				<div id="header_primaryNav">
+								</div>
+				<script>
+				$(document).ready(function(){
+					$("#mailSignupFoot").validate();
+				});
+				</script>
+				<style>
+				#mailSignupFoot{width:228px;}
+				.footer_signup_button{width:50px;padding-right:5px;position:absolute;right:-15px;display:block;}
+				</style>
+				<div id="footer_signup">
+					<form action="/" method="POST" id="mailSignupFoot" name="class="required email"SignupFoot">
+						<input type="hidden" name="mailSignup" id="mailSignup" value="1" />
+						<input type="text" name="signUpMail" id="signUpMailFoot" value="Email Address" onclick="javascript: if (this.value == 'Email Address'){ this.value=''; }" class="required email" />
+						<a href="javascript:viod(0)" onclick="$('#mailSignupFoot').submit();" class="footer_signup_button"></a>
+					</form>
+				</div>
+								<div class="menus_wrap_p">
+					<div id="globalheader_p">
+                                            <ol id="globalnavP">
+						                                                    <li rel="1" class="menu_tab_item" id="menu_item_1"><a href="/software/print-creativity-software">Print Creativity</a></li>
+                                                                                                    <li rel="2" class="menu_tab_item" id="menu_item_2"><a href="/software/digital-photography-software">Digital Photography</a></li>
+                                                                                                    <li rel="3" class="menu_tab_item" id="menu_item_3"><a href="/software/home-and-living-software">Home & Living</a></li>
+                                                                                                    <li rel="4" class="menu_tab_item" id="menu_item_4"><a href="/software/family-tree-maker">Family Tree</a></li>
+                                                                                                    <li rel="5" class="menu_tab_item" id="menu_item_5"><a href="/software/language-learning-software">Language</a></li>
+                                                                                                    <li rel="6" class="menu_tab_item" id="menu_item_6"><a href="/software/kids-educational-software">Kids' Corner</a></li>
+                                                                                                    <li rel="7" class="menu_tab_item" id="menu_item_7"><a href="/software/home-office-software">Utilities</a></li>
+                                                                                                    <li rel="8" class="menu_tab_item" id="menu_item_8"><a href="/software/software-for-macs">Mac</a></li>
+                                                						</ol>
+					</div>
+				                               <a href="/software/print-creativity-software" id="menu_cover_tab1" class="menu_cover_tab">
+			       </a>
+                               <div class="mega_tab" id="mega_tab1">
+                                <table cellspacing="0px" cellpadding="0px">
+                                        <tr>
+                                                <td class="fixpng mm_mid_left">&nbsp;</td>
+                                                <td class="fixpng mm_mid_mid">
+                                                                                                        <ul class="menu_list_1_1 menu_list_all">
+                                                    <li><a href="/software/-501338?meta=software&cat=print-creativity-software">Art Explosion® Publisher Pro® Gold 3.0</a></li><li class="mm_spacer"></li><li><a href="/software/-501346?meta=software&cat=print-creativity-software">Art Explosion® Publisher Pro® Platinum 3.0</a></li><li class="mm_spacer"></li><li><a href="/software/scrapbook-factory-deluxe-129016?meta=software&cat=print-creativity-software">Scrapbook Factory<sup></sup> Deluxe 5.0</a></li><li class="mm_spacer"></li><li><a href="/software/print-artist-platinum-501370?meta=software&cat=print-creativity-software">Print Artist® 25 Platinum</a></li><li class="mm_spacer"></li><li><a href="/software/print-artist-gold-501369?meta=software&cat=print-creativity-software">Print Artist® 25 Gold</a></li><li class="mm_spacer"></li><li><a href="/software/greeting-card-factory-deluxe-502515?meta=software&cat=print-creativity-software">Greeting Card Factory<sup></sup> Deluxe 10</a></li><li class="mm_spacer"></li><li><a href="/software/photo-explosion-deluxe-129012?meta=software&cat=print-creativity-software">Photo Explosion<sup></sup> 5.0 Deluxe</a></li><li class="mm_spacer"></li><li><a href="/software/photo-explosion-129011?meta=software&cat=print-creativity-software">Photo Explosion<sup></sup> 5.0</a></li><li class="mm_spacer"></li><li><a href="/software/photoimpact-pro-129013?meta=software&cat=print-creativity-software">PhotoImpact<sup></sup> Pro 13</a></li><li class="mm_spacer"></li><li><a href="/software/business-card-factory-deluxe-128998?meta=software&cat=print-creativity-software">Business Card Factory<sup></sup> Deluxe 4.0</a></li><li class="mm_spacer"></li><li><a href="/software/art-explosion-500000-145781?meta=software&cat=print-creativity-software">Art Explosion 500,000</a></li><li class="mm_spacer"></li><li><a href="/software/art-explosion-800000-128989?meta=software&cat=print-creativity-software">Art Explosion 800,000</a></li><li class="mm_spacer"></li><li><a href="/software/label-factory-deluxe-129006?meta=software&cat=print-creativity-software">Label Factory<sup></sup> Deluxe 4</a></li><li class="mm_spacer"></li>                                                    </ul>
+                                                                                                        <td class="fixpng mm_mid_right">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                                <td class="fixpng mm_bottom_left">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_mid">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_right">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                               </div>
+                                                              <a href="/software/digital-photography-software" id="menu_cover_tab2" class="menu_cover_tab">
+			       </a>
+                               <div class="mega_tab" id="mega_tab2">
+                                <table cellspacing="0px" cellpadding="0px">
+                                        <tr>
+                                                <td class="fixpng mm_mid_left">&nbsp;</td>
+                                                <td class="fixpng mm_mid_mid">
+                                                                                                        <ul class="menu_list_2_1 menu_list_all">
+                                                    <li><a href="/software/-502600?meta=software&cat=digital-photography-software">InPixio Photo Focus</a></li><li class="mm_spacer"></li><li><a href="/software/-502601?meta=software&cat=digital-photography-software">InPixio Photo Focus Professional</a></li><li class="mm_spacer"></li><li><a href="/software/-502092?meta=software&cat=digital-photography-software">Refocus 4 Deluxe Edition for Mac</a></li><li class="mm_spacer"></li><li><a href="/software/scrapbook-factory-deluxe-129016?meta=software&cat=digital-photography-software">Scrapbook Factory<sup></sup> Deluxe 5.0</a></li><li class="mm_spacer"></li><li><a href="/software/photo-explosion-deluxe-129012?meta=software&cat=digital-photography-software">Photo Explosion<sup></sup> 5.0 Deluxe</a></li><li class="mm_spacer"></li><li><a href="/software/photo-explosion-129011?meta=software&cat=digital-photography-software">Photo Explosion<sup></sup> 5.0</a></li><li class="mm_spacer"></li><li><a href="/software/photoimpact-pro-129013?meta=software&cat=digital-photography-software">PhotoImpact<sup></sup> Pro 13</a></li><li class="mm_spacer"></li><li><a href="/software/Morpheus_Photo_Morpher-502090?meta=software&cat=digital-photography-software">Morpheus Photo Morpher</a></li><li class="mm_spacer"></li><li><a href="/software/Morpheus_Photo_Morpher-502091?meta=software&cat=digital-photography-software">Morpheus Photo Morpher for Mac</a></li><li class="mm_spacer"></li>                                                    </ul>
+                                                                                                        <td class="fixpng mm_mid_right">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                                <td class="fixpng mm_bottom_left">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_mid">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_right">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                               </div>
+                                                              <a href="/software/home-and-living-software" id="menu_cover_tab3" class="menu_cover_tab">
+			       </a>
+                               <div class="mega_tab" id="mega_tab3">
+                                <table cellspacing="0px" cellpadding="0px">
+                                        <tr>
+                                                <td class="fixpng mm_mid_left">&nbsp;</td>
+                                                <td class="fixpng mm_mid_mid">
+                                                                                                        <ul class="menu_list_3_1 menu_list_all">
+                                                    <li><a href="/software/hgtv-ultimate-home-design-502526?meta=software&cat=home-and-living-software">HGTV<sup></sup> Ultimate Home Design with Landscaping &amp; Decks 5.0</a></li><li class="mm_spacer"></li><li><a href="/software/hgtv-home-landscape-platinum-502520?meta=software&cat=home-and-living-software">HGTV<sup></sup> Home & Landscape Platinum 5.0</a></li><li class="mm_spacer"></li><li><a href="/software/hgtv-instant-makeover-135593?meta=software&cat=home-and-living-software">HGTV<sup></sup> Instant Makeover</a></li><li class="mm_spacer"></li><li><a href="/software/hgtv-home-design-for-mac-144244?meta=software&cat=home-and-living-software">HGTV<sup></sup> Home Design for Mac</a></li><li class="mm_spacer"></li><li><a href="/software/ProArchitect-502527?meta=software&cat=home-and-living-software">ProArchitect 2 - Architectural Design Software</a></li><li class="mm_spacer"></li>                                                    </ul>
+                                                                                                        <td class="fixpng mm_mid_right">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                                <td class="fixpng mm_bottom_left">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_mid">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_right">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                               </div>
+                                                              <a href="/software/family-tree-maker" id="menu_cover_tab4" class="menu_cover_tab">
+			       </a>
+                               <div class="mega_tab" id="mega_tab4">
+                                <table cellspacing="0px" cellpadding="0px">
+                                        <tr>
+                                                <td class="fixpng mm_mid_left">&nbsp;</td>
+                                                <td class="fixpng mm_mid_mid">
+                                                                                                        <ul class="menu_list_4_1 menu_list_all">
+                                                    <li><a href="/software/ftm_deluxe-501078?meta=software&cat=family-tree-maker">Family Tree Maker® Deluxe</a></li><li class="mm_spacer"></li><li><a href="/software/ftm_essentials_2012-501229?meta=software&cat=family-tree-maker">Family Tree Maker® Essentials</a></li><li class="mm_spacer"></li><li><a href="/software/familytreemaker-mac-501390?meta=software&cat=family-tree-maker">Family Tree Maker® Mac 3 Deluxe</a></li><li class="mm_spacer"></li><li><a href="/software/ftm_Platinum-501236?meta=software&cat=family-tree-maker">Family Tree Maker® Platinum</a></li><li class="mm_spacer"></li>                                                    </ul>
+                                                                                                        <td class="fixpng mm_mid_right">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                                <td class="fixpng mm_bottom_left">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_mid">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_right">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                               </div>
+                                                              <a href="/software/language-learning-software" id="menu_cover_tab5" class="menu_cover_tab">
+			       </a>
+                               <div class="mega_tab" id="mega_tab5">
+                                <table cellspacing="0px" cellpadding="0px">
+                                        <tr>
+                                                <td class="fixpng mm_mid_left">&nbsp;</td>
+                                                <td class="fixpng mm_mid_mid">
+                                                                                                        <ul class="menu_list_5_1 menu_list_all">
+                                                    <li><a href="/software/berlitz-spanish-premier-501173?meta=software&cat=language-learning-software">Learn It Now™  French Premier</a></li><li class="mm_spacer"></li><li><a href="/software/berlitz-spanish-premier-501181?meta=software&cat=language-learning-software">Learn It Now™  German Premier</a></li><li class="mm_spacer"></li><li><a href="/software/berlitz-spanish-premier-501058?meta=software&cat=language-learning-software">Learn It Now™  Spanish Premier</a></li><li class="mm_spacer"></li><li><a href="/software/berlitz-spanish-premier-501224?meta=software&cat=language-learning-software">Learn It Now™ Chinese & Japanese Premier</a></li><li class="mm_spacer"></li><li><a href="/software/berlitz-spanish-premier-501222?meta=software&cat=language-learning-software">Learn It Now™ English Premier</a></li><li class="mm_spacer"></li><li><a href="/software/berlitz-spanish-premier-501223?meta=software&cat=language-learning-software">Learn It Now™ Italian Premier</a></li><li class="mm_spacer"></li>                                                    </ul>
+                                                                                                        <td class="fixpng mm_mid_right">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                                <td class="fixpng mm_bottom_left">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_mid">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_right">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                               </div>
+                                                              <a href="/software/kids-educational-software" id="menu_cover_tab6" class="menu_cover_tab">
+			       </a>
+                               <div class="mega_tab" id="mega_tab6">
+                                <table cellspacing="0px" cellpadding="0px">
+                                        <tr>
+                                                <td class="fixpng mm_mid_left">&nbsp;</td>
+                                                <td class="fixpng mm_mid_mid">
+                                                                                                        <ul class="menu_list_6_1 menu_list_all">
+                                                    <li><a href="/software/blues_clues-135213?meta=software&cat=kids-educational-software">Blue's Clues: Meet Blue's Baby Brother</a></li><li class="mm_spacer"></li><li><a href="/software/diegos_ultimate_rescue-146024?meta=software&cat=kids-educational-software">Diego&rsquo;s Ultimate Rescue League</a></li><li class="mm_spacer"></li><li><a href="/software/dora-crystal-kingdom-129001?meta=software&cat=kids-educational-software">Dora Saves the Crystal Kingdom</a></li><li class="mm_spacer"></li><li><a href="/software/dora-129002?meta=software&cat=kids-educational-software">Dora the Explorer Lost and Found Adventure</a></li><li class="mm_spacer"></li><li><a href="/software/doras_ballet_adventures-152497?meta=software&cat=kids-educational-software">Dora's Ballet Adventures</a></li><li class="mm_spacer"></li><li><a href="/software/doras_big_birthday_adventure-143402?meta=software&cat=kids-educational-software">Dora's Big Birthday Adventure</a></li><li class="mm_spacer"></li><li><a href="/software/icarly_isock_it_to_em-145276?meta=software&cat=kids-educational-software">iCarly iSock It To 'Em</a></li><li class="mm_spacer"></li><li><a href="/software/Ni_Hao_Kai_Lan-148510?meta=software&cat=kids-educational-software">Kai-Lan's Great Trip to China!</a></li><li class="mm_spacer"></li><li><a href="/software/Nick_game_pack-137098?meta=software&cat=kids-educational-software">Nickelodeon Super Game Pack</a></li><li class="mm_spacer"></li><li><a href="/software/elmo-world-129017?meta=software&cat=kids-educational-software">Sesame Street<sup></sup> Elmo's World</a></li><li class="mm_spacer"></li><li><a href="/software/sesame-street-first-steps-129018?meta=software&cat=kids-educational-software">Sesame Street<sup></sup> First Steps</a></li><li class="mm_spacer"></li><li><a href="/software/sesame-street-learn-play-grow-129019?meta=software&cat=kids-educational-software">Sesame Street<sup></sup> Learn, Play and Grow</a></li><li class="mm_spacer"></li><li><a href="/software/sesame-street-preschool-129020?meta=software&cat=kids-educational-software">Sesame Street<sup></sup> Preschool</a></li><li class="mm_spacer"></li><li><a href="/software/spongebob-150514?meta=software&cat=kids-educational-software">SpongeBob and the Clash of Triton</a></li><li class="mm_spacer"></li><li><a href="/software/backyardigans_mission_to_Mars-135169?meta=software&cat=kids-educational-software">The Backyardigans: Mission to Mars</a></li><li class="mm_spacer"></li><li><a href="/software/Wonder_pets-137097?meta=software&cat=kids-educational-software">Wonder Pets! Join the Circus</a></li><li class="mm_spacer"></li>                                                    </ul>
+                                                                                                        <td class="fixpng mm_mid_right">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                                <td class="fixpng mm_bottom_left">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_mid">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_right">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                               </div>
+                                                              <a href="/software/home-office-software" id="menu_cover_tab7" class="menu_cover_tab">
+			       </a>
+                               <div class="mega_tab" id="mega_tab7">
+                                <table cellspacing="0px" cellpadding="0px">
+                                        <tr>
+                                                <td class="fixpng mm_mid_left">&nbsp;</td>
+                                                <td class="fixpng mm_mid_mid">
+                                                                                                        <ul class="menu_list_7_1 menu_list_all">
+                                                    <li><a href="/software/business-card-factory-deluxe-128998?meta=software&cat=home-office-software">Business Card Factory<sup></sup> Deluxe 4.0</a></li><li class="mm_spacer"></li><li><a href="/software/marine-aquarium-129007?meta=software&cat=home-office-software">Marine Aquarium Deluxe 3.0 for Windows</a></li><li class="mm_spacer"></li><li><a href="/software/drive-erase-pro-129003?meta=software&cat=home-office-software">Drive Erase Professional</a></li><li class="mm_spacer"></li><li><a href="/software/instaform-invoices-estimates-pro-129005?meta=software&cat=home-office-software">Invoices &amp; Estimates Pro 2.0</a></li><li class="mm_spacer"></li><li><a href="/software/label-factory-deluxe-129006?meta=software&cat=home-office-software">Label Factory<sup></sup> Deluxe 4</a></li><li class="mm_spacer"></li><li><a href="/software/lightning-pdf-professional-501659?meta=software&cat=home-office-software">Lightning PDF® Professional 8</a></li><li class="mm_spacer"></li><li><a href="/software/lightning-pdf-professional-501660?meta=software&cat=home-office-software">Lightning PDF® Professional 8 for Mac</a></li><li class="mm_spacer"></li><li><a href="/software/webeasy-professional-10-171059?meta=software&cat=home-office-software">WebEasy Professional 10</a></li><li class="mm_spacer"></li>                                                    </ul>
+                                                                                                        <td class="fixpng mm_mid_right">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                                <td class="fixpng mm_bottom_left">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_mid">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_right">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                               </div>
+                                                              <a href="/software/software-for-macs" id="menu_cover_tab8" class="menu_cover_tab">
+			       </a>
+                               <div class="mega_tab" id="mega_tab8">
+                                <table cellspacing="0px" cellpadding="0px">
+                                        <tr>
+                                                <td class="fixpng mm_mid_left">&nbsp;</td>
+                                                <td class="fixpng mm_mid_mid">
+                                                                                                        <ul class="menu_list_8_1 menu_list_all">
+                                                    <li><a href="/software/-502092?meta=software&cat=software-for-macs">Refocus 4 Deluxe Edition for Mac</a></li><li class="mm_spacer"></li><li><a href="/software/hgtv-home-design-for-mac-144244?meta=software&cat=software-for-macs">HGTV<sup></sup> Home Design for Mac</a></li><li class="mm_spacer"></li><li><a href="/software/marine-aquarium-130999?meta=software&cat=software-for-macs">Marine Aquarium Deluxe 3.0 for Mac</a></li><li class="mm_spacer"></li><li><a href="/software/diegos_ultimate_rescue-148389?meta=software&cat=software-for-macs">Diego&rsquo;s Ultimate Rescue League</a></li><li class="mm_spacer"></li><li><a href="/software/dora_saves_the_crystal_kingdom-132232?meta=software&cat=software-for-macs">Dora Saves the Crystal Kingdom</a></li><li class="mm_spacer"></li><li><a href="/software/dora_lost_and_found_adventures-148769?meta=software&cat=software-for-macs">Dora the Explorer Lost and Found Adventure</a></li><li class="mm_spacer"></li><li><a href="/software/doras_ballet_adventures-152517?meta=software&cat=software-for-macs">Dora's Ballet Adventures</a></li><li class="mm_spacer"></li><li><a href="/software/doras_big_birthday_adventure-143497?meta=software&cat=software-for-macs">Dora's Big Birthday Adventure</a></li><li class="mm_spacer"></li><li><a href="/software/familytreemaker-mac-501390?meta=software&cat=software-for-macs">Family Tree Maker® Mac 3 Deluxe</a></li><li class="mm_spacer"></li><li><a href="/software/icarly_isock_it_to_em-148771?meta=software&cat=software-for-macs">iCarly iSock It To 'Em</a></li><li class="mm_spacer"></li><li><a href="/software/Ni_Hao_Kai_Lan-148510?meta=software&cat=software-for-macs">Kai-Lan's Great Trip to China!</a></li><li class="mm_spacer"></li><li><a href="/software/berlitz-spanish-premier-501173?meta=software&cat=software-for-macs">Learn It Now™  French Premier</a></li><li class="mm_spacer"></li><li><a href="/software/berlitz-spanish-premier-501181?meta=software&cat=software-for-macs">Learn It Now™  German Premier</a></li><li class="mm_spacer"></li><li><a href="/software/berlitz-spanish-premier-501058?meta=software&cat=software-for-macs">Learn It Now™  Spanish Premier</a></li><li class="mm_spacer"></li><li><a href="/software/berlitz-spanish-premier-501224?meta=software&cat=software-for-macs">Learn It Now™ Chinese & Japanese Premier</a></li><li class="mm_spacer"></li><li><a href="/software/berlitz-spanish-premier-501222?meta=software&cat=software-for-macs">Learn It Now™ English Premier</a></li><li class="mm_spacer"></li><li><a href="/software/berlitz-spanish-premier-501223?meta=software&cat=software-for-macs">Learn It Now™ Italian Premier</a></li><li class="mm_spacer"></li><li><a href="/software/lightning-pdf-professional-501660?meta=software&cat=software-for-macs">Lightning PDF® Professional 8 for Mac</a></li><li class="mm_spacer"></li><li><a href="/software/Morpheus_Photo_Morpher-502091?meta=software&cat=software-for-macs">Morpheus Photo Morpher for Mac</a></li><li class="mm_spacer"></li><li><a href="/software/elmo-world-129017?meta=software&cat=software-for-macs">Sesame Street<sup></sup> Elmo's World</a></li><li class="mm_spacer"></li><li><a href="/software/sesame-street-first-steps-129018?meta=software&cat=software-for-macs">Sesame Street<sup></sup> First Steps</a></li><li class="mm_spacer"></li><li><a href="/software/sesame-street-learn-play-grow-129019?meta=software&cat=software-for-macs">Sesame Street<sup></sup> Learn, Play and Grow</a></li><li class="mm_spacer"></li><li><a href="/software/sesame-street-preschool-129020?meta=software&cat=software-for-macs">Sesame Street<sup></sup> Preschool</a></li><li class="mm_spacer"></li><li><a href="/software/spongebob-150547?meta=software&cat=software-for-macs">SpongeBob and the Clash of Triton</a></li><li class="mm_spacer"></li><li><a href="/software/Wonder_pets-150146?meta=software&cat=software-for-macs">Wonder Pets! Join the Circus</a></li><li class="mm_spacer"></li>                                                    </ul>
+                                                                                                        <td class="fixpng mm_mid_right">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                                <td class="fixpng mm_bottom_left">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_mid">&nbsp;</td>
+                                                <td class="fixpng mm_bottom_right">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                               </div>
+                               						<input id="menuCol1" type="hidden" rel="" value="1" />
+				</div>
+							</div>
+			<!-- header_innerWrapper end -->
+		</div>
+	</div>
+<script type="text/javascript" language="javascript">
+	var ltrValue = '';
+	
+	$(document).ready(function() {
+	   
+	   var listeners = new Array("a","form");
+	   
+	   for(x in listeners)
+	   {
+	   
+		   $(listeners[x]).each(function()
+		   {
+		   
+				if(ltrValue.length > 0)
+				{
+				
+					if(x == 1)
+					{
+						var thisLink = $(this).attr("action");
+					}else
+					{
+						var thisLink = $(this).attr("href");
+					}
+					
+					var novaPattern = new RegExp("(^\/){1,1}|^http://([A-Za-z0-9\.]+)novadevelopment.com|\/nova2\/");
+					
+					if(novaPattern.test(thisLink))
+					{
+					
+						//alert(thisLink);
+						if(thisLink.search("[?/&]{1,1}ltr=")<0)
+						{
+							if(thisLink.indexOf("?") >= 0)
+							{
+								thisLink = thisLink + "&ltr=" + ltrValue;
+							}else
+							{
+								thisLink = thisLink + "?ltr=" + ltrValue;
+							}
+						
+							if(x == 1)
+							{
+								$(this).attr("action",thisLink);
+							}else
+							{
+								$(this).attr("href",thisLink);
+							}
+						
+						}
+					
+					}
+				
+				}
+				
+		   });
+	   
+	   }
+	   
+	});
+</script>
+<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1068876285;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1068876285/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>	
+</body>
+</html>";i:2;s:4:"8177";}

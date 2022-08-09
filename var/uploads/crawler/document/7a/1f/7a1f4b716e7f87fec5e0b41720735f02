@@ -1,0 +1,292 @@
+a:3:{i:0;s:23:"http://funcardsapp.com/";i:1;s:15152:"<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+	
+    <title>Fun Cards - Easter & More!</title>
+
+	<meta property="og:title" content="Fun Cards - Easter & More!" /> 
+	<meta property="og:image" content="http://www.funcardsapp.com/assets/logo.png" />
+	<meta property="og:url" content="http://apps.facebook.com/holidaycards/" />
+	<meta property="og:type" content="website" /> 
+	<meta property="og:site_name" content="Fun Cards - Easter & More!" /> 
+	<meta property="og:description" content="Send cards to your friends for Easter, Birthdays, Friendship & more!" />
+	<meta property="fb:app_id" content="6651249934" /> 
+	
+	<link rel="apple-touch-icon-precomposed" href="/assets/apple-touch-iphone.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/apple-touch-ipad.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/apple-touch-iphone4.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-ipad-retina.png" />
+
+	<link href="/assets/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="/assets/cards.css" media="all" rel="stylesheet" type="text/css" />
+	
+	
+	<script type="text/javascript">
+	// globals
+	var appId = "6651249934";
+	var appDomain = "www.funcardsapp.com";
+	var appCanvasUrl = "http://apps.facebook.com/holidaycards/";
+	var appContainer = "web";
+	
+	var authUrl = "https://graph.facebook.com/oauth/authorize?client_id=6651249934&redirect_uri=http%3A%2F%2Fwww.funcardsapp.com%2Fcards%2Fcallback%2F&response_type=code&scope=email+friends_birthday";
+	
+	var usingMobileDevice = false;
+	var usingTabletDevice = false;
+	var usingMobile = ((usingMobileDevice == true) || (usingTabletDevice == true));
+	
+	var currentLocale = "en_US";
+	
+	var requestPath = "/";
+	var requestParams = {"controller":"cards","action":"index"};
+	var requestAction = "";
+	
+	var categories = [{"app_callback":"easter","app_name":"Easter Cards","card_name":"Easter Card","greeting":"Happy Easter!","icon":"easter.gif","id":4,"name":"Easter","priority":18,"date_timestamp":1428192000},{"app_callback":"romantic","app_name":"Valentine's Cards","card_name":"Valentines Card","greeting":"","icon":"valentines.gif","id":3,"name":"Valentine's Day","priority":17,"date_timestamp":1423872000},{"app_callback":"birthday","app_name":"Birthday Cards","card_name":"Birthday Card","greeting":"","icon":"birthday.gif","id":5,"name":"Birthday","priority":15,"date_timestamp":1196261939},{"app_callback":"friendship","app_name":"Friendship Cards","card_name":"Friendship Card","greeting":"","icon":"friend.gif","id":13,"name":"Friendship","priority":11,"date_timestamp":1199981862},{"app_callback":"thanks","app_name":"Thank You Cards","card_name":"Thank You Card","greeting":"Thank You!","icon":"thanks.gif","id":11,"name":"Thank You","priority":8,"date_timestamp":1199968281},{"app_callback":"congratulations","app_name":"Congratulations Cards","card_name":"Congratulations Card","greeting":"Congratulations!","icon":"congratulations.png","id":7,"name":"Congratulations","priority":7,"date_timestamp":1199805653},{"app_callback":"cheerup","app_name":"Cheer Up Cards","card_name":"Cheer Up Card","greeting":"Cheer Up!","icon":"cheerup.gif","id":8,"name":"Cheer Up","priority":7,"date_timestamp":1199896052},{"app_callback":"party","app_name":"Party Cards","card_name":"Party Card","greeting":"It's Party Time!","icon":"party.gif","id":12,"name":"Party","priority":6,"date_timestamp":1199969916},{"app_callback":"getwell","app_name":"Get Well Soon Cards","card_name":"Get Well Card","greeting":"Get Well Soon!","icon":"wand.png","id":14,"name":"Get Well Soon","priority":5,"date_timestamp":1200407211},{"app_callback":"baby","app_name":"Baby Cards","card_name":"Baby Card","greeting":"","icon":"baby.gif","id":10,"name":"Baby","priority":3,"date_timestamp":1199964243},{"app_callback":"wedding","app_name":"Wedding Cards","card_name":"Wedding Card","greeting":"","icon":"wedding.gif","id":9,"name":"Wedding","priority":3,"date_timestamp":1199959133},{"app_callback":"goodluck","app_name":"Good Luck Cards","card_name":"Good Luck Card","greeting":"Good Luck!","icon":"goodluck.gif","id":6,"name":"Good Luck","priority":1,"date_timestamp":1199802460},{"app_callback":"home","app_name":"Home Cards","card_name":"Home Card","greeting":"","icon":"house.png","id":16,"name":"Home","priority":1,"date_timestamp":1209046146},{"app_callback":"obama","app_name":"Obama Cards","card_name":"President Obama Card","greeting":"Change Can Happen!","icon":"obama.gif","id":20,"name":"President Obama","priority":0,"date_timestamp":1199188800},{"app_callback":"videocards","app_name":"Video Cards","card_name":"Video Card","greeting":"","icon":"youtube.gif","id":21,"name":"Video Cards","priority":0,"date_timestamp":1229033220},{"app_callback":"thanksgiving","app_name":"Thanksgiving Cards","card_name":"Thanksgiving Card","greeting":"Happy Thanksgiving!","icon":"us.gif","id":19,"name":"Thanksgiving","priority":0,"date_timestamp":1417046400},{"app_callback":"halloween","app_name":"Halloween Cards","card_name":"Halloween Card","greeting":"Happy Halloween!","icon":"halloween.gif","id":18,"name":"Halloween","priority":0,"date_timestamp":1414713600},{"app_callback":"summer","app_name":"Summer Cards","card_name":"Summer Card","greeting":"","icon":"sun.gif","id":17,"name":"Summer","priority":0,"date_timestamp":1211201411},{"app_callback":"patricks","app_name":"St. Patrick's Day Cards","card_name":"St. Patricks Day Card","greeting":"Happy St. Patrick's Day!","icon":"ie.gif","id":15,"name":"St. Patrick's Day","priority":0,"date_timestamp":1395057600},{"app_callback":"christmas","app_name":"Christmas Cards","card_name":"Christmas Card","greeting":"Merry Christmas!","icon":"christmas.gif","id":1,"name":"Christmas","priority":0,"date_timestamp":1419465600},{"app_callback":"newyear","app_name":"New Year Cards","card_name":"New Year Card","greeting":"Happy New Year!","icon":"newyear.gif","id":2,"name":"New Year","priority":0,"date_timestamp":1420070400},{"app_callback":"royalwedding","app_name":"Royal Wedding Cards","card_name":"Royal Wedding Card","greeting":"","icon":"gb.gif","id":22,"name":"Royal Wedding","priority":0,"date_timestamp":1304074800}];
+	var currentCategoryId = 4;
+	var currentCategoryType = "picture";
+	</script>
+	
+	<script src="/assets/application-bc0993f47f22e2ff580160837dab9ca7.js" type="text/javascript"></script>
+	
+	<script type="text/javascript" src="/assets/iscroll.js"></script>
+	
+	<script type="text/javascript" src="//ads.lfstmedia.com/getad?site=13006"></script>
+	
+	<base target="_top" /> 
+	
+	<script type="text/javascript">		
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-7143667-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+	  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	</script>
+	
+</head>
+<body>
+	<div id="fb-root"></div>
+
+	<div id="cardsWrap">
+		
+		<div id="ad_top"></div>
+		
+		<div id="tabs">
+			<ul class="nav nav-tabs">
+
+				<!-- <li><a href="#" onclick="showLikeDialog(); return false;"><span style="display:inline-block; background:url('/assets/icons/icon_like.gif') no-repeat center left; padding-left:30px">Like</span></a></li> -->
+
+			</ul>
+		</div>
+		
+		<div id="content"></div>
+	
+	</div>
+	
+	<div id="loadingOverlay"></div>
+	
+	<div id="preloaded"></div>
+
+	<div id="cardDialog" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Title</h4>
+				</div>
+
+				<div class="modal-body">
+					<img src="/assets/loading2.gif" class="card-dialog-image" />
+					<div class="card-dialog-video"></div>
+					
+					<div class="card-dialog-info"></div>
+				</div>
+
+				<div class="modal-footer">
+					<div class="card-dialog-like-button"></div>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Choose This Card</button><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	<div id="cardReceivedSentDialog" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Title</h4>
+				</div>
+
+				<div class="modal-body">
+					
+					<table border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td valign="top" width="15%"></td>
+						<td valign="top" width="70%">
+							
+							<img src="/assets/loading2.gif" class="card-dialog-image" />
+							<div class="card-dialog-video"></div>
+							
+							<div class="card-view-dialog-info"></div>
+							
+						</td>
+						<td valign="top" width="15%"></td>
+					</tr>
+					</table>
+					
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Send a Card Back</button><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	<div id="likeDialog" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Fun Cards on Facebook</h4>
+				</div>
+
+				<div class="modal-body" style="padding:0px">
+					
+					<div class="fb-like-box" data-href="http://www.facebook.com/funcardsapp" data-width="292" data-height="70" data-show-faces="false" data-border-color="#ffffff" data-stream="false"  data-header="false"></div>
+					
+				</div>
+
+				<div class="modal-footer">
+					<div style="float:left; margin-top:5px; margin-left:1px; font-size:11px; color:#999; cursor:default">
+						Click the "Like" button above...
+					</div>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	<div id="helpDialog" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Fun Cards Help</h4>
+				</div>
+
+				<div class="modal-body">
+					
+					<h2>Why can't I send a card to all my friends at once?</h2>
+
+					<p>Facebook prompts you to approve each wall post manually. For this reason, we have set a limit to the number of friends you can send to at once. If you reach the limit, simply send your card to those friends, then click the "Send a Card" tab after to send more!</p>
+					
+					<h2>Why are some of my friends missing?</h2>
+
+					<p>Facebook allows users to turn off all applications. If any of your friends have enabled this setting, they will not show up in your friends list. If any friends are missing from your birthdays list, this is because they have not added their birthday to their Facebook profile.</p>
+
+					<h2>Where is the card I sent?</h2>
+
+					<p>If the card you sent is not showing up on your friend's wall, please ask them to look in the <a href="http://www.facebook.com/appcenter/requests" target="_blank">App Requests</a> section on Facebook, or just send them <a href="http://apps.facebook.com/holidaycards/" target="_blank">this link</a> to the app.</p>
+
+					<h2>What does the "Cannot post on user's Wall" message mean?</h2>
+
+					<p>You may see this error message if one of your selected friends has disabled others from posting on their wall. Please unselect this friend and try again.</p>
+
+					<h2>How can I report a copyright infringement?</h2>
+
+					<p>Users can <a href="http://apps.facebook.com/holidaycards/upload" target="_blank">upload</a> their own images to use as cards, and must confirm that they have the rights to do so. If any image infringes upon any copyrights you own, please <a href="http://www.facebook.com/messages/funcardsapp" target="_blank">contact us</a> and we will remove the card and take any appropriate action.</p>
+
+					<h2>How can I contact Fun Cards?</h2>
+
+					<p><a href="http://www.facebook.com/messages/funcardsapp" target="_blank">Click here</a> to send us a message.</p>
+					
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	<div id="holidayRequestDialog" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Notification</h4>
+				</div>
+
+				<div class="modal-body" style="padding:8px 5px 2px 12px; font-family:arial;">
+					
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top:0px;">
+					<tr>
+						<td valign="top">
+							<img src="/photos/thumb/80375.jpg" style="margin-right:10px; height:54px; position:relative; top:0px; border-radius:2px" />
+						</td>
+						<td valign="top" width="100%">
+							<div style="font-weight:bold; font-size:20px; margin-bottom:3px; line-height:24px; margin-top:3px">Happy Valentine's Day!</div>
+							<div style="color:#777; margin-bottom:10px; font-size:16px; line-height:20px">Send a Valentine's Card to your friends...</div>
+						</td>
+					</tr>
+					</table>
+					
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Okay</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<div id="birthday_template" class="box birthday-box">
+		<table border="0" cellpadding="0" cellspacing="0" style="min-width:100%; max-width:normal; width:auto">  
+			<tr>
+				<td valign="top" style="width:60px;">
+					<a href="#" class="birthday-photo-link"><img src="/assets/blank.png" width="50" height="50" class="birthday-photo-image" /></a>
+				</td>
+				<td valign="top" style="font-weight:normal; font-size:11px">
+
+					<b style="font-size:13px"><a href="#" class="birthday-name-link"></a></b>
+					<span class="birthday-age"></span>
+
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top:0px;">
+					<tr>
+						<td valign="top">
+							<div class="birthday-when"></div>
+							<div class="birthday-date"></div>
+						</td>
+						<td valign="bottom" style="text-align:right; padding-bottom:0px">
+							<button type="button" class="birthday-button btn btn-primary">Send Birthday Card</button>
+						</td>
+					</tr>
+					</table>
+
+				</td>
+			</tr>
+		</table>	
+	</div>
+	
+	<div id="bottom_ad_index"></div>
+
+</body>
+</html>";i:2;s:4:"9063";}

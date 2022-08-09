@@ -1,0 +1,328 @@
+a:3:{i:0;s:26:"http://trackmyprofile.com/";i:1;s:9779:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" id="socialprofile">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+			<title>TrackMyProfile.com: Who's interested in you?</title>		
+		
+		
+			<link rel="image_src" href="http://www.trackmyprofile.com/img/logo_square.jpg" />
+		
+	<link href="/css/master.css" rel="stylesheet" type="text/css" />
+	<link href="/css/smoothness/custom-ui.css" rel="stylesheet" type="text/css" />
+			
+	
+	<script src="/js/helper.js" type="text/javascript"></script>
+	<script src="/js/helper-ui.js" type="text/javascript"></script>
+	<script src="/js/master.js" type="text/javascript"></script>
+	
+			<script src="/js/auto_complete.js" type="text/javascript"></script>
+		
+	
+		
+		
+			<script src="/js/login.js" type="text/javascript"></script>
+		
+		
+		
+</head>
+<body>
+
+	<div class="topHeaderCont"> 
+	
+		<div style="width: 900px; text-align: right; margin-left: auto; margin-right: auto;">
+		
+								
+									<a class="topHeader" href="login.php">Login</a>
+								
+				 | 									<a class="topHeader" href="register.php">Register</a>
+		 			
+			
+				&nbsp;	 	
+					
+								
+		</div>
+	 
+	</div>
+<div id="pageCont" class="outerContainer">
+	
+	<div id="headerOuter" style="width: 100%;">
+		
+		<div id="headerLeft" style="float: left;">
+			<a href="index.php">				<img src="/img/logo.png" />				
+			</a>		</div>
+		
+		<div id="headerRight" style="float: right; margin-top: 37px; font-size: 10pt;">
+			
+								
+				<form action="login.php" method="post" class="loginForm">
+					
+					<div class="loginCont caption loginMail">
+												<input style="border: 0px;" type="checkbox" name="keepLogged" id="keepLogged" value="1" /> Keep me logged in 
+						<br/>
+						<input tabindex=1 class="loginInput" type="text" maxlength="150" name="emailLog" id="emailLog" value="email" />
+					</div>
+					<div class="loginCont loginPass">
+						<a href="forgot.php">Forgot password?</a>
+						<br/>
+						<input tabindex=2 class="loginInput caption" type="text" maxlength="20" name="passShow" id="passShow" value="password" />
+						<input style="display: none;" class="loginInput" type="password" maxlength="20" name="passLog" id="passLog" value="" />
+					</div>
+					<div class="loginCont loginSub">
+						<input type="hidden" name="formSent" value="1" />
+						<input tabindex=3 class="submit" type="submit" name="submit" value="Login" style='margin-top: 17px; height: 25px; padding-top: 1px;' />
+					</div>
+		
+				</form>
+		  																		 						
+		</div>
+			
+	</div>
+		
+	<div class="breaker"></div> 
+<script>
+$(document).ready(function() {
+	//submit captcha
+	$("#captchaValue").bind("keydown", function(e) { checkRet(e, "captchaSubmit();"); });
+});
+</script>
+
+	
+<div id="captchaHolder" title="Validity Check >>>" style="display: none; text-align: left;">
+				
+	<div id="captchaErrors" class="showErrors"></div>						
+	<div id="captchaInfo" class="showInfo">Enter the 5 letters from image below.</div>
+		
+	<div style="text-align: center;">
+		
+				<div id="captcha" class="coolCap" style="margin-bottom: 3px;"></div>
+		
+		<div id="captchaWait" class="coolCap" style="display: none; margin-bottom: 3px;">
+			<img style="margin-top: 45px;" src="img/wait.gif" />
+		</div>
+				
+		<center>
+		<table style="margin: 10px;">
+			<tr>
+				<td style="vertical-align: middle;">
+					<input class="landInput" type="text" style="border: 1px solid #67A54B; width: 75px; margin-right: 5px; height: 29px;" maxlength="5" id="captchaValue" name="captchaValue"/>		
+				</td>
+				<td style="vertical-align: middle;">
+					<input type="button" value="Next >" class="submitBig" onclick="captchaSubmit();"/>						
+				</td>
+			</tr>
+		</table>
+		</center>
+		
+		
+	</div>
+	
+	<div class="caption" style="margin: 6px; margin-top: 0px;">
+		Can't read the letters in image?  <a onclick="newCaptcha();" class="action">Try a different image</a>.
+	</div>
+		
+</div><!--Use for debugging <div id="keyCatch" class="keyCatch" style="position: absolute; top: 0px; left: 0px;"></div>-->
+
+<div id="suggestResults" class="suggestResults">
+	<div id="suggestContainer">
+		<div class="shade1">
+			<div class="shade2">
+				<div class="shade3">
+					<div id="putResults" class="shadeCont">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+$(document).ready(function() {
+	
+	$("#fName").bind("focus", function(e) {  goGreen("#fName"); });
+	$("#lName").bind("focus", function(e) { goGreen("#lName"); });
+	$("#city").bind("focus", function(e) { goGreen("#city"); });
+	
+	//set focus on first name
+	$("#emailLog").focus();
+		
+});
+</script>
+
+
+<div class="pageContainer">
+	
+	<div class="leftContainer" style="width: 443px;">
+			
+		<div id="showErrors" class="showErrors" ></div>				
+		
+<div id="showInfo" class="showInfo" ></div>	
+		<div class="whiteContainer" style="padding-left: 5px; height: 280px; margin-bottom: 0px;"> 
+			
+			<table class="questTable">	
+	<tr>
+		<td class="questPic"><img src="img/icon/vcard_add.png" /></td>
+		<td class="questText">Who's viewing your profile?</td>
+	</tr>
+	<tr>
+		<td class="questPic"><img src="img/icon/magnifier.png" /></td>
+		<td class="questText">Who's searching for you?</td>
+	</tr>
+	<tr>
+		<td class="questPic"><img src="img/icon/group_add.png" /></td>
+		<td class="questText">How popular are you?</td>
+	</tr>
+	<tr>
+		<td class="questPic"><img src="img/icon/comments.png" /></td>
+		<td class="questText">What are your friends saying?</td>
+	</tr>
+</table>
+
+<center style="margin-top: 12px;">
+	<div class="caption" style="margin-bottom: 15px; line-height: 14pt;">
+		TrackMyProfile.com helps track your social networks online and keeps you informed of peoples' activity.  <b>Especially activity that is related to you.</b>
+	</div>
+		
+		
+		<input type="button" class="submit" onclick="window.location='register.php';" value="Get Informed - Join Now!" />
+		<br/>
+	<br/>
+</center>			
+			
+		</div>
+					
+	</div>
+	<div class="rightContainer" style="width: 425px;">		
+		
+		<div class="whiteContainer" style="height: 280px; margin-bottom: 0px;"> 
+				
+			<div style="margin-bottom: 5px;">
+				<span class="title">Sign Up</span><br/>
+				<span class="caption">It's 
+											FREE and
+					 
+				lots of fun!</span> 
+			</div>
+				
+			<form action="register.php" method="post" style="text-align: center;">			
+					
+				<table style="margin-top: 20px;" class="landForm">
+					<tr id="fNamePreCont">
+						<td class="landTdLeft">
+							First Name
+						</td>
+						<td class="landTdRight">
+							<input tabindex=4 autocomplete="off" onblur="setTimeout('closeSuggest()', 300)" class="landInput greenOut" type="text" name="fName" id="fName" value="" />										
+						</td>				
+					</tr>
+					<tr id="lNamePreCont">
+						<td class="landTdLeft">
+							Last Name
+						</td>
+						<td class="landTdRight">
+							<input tabindex=5 autocomplete="off" onblur="setTimeout('closeSuggest()', 300)" class="landInput" type="text" name="lName" id="lName" value="" />										
+						</td>				
+					</tr>
+					<tr id="cityPreCont">
+						<td class="landTdLeft">
+							City
+						</td>
+						<td class="landTdRight">
+							<input tabindex=6 autocomplete="off" onblur="setTimeout('closeSuggest()', 300)" class="landInput" type="text" name="city" id="city" value="" />									</td>				
+					</tr>												
+					<tr>
+						<td class="fLeft">&nbsp;</td>
+						<td class="fRight">
+							<input type="hidden" name="origin" value="index" />
+							<input tabindex=7 type="submit" name="submit" class="submitBig" value="Join Now!" style='margin-top: 10px;' />
+						</td>
+					</tr>
+				</table>
+				
+			</form>
+					
+		</div>
+						
+	</div>
+	
+</div>
+
+
+
+
+			<div style="margin-bottom: 10px;">
+			<div class="caption foot" style="float: left; padding-top: 5px;">
+				
+									
+					&copy; 2014 TrackMyProfile.com
+				
+								
+			</div>
+			<div style="float: right; padding-top: 1px; padding-bottom: 4px;">
+				<a class="footLink" href="/help.php" target="_blank">Help</a>
+								<a class="footLink" href="/terms.php" target="_blank">Terms</a>
+				<a class="footLink" href="/privacy.php" target="_blank">Privacy</a>
+				<a class="footLink" href="/feedback.php" target="_blank">Contact Us</a>
+			</div>
+			<div class="breaker"></div>
+		</div>
+	
+</div>
+
+ 
+<script>
+//keepAlive session - every 2 min
+theInt = self.setInterval("keepAlive()", 1000*60*2);
+
+var gaJsHost = "https://";
+
+document.write(unescape("%3Cscript src='" + gaJsHost + "stats.g.doubleclick.net/dc.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+
+var ret = "";
+function doEvent(type, subType, label, theVal) { 
+
+	if (theVal.length > 0) {
+		ret = pageTracker._trackEvent(type.toString(), subType.toString(), label.toString(), parseInt(theVal));
+	} else {
+		ret = pageTracker._trackEvent(type.toString(), subType.toString(), label.toString());	
+	}
+	
+}
+
+function doVirtPageView(page){
+	pageTracker._trackPageview(page.toString());
+}
+
+//set up script
+var pageTracker = _gat._getTracker("UA-53149828-1");
+
+pageTracker._setCampNameKey("gn"); // name
+pageTracker._setCampMediumKey("um"); // medium
+pageTracker._setCampSourceKey("ce"); // source
+pageTracker._setCampContentKey("rt"); // content
+
+
+
+
+
+	pageTracker._trackPageview();  //track normal page
+
+
+
+
+</script>
+
+</body>
+</html>
+
+<script>
+$(document).ready(function() {
+	
+	setTimeout("$('#emailLog').select()", 500);
+
+});
+</script>
+";i:2;s:4:"2668";}

@@ -1,0 +1,391 @@
+a:3:{i:0;s:22:"http://craftdaily.com/";i:1;s:25932:"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if IE 9 ]>    
+<html id="ie9"> 
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Craft Tutorials, Videos, Workshops &amp; Lessons</title>
+	
+	<meta name="description" content="Get inspired and explore new arts and crafts with the industry's leading craft tutorial videos, lessons &amp; workshops taught by world-class artists." />
+	<meta name="keywords" content="" />
+	<link rel="canonical" href="http://craftdaily.com/">
+	
+	<link type="text/css" href="custom/styles.css" rel="stylesheet"><script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>		<script type="text/javascript" src="js/flowplayer-3.2.8.min.js"></script>		<script type="text/javascript" src="js/flowplayer.ipad-3.2.8.min.js"></script>	<script type="text/javascript" src="js/onsmPlayDev.js"></script><script type="text/javascript">	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script src="https://ssl.google-analytics.com/ga.js" type="text/javascript"></script><script src="https://www.google-analytics.com/ga.js" type="text/javascript"></script><script src="https://www.google-analytics.com/ga.js" type="text/javascript"></script><script src="https://www.google-analytics.com/ga.js" type="text/javascript"></script><script src="https://www.google-analytics.com/ga.js" type="text/javascript"></script><script type="text/javascript" src="jscripts/formValidate.js"></script><script type="text/javascript">					function launchFaq()	{		var url='faq.aspx';		var faqWin = window.open( url, 'faqWin', 		'status,height=460,width=475,scrolling=auto,resizable=yes,toolbar=0' );	}			function launchWin(width,height,win,url)	{		var newWin = window.open( url, win, 'status,height='+height+',width='+width+',scrolling=auto,scrollbars=auto,resizable=yes,toolbar=0' );			}	function play(id, sid)	{		var inheight = 720;		var inwidth = 650;		var insettings = "height=" + inheight + ",width=" + inwidth + ",status=no,toolbar=no,menubar=no,location=no,scrollbars=no";		var path = 'player.aspx?ProductID=' + id + '&sid=' + sid;		window.open(path,null,insettings);	}							</script>	
+	
+	<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-10599097-6']);
+	_gaq.push(['_setDomainName', 'craftdaily.tv']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	</script>
+	<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-10599097-6");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+	
+
+	<script language="JavaScript" type="text/javascript">
+		// var fp;
+		var playerDisplayed = '0';
+		function showPlayer(player)
+		{
+			if (playerDisplayed != '0')
+			{
+				closePlayer(playerDisplayed);
+			}
+			
+			// Fade the entire background.
+			$('#fade').height($(document).height());
+			$('#fade').fadeTo(600, 0.8);
+			var div2Show = document.getElementById(player);
+			div2Show.style.zIndex=1002;
+			div2Show.style.visibility = 'visible';
+			div2Show.style.display='inline';
+			playerDisplayed = player;
+		}
+
+		function closePlayer(player)
+		{
+			/* if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
+			{
+				location.reload();
+				return 0;
+			} */
+			stopPlayer();			
+			unloadPlayer();
+			playerDisplayed = '0';
+			var div2Show = document.getElementById(player);
+			div2Show.style.zIndex=99;
+			div2Show.style.visibility = 'hidden';
+			div2Show.style.display='none';
+			
+			// Expose the entire page again.
+			$('#fade').fadeToggle(600);
+		}
+	</script>	
+	
+	<script language="JavaScript" type="text/javascript">
+		function removefave( productID ) {
+			// Delete favorite from favorites listing.
+			$.post('onsmCB.aspx?action=faveremove&pid=' + productID, function(data) {
+				$xml = $( data );
+				$status = $xml.find( "status" );
+				if ($status.text() == "ERROR") {
+					$error = $xml.find( "statusMsg" );
+					alert($error.text());
+				}
+				else {
+					// Remove fave div.
+					$("#Favorite_" + productID).remove();
+				}
+			});		
+		}
+
+		function unfave( productID ) {
+			// Delete favorite from product details.
+			$.post('onsmCB.aspx?action=faveremove&pid=' + productID, function(data) {
+				$xml = $( data );
+				$status = $xml.find( "status" );
+				if ($status.text() == "ERROR") {
+					$error = $xml.find( "statusMsg" );
+					alert($error.text());
+				}
+				else {
+					// Remove fave div.
+					$("#pd_favespan_" + productID).html('<a href="javascript:void(0);" onclick="faveadd(' + productID + ');">Add To Favorites</a>');
+
+					// Remove fave star.
+					$("#favestar_grid_" + productID).html('');
+				}
+			});		
+		}
+
+		function faveadd( productID ) {
+			// Add favorite.
+			$.post('onsmCB.aspx?action=faveadd&pid=' + productID, function(data) {
+				$xml = $( data );
+				$status = $xml.find( "status" );
+				if ($status.text() == "ERROR") {
+					$error = $xml.find( "statusMsg" );
+					alert($error.text());
+				}
+				else {
+					// Update fave div.
+					$("#pd_favespan_" + productID).html('Added to Favorites<span style="margin: 0 10px;">|</span><a href="javascript:void(0);" onclick="unfave(' + productID + ')">Remove</a>');
+
+					// Add fave star
+					$("#favestar_grid_" + productID).html('<img id="favestar_' + productID + '" src="custom/images/favorite-star.png" alt="" />');
+				}
+			});		
+		}
+	</script>
+
+	<script language="javascript"> 
+		// For the category drop-downs 
+		function toggle(divID,imgID) 
+		{
+			var ele = document.getElementById(divID);
+			var img = document.getElementById(imgID);
+			if(ele.style.display == "block") {
+					ele.style.display = "none";
+				img.src = "skins/skin_1/images/arrow_right_category.jpg";
+			}
+			else {
+				ele.style.display = "block";
+				img.src = "skins/skin_1/images/arrow_down_category.jpg";
+			}
+		} 
+	</script>
+
+	<script type="text/javascript">
+		// For the top-level drop-down subscription menu
+		var timeout	= 500;
+		var closetimer	= 0;
+		var ddmenuitem	= 0;
+
+		function moveLayer(obj, containerObj)
+		{
+			if ($.browser.msie)
+			{
+				document.getElementById(obj).style.left = document.getElementById(containerObj).style.left;
+			}
+		}
+
+		// open hidden layer
+		function mopen(id)
+		{	
+			// cancel close timer
+			mcancelclosetime();
+
+			// close old layer
+			if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+			// get new layer and show it
+			ddmenuitem = document.getElementById(id);
+			ddmenuitem.style.visibility = 'visible';
+
+		}
+
+		// close showed layer
+		function mclose()
+		{
+			if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+		}
+
+		// go close timer
+		function mclosetime()
+		{
+			closetimer = window.setTimeout(mclose, timeout);
+		}
+
+		// cancel close timer
+		function mcancelclosetime()
+		{
+			if(closetimer)
+			{
+				window.clearTimeout(closetimer);
+				closetimer = null;
+			}
+		}
+
+		// close layer when click-out
+		document.onclick = mclose; 
+
+	</script>
+	
+	<script charset="utf-8" type="text/javascript">var switchTo5x=true;</script>
+	<!-- <script charset="utf-8" type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>-->
+	<script charset="utf-8" type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher:'3bf05371-659e-4346-9a2c-0ab7fe209f63', onhover: false});</script>
+	<style type="text/css">
+		.black_overlay{
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index:1001;
+            -moz-opacity: 0.8;
+            opacity:.80;
+            filter: alpha(opacity=80);
+        }
+	</style>
+</head>
+<body oncontextmenu="return false;">
+	
+	<!--
+PAGE INVOCATION: /Default.aspx
+PAGE REFERRER: 
+STORE LOCALE: en-US
+STORE CURRENCY: USD
+CUSTOMER ID: 0
+AFFILIATE ID: 0
+CUSTOMER LOCALE: en-US
+CURRENCY SETTING: USD
+CACHE MENUS: True
+-->
+
+	<div id="fade" class="black_overlay"></div>
+	<div id="PageLayout">
+		<div id="PageHeader">
+			<div id="PageLayoutContent">
+				<div id="Layout">
+								<script type="text/javascript">				function moveLayer(obj, containerObj)				{					if ($.browser.msie)					{						document.getElementById(obj).style.left = document.getElementById(containerObj).style.left;					}				}			</script>                			<div id="Header">            		<div class="Logo">		                	<a href="/"><img src="custom/images/header-logo.png" alt="Craft Daily"></a>            	  	</div>                		<div id="LoginMenu">		                	<a style="margin: 0 0 0 15px;" href="signin.aspx?ReturnUrl=c-2-videos.aspx?sortby=newest">LOGIN</a><a style="margin: 0 0 0 15px;" href="c-3-subscriptions.aspx">SUBSCRIBE</a><br><a style="margin: 0 0 0 15px;" href="contact.aspx">CUSTOMER SERVICE</a><a style="margin: 0 0 0 15px;" href="shoppingcart.aspx">VIEW CART</a>				<br><div class="search"><form action="c-2-videos.aspx" onsubmit="escapeIt();"><input id="Search" class="input" name="search" type="text" value="Search" onfocus="if(this.value=='Search')this.value='';" onblur="if(this.value=='')this.value='Search Episodes';"><input type="submit" value=""></form></div></div>			</div>
+					<div id="HeaderMenu"><table style="float: left;">		<tbody>			<tr>				<td class="Item"><a href="home.aspx">Home</a></td>				<td class="Item"><a href="faq.aspx">How It Works</a></td>				<td class="Item" id="videosTD">		<a href="c-2-videos.aspx?sortby=newest" onmouseover="moveLayer('m3','videosTD');mopen('m3')" onmouseout="mclosetime()">Videos</a>	<div id="m3" class="mDivsShortVideos" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">		<a href="c-2-videos.aspx?sortby=newest" class="videos-menu-item">All Videos</a>		<a href="c-465-crochet.aspx?sortby=newest" class="videos-menu-item">Crochet</a>                                               <a href="c-444-diy.aspx?sortby=newest" class="videos-menu-item">DIY</a>                                      <a href="c-156-jewelry.aspx?sortby=newest" class="videos-menu-item">Jewelry Making</a>	<a href="c-160-knitting.aspx?sortby=newest" class="videos-menu-item">Knitting</a>		<a href="c-155-mixed-media.aspx?sortby=newest" class="videos-menu-item">Mixed Media</a>	<a href="c-280-papercraft.aspx?sortby=newest" class="videos-menu-item">Paper Crafts</a><a href="c-157-quilting.aspx?sortby=newest" class="videos-menu-item">Quilting</a>	<a href="c-158-sewing.aspx?sortby=newest" class="videos-menu-item">Sewing</a>		<a href="c-159-spinning.aspx?sortby=newest" class="videos-menu-item">Spinning</a>		<a href="c-161-weaving.aspx?sortby=newest" class="videos-menu-item">Weaving</a><br><td class="Item" id="subscriptionsTD"><a href="c-3-subscribe-to-all-videos.aspx" onmouseover="moveLayer('m2','subscriptionsTD');mopen('m2')" onmouseout="mclosetime()">Subscription Options</a><div id="m2" class="mDivsShort" onmouseover="mcancelclosetime()" onmouseout="mclosetime()"><a href="c-3-subscribe-to-all-videos.aspx" class="subscription-menu-item">Subscribe to All Videos</a><a href="c-445-diy.aspx" class="subscription-menu-item">DIY</a><a href="c-150-jewelry-making.aspx" class="subscription-menu-item">Jewelry Making</a><a href="c-151-knitting-crochet.aspx" class="subscription-menu-item">Knitting &amp; Crochet</a><a href="c-152-mixed-media.aspx" class="subscription-menu-item">Mixed Media</a><a href="c-153-quilting-sewing.aspx" class="subscription-menu-item">Quilting &amp; Sewing</a><a href="c-284-papercraft.aspx" class="subscription-menu-item">PaperCraft</a><a href="c-154-spinning-weaving.aspx" class="subscription-menu-item">Spinning &amp; Weaving</a><br></div>
+</td>		</div></td>				<td class="Item"><a href="c-271-gift-subscriptions.aspx">Gift Subscriptions</a></td></tr>		</tbody>	</table>	<div id="social">		<a href="http://www.youtube.com/user/DailyCraftTV" target="_blank"><img src="custom/images/social-youtube.png" alt=""></a>		<a href="https://www.facebook.com/DailyCraft" target="_blank"><img src="custom/images/social-facebook.png" alt=""></a>		<a href="http://www.pinterest.com/interweave/craft-art-education/" target="_blank"><img src="custom/images/social-pinterest.png" alt=""></a>		<a href="https://twitter.com/InterweaveCraft" target="_blank"><img src="custom/images/social-twitter.png" alt=""></a>	</div></div>
+					<div id="Content">
+						<!-- READ FROM DB --><style type="text/css">	#PageLayout 	{   		background: url('custom/images/CDBGimage2.jpg') no-repeat scroll center 156px #FFFFFF;		margin: 0 auto;		padding: 0;			min-width: 1000px;	}</style><div id="PageContent">	<div id="HomeFeature">				<div class="video2">			<h2>Craft Daily</h2>			<h3>Watch over 500 craft tutorials on almost any medium!</h3>					</div><div id="videoPlayer" class="PlayersABCDE" style="width:640px; height:360px;visibility:visible;position:absolute;top:187px;float:left;">
+  <div class="PlayerEmbed"><script type="text/javascript" language="JavaScript">
+									var vidpid = 726;
+								</script><div id="OSPlayer" style="width:640px;height:360px;text-align:left;margin:0px auto;padding:0px;visibility:visible;"> </div><script language="JavaScript" type="text/javascript">	var player = 'OSPlayer';	var fp;</script>
+<script language="JavaScript" type="text/javascript">setOpts(vidpid, 0, true, player, 60000, false);</script></div>
+</div>		 				<div class="subscribe">			<h2>Subscribe Today<br>Watch Instantly</h2>			<p>With over 500 craft videos (and counting), you'll never run out of inspiration, ideas &amp; instruction. Make something new today!</p>			<div style="text-align: center;">				<a href="c-3-subscriptions.aspx">					<img src="custom/images/subscribe-button.png" alt="">				</a>			</div>		</div> 	 <div class="homecategorynav">	<img src="custom/images/category_nav_header.jpg"><table width="100%">		<tbody><tr>			<td class="homecategorynavleftcol"><a href="c-163-beading.aspx?sortby=newest"><img class="homecategorynavicon" src="custom/images/icon-beading.png"><span class="homecategorynavtext">Beading</span></a></td>			<td><a href="c-157-quilting.aspx?sortby=newest"><img class="homecategorynavicon" src="custom/images/icon-quilting.png"><span class="homecategorynavtext">Quilting</span></a></td>		</tr>		<tr>			<td class="homecategorynavleftcol"><a href="c-162-crochet.aspx?sortby=newest"><img class="homecategorynavicon" src="custom/images/icon-crochet.png"><span class="homecategorynavtext">Crochet</span></a></td>			<td><a href="c-158-sewing.aspx?sortby=newest"><img class="homecategorynavicon" src="custom/images/icon-sewing.png"><span class="homecategorynavtext">Sewing</span></a></td>		</tr>		<tr>			<td class="homecategorynavleftcol"><a href="c-156-jewelry.aspx?sortby=newest"><img class="homecategorynavicon" src="custom/images/icon-jewelry.png"><span class="homecategorynavtext">Jewelry</span></a></td>			<td><a href="c-159-spinning.aspx?sortby=newest"><img class="homecategorynavicon" src="custom/images/icon-spinning.png"><span class="homecategorynavtext">Spinning</span></a></td>		</tr>		<tr>			<td class="homecategorynavleftcol"><a href="c-160-knitting.aspx?sortby=newest"><img class="homecategorynavicon" src="custom/images/icon-knitting.png"><span class="homecategorynavtext">Knitting</span></a></td>			<td><a href="c-161-weaving.aspx?sortby=newest"><img class="homecategorynavicon" src="custom/images/icon-weaving.png"><span class="homecategorynavtext">Weaving</span></a></td>		</tr>		<tr>			<td class="homecategorynavleftcol"><a href="c-155-mixed-media.aspx?sortby=newest"><img class="homecategorynavicon" src="custom/images/icon-mixedmedia.png"><span class="homecategorynavtext">Mixed Media</span></a></td>			<td>&nbsp;</td>		</tr>	</tbody></table></div></div><!-- HomeFeature -->	<div id="HomeContent">		<div class="home-content-shadow">			<img src="custom/images/home-content-shadow.png" alt="Craft Daily - Craft Tutorial Videos - Learn a new craft today!">		</div>		<div class="left"><div style="float: left; width: 170px; margin: 0 0 0 15px;"><h3>Learn Anywhere</h3> <p>Watch all 500+ workshops as often as you like, anywhere you like, <strong>starting at just $11.99 a month</strong>. Use your iPhone, iPad, Mac or PC. </p></div><img src="custom/images/crochet-baby-blanket3.jpg" style="float: right;"></div> 				<div class="middle" style="background: url('custom/images/home-content-middle-bg-updated.png') no-repeat scroll 0 bottom transparent;">			<div style="margin: 0 0 0 15px;">				<h3>Something for Everyone</h3>	<p></p><p>You'll find <em><strong>over 500 hours</strong></em> of craft tutorials &amp; full length video workshops from world-class instructors on <strong>beading</strong>, <strong>crochet</strong>, <strong>jewelry</strong>, <strong>knitting</strong>, <strong>mixed media</strong>, <strong>quilting</strong>, <strong>sewing</strong>, <strong>spinning</strong> &amp; <strong>weaving</strong>!</p><p></p>		</div>		</div><!-- middle --> 		<div class="right"><div style="MARGIN: 0px 0px 0px 15px; WIDTH: 128px; FLOAT: left"><h3>Craft Beauty</h3><p>Share your creativity with the world in new &amp; exciting ways. Watch the free previews &amp; let the ideas begin to flow!</p></div><img style="FLOAT: right" alt="" src="custom/images/knitted-cables.jpg"> </div><!-- right --> 							<div class="email-subscribe">						<img style="float: left; margin: 0 15px 0 0;" src="custom/images/patchwork-quilt-designs.png" alt="">						<h3 style="margin: 0; color: #008C9F; font-weight: normal; font-size: 20px;">FREE DOWNLOAD --</h3>						<p style="margin: 7px 0 15px; color: #84643D;">Submit your email address below to sign up for the weekly Craft Daily newsletter & get a free download of Patchwork Quilt designs.</p>	<form onsubmit="return validateForm()" method="post" name="subscribeForm" action="http://esubscribe.interweave.com/CDTV/newsletter.aspx">
+	<input id="EmailAddress" type="text" maxlength="4000" value="Enter your email here" onblur="if (this.value=='') this.value='Enter your email here'" onfocus="if (this.value=='Enter your email here') this.value=''" name="email">
+	<input type="hidden" name="CDTV" value="1" />
+	<input type="hidden" name="r" id="r" value="http://www.interweave.com" />
+	<input id="submitForm" class="send-button" type="submit" value="" name="submit" style="top: 0px">
+</form>	<script language=Javascript>
+	/* Basic checks for valid formed email address */
+	function echeck(str)
+	{
+		var at="@";
+		var dot=".";
+		var lat=str.indexOf(at);
+		var lstr=str.length;
+		var ldot=str.indexOf(dot);
+		if (str.indexOf(at)==-1)
+		{
+			alert("You have entered an invalid email address.  Please try again.");
+			return false;
+		}
+		if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr)
+		{
+			alert("You have entered an invalid email address.  Please try again.");
+			return false;
+		}
+    	if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr)
+    	{
+			alert("You have entered an invalid email address.  Please try again.");
+			return false;
+		}
+		if (str.indexOf(at,(lat+1))!=-1)
+		{
+			alert("You have entered an invalid email address.  Please try again.");
+			return false;
+		}
+		if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot)
+		{
+			alert("You have entered an invalid email address.  Please try again.");
+			return false;
+		}
+		if (str.indexOf(dot,(lat+2))==-1)
+		{
+			alert("You have entered an invalid email address.  Please try again.");
+			return false;
+		}
+		if (str.indexOf(" ")!=-1)
+		{
+			alert("You have entered an invalid email address.  Please try again.");
+			return false;
+		}
+		return true          
+	}
+	
+	/* Main function to Validate the whole form */
+	function validateForm()
+	{
+		var emailID=document.getElementById('EmailAddress');
+		if ((emailID.value==null)||(emailID.value==""))
+		{
+			alert("You have entered an invalid email address.  Please try again.");
+			emailID.focus();
+			/* poorly formed email address try again. */
+			return false;
+		}
+		if (echeck(emailID.value)==false)
+		{
+			emailID.value="";
+			emailID.focus();
+			/* form will not submit because nothing was entered */
+			return false;
+		}
+		
+		
+		/* 
+			This is the site where the thank you page will live.  This is the main
+			domain where all your pages live.
+		*/
+		var site="http://CraftDaily.com/";
+		
+		/*
+			This is the thank you page, in wordpress this would be the page title,
+			This can be any url passed the site domain part of the url from above
+		*/
+		var thanksPage="signup.aspx";
+	
+		/*
+			This defines the user email to be sent to the thank you page,
+			This should not be changed 
+		*/
+		var userDirect="?user=";
+    
+		/*
+			This is the final url with the users email address added in.
+			This variable should not be changed.  The final will look like below
+			http://dev1.fwmedia.com/newsletter-registration?user=shane.stout%40.com
+		*/
+		var redirecturl=site+thanksPage+userDirect+encodeURIComponent(emailID.value);
+    
+		/*
+			This sets the thank you page element in the html, this should not be
+			changed.
+		*/
+		document.getElementById('r').value=redirecturl;
+    
+		/* This returns true so the form will be submitted. */
+		return true;
+	}
+</script></div> 						<div class="new-video">					<a href="c-2-videos.aspx?sortby=newest"><img style="margin: 0 0 15px;" src="custom/images/new-videos.png" alt=""></a><a href="p-1765-colorful-and-custom-3-ring-binder-with-erin-zamrzla.aspx"><div class="small-shadow" style="overflow: hidden; margin: 0 11px 0 0;">
+    <div title="Colorful and Custom 3-Ring Binder with Erin Zamrzla" style="width: 96px; height: 64px; background-image: url('images/Product/icon/1765.jpg'); background-position:center;"><img height="64" style="margin: 0 0 0 -13px" src="images/Product/icon/1765.jpg"></div>
+  </div></a><a href="p-1749-predrafting-for-spinning-how-whenand-why.aspx"><div class="small-shadow" style="overflow: hidden;">
+    <div title="Predrafting for Spinning: How, When—and Why" style="width: 96px; height: 64px; background-image: url('images/Product/icon/1749.jpg'); background-position:center;"><img height="64" style="margin: 0 0 0 -13px" src="images/Product/icon/1749.jpg"></div>
+  </div></a><a href="p-1745-painted-collage-in-layers-with-kari-mcknight-holbrook.aspx"><div class="small-shadow" style="overflow: hidden; float: right;">
+    <div title="Painted Collage in Layers with Kari McKnight Holbrook" style="width: 96px; height: 64px; background-image: url('images/Product/icon/1745.jpg'); background-position:center;"><img height="64" style="margin: 0 0 0 -13px" src="images/Product/icon/1745.jpg"></div>
+  </div></a></div> 						<div class="high-video">					<a href="c-2-videos.aspx?sortby=rating"><img style="margin: 0 0 15px;" src="custom/images/highest-rated-videos.png" alt=""></a><a href="p-1006-seven-core-sewing-skills.aspx"><div class="small-shadow" style="overflow: hidden; margin: 0 11px 0 0;">
+    <div title="Seven Core Sewing Skills" style="width: 96px; height: 64px; background-image: url('images/Product/icon/1006.jpg'); background-position:center;"><img height="64" style="margin: 0 0 0 -13px" src="images/Product/icon/1006.jpg"></div>
+  </div></a><a href="p-1667-upcycled-fabric-book-with-erin-zamrzla.aspx"><div class="small-shadow" style="overflow: hidden;">
+    <div title="Upcycled Fabric Book with Erin Zamrzla" class="small-shadow" style="width: 96px; height: 64px; background-image: url('images/Product/icon/1667.jpg'); background-position:center;"><img height="64" style="margin: 0 0 0 -13px" src="images/Product/icon/1667.jpg"></div>
+  </div></a><a href="p-1704-gelatin-plate-printed-journal-with-kari-mcknight-holbrook.aspx"><div class="small-shadow" style="overflow: hidden; float: right;">
+    <div title="Gelatin Plate Printed Journal with Kari McKnight Holbrook" class="small-shadow" style="width: 96px; height: 64px; background-image: url('images/Product/icon/1704.jpg'); background-position:center;"><img height="64" style="margin: 0 0 0 -13px" src="images/Product/icon/1704.jpg"></div>
+  </div></a></div>	</div><!-- HomeContent --></div><!-- PageContent --><!-- END OF DB -->
+
+
+					</div>
+				</div>
+			</div>
+				<div id="FooterWrapper">			<div id="Footer">			<a href="/"><img style="margin: 8px 0 0;" src="custom/images/footer-logo.png" alt="Craft Daily | Craft Video Tutorials"></a>			<div class="footer-links">				  <p><a href="home.aspx">Home</a> | <a href="c-2-videos.aspx?sortby=newest">Browse all Craft Daily videos</a> | <a href="http://www.interweavestore.com/" target="_blank">DVDs &amp; craft video downloads</a> | <a href="about.aspx">About Craft Daily</a> | <a href="contact.aspx">Customer Service</a> | <a href="/t-affiliate.aspx">Affiliate Program</a><br>      Copyright (c) 2014&nbsp;<a target="_blank" href="http://www.fwmedia.com">F+W</a> All rights reserved.			</p></div><br><br><center><p><img src="custom/images/DClogo.png"> &nbsp;<img src="custom/images/BBBlogo.png"></p></center></div></div>
+		</div>	
+	</div>
+</body>
+</html>
+";i:2;s:4:"9497";}

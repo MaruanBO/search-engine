@@ -1,0 +1,3863 @@
+a:3:{i:0;s:19:"http://ratemds.com/";i:1;s:114927:"
+<!DOCTYPE html>
+<html lang="en" ng-app="RateMds" id="ng-app">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="apple-touch-icon" sizes="57x57" href="https://cdn.ratemds.com/static/img/favicons/apple-touch-icon-57x57.495c70819b0f.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://cdn.ratemds.com/static/img/favicons/apple-touch-icon-114x114.abcec11ee43c.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://cdn.ratemds.com/static/img/favicons/apple-touch-icon-72x72.a21a57e92df8.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://cdn.ratemds.com/static/img/favicons/apple-touch-icon-144x144.2fcfe644723c.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://cdn.ratemds.com/static/img/favicons/apple-touch-icon-60x60.5dd1baf2b8ba.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://cdn.ratemds.com/static/img/favicons/apple-touch-icon-120x120.e5b8c908f646.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://cdn.ratemds.com/static/img/favicons/apple-touch-icon-76x76.276049fc3342.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://cdn.ratemds.com/static/img/favicons/apple-touch-icon-152x152.526a8d9adee2.png">
+<link rel="icon" type="image/png" href="https://cdn.ratemds.com/static/img/favicons/favicon-196x196.897fb2fdc9c6.png" sizes="196x196">
+<link rel="icon" type="image/png" href="https://cdn.ratemds.com/static/img/favicons/favicon-160x160.570290c84442.png" sizes="160x160">
+<link rel="icon" type="image/png" href="https://cdn.ratemds.com/static/img/favicons/favicon-96x96.c5d27a2c4dc1.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://cdn.ratemds.com/static/img/favicons/favicon-16x16.811fdfc82c30.png" sizes="16x16">
+<link rel="icon" type="image/png" href="https://cdn.ratemds.com/static/img/favicons/favicon-32x32.58b3181bfa12.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="https://cdn.ratemds.com/static/img/favicons/mstile-144x144.9e293d193285.png">
+<meta name="msapplication-config" content="https://cdn.ratemds.com/static/img/favicons/browserconfig.8c5bbff52280.xml">
+<title>RateMDs - Doctor reviews and ratings</title>
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://cdn.ratemds.com/static/css/main.3388a9c2e373.css" rel="stylesheet">
+ 
+<!--[if lt IE 9]>
+      <script src="https://cdn.ratemds.com/static/bower/respond/dest/respond.src.9034d02a3ff7.js"></script>
+    <![endif]-->
+<link rel="canonical" href="https://www.ratemds.com/">
+<meta property="og:site_name" content="RateMDs"/>
+<meta property="fb:app_id" content="301350850032888"/>
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-142923-1', 'auto');
+      ga('require', 'displayfeatures');
+      ga('set', 'contentGroup1', 'home');
+    </script>
+<script>
+
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+      (function() {
+        var gads = document.createElement('script');
+        gads.async = true;
+        gads.type = 'text/javascript';
+        var useSSL = 'https:' == document.location.protocol;
+        gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+        var node = document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+      })();
+
+    </script>
+<script>
+      var storedUser = localStorage.getItem('ls.auth.user');
+      if (storedUser && JSON){
+        var user = JSON.parse(storedUser);
+        user.is_doctor = !!(user.doctors && user.doctors.length);
+
+        ga('set', 'dimension3', user.test_group || 'control'); // Test Group
+
+        if (user.is_authenticated) {
+          ga('set', 'dimension2', 'true'); // Is Logged In
+
+          if (!user.is_doctor) {
+            googletag.cmd.push(function() {
+              googletag.pubads().setTargeting('registered', 'true');
+            });
+          }
+        } else {
+          ga('set', 'dimension2', 'false'); // Is Logged In
+          googletag.cmd.push(function() {
+            googletag.pubads().setTargeting('registered', 'false');
+          });
+        }
+
+        if (user.is_doctor) {
+          ga('set', 'dimension1', 'true'); // Is Doctor
+          googletag.cmd.push(function() {
+            googletag.pubads().setTargeting('registered', 'truedoctor');
+          });
+        } else {
+          ga('set', 'dimension1', 'false'); // Is Doctor
+        }
+      }
+
+      window.clickTrack = function(url,cat,act){ga('send','event',cat,act,url,{'hitCallback':function (){document.location=url}});return false;}
+    </script>
+<script>
+      googletag.cmd.push(function() {
+
+        googletag.pubads().setTargeting("sitename", "RateMDs.com");
+        googletag.pubads().setTargeting("google_page_url", "https://www.ratemds.com/00/singapore/");
+
+        if (typeof document.amzn_slots != 'undefined') {
+          googletag.pubads().setTargeting("passback", document.amzn_slots);
+        }
+
+        googletag.defineSlot(
+          '/1030735/RateMDs_com_300x250_TopRight_OH_Content',
+          [300, 250],
+          'RateMDs_com_300x250_TopRight_OH_Content'
+        ).defineSizeMapping(googletag.sizeMapping()
+          .addSize([992, 0], [300, 250])
+          .addSize([0, 0], [])
+        .build()).addService(googletag.pubads());
+
+        googletag.defineSlot(
+          '/1030735/RateMDs_com_300x600_BottomLeft_OH_Content',
+          [300, 600],
+          'RateMDs_com_300x600_BottomLeft_OH_Content'
+        ).defineSizeMapping(googletag.sizeMapping()
+          .addSize([992, 0], [300, 600])
+          .addSize([0, 0], [])
+        .build()).addService(googletag.pubads());
+
+        googletag.defineSlot(
+          '/1030735/RateMDs_com_728x90_Top_OH_Content',
+          [728, 90],
+          'RateMDs_com_728x90_Top_OH_Content'
+        ).defineSizeMapping(googletag.sizeMapping()
+          .addSize([992, 0], [])
+          .addSize([768, 0], [728, 90])
+          .addSize([0, 0], [])
+        .build()).addService(googletag.pubads());
+
+        googletag.defineSlot(
+          '/1030735/RateMDs_com_728x90_Bottom_OH_Content',
+          [[300, 250], [728, 90]],
+          'RateMDs_com_728x90_Bottom_OH_Content'
+        ).defineSizeMapping(googletag.sizeMapping()
+          .addSize([0, 0], [300, 250])
+          .addSize([768, 0], [728, 90])
+        .build()).addService(googletag.pubads());
+
+        googletag.defineSlot(
+          '/1030735/RateMds_com_320x50_Bottom_OH_Content',
+          [320, 50],
+          'RateMds_com_320x50_Bottom_OH_Content'
+        ).defineSizeMapping(googletag.sizeMapping()
+          .addSize([768, 0], [])
+          .addSize([0, 0], [320, 50])
+        .build()).addService(googletag.pubads());
+
+        googletag.defineSlot(
+          '/1030735/RateMDs_com_160x600_LeftUpper_OH_Content',
+          [160, 600],
+          'RateMDs_com_160x600_LeftUpper_OH_Content'
+        ).defineSizeMapping(googletag.sizeMapping()
+          .addSize([768, 0], [160, 600])
+          .addSize([0, 0], [])
+        .build()).addService(googletag.pubads());
+
+        googletag.pubads().set('adsense_background_color', 'ffffff');
+        googletag.pubads().set('adsense_border_color', 'ffffff');
+        googletag.pubads().set('adsense_link_color', '3d999d');
+        googletag.pubads().set('adsense_text_color', '3d999d');
+        googletag.pubads().set('adsense_url_color', '3d999d');
+
+        googletag.enableServices();
+      });
+    </script>
+<script>
+      // isolated so the pageview event fires, no matter what else fails
+      ga('send', 'pageview');
+    </script>
+ 
+<script type="text/javascript">
+      (function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+      for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+      mixpanel.init("e79740ed22cd070356c491a862c64e58");
+    </script>
+ 
+</head>
+<body class="home" ng-controller="HomeCtrl">
+<header class="container">
+<div class="row">
+<div class="col-sm-3">
+<a href="/" class="header-logo">
+<img src="https://cdn.ratemds.com/static/img/header-logo.f41d1b0239ea.png" alt="RateMDs">
+</a>
+</div>
+<div class="col-sm-4 navbar-left">
+<form role="search" action="/doctors/">
+<div class="input-group">
+<input class="form-control" id="doctor-search" placeholder="Find A Doctor By Name" type="text" name="text">
+<label for="doctor-search" class="hidden">Name</label>
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">
+<i class="fa fa-search"></i>
+</button>
+</span>
+</div>
+</form>
+</div>
+<div class="col-sm-5 col-right" ng-controller="AuthCtrl">
+<div class="auth" ng-cloak>
+<div ng-show="user.is_authenticated==false" class="auth-logged-out">
+<a href="javascript:;" ng-click="showSignup()">Signup</a> |
+<a href="javascript:;" ng-click="showLogin()">Login</a>
+<a class="btn btn-success hidden-xs header-claim-profile claim-doctor-profile" href="javascript:;" ng-click="claimDoctor()">
+<i class="fa fa-user-md"></i>
+Claim Doctor Profile
+</a>
+<span class="visible-xs-inline">
+| <a href="javascript:;" ng-click="claimDoctor()" class="claim-doctor-profile">
+Claim Doctor Profile
+</a>
+</span>
+</div>
+<div ng-show="user.is_authenticated==true">
+<div class="announcement hidden-xs" ng-show="!!user.announcement" ng-click="showAnnouncement()">
+<div class="tooltip left" role="tooltip">
+<div class="tooltip-arrow"></div>
+<div class="tooltip-inner">
+See what's new!
+</div>
+</div>
+<a href="javascript:;">
+<i class="fa fa-bell-o"></i>
+</a>
+</div>
+<div class="dropdown account-menu">
+<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+Account
+<i class="fa fa-caret-down"></i>
+</a>
+<ul class="dropdown-menu dropdown-menu-right" role="menu">
+<li><a href="/accounts/dashboard/">
+<span ng-show="user.doctors.length">User</span>
+Dashboard
+</a></li>
+<li ng-show="user.doctors.length > 1" class="divider"></li>
+<li ng-repeat="doctor in user.doctors">
+<a ng-href="[[ getDoctorUpdateUrl(doctor) ]]">
+[[ doctor.name ]]
+</a>
+</li>
+<li><a href="javascript:;" ng-click="claimDoctor()" class="authed-claim-profile claim-doctor-profile">
+<i class="fa fa-plus" ng-show="user.doctors.length"></i>
+Claim Doctor Profile
+</a></li>
+<li class="divider"></li>
+<li ng-show="user.is_superuser">
+<a href="/reports/" rel="nofollow">
+<i class="fa fa-lock"></i>
+Reports
+</a>
+</li>
+<li ng-show="user.is_superuser">
+<a href="/admin/" rel="nofollow">
+<i class="fa fa-lock"></i>
+Admin
+</a>
+</li>
+<li class="divider" ng-show="user.is_superuser"></li>
+<li><a href="javascript:;" ng-click="logout()">Logout</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<nav class="navbar navbar-main" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" ng-click="topNavOpen = !topNavOpen">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand visible-xs-block" href="#">Menu</a>
+</div>
+<div class="collapse navbar-collapse" ng-show="topNavOpen">
+<ul class="nav navbar-nav">
+<li class="col-sm-2 col-md-2 ">
+<a href="/doctors/local/">Find A Doctor</a>
+</li>
+<li class="col-sm-2 col-md-2 ">
+<a href="/facilities/local/">Find A Facility</a>
+</li>
+<li class="col-sm-2 col-md-2 ">
+<a href="/library/">Health Library</a>
+</li>
+<li class="col-sm-2 col-md-2">
+<a href="/blog/">Health Blog</a>
+</li>
+<li class="col-sm-2 col-md-2">
+<a href="/forum/">Health Forum</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="search-banner" style="background-image: url('https://cdn.ratemds.com/static/img/doctors/home/banner.a0a50116b3ae.jpg');">
+<div class="container">
+<div class="row">
+<div class="col-sm-6 home-banner-panel"><form ng-submit="go(selected)" novalidate>
+<h1>Search over 2 million Doctor ratings and reviews.</h1>
+<div class="row">
+<div class="facet-group col-sm-12">
+<div rmd-dropdown="searchSpecialties" rmd-dropdown-name="Specialty" rmd-dropdown-default="family-gp" ng-model="selected.specialty"></div>
+</div>
+</div>
+<div class="row">
+<div class="facet-group col-sm-6">
+<div rmd-city-selector="{  }" ng-model="city" ng-change="
+                selected.city=city.slug;
+                selected.province=city.province_slug;
+                selected.country=city.country_slug;
+              "></div>
+</div>
+<div class="facet-group col-sm-6">
+<label for="name" class="hidden">Name</label>
+<input class="form-control" id="name" placeholder="Doctor Name" type="text" ng-model="selected.text">
+</div>
+</div>
+<div class="row">
+<div class="facet-group gender-group col-sm-6">
+<ul class="list-inline">
+<li><a href="javascript:;" class="link-plain" ng-click="selected.gender=null">
+<i ng-show="selected.gender==null" class="fa fa-dot-circle-o text-primary"></i>
+<i ng-show="selected.gender!=null" class="fa fa-circle-o"></i>
+All
+</a></li>
+<li><a href="javascript:;" class="link-plain" ng-click="selected.gender='M'">
+<i ng-show="selected.gender=='M'" class="fa fa-dot-circle-o text-primary"></i>
+<i ng-show="selected.gender!='M'" class="fa fa-circle-o"></i>
+Male
+</a></li>
+<li><a href="javascript:;" class="link-plain" ng-click="selected.gender='F'">
+<i ng-show="selected.gender=='F'" class="fa fa-dot-circle-o text-primary"></i>
+<i ng-show="selected.gender!='F'" class="fa fa-circle-o"></i>
+Female
+</a></li>
+</ul>
+</div>
+<div class="facet-group col-sm-6">
+<button class="btn btn-success btn-block" type="submit">
+<i class="fa fa-search"></i>
+Find a Doctor
+</button>
+</div>
+</div>
+</form></div>
+</div>
+</div>
+</div>
+<div class="home-bar stats-bar hidden-xs">
+<div class="container">
+<div class="row">
+<div class="col-sm-4 home-bar-item">
+<div class="number">1 Million+</div>
+<div class="description">Doctors on RateMDs</div>
+</div>
+<div class="col-sm-4 home-bar-item">
+<div class="number">2 Million+</div>
+<div class="description">Reviews on RateMDs</div>
+</div>
+<div class="col-sm-4 home-bar-item">
+<div class="number">100 Million+</div>
+<div class="description">People Helped on RateMDs</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container content-body">
+<div class="row">
+<div class="col-md-8 col-sm-12 col-main">
+<div id="RateMDs_com_728x90_Top_OH_Content" style="width: auto; height: auto;" class="visible-sm-block">
+<script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display("RateMDs_com_728x90_Top_OH_Content"); });
+            </script>
+</div>
+<h2>
+Top Rated Doctors
+</h2>
+<div class="home-specialties">
+<div class="row" ng-init="homeSpecialty='family-gp'">
+<div class="col-sm-4">
+<ul class="nav home-specialties-nav hidden-xs">
+<li ng-class="{active: homeSpecialty=='family-gp'}">
+<a href="javascript:;" ng-click="homeSpecialty='family-gp'">
+Family Doctor / G.P.
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='gynecologist-obgyn'}">
+<a href="javascript:;" ng-click="homeSpecialty='gynecologist-obgyn'">
+Gynecologist (OBGYN)
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='dentist'}">
+<a href="javascript:;" ng-click="homeSpecialty='dentist'">
+Dentist
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='orthopedics-sports'}">
+<a href="javascript:;" ng-click="homeSpecialty='orthopedics-sports'">
+Orthopedic Surgeon
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='internist-geriatrician'}">
+<a href="javascript:;" ng-click="homeSpecialty='internist-geriatrician'">
+Internist / Geriatrician
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='cosmetic-plastic-surgeon'}">
+<a href="javascript:;" ng-click="homeSpecialty='cosmetic-plastic-surgeon'">
+Cosmetic Surgeon / Plastic Surgeon
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='dermatologist'}">
+<a href="javascript:;" ng-click="homeSpecialty='dermatologist'">
+Dermatologist
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='psychologist'}">
+<a href="javascript:;" ng-click="homeSpecialty='psychologist'">
+Psychologist
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='psychiatrist'}">
+<a href="javascript:;" ng-click="homeSpecialty='psychiatrist'">
+Psychiatrist
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='chiropractor'}">
+<a href="javascript:;" ng-click="homeSpecialty='chiropractor'">
+Chiropractor
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='surgeon-general'}">
+<a href="javascript:;" ng-click="homeSpecialty='surgeon-general'">
+Surgeon (general)
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='ear-nose-and-throat-ent'}">
+<a href="javascript:;" ng-click="homeSpecialty='ear-nose-and-throat-ent'">
+Ear Nose and Throat (ENT) Doctor
+</a>
+</li>
+<li ng-class="{active: homeSpecialty=='pediatrician'}">
+<a href="javascript:;" ng-click="homeSpecialty='pediatrician'">
+Pediatrician
+</a>
+</li>
+<li>
+<a href="/specialties/">
+View all specialties >
+</a>
+</li>
+</ul>
+<div class="visible-xs-block">
+<div rmd-dropdown="widgetSpecialties" rmd-dropdown-name="Specialty" rmd-dropdown-default="family-gp" ng-model="homeSpecialty"></div>
+</div>
+</div>
+<div class="col-sm-8">
+<div ng-show="homeSpecialty=='family-gp'" ng-cloak>
+<a href="/doctors/?specialty=family-gp" class="home-specialties-name">
+<h3>Family Doctor / G.P.</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/171094.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Mitch Freeman">
+<h4><a href="/doctor-ratings/171094/Dr-Mitch-Freeman-YUMA-AZ.html">
+Dr. Mitch Freeman
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>147</span>
+reviews
+</div>
+<p>"I have MS and I&#39;m in a flare up. Got the run ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/doctors/doctor/image/doctor-william-h-romero-cosmetic-plastic-surgeon.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. William H. Romero">
+<h4><a href="/doctor-ratings/2921848/Dr-William%2BH.-Romero-Dix%2BHills-NY.html">
+Dr. William H. Romero
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>103</span>
+reviews
+</div>
+<p>"Love him. Always know exactly what to do. To ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Gregory Johnston">
+<h4><a href="/doctor-ratings/46917/Dr-Gregory-Johnston-Simcoe-ON.html">
+Dr. Gregory Johnston
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>44</span>
+reviews
+</div>
+<p>"best doctor around happy ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Angelo Pinto">
+<h4><a href="/doctor-ratings/55683/Dr-Angelo-Pinto-Bolton-ON.html">
+Dr. Angelo Pinto
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>54</span>
+reviews
+</div>
+<p>"Nice Experience He wa svery good and caring. ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Thomas Durcan">
+<h4><a href="/doctor-ratings/71166/Dr-Thomas-Durcan-Burlington-ON.html">
+Dr. Thomas Durcan
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>41</span>
+reviews
+</div>
+<p>"I have had Dr Durcan in my family for mor then 30 ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='gynecologist-obgyn'" ng-cloak>
+<a href="/doctors/?specialty=gynecologist-obgyn" class="home-specialties-name">
+<h3>Gynecologist (OBGYN)</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/83554.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. William Parker">
+<h4><a href="/doctor-ratings/83554/Dr-William-Parker-Los%2BAngeles-CA.html">
+Dr. William Parker
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>83</span>
+reviews
+</div>
+<p>"My relatively harmless fibroids had grown ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-female.png_thumbs/v1_at_77x77.jpg" alt="Dr. Suhad Hassan">
+<h4><a href="/doctor-ratings/3514344/Dr-Suhad-Hassan-Gold%2BCoast-QLD.html">
+Dr. Suhad Hassan
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>60</span>
+reviews
+</div>
+<p>"Very pleased with her knowledge and bedside ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-female.png_thumbs/v1_at_77x77.jpg" alt="Dr. Valentina Cvetic">
+<h4><a href="/doctor-ratings/44431/Dr-Valentina-Cvetic-Cambridge-ON.html">
+Dr. Valentina Cvetic
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>62</span>
+reviews
+</div>
+<p>"If every doctor could be like her our health care ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/19956.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Ken R. Sinervo">
+<h4><a href="/doctor-ratings/19956/Dr-Ken%2BR.-Sinervo-ATLANTA-GA.html">
+Dr. Ken R. Sinervo
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>40</span>
+reviews
+</div>
+<p>"Best bedside manner I have ever experienced from ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/doctors/doctorupdateequest/image/splash2_pic.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Khashayar Shakiba">
+<h4><a href="/doctor-ratings/174661/Dr-Khashayar-Shakiba-Hackensack-NJ.html">
+Dr. Khashayar Shakiba
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>55</span>
+reviews
+</div>
+<p>"Dr Shakiba is a top rate doctor/surgeon. I use ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='dentist'" ng-cloak>
+<a href="/doctors/?specialty=dentist" class="home-specialties-name">
+<h3>Dentist</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/doctors/doctor/image/doctor-mohamad-salame-dentist.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Mohamad Salame">
+<h4><a href="/doctor-ratings/3430686/Dr-Mohamad-Salame-St.%2BCatharines-ON.html">
+Dr. Mohamad Salame
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>42</span>
+reviews
+</div>
+<p>"My family have been seeing Dr Salame since he ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Dennis Krmec">
+<h4><a href="/doctor-ratings/46313/Dr-Dennis-Krmec-Etobicoke-ON.html">
+Dr. Dennis Krmec
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>64</span>
+reviews
+</div>
+<p>"Both of my children are patients of Dr. Krmec. ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Danial Deheshi">
+<h4><a href="/doctor-ratings/3437296/Dr-Danial-Deheshi-Burnaby-BC.html">
+Dr. Danial Deheshi
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>39</span>
+reviews
+</div>
+<p>"Caring and helpful. I am no longer as fearful of ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Holman Yu">
+<h4><a href="/doctor-ratings/962149/Dr-Holman-Yu-Waterloo-ON.html">
+Dr. Holman Yu
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>35</span>
+reviews
+</div>
+<p>"Very good dentist and staff, our whole family ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/doctors/doctorupdateequest/image/Best_Dentist_Delhi_Dr_Sourabh_Nagpal_MDS.JPG_thumbs/v1_at_77x77.jpg" alt="Dr. Sourabh Nagpal MDS Prosthodontist and Implantologist Dentist in Delhi">
+<h4><a href="/doctor-ratings/3515902/Dr-Sourabh-Nagpal-New%2BDelhi-DL.html">
+Dr. Sourabh Nagpal MDS Prosthodontist and Implantologist Dentist in Delhi
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>33</span>
+reviews
+</div>
+<p>"Everything was up to the mark and in fact beyond ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='orthopedics-sports'" ng-cloak>
+<a href="/doctors/?specialty=orthopedics-sports" class="home-specialties-name">
+<h3>Orthopedic Surgeon</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-female.png_thumbs/v1_at_77x77.jpg" alt="Dr. Olivia Cheng">
+<h4><a href="/doctor-ratings/3374489/Dr-Olivia-Cheng-Collingwood-ON.html">
+Dr. Olivia Cheng
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>55</span>
+reviews
+</div>
+<p>"I broke my tibia and Dr. Cheng fix it for me. I&#39;m ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-female.png_thumbs/v1_at_77x77.jpg" alt="Dr. Andrea Veljkovic">
+<h4><a href="/doctor-ratings/3535910/Dr-Andrea-Veljkovic-Toronto-ON.html">
+Dr. Andrea Veljkovic
+</a></h4>
+<span class="star-rating " title="4.8">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>72</span>
+reviews
+</div>
+<p>"Thank god for Dr. Veljkovic - she helped me get ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Andrew Berkshire">
+<h4><a href="/doctor-ratings/73362/Dr-Andrew-Berkshire-Fredericton-NB.html">
+Dr. Andrew Berkshire
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>29</span>
+reviews
+</div>
+<p>"Dr. Berkshire also did my both knee replacements ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Cameron N. Carmody">
+<h4><a href="/doctor-ratings/42831/Dr-Cameron%2BN.-Carmody-Plano-TX.html">
+Dr. Cameron N. Carmody
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>33</span>
+reviews
+</div>
+<p>"I had a fusion by another doctor in 2007. For ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Loddie F. Roeder">
+<h4><a href="/doctor-ratings/2529904/Dr-LODDIE%2BF.-ROEDER-New%2BBraunfels-TX.html">
+Dr. Loddie F. Roeder
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>24</span>
+reviews
+</div>
+<p>"I&#39;m post-op day 6 after seeing Dr. Roeder and ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='internist-geriatrician'" ng-cloak>
+<a href="/doctors/?specialty=internist-geriatrician" class="home-specialties-name">
+<h3>Internist / Geriatrician</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Clive Davis">
+<h4><a href="/doctor-ratings/73861/Dr-Clive-Davis-Hamilton-ON.html">
+Dr. Clive Davis
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>26</span>
+reviews
+</div>
+<p>"Dr Davis is kind, caring, compassionate and very ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Steven Streit">
+<h4><a href="/doctor-ratings/280145/Dr-Steven-Streit-Howell-NJ.html">
+Dr. Steven Streit
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>25</span>
+reviews
+</div>
+<p>"My experience with this Dr. has been very ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Darrin G. Campo">
+<h4><a href="/doctor-ratings/11354/Dr-Darrin%2BG.-Campo-Middletown-DE.html">
+Dr. Darrin G. Campo
+</a></h4>
+<span class="star-rating " title="4.8">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>26</span>
+reviews
+</div>
+<p>"Dr. Campo since he was an ER attending and was ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Richard J. Sullivan">
+<h4><a href="/doctor-ratings/10368/Dr-Richard%2BJ.-Sullivan-Rome-NY.html">
+Dr. Richard J. Sullivan
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>22</span>
+reviews
+</div>
+<p>"Many doctors don&#39;t really listen to their ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Michael S. Schoenwalder">
+<h4><a href="/doctor-ratings/51137/Dr-Michael%2BS.-Schoenwalder-St.%2BLouis-MO.html">
+Dr. Michael S. Schoenwalder
+</a></h4>
+<span class="star-rating " title="4.8">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>26</span>
+reviews
+</div>
+<p>"Dr. Michael Schoenwalder has been my primary care ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='cosmetic-plastic-surgeon'" ng-cloak>
+<a href="/doctors/?specialty=cosmetic-plastic-surgeon" class="home-specialties-name">
+<h3>Cosmetic Surgeon / Plastic Surgeon</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/doctors/doctorupdateequest/image/Pic_of_me_jpg2.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Lloyd M. Krieger">
+<h4><a href="/doctor-ratings/132975/Dr-Lloyd%2BM.-Krieger-BEVERLY%2BHILLS-CA.html">
+Dr. Lloyd M. Krieger
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>84</span>
+reviews
+</div>
+<p>"Three other surgeons turnede down for my tummy ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/doctors/doctor/image/doctor-wasim-sheikh-cosmetic-plastic-surgeon_ZLAYDj8.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Wasim Sheikh">
+<h4><a href="/doctor-ratings/3969538/Dr-Wasim-Sheikh-Regina-SK.html">
+Dr. Wasim Sheikh
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>58</span>
+reviews
+</div>
+<p>"I did my homework after a very uncomfortable and ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/doctors/doctor/image/doctor-asif-a-pirani-cosmetic-plastic-surgeon.png_thumbs/v1_at_77x77.jpg" alt="Dr. Asif A. Pirani">
+<h4><a href="/doctor-ratings/3572826/Dr-Asif%2BA.-Pirani-Toronto-ON.html">
+Dr. Asif A. Pirani
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>49</span>
+reviews
+</div>
+<p>"Practicing in the health care field I felt that ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. John Lomonaco">
+<h4><a href="/doctor-ratings/584972/Dr-John-Lomonaco-HOUSTON-TX.html">
+Dr. John Lomonaco
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>83</span>
+reviews
+</div>
+<p>"Dr.LoMonaco is awesome, extremely knowledgeable ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/3196436.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Paul L. Leong">
+<h4><a href="/doctor-ratings/3196436/Dr-Paul%2BL.-Leong-Sewickley-PA.html">
+Dr. Paul L. Leong
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>53</span>
+reviews
+</div>
+<p>"When I first read the reviews of Dr. Leong, I ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='dermatologist'" ng-cloak>
+<a href="/doctors/?specialty=dermatologist" class="home-specialties-name">
+<h3>Dermatologist</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Robert J. Trautman">
+<h4><a href="/doctor-ratings/132191/Dr-Robert%2BJ.-Trautman-Memphis-TN.html">
+Dr. Robert J. Trautman
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>35</span>
+reviews
+</div>
+<p>"I have been a patient of Dr. Trautman&#39;s since ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-female.png_thumbs/v1_at_77x77.jpg" alt="Dr. Renuka Ramakrishnan">
+<h4><a href="/doctor-ratings/3526440/Dr-Renuka-Ramakrishnan-Madras-TN.html">
+Dr. Renuka Ramakrishnan
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>26</span>
+reviews
+</div>
+<p>"I had really a great experience with her wow I ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/doctors/doctorupdateequest/image/download.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Shannon Humphrey">
+<h4><a href="/doctor-ratings/3511403/Dr-Shannon-Humphrey-Vancouver-BC.html">
+Dr. Shannon Humphrey
+</a></h4>
+<span class="star-rating " title="4.7">
+<span class="stars"><span class="
+        star
+         half
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>106</span>
+reviews
+</div>
+<p>"I&#39;m in my 30s and wanted to lose weight. Didn&#39;t ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Robert Tremaine">
+<h4><a href="/doctor-ratings/77554/Dr-Robert-Tremaine-Halifax-NS.html">
+Dr. Robert Tremaine
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>33</span>
+reviews
+</div>
+<p>"A consummate professional. Highly knowledgeable ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Joseph M. Lam">
+<h4><a href="/doctor-ratings/952310/Dr-Joseph%2BM.-Lam-Vancouver-BC.html">
+Dr. Joseph M. Lam
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>22</span>
+reviews
+</div>
+<p>"Dr. Lam is without a doubt the best ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='psychologist'" ng-cloak>
+<a href="/doctors/?specialty=psychologist" class="home-specialties-name">
+<h3>Psychologist</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/3388914.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Emily Blake">
+<h4><a href="/doctor-ratings/3388914/Dr-Emily-Blake-Pointe-Claire-QC.html">
+Dr. Emily Blake
+</a></h4>
+<span class="star-rating " title="4.8">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>51</span>
+reviews
+</div>
+<p>"Although I only saw Dr. Blake for a short while, ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/875736.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Toni Rebic">
+<h4><a href="/doctor-ratings/875736/Dr-Toni-Rebic-Montreal-QC.html">
+Dr. Toni Rebic
+</a></h4>
+<span class="star-rating " title="4.6">
+<span class="stars"><span class="
+        star
+         half
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>98</span>
+reviews
+</div>
+<p>"She wasn&#39;t able to find out what my issue was and ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-female.png_thumbs/v1_at_77x77.jpg" alt="Dr. Alisa R. Kasachkoff">
+<h4><a href="/doctor-ratings/2843976/Dr-ALISA%2BR.-KASACHKOFF-New%2BYork-NY.html">
+Dr. Alisa R. Kasachkoff
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>16</span>
+reviews
+</div>
+<p>"I cannot say enough good things about Dr. ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/doctors/doctor/image/doctor-ray-daly-psychologist.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Ray Daly">
+<h4><a href="/doctor-ratings/137608/Dr-Ray-Daly-Windsor-ON.html">
+Dr. Ray Daly
+</a></h4>
+<span class="star-rating " title="4.8">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>23</span>
+reviews
+</div>
+<p>"Dr.Daly was very helpful in helping me to ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/doctors/doctor/image/doctor-tamara-s-paula-psychologist.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Tamara S. Paula">
+<h4><a href="/doctor-ratings/3620437/Dr-TAMARA%2BS.-PAULA-CORAL%2BGABLES-FL.html">
+Dr. Tamara S. Paula
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>14</span>
+reviews
+</div>
+<p>"This is Wednesday&#39;s patient #4 of a long Dr ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='psychiatrist'" ng-cloak>
+<a href="/doctors/?specialty=psychiatrist" class="home-specialties-name">
+<h3>Psychiatrist</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Daniel Paquette">
+<h4><a href="/doctor-ratings/137908/Dr-Daniel-Paquette-St-Bruno-QC.html">
+Dr. Daniel Paquette
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>52</span>
+reviews
+</div>
+<p>"Bonjour j&#39;aimerais pouvoir rejoindre dr. ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Samuel Gary Lusk">
+<h4><a href="/doctor-ratings/168990/Dr-Samuel%2BGary-Lusk-AUSTIN-TX.html">
+Dr. Samuel Gary Lusk
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>31</span>
+reviews
+</div>
+<p>"Dr. Lusk and his staff, Maggie, are the very ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Zaki Shullaih">
+<h4><a href="/doctor-ratings/3472464/Dr-Zaki-Shullaih-Sydney-NS.html">
+Dr. Zaki Shullaih
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>34</span>
+reviews
+</div>
+<p>"I have been seeing Dr. Shullaih for several years ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Lucas A. Trautman">
+<h4><a href="/doctor-ratings/2947641/Dr-LUCAS%2BA.-TRAUTMAN-Covington-TN.html">
+Dr. Lucas A. Trautman
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>27</span>
+reviews
+</div>
+<p>"I have been a patient of Dr Trautman&#39;s for 3 ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Kasra Koochesfahani">
+<h4><a href="/doctor-ratings/3589950/Dr-Kasra-Koochesfahani-Toronto-ON.html">
+Dr. Kasra Koochesfahani
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>25</span>
+reviews
+</div>
+<p>"Dr K helped me so much during my time at ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='chiropractor'" ng-cloak>
+<a href="/doctors/?specialty=chiropractor" class="home-specialties-name">
+<h3>Chiropractor</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. David A. Warkentin">
+<h4><a href="/doctor-ratings/164995/Dr-David%2BA.-Warkentin-Mesa-AZ.html">
+Dr. David A. Warkentin
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>271</span>
+reviews
+</div>
+<p>"Dr. Warkentin took excellent care of me. He is a ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/3472185.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Howard Zamick">
+<h4><a href="/doctor-ratings/3472185/Dr-Howard-Zamick-Newmarket-ON.html">
+Dr. Howard Zamick
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>70</span>
+reviews
+</div>
+<p>"I&#39;ve been going to Dr. Zamick for a year and a ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Peyman Khademi">
+<h4><a href="/doctor-ratings/945588/Dr-Peyman-Khademi-North%2BVancouver-BC.html">
+Dr. Peyman Khademi
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>56</span>
+reviews
+</div>
+<p>"He is the best chiropractor I have ever seen . He ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/3603995.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Richard Kjaer">
+<h4><a href="/doctor-ratings/3603995/Dr-Richard-Kjaer-Victoria-BC.html">
+Dr. Richard Kjaer
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>127</span>
+reviews
+</div>
+<p>"Dr. Kjaer is always very professional. I am a ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/3183031.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Janan S. Sayyed">
+<h4><a href="/doctor-ratings/3183031/Dr-Janan%2BS.-Sayyed-NEW%2BYORK-NY.html">
+Dr. Janan S. Sayyed
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>95</span>
+reviews
+</div>
+<p>"Dr. Sayyed helped me with my neck and low back ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='surgeon-general'" ng-cloak>
+<a href="/doctors/?specialty=surgeon-general" class="home-specialties-name">
+<h3>Surgeon (general)</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Jose Rodriguez">
+<h4><a href="/doctor-ratings/93930/Dr-Jose-Rodriguez-Montreal-QC.html">
+Dr. Jose Rodriguez
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>176</span>
+reviews
+</div>
+<p>"I had surgery for a inguinal hernia on November ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/63305.jpeg_thumbs/v1_at_77x77.jpg" alt="Dr. Jean-Paul Brutus">
+<h4><a href="/doctor-ratings/63305/Dr-Jean-Paul-Brutus-Montreal-QC.html">
+Dr. Jean-Paul Brutus
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>68</span>
+reviews
+</div>
+<p>"Pour moi, 2014 avait débutée par l&#39;abandon des ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. G.M. Lees">
+<h4><a href="/doctor-ratings/16859/Dr-G.M.-Lees-Edmonton-AB.html">
+Dr. G.M. Lees
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>43</span>
+reviews
+</div>
+<p>"Dr. G.M. Lees helped our family deal with our ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. David Hochman">
+<h4><a href="/doctor-ratings/76704/Dr-David-Hochman-Winnipeg-MB.html">
+Dr. David Hochman
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>28</span>
+reviews
+</div>
+<p>"Amazing doctor,I am blessed to be his patient and ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Shiva Jayaraman">
+<h4><a href="/doctor-ratings/3350755/Dr-Shiva-Jayaraman-Toronto-ON.html">
+Dr. Shiva Jayaraman
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>36</span>
+reviews
+</div>
+<p>"Exudes confidence and knowledge. Patient and ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='ear-nose-and-throat-ent'" ng-cloak>
+<a href="/doctors/?specialty=ear-nose-and-throat-ent" class="home-specialties-name">
+<h3>Ear Nose and Throat (ENT) Doctor</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-female.png_thumbs/v1_at_77x77.jpg" alt="Dr. Eli Akbari">
+<h4><a href="/doctor-ratings/3200348/Dr-Eli-Akbari-Vancouver-BC.html">
+Dr. Eli Akbari
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>33</span>
+reviews
+</div>
+<p>"This doctor is very kind and personable. She went ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/67997.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Martin Black">
+<h4><a href="/doctor-ratings/67997/Dr-Martin-Black-Montreal-QC.html">
+Dr. Martin Black
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>31</span>
+reviews
+</div>
+<p>"I want to contact with this doctor by mail.how ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/881185.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Edward Rhee">
+<h4><a href="/doctor-ratings/881185/Dr-Edward-Rhee-West%2BNyack-NY.html">
+Dr. Edward Rhee
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>27</span>
+reviews
+</div>
+<p>"Really good doctor. Highly recommend to any one ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Jason Franklin">
+<h4><a href="/doctor-ratings/52775/Dr-Jason-Franklin-London-ON.html">
+Dr. Jason Franklin
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>22</span>
+reviews
+</div>
+<p>"Dr. Franklin removed a quarter that was lodged in ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/doctors/doctor/image/doctor-pavlina-p-suchanova-ear-nose-and-throat-ent.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Pavlina P. Suchanova">
+<h4><a href="/doctor-ratings/3187863/Dr-PAVLINA%2BP.-SUCHANOVA-Houston-TX.html">
+Dr. Pavlina P. Suchanova
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>28</span>
+reviews
+</div>
+<p>"I had surgery last Thursday to correct a deviated ..."</p>
+</div>
+</div>
+<div ng-show="homeSpecialty=='pediatrician'" ng-cloak>
+<a href="/doctors/?specialty=pediatrician" class="home-specialties-name">
+<h3>Pediatrician</h3>
+<small>View All</small>
+</a>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Samuel Jebamani">
+<h4><a href="/doctor-ratings/45716/Dr-Samuel-Jebamani-Winnipeg-MB.html">
+Dr. Samuel Jebamani
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>43</span>
+reviews
+</div>
+<p>"He is an excellent doctor. He is very ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Claude Grandbois">
+<h4><a href="/doctor-ratings/63704/Dr-Claude-Grandbois-St.%2BLambert-QC.html">
+Dr. Claude Grandbois
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>30</span>
+reviews
+</div>
+<p>"Dr. Grandbois always served his patients beyond ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Stuart M. Tashman">
+<h4><a href="/doctor-ratings/136520/Dr-Stuart%2BM.-Tashman-Wurtsboro-NY.html">
+Dr. Stuart M. Tashman
+</a></h4>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>41</span>
+reviews
+</div>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="//cdn.ratemds.com/static/img/doctors/doctor-male.png_thumbs/v1_at_77x77.jpg" alt="Dr. Colin Geft">
+<h4><a href="/doctor-ratings/52829/Dr-Colin-Geft-Toronto-ON.html">
+Dr. Colin Geft
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>28</span>
+reviews
+</div>
+<p>"The best doctor I&#39;ve ever met. I was his patient ..."</p>
+</div>
+<div class="home-specialties-doctor">
+<img class="doctor-image" src="https://cdn.ratemds.com/media/uploads/156065.jpg_thumbs/v1_at_77x77.jpg" alt="Dr. Michael S. Elliott">
+<h4><a href="/doctor-ratings/156065/Dr-Michael%2BS.-Elliott-Edmond-OK.html">
+Dr. Michael S. Elliott
+</a></h4>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+<div class="star-rating-count">
+<span>27</span>
+reviews
+</div>
+<p>"Dr. Elliott is so great with my child. He is ..."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden-xs hidden-sm col-md-4 col-right">
+<div class="search-sidebar-top">
+<a href="/doctors/create/" class="btn btn-success">
+<i class="fa fa-plus-circle"></i>
+Add a Doctor
+</a>
+</div>
+<div id="RateMDs_com_300x250_TopRight_OH_Content" class="ad">
+<script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display("RateMDs_com_300x250_TopRight_OH_Content"); });
+            </script>
+</div>
+<div class="widget widget-social">
+<h3>Follow Us</h3>
+<ul class="list-unstyled list-inline">
+<li class="facebook">
+<a href="https://www.facebook.com/ratemdsdotcom" onclick="return clickTrack('https://www.facebook.com/ratemdsdotcom', 'outbound', 'click');" title="Facebook">
+<i class="fa fa-facebook-square"></i>
+</a>
+</li>
+<li class="twitter">
+<a href="https://twitter.com/RateMDsdotcom" onclick="return clickTrack('https://twitter.com/RateMDsdotcom', 'outbound', 'click');" title="Twitter">
+<i class="fa fa-twitter-square"></i>
+</a>
+</li>
+<li class="google">
+<a href="https://plus.google.com/+ratemds" onclick="return clickTrack('https://plus.google.com/+ratemds', 'outbound', 'click');" title="Google+">
+<i class="fa fa-google-plus-square"></i>
+</a>
+</li>
+</ul>
+</div>
+<div class="widget widget-posts-latest">
+<h3>Latest Articles</h3>
+<div class="post post-category-family widget-item">
+<img src="https://www.ratemds.com/blog/wp-content/uploads/2015/02/baby-hand-70x70.jpg" alt="Preemies Linked to Anxiety Disorders in Adult Years">
+<div class="post-category">
+<a href="https://www.ratemds.com/blog/category/family/">
+Family
+</a>
+</div>
+<div class="post-title">
+<a href="https://www.ratemds.com/blog/preemies-linked-to-anxiety-disorders-in-adult-years/">Preemies Linked to Anxiety Disorders in Adult Years</a>
+</div>
+</div>
+<hr>
+<div class="post post-category-health widget-item">
+<img src="https://www.ratemds.com/blog/wp-content/uploads/2015/02/friendship-70x70.jpg" alt="Keep Your Friends Close and Your Health Closer">
+<div class="post-category">
+<a href="https://www.ratemds.com/blog/category/health/">
+Health
+</a>
+</div>
+<div class="post-title">
+<a href="https://www.ratemds.com/blog/keep-your-friends-close-and-your-health-closer/">Keep Your Friends Close and Your Health Closer</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="home-bar hidden-xs">
+<div class="container home-news">
+<div><img src="https://cdn.ratemds.com/static/img/doctors/home/news/msnbc-logo.95b3a5fc9464.png" alt="MSNBC"></div>
+<div><img src="https://cdn.ratemds.com/static/img/doctors/home/news/wsj-logo.b50fd0024560.png" alt="Wall Street Journal"></div>
+<div><img src="https://cdn.ratemds.com/static/img/doctors/home/news/usa-today-logo.1fb3cd0caaeb.png" alt="USA Today" class="home-news-usat"></div>
+<div><img src="https://cdn.ratemds.com/static/img/doctors/home/news/cnn-logo.79dfab922843.png" alt="CNN"></div>
+<div><img src="https://cdn.ratemds.com/static/img/doctors/home/news/cbs-news-logo.d885b05b48ea.png" alt="CBS News"></div>
+<div>
+<img src="https://cdn.ratemds.com/static/img/doctors/home/news/nytimes-logo.9e982e28dd76.png" alt="New York Times" class="home-news-nyt">
+<a href="/about/press/">View press ></a>
+</div>
+</div>
+</div>
+<div class="container content-body">
+<div class="row">
+<div class="col-md-8 col-sm-12">
+<div class="widget widget-main widget-hospitals-main">
+<h3>
+Top
+Hospitals
+</h3>
+<div class="row">
+<div class="widget-item widget-hospital col-sm-3 col-xs-6">
+<a href="/hospital/us-il-chicago-kindred-hosp-chicago-central/">
+<img src="//cdn.ratemds.com/static/img/locations/hospital.png_thumbs/v1_at_165x165.jpg" alt="Kindred Hosp-Chicago Central" title="Kindred Hosp-Chicago Central">
+<div class="widget-name" title="Kindred Hosp-Chicago Central">Kindred Hosp-Chicago Central</div>
+<span class="star-rating " title="4.9">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+</a>
+</div>
+<div class="widget-item widget-hospital col-sm-3 col-xs-6">
+<a href="/hospital/in-gj-ahmedabad-apex-heart-institute-373/">
+<img src="//cdn.ratemds.com/static/img/locations/hospital.png_thumbs/v1_at_165x165.jpg" alt="Apex Heart Institute" title="Apex Heart Institute">
+<div class="widget-name" title="Apex Heart Institute">Apex Heart Institute</div>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+</a>
+</div>
+<div class="widget-item widget-hospital col-sm-3 col-xs-6">
+<a href="/hospital/us-il-peoria-kindred-hospital-peoria/">
+<img src="//cdn.ratemds.com/static/img/locations/hospital.png_thumbs/v1_at_165x165.jpg" alt="Kindred Hospital-Peoria" title="Kindred Hospital-Peoria">
+<div class="widget-name" title="Kindred Hospital-Peoria">Kindred Hospital-Peoria</div>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+</a>
+</div>
+<div class="widget-item widget-hospital col-sm-3 col-xs-6">
+<a href="/hospital/us-il-chicago-kindred-hospital-chicago-north/">
+<img src="//cdn.ratemds.com/static/img/locations/hospital.png_thumbs/v1_at_165x165.jpg" alt="Kindred Hospital-Chicago North" title="Kindred Hospital-Chicago North">
+<div class="widget-name" title="Kindred Hospital-Chicago North">Kindred Hospital-Chicago North</div>
+<span class="star-rating " title="4.8">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+<hr>
+<div class="widget widget-main widget-hospitals-main">
+<h3>
+Top
+Urgent Care Centers
+</h3>
+<div class="row">
+<div class="widget-item widget-hospital col-sm-3 col-xs-6">
+<a href="/urgent-care/us-ok-tulsa-warren-clinic-urgent-care-971/">
+<img src="//cdn.ratemds.com/static/img/locations/urgent-care.png_thumbs/v1_at_165x165.jpg" alt="Warren Clinic Urgent Care" title="Warren Clinic Urgent Care">
+<div class="widget-name" title="Warren Clinic Urgent Care">Warren Clinic Urgent Care</div>
+<span class="star-rating " title="4.8">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+</a>
+</div>
+<div class="widget-item widget-hospital col-sm-3 col-xs-6">
+<a href="/urgent-care/us-fl-tampa-after-hours-pediatrics-urgent-care-north-tampa-839/">
+<img src="//cdn.ratemds.com/static/img/locations/urgent-care.png_thumbs/v1_at_165x165.jpg" alt="After Hours Pediatrics Urgent Care - North Tampa" title="After Hours Pediatrics Urgent Care - North Tampa">
+<div class="widget-name" title="After Hours Pediatrics Urgent Care - North Tampa">After Hours Pediatrics Urgent Care - North Tampa</div>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+</a>
+</div>
+<div class="widget-item widget-hospital col-sm-3 col-xs-6">
+<a href="/urgent-care/ca-on-belleville-bayview-medical-clinic/">
+<img src="//cdn.ratemds.com/static/img/locations/urgent-care.png_thumbs/v1_at_165x165.jpg" alt="Bayview Medical Clinic" title="Bayview Medical Clinic">
+<div class="widget-name" title="Bayview Medical Clinic">Bayview Medical Clinic</div>
+<span class="star-rating " title="4.6">
+<span class="stars"><span class="
+        star
+         half
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+</a>
+</div>
+<div class="widget-item widget-hospital col-sm-3 col-xs-6">
+<a href="/urgent-care/us-mt-kalispell-evergreen-clinic/">
+<img src="//cdn.ratemds.com/static/img/locations/urgent-care.png_thumbs/v1_at_165x165.jpg" alt="Evergreen Clinic" title="Evergreen Clinic">
+<div class="widget-name" title="Evergreen Clinic">Evergreen Clinic</div>
+<span class="star-rating " title="5.0">
+<span class="stars"><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span><span class="
+        star
+         selected
+        
+      "></span>
+</span>
+</span>
+</a>
+</div>
+</div>
+</div>
+<hr>
+<div class="widget-specialties-main hidden-xs">
+<h3>Find a Doctor by Specialty</h3>
+<div class="row">
+<div class="col-sm-6">
+<ul class="list-unstyled first">
+<li><a href="/doctors/?specialty=acupuncturist">
+Acupuncturist
+</a></li>
+<li><a href="/doctors/?specialty=addiction-medicine">
+Addiction Medicine Specialist
+</a></li>
+<li><a href="/doctors/?specialty=allergist-immunologist">
+Allergist / Immunologist
+</a></li>
+<li><a href="/doctors/?specialty=anesthesiologist">
+Anesthesiologist
+</a></li>
+<li><a href="/doctors/?specialty=audiologist">
+Audiologist
+</a></li>
+<li><a href="/doctors/?specialty=bariatric-weight-loss">
+Bariatric / Weight Loss Specialist
+</a></li>
+<li><a href="/doctors/?specialty=cardiologist">
+Cardiologist
+</a></li>
+<li><a href="/doctors/?specialty=cardiothoracic-surgeon">
+Cardiothoracic Surgeon
+</a></li>
+<li><a href="/doctors/?specialty=chiropractor">
+Chiropractor
+</a></li>
+<li><a href="/doctors/?specialty=colorectal-proctologist">
+Colorectal Surgeon / Proctologist
+</a></li>
+<li><a href="/doctors/?specialty=cosmetic-plastic-surgeon">
+Cosmetic Surgeon / Plastic Surgeon
+</a></li>
+<li><a href="/doctors/?specialty=dentist">
+Dentist
+</a></li>
+<li><a href="/doctors/?specialty=dermatologist">
+Dermatologist
+</a></li>
+</ul>
+</div>
+<div class="col-sm-6">
+<ul class="list-unstyled">
+<li><a href="/doctors/?specialty=ear-nose-and-throat-ent">
+Ear Nose and Throat (ENT) Doctor
+</a></li>
+<li><a href="/doctors/?specialty=emergency-critical">
+Emergency Room Doctor
+</a></li>
+<li><a href="/doctors/?specialty=endocrinologist">
+Endocrinologist
+</a></li>
+<li><a href="/doctors/?specialty=endodontist-root-canal">
+Endodontist (root canal)
+</a></li>
+<li><a href="/doctors/?specialty=family-gp">
+Family Doctor / G.P.
+</a></li>
+<li><a href="/doctors/?specialty=gastroenterologist">
+Gastroenterologist
+</a></li>
+<li><a href="/doctors/?specialty=geneticist">
+Geneticist
+</a></li>
+<li><a href="/doctors/?specialty=gynecologist-obgyn">
+Gynecologist (OBGYN)
+</a></li>
+<li><a href="/doctors/?specialty=infectious-disease">
+Infectious Disease Specialist
+</a></li>
+<li><a href="/doctors/?specialty=internist-geriatrician">
+Internist / Geriatrician
+</a></li>
+<li><a href="/doctors/?specialty=midwife">
+Midwife
+</a></li>
+<li><a href="/doctors/?specialty=naturopath">
+Naturopath
+</a></li>
+<li><a href="/doctors/?specialty=nephrologist-kidney">
+Nephrologist (kidney)
+</a></li>
+<li class="widget-specialties-all"><a href="/specialties/">
+View all Specialties >
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden-xs hidden-sm col-md-4 col-right">
+<div class="widget widget-posts-featured">
+<h3>Featured Articles</h3>
+<div class="post-large post-category-wellness widget-item">
+<div class="post-image">
+<a href="https://www.ratemds.com/blog/can-a-pill-make-you-smarter/">
+<img src="https://www.ratemds.com/blog/wp-content/uploads/2015/01/pills-360x186.jpg" alt="Can a Pill Make You Smarter?">
+</a>
+<a href="https://www.ratemds.com/blog/category/wellness/" class="post-category ">
+Wellness
+</a>
+</div>
+<div class="post-title">
+<a href="https://www.ratemds.com/blog/can-a-pill-make-you-smarter/">Can a Pill Make You Smarter?</a>
+</div>
+</div>
+<hr>
+<div class="post post-category-health widget-item">
+<img src="https://www.ratemds.com/blog/wp-content/uploads/2015/01/Footprints_sand-70x70.jpg" alt="Getting Your Lost Memories Back Possible">
+<div class="post-category">
+<a href="https://www.ratemds.com/blog/category/health/">
+Health
+</a>
+</div>
+<div class="post-title">
+<a href="https://www.ratemds.com/blog/getting-lost-memories-back-possible-study/">Getting Your Lost Memories Back Possible</a>
+</div>
+</div>
+<hr>
+<div class="post post-category-wellness widget-item">
+<img src="https://www.ratemds.com/blog/wp-content/uploads/2015/01/jobs-IQ-70x70.jpg" alt="Could Your Job Be Improving Your Brain Health?">
+<div class="post-category">
+<a href="https://www.ratemds.com/blog/category/wellness/">
+Wellness
+</a>
+</div>
+<div class="post-title">
+<a href="https://www.ratemds.com/blog/could-your-job-be-improving-your-brain-health/">Could Your Job Be Improving Your Brain Health?</a>
+</div>
+</div>
+</div>
+<div id="RateMDs_com_300x600_BottomLeft_OH_Content" class="ad">
+<script type="text/javascript">
+          googletag.cmd.push(function() { googletag.display("RateMDs_com_300x600_BottomLeft_OH_Content"); });
+          </script>
+</div>
+</div>
+</div>
+</div>
+<div class="ad-footer">
+<div id="RateMDs_com_728x90_Bottom_OH_Content" class="ad">
+<script type="text/javascript">
+          googletag.cmd.push(function() { googletag.display("RateMDs_com_728x90_Bottom_OH_Content"); });
+        </script>
+</div>
+</div>
+<div class="email-subscription">
+<p>Sign up for our newsletter and get the latest health news and tips.</p>
+<form action="https://nursinghomesmiles.us8.list-manage.com/subscribe/post?u=999483c49b8c331b615431e03&amp;id=01a7fee069" method="post" target="_blank" novalidate>
+<div style="position: absolute; left: -5000px;">
+ 
+<label for="b_999483c49b8c331b615431e03_01a7fee069">Name</label>
+<input type="text" name="b_999483c49b8c331b615431e03_01a7fee069" id="b_999483c49b8c331b615431e03_01a7fee069" tabindex="-1" value="">
+</div>
+<div class="input-group">
+<input type="email" id="mailchimp" value="" name="EMAIL" placeholder="Email Address" class="form-control" required>
+<label for="mailchimp" class="hidden">Email Address</label>
+<span class="input-group-btn">
+<button type="submit" class="btn btn-success">Subscribe</button>
+</span>
+</div>
+</form>
+</div>
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-sm-3 col-xs-6 footer-column"><div>
+<div class="list-heading">About RateMDs</div>
+<ul class="list-unstyled">
+<li><a href="/about/">About</a></li>
+<li><a href="/about/press/">Press</a></li>
+<li><a href="/about/contact/">Contact</a></li>
+<li><a href="/about/faq/">FAQ</a></li>
+<li><a href="/about/advertise/">Advertise</a></li>
+<li><a href="/about/privacy/">Privacy</a> & <a href="/about/terms/">Terms</a></a></li>
+<li ng-controller="AuthCtrl">
+<a ng-click="claimDoctor()" href="javascript:;">
+Claim Doctor Profile
+</a>
+</li>
+</ul>
+</div></div>
+<div class="col-sm-3 col-xs-6 footer-column"><div>
+<div class="list-heading">Top Specialties</div>
+<ul class="list-unstyled">
+<li><a href="/specialties/family-gp/">
+Family G.P.
+</a></li>
+<li><a href="/specialties/gynecologist-obgyn/">
+Gynecologist/OBGYN
+</a></li>
+<li><a href="/specialties/dentist/">
+Dentist
+</a></li>
+<li><a href="/specialties/orthopedics-sports/">
+Orthopedics/Sports
+</a></li>
+<li><a href="/specialties/cosmetic-plastic-surgeon/">
+Cosmetic Surgeon
+</a></li>
+<li><a href="/specialties/dermatologist/">
+Dermatologist
+</a></li>
+<li><a href="/specialties/">View all specialties ></a></li>
+</ul>
+</div></div>
+<div class="col-sm-3 col-xs-6 footer-column"><div>
+<div class="list-heading">Top Local Doctors</div>
+<ul class="list-unstyled">
+<li><a href="/best-doctors/ny/new-york/">
+New York
+</a></li>
+<li><a href="/best-doctors/il/chicago/">
+Chicago
+</a></li>
+<li><a href="/best-doctors/tx/houston/">
+Houston
+</a></li>
+<li><a href="/best-doctors/ca/los-angeles/">
+Los Angeles
+</a></li>
+<li><a href="/best-doctors/ma/boston/">
+Boston
+</a></li>
+<li><a href="/best-doctors/on/toronto/">
+Toronto
+</a></li>
+<li><a href="/best-doctors/pa/philadelphia/">
+Philadelphia
+</a></li>
+</ul>
+</div></div>
+<div class="col-sm-3 col-xs-6 footer-column"><div>
+<div class="list-heading">Follow Us</div>
+<ul class="list-unstyled">
+<li><a href="https://www.facebook.com/ratemdsdotcom">
+<i class="fa fa-fw fa-facebook-square"></i>
+Facebook
+</a></li>
+<li><a href="https://twitter.com/RateMDsdotcom">
+<i class="fa fa-fw fa-twitter-square"></i>
+Twitter
+</a></li>
+<li><a href="https://plus.google.com/+ratemds">
+<i class="fa fa-fw fa-google-plus-square"></i>
+Google+
+</a></li>
+</ul>
+</div></div>
+</div>
+</div>
+</footer>
+<div class="copyright">
+&copy;2004-2015 RateMDs Inc. <span class="hidden-xs">-</span>
+<br class="visible-xs-inline">
+The original and largest doctor rating site.
+</div>
+<div class="hidden-sm hidden-md hidden-lg mobile-ad fixed-ad">
+<div id="RateMds_com_320x50_Bottom_OH_Content" style="width: auto; height: auto;">
+<script type="text/javascript">
+          googletag.cmd.push(function() { googletag.display("RateMds_com_320x50_Bottom_OH_Content"); });
+        </script>
+</div>
+</div>
+<script>
+        FileAPI = {
+          jsUrl: "https://cdn.ratemds.com/static/bower/ng-file-upload/FileAPI.min.fec818f73c10.js",
+          flashUrl: "https://cdn.ratemds.com/static/bower/ng-file-upload/FileAPI.flash.c70c35e60d7d.swf",
+        }
+        window.DATA = {};
+        window.URLS = {"api:city-detail": [["api/city/%(pk)s/", ["pk"]]], "paid_terms": [["about/terms/paid/", []]], "api:province-list": [["api/province/", []]], "plans:invoice-detail": [["plans/%(doctor_id)s/invoices/%(id)s/", ["doctor_id", "id"]]], "doctor-subpoena": [["doctors/%(pk)s/subpoena/", ["pk"]]], "api:doctorupdate-detail": [["api/doctor_update/%(pk)s/", ["pk"]]], "api:doctor-follow": [["api/doctor/%(pk)s/follow/", ["pk"]]], "location-list-local": [["facilities/local/", []]], "api:plan-detail": [["api/plans/%(pk)s/", ["pk"]]], "api:doctorupdate-list": [["api/doctor_update/", []]], "api:doctorrating-toggle-vote": [["api/doctor_rating/%(pk)s/toggle_vote/", ["pk"]]], "location-detail": [["%(category)s/%(slug)s/", ["category", "slug"]], ["%(category)s/%(slug)s/%(_0)s", ["category", "slug", "_0"]]], "api:doctorschool-detail": [["api/doctor_school/%(pk)s/", ["pk"]]], "api:province-detail": [["api/province/%(pk)s/", ["pk"]]], "api:award-detail": [["api/award/%(pk)s/", ["pk"]]], "api:forgot_password": [["api/auth/forgot_password/", []]], "faq": [["about/faq/", []]], "api:doctorspecialty-list": [["api/doctor_specialty/", []]], "api:doctoradcity-list": [["api/doctor_ad_city/", []]], "press": [["about/press/", []]], "api:doctorlanguage-list": [["api/doctor_language/", []]], "reports:verifications": [["reports/verifications/", []]], "api:subscription-detail": [["api/subscriptions/%(pk)s/", ["pk"]]], "api:change_password": [["api/auth/change_password/", []]], "api:location-search": [["api/location-search/", []]], "api:city-list": [["api/city/", []]], "api:doctorratingcomment-detail": [["api/doctor_rating_comment/%(pk)s/", ["pk"]]], "reports:doctor_analytics_csv": [["reports/doctor_analytics_%(from)s_to_%(to)s.csv", ["from", "to"]]], "api:invoice-list": [["api/invoices/", []]], "api:logout": [["api/auth/logout/", []]], "api:country-detail": [["api/country/%(pk)s/", ["pk"]]], "api:doctorexpertise-detail": [["api/doctor_expertise/%(pk)s/", ["pk"]]], "api:doctorlocation-list": [["api/doctor_location/", []]], "api:geoip": [["api/geoip/", []]], "api:doctorlocation-detail": [["api/doctor_location/%(pk)s/", ["pk"]]], "library-list": [["library/", []]], "home": [["", []]], "advertise": [["about/advertise/", []]], "api:doctorupdaterequest": [["api/doctors/doctor_update_request/%(doctor_id)s/", ["doctor_id"]]], "reports:metrics_csv": [["reports/metrics_%(from)s_to_%(to)s.csv", ["from", "to"]]], "doctor-updates": [["doctors/%(slug)s/updates/", ["slug"]], ["doctors/%(slug)s/updates/%(_0)s", ["slug", "_0"]]], "doctor-dashboard-insurances": [["doctors/%(pk)s/dashboard/insurances/", ["pk"]]], "api:doctor-list": [["api/doctor/", []]], "user-dashboard-ratings": [["accounts/dashboard/ratings/", []]], "doctor-insurance": [["doctors/%(slug)s/insurance/", ["slug"]], ["doctors/%(slug)s/insurance/%(_0)s", ["slug", "_0"]]], "api:doctorverificationrequest-list": [["api/doctor_verification_request/", []]], "api:announcement_viewed": [["api/auth/announcement_viewed/", []]], "api:insuranceplan-detail": [["api/insurance_plan/%(pk)s/", ["pk"]]], "reports:doctor_analytics": [["reports/doctor_analytics/", []]], "reports:google_auth": [["reports/google_auth/", []]], "api:locationrating-detail": [["api/location_rating/%(pk)s/", ["pk"]]], "api:article-detail": [["api/article/%(pk)s/", ["pk"]]], "doctor-dashboard": [["doctors/%(pk)s/dashboard/", ["pk"]]], "api:publication-detail": [["api/publication/%(pk)s/", ["pk"]]], "terms": [["about/terms/", []]], "api:language-list": [["api/language/", []]], "api:doctoradcity-detail": [["api/doctor_ad_city/%(pk)s/", ["pk"]]], "api:doctoradspecialty-list": [["api/doctor_ad_specialty/", []]], "api:location-detail": [["api/location/%(pk)s/", ["pk"]]], "api:doctorrating-detail": [["api/doctor_rating/%(pk)s/", ["pk"]]], "about": [["about/", []]], "api:doctorrating-list": [["api/doctor_rating/", []]], "doctor-credentials": [["doctors/%(slug)s/credentials/", ["slug"]], ["doctors/%(slug)s/credentials/%(_0)s", ["slug", "_0"]]], "doctor-create": [["doctors/create/", []], ["doctors/create/%(_0)s", ["_0"]]], "api:doctor-unfollow": [["api/doctor/%(pk)s/unfollow/", ["pk"]]], "api:doctorlocationverificationrequest-list": [["api/doctor_location_verification_request/", []]], "reports:metrics": [["reports/metrics/", []]], "api:doctorlocation-verify": [["api/doctor_location/%(pk)s/verify/", ["pk"]]], "reports:base": [["reports/", []]], "change_password": [["accounts/change_password", []]], "api:current_user": [["api/auth/current_user/", []]], "doctor-dashboard-billing": [["doctors/%(pk)s/dashboard/billing/", ["pk"]]], "tools:autoverify-generator": [["admin/tools/autoverify-generator/", []]], "api:award-list": [["api/award/", []]], "doctor-dashboard-credentials": [["doctors/%(pk)s/dashboard/credentials/", ["pk"]]], "verify_email": [["accounts/verify-email/%(user_id)s/%(verification_key)s", ["user_id", "verification_key"]]], "api:doctorspecialty-detail": [["api/doctor_specialty/%(pk)s/", ["pk"]]], "jasmine-runner": [["about/jasmine/", []]], "api:language-detail": [["api/language/%(pk)s/", ["pk"]]], "privacy": [["about/privacy/", []]], "api:country-list": [["api/country/", []]], "doctor-dashboard-locations": [["doctors/%(pk)s/dashboard/facilities/", ["pk"]]], "api:doctorrating-claim": [["api/doctor_rating/%(pk)s/claim/", ["pk"]]], "plans:invoice-list": [["plans/%(doctor_id)s/invoices/", ["doctor_id"]]], "tools:es_info": [["admin/tools/es-info", []]], "plans:select-doctor": [["plans/doctor/", []]], "doctor-list-local": [["doctors/local/", []], ["doctors/local/%(_0)s", ["_0"]]], "api:invoice-detail": [["api/invoices/%(pk)s/", ["pk"]]], "reports:verifications_csv": [["reports/verifications_%(from)s_to_%(to)s.csv", ["from", "to"]]], "specialty-list": [["specialties/", []]], "api:doctorrating-flag": [["api/doctor_rating/%(pk)s/flag/", ["pk"]]], "api:doctorschool-list": [["api/doctor_school/", []]], "api:doctor_insurance_plans-list": [["api/doctor_insurance_plan/", []]], "plans_admin": [["admin/plans/plans/", []]], "api:signup": [["api/auth/signup/", []]], "api:publication-list": [["api/publication/", []]], "api:school-list": [["api/school/", []]], "plans:select-success": [["plans/%(doctor_id)s/success/", ["doctor_id"]]], "doctor-list": [["doctors/", []]], "api:plan-tax": [["api/plans/%(pk)s/tax/", ["pk"]]], "api:doctor-autoverify": [["api/doctor/%(pk)s/autoverify/", ["pk"]]], "specialty-detail": [["specialties/%(slug)s/", ["slug"]]], "doctor-reindex": [["doctors/%(pk)s/reindex/", ["pk"]]], "api:school-detail": [["api/school/%(pk)s/", ["pk"]]], "user-dashboard": [["accounts/dashboard/", []]], "location-reindex": [["facilities/%(pk)s/reindex/", ["pk"]]], "doctor-verify": [["doctors/verify/", []]], "tools:emails": [["admin/tools/emails/%(email)s", ["email"]]], "doctor-detail": [["doctor-ratings/%(slug)s", ["slug"]]], "api:doctoradspecialty-detail": [["api/doctor_ad_specialty/%(pk)s/", ["pk"]]], "api:doctorratingcomment-list": [["api/doctor_rating_comment/", []]], "api:doctorlanguage-detail": [["api/doctor_language/%(pk)s/", ["pk"]]], "api:insuranceplan-list": [["api/insurance_plan/", []]], "api:doctor-user-state": [["api/doctor/%(pk)s/user_state/", ["pk"]]], "api:advertise": [["api/core/advertise/", []]], "api:card-detail": [["api/cards/%(pk)s/", ["pk"]]], "doctor-dashboard-ratings": [["doctors/%(pk)s/dashboard/ratings/", ["pk"]]], "api:login": [["api/auth/login/", []]], "api:locationrating-list": [["api/location_rating/", []]], "forgot_password": [["accounts/forgot_password", []]], "user-dashboard-following": [["accounts/dashboard/following/", []]], "api:contact": [["api/core/contact/", []]], "api:doctor-detail": [["api/doctor/%(pk)s/", ["pk"]]], "api:doctorlocation-primary": [["api/doctor_location/%(pk)s/primary/", ["pk"]]], "tools:mass_verify": [["admin/tools/mass-verify", []]], "api:article-list": [["api/article/", []]], "location-list": [["facilities/", []]], "api:location-list": [["api/location/", []]], "api:doctorexpertise-list": [["api/doctor_expertise/", []]], "location-doctors": [["%(category)s/%(slug)s/doctors/", ["category", "slug"]], ["%(category)s/%(slug)s/doctors/%(_0)s", ["category", "slug", "_0"]]], "doctor-dashboard-profile": [["doctors/%(pk)s/dashboard/profile/", ["pk"]]], "contact": [["about/contact/", []]], "api:flag-list": [["api/flag/", []]], "plans:select-plan": [["plans/%(doctor_id)s/", ["doctor_id"]]], "api:doctor_insurance_plans-detail": [["api/doctor_insurance_plan/%(pk)s/", ["pk"]]], "library-detail": [["library/%(article_slug)s/%(section_slug)s/", ["article_slug", "section_slug"]]]};
+      </script>
+<script src="https://cdn.ratemds.com/static/js/base.c2a21ec10cad.js"></script>
+<script type="text/ng-template" id="auth/login.jinja">
+  <div class="modal-body modal-auth">
+  <h4 class="modal-title">Login to RateMDs</h4>
+
+  <form novalidate ng-submit="login(user)" name="loginForm">
+    <div class="alert alert-danger" ng-show="authError">
+      [[ authError ]]
+    </div>
+    <div class="form-group">
+      <label for="login-email" class="hidden">Email</label>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        <input
+          type="email"
+          id="login-email"
+          name="login-email"
+          ng-model="user.email"
+          placeholder="Email"
+          class="form-control"
+          required
+          rmd-form-field
+        >
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="login-password" class="hidden">Password</label>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+        <input
+          type="password"
+          id="login-password"
+          name="login-password"
+          ng-model="user.password"
+          placeholder="Password"
+          class="form-control"
+          required
+          rmd-form-field
+        >
+      </div>
+    </div>
+
+    <div class="modal-auth-forgot">
+      <a href="/accounts/forgot_password">Forgot password?</a>
+    </div>
+
+    <button class="btn btn-success btn-block btn-lg" type="submit">Login</button>
+    <a href="javascript:;" ng-click="$dismiss();showSignup()">Signup</a> or
+    <a href="javascript:;" ng-click="$dismiss()">Cancel</a>
+
+  </form>
+</div>
+</script>
+<script type="text/ng-template" id="auth/signup.jinja">
+  
+<div class="modal-body modal-auth">
+  <h4
+    class="modal-title"
+    ng-class="{
+      'model-title-message': options.doctor || options.rating || options.follow || options.message
+    }"
+  >Signup to RateMDs</h4>
+
+  <form
+    name="signupForm"
+    novalidate
+    rmd-form="{
+      submitUrl: 'api:signup',
+      onSuccess: signupFormSuccess,
+    }"
+  >
+
+    <p ng-show="options.doctor" class="modal-auth-message">
+      <strong>Doctors:</strong>
+      The first step in claiming your profile is signing up for an account.
+    </p>
+
+    <p ng-show="options.rating" class="modal-auth-message">
+      Signup to edit this rating in the future, and keep
+      track of doctor responses.
+    </p>
+
+    <p ng-show="options.follow" class="modal-auth-message">
+      Signup to follow this doctor and keep track of their
+      latest ratings and updates.
+    </p>
+
+    <p ng-show="options.message" class="modal-auth-message">
+      [[ options.message ]]
+    </p>
+
+    <div class="form-group">
+      <label for="email" class="control-label hidden">Email</label>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        <input
+          type="email"
+          id="email"
+          ng-model="signupFormData.email"
+          placeholder="Email"
+          name="email"
+          class="form-control"
+          required
+          rmd-form-field
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="control-label hidden">Password</label>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          ng-model="signupFormData.password"
+          placeholder="Password"
+          class="form-control"
+          required
+          rmd-form-field
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="confirm-password" class="control-label hidden">Confirm Password</label>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+        <input
+          type="password"
+          id="confirm-password"
+          name="confirm-password"
+          placeholder="Confirm Password"
+          class="form-control"
+          ng-model="confirmPassword"
+          ui-validate="'$value==signupFormData.password'"
+          ui-validate-watch="'signupFormData.password'"
+          required
+          rmd-form-field="{validator: 'Your passwords do not match'}"
+        >
+        </div>
+    </div>
+
+    <div class="form-group modal-auth-opin modal-auth-opin-first">
+      <label>
+        <input
+          type="checkbox"
+          name="marketing_okay"
+          ng-model="signupFormData.marketing_okay"
+          rmd-form-field
+        >
+        Send me updates via email
+      </label>
+    </div>
+
+    <div class="form-group modal-auth-opin">
+      <label>
+        <input
+          type="checkbox"
+          name="tos"
+          ng-model="signupFormData.tos_okay"
+          ng-init="signupFormData.tos_okay=true"
+          rmd-form-field
+          required
+        >
+        I agree to <a href="/about/terms/">RateMDs terms of use</a>
+      </label>
+    </div>
+
+    <button class="btn btn-success btn-block btn-lg">Signup</button>
+    <a href="javascript:;" ng-click="$dismiss();showLogin()">Login</a> or
+    <a href="javascript:;" ng-click="$dismiss()">Cancel</a>
+
+  </form>
+
+</div>
+</script>
+<script type="text/ng-template" id="dropdown.jinja">
+  
+<div class="btn-group dropdown">
+  <a
+    class="btn btn-default dropdown-toggle"
+    data-toggle="dropdown"
+    ng-class="{disabled: disabled}"
+  >
+    <span ng-show="value==null">Choose a [[ name ]]</span>
+    <span ng-show="value!=null">
+      <span ng-show="!!name">[[ name ]]:</span>
+      [[ valueName ]]
+    </span>
+    <i class="fa fa-caret-down"></i>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li ng-repeat="option in options">
+      <a href="javascript:;" ng-click="setValue(option[0])">[[ option[1] ]]</a>
+    </li>
+  </ul>
+</div>
+</script>
+<script type="text/ng-template" id="filter_dropdown.jinja">
+  
+<div class="btn-group filter-dropdown" ng-class="{open: isOpen}">
+  <a
+    class="btn btn-default dropdown-toggle"
+    ng-click="isOpen = !isOpen"
+    ng-class="{disabled: disabled}"
+  >
+    <span ng-show="value==null">Choose a [[ name ]]</span>
+    <span ng-show="value!=null">[[ name ]]: [[ valueName ]]</span>
+    <i class="fa fa-caret-down"></i>
+  </a>
+  <ul class="dropdown-menu" role="menu" ng-show="isOpen">
+    <div class="form-group">
+      <input
+        type="text"
+        ng-model="filter"
+        class="form-control"
+        placeholder="Find a City"
+      >
+    </div>
+    <li ng-repeat="option in filteredOptions">
+      <a ng-show="!goto" href="javascript:;" ng-click="setValue(option[0])">[[ option[1] ]]</a>
+      <a ng-show="goto" ng-href="[[ option[0] ]]">[[ option[1] ]]</a>
+    </li>
+  </ul>
+</div>
+</script>
+<script type="text/ng-template" id="star_rating.jinja">
+  
+<span class="star-rating" ng-class="{'star-rating-empty': count == 0}">
+  <span class="stars"><span class="star"
+    ng-class="{
+        half: rating >= 4.5 && rating < 5,
+        selected: rating >= 5,
+    }"
+    ></span><span class="star"
+      ng-class="{
+        half: rating >= 3.5 && rating < 4,
+        selected: rating >= 4,
+      }"
+    ></span><span class="star"
+      ng-class="{
+        half: rating >= 2.5 && rating < 3,
+        selected: rating >= 3,
+      }"
+    ></span><span class="star"
+      ng-class="{
+        half: rating >= 1.5 && rating < 2,
+        selected: rating >= 2,
+      }"
+    ></span><span class="star"
+      ng-class="{
+        half: rating >= 0.5 && rating < 1,
+        selected: rating >= 1,
+      }"
+    ></span>
+  </span>
+</span>
+<div class="star-rating-count" ng-show="count">
+  [[ count ]] reviews
+</div>
+</script>
+<script type="text/ng-template" id="star_rating_input.jinja">
+  
+<span class="star-rating star-rating-input star-rating-empty">
+
+  <span class="stars"><span
+      class="star star-5"
+      ng-click="setValue(5)"
+      data-value="5"
+      ng-class="{selected: selected==5}"
+    ></span><span
+      class="star star-4"
+      ng-click="setValue(4)"
+      data-value="4"
+      ng-class="{selected: selected==4}"
+    ></span><span
+      class="star star-3"
+      ng-click="setValue(3)"
+      data-value="3"
+      ng-class="{selected: selected==3}"
+    ></span><span
+      class="star star-2"
+      ng-click="setValue(2)"
+      data-value="2"
+      ng-class="{selected: selected==2}"
+    ></span><span
+      class="star star-1"
+      ng-click="setValue(1)"
+      data-value="1"
+      ng-class="{selected: selected==1}"
+    ></span></span>
+
+  <span class="hint" ng-show="(selected==5 && hover==null) || hover==5">Excellent</span>
+  <span class="hint" ng-show="(selected==4 && hover==null) || hover==4">Good</span>
+  <span class="hint" ng-show="(selected==3 && hover==null) || hover==3">Okay</span>
+  <span class="hint" ng-show="(selected==2 && hover==null) || hover==2">Poor</span>
+  <span class="hint" ng-show="(selected==1 && hover==null) || hover==1">Terrible</span>
+
+</span>
+</script>
+<script type="text/ng-template" id="city_selector_item.jinja">
+  
+<a href="javascript:;">
+  <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span><br>
+  [[ match.model.country_name ]]
+</a>
+</script>
+<script type="text/ng-template" id="alert.jinja">
+  
+<div class='modal-body'>
+  [[ content ]]
+</div>
+<div class='modal-footer'>
+  <button class='btn btn-success' ng-click='$dismiss()'>Okay</button>
+</div>
+</script>
+<script>
+    window.DATA.countries = [["au", "Australia & New Zealand"], ["ca", "Canada"], ["in", "India"], ["za", "South Africa"], ["uk", "United Kingdom"], ["us", "United States"]];
+    window.DATA.selected = {"specialty": "family-gp"};
+    window.DATA.specialties = [
+      ['', 'All Specialties'],
+    
+      ['family-gp', 'Family Doctor / G.P.'],
+    
+      ['gynecologist-obgyn', 'Gynecologist (OBGYN)'],
+    
+      ['dentist', 'Dentist'],
+    
+      ['orthopedics-sports', 'Orthopedic Surgeon'],
+    
+      ['internist-geriatrician', 'Internist / Geriatrician'],
+    
+      ['cosmetic-plastic-surgeon', 'Cosmetic Surgeon / Plastic Surgeon'],
+    
+      ['dermatologist', 'Dermatologist'],
+    
+      ['psychologist', 'Psychologist'],
+    
+      ['psychiatrist', 'Psychiatrist'],
+    
+      ['chiropractor', 'Chiropractor'],
+    
+      ['surgeon-general', 'Surgeon (general)'],
+    
+      ['ear-nose-and-throat-ent', 'Ear Nose and Throat (ENT) Doctor'],
+    
+      ['pediatrician', 'Pediatrician'],
+    
+      ['podiatrist', 'Podiatrist'],
+    
+      ['ophthalmologist', 'Ophthalmologist'],
+    
+      ['acupuncturist', 'Acupuncturist'],
+    
+      ['addiction-medicine', 'Addiction Medicine Specialist'],
+    
+      ['allergist-immunologist', 'Allergist / Immunologist'],
+    
+      ['anesthesiologist', 'Anesthesiologist'],
+    
+      ['audiologist', 'Audiologist'],
+    
+      ['bariatric-weight-loss', 'Bariatric / Weight Loss Specialist'],
+    
+      ['cardiologist', 'Cardiologist'],
+    
+      ['cardiothoracic-surgeon', 'Cardiothoracic Surgeon'],
+    
+      ['colorectal-proctologist', 'Colorectal Surgeon / Proctologist'],
+    
+      ['emergency-critical', 'Emergency Room Doctor'],
+    
+      ['endocrinologist', 'Endocrinologist'],
+    
+      ['endodontist-root-canal', 'Endodontist (root canal)'],
+    
+      ['gastroenterologist', 'Gastroenterologist'],
+    
+      ['geneticist', 'Geneticist'],
+    
+      ['infectious-disease', 'Infectious Disease Specialist'],
+    
+      ['midwife', 'Midwife'],
+    
+      ['naturopath', 'Naturopath'],
+    
+      ['nephrologist-kidney', 'Nephrologist (kidney)'],
+    
+      ['neurologist', 'Neurologist'],
+    
+      ['neurosurgeon', 'Neurosurgeon'],
+    
+      ['nurse-practitioner', 'Nurse Practitioner'],
+    
+      ['preventive-occupational', 'Occupational Therapist'],
+    
+      ['oncologist-hematologist', 'Oncologist / Hematologist'],
+    
+      ['optometrist', 'Optometrist'],
+    
+      ['oral-surgeon', 'Oral Surgeon'],
+    
+      ['orthodontist', 'Orthodontist'],
+    
+      ['pain-mgmt-physical-rehab', 'Pain Management Specialist / Physical Therapist'],
+    
+      ['pathologist', 'Pathologist'],
+    
+      ['periodontist-gums', 'Periodontist (gums)'],
+    
+      ['pulmonologist-lungs', 'Pulmonologist (lungs)'],
+    
+      ['radiologist', 'Radiologist'],
+    
+      ['reproductive-endocrinologist', 'Reproductive Endocrinologist'],
+    
+      ['rheumatologist', 'Rheumatologist'],
+    
+      ['sleep-disorders', 'Sleep Doctor'],
+    
+      ['urologist', 'Urologist'],
+    
+      ['vascular-phlebologist', 'Vascular Surgeon / Phlebologist']
+    ];
+  </script>
+<script src="https://cdn.ratemds.com/static/js/core/home.e3348bc78696.js"></script>
+</body>
+</html>";i:2;s:4:"5994";}

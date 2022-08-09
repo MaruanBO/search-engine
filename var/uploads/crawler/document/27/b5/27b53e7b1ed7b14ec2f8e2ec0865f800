@@ -1,0 +1,350 @@
+a:3:{i:0;s:21:"http://nutrition.org/";i:1;s:26544:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>American Society for Nutrition - The Best of Nutrition Research</title>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="keywords" content="American Society of Nutrition" />
+<meta name="title" content="American Society of Nutrition" />
+<meta name="author" content="Gulo Solutions LLC - www.gulosolutions.com" />
+<meta name="description" content="" />
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/main.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="/css/flyouts.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("mootools", "1.2", {uncompressed:true});
+</script>
+<script type="text/javascript" src="/js/mootools-1.2.5.1-more.js"></script>
+<script type="text/javascript" src="/js/slideshow.js"></script>
+<!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="/css/ie.css" />
+<![endif]-->
+<!--[if lte IE 6]>
+    <link rel="stylesheet" type="text/css" href="/css/flyouts-ie6.css" media="screen"/>
+    <script type="text/javascript" src="/js/ADxMenu.js"></script>
+<![endif]-->
+<script type="text/javascript">
+document.domain = "nutrition.org";
+
+window.addEvent('domready', function() {
+    var pwd = function(obj) {
+        try {
+            obj.destroy();
+            obj.removeEvent('blur');
+            obj.removeEvent('focus');
+            var _p = new Element("input", {id: "password", type: "password", name: "password"});
+            _p.set('class', 'login');
+            _p.inject($('space'), 'after');
+            _p.set('focus', true);
+            pwd_b(_p);
+            pwd_f(_p);
+        } catch(e) { alert('Sorry, there is a problem. Please contact asn and inform them as to which browser you are using.');}
+    };
+
+    var pwd_b = function(obj) {
+        obj.addEvent('blur', function() {
+            if(!obj.get('value')) {
+                obj.destroy();
+                obj.removeEvent('blur');
+                obj.removeEvent('focus');
+                var _p = new Element("input", {id: "password", type: "text", name: "password"});
+                _p.set('class', 'login');
+                _p.set('value',  'Password');
+                _p.setStyle('color', '#999');
+                _p.inject($('space'), 'after');
+                pwd_f(_p);
+            }
+        });
+    };
+
+    var pwd_f = function(obj) {
+        obj.addEvent('focus', function() {
+            try {
+                if(obj.get('value') == p_t) {
+                    obj.set('value', '');
+                    obj.setStyle('color', '#000');
+                    obj.set('type', 'password');
+                }
+            } catch(e) {
+                pwd(obj);
+            }
+        });
+    };
+
+    var pollCVCartTimeout = 1;
+    var pollCVCart = function() {
+        setTimeout(function() {
+            var myNavCart = document.id('uNavCart');
+            var myCartRequest = new Request({
+                url: 'https://members.nutrition.org/cvweb/cgi-bin/msascartdll.dll/revieworder?WMT=none&WRP=cartSum.htm&ORDERID=',
+                method: 'get',
+                onSuccess: function(responseText) {
+                    myNavCart.set('html', responseText);
+
+                    pollCVCart();
+                },
+            });
+
+            delete myCartRequest.headers['X-Requested-With'];
+            myCartRequest.send();
+        }, pollCVCartTimeout);
+
+        pollCVCartTimeout = 30000;
+    };
+
+    if($('username') != null) {
+        var u_t = 'Username';
+        var p_t = 'Password';
+        var u = $('username');
+        var p = $('password');
+
+        u.set('value', u_t);
+        p.set('value', p_t);
+
+        u.setStyle('color', '#999');
+        p.setStyle('color', '#999');
+
+        pwd_b(p);
+        pwd_f(p);
+
+        u.addEvent('blur', function() { if(!u.get('value')) { u.set('value',  'Username'); u.setStyle('color', '#999');} });
+        u.addEvent('focus', function() {
+            if(u.get('value') == u_t) {
+                u.set('value', '');
+                u.setStyle('color', '#000');
+            }
+        });
+    }
+
+    pollCVCart();
+});
+</script>
+</head><body id="home"><div id="wrap" class="clearfix">
+<div id="container">
+<div id="branding">
+    <h1><a href="/"><span>American Society For Nutrition</span></a></h1>
+    <div id="uNav">
+        <a href="https://www.nutrition.org:443/member-dashboard/join">Join</a>
+        | <a href="https://www.nutrition.org:443/member-dashboard/renew">Renew</a>
+        | <a href="https://www.nutrition.org:443/member-dashboard/event-registration">Event Registration</a>
+        | <a href="https://www.nutrition.org:443/member-dashboard/contribute">Contribute</a>
+        | <a href="https://www.nutrition.org:443/publications/rbac/">ASN Journals</a>
+        <span id="uNavCart"></span>
+    </div>
+    <div id="search">
+        <form action="http://www.nutrition.org/news/useful-links/search/" id="searchbox_001361096533598850929:jw5tombi470">
+          <input type="hidden" name="cx" value="001361096533598850929:jw5tombi470" />
+          <input type="hidden" name="cof" value="FORID:11" />
+          <input type="text" class="searchbox" name="q" name="q" size="40" type="text" />
+          <input type="image" name="sa" src="/images/search.gif" value="Search" class="searchbtn" />
+        </form>
+    </div>
+    <div id="login"><form method="get"><input type="text" id="username" class="login" name="username" type="text" /><span id="space" class="space"></span><input type="text" id="password" class="login"  name="password" /><span class="space-wider"></span><input type="image" src="/images/login.gif" class="loginbtn" id="loginbtn" /></form><div id="forgot-pass"><a href="https://www.nutrition.org:443/member-dashboard/reset-password/">Forgot Password?</a></div><script>
+    r = 'https://www.nutrition.org:443/member-dashboard/';
+
+$('loginbtn').addEvent('click', function(e) {
+    e = new Event(e).stop();
+
+    var url = "/includes/authorize.php";
+    try {
+        new Request( {
+            noCache: true,
+            encoding: 'UTF-8',
+            url: url,
+            method: 'get',
+            evalScripts: true,
+            data: 'username='+$('username').value+'&password='+$('password').value,
+            onRequest: function() {
+                if($('loginbtn')) $('loginbtn').set('src', '/images/loading.gif');
+            },
+            onSuccess: function(response) {
+                if($('loginbtn')) $('loginbtn').set('src', '/images/login.gif');
+                if(response) {
+                    error  = new Element('div', {'id': 'login-error', 'class': 'clearfix'});
+                    error.appendText(response);
+                    if(!$('login-error')) {
+                        error.inject($('wrap'), 'before');
+                    } else {
+                        error.replaces($('login-error'));
+                    }
+                }
+            },
+            onFailure: function() { $('loginbtn').set('src', '/images/login.gif') },
+            onException: function() { $('loginbtn').set('src', '/images/login.gif') }
+        }).send();
+    } catch(e) {
+        alert(e);
+    }
+
+});
+</script>
+</div>
+</div><!--end #branding -->
+<ul id="nav" class="adxm menu clearfix"><li id="nav-about"><a href="/about-asn" ><span>About ASN</span></a><ul><li><a href="http://www.nutrition.org/about-asn/asn-policies/">ASN Policies</a></li><li><a href="http://www.nutrition.org/about-asn/leadership/">Leadership</a></li><li><a href="http://www.nutrition.org/about-asn/mission-and-bylaws/">Mission and ByLaws</a></li><li><a href="http://www.nutrition.org/about-asn/scientific-councils-1/">Scientific Councils</a></li><li><a href="http://www.nutrition.org/about-asn/research-interest-sections/">Research Interest Sections</a></li><li><a href="http://www.nutrition.org/about-asn/committees/">Committees</a></li><li><a href="http://www.nutrition.org/about-asn/awards/">Awards</a></li><li><a href="http://www.nutrition.org/about-asn/asn-history/">ASN History</a></li><li><a href="http://www.nutrition.org/about-asn/iuns/">IUNS</a></li><li><a href="http://www.nutrition.org/about-asn/social-networking/">Social Networking</a></li><li><a href="http://www.nutrition.org/about-asn/contact-us/">Contact Us</a></li></ul><li id="nav-members"><a href="/our-members" ><span>Our Members</span></a><ul><li><a href="http://www.nutrition.org/our-members/join-asn/">Join ASN</a></li><li><a href="http://www.nutrition.org/our-members/renew/">Renew</a></li><li><a href="http://www.nutrition.org/our-members/corporate-members/">Corporate Members</a></li><li><a href="http://www.nutrition.org/our-members/researchers/">Researchers</a></li><li><a href="http://www.nutrition.org/our-members/medical-practitioners/">Medical Practitioners</a></li><li><a href="http://www.nutrition.org/our-members/allied-health-professionals/">Allied Health Professionals</a></li><li><a href="http://www.nutrition.org/our-members/international-members/">International Members</a></li><li><a href="http://www.nutrition.org/our-members/young-professionals/">Young Professionals</a></li><li><a href="http://www.nutrition.org/our-members/students/">Students</a></li><li><a href="http://www.nutrition.org/our-members/minority-affairs/">Minority Affairs</a></li></ul><li id="nav-publications"><a href="/publications" ><span>Publications</span></a><ul><li><a href="http://www.nutrition.org/publications/member-journal-instructions/">Member Journal Instructions</a></li><li><a href="http://www.nutrition.org/publications/journal-recommendation/">Journal Recommendation</a></li><li><a href="http://www.nutrition.org/publications/teaching-tools/">Teaching Tools</a></li><li><a href="http://www.nutrition.org/publications/the-american-journal-of-clinical-nutrition/">The American Journal of Clinical Nutrition</a></li><li><a href="http://www.nutrition.org/publications/advances-in-nutrition/">Advances in Nutrition</a></li><li><a href="http://www.nutrition.org/publications/the-journal-of-nutrition/">The Journal of Nutrition</a></li><li><a href="http://www.nutrition.org/publications/best-of-clinical-nutrition-book/">Best of Clinical Nutrition Book</a></li><li><a href="http://www.nutrition.org/publications/nutrition-notes/">Nutrition Notes</a></li><li><a href="http://www.nutrition.org/publications/asn-electronic-newsletters/">ASN Electronic Newsletters</a></li><li><a href="http://www.nutrition.org/publications/author-video/">Author Videos</a></li><li><a href="http://www.nutrition.org/publications/podcasts/">Podcasts</a></li><li><a href="http://www.nutrition.org/publications/editors-picks/">Editors&#039; Picks</a></li><li><a href="http://www.nutrition.org/publications/advertising/">Advertising</a></li><li><a href="http://www.nutrition.org/publications/guidelines-and-policies/">Guidelines and Policies</a></li></ul><li id="nav-pubaffairs"><a href="/public-affairs" ><span>Public Affairs</span></a><ul><li><a href="http://www.nutrition.org/public-affairs/asn-science-policy-fellowship/">ASN Science Policy Fellowship</a></li><li><a href="http://www.nutrition.org/public-affairs/nutrition-research-agenda/">Nutrition Research Agenda</a></li><li><a href="http://www.nutrition.org/public-affairs/federal-advocacy/">Federal Advocacy</a></li><li><a href="http://www.nutrition.org/public-affairs/communications/">Communications</a></li><li><a href="http://www.nutrition.org/public-affairs/get-involved/">Get Involved</a></li><li><a href="http://www.nutrition.org/public-affairs/recent-news/">Recent News</a></li><li><a href="http://www.nutrition.org/public-affairs/resources/">Resources</a></li></ul><li id="nav-education"><a href="/education-and-professional-development" ><span>Education &amp; Professional Development</span></a><ul><li><a href="http://www.nutrition.org/education-and-professional-development/abstract-development/">Abstract Development</a></li><li><a href="http://www.nutrition.org/education-and-professional-development/archived-content-from-past-meetings-and-professional-development-events/">Archived Content from Past Meetings and Professional Development Events</a></li><li><a href="http://www.nutrition.org/education-and-professional-development/spirit-of-innovation-challenge/">Spirit of Innovation Challenge</a></li><li><a href="http://www.nutrition.org/education-and-professional-development/continuing-education-opportunities/">Continuing Education Opportunities</a></li><li><a href="http://www.nutrition.org/education-and-professional-development/funding-opportunities/">Funding Opportunities</a></li><li><a href="http://www.nutrition.org/education-and-professional-development/graduate-program-directory/">Graduate Program Directory</a></li><li><a href="http://www.nutrition.org/education-and-professional-development/graduate-and-professional-development/">Graduate and Professional Development</a></li><li><a href="http://www.nutrition.org/education-and-professional-development/medical-professional-development/">Medical Professional Development</a></li><li><a href="http://www.nutrition.org/education-and-professional-development/industry/">Industry</a></li><li><a href="http://www.nutrition.org/education-and-professional-development/submit-your-ideas/">Submit Your Ideas</a></li></ul><li id="nav-meetings"><a href="/meetings" ><span>Meetings</span></a><ul><li><a href="http://www.nutrition.org/meetings/asn-scientific-sessions-at-eb-2016/">ASN Scientific Sessions at EB 2016</a></li><li><a href="http://www.nutrition.org/meetings/experimental-biology-2013/">ASN Scientific Sessions at EB 2015</a></li><li><a href="http://www.nutrition.org/meetings/asn-independent-meeting/">ASN Independent Meeting 2018-2020</a></li><li><a href="http://www.nutrition.org/meetings/other-upcoming-meetings-and-professional-development-events/">Other Upcoming Meetings and Professional Development Events</a></li><li><a href="http://www.nutrition.org/meetings/past-meetings-and-professional-development-events/">Past Meetings and Professional Development Events</a></li><li><a href="http://www.nutrition.org/meetings/faseb-summer-research-conferences/">FASEB Science Research Conferences</a></li></ul><li id="nav-news"><a href="/news" ><span>News</span></a><ul><li><a href="http://www.nutrition.org/news/blog/">Blog</a></li><li><a href="http://www.nutrition.org/news/videos/">Videos</a></li><li><a href="http://www.nutrition.org/news/vignettes/">Vignettes</a></li><li><a href="http://www.nutrition.org/news/spokespeople/">Spokespeople</a></li><li><a href="http://www.nutrition.org/news/latest-news/">Latest News</a></li><li><a href="http://www.nutrition.org/news/press-releases/">Press Releases</a></li><li><a href="http://www.nutrition.org/news/fact-sheets-and-position-papers/">Fact Sheets and Position Papers</a></li><li><a href="http://www.nutrition.org/news/useful-links/">Useful Links</a></li></ul><li id="nav-jobs"><a href="/jobs" ><span>Jobs</span></a><ul><li><a href="http://www.nutrition.org/jobs/ad-placement/">Ad Placement</a></li></ul><li id="nav-contribute"><a href="/contribute" ><span>Contribute</span></a><ul><li><a href="http://www.nutrition.org/contribute/donations/">Donations</a></li><li><a href="http://www.nutrition.org/contribute/asn-foundation/">ASN Foundation</a></li><li><a href="http://www.nutrition.org/contribute/marian-swendseid-scholarship-fund/">Marian Swendseid Scholarship Fund</a></li><li><a href="http://www.nutrition.org/contribute/combined-federal-campaign-cfc-36770/">Combined Federal Campaign, CFC # 36770</a></li><li><a href="http://www.nutrition.org/contribute/planned-giving/">Planned Giving</a></li><li><a href="http://www.nutrition.org/contribute/partners-sponsors/">Partners &amp; Sponsors</a></li><li><a href="http://www.nutrition.org/contribute/supporting-members/">Donor Recognition</a></li></ul></ul><!-- end #navigation --><!-- INTRO -->
+            <div id="intro" class="clearfix">
+
+                <style type="text/css" media="screen">
+                    #intro h3 { 
+                        width: 331px; 
+                        position: absolute;
+                        bottom: 24px;
+                        top: auto !important;
+                        left: 20px;
+                        margin: 0;
+                        color: #FFF;
+                        font: 18px/1.2em normal Times, serif;
+                        text-transform: uppercase;
+                        letter-spacing: .02em;
+                        text-shadow: 1px 1px 0 rgba(0,0,0,.15);
+                        -webkit-font-smoothing: antialiased;
+                    }
+                </style>
+                <h3>The Best of Nutrition Research</h3>
+                <div id="picframe">
+                            <script type="text/javascript">
+                                /* <![CDATA[ */
+                                  window.addEvent('domready', function(){
+                                    var slideshow  = new Element('div', {id: 'slideshow'});
+                                    $('picframe').grab(slideshow, 'top');
+                                    var data = [
+                                      '01.jpg', '02.jpg', '03.jpg',
+                                      '04.jpg', '05.jpg', '06.jpg',
+                                      '07.jpg', '08.jpg', '09.jpg',
+                                      '10.jpg', '11.jpg', '12.jpg',
+                                      '13.jpg', '14.jpg', '15.jpg',
+                                      '16.jpg', '17.jpg', '18.jpg', '19.jpg'];
+                                    var myShow = new Slideshow('slideshow', data, {hu: 'slideshow/', height: 250, width: 320});
+                                  });
+                                //]]>
+                            </script>
+                </div>
+            </div>
+            <!-- INTRO TEXT -->
+            <div id="intro-text">
+                <div>
+  The <a href="http://scientificsessions.nutrition.org/">ASN
+  Scientific Sessions and Annual Meeting</a> at Experimental
+  Biology is March 28-April 1. The ASN headquarters hotel is
+  the&nbsp;Renaissance Boston Waterfront. Complimentary shuttle
+  service will be provided to select EB block hotels. See the
+  complete route schedule <a href=
+  "http://experimentalbiology.org/PDFS/2015/Experimental-Biology-2015-Shuttles-Bus-Information.aspx">
+  here</a>.<br />
+  <br />
+  Submit your comments on FASEB's framework for <a href=
+  "http://www.faseb.org/SustainingDiscovery/Home.aspx">Sustaining
+  Discovery in Biological and Medical Sciences</a> by March
+  10.<br />
+</div>
+<div>
+  <br />
+</div>
+<div>
+  Cast your vote for various meeting elements related to
+  the&nbsp;<a href=
+  "http://www.nutrition.org/meetings/asn-independent-meeting/">2018-2020
+  annual meeting</a>.&nbsp;<br />
+  <div>
+    <br />
+  </div>
+  <div>
+    <span style="font-style:italic;">If you experience
+    d</span><span style="font-style:italic;">ifficulty
+    lo</span><span style="font-style:italic;">gging in to the ASN
+    website, please contact the</span> <a href=
+    "mailto:mem@nutrition.org" style=
+    "font-style:italic;">Membership Department</a><span style=
+    "font-style:italic;">.</span><br />
+  </div>
+</div>
+                <p><a href="/about-asn/" class="arrow-on">More info</a></p>
+            </div>
+            <!-- ZONES -->
+            <div id="zones" class="clearfix">
+                        <div id="zones-one" style="background:url(http://asn-cdn-remembers.s3.amazonaws.com/8c655a0caeac2d620e53b7c72838915f.jpg) 5px 5px no-repeat;">
+                                    <a href="http://www.nutrition.org/meetings/annual/">Annual Meeting</a></div>
+                        <div id="zones-two" style="background:url(http://asn-cdn-remembers.s3.amazonaws.com/f3b042f5ca3805ebb5e60d42b365a684.jpg) 5px 5px no-repeat;">
+                                    <a href="http://www.nutrition.org/join/">Join</a></div>
+                        <div id="zones-three" style="background:url(http://asn-cdn-remembers.s3.amazonaws.com/94de1bde4353b4868ab447ddf7d6071c.jpg) 5px 5px no-repeat;">
+                                    <a href="http://www.nutrition.org/public-affairs/">Government Relations</a></div>
+            </div>
+
+            <!-- CONTENT WRAPPER -->
+            <div id="content-wrapper" class="clearfix">
+                <div id="publications">
+                    <h3>Publications</h3>
+                    <dl class="clearfix">
+                        <dd class="img"><a href="/publications/the-journal-of-nutrition/"><img class="pic2" src="images/jn.jpg" alt="" width="74" height="101" /></a></dd>
+				<dt><a href="/publications/the-journal-of-nutrition/" class="arrow-on">The Journal of Nutrition</a></dt>
+				<dd>Published since 1928, <em>The Journal of Nutrition (JN)</em> was the first scientific journal created solely for publication of nutrition research. Contents include peer-reviewed research reports on all aspects of experimental nutrition, critical reviews, commentaries, and symposia and workshop proceedings.</dd>
+                    </dl>
+                    <dl class="clearfix">
+                        <dd class="img"><a href="/publications/the-american-journal-of-clinical-nutrition/"><img class="pic2" src="images/ajcn.jpg" alt="" width="75" height="101" /></a></dd>
+				<dt><a href="/publications/the-american-journal-of-clinical-nutrition/" class="arrow-on">The American Journal of Clinical Nutrition</a></dt>
+				<dd>The world's most widely recognized, peer-reviewed clinical nutrition journal. The <em>AJCN</em> publishes research reports on basic and clinical research topics, plus commentaries, editorials, review articles, meeting reports and book reviews.</dd>
+                    </dl>
+                    <dl class="clearfix">
+                        <dd class="img"><a href="http://advances.nutrition.org/"><img class="pic2" src="http://asn-cdn-remembers.s3.amazonaws.com/7d518da256f163d1ebfb07c03ff689b8.jpg" alt="" width="74" height="101" /></a></dd>
+				<dt><a href="http://advances.nutrition.org/" class="arrow-on">Advances in Nutrition</a></dt>
+				<dd>As the pace of research in the nutritional sciences continues to accelerate, this journal explains the significance of new research findings, highlights research gaps and points to future directions. Read it to stay better informed on the state of the science, nutrient information, and the latest findings.</dd>
+                    </dl>
+                    <!--<p style="clear:left;"><a href="http://www.eb2008.org/" class="noborder"><img src="images/ad.gif" alt="" width="332" height="142" /></a></p> -->
+                </div>
+                <div id="news">
+                        <h3>News</h3>
+                        <dl class="clearfix">
+<dt><a href="http://www.nutrition.org/news/press-releases/" class="arrow-on">Read ASN's latest press releases</a></dt>
+</dl>
+<br>
+<dl>
+<a href="http://www.nutrition.org/blog/" class="arrow-on">Visit ASN's Blog</a></dl>
+                        <div class="clearfix"></div>
+                        <a class="twitter-timeline" href="https://twitter.com/nutritionorg" data-widget-id="350267433510125568">Tweets by @nutritionorg</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+        </div><!-- end #content-wrapper -->
+        <link rel="stylesheet" href="/css/webfonts/ss-social.css">
+        <div id="social-bar" class="">
+            <a href="http://www.nutrition.org/blog"><img src="/images/social/icon-rss.png" alt="rss" /></a> &nbsp;
+            <a href="http://www.facebook.com/pages/American-Society-for-Nutrition/101858912260"><img src="/images/social/icon-facebook.png" alt="facebook" /></a> &nbsp;
+            <a href="http://www.linkedin.com/groups/American-Society-Nutrition-2229420/about"><img src="/images/social/icon-linkedin.png" alt="linkedin" /></a> &nbsp;
+            <a href="http://www.nutrition.org/youtube"><img src="/images/social/icon-youtube.png" alt="youtube" /></a> &nbsp;
+            <a href="http://www.nutrition.org/publications/author-video/"><img src="/images/social/icon-video.png" alt="Author Videos" /></a> &nbsp;
+            <a href="http://www.nutrition.org/publications/podcasts/"><img src="/images/social/icon-podcast.png" alt="ASN podcasts" /></a>
+        </div>
+<div id="footer">
+    <div id="footer-contact">9650 Rockville Pike&nbsp;      &#183;  &nbsp;Bethesda, MD 20814&nbsp;      &#183;  &nbsp;P (301) 634-7050&nbsp;    &#183;  &nbsp;F (301) 634-7894</div>
+    <div id="footer-nav">
+        <a href="/index.html">Home</a>  |  <a href="/about-asn/">About ASN</a>  | <a href="/our-members/">Our Members</a>  |
+        <a href="/publications/">Publications</a>  |  <a href="/public-affairs/">Public Affairs</a>  |
+        <a href="/education-and-professional-development/">Professional Development</a><br />
+        <a href="/meetings/">Meetings</a>  |  <a href="/news/">News</a>  |  <a href="/jobs/">Jobs</a> |
+        <a href="/contribute/">Contribute</a> | <a href="/asn-blog/">ASN Blog</a>  |
+        <a href="http://www.asnonline.us/">RIS Communities</a> |
+        <a href="https://www.nutrition.org:443/our-members/join-asn/apply">Join</a>  |
+        <a href="https://www.nutrition.org:443/member-dashboard/renew">Renew</a>
+    </div>
+    <div id="footer-copyright">&copy; 2015 American Society for Nutrition<br />CFC #36770</div>
+</div><!-- end #footer -->
+</div><!-- end #container -->
+</div><!-- end #wrap -->
+<script type="text/javascript" src="https://www.google.com/afsonline/show_afs_search.js"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-105006-11");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>
+
+
+
+
+
+";i:2;s:4:"9717";}

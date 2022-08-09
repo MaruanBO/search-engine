@@ -1,0 +1,781 @@
+a:3:{i:0;s:35:"http://morganstanleyclientserv.com/";i:1;s:47880:"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>Morgan Stanley Online (ClientServ)</title>
+    <meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR" />
+    <meta content="C#" name="CODE_LANGUAGE" />
+    <meta content="JavaScript" name="vs_defaultClientScript" />
+    <meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema" />
+    <meta name="description" content="Access your Morgan Stanley Wealth Management accounts to view and manage your portfolio, pay bills online, place trades, establish eDelivery of account documents and more." />
+
+   
+
+    <script type="text/javascript">		
+	        
+			function createCookie(name,value,days)
+			{
+				if (days)
+				{
+					var date = new Date();
+					date.setTime(date.getTime()+(days*24*60*60*1000));
+					var expires = "; expires="+date.toGMTString();
+				}
+				else var expires = "";
+				document.cookie = name+"="+value+expires+"; path=/";
+			}
+			
+			function readCookie(name)
+			{
+				var nameEQ = name + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0;i < ca.length;i++)
+				{
+					var c = ca[i];
+					while (c.charAt(0)==' ') c = c.substring(1,c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+				}
+				return null;
+			}
+			function breakOutOfFrame()
+			{
+				if (top.location != location)
+				{
+					top.location.href = document.location.href;
+				}
+			}
+		//-->
+		//Enrollment Rewrite Start
+		function flashWin( vTargetPage ) 
+		{
+			var h = screen.height - 30 ;
+			var w = screen.width - 10 ;
+				h = 560 ;
+				w = 860 ;
+			var x = (screen.width - w) / 2;
+			var y = (screen.height - h) / 2;
+			var stats = "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no" ;
+			stats += ",top=" + y + ",left=" + x + ",width=" + w + ",height=" + h ;
+			var winObj = window.open ( vTargetPage, "fWin", stats ) ;
+				if ( typeof window.opener == 'undefined' ) {
+					// we were not opened by another window, so don't try to close
+				} else {
+					if ( history.length != 0 ) {
+						// cannot close the window, since we're not the original page
+					} else {
+						if ( null != winObj ) {
+							loaderRetVal = 1 ;
+						}
+					}
+				}
+		}
+		function loader() {
+			var v = flashWin( '/FreeContent/demo/ClientServ1.htm' ) ;
+			if ( v ) {
+				window.close();
+			}
+		}
+		//Enrollment Rewrite End
+		
+		 //For BA User Redirection
+        function postForm(url)
+        {  
+            document.loginform.action = url;
+            document.loginform.submit();
+        }
+           
+  		function GetSelectedWebsite(value,selectedKey,selectedvalue)
+        {
+            if(selectedKey == "Morgan Stanley Online" && value == 0)
+            {
+                window.location.href =selectedvalue; //"https://www.morganstanleyclientserv.com/FreeContent/ForgottenPassword.aspx";
+            }
+            else if(selectedKey == "Morgan Stanley Online" && value == 1)
+            {
+                window.location.href = selectedvalue;//"https://www.morganstanleyclientserv.com/FreeContent/ForgotCredentials/ForgotUserName.aspx";
+            }
+            else {
+                window.open (selectedvalue,"mywindow","resizable=yes"); 
+            }
+        }
+        
+        function toggleContentVisible(objID)
+        {
+            var obj = document.getElementById(objID);
+            if (obj.className.indexOf("displaynone") > -1) 
+            {
+                obj.className = obj.className.replace(" displaynone", "");
+            } 
+            else {
+                obj.className +=  " displaynone";
+            }
+        }
+        //MSSB ConsolidatedLogin Changes
+
+        //04/26/2013 release - Blank userid/password validation at clientside
+        function Validate() {
+            var pwd = $("#txtPassword").val();
+            var userid = $("#txtUsername").val();
+            var errorMsg = "<p>The username or password you entered is incorrect. Check to make sure your Caps Lock is off, and that you are using the correct username and password. <br><br> You can receive a temporary password by clicking <a href= '/FreeContent/ForgottenPassword.aspx'>Forgot your password? </a></p>";
+            var isValidInput = true;
+            if ((userid == "Enter User Name" || userid == "") || (pwd == "Enter Password" || pwd == "")) {
+                isValidInput = false;
+            }
+            if (!isValidInput) {
+                //enable blank input validator controls...
+                $("#divBlankInputValidation").css('display', 'block');
+                $("#divBlankInputErrorText").css('display', 'block');
+
+                //set error text...
+                $("#divBlankInputErrorText").html(errorMsg);
+
+                //disable default controls...
+                $("#divLogin1").css('display', 'none');
+
+                //disable invalid input validation controls...
+                $("#divInvalidInputValidation").css('display', 'none');
+                return false;
+            }
+            else {
+                //disable blank input validator controls...
+                $("#divBlankInputValidation").css('display', 'none');
+
+                //disable invalid input validation controls... As incase of error it will be
+                //shown from server side...
+                $("#divInvalidInputValidation").css('display', 'none');
+                
+                //enable default control...
+                $("#divLogin1").css('display', 'block');
+                return true;
+            }
+        }
+
+    </script>
+    
+</head>
+<body class="leftcol rightcol login help-support consolidatedloginV2" onload="breakOutOfFrame();">
+    <form name="loginform" method="post" action="Default.aspx" id="loginform" autocomplete="off">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="3GvXFLS1XtQdyRFUiDlUmCdSUuACOG+nf6F7pqGeppL5q2tA3M18GwJAoXM21qcT7l5IELiWcBFpMP5tYQaQwuUuLpy3LEc5Dth3CqNEOqqaxHQt45SThN2cjWcSPq59qmh2T0Q4GbP9a6Lgji0npBbVEh046KmfkDfkHDTwz9XdnCW0" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="tiZiaHS4nQRGtfqEv1C4Lft71ypjRDYj2xinVHcnBOSK2ZTyk400/A/U9v0pf6rN4lFgqYkN6jGJFlJRSLR41+0dEto/q01S3HORvd12RpFMOqZ90+PJa3io10thWoif4riyPE+3wreR5YehhybmvyFqiRlb6qZdZY0V+U813VedmbgHuqiTH/WkQTbYYxRE9lCl6DkAXsjVswzcbKI4l1lXIkrftBDADHeB2CYrjhz+KFlg2SkjS2rDMrdppCMQd891FUfXUdmriLyQVJikTSmOtrNlnZS04kHe8i9nDa/Naav8tIMIcNC9ffca1m7AAqfBG0JyZwtVk4IXbhCj22/AERmBt7O6CPEJAOA9uCCB2JJL" />
+<link href="/templates/lib/css/mssb.css?date=0131013" rel="stylesheet" type="text/css" />
+<style type="text/css">
+   <!--
+   #dyn_Homelink { display: none; }
+   -->
+#loginModule h3 {	margin: 0px;}
+
+#PilotUserMSOR {	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 358px; PADDING-TOP: 2px; POSITION: absolute; TOP: 138px}
+#PilotUserMSOR SELECT {	MARGIN-TOP: 10px; WIDTH: 215px}
+#PilotUserMSOR .box-header-close {	MARGIN: 10px 0px 0px 328px; POSITION: absolute}
+#PilotUserMSOR .solidDivider {	MARGIN: 5px 0px 5px 2px}
+#PilotUserMSOR {Z-INDEX: 9002; BACKGROUND-IMAGE: url(/TEMPLATES/lib/images/FixedWidth/forgot_password_bg.png); WIDTH: 358px; POSITION: absolute; TOP: 138px; HEIGHT: 172px}
+
+   </style>
+
+<script src="/templates/lib/js/jquery-1.2.6.min.js?date=0131013" type="text/javascript"></script>
+
+<script language="javascript" src="/templates/lib/clientserv-lib.js?date=0131013" type="text/javascript"></script>
+<div id="mainwindow">
+    <center>
+        <div id="headerContainer">
+            <!-- content holder start-->
+            <div class="headerContentWrapper">
+                <!-- header start -->
+                <div class="mssb_logo">
+                    <a id="lnkLogo" href="/">
+                        <img src="/TEMPLATES/lib/images/FixedWidth/mssb_logo.gif" alt="Morgan Stanley"
+                            title="Morgan Stanley" border="0" /></a>
+                </div>
+
+                 <div>
+                    <span id="breadcrumb">
+                     
+                    </span>
+                </div>
+
+
+                <div id="dyn_Homelink" class="client_logo">
+	
+                    
+                    <a href="/Default.aspx" class="moreLink">
+                        <img src="/TEMPLATES/lib/images/FixedWidth/clear.gif" border="0" alt=">" class="png" />Client
+                        Login</a>
+                    
+                
+</div>
+                <!-- header end -->
+                <div id="global_nav"><ul><li class="selected"><a class="selected" href="/Default.aspx">Home</a></li><li class="navDivider"><img src="/TEMPLATES/lib/images/FixedWidth/clear.gif" alt=" | " /></li><li><a href="/FreeContent/Press.aspx">Press</a></li><li class="navDivider"><img src="/TEMPLATES/lib/images/FixedWidth/clear.gif" alt=" | " /></li><li><a href="/FreeContent/FreeContentFixedWidth.aspx?F=/InvestorInsights/InvestorInsights.html&P=3">Investment Insights</a></li><li class="navDivider"><img src="/TEMPLATES/lib/images/FixedWidth/clear.gif" alt=" | " /></li><li><a target=_blank  href="https://www.morganstanleyfa.com/locator/">Find an Advisor/Branch</a></li><li class="navDivider"><img src="/TEMPLATES/lib/images/FixedWidth/clear.gif" alt=" | " /></li><li><a href="/FreeContent/FreeContentFixedWidth.aspx?F=/ContactUs/ContactUs.html&P=5">Contact Us</a></li></ul></div>
+                <div class="clearLeft">
+                </div>
+            </div>
+        </div>
+        <div id="globalmessagecontainer">
+            <div class="content">
+                        
+            </div>
+        </div>
+    </center>
+    
+        <input name="txtHiddenIsJsEnabled" type="hidden" id="txtHiddenIsJsEnabled" value="false" />
+        <center>
+            <!-- container start-->
+            <div id="container">
+                <!-- content holder start-->
+                <div class="content">
+                   
+                    <div id="leftcolumn" class="leftCol_opt2">
+
+                        <script type="text/javascript">
+                        var a;
+                        a = "enabled";
+                        document.loginform.elements['txtHiddenIsJsEnabled'].value = "true";
+                        </script>
+
+                        <noscript>
+                            
+                            
+                        </noscript>
+                                  
+                        <div class="box-module box-ltblue module loginmodule" id="loginModule">
+                            <div class="box-cap box-t">
+                                <div class="box-l">
+                                </div>
+                                <div class="box-r">
+                                </div>
+                            </div>
+                            <div class="box-body box-login-wrapper">
+                                
+                                    <div class="box-body-content">
+                                        
+                                        
+                                        <div id="divLogin1">
+                                                <h3>
+                                                    LOG IN TO YOUR ACCOUNT
+                                                </h3>
+                                            <div class="loginCopy">
+                                                </div>
+                                                </div>
+                                           
+                                            <div id="divBlankInputValidation" class="module loginerror" style="display:none">
+                                                <h3>
+                                                    LOG IN TO YOUR ACCOUNT
+                                                </h3>
+                                                <div id="divBlankInputErrorText">
+                                                </div>
+                                            </div>
+                                            
+
+                                        
+                                        <!-- MSSB Consolidated Login -->
+                                        <input type="hidden" name="companyaccount" id="Hidden1" />
+                                        <input name="Hidden2" type="hidden" id="Hidden2" />
+                                        <input name="Hidden3" type="hidden" id="Hidden3" />
+                                        <div id="loginForm1" class="submitForm">
+                                            <div class="error mainError" id="loginError">
+                                                <img src="/TEMPLATES/lib/images/FixedWidth/icon_error.gif" border="0" alt="!" />
+                                                <strong id="loginErrorMsg">User Name or Password not recognized</strong>
+                                            </div>
+                                            <fieldset class="hideLabel">
+                                                
+                                                <div id="loginUserInput">
+                                                   
+                                                    <input name="txtUsername" type="text" value="Enter User Name" maxlength="50" id="txtUsername" tabindex="1" class="defaultText requiredField userField" AUTOCOMPLETE="OFF" /><br />
+                                                </div>
+                                                <div id="loginUserCont" class="displaynone">
+                                                </div>
+                                            </fieldset>
+                                            <div class="SubmitContWrapper">
+                                                <div class="fieldWrapper">
+                                                    <fieldset class="hideLabel">
+                                                        
+                                                       
+                                                        
+                                                        
+                                                        <input name="txtPassword" type="password" id="txtPassword" tabindex="2" class="shadedtext_title shadedtext defaultText requiredField" title="Enter Password" AUTOCOMPLETE="OFF" />
+                                                    </fieldset>
+                                                </div>
+                                                <div class="submitCont">
+                                                    <input type="image" name="btnLogin" id="btnLogin" tabindex="3" class="btnGo" src="/TEMPLATES/lib/images/FixedWidth/clear.gif" alt="Login" onclick="return Validate();" border="0" />
+                                                </div>
+                                                <div class="clearLeft">
+                                                </div>
+                                            </div>
+                                            <fieldset id="rememberCont">
+                                                <span class="checkbox"><input id="chkRememberUserName" type="checkbox" name="chkRememberUserName" /></span><label
+                                                    class="small" for="loginRememberMe" TabIndex="4">Remember User name</label>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
+                                    <script type="text/javascript">
+						<!--
+							if (document.forms[0].txtUsername.value.length == 0)
+							{
+								document.forms[0].txtUsername.focus();
+							}
+							else
+							{
+                                try
+                                  {
+                                    document.forms[0].password_text.focus();
+                                  }
+                                catch(err)
+                                  {
+                                  //Handle errors here
+                                  }							
+                                try
+                                  {                                    
+							        document.forms[0].txtPassword.focus();							        
+                                  }
+                                catch(err)
+                                  {
+                                  //Handle errors here
+                                  }	
+							}
+						//-->
+                                    </script>
+
+                                
+                                
+                                <div class="dottedline defaultContent">
+                                </div>
+                                
+                                
+                                    <div class="box-body-content box-body-collapse-noheight">
+                                        <ul class="listArrow1">
+                                            <li>Forgot your <a href="#" onclick="javascript:toggleContentVisible('ForgotUsernamePopup');return false"
+                                                target="_self" class="forgotPasswordLink" TabIndex="5">User Name</a> or <a href="#" onclick="javascript:toggleContentVisible('ForgotPasswordPopup');return false"
+                                                    target="_self" class="forgotPasswordLink" TabIndex="6">Password</a>?</li>
+                                            <!--<li class="lastItem"><a href="/contactus.aspx">Need Login Help?</a></li>-->
+                                        </ul>
+                                    </div>
+                                
+                                <div class="box-body-content box-body-collapse-nopadding">
+                                    <div>
+                                        
+                                        <a id="btnEnroll" tabindex="7" href="javascript:__doPostBack('btnEnroll','')"> Register online to access your account.</a>
+                                    </div>
+                                </div>
+                                <div class="dottedline defaultContent">
+                                </div>
+                                <div class="box-body-content box-body-collapse-nopadding">
+                                    <strong>New to Morgan Stanley Online ?</strong>
+                                    <a class="moreLink linkBlack lnkMsVideoTour" href="#" TabIndex="8">
+                                        <img src="/TEMPLATES/lib/images/FixedWidth/clear.gif" border="0" alt="" class="png" />Take a tour of Morgan Stanley Online</a>
+                                </div>
+                                <div class="box-body-content box-body-collapse-noheight">
+                                    <a class="moreLink linkBlack" href="https://www.morganstanleyfa.com/locator/" target="_blank" TabIndex="9">
+                                        <img src="/TEMPLATES/lib/images/FixedWidth/clear.gif" border="0" alt="" class="png" />Find
+                                        an Advisor / Branch</a>
+                                </div>
+                            </div>
+                            
+                            <!-- MSSB Consolidated Login -->
+                            
+                            
+                            
+                        </div>
+                        
+                       
+                        <!-- Left Banner -->
+                        <span id="TopBanner1">
+
+      <a href="https://www.morganstanleyclientserv.com/FreeContent/FreeContentFixedWidth.aspx?F=tax_security.html"><img src="/ContentManagement/Advertisements/TaxSeason_301x217_border.png" alt="Learn More" width="301" border="0" title="Learn More" /></a>
+    
+</span>
+                    </div>
+                    <!-- end leftcolumn -->
+                    <!-- MSSB Consolidated Login Changes -->
+                    <!-- Div for banner staring -->
+                    <div class="rightCol_opt2">
+                        <span id="TopBanner">
+
+      <a href="https://www.morganstanleyclientserv.com/FreeContent/FreeContentFixedWidth.aspx?F=sbltax.html"><img src="/ContentManagement/Advertisements/sbl_tax banner_client-facing_640x230.jpg" alt="Learn More" width="640" border="0" title="Learn More" height="230px" /></a>
+    
+</span>
+                        <div class="tabs">
+                            <div class="box-module tab box-ltblue" id="tab-UserGroup1">
+                                <div class="box-cap box-t">
+                                    <div class="box-l">
+                                    </div>
+                                    <div class="box-r">
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="box-body-content">
+                                        <div class="tab-head">
+                                            Individual Investor</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-module box-gradient tab" id="tab-UserGroup2">
+                                <div class="box-cap box-t">
+                                    <div class="box-l">
+                                    </div>
+                                    <div class="box-r">
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="box-body-content">
+                                        <div class="tab-head">
+                                            Small Business</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-module box-gradient tab" id="tab-UserGroup3">
+                                <div class="box-cap box-t">
+                                    <div class="box-l">
+                                    </div>
+                                    <div class="box-r">
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="box-body-content">
+                                        <div class="tab-head">
+                                            Corporate Equity Services</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-module  box-tab-content" id="multiusertabs">
+                                <div class="box-body">
+                                    <div class="box-body-content">
+                                        
+                                        <div id="UserGroup1Form" class="submitForm currentSearch">
+                                            <span id="LearnMoreAndCareersContent1">
+
+      <div class="box-body"><div class="box-body-content with-image"><div><p>Access your Morgan Stanley accounts to simply and securely manage them online.</p><ul class="multiuserTabul"><li>Portfolio of your accounts and holdings.</li><li>eDelivery of account documents.</li><li>Latest research, news, and tools.</li><li>Useful services such as online trading, money transfer and bill pay.</li></ul></div><img alt="Individual Investor"  src="/contentmanagement/HTMLFiles/images/homepage_Individual.jpeg" border=0><div class="clearBoth"></div></div><!--/.box-body-content--><!-- <div class="extra"><h4>Learn More</h4><ul class="float_l"><li><a href="#">Link Title 1 Goes Here</a></li><li><a href="#">Link Title 2 Might Be Really Long</a></li><li class="last"><a href="#">Link Title 3 is Shorter</a></li></ul></div>--><div class="box-cap box-b"><div class="box-l"></div><div class="box-r"></div></div></div>
+    
+</span>
+                                        </div>
+                                        
+                                        <div id="UserGroup2Form" class="submitForm">
+                                            <span id="contentInvestorInsights2">
+
+      <div class="box-body"><div class="box-body-content with-image"><div><p>Enjoy secure access to your business accounts:</p><ul class="multiuserTabul"><li>View all of your account information.</li><li>Check the status of transactions.</li><li>Check loan balances and activity </li></ul></div><img alt="Individual Investor"  src="/contentmanagement/HTMLFiles/images/homepage_business.jpeg" border="0"><div class="clearBoth"></div></div><!--/.box-body-content--><div class="extra"><h4>LOG IN</h4><ul class="float_l"><li><a href="https://morganstanley.itms-online.com/MorganStanleyDefault.aspx" target="_blank">Remote Deposit Service </a></li><li><a href="https://mssb.enterprisebanker.com/wcmfd/wcmpw/CustomerLogin" target="_blank">Online Transaction Service </a></li><li><a href="https://easynet.adp.com" target="_blank">ADP Payroll </a></li><li class="last"><a href="https://www.treasury.pncbank.com/portal/esec/login.ht" target="_blank">Lockbox Services </a></li></ul></div><div class="box-cap box-b"><div class="box-l"></div><div class="box-r"></div></div></div>
+    
+</span>
+                                        </div>
+                                        
+                                        <div id="UserGroup3Form" class="submitForm">
+                                            <span id="contentFooter3">
+
+      <ul id="MultiUserTabs" class="inner-tabs"><li class="first-inner-tab tab-selected" id="Benefit_Access">Corp Benefit Access</li><li id="Global_Stock_Plan">Global Stock Plans</li><li id="Corporate">Executive Services</li></ul><!-- first inner box --><div class="inner-box-wrapper first-inner"><div class="box-body"><div class="box-body-content with-image" style="height:153px;"><img alt="GSPS"  src="/contentmanagement/HTMLFiles/images/homepage_GSPS.jpeg" border=0><p>Our web-based portal for corporate clients to view participant information, upload and download employee data and retrieve reports online at anytime.<br /><a class="moreLink linkBlack" target="_blank" href="https://benefits.morganstanley.com/app-bin/cba/cbaHomeServlet">Log In</a></p><div class="clearBoth"></div><!--            <div class="extra"><h4>Learn More</h4><ul class="float_l"><li><a href="#">Link Title 1 Goes Here</a></li><li><a href="#">Link Title 2 Might Be Really Long</a></li><li class="last"><a href="#">Link Title 3 is Shorter</a></li></ul></div>--></div><!--/.box-body-content--><div class="box-cap box-b"><div class="box-l"></div><div class="box-r"></div></div></div></div>
+    
+</span>
+                                        </div>
+                                        <div class="clearBoth">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Div for banner finished -->
+                    <div class="clearBoth30">
+                    </div>
+                    <!-- Footer div starting -->
+                    <div class="fullWidth">
+                        <div class="col col1">
+                            <h3>
+                                <img src="/TEMPLATES/lib/images/FixedWidth/learn_opt2.gif" alt="ABOUT US" title="ABOUT US" /></h3>
+                            <div class="leftCol_home" id="faqCol">
+                                <span id="LearnMoreAndCareersContent">
+<p><a href="/FreeContent/FreeContentFixedWidth.aspx?F=security_home.html" class="moreLink linkBlack"><img src="/contentmanagement/HTMLFiles/images/clear.gif" border="0" alt=">" class="png" />
+          Morgan Stanley Online Security Center
+        </a></p><p><a href="/FreeContent/FreeContentFixedWidth.aspx?F=supportedbrowsers.html" class="moreLink linkBlack" target="_blank"><img src="/contentmanagement/HTMLFiles/images/clear.gif" border="0" alt=">" class="png" />
+          Supported Browsers
+        </a></p><p><a href="https://www.morganstanleyclientserv.com/FreeContent/FreeContentFixedWidth.aspx?F=explanation_of_changes_in_cookie_policy.html" class="moreLink linkBlack"><img src="/contentmanagement/HTMLFiles/images/clear.gif" border="0" alt=">" class="png" />
+          New Terms of Use & Global Cookies Policy
+        </a></p><p><a href="https://www.icsdelivery.com/morganstanley/formNew3.asp" class="moreLink linkBlack" target="_blank"><img src="/contentmanagement/HTMLFiles/images/clear.gif" border="0" alt=">" class="png" />
+          eDelivery of Shareholder Communications &nbsp; <span style="background:url(/contentmanagement/HTMLFiles/images/external-link.gif) no-repeat;">&nbsp;&nbsp;&nbsp;&nbsp;
+        </a></p>
+</span>
+                            </div>
+                        </div>
+                        <div class="col col2">
+                             <h3><img src="/TEMPLATES/lib/images/FixedWidth/news_opt2.gif" alt="PRESS" title="PRESS" /></h3>
+                            <span id="contentFooter">
+<div class="newCont"><span class="newInfo">Dec 8 2014 | New York</span><ul class="listDot"><li class="lastItem"><a href="/Freecontent/press.aspx?articleid=12082014" class="linkBlack_opt2">Morgan Stanley Launches The Institute of Family Wealth Management - A Powerful Strategy that Focuses on Developing Families of Wealth and the Next Generation of Investors</a></li></ul></div><div class="newCont"><span class="newInfo">Nov 6 2014 | New York</span><ul class="listDot"><li class="lastItem"><a href="/Freecontent/press.aspx?articleid=11062014" class="linkBlack_opt2">Morgan Stanley Foundation Issues $1 Million Grant to Children's Health Fund</a></li></ul></div>
+</span>
+                                <a href="FreeContent/Press.aspx" class="moreLink linkBlack"><img src="/TEMPLATES/lib/images/FixedWidth/clear.gif" border="0" alt=">" class="png" />More News</a>
+                        </div>
+                        <div class="col col3">
+                            <h3>
+                                <img src="/TEMPLATES/lib/images/FixedWidth/InvestmentInsights_title.gif" alt="INVESTMENT INSIGHTS"
+                                    title="INVESTMENT INSIGHTS" /></h3>
+                            <span id="contentInvestorInsights">
+<div class="newCont"><span class="newInfo">February 2015</span><ul class="listDot" id="InvInsightsSection"><li><a href="">
+              <a href='https://www.morganstanleyclientserv.com/contentmanagement/htmlfiles/pdf/onthemarkets.pdf' target=secWin>On the Markets</a><br /></a></li></ul></div>
+</span>
+                            <a href="/FreeContent/FreeContentFixedWidth.aspx?F=/InvestorInsights/InvestorInsights.html&P=3" class="moreLink linkBlack">
+                                <img src="/TEMPLATES/lib/images/FixedWidth/clear.gif" border="0" alt="" class="png" />More
+                                Insights</a>
+                        </div>
+                        <div class="clearBoth">
+                        </div>
+                    </div>
+                    <!--  Footer div finished -->
+                    <!-- Div for forgot username popup starting -->
+                    <div id="ForgotUsernamePopup" class="box-module box-overlay displaynone">
+                        <div class="box-module-outer">
+                            <div class="box-module-inner">
+                                <div class="box-header">
+                                    <div class="box-header-close">
+                                        <a href="javascript:;" class="modalBtn">
+                                            <img src="/templates/lib/images/login/icon_close.gif" border="0" alt="[x]" onclick="javascript:toggleContentVisible('ForgotUsernamePopup');return false" />
+                                        </a>
+                                    </div>
+                                    <div class="box-header-content">
+                                        <h3>
+                                            FORGOT YOUR USER NAME?</h3>
+                                    </div>
+                                </div>
+                                <div class="box-body-content">
+                                    <p>
+                                        Please tell us which site you would like to access.</p>
+                                    <fieldset>
+                                        <select name="ddOptionsusername" id="ddOptionsusername">
+	<option value="http://www.morganstanleyclientserv.com/FreeContent/ForgotCredentials/ForgotUserName.aspx">Morgan Stanley Online</option>
+	<option value="https://www.benefitaccess.com/">Benefit Access</option>
+
+</select>
+                                    </fieldset>
+                                    <div class="solidDivider">
+                                    </div>
+                                    <div class="button-block">
+                                        <a href="javascript:;" class="modalBtn">
+                                            <img src="/templates/lib/images/login/btn_cancel.gif" border="0" alt="Cancel" onclick="javascript:toggleContentVisible('ForgotUsernamePopup');return false" />
+                                        </a>
+                                        <input id="btnContinue" type="image" src="/templates/lib/images/login/btn_continue.gif"
+                                            value="Continue" onclick="javascript:GetSelectedWebsite(1,loginform.ddOptionsusername.options[loginform.ddOptionsusername.options.selectedIndex].text,loginform.ddOptionsusername.options[loginform.ddOptionsusername.options.selectedIndex].value);return false;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Div for forgot username popup finished -->
+                    <!-- Div for forgot password popup starting -->
+                    <div id="ForgotPasswordPopup" class="box-module box-overlay displaynone">
+                        <div class="box-module-outer">
+                            <div class="box-module-inner">
+                                <div class="box-header">
+                                    <div class="box-header-close">
+                                        <a href="javascript:;" class="modalBtn">
+                                            <img src="/templates/lib/images/login/icon_close.gif" border="0" alt="[x]" onclick="javascript:toggleContentVisible('ForgotPasswordPopup');return false" />
+                                        </a>
+                                    </div>
+                                    <div class="box-header-content">
+                                        <h3>
+                                            FORGOT YOUR PASSWORD?</h3>
+                                    </div>
+                                </div>
+                                <div class="box-body-content">
+                                    <p>
+                                        Please tell us which site you would like to access.</p>
+                                    <fieldset>
+                                        <select name="ddOptionspassword" id="ddOptionspassword">
+	<option value="http://www.morganstanleyclientserv.com/FreeContent/ForgottenPassword.aspx">Morgan Stanley Online</option>
+	<option value="https://www.benefitaccess.com/">Benefit Access</option>
+
+</select>
+                                    </fieldset>
+                                    <div class="solidDivider">
+                                    </div>
+                                    <div class="button-block">
+                                        <a href="javascript:;" class="modalBtn">
+                                            <img src="/templates/lib/images/login/btn_cancel.gif" border="0" alt="Cancel" onclick="javascript:toggleContentVisible('ForgotPasswordPopup');return false" />
+                                        </a>
+                                        <input id="Image1" type="image" src="/templates/lib/images/login/btn_continue.gif"
+                                            value="Continue" onclick="javascript:GetSelectedWebsite(0,loginform.ddOptionspassword.options[loginform.ddOptionspassword.options.selectedIndex].text,loginform.ddOptionspassword.options[loginform.ddOptionspassword.options.selectedIndex].value);return false;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Div for forgot password popup finished -->
+
+                    <div id="PilotUserMSOR" class="box-module box-overlay displaynone">
+                        <div class="box-module-outer">
+                            <div class="box-module-inner">
+                                <div class="box-header">
+                 
+                                    <div class="box-header-content">
+                                        <h3>
+										You are currently running an active session within the Pilot website for the New Morgan Stanley Online. 
+										If you wish to return to the Classic Morgan Stanley Online website please close this browser, launch a new browser and go to morganstanley.com/online.
+										</h3>
+                                    </div>
+                                </div>
+                                <div class="box-body-content">
+                                    <p>
+                                        </p>
+
+                                    <div class="solidDivider">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- container finished -->
+        </center>
+        <!-- MSSB Consolidated Login Changes -->
+        <!-- end rightcolumn -->
+        <!-- MSSB Consolidated Login Changes -->
+        <div id="divFade" class="bgFade">
+        </div>
+        
+        <!-- Div for video layer starts -->
+        <div class="videoLayer" id="divVideo">
+            <img src="/TEMPLATES/lib/clear.gif" width="1" height="1" alt="" /></div>
+        <div class="WebsiteSelectionLayer" id="websiteSelection">
+            <input id="SelectedWebSite" type="hidden" value="nothing" />
+            <img src="/TEMPLATES/lib/clear.gif" width="1" height="1" alt="" />
+        </div>
+        <!-- Div for login success starts -->
+        <div class="box-overlay-cont">
+            <div id="loginSuccess" class="box-module box-overlay displaynone">
+                <div id="Div1" class="box-header">
+                    <div class="box-header-content">
+                        <h3 class="loginSuccessCompany">
+                            <span id="lbl_Destination_Header"></span></h3>
+                    </div>
+                </div>
+                <div id="Div2" class="box-body-content">
+                    <p>
+                        We are logging you in to <span class="loginSuccessCompany">
+                            <span id="lbl_Destination"></span>
+                        </span>. Please wait while we access your account.</p>
+                    <div class="aligncenter">
+                        <img src="/templates/lib/images/login/prompts_alerts.gif" border="0" alt="please wait..." /></div>
+                </div>
+            </div>
+            <!-- Div for web selection popup starting -->
+            
+            <!-- Div for web selection popup finished -->
+        </div>
+        <!-- Div for login success finished -->
+        <!-- MSSB Consolidated Login Changes -->
+        <!-- ============= Security Implementation  ============= -->
+        <input name="txtDevpValue" type="hidden" id="txtDevpValue" />
+        <input name="txtDevValue" type="hidden" id="txtDevValue" />
+        <!--For BA User Redirection-->
+        <input name="SAMLResponse" type="hidden" id="SAMLResponse" />
+        <!--For BA User Redirection-->
+        <!-- MSSB Consolidated Login Changes -->
+        <input name="hdnResponse" type="hidden" id="hdnResponse" />
+        <input name="lstdestination" type="hidden" id="lstdestination" />
+        <input name="svrStamp" type="hidden" id="svrStamp" />
+        <!-- ============= Security Implementation  ============= -->
+        <input name="rsatxtDevpValue" type="hidden" id="rsatxtDevpValue" />
+        <input name="rsatxtDevValue" type="hidden" id="rsatxtDevValue" />
+        <input name="rsafpBrowser" type="hidden" id="rsafpBrowser" />
+        <input name="rsafpDisplay" type="hidden" id="rsafpDisplay" />
+        <input name="rsafpSoftware" type="hidden" id="rsafpSoftware" />
+        <input name="rsafpTimezone" type="hidden" id="rsafpTimezone" />
+        <input name="rsafpLang" type="hidden" id="rsafpLang" />
+        <input name="rsafpSyslang" type="hidden" id="rsafpSyslang" />
+        <input name="rsafpUserlang" type="hidden" id="rsafpUserlang" />
+        <!-- ============= End of Security Implementation  ============= -->
+        <input name="IsValidUser" type="hidden" id="IsValidUser" value="true" />
+        <input name="WebSiteSelectionPrompt" type="hidden" id="WebSiteSelectionPrompt" value="false" />
+        <input name="hdn_MSResponse" type="hidden" id="hdn_MSResponse" />
+        <input name="hdn_SBResponse1" type="hidden" id="hdn_SBResponse1" />
+        <input name="hdn_SBResponse2" type="hidden" id="hdn_SBResponse2" />
+        <input name="hdn_FALocatorUrl" type="hidden" id="hdn_FALocatorUrl" />
+        <input name="enc_saml" type="hidden" id="enc_saml" />
+        <!-- MSSB Consolidated Login Changes -->
+    
+    <center>
+        <div id="feedbackcontainer">
+            <div class="content">
+                <!--End Outer Content Table -->
+                
+                    <!-- Begin Feeback Module Table -->
+                    <!--oobegin -->
+                    <div>
+                        
+			<script>
+			// Custom Var
+			custom_var=''; // max_length = 1000 chars
+			</script>
+
+                        <script language="javascript" src="/onlineopinionF3cS/oo_engine.js" type="text/javascript"
+                            charset="windows-1252">
+                        </script>
+
+                        <script language="javascript" type="text/javascript" charset="windows-1252"> 
+						                O_GoT('<img src="/onlineopinionF3cS/button_olrate.gif" border="0" title="Provide feedback on Morgan Stanley Online" style="margin-right:5px;">Provide feedback on Morgan Stanley Online');
+                        </script>
+
+                    </div>
+                    <!--ooend-->
+                
+            </div>
+        </div>
+    </center>
+    
+</div>
+<div id="footer">
+    <span id="contentFooterHtml">
+<p class="bodytext"><div class='footerNote'><a href="http://www.morganstanleyindividual.com/customerservice/mssbms_privacy.pdf" target="_blank">U.S. Customer Privacy Notice</a> | <a href='https://www.morganstanleyclientserv.com/contentmanagement/HTMLFiles/pdf/online_privacy_policy.pdf' target=secWin>Online Privacy Policy</a> | <a href="http://www.morganstanley.com/global-cookie-policy.html" target="_blank">Global Cookies Policy</a> | <a href="/FreeContent/FreeContentFixedWidth.aspx?F=security_home.html" target="_blank">Online Security Center</a> | <a href="/FreeContent/FreeContentFixedWidth.aspx?F=termsandconditions.html">Terms of Use</a> | <a href="/FreeContent/FreeContentFixedWidth.aspx?F=/Privacy/patriotact_disclosure.html">U.S. Patriot Act Disclosure</a> | <a href='https://www.morganstanley.com/about/ir/shareholder/morganstanley_smithbarney_llc.pdf' target="_blank">Morgan Stanley Smith Barney LLC Financial Statement</a> | <a href='http://www.morganstanley.com/about/ir/shareholder/morganstanley_co_inc.pdf' target="_blank">Morgan Stanley &amp; Co. LLC Financial Statement</a> | <a href="/FreeContent/FreeContentFixedWidth.aspx?F=/researchdisclosures/mssb_mssbresearch_disclosures.html">Research Disclosures</a> | <a href="http://www.morganstanley.com/about/ir/pdf/7875185_FINRA_Rule_4340_Disclosure_r1.pdf" target=secWin>FINRA Rule 4340</a> | <a href='http://www.morganstanleyindividual.com/customerservice/disclosures/600541823_GWMG%20BusinessNo1EE37FINAL.pdf' target=secWin>Morgan Stanley Smith Barney LLC Business Continuity Information</a><br /><a href="javascript:void(0)" onclick="window.open('http://www.livelook.com/welcome/start.aspx?siteid=MSSB:SC73578190:US:9','LiveLOOK_Co_Browsing','toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,titlebar=0,status=0,width=940,height=660,left='+Math.max(0,(screen.width-940)/2)+',top='+Math.max(0,(screen.height-710)/2));return false;">Co-Browse</a><br><br>&copy; 2015 Morgan Stanley Smith Barney LLC, member <a href='http://www.sipc.org' class='linkwhite' target='_blank'>SIPC</a>. All rights reserved.</div></p>
+</span>
+</div>
+
+<script type="text/javascript" src="/templates/lib/js/site.js?date=11212014"></script>
+
+<script type="text/javascript" src="/templates/lib/js/modules/TemplateFixedSoftSwitch.js?date=11242014"></script>
+
+
+</form>
+
+    <script type="text/javascript" src="/TEMPLATES/lib/js/loadloginscript.js?date=03012012"></script>
+
+    <script>
+        if (/(iPhone|iPod).*AppleWebKit.*Mobile.*Safari/.test(navigator.userAgent)) {
+            var head = document.getElementsByTagName("head")[0];
+            var meta = document.createElement('meta');
+            meta.name = 'apple-itunes-app';
+            meta.content = 'app-id=811512122';
+            head.appendChild(meta);
+        } else if (/(iPad).*AppleWebKit.*Mobile.*Safari/.test(navigator.userAgent)) {
+            var head = document.getElementsByTagName("head")[0];
+            var meta = document.createElement('meta');
+            meta.name = 'apple-itunes-app';
+            meta.content = 'app-id=933306841';
+            head.appendChild(meta);
+        }
+
+    </script>
+
+
+     <script type="text/javascript">
+            var flashVars =	'field_name=rsatxtDevValue&ip_address='+ '128.199.135.235';
+						
+		    var flashMovie = "../Flash/rsa_fso"; //the name and location of the swf
+		
+		    if (DetectFlashVer(6,0,0)) //if flash minimum version is version 6.0.0
+		    {	
+			    //run the movie
+			    AC_FL_RunContent(
+				    'id','flash_id',
+				    'width', '1',
+				    'height', '1',           
+				    'movie', flashMovie,
+				    'quality', 'high',
+				    'bgcolor','#FFFFFF',
+				    'flashVars', flashVars
+				    ); //end AC code
+		    }
+           SetDevicePrintValue(document.loginform);
+    </script>
+
+    <!-- ============= End of Security Implementation  ============= -->
+</body>
+</html>
+";i:2;s:4:"4800";}

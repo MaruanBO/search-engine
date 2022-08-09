@@ -1,0 +1,1361 @@
+a:3:{i:0;s:24:"http://laughfactory.com/";i:1;s:103409:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Stand-Up Comedy Videos | Comedy Club Tickets | Laugh Factory Network</title>
+            <meta name="description" content="Watch our huge library of the best stand-up comedy videos, get information on our stand-up comedians, read our joke of the day, and buy tickets to live shows at our comedy clubs."/>
+      <meta name="keywords" content="stand up comedy videos, best stand up comedy videos, laugh factory, laughfactory, laughfactory.com, funny videos, joke of the day, hollywood laugh factory, laugh factory long beach, stand up comedians, comedy podcast"/>
+      	  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	  <link rel="shortcut icon" type="image/x-icon" href="http://www.laughfactory.com/favicon.ico" />
+      <link href="http://www.laughfactory.com/css/style.css" rel="stylesheet" type="text/css" />
+      <link href="http://www.laughfactory.com/css/colorbox.css" rel="stylesheet" type="text/css" />
+      <script type="text/javascript" language="javascript" src="http://www.laughfactory.com/js/jquery-1.8.2.min.js"></script>
+      <script type="text/javascript" language="javascript" src="http://www.laughfactory.com/js/jquery.carouFredSel-6.1.0-packed.js"></script>
+      <script type="text/javascript" language="javascript" src="http://www.laughfactory.com/js/helper-plugins/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" language="javascript" src="http://www.laughfactory.com/js/helper-plugins/jquery.touchSwipe.min.js"></script>
+      <script type="text/javascript" language="javascript" src="http://www.laughfactory.com/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+      <script type="text/javascript" language="javascript" src="http://www.laughfactory.com/js/jquery.colorbox.js"></script>
+      <script type="text/javascript" language="javascript" src="http://www.laughfactory.com/js/menu.js"></script>
+      <script type="text/javascript" language="javascript" src="http://www.laughfactory.com/js/header.js"></script>
+      <script type="text/javascript" language="javascript" src="http://www.laughfactory.com/js/slides.min.jquery.js"></script>
+      <script type="text/javascript">
+	  
+	  //use this variable for site link in js
+	  var HTTPS_SITE = 'https://www.laughfactory.com/';
+	  var HTTP_SITE = 'http://www.laughfactory.com/';
+	  var HTTP_IMAGES = 'http://cdn.laughfactory.com/images/';
+	  var fb_app_id = '530980343596175';
+	  </script>
+      <script>
+	  var pro = window.location.protocol;
+	  if(pro=='https:'){
+		  location.href = 'http://www.laughfactory.com/';
+	  }
+	  function close_alertmessage(cid,mid){
+		  $.ajax({
+			data :'cid='+cid+'&mid='+mid,
+			url  : HTTP_SITE+'home/update_alert_message',
+			type : "POST",
+			success : function(response){
+				$(".mid-main").attr('style','');
+				$(".header").attr('style','');
+				$(".orange-message").remove();
+			}
+		});
+	  }
+	  function close_alertmessage_register(cid,mid){
+		  $.ajax({
+			data :'cid='+cid+'&mid='+mid,
+			url  : HTTP_SITE+'home/update_alert_message',
+			type : "POST",
+			success : function(response){
+				var hrf = $("#alert_msg_"+mid).attr('href');
+				hrf = hrf.substring(1);
+				location.href = HTTP_SITE+''+hrf;
+				return false;
+			}
+		});
+		return false;
+	  }
+	  $(document).ready(function(){
+		 
+		$(function(){
+			$('#slides').slides({
+				preload: true,
+				preloadImage: '',
+				play: 5000,
+				pause: 2500,
+				hoverPause: true,
+				animationStart: function(current){
+					$('.caption').animate({
+						opacity:0
+					},500);
+					if (window.console && console.log) {
+						// example return of current slide number
+						//console.log('animationStart on slide: ', current);
+					};
+				},
+				animationComplete: function(current){
+					$('.caption').animate({
+						opacity:1
+					},1000);
+					if (window.console && console.log) {
+						// example return of current slide number
+						//console.log('animationComplete on slide: ', current);
+					};
+				},
+				slidesLoaded: function() {
+					$('.caption').animate({
+						opacity:1
+					},1000);
+				}
+			});
+			$("#example").hover(function(){
+					$(this).find('.play').fadeIn(1000);
+					$(this).find('.next').fadeIn(1000);
+					$(this).find('.prev').fadeIn(1000);
+				},
+			function(){
+				$(this).find('.play').fadeOut();
+					$(this).find('.next').fadeOut();
+					$(this).find('.prev').fadeOut();
+					/*$(this).find('.play').css("opacity","0");
+					$(this).find('.next').css("opacity","0");
+					$(this).find('.prev').css("opacity","0");*/
+				});
+				//setTimeout("resize",2000);
+		});
+		});
+	  </script>
+      <script language="javascript">
+			$(document).ready(function(){
+				 //////////////////show or not cart///////////////////
+			   $.ajax({
+						data :'cart=1',
+						url  : HTTP_SITE+'club/get_cart_items',
+						type : "POST",
+						success : function(response){
+							if(response>0){
+								$("#shopping_cart").css('visibility','visible');
+								$("#cart_items_total").html(response);
+							}
+						}
+				});
+				var originalWidth = screen.width; //1936;// $("body").width(); 
+				//alert(originalWidth);
+				  $(".target").each(resize);
+				  $(window).resize(function(){
+					  $(".target").each(resize);
+				  });
+				  setTimeout(function() {
+				      resize();}, 20); 
+				  function resize() 
+				  {
+					this._originalHeight = this._originalHeight || $(this).height();
+					var bodyWidth = ($("body").width())+17; 
+					if(bodyWidth>1920)
+					{
+						$(this).css("height", '570'); 
+						$(".slides_control").css("height", '570');
+						$(".slide > .play").css("top", '40%'); 
+					}
+					else if(bodyWidth > 960 && originalWidth == 768)
+					{
+						$(this).css("height", '300'); 
+						$(".slides_control").css("height", '300');
+						$("#example").find('.play').fadeIn(1000);
+						$(".slide > .play").css("top", '25%'); 
+						$("#slides > .next").css("top", '53%');// (bodyWidth/35.5)+
+						$("#slides > .prev").css("top", '53%');// (bodyWidth/35.5)+
+					}
+					else if(bodyWidth >960)
+					{
+						var widthDiff = bodyWidth - originalWidth; 
+						final_ratio = originalWidth/300;					
+						var newHeight =  this._originalHeight + (widthDiff / final_ratio);// (bodyWidth/37)+'%';
+						$(this).css("height", (bodyWidth/3.35)); // newHeight
+						$(".slides_control").css("height", (bodyWidth/3.35));
+						//console.log(final_ratio+'/'+newHeight+'/'+originalWidth+'/'+bodyWidth+'/'+this._originalHeight+'/'+$(this).height()+'/'+(widthDiff / final_ratio));
+						$(".slide > .play").css("top", (bodyWidth/37)+'%'); 
+						$("#slides > .next").css("top", '53%');// (bodyWidth/35.5)+
+						$("#slides > .prev").css("top", '53%');// (bodyWidth/35.5)+
+					}
+					else
+					{
+						$(this).css("height", '570'); 
+						$(".slides_control").css("height", '570');
+						$(".slide > .play").css("top", '40%'); 
+						$("#slides > .next").css("top", '53%');// (bodyWidth/35.5)+
+						$("#slides > .prev").css("top", '53%');// (bodyWidth/35.5)+
+					}
+					//console.log(final_ratio+'/'+newHeight+'/'+originalWidth+'/'+bodyWidth+'/'+this._originalHeight+'/'+$(this).height()+'/'+(widthDiff / final_ratio));
+			  	}
+
+				
+			});
+
+$(window).scroll(function () { 
+   $('#header').css('margin-left', '-' +$(window).scrollLeft() + 'px');
+    $('#footer').css('margin-left', '-' +$(window).scrollLeft() + 'px');
+});
+function show_radio(){
+	location.href = HTTP_SITE+'radio';
+}
+/*
+var doc = body = document.body;
+var left = (doc && doc.scrollLeft || body && body.scrollLeft || 0);
+var top = (doc && doc.scrollTop  || body && body.scrollTop  || 0);
+alert(left + ' '+top );*/
+  	
+    </script>
+	  
+      <!-- header ad code -->
+      
+      <script type='text/javascript'>
+		  (function() {
+		  var useSSL = 'https:' == document.location.protocol;
+		  var src = (useSSL ? 'https:' : 'http:') +
+		  '//www.googletagservices.com/tag/js/gpt.js';
+		  document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+		  })();
+	  	  </script>				
+				<script type='text/javascript'>
+				googletag.defineSlot('/10353562/LaughFactoryNetwork_Homepage_BottomLeft_300x250', [300, 250], 'div-gpt-ad-1370453231040-0').addService(googletag.pubads());
+				googletag.defineSlot('/10353562/LaughFactoryNetwork_Homepage_BottomMiddle_300x250', [300, 250], 'div-gpt-ad-1370453231040-1').addService(googletag.pubads());
+				googletag.defineSlot('/10353562/LaughFactoryNetwork_Homepage_BottomRight_300x250', [300, 250], 'div-gpt-ad-1370453231040-2').addService(googletag.pubads());
+				googletag.pubads().enableSyncRendering();
+				googletag.pubads().enableSingleRequest();
+				googletag.enableServices();
+				</script>      <!-- header ad code end -->
+   </head>
+
+   <body  id="home-page">
+        <!--Starts_wrapper-->
+        
+        <div class="wrapper">
+        <div class="y-left-shadow"></div>
+        <div class="y-right-shadow"></div>
+      		<div class="wrapper-inner"  style="padding-bottom:0px;">
+            <!--Starts_masthead-->
+            <div class="mid-main" >
+           
+            <div class="header" >
+             
+            
+			                <div class="inner">
+                <div style="display:none">
+                  <div class="light_box login" id="inline_content">
+                    	<div class="close_btn">
+                        <img src="http://cdn.laughfactory.com/images/close-btn.png" width="19" height="19" alt="close light box" /></div>
+                        <!--<h4>Sign up for Laugh Factory</h4>
+                        <div class="box">
+                        <p>Sign In with Your Laugh Factory Account</p>					
+                        <form method="" action="" id="form_signin">	
+                        <input type="hidden" name="ses_id" value="6190717a35134cc27f27cb8c84e79173" />
+                        <input name="uemail" autocomplete="off" id="uemail" type="text" class="form-field" placeholder="Username / Email Address" />
+                        <span class="login_alert" id="login_email_error" style="display:none;">Please Provide a valid <span>Email Address</span></span>
+                        <input name="upassword" autocomplete="off" id="upassword" type="password" class="form-field" placeholder="Password" />
+                        <span class="login_alert" id="login_pwd_error" style="display:none">Please Provide your <span>Password</span></span>
+                        </form>
+                        <div class="save-btn" onclick="doLogin()" style="cursor:pointer">Login</div>
+                        <div class="forgot_password"><a href="http://www.laughfactory.com/forgot-password">Forgot Password?</a></div>
+                        <div style="float:left; width:275px; margin-left:0px; margin-top:5px; display:none;" id="login_msg"></div>
+                        </div>
+                        <div class="box right">
+                                    <p style="margin:0px auto">Connect with Facebook</p>
+                            <a href="http://www.laughfactory.com/facebook_login" style="cursor:pointer;"><img src="http://cdn.laughfactory.com/images/social/connect-fb-btn.png" alt="" title=""></a>
+                            </div>-->
+                           
+				
+                            	<div class="login-popup-box">
+                                	<div class="heading-bg">
+                                    	<h2>LOGIN TO LAUGH FACTORY</h2>
+                                        <!--<div class="cancel"><img src="../images/cancel-icon.png" alt="" title="" /></div>-->
+                                    </div>
+                                    
+                                    <!--<div class="error-message">Wrong Username/Email and password combination.</div>-->
+                                    <div class="error-message">&nbsp;</div>
+                                     <form method="" action="" id="form_signin">
+                                     <input type="hidden" name="ses_id" value="6190717a35134cc27f27cb8c84e79173" />	
+                                    <div class="line">
+                                    	<div class="form-left">
+                                          	<input name="uemail" id="uemail" type="text" class="email-address" placeholder="Email Address" />
+                                            <span class="login_alert" id="login_email_error" style="display:none;">Please Provide a valid <span>Email Address</span></span>
+                                           <input name="upassword" id="upassword" type="password" class="password" placeholder="Password" />
+                                           <span class="login_alert" id="login_pwd_error" style="display:none">Please Provide your <span>Password</span></span>
+                                            <div class="line">
+                                            	<div class="forgot-pass">
+                                                <a href="http://www.laughfactory.com/forgot-password">Forgot your password?</a>
+                                                </div>
+                                                <div class="login-btn">
+                                                <input type="button" value="Login" class="contact-us-btn3" onclick="return doLogin();">
+                                                
+                                                </div>
+                                            </div>
+                                            <div class="line">
+                                            <div class="forgot-pass" style="width:200px;">Don't have an account, register <a href="http://www.laughfactory.com/register">here</a>
+                                                </div>
+                                            </div>
+                                            <div style="float:left; width:275px; margin-left:0px; margin-top:5px; display:none;" id="login_msg"></div>
+                                        </div>
+                                        <div class="right-facebook">
+                                        	<div class="connect-text">Connect with Facebook</div>
+                                            <div class="connect-btn">
+                                            <a href="http://www.laughfactory.com/facebook_login" style="cursor:pointer;"><img src="http://cdn.laughfactory.com/images/connect-fb-btn.png" alt="" title="" /></a></div>
+                                            
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                       
+                    
+                  </div>
+
+                  <div class="light-box" id='inline_content_ii'>
+                     <div class="line">
+                        <div class="close-btn"><img src="http://cdn.laughfactory.com/images/close-btn.png" alt=""/></div>
+                     </div>
+                     <h4>Register instantly with Facebook or Twitter</h4>
+                     <p>Share what you love with your friends or followers & See the videos your friends want to share</p>
+                     <div class="line">
+                        <div class="fb-btn"><a href="http://www.laughfactory.com/facebook_login" style="cursor:pointer;"><img src="http://cdn.laughfactory.com/images/social/connect-fb-btn.png" alt="" title=""></a></div>
+                        <div class="tw-btn"><a id="twitter-sign-in-ii" style="cursor:pointer;"><img src="http://cdn.laughfactory.com/images/social/connect-tw-btn.png" alt="" title="" /></a></div>
+                     </div>
+                  </div>
+               </div>
+                	<div class="line">
+                    	<div class="feedback-btn"><a href="http://www.laughfactory.com/contact-us/site-feedback"><img src="http://cdn.laughfactory.com/images/feedback-left.png" alt="" title="" /></a></div>
+                    	<h1 class="logo"><a href="http://www.laughfactory.com/"><img src="http://cdn.laughfactory.com/images/logo-new.png" alt="The Laugh Factory" title="" border="0" /></a></h1>
+                        <div class="tag-line">THE LAUGH FACTORY COMEDY NETWORK</div>
+                        <div class="search">
+                        <form method="get" action="http://www.laughfactory.com/search" id="form_search_main">
+                        	<input name="kw" type="text"  placeholder="Search videos, comedians" />
+                            <div class="button">
+                            	<div class="tongue"><img src="http://cdn.laughfactory.com/images/tongue.png" alt="" title="" /></div>
+                                <img src="http://cdn.laughfactory.com/images/search-btn-new.png" alt="" title="" onclick="javascript:document.getElementById('form_search_main').submit();" />
+                            </div>
+                        </form>
+                        </div>
+                        <div class="radio-icon-cont" style="">
+                        	<div class="radio-icon"><img src="http://cdn.laughfactory.com/images/radio-img.png" alt="" title="" onclick="show_radio()" style="cursor:pointer" /></div>
+                            <div class="radio-icon-text" style="cursor:pointer" onclick="show_radio()">RADIO</div>
+                        </div>
+						                            <div class="cart-icon" id="shopping_cart" style=" visibility:hidden;">
+                            <a href="http://www.laughfactory.com/club/checkout_process">
+                            <div class="shopping-cart-number" id="cart_items_total">
+							
+                            </div>
+                            <img src="http://cdn.laughfactory.com/images/icon-cart.png"/></a></div>
+                        <div class="top-nav">
+                        	<ul>
+                            	
+                            	                                <li><a href="javascript:void();" class='inline-1'>Login</a></li>
+                                <li><a href="http://www.laughfactory.com/register">Register</a></li>
+	                            
+                                                            </ul>
+                        </div>
+                        
+                        </div>
+                    <div class="nav">
+                        <ul>
+                            <li><a href="http://www.laughfactory.com/"  class="active"  >Home</a></li>
+                            <li>
+                                <a href="http://www.laughfactory.com/clubs" >clubs & tickets</a>
+                                <ul>
+                                    <li><a href="http://www.laughfactory.com/clubs/chicago">Chicago</a></li>
+                                    <li><a href="http://www.laughfactory.com/clubs/hollywood">Hollywood</a></li>
+                                    <li><a href="http://www.laughfactory.com/clubs/las-vegas">Las Vegas</a></li>
+                                    <li><a href="http://www.laughfactory.com/clubs/long-beach">Long Beach</a></li>
+                                    <li><a href="http://www.laughfactory.com/clubs/san-manuel-casino">San Manuel</a></li>
+                                    <li><a href="http://www.laughfactory.com/private-events">Private Events</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="http://www.laughfactory.com/videos" >videos</a>
+                                <ul>
+                                    <li><a href="http://www.laughfactory.com/videos">Watch</a></li>
+                                    <li><a href="http://www.laughfactory.com/browse-by-channel">Browse Our Channels</a></li>
+                                    <li><a href="http://www.laughfactory.com/build-my-channel">Build My Own Channels</a></li>
+                                    <li><a href="http://www.laughfactory.com/comedians">Browse by Comedian</a></li>
+                                    <li><a href="http://www.laughfactory.com/upcoming-live-video">Live Streaming Events</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a  href="http://www.laughfactory.com/jokes" >JOKES</a>
+                               
+                            </li>
+                            <li>
+                                <a href="http://www.laughfactory.com/comedians" >comedians</a>
+                                 <ul>
+                                    <li><a href="http://www.laughfactory.com/comedians">Comedian Bios</a></li>
+                                    <li><a href="http://www.laughfactory.com/book-a-comedian">Book A Comedian</a></li>
+                                    
+                                    <li><a href="http://www.laughfactory.com/open-mic">Open Mic Info</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="http://www.laughfactory.com/contests" >contests</a>
+                                <ul>
+                                	<li><a href="http://www.laughfactory.com/contests/funniest-person-finals/online-voting">Funniest Person in the World</a></li>
+                                    <li><a href="http://www.laughfactory.com/contests/fresh-faces">Fresh Faces</a></li>
+                                    <li><a href="http://www.laughfactory.com/contests/laugh-bowl-v">Laugh Bowl V</a></li>
+                                    
+                                </ul>
+                            </li>
+                            <!--<li><a href="javascript:void(0)">BLOGS</a></li>-->
+                            <li>
+                                <a href="http://www.laughfactory.com/history" >about</a>
+                                <ul>
+                                  <li><a href="http://www.laughfactory.com/history">Our History</a></li>
+                                  <li><a href="http://www.laughfactory.com/leadership">Our Leadership</a></li>
+                                  <li><a href="http://www.laughfactory.com/press-releases">Press Releases</a></li>
+                                  <li><a href="http://www.laughfactory.com/careers">Career Info</a></li> 
+                                  <li><a href="http://www.laughfactory.com/comedy-camp">Comedy Camp</a></li>
+                               </ul>
+                            </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--Ends_masthead-->
+<!--Ends_masthead-->
+<div class="slider">
+  <div id="container">
+      <div id="example" class="target">
+          <div id="slides">
+          <div class="slides_container">
+                    
+          <div class="slide">
+          <!--<a href="http://www.laughfactory.com/DaveChappelle" target="_blank">
+          -->
+                    <div class="play" onclick="location.href='http://www.laughfactory.com/DaveChappelle';" style="cursor:pointer"></div>
+                    <a href="http://www.laughfactory.com/DaveChappelle" >     
+          <img src="http://cdn.laughfactory.com/images/slidebanners/BAN0000000045.jpg" alt="Slide 1">
+          </a>
+          <div class="caption">
+                <div class="inner">
+				                
+                	  <div style="margin-left:40px; margin-top:9px; float:left; width:50px;">
+                      <span><img src="http://cdn.laughfactory.com/images/play-big.png" onclick="location.href='http://www.laughfactory.com/DaveChappelle'" style="cursor:pointer" /></span>&nbsp;
+                      </div>                       <div class="detail" style=" margin-left:10px">
+                        <h1>Watch Dave Chappelle Stand-up Comedy Videos Now</h1>
+                        <p>
+                            Have you been missing him since the Chappelle Show went off the air?  Well, get your Dave Chappelle fix on our Dave Chappelle Channel!                        </p>
+                    </div>
+                                    </div>
+          </div>
+         <!-- </a>-->
+          </div>
+          
+		            
+          <div class="slide">
+          <!--<a href="http://www.laughfactory.com/clubs/hollywood/date/2015-03-05" target="_blank">
+          -->
+                    <a href="http://www.laughfactory.com/clubs/hollywood/date/2015-03-05" >     
+          <img src="http://cdn.laughfactory.com/images/slidebanners/BAN0000000267.jpg" alt="Slide 1">
+          </a>
+          <div class="caption">
+                <div class="inner">
+				                      <div class="detail" style=" margin-left:40px">
+                        <h1>Hollywood: Tim Allen - March 5th, 2015</h1>
+                        <p>
+                            Have you ever wanted to see Buzz Lightyear, Santa Claus, & Tim "The Toolman" Taylor all in one place? Now is your chance with special guest star Tim Allen performing live from Hollywood!                        </p>
+                    </div>
+                                        <div class="more-derail"><a href="http://www.laughfactory.com/clubs/hollywood/date/2015-03-05" ><img src="http://cdn.laughfactory.com/images/more-detail-img.png" alt="" title="" style="min-width:96px; max-width:96px;" /></a></div>
+                                    </div>
+          </div>
+         <!-- </a>-->
+          </div>
+          
+		            
+          <div class="slide">
+          <!--<a href="http://www.laughfactory.com/TJMiller" target="_blank">
+          -->
+                    <div class="play" onclick="location.href='http://www.laughfactory.com/TJMiller';" style="cursor:pointer"></div>
+                    <a href="http://www.laughfactory.com/TJMiller" >     
+          <img src="http://cdn.laughfactory.com/images/slidebanners/BAN0000000054.jpg" alt="Slide 1">
+          </a>
+          <div class="caption">
+                <div class="inner">
+				                
+                	  <div style="margin-left:40px; margin-top:9px; float:left; width:50px;">
+                      <span><img src="http://cdn.laughfactory.com/images/play-big.png" onclick="location.href='http://www.laughfactory.com/TJMiller'" style="cursor:pointer" /></span>&nbsp;
+                      </div>                       <div class="detail" style=" margin-left:10px">
+                        <h1>Watch TJ Miller Stand-up Comedy Videos Now</h1>
+                        <p>
+                            One of Variety's Top 10 Comics to watch, TJ Miller is a great actor and stand-up comedian.  Check out our great collection of TJ Miller videos!                        </p>
+                    </div>
+                                    </div>
+          </div>
+         <!-- </a>-->
+          </div>
+          
+		            
+          <div class="slide">
+          <!--<a href="http://www.laughfactory.com/MaxAmini" target="_blank">
+          -->
+                    <div class="play" onclick="location.href='http://www.laughfactory.com/MaxAmini';" style="cursor:pointer"></div>
+                    <a href="http://www.laughfactory.com/MaxAmini" >     
+          <img src="http://cdn.laughfactory.com/images/slidebanners/BAN0000000056.jpg" alt="Slide 1">
+          </a>
+          <div class="caption">
+                <div class="inner">
+				                
+                	  <div style="margin-left:40px; margin-top:9px; float:left; width:50px;">
+                      <span><img src="http://cdn.laughfactory.com/images/play-big.png" onclick="location.href='http://www.laughfactory.com/MaxAmini'" style="cursor:pointer" /></span>&nbsp;
+                      </div>                       <div class="detail" style=" margin-left:10px">
+                        <h1>Watch Max Amini Stand-up Comedy Videos Now</h1>
+                        <p>
+                            Watch great stand-up comedy videos from this internationally known comedian and regular performer at the Laugh Factory!                        </p>
+                    </div>
+                                    </div>
+          </div>
+         <!-- </a>-->
+          </div>
+          
+		            </div>
+          <a href="#" class="prev"><img src="http://cdn.laughfactory.com/images/arrow-prev.png" width="49" height="49" alt="Arrow Prev"></a>
+          <a href="#" class="next"><img src="http://cdn.laughfactory.com/images/arrow-next.png" width="49" height="49" alt="Arrow Next"></a>
+          </div>
+      </div>
+      
+  </div>
+</div>
+             
+            <!--Starts_content--><script type="text/javascript" src="http://www.laughfactory.com/js/home.js"></script>
+<link type="text/css" href="http://www.laughfactory.com/css/tipTip.css" rel="stylesheet" />
+<script type="text/javascript" src="http://www.laughfactory.com/js/jquery.tipTip.minified.js"></script>
+<script type="text/javascript">
+var video_size = '-1';
+var c2u_id = '75441966';
+$(document).ready(function(e) {
+    var screenHeight = parseInt(window.screen.height);
+	
+	if(video_size=='-1'){
+		update_video_size(screenHeight,c2u_id);
+	}else if(screenHeight<1024 && video_size==1){
+		update_video_size(screenHeight,c2u_id);
+	}/*else if(screenHeight>1024 && video_size==0){
+		update_video_size(screenHeight,c2u_id);
+	}*/
+});
+function update_video_size(screenHeight,c2u_id){
+	$.ajax({
+				data : 'screen_height='+screenHeight+'&c2u_id='+c2u_id,
+				url  : HTTP_SITE+'home/update_user_video_size',
+				type : "POST",
+				success : function(response){}
+		});
+}
+$(function(){
+$(".fav_heart_btn").tipTip({edgeOffset: 10});
+});
+</script>
+<!--Starts_content-->
+<div class="mid-main">
+<div class="comedian-content">
+    <div class="inner">
+        <div class="line">
+          <div class="joke-day-box">
+              <div class="line">
+                  <h2><a href="http://www.laughfactory.com/jokes/joke-of-the-day">JOKE OF THE DAY</a> &nbsp; <!--<img src="http://cdn.laughfactory.com/images/favorite.png" alt="" title="" />--> </h2>
+                  <div class="more-jok"><a href="http://www.laughfactory.com/jokes">More Jokes »</a></div>
+              </div>
+              <div class="white-area">
+              	<div class="credit-tex-top">
+                  A man walks out on his front porch one day and sees a gorilla in the tree on his front lawn. He calls animal control and about an hour later a man shows up with a ladder, a pit bull, and a shotgun. The animal control employee tells the man,... ( <a href="http://www.laughfactory.com/jokes/joke-of-the-day" style="color:#FF7018; text-decoration:none;">See Rest</a> )               </div>
+                              <div class="credit-text">Credit: <span style="color:#ff7018">Dave</span> </div>
+                             </div>
+          </div>
+          <div class="tweet-day-box">
+              <div class="line">
+                  <h2>TWEET OF THE DAY </h2>
+              </div>
+              <div class="white-area">
+                  <div class="tweet-bird"><img src="http://cdn.laughfactory.com/images/tweet-bird.png" alt="" title="" /></div>
+                  <div class="tweet-text">
+                  	  <div class="credit-tex-top">
+                      "Son you're just not cut out to be a mime."<br>"Is it something I said?"<br>"Yes." 
+                      
+                      </div>
+                      <div class="credit-text">Credit: <a href="https://twitter.com/Tommytoughstuff/status/515886093221109760" target="_blank">Tommytoughstuff</a> </div>                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="home-next-shadow">
+        <div class="inner">    
+            <div class="new-tabes">
+              <a href="javascript:void(0);" onclick="show_channels(0)"  id="channel_tab" class="active">CHANNELS</a>
+              <a href="javascript:void(0);" class="inline-1" id="my_channel_tab">MY CHANNELS</a>
+            </div>
+          </div>
+      </div>
+      <div class="home-next-bg">
+      <div class="inner">
+          <div id="suggested_channels_container" style="float:left;">
+                       <div class="featured">
+         
+              <h2>
+              <a href="http://www.laughfactory.com/channels/featured-videos">Featured Videos</a> &nbsp; 
+              <img src="http://cdn.laughfactory.com/images/favorite.png" onmouseover="hover_images('favorite.png','favorite-hover.png','1','channel_fav_22')" onmouseout="hover_images('favorite.png','favorite-hover.png','0','channel_fav_22')" alt="Add to Favorite" title="Add to Favorite" style="cursor:pointer"  class="inline-1 fav_heart_btn" id="channel_fav_22" />
+              </h2>
+              <div class="customized"></div>
+              <div class="customized-number" id="channel_showing_22">
+              1 - 3 of 3              </div>
+              
+                                            <div class="videos-line">
+                  <div class="video-left prev" id="prev22"></div>
+                      <div class="video-thumbs" id="channel_22" channel_id="22">
+                                                    <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/featured-videos/336">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/featured-videos/336">Shang - 4 Dicks</a></div>
+                              <a href="http://www.laughfactory.com/channels/featured-videos/336"><img src="http://media.laughfactory.com/thumbs/vid0000000336/thumb0000000336-180x101.jpg" alt="Shang - 4 Dicks" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/featured-videos/895">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/featured-videos/895">Moshe Kasher - YouTube Comment Nightmare</a></div>
+                              <a href="http://www.laughfactory.com/channels/featured-videos/895"><img src="http://media.laughfactory.com/thumbs/vid0000000895/thumb0000000895-180x101.jpg" alt="Moshe Kasher - YouTube Comment Nightmare" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/featured-videos/995">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/featured-videos/995">Mary Lynn Rajskub - 24</a></div>
+                              <a href="http://www.laughfactory.com/channels/featured-videos/995"><img src="http://media.laughfactory.com/thumbs/vid0000000995/thumb0000000995-180x101.jpg" alt="Mary Lynn Rajskub - 24" title="" width="180" height="101" /></a>
+                          </div>
+                                                  
+                      </div>
+                  <div class="video-right next" id="next22"></div> 
+                  </div>
+                                
+              <div class="more-jokes"><!--<a href="#">More Shows »</a>--></div>
+          </div>
+                    <div class="featured">
+         
+              <h2>
+              <a href="http://www.laughfactory.com/channels/new-releases">New Releases</a> &nbsp; 
+              <img src="http://cdn.laughfactory.com/images/favorite.png" onmouseover="hover_images('favorite.png','favorite-hover.png','1','channel_fav_18')" onmouseout="hover_images('favorite.png','favorite-hover.png','0','channel_fav_18')" alt="Add to Favorite" title="Add to Favorite" style="cursor:pointer"  class="inline-1 fav_heart_btn" id="channel_fav_18" />
+              </h2>
+              <div class="customized"></div>
+              <div class="customized-number" id="channel_showing_18">
+              1 - 5 of 20              </div>
+              
+                                            <div class="videos-line">
+                  <div class="video-left prev" id="prev18"></div>
+                      <div class="video-thumbs" id="channel_18" channel_id="18">
+                                                    <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1857">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1857">Mary Lynn Rajskub - Truth And Iliza</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1857"><img src="http://media.laughfactory.com/thumbs/vid0000001857/thumb0000001857-180x101.jpg" alt="Mary Lynn Rajskub - Truth And Iliza" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1859">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1859">Hampton Yount - Online Dating</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1859"><img src="http://media.laughfactory.com/thumbs/vid0000001859/thumb0000001859-180x101.jpg" alt="Hampton Yount - Online Dating" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1853">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1853">Ismo Leikola - California</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1853"><img src="http://media.laughfactory.com/thumbs/vid0000001853/thumb0000001853-180x101.jpg" alt="Ismo Leikola - California" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1856">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1856">Dom Irrera Live From The Laugh Factory - Andrew Santino Returns</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1856"><img src="http://media.laughfactory.com/thumbs/vid0000001856/thumb0000001856-180x101.jpg" alt="Dom Irrera Live From The Laugh Factory - Andrew Santino Returns" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1851">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1851">Ben Gleib - Spiders, Obama & Looking Good</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1851"><img src="http://media.laughfactory.com/thumbs/vid0000001851/thumb0000001851-180x101.jpg" alt="Ben Gleib - Spiders, Obama & Looking Good" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1855">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1855">Nick Youssef - Truth And Iliza</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1855"><img src="http://media.laughfactory.com/thumbs/vid0000001855/thumb0000001855-180x101.jpg" alt="Nick Youssef - Truth And Iliza" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1850">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1850">Mike Marino - Cursing</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1850"><img src="http://media.laughfactory.com/thumbs/vid0000001850/thumb0000001850-180x101.jpg" alt="Mike Marino - Cursing" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1854">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1854">Dom Irrera Live from the Laugh Factory - Michael Kosta</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1854"><img src="http://media.laughfactory.com/thumbs/vid0000001854/thumb0000001854-180x101.jpg" alt="Dom Irrera Live from the Laugh Factory - Michael Kosta" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1852">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1852">Geoff Keith - Friendly Accents</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1852"><img src="http://media.laughfactory.com/thumbs/vid0000001852/thumb0000001852-180x101.jpg" alt="Geoff Keith - Friendly Accents" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1836">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1836">Joey Diaz - Catholic Guilt</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1836"><img src="http://media.laughfactory.com/thumbs/vid0000001836/thumb0000001836-180x101.jpg" alt="Joey Diaz - Catholic Guilt" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1848">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1848">Dom Irrera Live from the Laugh Factory - Darren Carter Returns</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1848"><img src="http://media.laughfactory.com/thumbs/vid0000001848/thumb0000001848-180x101.jpg" alt="Dom Irrera Live from the Laugh Factory - Darren Carter Returns" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1841">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1841">Greg Fitzsimmons - Football Teams</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1841"><img src="http://media.laughfactory.com/thumbs/vid0000001841/thumb0000001841-180x101.jpg" alt="Greg Fitzsimmons - Football Teams" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1839">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1839">Dom Irrera - Lipstick Lesbians</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1839"><img src="http://media.laughfactory.com/thumbs/vid0000001839/thumb0000001839-180x101.jpg" alt="Dom Irrera - Lipstick Lesbians" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1847">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1847">Dom Irrera Live From The Laugh Factory - Al Madrigal</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1847"><img src="http://media.laughfactory.com/thumbs/vid0000001847/thumb0000001847-180x101.jpg" alt="Dom Irrera Live From The Laugh Factory - Al Madrigal" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1844">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1844">Randall Park - Racist Stereotypes</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1844"><img src="http://media.laughfactory.com/thumbs/vid0000001844/thumb0000001844-180x101.jpg" alt="Randall Park - Racist Stereotypes" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1840">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1840">Taylor Tomlinson - Number One</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1840"><img src="http://media.laughfactory.com/thumbs/vid0000001840/thumb0000001840-180x101.jpg" alt="Taylor Tomlinson - Number One" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1843">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1843">Felipe Esparza - The Kevin Nealon Show</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1843"><img src="http://media.laughfactory.com/thumbs/vid0000001843/thumb0000001843-180x101.jpg" alt="Felipe Esparza - The Kevin Nealon Show" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1842">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1842">Dom Irrera Live From The Laugh Factory - Dave Attell Returns</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1842"><img src="http://media.laughfactory.com/thumbs/vid0000001842/thumb0000001842-180x101.jpg" alt="Dom Irrera Live From The Laugh Factory - Dave Attell Returns" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1837">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1837">KT Tatara - Japanese Manners</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1837"><img src="http://media.laughfactory.com/thumbs/vid0000001837/thumb0000001837-180x101.jpg" alt="KT Tatara - Japanese Manners" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/new-releases/1834">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/new-releases/1834">Dom Irrera Live from the Laugh Factory - Andy Kindler Returns</a></div>
+                              <a href="http://www.laughfactory.com/channels/new-releases/1834"><img src="http://media.laughfactory.com/thumbs/vid0000001834/thumb0000001834-180x101.jpg" alt="Dom Irrera Live from the Laugh Factory - Andy Kindler Returns" title="" width="180" height="101" /></a>
+                          </div>
+                                                  
+                      </div>
+                  <div class="video-right next" id="next18"></div> 
+                  </div>
+                                
+              <div class="more-jokes"><!--<a href="#">More Shows »</a>--></div>
+          </div>
+                    <div class="featured">
+         
+              <h2>
+              <a href="http://www.laughfactory.com/channels/comedy-camp-videos">Laugh Factory Comedy Camp Videos</a> &nbsp; 
+              <img src="http://cdn.laughfactory.com/images/favorite.png" onmouseover="hover_images('favorite.png','favorite-hover.png','1','channel_fav_1327')" onmouseout="hover_images('favorite.png','favorite-hover.png','0','channel_fav_1327')" alt="Add to Favorite" title="Add to Favorite" style="cursor:pointer"  class="inline-1 fav_heart_btn" id="channel_fav_1327" />
+              </h2>
+              <div class="customized"></div>
+              <div class="customized-number" id="channel_showing_1327">
+              1 - 3 of 3              </div>
+              
+                                            <div class="videos-line">
+                  <div class="video-left prev" id="prev1327"></div>
+                      <div class="video-thumbs" id="channel_1327" channel_id="1327">
+                                                    <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/comedy-camp-videos/1674">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/comedy-camp-videos/1674">PBS Comedy Camp Documentary</a></div>
+                              <a href="http://www.laughfactory.com/channels/comedy-camp-videos/1674"><img src="http://media.laughfactory.com/thumbs/vid0000001674/thumb0000001674-180x101.jpg" alt="PBS Comedy Camp Documentary" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/comedy-camp-videos/1742">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/comedy-camp-videos/1742">Bob Saget Gets Schooled At Comedy Camp - From The Vault</a></div>
+                              <a href="http://www.laughfactory.com/channels/comedy-camp-videos/1742"><img src="http://media.laughfactory.com/thumbs/vid0000001742/thumb0000001742-180x101.jpg" alt="Bob Saget Gets Schooled At Comedy Camp - From The Vault" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/comedy-camp-videos/1428">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/comedy-camp-videos/1428">Comedy Camp 2013</a></div>
+                              <a href="http://www.laughfactory.com/channels/comedy-camp-videos/1428"><img src="http://media.laughfactory.com/thumbs/vid0000001428/thumb0000001428-180x101.jpg" alt="Comedy Camp 2013" title="" width="180" height="101" /></a>
+                          </div>
+                                                  
+                      </div>
+                  <div class="video-right next" id="next1327"></div> 
+                  </div>
+                                
+              <div class="more-jokes"><!--<a href="#">More Shows »</a>--></div>
+          </div>
+                    <div class="featured">
+         
+              <h2>
+              <a href="http://www.laughfactory.com/channels/fresh-faces-channel">The Fresh Faces Channel</a> &nbsp; 
+              <img src="http://cdn.laughfactory.com/images/favorite.png" onmouseover="hover_images('favorite.png','favorite-hover.png','1','channel_fav_8')" onmouseout="hover_images('favorite.png','favorite-hover.png','0','channel_fav_8')" alt="Add to Favorite" title="Add to Favorite" style="cursor:pointer"  class="inline-1 fav_heart_btn" id="channel_fav_8" />
+              </h2>
+              <div class="customized"></div>
+              <div class="customized-number" id="channel_showing_8">
+              1 - 5 of 20              </div>
+              
+                                            <div class="videos-line">
+                  <div class="video-left prev" id="prev8"></div>
+                      <div class="video-thumbs" id="channel_8" channel_id="8">
+                                                    <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/485">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/485">Justin Martindale - Twilight </a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/485"><img src="http://media.laughfactory.com/thumbs/vid0000000485/thumb0000000485-180x101.jpg" alt="Justin Martindale - Twilight " title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/1474">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/1474">Jon DeWalt - High School </a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/1474"><img src="http://media.laughfactory.com/thumbs/vid0000001474/thumb0000001474-180x101.jpg" alt="Jon DeWalt - High School " title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/719">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/719">Nate Bargatze - Community College</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/719"><img src="http://media.laughfactory.com/thumbs/vid0000000719/thumb0000000719-180x101.jpg" alt="Nate Bargatze - Community College" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/525">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/525">Rick Ingraham - College Mascots</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/525"><img src="http://media.laughfactory.com/thumbs/vid0000000525/thumb0000000525-180x101.jpg" alt="Rick Ingraham - College Mascots" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/700">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/700">Sarah Taylor - Home Depot Worker</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/700"><img src="http://media.laughfactory.com/thumbs/vid0000000700/thumb0000000700-180x101.jpg" alt="Sarah Taylor - Home Depot Worker" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/673">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/673">Peet Guercio - Facebook </a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/673"><img src="http://media.laughfactory.com/thumbs/vid0000000673/thumb0000000673-180x101.jpg" alt="Peet Guercio - Facebook " title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/664">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/664">Sammy Obeid - Drunk Plans</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/664"><img src="http://media.laughfactory.com/thumbs/vid0000000664/thumb0000000664-180x101.jpg" alt="Sammy Obeid - Drunk Plans" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/1338">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/1338">Assad Motavasseli - Dating Secrets</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/1338"><img src="http://media.laughfactory.com/thumbs/vid0000001338/thumb0000001338-180x101.jpg" alt="Assad Motavasseli - Dating Secrets" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/796">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/796">Tony Baker - For Keeps</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/796"><img src="http://media.laughfactory.com/thumbs/vid0000000796/thumb0000000796-180x101.jpg" alt="Tony Baker - For Keeps" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/1027">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/1027">Tone Bell - Crappy Apartment</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/1027"><img src="http://media.laughfactory.com/thumbs/vid0000001027/thumb0000001027-180x101.jpg" alt="Tone Bell - Crappy Apartment" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/893">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/893">Tony Baker - Life with Lanterns</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/893"><img src="http://media.laughfactory.com/thumbs/vid0000000893/thumb0000000893-180x101.jpg" alt="Tony Baker - Life with Lanterns" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/906">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/906">Brent Weinbach - Buying a Boner</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/906"><img src="http://media.laughfactory.com/thumbs/vid0000000906/thumb0000000906-180x101.jpg" alt="Brent Weinbach - Buying a Boner" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/698">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/698">Grant Cotter - Digital Cameras</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/698"><img src="http://media.laughfactory.com/thumbs/vid0000000698/thumb0000000698-180x101.jpg" alt="Grant Cotter - Digital Cameras" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/963">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/963">Grant Cotter - Medical Marijuana</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/963"><img src="http://media.laughfactory.com/thumbs/vid0000000963/thumb0000000963-180x101.jpg" alt="Grant Cotter - Medical Marijuana" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/675">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/675">Sammy Obeid - Sports Fans</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/675"><img src="http://media.laughfactory.com/thumbs/vid0000000675/thumb0000000675-180x101.jpg" alt="Sammy Obeid - Sports Fans" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/729">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/729">Raj Sharma - Double D Warning</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/729"><img src="http://media.laughfactory.com/thumbs/vid0000000729/thumb0000000729-180x101.jpg" alt="Raj Sharma - Double D Warning" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/660">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/660">Brian Moote - Missing Tooth Mystery</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/660"><img src="http://media.laughfactory.com/thumbs/vid0000000660/thumb0000000660-180x101.jpg" alt="Brian Moote - Missing Tooth Mystery" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/851">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/851">Nick Rutherford - Jet Ski Wedding Crasher</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/851"><img src="http://media.laughfactory.com/thumbs/vid0000000851/thumb0000000851-180x101.jpg" alt="Nick Rutherford - Jet Ski Wedding Crasher" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/917">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/917">Mal Hall - Half Black Half Asian</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/917"><img src="http://media.laughfactory.com/thumbs/vid0000000917/thumb0000000917-180x101.jpg" alt="Mal Hall - Half Black Half Asian" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/457">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/457">Ricardo Martinez - Gay</a></div>
+                              <a href="http://www.laughfactory.com/channels/fresh-faces-channel/457"><img src="http://media.laughfactory.com/thumbs/vid0000000457/thumb0000000457-180x101.jpg" alt="Ricardo Martinez - Gay" title="" width="180" height="101" /></a>
+                          </div>
+                                                  
+                      </div>
+                  <div class="video-right next" id="next8"></div> 
+                  </div>
+                                
+              <div class="more-jokes"><!--<a href="#">More Shows »</a>--></div>
+          </div>
+                    <div class="featured">
+         
+              <h2>
+              <a href="http://www.laughfactory.com/channels/political-comedy-channel">The Political Comedy Channel</a> &nbsp; 
+              <img src="http://cdn.laughfactory.com/images/favorite.png" onmouseover="hover_images('favorite.png','favorite-hover.png','1','channel_fav_6')" onmouseout="hover_images('favorite.png','favorite-hover.png','0','channel_fav_6')" alt="Add to Favorite" title="Add to Favorite" style="cursor:pointer"  class="inline-1 fav_heart_btn" id="channel_fav_6" />
+              </h2>
+              <div class="customized"></div>
+              <div class="customized-number" id="channel_showing_6">
+              1 - 5 of 20              </div>
+              
+                                            <div class="videos-line">
+                  <div class="video-left prev" id="prev6"></div>
+                      <div class="video-thumbs" id="channel_6" channel_id="6">
+                                                    <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1321">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1321">Finesse Mitchell - Spanish Teacher</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1321"><img src="http://media.laughfactory.com/thumbs/vid0000001321/thumb0000001321-180x101.jpg" alt="Finesse Mitchell - Spanish Teacher" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/878">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/878">Felipe Esparza - Spanish Star Wars</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/878"><img src="http://media.laughfactory.com/thumbs/vid0000000878/thumb0000000878-180x101.jpg" alt="Felipe Esparza - Spanish Star Wars" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/712">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/712">Mike Marino - Italian President</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/712"><img src="http://media.laughfactory.com/thumbs/vid0000000712/thumb0000000712-180x101.jpg" alt="Mike Marino - Italian President" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/421">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/421">Kevin Nealon Show - Duncan Trussell</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/421"><img src="http://media.laughfactory.com/thumbs/vid0000000421/thumb0000000421-180x101.jpg" alt="Kevin Nealon Show - Duncan Trussell" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1851">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1851">Ben Gleib - Spiders, Obama & Looking Good</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1851"><img src="http://media.laughfactory.com/thumbs/vid0000001851/thumb0000001851-180x101.jpg" alt="Ben Gleib - Spiders, Obama & Looking Good" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1102">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1102">Jerrod Carmichael - Chik-fil-A</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1102"><img src="http://media.laughfactory.com/thumbs/vid0000001102/thumb0000001102-180x101.jpg" alt="Jerrod Carmichael - Chik-fil-A" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1267">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1267">Guy Branum - Gay Advantages</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1267"><img src="http://media.laughfactory.com/thumbs/vid0000001267/thumb0000001267-180x101.jpg" alt="Guy Branum - Gay Advantages" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/590">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/590">Larry Omaha - Death Penalty</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/590"><img src="http://media.laughfactory.com/thumbs/vid0000000590/thumb0000000590-180x101.jpg" alt="Larry Omaha - Death Penalty" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/313">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/313">Maz Jobrani - Television Ratings</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/313"><img src="http://media.laughfactory.com/thumbs/vid0000000313/thumb0000000313-180x101.jpg" alt="Maz Jobrani - Television Ratings" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1355">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1355">Ahmed Bharoocha - Pakistani Uncle</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1355"><img src="http://media.laughfactory.com/thumbs/vid0000001355/thumb0000001355-180x101.jpg" alt="Ahmed Bharoocha - Pakistani Uncle" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/925">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/925">Sammy Obeid - Abearica</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/925"><img src="http://media.laughfactory.com/thumbs/vid0000000925/thumb0000000925-180x101.jpg" alt="Sammy Obeid - Abearica" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/631">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/631">Hasan Minhaj - Muslim in America</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/631"><img src="http://media.laughfactory.com/thumbs/vid0000000631/thumb0000000631-180x101.jpg" alt="Hasan Minhaj - Muslim in America" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/386">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/386">John Roy - Racist Drunk</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/386"><img src="http://media.laughfactory.com/thumbs/vid0000000386/thumb0000000386-180x101.jpg" alt="John Roy - Racist Drunk" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/800">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/800">Kevin Nealon Show - Greg Fitzsimmons - Water</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/800"><img src="http://media.laughfactory.com/thumbs/vid0000000800/thumb0000000800-180x101.jpg" alt="Kevin Nealon Show - Greg Fitzsimmons - Water" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/561">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/561">Maz Jobrani - Gays in Iran</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/561"><img src="http://media.laughfactory.com/thumbs/vid0000000561/thumb0000000561-180x101.jpg" alt="Maz Jobrani - Gays in Iran" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/312">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/312">Maz Jobrani - Rich Iranians</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/312"><img src="http://media.laughfactory.com/thumbs/vid0000000312/thumb0000000312-180x101.jpg" alt="Maz Jobrani - Rich Iranians" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1283">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1283">The Kevin Nealon Show - Bob Dubac</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1283"><img src="http://media.laughfactory.com/thumbs/vid0000001283/thumb0000001283-180x101.jpg" alt="The Kevin Nealon Show - Bob Dubac" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/714">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/714">Kabir Singh - Obama Fail</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/714"><img src="http://media.laughfactory.com/thumbs/vid0000000714/thumb0000000714-180x101.jpg" alt="Kabir Singh - Obama Fail" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/255">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/255">Johnny Sanchez - Middle Eastern</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/255"><img src="http://media.laughfactory.com/thumbs/vid0000000255/thumb0000000255-180x101.jpg" alt="Johnny Sanchez - Middle Eastern" title="" width="180" height="101" /></a>
+                          </div>
+                                                   <div class="video-thumb">
+                              <div class="caption-v7">
+                              <div class="small-play">
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1200">
+                              <img src="http://cdn.laughfactory.com/images/play-small.png" alt="" title=""/></a></div>
+                              
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1200">Greg Fitzsimmons - Race and Politics</a></div>
+                              <a href="http://www.laughfactory.com/channels/political-comedy-channel/1200"><img src="http://media.laughfactory.com/thumbs/vid0000001200/thumb0000001200-180x101.jpg" alt="Greg Fitzsimmons - Race and Politics" title="" width="180" height="101" /></a>
+                          </div>
+                                                  
+                      </div>
+                  <div class="video-right next" id="next6"></div> 
+                  </div>
+                                
+              <div class="more-jokes"><!--<a href="#">More Shows »</a>--></div>
+          </div>
+                    </div>
+          
+          <div id="my_channels_container" style="display:none; float:left;">
+          </div>
+          
+          
+          <div class="banner-container">
+				<div class="banner-container2">
+          <!-- LaughFactoryNetwork_Homepage_BottomLeft_300x250 -->
+          <div id='div-gpt-ad-1370453231040-0' style='width:300px; height:250px; float:left;  padding:13px 0 0 14px;'>
+          <script type='text/javascript'>
+          googletag.display('div-gpt-ad-1370453231040-0');
+          </script>
+          </div>
+          
+          <!-- LaughFactoryNetwork_Homepage_BottomMiddle_300x250 -->
+          <div id='div-gpt-ad-1370453231040-1' style='width:300px; height:250px; float:left; padding:13px 0 0 16px;'>
+          <script type='text/javascript'>
+          googletag.display('div-gpt-ad-1370453231040-1');
+          </script>
+          </div>
+          
+          <!-- LaughFactoryNetwork_Homepage_BottomRight_300x250 -->
+          <div id='div-gpt-ad-1370453231040-2' style='width:300px; height:250px; float:left; padding:13px 0 0 16px;'>
+          <script type='text/javascript'>
+          googletag.display('div-gpt-ad-1370453231040-2');
+          </script>
+          </div>
+          <p>Sponsored By</p>
+          </div>
+          </div>
+    </div>
+    
+	</div>
+</div>
+</div>
+<!--Ends_content--> <!--Starts_footer-->
+  <div class="mid-main">
+  <div class="footerv4">
+            <div class="inner">
+              <div class="designed-by-spijko"></div>
+              <ul>
+                <li><a href="http://www.laughfactory.com/private-events">Private Events</a></li>
+                <li>|</li>
+                <li><a href="http://www.laughfactory.com/privacy-policy">Privacy Policy</a></li>
+                <li>|</li>
+                <li><a href="http://www.laughfactory.com/terms">Terms of Use</a></li>
+                <li>|</li>
+                <li><a href="http://www.laughfactory.com/contact-us">Contact Us</a></li>
+                <li>|</li>
+                <li><a href="http://www.laughfactory.com/sitemap">Site Map</a></li>
+                <li>|</li>
+                <li><a href="http://www.laughfactory.com/donation-request">Donation Requests</a></li>
+              </ul>
+      <div class="copyright">&copy; 2015 LaughFactory</div>
+      <div class="social-media">
+                <div class="icon"><a href="http://www.youtube.com/laughfactory" target="_blank"><img src="http://cdn.laughfactory.com/images/social/youtube-icon.png" alt="Laugh Factory YouTube Page" title="Laugh Factory YouTube Page" /></a></div>
+                <div class="icon"><a href="http://www.facebook.com/LaughFactory" target="_blank"><img src="http://cdn.laughfactory.com/images/social/facebook-icon.png" alt="" title="Laugh Factory Facebook Fan Page" /></a></div>
+                <div class="icon"><a href="http://www.twitter.com/thelaughfactory" target="_blank"><img src="http://cdn.laughfactory.com/images/social/twitter-icon.png" alt="" title="Laugh Factory Twitter Page" /></a></div>
+                <div class="icon"><a href="http://www.linkedin.com/company/59424" target="_blank"><img src="http://cdn.laughfactory.com/images/social/linkedin-icon.png" alt="" title="Laugh Factory LinkedIn Page" /></a></div>
+                <div class="icon"><a href="http://thelaughfactory.tumblr.com/" target="_blank"><img src="http://cdn.laughfactory.com/images/social/tumblr-icon.png" alt="" title="Laugh Factory Tumblr Page" /></a></div>
+                <div class="icon"><a href="http://foursquare.com/venue/3528" target="_blank"><img src="http://cdn.laughfactory.com/images/social/foursquare-icon.png" alt="" title="Laugh Factory Foursquare Page" /></a></div>
+                                <div class="icon" style=""><a href="https://www.google.com/+laughfactory" target="_blank"><img src="http://cdn.laughfactory.com/images/gplus.png" width="32" /></a></div>
+                <div class="icon" style=""><a href="http://www.ovguide.com/comedy" target="_blank"><img src="http://cdn.laughfactory.com/images/ovguide-icon2.png" width="32" /></a></div>
+                
+              </div>
+    </div>
+          </div>
+  </div>
+  <!--Ends_footer-->
+             <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+          <script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-5487232-3']);
+			_gaq.push(['_trackPageview']);
+		  
+			(function() {
+			  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		  		  </script>
+        <!--wrapper_End--> 
+</body>
+</html>
+";i:2;s:5:"10514";}

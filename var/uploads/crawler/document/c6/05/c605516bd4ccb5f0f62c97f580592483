@@ -1,0 +1,1352 @@
+a:3:{i:0;s:16:"http://ssrn.com/";i:1;s:71458:"
+
+<script type="text/javascript" src="http://papers.ssrn.com/sol3/Scripts/jquery.js"></script>
+
+	<script language="javascript">
+		//Language functions
+		function changeLanguage(language, response){
+
+			$.ajax({
+				url: '/AltLanguage_ajax.cfm?type=changeLanguage&partid=1&strCode=' + language,
+				cache: false,
+				success: function(data) {
+					// Update values in cookies
+					Set_Cookie('SITEID',language,'-1','/','.ssrn.com','');
+					Set_Cookie('SITEID',language,'1000','/','.ssrn.com','');
+
+					// Finally, perform redirection
+					if (response == 'reload') {
+						window.location.reload();
+					}
+					else {
+						window.location.href=response;
+					}
+				}
+			});
+		}
+
+		function Set_Cookie( name, value, expires, path, domain, secure ) {
+			// set time, its in milliseconds
+			var today = new Date();
+			today.setTime( today.getTime() );
+
+			/*
+			if the expires variable is set, make the correct
+			expires time, the current script below will set
+			it for x number of days, to make it for hours,
+			delete * 24, for minutes, delete * 60 * 24
+			*/
+			if ( expires ) {
+				expires = expires * 1000 * 60 * 60 * 24;
+			}
+
+			var expires_date = new Date( today.getTime() + (expires) );
+
+			document.cookie = name + "=" +escape( value ) +
+			( ( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) +
+			( ( path ) ? ";path=" + path : "" ) +
+			( ( domain ) ? ";domain=" + domain : "" ) +
+			( ( secure ) ? ";secure" : "" );
+		}
+
+
+		/*
+		* We use this function when the language should be stripped from an object, like a form RADIO
+		*/
+		function getLanguage ( oObj ) {
+			var specialChars = "!@#$^&%*()+=-[]\/{}|:<>?,.";
+
+			// Need to clean up code if object came from Mura site.
+			sCode = oObj.value;
+			if (sCode.length > 2) {
+				for (var i = 0; i < specialChars.length; i++) {
+					sCode = sCode.replace(new RegExp("\\" + specialChars[i], 'gi'), '');
+				}
+				// After cleaning up special chars, we take the first two chars.
+				sCode = sCode.substring(0,2).trim();
+			}
+
+			return sCode;
+		}
+	</script>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	
+	<meta name="generator" content="Mura CMS 5.6" />
+	
+	<title>Home :: SSRN</title>
+
+	<!--<link rel="icon" href="/en/images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/en/images/favicon.ico" type="image/x-icon" />-->
+	<link rel="icon" href="/en/includes/themes/merced/images/ssrn/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/en/includes/themes/merced/images/ssrn/favicon.ico" type="image/x-icon" />
+
+	
+	<link rel="stylesheet" href="/en/css/reset.min.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="/en/css/mura.min.css" type="text/css" media="all" />
+
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+	   
+
+
+
+       
+       
+       
+               
+       
+
+
+	<link rel="stylesheet" href="/en/includes/themes/merced/compiled/core.min.20131211031749.css" media="all" /><!--[if lt IE 8]><link rel="stylesheet" href="/en/includes/themes/merced/compiled/ie.lte7.min.20130715045020.css" media="all" /><![endif]--><link rel="stylesheet" href="/en/includes/themes/merced/compiled/print.min.20130715045020.css" media="print" />
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+       
+               
+			  
+              	 
+			  
+       
+
+
+	
+
+	
+	<!--[if lte IE 8]>
+	<script src="/en/includes/themes/merced/js/ie/lte8/html5.js" type="text/javascript" language="Javascript"></script>
+	<![endif]-->
+
+	
+	
+
+
+					
+
+
+
+	<script type="text/javascript">
+	var dtExample="11/10/2018";
+	var dtCh="/";
+	var dtFormat =[0,1,2];
+	var dtLocale="en";
+	</script>
+		
+<script type="text/javascript" src="/en/js/global.min.js"></script>
+<script type="text/javascript">
+var loginURL="?display=login";
+var siteid="en"; 
+var siteID="en"; 
+var context=""; 
+var jslib="jquery";
+var assetpath="/en";
+var themepath="/en/includes/themes/merced";
+var htmlEditorType="";
+var rb="en";
+</script>
+			 <script type="text/javascript"> 
+<!--
+!window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="/en/js/jquery/jquery.js"%3E%3C/script%3E'))
+//-->
+</script>
+<link rel="stylesheet" href="/plugins/LocaleTransMgr/css/ltm.css" type="text/css" media="all" />
+</head>
+
+<body id="homepage" class="depth1">
+
+<div id="container" class="sysHomeSsrn">
+	
+
+	
+
+
+
+
+
+
+
+
+	<header class="clearfix">
+		<hgroup>
+			<h1><a href="/en/">SSRN</a></h1>
+			
+		</hgroup>
+		
+			<form action="http://papers.ssrn.com/sol3/results.cfm" id="searchForm" method="post" target="_top" name="formQuickSearch">
+				<fieldset>
+					<input type="text" name="txtKey_Words" id="txtKeywords" class="textltr" value="QuickSearch SSRN eLibrary" title="Enter a Keyword Search" onfocus="this.style.color='black';" onclick="value='';" maxlength="250" />
+					<a onclick="javascript:document.formQuickSearch.submit();" href="javascript:void(0);">
+						<img src="http://static.ssrn.com/Images/Header/btnSearch.png" alt="QuickSearch SSRN eLibrary" >
+					</a>
+					<input type="hidden" name="searchallfields" value="true">
+					
+				</fieldset>
+			</form>
+		
+	</header>
+
+
+
+
+
+	<div id="content" class="clearfix">
+		<aside id="left">
+			<div class="login">
+				
+
+				
+				
+
+
+
+
+
+
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="position:absolute">
+	<form name="formErr" action="https://hq.ssrn.com/login/pubSignInJoin.cfm" method="post" target="_parent"><input type="hidden" id="errorMessage" name="errorMessage" value=""></form>
+</div>
+<p class="sidebarTitleLink" align="center"><a href="http://hq.ssrn.com">MEMBER SIGN IN</a></p>
+<p class="fistTime" align="center"><a href="http://hq.ssrn.com">First-time user? Free Registration</a></p>
+<form name="frmLoginBox" action="javascript:void(0);" onSubmit="return submitForm();">
+<input id="txtLogin" name="txtLogin" value="USER ID" style="color: rgb(153, 153, 153); width: 125px;direction:ltr;" onfocus="this.style.color='black';" onclick="if(this.value && this.value == 'USER ID') { this.value = '';} else { this.select(); }" />
+<div id="passwordbox" style="position:relative; float:left; width: 90px;">
+	<input type="text" maxlength="10" value="PASSWORD" onfocus="changeType();" id="txtPassword" name="txtPassword" style="color: rgb(153, 153, 153); width: 90px;direction:ltr;" />
+</div>
+<div id="signinbox">
+	<input type="submit" class="go" id="go" value="Sign In" name="Process"/>
+</div>
+</form>
+<div style="position:relative;  float:left; font-size: 10px; font-family: sans-serif; color: rgb(32, 50, 118);display:none;visibility:hidden;" id="processingMessage">
+	<span id="progressBar">
+	<span>Processing request. </span>
+	<span style="position:relative; top:3px;">
+	<img src="http://hq.ssrn.com/submissions/Images/progress_bar_2.gif" border="0" title="Please wait, login in process." width="50" height="13">
+	</span>
+	</span>
+</div>
+
+<div style="position:relative;" id="errorMessageDiv"></div>
+<div style="position:relative;  float:left;">
+<p class="forgot"><a href="http://hq.ssrn.com/login/passwordAssistance.cfm?userEmail=&rootPage=signIn">Forgot ID or Password?</a> | <a href="http://www.ssrn.com/en/index.cfm/contactus/" target="_blank" title="Contact">Contact Us</a>
+</p>
+</div>
+<div style="margin-top: 40px;">&nbsp;</div>
+
+
+
+
+<script type="text/javascript" src="http://hq.ssrn.com/validations.js"></script>
+<script type="text/javascript" src="http://static.ssrn.com/libraries/JQuery/jquery.min.js"></script>
+<script language="JavaScript">
+	function validateFields (){
+	  // size of form is currently 2 items any additions need to be accounted for
+	   if(document.getElementById("txtLogin") == null || document.getElementById("txtLogin").value == "")
+	   {
+		 alert ('The following field is empty: "User ID"');
+		 document.getElementById("txtLogin").focus();
+		 return false;
+	   }
+	   if(document.getElementById("txtPassword") == null || document.getElementById("txtPassword").value == "" )
+	   {
+		 alert ('The following field is empty: "Password"');
+		 document.getElementById("txtPassword").focus();
+		 return false;
+	   }
+	}
+
+
+	function changeType(){
+		document.getElementById("passwordbox").innerHTML = '<input type="password" style="color:black; width: 90px;" value="" name="txtPassword" id="txtPassword" maxlength="10" />';
+		setTimeout("document.getElementById('txtPassword').focus()",10);
+	}
+
+
+	function login () {
+		var completeURL = '/loginAjaxHeader.cfm?login=true&username='+document.getElementById("txtLogin").value+'&pass='+document.getElementById("txtPassword").value;
+
+		$.ajax({
+			url: completeURL,
+			cache: false,
+			success: function(data) {
+				if(data.indexOf('redirectFrom=true') != -1){
+					document.location.href = Trim(data);
+				} else {
+					document.getElementById("go").disabled=false;
+					document.getElementById("processingMessage").style.display="none";
+					document.getElementById("processingMessage").style.visibility="hidden";
+					document.getElementById("errorMessage").value = data;
+					document.getElementById("errorMessageDiv").style.display="block";
+					document.getElementById("errorMessageDiv").style.visibility="visible";
+					document.getElementById("errorMessageDiv").innerHTML = document.getElementById("errorMessage").value;
+				}
+
+			}
+		});
+	}
+
+
+	function submitForm(){
+		   if (validateFields() != false) {
+			document.getElementById("go").disabled=true;
+			document.getElementById("processingMessage").style.display="block";
+			document.getElementById("processingMessage").style.visibility="visible";
+			login ();
+		   }
+		   else {
+		   	return false;
+		   }
+	}
+	
+	//Call the method sentValidationEmail in loginServices.cfc
+	function sentEmailValidation(lngLoginID,strForwardURL){
+		$.ajax({
+			url: '/EmailValidationCaller.cfm?lngLoginID='+lngLoginID+'&strForwardURL='+strForwardURL,
+			cache: false,
+			success: function(data) {
+					document.getElementById("go").disabled=false;
+					document.getElementById("processingMessage").style.display="none";
+					document.getElementById("processingMessage").style.visibility="hidden";
+					document.getElementById("errorMessage").value = data;
+					document.getElementById("errorMessageDiv").style.display="block";
+					document.getElementById("errorMessageDiv").style.visibility="visible";
+					document.getElementById("errorMessageDiv").innerHTML = document.getElementById("errorMessage").value;
+				}
+			});
+	}
+</script>
+
+			</div>
+			<div class="sidebarLinks">
+				
+				
+
+
+
+
+
+
+
+<p align="center" class="sidebarTitle">RESEARCH NETWORKS:</p>
+
+<ul>
+	<li class="link-arn">
+		<a class="first linkSideA" href="/en/index.cfm/arn/">
+		<div class="sideLinkTextLeftltr">Accounting</div>
+		<div class="sideLinkTextRightltr">ARN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/arn/arn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li><a href="/en/index.cfm/arn/arn-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/arn/arn-conferences-meetings/">Conference &amp; Meetings</a></li>
+			<li><a href="/en/index.cfm/arn/arn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/arn/arnjob/arn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/arn/arnann/arn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/arn/arn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to ARN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to ARN</a></li>
+		</ul>
+	</li>
+	<li class="link-aarn">
+		<a class="first linkSideA" href="/en/index.cfm/aarn/">
+		<div class="sideLinkTextLeftltr">Anthropology<br>& Archaeology</div>
+		<div class="sideLinkTextRightltr">AARN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/aarn/aarn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li class="line"><a href="/en/index.cfm/aarn/aarn-research-paper-series/">Research Paper Series</a></li>
+			<li><a href="/en/index.cfm/aarn/aarn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/aarn/aarnjob/aarn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/aarn/aarnann/aarn_ann.html">Professional Announcements</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to AARN</a></li>
+		</ul>
+	</li>
+	<li class="link-csn">
+		<a class="first linkSideA" href="/en/index.cfm/csn/">
+		<div class="sideLinkTextLeftltr">Cognitive Science</div>
+		<div class="sideLinkTextRightltr">CSN</div>
+		</a>
+		<ul>
+			<li class="line"><a href="/en/index.cfm/csn/csn-conferences-meetings/">Conference &amp; Meetings</a></li>
+			<li><a href="/en/index.cfm/csn/csn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/csn/csnjob/csn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/csn/csnann/csn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/csn/csn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to CSN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to CSN</a></li>
+		</ul>
+	</li>
+	<li class="link-cgn">
+		<a class="first linkSideA" href="/en/index.cfm/cgn/">
+		<div class="sideLinkTextLeftltr">Corporate Governance</div>
+		<div class="sideLinkTextRightltr">CGN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/cgn/cgn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li class="line"><a href="/en/index.cfm/cgn/cgn-research-paper-series/">Research Paper Series</a></li>
+			<li><a href="/en/index.cfm/cgn/cgn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/cgn/cgnjob/cgn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/cgn/cgnann/cgn_ann.html">Professional Announcements</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to CGN</a></li>
+		</ul>
+	</li>
+	<li class="link-ern">
+		<a class="first linkSideA" href="/en/index.cfm/ern/">
+		<div class="sideLinkTextLeftltr">Economics</div>
+		<div class="sideLinkTextRightltr">ERN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/ern/ern-partners-in-publishing/">Partners in Publishing</a></li>
+			<li><a href="/en/index.cfm/ern/ern-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/ern/ern-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/ern/ern-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/ern/ernjob/ern_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/ern/ernann/ern_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/ern/ern-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to ERN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to ERN</a></li>
+		</ul>
+	</li>
+	<li class="link-erpn">
+		<a class="first linkSideA" href="/en/index.cfm/erpn/">
+		<div class="sideLinkTextLeftltr">Entrepreneurship</div>
+		<div class="sideLinkTextRightltr">ERPN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/erpn/erpn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li><a href="/en/index.cfm/erpn/erpn-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/erpn/erpn-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/erpn/erpn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/erpn/erpnjob/erpn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/erpn/erpnann/erpn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/erpn/erpn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to ERPN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to ERPN</a></li>
+		</ul>
+	</li>
+	<li class="link-fen">
+		<a class="first linkSideA" href="/en/index.cfm/fen/">
+		<div class="sideLinkTextLeftltr">Finance</div>
+		<div class="sideLinkTextRightltr">FEN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/fen/fen-partners-in-publishing/">Partners in Publishing</a></li>
+			<li><a href="/en/index.cfm/fen/fen-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/fen/fen-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/fen/fen-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/fen/fenjob/fen_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/fen/fenann/fen_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/fen/fen-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to FEN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to FEN</a></li>
+		</ul>
+	</li>
+	<li class="link-hen">
+		<a class="first linkSideA" href="/en/index.cfm/hen/">
+		<div class="sideLinkTextLeftltr">Health Economics</div>
+		<div class="sideLinkTextRightltr">HEN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/hen/hen-partners-in-publishing/">Partners in Publishing</a></li>
+			<li><a href="/en/index.cfm/hen/hen-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/hen/hen-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/hen/hen-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/hen/henjob/hen_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/hen/henann/hen_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/hen/hen-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to HEN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to HEN</a></li>
+		</ul>
+	</li>
+	<li class="link-hrn">
+		
+		
+		
+			
+			<a class="first linkSideA" href="javascript:void(0);" onclick="changeLanguage('il','/il/index.cfm/hrn/?switch=1');">
+		
+		<div class="sideLinkTextLeftltr">Hebrew</div>
+		<div class="sideLinkTextRightltr">HRN</div>
+		</a>
+		<ul>
+			<li><a href="http://papers.ssrn.com/sol3/JELJOUR_Results.cfm?form_name=journalbrowse&journal_id=2152362">Legal</a></li>
+			<li><a href="http://papers.ssrn.com/sol3/JELJOUR_Results.cfm?form_name=journalbrowse&journal_id=2188559">Business</a></li>
+			<li><a href="http://papers.ssrn.com/sol3/JELJOUR_Results.cfm?form_name=journalbrowse&journal_id=2446951">Policy</a></li>
+			<li><hr style="margin:10px 0; border-color:#666699;" /></li>
+			<li><a href="http://hq.ssrn.com/Subscriptions.cfm">Subscribe</a></li>
+			<li><a href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit</a></li>
+		</ul>
+	</li>
+	<li class="link-crn">
+		<a class="first linkSideA" href="/en/index.cfm/crn/">
+		<div class="sideLinkTextLeftltr">Humanities: Classics</div>
+		<div class="sideLinkTextRightltr">CRN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/crn/crn-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/crn/crn-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/crn/crn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/crn/crnjob/crn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/crn/crnann/crn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/crn/crn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to CRN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to CRN</a></li>
+		</ul>
+	</li>
+	<li class="link-lit">
+		<a class="first linkSideA" href="/en/index.cfm/lit/">
+		<div class="sideLinkTextLeftltr">Humanities: Literature</div>
+		<div class="sideLinkTextRightltr">LIT</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/lit/lit-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/lit/lit-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/lit/lit-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/lit/litjob/lit_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/lit/litann/lit_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/lit/lit-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to LIT eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to LIT</a></li>
+		</ul>
+	</li>
+	<li class="link-mrcn">
+		<a class="first linkSideA" href="/en/index.cfm/mrcn/">
+		<div class="sideLinkTextLeftltr">Humanities: Music  <br> & Composition</div>
+		<div class="sideLinkTextRightltr">MRCN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/mrcn/mrcn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li class="line"><a href="/en/index.cfm/mrcn/mrcn-research-paper-series/">Research Paper Series</a></li>
+			<li><a href="/en/index.cfm/mrcn/mrcn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/mrcn/mrcnjob/mrcn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/mrcn/mrcnann/mrcn_ann.html">Professional Announcements</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to MRCN</a></li>
+		</ul>
+	</li>
+	<li class="link-prn">
+		<a class="first linkSideA" href="/en/index.cfm/prn/">
+		<div class="sideLinkTextLeftltr">Humanities: Philosophy</div>
+		<div class="sideLinkTextRightltr">PRN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/prn/prn-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/prn/prn-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/prn/prn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/prn-/prnjob/prn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/prn-/prnann/prn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/prn/prn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to PRN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to PRN</a></li>
+		</ul>
+	</li>
+	<li class="link-rcrn">
+		<a class="first linkSideA" href="/en/index.cfm/rcrn/">
+		<div class="sideLinkTextLeftltr">Humanities: Rhetoric <br> & Communication</div>
+		<div class="sideLinkTextRightltr">RCRN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/rcrn/rcrn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li class="line"><a href="/en/index.cfm/rcrn/rcrn-research-paper-series/">Research Paper Series</a></li>
+			<li><a href="/en/index.cfm/rcrn/rcrn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/rcrn/rcrnjob/rcrn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/rcrn/rcrnann/rcrn_ann.html">Professional Announcements</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to RCRN</a></li>
+		</ul>
+	</li>
+	<li class="link-isn">
+		<a class="first linkSideA" href="/en/index.cfm/isn/">
+		<div class="sideLinkTextLeftltr">Information Systems<br> & eBusiness</div>
+		<div class="sideLinkTextRightltr">ISN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/isn/isn-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/isn/isn-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/isn/isn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/isn/isnjob/isn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/isn/isnann/isn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/isn/isn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to ISN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to ISN</a></li>
+		</ul>
+	</li>
+	<li class="link-irpn">
+		<a class="first linkSideA" href="/en/index.cfm/irpn/">
+		<div class="sideLinkTextLeftltr">Innovation</div>
+		<div class="sideLinkTextRightltr">IRPN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/irpn/irpn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li><a href="/en/index.cfm/irpn/irpn-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/irpn/irpn-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/irpn/irpn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/irpn/irpnjob/irpn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/irpn/irpnann/irpn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/irpn/irpn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to IRPN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to IRPN </a></li>
+		</ul>
+	</li>
+	<li class="link-lsn">
+		<a class="first linkSideA" href="/en/index.cfm/lsn/">
+		<div class="sideLinkTextLeftltr">Law</div>
+		<div class="sideLinkTextRightltr">LSN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/lsn/lsn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li><a href="/en/index.cfm/lsn/lsn-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/lsn/lsn-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/lsn/lsn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/lsn/lsnjob/lsn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/lsn/lsnann/lsn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/lsn/lsn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to LSN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to LSN</a></li>
+		</ul>
+	</li>
+	<li class="link-lrn">
+		<a class="first linkSideA" href="/en/index.cfm/lrn/">
+		<div class="sideLinkTextLeftltr">Leadership</div>
+		<div class="sideLinkTextRightltr">LRN</div>
+		</a>
+		<ul>
+			<li class="line"><a href="/en/index.cfm/lrn/lrn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li><a href="/en/index.cfm/lrn/lrn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/lrn/lrnjob/lrn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/lrn/lrnann/lrn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/lrn/lrn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to LRN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to LRN</a></li>
+		</ul>
+	</li>
+	<li class="link-mrn">
+		<a class="first linkSideA" href="/en/index.cfm/mrn/">
+		<div class="sideLinkTextLeftltr">Management</div>
+		<div class="sideLinkTextRightltr">MRN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/mrn/mrn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li><a href="/en/index.cfm/mrn/mrn-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/mrn/mrn-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/mrn/mrn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/mrn/mrnjob/mrn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/mrn/mrnann/mrn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/mrn/mrn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to MRN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to MRN</a></li>
+		</ul>
+	</li>
+	<li class="link-mkt">
+		<a class="first linkSideA" href="/en/index.cfm/mkt/">
+		<div class="sideLinkTextLeftltr">Marketing</div>
+		<div class="sideLinkTextRightltr">MKT</div>
+		</a>
+		<ul>
+			<li class="line"><a href="/en/index.cfm/mkt/mkt-research-paper-series/">Research Paper Series</a></li>
+			<li><a href="/en/index.cfm/mkt/mkt-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/mkt/mktjob/mkt_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/mkt/mktann/mkt_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/mkt/mkt-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to MKT eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to MKT</a></li>
+		</ul>
+	</li>
+	<li class="link-neg">
+		<a class="first linkSideA" href="/en/index.cfm/neg/">
+		<div class="sideLinkTextLeftltr">Negotiation</div>
+		<div class="sideLinkTextRightltr">NEG</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/neg/neg-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/neg/neg-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/neg/neg-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/neg/negjob/neg_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/neg/negann/neg_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/neg/neg-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to NEG eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to NEG</a></li>
+		</ul>
+	</li>
+	<li class="link-psn">
+		<a class="first linkSideA" href="/en/index.cfm/psn/">
+		<div class="sideLinkTextLeftltr">Political Science</div>
+		<div class="sideLinkTextRightltr">PSN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/psn/psn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li><a href="/en/index.cfm/psn/psn-research-paper-series/">Research Paper Series</a></li>
+			<li class="line"><a href="/en/index.cfm/psn/psn-conferences-meetings/">Conference & Meetings</a></li>
+			<li><a href="/en/index.cfm/psn/psn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/psn/psnjob/psn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/psn/psnann/psn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/psn/psn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to PSN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to PSN</a></li>
+		</ul>
+	</li>
+	<li class="link-sirn">
+		<a class="first linkSideA" href="/en/index.cfm/sirn/">
+		<div class="sideLinkTextLeftltr">Social Insurance</div>
+		<div class="sideLinkTextRightltr">SIRN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/sirn/sirn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/sirn/sirnjob/sirn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/sirn/sirnann/sirn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/sirn/sirn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to SIRN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to SIRN</a></li>
+		</ul>
+	</li>
+
+	<li class="link-srpn">
+		<a class="first linkSideA" href="/en/index.cfm/srpn/">
+		<div class="sideLinkTextLeftltr">Sustainability</div>
+		<div class="sideLinkTextRightltr">SRPN</div>
+		</a>
+		<ul>
+			<li><a href="/en/index.cfm/srpn/srpn-partners-in-publishing/">Partners in Publishing</a></li>
+			<li class="line"><a href="/en/index.cfm/srpn/srpn-research-paper-series/">Research Paper Series</a></li>
+			<li><a href="/en/index.cfm/srpn/srpn-ejournals/">Subject Matter eJournals</a></li>
+			<li><a target="_blank" href="http://www.ssrn.com/update/srpn/srpnjob/srpn_job.html">Job Openings</a></li>
+			<li class="line"><a target="_blank" href="http://www.ssrn.com/update/srpn/srpnann/srpn_ann.html">Professional Announcements</a></li>
+			<li><a href="/en/index.cfm/srpn/srpn-subscribe-orgs/">Subscribing Organizations</a></li>
+			<li><a href="javascript:void(0);" onclick="window.open('/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe to SRPN eJournals</a></li>
+			<li><a target="_blank" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submit a paper to SRPN</a></li>
+		</ul>
+	</li>
+</ul>
+<p class="textLinks">
+	<a title="Section 508 Text Only Pages" href="/en/index.cfm/section-508/">Section 508 Text Only Pages</a>
+	<br>
+	<a title="SSRN's Database and Services (FAQ)" href="/en/index.cfm/ssrn-faq/">FAQ</a>
+	&nbsp;&nbsp;
+	<a title="Terms of Use" href="/en/index.cfm/terms-of-use/">Terms of Use</a>
+	<br>
+	<a title="Privacy Policy" href="/en/index.cfm/privacy-policy/">Privacy Policy</a>
+	&nbsp;&nbsp;
+	<a title="Copyright" href="/en/index.cfm/dmca-notice-policy/">Copyright</a>
+</p>
+
+			</div>
+		</aside>
+		<nav>
+			<ul id="navPrimary">
+				<div id="navTopMenu">
+					
+
+
+
+
+	<table valign="middle" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td class="tdLinks" color="CCCCCC" background="" width="100%">
+		<nobr>
+			<div style="position:relative">
+				
+				
+				
+				 
+
+				
+
+				<div class="ltrMenu">
+					<a class="textMenu" href="http://www.ssrn.com" TARGET="_parent">Home</a>
+					<a class="textMenu" href="http://papers.ssrn.com" target="_parent">Search</a>
+					<a class="textMenu" href="http://papers.ssrn.com/sol3/DisplayJournalBrowse.cfm" target="_parent">Browse</a>
+					<a class="textMenu" href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm" target="_parent">Submit</a>
+					<a class="textMenu" href="javascript:void(0);" onclick="window.open('http://www.ssrn.com/en/index.cfm/subscribe/','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=100, left=500, width=900, height=600');">Subscribe</a>
+					<a class="textMenu" href="http://papers.ssrn.com/sol3/ShoppingCart.cfm" target="_parent">Shopping Cart</a>
+					<a class="textMenu" href="http://hq.ssrn.com/Briefcase/myBriefcase.cfm" target="_parent">MyBriefcase</a>
+					<a class="textMenu" href="http://hq.ssrn.com/rankings/Ranking_display.cfm?TRN_gID=10" target="_parent">Top Papers</a>
+					<a class="textMenu" href="http://www.ssrn.com/en/index.cfm/top-authors/" target="_parent">Top Authors</a>
+					<a class="textMenu" href="http://www.ssrn.com/en/index.cfm/top-organizations/" target="_parent">Top Organizations</a>
+					<a class="textMenu" href="http://ssrnblog.com/" target="new">SSRN Blog</a>
+				</div>
+
+			</div>
+		</nobr>
+		</td>
+	<td color="FFFFFF" background="" width="100%">
+	</td>
+	</tr>
+	</tbody></table>
+
+
+				</div>
+			</ul>
+		</nav>
+		<div style="float:right;direction:ltr;margin-top:-30px;">
+			<select id="svLTM" class="dropdown" onchange="changeLanguage(getLanguage(this),this.value);">
+<option value="">English</option>
+
+	
+	<option value="/il/?linkServID=00000000000000000000000000000000001&amp;switch=1">Hebrew</option>
+
+</select>
+		</div>
+		<div class="maincontent">
+			<article>
+				
+				
+		
+			
+				 
+					
+								
+				
+				
+				
+				
+					
+				
+				
+				
+					
+								
+						
+
+	<table border="0" cellpadding="10" width="500">
+	<tbody><!-- BEWARE when displaying maintenance msg, check all content on homepage for any text that falls out of place --><!--<tr>
+			<td colspan="2">
+				<div style="width: 545px; text-align: left; color: red; font-family: myriad roman, verdana, arial, helvetica, sans-serif; font-size: 12px; font-weight: bold; margin-top: 5px; margin-bottom: 5px;">IMPORTANT: SSRN will be making system improvements on Tuesday, 10 February 2015 from 4:00 PM EDT to 9:00 PM EDT. You may experience response times that are slower than usual, and there will be a delay in displaying paper and author updates on the search results, browse and MyBriefcase pages. We apologize for any inconvenience. If you have any questions, please email <a href="mailto:support@ssrn.com">support@ssrn.com</a>.</div>
+			</td>
+		</tr>-->
+		<tr>
+			<td align="left" valign="top" width="250">
+				<div align="left"><a class="hbt-title" href="http://papers.ssrn.com">Enter SSRN eLibrary</a> <a> <img alt="SSRN eLibrary" border="0" src="/en/includes/themes/merced/images/ssrn/home/eLibhead.gif" style="margin-left: -3px;" usemap="#eLibhead_Map" width="227" /></a><br />
+					<a class="hbt-small" href="http://hq.ssrn.com/rankings/Ranking_display.cfm?TRN_gID=10" id="img_toppap" target="new">Top Papers</a> <a class="hbt-small" href="/en/index.cfm/top-authors/" id="img_topauth" target="new">Top Authors</a> <a class="hbt-small topOrganizationButton" href="/en/index.cfm/top-organizations/" id="img_topinst" target="new">Top Organizations</a><br />
+					<!-- 
+<a class="hbt-small" href="/en/index.cfm/top-authors/" id="img_topauth" target="new">Top Authors</a> 
+<a class="hbt-small topOrganizationButton" href="/en/index.cfm/top-organizations/" id="img_topinst" target="new">Top Organizations</a>
+--><a class="hbt-medium" href="http://papers.ssrn.com" id="img_srch">Search</a> <a class="hbt-medium" href="http://papers.ssrn.com/sol3/DisplayJournalBrowse.cfm" id="img_brws">Browse</a><br />
+					<a class="hbt-large" href="http://www.ssrn.com/en/index.cfm/rps/" id="img_rps">Research Paper Series</a><br />
+					<a class="hbt-large" href="http://papers.ssrn.com/sol3/DisplayPipPublishers.cfm" id="img_pip">Partners in Publishing</a><br />
+					<a class="hbt-large" href="/en/index.cfm/org-homepage/" id="img_insthmpg">Organization Home Pages</a><br />
+					<a class="hbt-large" href="/en/index.cfm/conferences/" id="img_conf">Conferences</a></div>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<font color="#203276" face="ARIAL, HELVETICA" size="3" style="margin: 20px 0px; clear: both; float: left;"><b>Leading Social Science Research Delivered Daily</b> </font><br />
+				<br />
+				<font face="ARIAL, HELVETICA" size="2"><span align="justify">Social Science Research Network (SSRN) is devoted to the rapid worldwide dissemination of social science research and is composed of a number of specialized research networks in each of the social sciences. We have received several <a href="/en/index.cfm/awards/"><b>excellence awards</b></a> for our web site.</span><br />
+				<br />
+				Each of SSRN's networks encourages the early distribution of research results by distributing <b><a href="http://hq.ssrn.com/submissions/CreateNewAbstract.cfm">Submitted</a></b> abstracts and by soliciting abstracts of top quality research papers around the world. We now have hundreds of journals, publishers, and institutions in <b><a href="http://papers.ssrn.com/sol3/DisplayPipPublishers.cfm" target="new"> Partners in Publishing</a></b> that provide working papers for distribution through <b><a href="http://papers.ssrn.com/sol3/DisplayJournalBrowse.cfm" target="_top">SSRN's eLibrary</a></b> and abstracts for publication in SSRN's electronic journals.<br />
+				<br />
+				The SSRN eLibrary consists of two parts: an Abstract Database containing abstracts on over 590,900 scholarly working papers and forthcoming papers and an Electronic Paper Collection currently containing over 491,100 downloadable full text documents in Adobe Acrobat pdf format. The eLibrary also includes the research papers of a number of Fee Based Partner Publications.<br />
+				<br />
+				The Networks encourage readers to communicate directly with authors and other subscribers concerning their own and others' research. To facilitate this we publish detailed author contact information including email addresses for authors of each paper. We also provide electronic delivery of the papers when authors wish us to do so from the SSRN eLibrary. You may also <b><a href="http://papers.ssrn.com/sol3/DisplayJournalBrowse.cfm" target="_top"> Browse the SSRN eLibrary</a></b>, view our current <b> <a href="http://papers.ssrn.com/sol3/topten/topTenResults.cfm?groupingtype=3&amp;groupingId=1" target="_body">Top Papers</a></b> or search the electronic library for papers by <b><a href="http://papers.ssrn.com/sol3/DisplayAbstractSearch.cfm" target="_top"> Title</a></b>, <b><a href="http://papers.ssrn.com/sol3/DisplayAbstractSearch.cfm" target="_top"> Author</a></b>, or <b><a href="http://papers.ssrn.com/sol3/DisplayJournalBrowse.cfm" target="_top"> Journal/Topic</a></b>.<br />
+				<br />
+				SSRN also offers a range of high-visibility <b><a href="MAILTO:advertise@ssrn.com">Advertising Opportunities</a></b> for companies seeking to market their products to professionals in the social science or law areas. </font></td>
+			<td align="left" valign="top" width="250"><font color="#203276" face="ARIAL, HELVETICA" size="3"><strong>SSRN's Objective and Commitments to Users</strong></font><br />
+				<br />
+				<font face="ARIAL, HELVETICA" size="2"><a href="/en/index.cfm/mjensen-20th/">20th Anniversary Message from:<br />
+				Michael C. Jensen, SSRN Chairman</a></font><br />
+				<br />
+				<font color="#203276" face="ARIAL, HELVETICA" size="3"><strong>Recent Announcements</strong></font><br />
+				<br />
+				<font face="ARIAL, HELVETICA" size="2"><!--
+SSRN has again been named the Number 1 Open Access Repository in the World (for July, 2012) by the <a href="http://repositories.webometrics.info/en/world" target="new">Ranking Web of World Repositories</a>. Our thanks to all of the SSRN community who helped make this happen.<br />
+<br />
+--><a href="http://www.ssrn.com/update/mrn/mrnann/annA001.html" target="_blank">Announcing Fourth Annual International Conference on Engaged Management Scholarship Online Proceedings on SSRN</a><!--posted 2/16--><br />
+				<br />
+				<a href="http://www.ssrn.com/update/ern/ernann/annA002b.html" target="_blank">The Chinese University of Hong Kong Joins Economics Research Centers Papers</a><!--posted 2/5--><br />
+				<br />
+				<a href="http://www.ssrn.com/update/ern/ernann/annA002a.html" target="_blank">Announcing New ERN Global Commodity Issues Sponsored Subject Matter eJournals</a><!--posted 1/30--><br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA003.html" target="_blank">Announcing ESIL 2014 10th Annual Conference eJournal</a><!--posted 1/30--><br />
+				<br />
+				<a href="http://www.ssrn.com/update/arn/arnann/annA001.html" target="_blank">Announcing AAA MAS 2015 Meeting eJournal on SSRN</a><!--posted 1/22--><br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA002.html" target="_blank">University of Chicago Law School Joins Law Research Centers Papers</a><!--posted 1/16--><br />
+				<br />
+				<a href="http://www.ssrn.com/update/ern/ernann/annA002.html" target="_blank">Bank of Korea Economic Research Institute Joins ERN Government &amp; Public Agency Research Paper Series</a><!--posted 1/13--><br />
+				<br />
+				<a href="http://www.ssrn.com/update/ern/ernann/annA001.html" target="_blank">Announcing Reconfiguration of ERN Organizations &amp; Markets eJournals</a><!--posted 1/9--><br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA001.html" target="_blank">Duke University Re-Joins Law School Research Papers - Public Law &amp; Legal Theory</a><!--posted 1/8--><br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA016.html" target="_blank">Announcing 1st International Workshop on Engineering EHR Solutions (WEES) on SSRN</a><!--posted 8/28--><br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA015.html" target="_blank">Announcing Society of International Economic Law (SIEL), Fourth Biennial Global Conference on SSRN</a><!--posted 8/21--><br />
+				<br />
+				<a href="http://www.proquest.com/" target="blank"><img src="http://ssrn.com/images2/proquest-with-color_88x33px.gif" /></a><br />
+				<a href="http://www.ssrn.com/update/hrn/hrnann/annA001.html" target="_blank">Announcing New Hebrew Research Network</a><!-- DO NOT REMOVE posted 1/27, reposted 6/10 DO NOT REMOVE --><br />
+				<br />
+				<a href="http://www.ssrn.com/update/mrn/mrnann/annA001.html" target="_blank">Temple University Joins MRN Business School Research Papers</a><!--posted 5/2--><br />
+				<br />
+				<!----------------------------------------------------------------><!--
+				<a href="http://www.ssrn.com/update/ern/ernann/annA005.html" target="_blank">USC Dornsife Institute for New Economic Thinking Joins Economics Research Centers Papers</a>posted 11/20<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA018.html" target="_blank">Charles University in Prague Joins Law School Research Papers - Legal Studies</a>posted 11/6<br />
+				<br />
+				<a href="http://www.ssrn.com/update/psn/psnann/annA005.html" target="_blank">Announcing 2014 Australian Political Studies Association Annual Conference Abstracts &amp; Papers on SSRN</a>posted 10/22<br />
+				<br />
+				<a href="http://www.ssrn.com/update/fen/fenann/annA009.html" target="_blank">Announcing Paris December 2014 Finance Meeting EUROFIDAI - AFFI eJournal</a>posted 10/17<br />
+				<br />
+				<a href="http://www.ssrn.com/update/ern/ernann/annA004.html" target="_blank">American University School of International Service Joins Economics Departments Research Papers</a>posted 10/15<br />
+				<br />
+				<a href="http://www.ssrn.com/update/isn/isnann/annA002.html" target="_blank">Announcing New ISN Legal Perspectives in Information Systems Subject Matter eJournal</a>posted 10/9<br />
+				<br />
+				<a href="http://www.ssrn.com/update/ern/ernann/annA003.html" target="_blank">American University School of Public Affairs (SPA) Joins ERN Public Policy Centers Research Papers</a>posted 10/7<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA017.html" target="_blank">London School of Economics Law Department Joins Law School Research Papers - Legal Studies</a>posted 9/17<br />
+				<br />
+				<a href="http://www.ssrn.com/update/fen/fenann/annA008.html" target="_blank">Federal Deposit Insurance Corporation (FDIC) Joins Finance Research Centers Papers</a>posted 9/17<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA014.html" target="_blank">Law Schools Global League Joins Law Research Centers Papers</a>posted 7/24<br />
+				<br />
+				<a href="http://www.ssrn.com/update/isn/isnann/annA001.html" target="_blank">Announcing CPR LATAM - Communication Policy Research Conference 2014 Online Proceedings on SSRN</a>posted 7/31<br />
+				<br />
+				<a href="http://www.ssrn.com/update/fen/fenann/annA007.html" target="_blank">Announcing Asian Finance Association (AsianFA) 2014 Conference eJournal</a>posted 7/17<br />
+				<br />
+				<a href="http://www.ssrn.com/update/hrn/hrnann/annA002.html" target="_blank">Announcing New HRN Hebrew Policy, Regulation &amp; Governance Subject Matter eJournal</a>posted 7/16<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA013.html" target="_blank">Announcing New LSN Transnational Litigation/Arbitration, Private International Law, &amp; Conflict of Laws Subject Matter eJournal</a>posted 7/15<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA012.html" target="_blank">University of Oxford, Monash University, and Oslo University Join Law Research Centers Papers</a>posted 6/26<br />
+				<br />
+				<a href="http://www.ssrn.com/update/mrn/mrnann/annA002.html" target="_blank">Indiana University Joins MRN Business School Research Papers</a>posted 6/24<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA011.html" target="_blank">Belmont University Joins Law School Research Papers - Legal Studies</a>posted 6/17<br />
+				<br />
+				<a href="http://www.ssrn.com/update/fen/fenann/annA006.html" target="_blank">Australian Tax Forum Joins FEN Partners in Publishing Journals</a>posted 6/12<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA010.html" target="_blank">Announcing A Nation of Widening Opportunities: The Civil Rights Act at Fifty eJournal</a>posted 5/29<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA008.html" target="_blank">Howard University Joins Law School Research Papers - Legal Studies</a>posted 4/9<br />
+				<br />
+				<a href="http://www.ssrn.com/update/ern/ernann/annA002.html" target="_blank">American University Joins ERN Public Policy Centers Research Papers</a>posted 4/7<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA007.html">Announcing Expansion of LSN Public International Law eJournal</a>Posted: 4/1/14<br />
+				<br />
+				<a href="http://www.ssrn.com/update/fen/fenann/annA005.html" target="_blank">Centre for International Finance &amp; Regulation (CIFR) Joins Finance Research Centers Papers</a>posted 5/27<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA009.html" target="_blank">National University of Singapore Joins Law School Research Papers - Legal Studies</a>posted 5/22<br />
+				<br />
+				<a href="http://www.ssrn.com/update/arn/arnann/annA004.html" target="_blank">Announcing CAAA 2014 Annual Conference eJournal</a>posted 6/11<br />
+				<br />
+				<a href="http://www.ssrn.com/update/cgn/cgnann/annA001.html" target="_blank">Announcing New CGN Corporate Reputation Sponsored Subject Matter eJournal</a>posted 4/30<br />
+				<br />
+				<a href="http://www.ssrn.com/update/fen/fenann/annA004.html" target="_blank">Announcing Finance Down Under 2014 eJournal</a>posted 4/17<br />
+				<br />
+				<a href="http://www.ssrn.com/update/psn/psnann/annA004.html" target="_blank">Announcing 2014 National Conference of Black Political Scientists (NCOBPS) Annual Meeting eJournal</a>posted 4/15<br />
+				<a href="http://www.ssrn.com/update/arn/arnann/annA003.html" target="_blank">Announcing 2014 ATA Midyear Meeting Online Proceedings on SSRN</a>posted 4/3<br />
+				<br />
+				<a href="http://www.ssrn.com/update/fen/fenann/annA003.html" target="_blank">Warwick Business School Joins Finance Research Centers Papers</a>posted 3/20<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA005.html" target="_blank">Announcing New LSN State &amp; Local Government Sponsored Subject Matter eJournal</a>posted 3/12<br />
+				<br />
+				<a href="http://www.ssrn.com/update/ern/ernann/annA001.html" target="_blank">Universidad EAFIT Joins Economics Departments Research Papers</a>posted 3/11<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA006.html" target="_blank">Announcing 20th St.Gallen International Competition Law Forum 2013 (ICF) eJournal</a>posted 3/25<br />
+				<br />
+				<a href="http://www.ssrn.com/update/psn/psnann/annA003.html" target="_blank">Announcing Expansion of PSN Political Institutions: International Institutions eJournal</a>posted 2/20<br />
+				<br />
+				<a href="http://www.ssrn.com/update/fen/fenann/annA002.html" target="_blank">Swedish House of Finance Joins Finance Research Centers Papers</a>posted 2/6<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA004.html" target="_blank">Announcing New LSN African Law Sponsored Subject Matter eJournal</a>posted 2/5<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA003.html" target="_blank">European University Institute (EUI) Joins Law Research Centers Papers</a>posted 1/30<br />
+				<br />
+				<a href="http://www.ssrn.com/update/psn/psnann/annA002.html" target="_blank">Announcing Expansion of PSN Conflict Studies eJournal</a>posted 1/27<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA002.html" target="_blank">Touro Law Center Joins Law School Research Papers - Legal Studies</a>posted 1/24<br />
+				<br />
+				<a href="http://www.ssrn.com/update/psn/psnann/annA001.html" target="_blank">Robert Schuman Centre for Advanced Studies (RSCAS) Joins Political Science Research Centers Papers</a>posted 1/21<br />
+				<br />
+				<a href="http://www.ssrn.com/update/fen/fenann/annA001.html" target="_blank">Announcing 26th Australasian Finance &amp; Banking Conference 2013 eJournal on SSRN</a>posted 1/28<br />
+				<br />
+				<a href="http://www.ssrn.com/update/arn/arnann/annA002.html" target="_blank">Announcing AAA MAS 2014 Meeting eJournal on SSRN</a>posted 1/20<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA001.html" target="_blank">Announcing ESIL 2013 5th Research Forum eJournal on SSRN</a>posted 1/8<br />
+				<br />
+				<a href="http://www.ssrn.com/update/arn/arnann/annA001.html" target="_blank">Announcing Expansion of ARN Auditing, Litigation &amp; Tax eJournal</a>posted 1/6<br />
+				<br />
+				<a href="http://www.ssrn.com/update/ern/ernann/annA012.html" target="_blank">Alfred P. Sloan Foundation Joins Economics Research Centers Papers</a>posted 12/18<br />
+				<br />
+				<a href="http://www.ssrn.com/update/fen/fenann/annA012.html" target="_blank">Singapore Management University Joins Finance Research Centers Papers</a>posted 12/17<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA025.html" target="_blank">King's College London Joins Law School Research Papers - Legal Studies</a>posted 12/11<br />
+				<br />
+				<a href="http://www.ssrn.com/update/fen/fenann/annA011.html" target="_blank">Announcing New FEN Financial Literacy Sponsored Subject Matter eJournal</a>posted 12/10<br />
+				<br />
+				<a href="http://www.ssrn.com/update/psn/psnann/annA009.html" target="_blank">University of Southern California Joins Political Science Research Centers Papers</a>posted 12/3<br />
+				<br />
+				<a href="http://www.ssrn.com/update/mrn/mrnann/annA009.html" target="_blank">Humanistic Management Network Joins MRN Management Research Centers Papers</a>posted 11/26<br />
+				<br />
+				<a href="http://www.ssrn.com/update/psn/psnann/annA008.html" target="_blank">Announcing New PSN Political Science Educator: Courses, Cases &amp; Teaching Subject Matter eJournal</a>posted 11/19<br />
+				<br />
+				<a href="http://www.ssrn.com/update/rcrn/rcrnann/annA001.html" target="_blank">Announcing New RCRN Organizational Communication Subject Matter eJournal</a>posted 11/7<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA024.html" target="_blank">University of Ottawa Joins Law School Research Papers - Legal Studies</a>posted 11/5<br />
+				<br />
+				<a href="http://www.ssrn.com/update/lsn/lsnann/annA023.html" target="_blank">Harvard Law School Joins Law Research Centers Papers</a>posted 10</font><br />
+--><br />
+				<font color="#203276" face="ARIAL, HELVETICA" size="3"><strong>SSRN President's Letter</strong></font><br />
+				<br />
+				<font face="ARIAL, HELVETICA" size="2"><a href="http://www.ssrn.com/update/all/2014_Year-End_Pres.html" target="_blank"><b>SSRN's 2014 Year-End President's Letter</b></a><br />
+				<br />
+				<font face="ARIAL, HELVETICA" size="2"><a href="http://www.ssrn.com/update/all/2014_Mid-Year_Pres.html" target="_blank"><b>SSRN's 2014 Mid-Year President's Letter</b></a><br />
+				<br />
+				<a href="http://ssrnblog.com/" target="_blank"><b>SSRN Blog</b></a><br />
+				<br />
+				<br />
+				<font color="#203276" face="ARIAL, HELVETICA" size="3"><strong>SSRN In The News</strong></font><br />
+				<br />
+				<font face="ARIAL, HELVETICA" size="2"><a href="/en/index.cfm/ny-times-ssrn/"><b>The New York Times on SSRN</b></a><br />
+				(Monday, June 9, 2008)<br />
+				<br />
+				<font face="ARIAL, HELVETICA" size="2"><a href="/en/index.cfm/growthology-jensen/"><b>Growthology Blog Posts Interview with SSRN Chairman Michael Jensen</b></a><br />
+				(Thursday, June 5, 2008)<br />
+				<br />
+				<font face="ARIAL, HELVETICA" size="2"><a href="/en/index.cfm/napster-for-nerds/"><b>Napster for Nerds</b></a><br />
+				(Montreal Gazette, January 13, 2004)<br />
+				<br />
+				<font face="ARIAL, HELVETICA" size="2"><a href="/en/index.cfm/warsh-on-ssrn/"><b>David Warsh on SSRN</b></a><br />
+				(Excerpted from &quot;The Publisher&quot;, November 30, 2003)<br />
+				<br />
+				<font color="#203276" face="ARIAL, HELVETICA" size="3"><b>Network Directors</b></font><br />
+				<br />
+				<font face="ARIAL, HELVETICA" size="2"><!--<a href="http://www.ssrn.com/update/arn/arn_java.html">--><b>Accounting Research Network</b><br />
+				Ross Watts<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/csn/csn_java.html">--><b>Cognitive Science Network</b><br />
+				Mark Turner<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/cgn/cgn_java.html">--><b>Corporate Governance Network</b><br />
+				Lucian Bebchuk<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/ern/ern_java.html">--><b>Economics Research Network</b><br />
+				Michael C. Jensen<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/erpn/erpn_java.html">--><b>Entrepreneurship Research &amp; Policy Network</b><br />
+				Robert Litan<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/fen/fen_java.html">--><b>Financial Economics Network</b><br />
+				Michael C. Jensen<br />
+				<br />
+				<b>Health Economics Network</b><br />
+				Thomas E. Getzen<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/isn/isn_java.html">--><b>Information Systems Network</b><br />
+				Erik Brynjolfsson<br />
+				<br />
+				<b>Leadership Research Network</b><br />
+				Nitin Nohria &amp; Rakesh Khurana<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/lsn/lsn_java.html">--><b>Legal Scholarship Network</b><br />
+				Bernard Black &amp; Ronald Gilson<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/mrn/mrn_java.html">--><b>Management Research Network</b><br />
+				Michael C. Jensen<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/mkt/mkt_java.html">--><b>Marketing Research Network</b><br />
+				Al Silk<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/neg/neg_java.html">--><b>Negotiations Research Network</b><br />
+				Max H. Bazerman<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/psn/psn_java.html">--><b>Political Science Network</b><br />
+				David A. Lake &amp; Mathew D. McCubbins<br />
+				<br />
+				<!--<a href="http://www.ssrn.com/update/sirn/sirn_java.html">--><b>Social Insurance Research Network</b><br />
+				Janice Gregory<br />
+				<br />
+				<b>Music Research &amp; Composition Network</b><br />
+				Andre de Quadros<br />
+				<br />
+				<b>Rhetoric &amp; Communication Research Network</b><br />
+				David C. Logan </font><br />
+				<br />
+				<font color="#203276" face="ARIAL, HELVETICA" size="3"><b>Board of Trustees</b> </font><br />
+				<br />
+				<font face="ARIAL, HELVETICA" size="2">Eugene F. Fama<br />
+				Ronald J. Gilson<br />
+				J. Richard Hackman<br />
+				Michael C. Jensen<br />
+				Richard Quandt<br />
+				William F. Sharpe<br />
+				Hal Varian </font></font></font></font></font></font></font></font></td>
+		</tr>
+	</tbody>
+</table>
+<p><map name="eLibhead_Map"><area alt="Stanford Law School" coords="125,55,225,100" href="http://www.law.stanford.edu/" shape="rect" target="_blank" title="Stanford Law School" /> <area alt="Korea University" coords="0,55,115,100" href="http://www.korea.edu/" shape="rect" target="_blank" title="Korea University" /> <area alt="European Corporate Governance Institute" coords="125,10,225,50" href="http://www.ecgi.org/" shape="rect" target="_blank" title="European Corporate Governance Institute" /> <area alt="Chicago GSB" coords="0,15,120,50" href="http://www.chicagobooth.edu/" shape="rect" target="_blank" title="Chicago GSB" /></map></p>
+<hr size="3" width="100%" />
+<table border="0" cellpadding="10" width="500">
+	<tbody>
+		<tr>
+			<td>
+				<p><font color="#203276" face="ARIAL, HELVETICA" size="3"><b>About the Board of Trustees</b> </font></p>
+				<p><font face="ARIAL, HELVETICA" size="2"><a href="http://www.chicagobooth.edu/fac/eugene.fama/" target="_top"><b>Professor Eugene F. Fama</b></a></font></p>
+				<blockquote><font face="ARIAL, HELVETICA" size="2">Robert R. McCormick Distinguished Service Professor of Finance, University of Chicago Booth School of Business, Chairman, Center for Research in Security at Chicago Booth, Advisory Editor of the Journal of Financial Economics, Director of Research, Dimensional Fund Advisors, and Chairman of Social Science Electronic Publishing</font></blockquote>
+				<p><font face="ARIAL, HELVETICA" size="2"><b>Professor Ronald J. Gilson</b> </font></p>
+				<blockquote><font face="ARIAL, HELVETICA" size="2">Charles J. Meyers Professor of Law and Business, Stanford Law School and Marc and Eva Stern Professor of Law and Business, Columbia University School of Law </font></blockquote>
+				<p><font face="ARIAL, HELVETICA" size="2"><b>Professor J. Richard Hackman</b> </font></p>
+				<blockquote><font face="ARIAL, HELVETICA" size="2">Edgar Pierce Professor of Social and Organizational Psychology, John F. Kennedy School of Government, Harvard University </font></blockquote>
+				<p><font face="ARIAL, HELVETICA" size="2"><b><a href="http://drfd.hbs.edu/fit/public/facultyInfo.do?facInfo=ovr&amp;facId=6484" target="_top">Professor Michael C. Jensen</a></b> </font></p>
+				<blockquote><font face="ARIAL, HELVETICA" size="2">Jesse Isidor Straus Professor of Business Administration, Emeritus, Harvard Business School; Founding Editor of the Journal of Financial Economics, Chairman, Social Science Electronic Publishing, Past President of the American Finance Association, and of the Western Economics Association International. </font></blockquote>
+				<p><font face="ARIAL, HELVETICA" size="2"><b>Professor Richard Quandt</b> </font></p>
+				<blockquote><font face="ARIAL, HELVETICA" size="2">Hughes-Rogers Professor Emeritus, Princeton University and Senior Advisor, The Andrew W. Mellon Foundation </font></blockquote>
+				<p><font face="ARIAL, HELVETICA" size="2"><b><a href="http://www.wsharpe.com" target="_top">Professor William F. Sharpe</a></b> </font></p>
+				<blockquote><font face="ARIAL, HELVETICA" size="2">The STANCO 25 Professor of Finance, Emeritus, Graduate School of Business, Stanford Business School, Past President of the American Finance Association, 1990 Nobel Laureate in Economic Sciences </font></blockquote>
+				<p><font face="ARIAL, HELVETICA" size="2"><b><a href="http://info.berkeley.edu/~hal/" target="_top">Professor Hal Varian</a></b> </font></p>
+				<blockquote><font face="ARIAL, HELVETICA" size="2">Professor, School of Information Management and Systems at the University of California at Berkeley, Professor of Economics in the Haas School of Business at UC Berkeley, Chief Economist at Google </font></blockquote>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<hr size="3" width="100%" />
+<blockquote><font face="ARIAL, HELVETICA" size="2">For general questions or comments about SSRN, email <a href="mailto:management@SSRN.Com">management@ssrn.com</a> or contact 877-SSRNHelp (877.777.6435 or 585.442.8170), <a href="mailto:Gregg_Gordon@SSRN.Com">Gregg Gordon</a> , SSRN President (585) 442.8170, or <a href="mailto:Michael_Jensen@SSRN.Com">Michael C. Jensen</a> , SSRN Chairman (617) 510.3363. </font></blockquote>
+
+
+
+					
+					
+						
+			 
+		
+	
+				
+			</article>
+		</div>
+	</div>
+	
+	<footer>
+		<div class="wrap clearfix">
+			
+			
+			
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+	
+	
+		
+	
+
+			
+
+
+
+
+	
+		
+	
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+			<!-- includes piwik Trakcer -->
+ 
+
+
+	 
+
+
+<!-- Piwik --> 
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.ssrn.com/" : "http://piwik.ssrn.com/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 7);
+	piwikTracker.trackPageView();
+	
+
+
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://piwik.ssrn.com/piwik.php?idsite=7" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+
+<!--Includesss footer -->
+
+
+
+	
+	<p align="center" class="ssrn_ft">&#169; 2015 Social Science Electronic Publishing, Inc. All Rights Reserved.&nbsp;
+	<a href="http://www.ssrn.com/en/index.cfm/ssrn-faq/" target="_blank" title="SSRN's Database and Services (FAQ)">FAQ</a>&nbsp;&nbsp;
+	<a href="http://www.ssrn.com/en/index.cfm/terms-of-use/" target="_blank" title="Terms of Use">Terms of Use</a>&nbsp;&nbsp;
+	<a href="http://www.ssrn.com/en/index.cfm/privacy-policy/" target="_blank" title="Privacy Policy">Privacy Policy</a>&nbsp;&nbsp;
+	<a href="http://www.ssrn.com/en/index.cfm/dmca-notice-policy/" target="_blank" title="Copyright">Copyright</a>&nbsp;&nbsp;
+	<a href="http://www.ssrn.com/en/index.cfm/contactus/" target="_blank" title="Contact">Contact Us</a>
+	<br>This page was processed by apollo5 in <span id="serverTime">  0.297</span> seconds
+    <span id="loadingtime"></span></p>
+	<a href="/bots.not.allowed/"></a>
+
+	
+	
+
+	
+
+
+
+<script language="javascript">
+	if (window.loadingTime) {
+	addLoadEvent(loadingTime); }
+</script>
+
+		</div>
+	</footer>
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+	   
+
+
+
+       
+       
+       
+               
+       
+
+
+	<!--[if lt IE 8]><script type="text/javascript" src="/en/includes/themes/merced/compiled/ie.lte7.min.20130715045020.js"></script><![endif]--><!--[if lt IE 8]><script type="text/javascript" src="/en/includes/themes/merced/compiled/ie.lte7.roundies.min.20130715045020.js"></script><![endif]-->
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+       
+               
+			  
+              	 
+			  
+       
+
+
+	
+
+</div>
+</body>
+</html>";i:2;s:4:"6016";}

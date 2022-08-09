@@ -1,0 +1,1168 @@
+a:3:{i:0;s:19:"http://tricare.mil/";i:1;s:58342:"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#"
+xmlns:fb="https://www.facebook.com/2008/fbml">
+<head><title>
+	Home
+</title>
+    <!-- Meta -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="CODE_LANGUAGE" content="C#" /><meta name="vs_defaultClientScript" content="JavaScript" /><meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale:1.0; user-scalable=no" />
+    
+    <!-- CSS -->
+    <!--<link rel="stylesheet" href="_inc/css/print.css" type="text/css" media="print" /><link rel="stylesheet" href="_inc/css/screen.css" type="text/css" media="screen" />-->
+    <link rel="stylesheet" href="_inc/css/homepage.css" type="text/css" /><link rel="stylesheet" href="_inc/css/home_responsive.css" type="text/css" /><link rel="Shortcut Icon" href="_inc/img/favicon.ico" type="image/x-icon" />
+    
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="/_inc/js/respond.src.js"></script>
+    <script type="text/javascript" src="/_inc/js/respond.min.js"></script>
+    <link rel="stylesheet" href="_inc/css/jquery-ui.css" />
+    <script type="text/javascript" src="/_inc/js/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/_inc/js/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" src='/_inc/js/tricare.js'></script>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27831406-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        $(document).ready(function () {
+            $('[tricare-search-autocomplete]').autocomplete({
+                source: '/handlers/AutoCompleteHandler.ashx',
+                minLength: 3,
+                select: function (a, b) {
+                    $(this).val(b.item.value);
+                    $('input[search-for=' + $(this).attr('search-id') + ']').click();
+                }
+            });
+
+            $('a[target=_blank]').click(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: '/handlers/analytics.ashx',
+                    data: { action: 'external link', url: $(this).attr('href'), page: window.location.href },
+                    dataType: 'json'
+                });
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        // MOBILE - Collapsible Navigation
+        $(document).ready(function () {
+            var themenu = $("#mainnav");
+            var topbar = $("#mobile");
+            var header = $("#header");
+            var pagebody = $("#content");
+            var footer = $("#footer");
+            var viewport = {
+                width: $(window).width(),
+                height: $(window).height()
+            };
+            // retrieve variables as
+            // viewport.width / viewport.height
+            function openme() {
+                $(function () {
+                    topbar.animate({
+                        left: "250px"
+                    }, { duration: 300, queue: false });
+                    header.animate({
+                        left: "250px"
+                    }, { duration: 300, queue: false });
+                    pagebody.animate({
+                        left: "250px"
+                    }, { duration: 300, queue: false });
+                    footer.animate({
+                        left: "250px"
+                    }, { duration: 300, queue: false });
+                });
+            }
+            function closeme() {
+                var closeme = $(function () {
+                    topbar.animate({
+                        left: "0px"
+                    }, { duration: 180, queue: false });
+                    header.animate({
+                        left: "0px"
+                    }, { duration: 180, queue: false });
+                    pagebody.animate({
+                        left: "0px"
+                    }, { duration: 180, queue: false });
+                    footer.animate({
+                        left: "0px"
+                    }, { duration: 180, queue: false });
+                });
+            }
+            // checking whether to open or close nav menu
+            $("a.toggle").on("click", function (e) {
+                e.preventDefault();
+                var leftval = pagebody.css('left');
+                if (leftval == "0px") {
+                    openme();
+                }
+                else {
+                    closeme();
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        // MOBILE - Collapsible Navigation's SubMenu
+        function toggleMenuDrop(control) {
+
+            $(control).parent().children('ul.submenu').slideToggle(400, function () {
+                $(control).children('a').toggleClass('menuup menudrop');
+            });
+
+        };
+        $(document).ready(function () {
+            $('ul.submenu').parent().not('.active').prepend('<span onclick=\'toggleMenuDrop(this);\'><a class="menudrop">Toggle SubMenu</a></span>');
+            //Adds empty span tag after ul
+            //$('ul.submenu').parent().not('.active').prepend('<span><a class="menudrop"></a></span>'); 
+            //Adds empty span tag after ul
+            $('.nav > ul > li.active').prepend('<span class="active"></span>');
+        });
+    </script>
+
+
+    <link href="/layouts/System/VisitorIdentification.aspx" rel="stylesheet" type="text/css" /></head>
+<body>
+    <form name="form1" method="post" action="/" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUINzcyNjM5ODcPZBYCAgMQZGQWCgIBD2QWAmYPZBYCZg9kFgICBQ8WAh4EaHJlZgUVL0NvbnRhY3RVcy9Mb2dpbi5hc3B4ZAIDD2QWAmYPZBYCAgEPFgIeC18hSXRlbUNvdW50AggWEGYPZBYCZg8VATQ8bGkgY2xhc3M9Im5hdi1saW5rLWhvbWUiPjxhIGhyZWY9Ii8iID5Ib21lPC9hPjwvbGk+ZAIBD2QWAmYPFQEtPGxpPjxhIGhyZWY9Ii9XZWxjb21lLmFzcHgiID5XZWxjb21lPC9hPjwvbGk+ZAICD2QWAmYPFQGFBTxsaT48YSBocmVmPSIvUGxhbnMuYXNweCIgPlBsYW5zPC9hPjx1bCBjbGFzcz0ic3VibWVudSI+DQo8bGk+PGEgaHJlZj0iL1BsYW5zL0VsaWdpYmlsaXR5LmFzcHgiID5FbGlnaWJpbGl0eTwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9QbGFucy9OZXcuYXNweCIgPk5ldyB0byBUUklDQVJFPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL1BsYW5zL0hlYWx0aFBsYW5zLmFzcHgiID5IZWFsdGggUGxhbnM8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvUGxhbnMvUGxhbkZpbmRlci5hc3B4IiA+UGxhbiBGaW5kZXI8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvUGxhbnMvQ29tcGFyZVBsYW5zLmFzcHgiID5Db21wYXJlIFBsYW5zPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL1BsYW5zL0Vucm9sbC5hc3B4IiA+RW5yb2xsIG9yIFB1cmNoYXNlIGEgUGxhbjwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9QbGFucy9PSEkuYXNweCIgPlVzaW5nIE90aGVyIEhlYWx0aCBJbnN1cmFuY2U8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvUGxhbnMvRGVudGFsUGxhbnMuYXNweCIgPkRlbnRhbCBQbGFuczwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9QbGFucy9TcGVjaWFsUHJvZ3JhbXMuYXNweCIgPlNwZWNpYWwgUHJvZ3JhbXM8L2E+PC9saT4NCjwvdWw+DQo8L2xpPmQCAw9kFgJmDxUBzQQ8bGk+PGEgaHJlZj0iL0NvdmVyZWRTZXJ2aWNlcy5hc3B4IiA+U2VlIFdoYXQncyBDb3ZlcmVkPC9hPjx1bCBjbGFzcz0ic3VibWVudSI+DQo8bGk+PGEgaHJlZj0iL0NvdmVyZWRTZXJ2aWNlcy9Jc0l0Q292ZXJlZC5hc3B4IiA+SXMgSXQgQ292ZXJlZD88L2E+PC9saT4NCjxsaT48YSBocmVmPSIvQ292ZXJlZFNlcnZpY2VzL0RlbnRhbC5hc3B4IiA+RGVudGFsIENhcmU8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvQ292ZXJlZFNlcnZpY2VzL01lbnRhbC5hc3B4IiA+TWVudGFsIEhlYWx0aCBDYXJlPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0NvdmVyZWRTZXJ2aWNlcy9QaGFybWFjeS5hc3B4IiA+UGhhcm1hY3k8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvQ292ZXJlZFNlcnZpY2VzL1NwZWNpYWxOZWVkcy5hc3B4IiA+U3BlY2lhbCBOZWVkczwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9Db3ZlcmVkU2VydmljZXMvVmlzaW9uLmFzcHgiID5WaXNpb24gQ2FyZTwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9Db3ZlcmVkU2VydmljZXMvQmVuZWZpdFVwZGF0ZXMuYXNweCIgPkJlbmVmaXQgVXBkYXRlczwvYT48L2xpPg0KPC91bD4NCjwvbGk+ZAIED2QWAmYPFQHABjxsaT48YSBocmVmPSIvRmluZERvY3Rvci5hc3B4IiA+RmluZCBhIERvY3RvcjwvYT48dWwgY2xhc3M9InN1Ym1lbnUiPg0KPGxpPjxhIGhyZWY9Ii9GaW5kRG9jdG9yL0FwcG9pbnRtZW50cy5hc3B4IiA+Qm9vayBBcHBvaW50bWVudHM8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvRmluZERvY3Rvci9UcmF2ZWxpbmcuYXNweCIgPkdldHRpbmcgQ2FyZSBXaGVuIFRyYXZlbGluZzwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9GaW5kRG9jdG9yL01pbGl0YXJ5LmFzcHgiID5NaWxpdGFyeSBIb3NwaXRhbHMgYW5kIENsaW5pY3M8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvRmluZERvY3Rvci9NU00uYXNweCIgPk11bHRpLVNlcnZpY2UgTWFya2V0czwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9GaW5kRG9jdG9yL05ldHdvcmsuYXNweCIgPk5ldHdvcmsgUHJvdmlkZXJzPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0ZpbmREb2N0b3IvTm9uTmV0d29yay5hc3B4IiA+Tm9uLU5ldHdvcmsgUHJvdmlkZXJzPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0ZpbmREb2N0b3IvT3ZlcnNlYXMuYXNweCIgPk92ZXJzZWFzIFByb3ZpZGVyczwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9GaW5kRG9jdG9yL01lZGljYXJlLmFzcHgiID5NZWRpY2FyZSBQcm92aWRlcnM8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvRmluZERvY3Rvci9VU0ZIUC5hc3B4IiA+VVMgRmFtaWx5IEhlYWx0aCBQbGFuIFByb3ZpZGVyczwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9GaW5kRG9jdG9yL1ZBRmFjaWxpdGllcy5hc3B4IiA+VmV0ZXJhbnMgQWZmYWlycyBGYWNpbGl0aWVzPC9hPjwvbGk+DQo8L3VsPg0KPC9saT5kAgUPZBYCZg8VAYsDPGxpPjxhIGhyZWY9Ii9Db3N0cy5hc3B4IiA+Q29zdHM8L2E+PHVsIGNsYXNzPSJzdWJtZW51Ij4NCjxsaT48YSBocmVmPSIvQ29zdHMvSGVhbHRoUGxhbkNvc3RzLmFzcHgiID5IZWFsdGggUGxhbiBDb3N0czwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9Db3N0cy9QcmVzY3JpcHRpb25Db3N0cy5hc3B4IiA+UHJlc2NyaXB0aW9uIENvc3RzPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0Nvc3RzL0RlbnRhbENvc3RzLmFzcHgiID5EZW50YWwgQ29zdHM8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvQ29zdHMvUGF5RmVlcy5hc3B4IiA+UGF5IE15IEJpbGw8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvQ29zdHMvQ2F0Q2FwLmFzcHgiID5DYXRhc3Ryb3BoaWMgQ2FwPC9hPjwvbGk+DQo8L3VsPg0KPC9saT5kAgYPZBYCZg8VAZcIPGxpPjxhIGhyZWY9Ii9MaWZlRXZlbnRzLmFzcHgiID5MaWZlIEV2ZW50czwvYT48dWwgY2xhc3M9InN1Ym1lbnUiPg0KPGxpPjxhIGhyZWY9Ii9MaWZlRXZlbnRzL0JhYnkuYXNweCIgPkhhdmluZyBhIEJhYnkgb3IgQWRvcHRpbmc8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvTGlmZUV2ZW50cy9SZXRpcmluZy5hc3B4IiA+UmV0aXJpbmc8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvTGlmZUV2ZW50cy9NYXJyaWFnZS5hc3B4IiA+R2V0dGluZyBNYXJyaWVkPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0xpZmVFdmVudHMvTW92aW5nLmFzcHgiID5Nb3Zpbmc8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvTGlmZUV2ZW50cy9EaXZvcmNlLmFzcHgiID5HZXR0aW5nIERpdm9yY2VkPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0xpZmVFdmVudHMvTWVkaWNhcmUuYXNweCIgPkJlY29taW5nIE1lZGljYXJlLUVsaWdpYmxlPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0xpZmVFdmVudHMvU2VwYXJhdGluZy5hc3B4IiA+U2VwYXJhdGluZyBmcm9tIEFjdGl2ZSBEdXR5PC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0xpZmVFdmVudHMvQ2hpbGRBZHVsdC5hc3B4IiA+Q2hpbGRyZW4gQmVjb21pbmcgQWR1bHRzPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0xpZmVFdmVudHMvQ29sbGVnZS5hc3B4IiA+R29pbmcgdG8gQ29sbGVnZTwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9MaWZlRXZlbnRzL1Nwb25zb3JEZWF0aC5hc3B4IiA+U3BvbnNvciBEaWVzPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0xpZmVFdmVudHMvRGVhY3RpdmF0aW5nLmFzcHgiID5EZWFjdGl2YXRpbmc8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvTGlmZUV2ZW50cy9BY3RpdmF0aW5nLmFzcHgiID5BY3RpdmF0aW5nPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0xpZmVFdmVudHMvSW5qdXJlZG9uQUQuYXNweCIgPkluanVyZWQgb24gQWN0aXZlIER1dHk8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvTGlmZUV2ZW50cy9EZXBsb3lpbmcuYXNweCIgPkRlcGxveWluZzwvYT48L2xpPg0KPC91bD4NCjwvbGk+ZAIHD2QWAmYPFQGkBDxsaT48YSBocmVmPSIvSGVhbHRoV2VsbG5lc3MuYXNweCIgPkhlYWx0aCBhbmQgV2VsbG5lc3M8L2E+PHVsIGNsYXNzPSJzdWJtZW51Ij4NCjxsaT48YSBocmVmPSIvSGVhbHRoV2VsbG5lc3MvQWxjb2hvbC5hc3B4IiA+QWxjb2hvbCBBd2FyZW5lc3M8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvSGVhbHRoV2VsbG5lc3MvVG9iYWNjby5hc3B4IiA+VG9iYWNjbyBDZXNzYXRpb248L2E+PC9saT4NCjxsaT48YSBocmVmPSIvSGVhbHRoV2VsbG5lc3MvUHJldmVudGl2ZS5hc3B4IiA+UHJldmVudGl2ZSBTZXJ2aWNlczwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9IZWFsdGhXZWxsbmVzcy9HZXRGaXQuYXNweCIgPkdldCBGaXQ8L2E+PC9saT4NCjxsaT48YSBocmVmPSIvSGVhbHRoV2VsbG5lc3MvSGVhbHRoeUxpdmluZ1BhcnRuZXJzLmFzcHgiID5IZWFsdGh5IExpdmluZyBQYXJ0bmVyczwvYT48L2xpPg0KPGxpPjxhIGhyZWY9Ii9IZWFsdGhXZWxsbmVzcy9ITEFydGljbGVzLmFzcHgiID5IZWFsdGh5IExpdmluZyBBcnRpY2xlczwvYT48L2xpPg0KPC91bD4NCjwvbGk+ZAIFD2QWAmYPZBYCZg8PFgIeB1Byb2ZpbGUywQIAAQAAAP////8BAAAAAAAAAAwCAAAAQ1RyaWNhcmUuQ29yZSwgVmVyc2lvbj0xLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGwFAQAAAB9UcmljYXJlLkNvcmUudXRpbC5Qcm9maWxlT2JqZWN0BgAAABU8UGxhbj5rX19CYWNraW5nRmllbGQXPFJlZ2lvbj5rX19CYWNraW5nRmllbGQYPFNlcnZpY2U+a19fQmFja2luZ0ZpZWxkGzxSZWdpb25JbmZvPmtfX0JhY2tpbmdGaWVsZBQ8WmlwPmtfX0JhY2tpbmdGaWVsZBg8Q291bnRyeT5rX19CYWNraW5nRmllbGQBAQEBAQECAAAABgMAAAAKTm8gUHJvZmlsZQkDAAAACQMAAAAGBAAAAAAKCgtkFgYCCA8WAh8ABQ0vV2VsY29tZS5hc3B4ZAIKDxYCHwECCGQCCw8WAh8BAghkAgcPZBYCZg9kFgJmD2QWAgIBDxYCHwECBhYMZg9kFgICAQ8WAh8ABT4vSGVhbHRoV2VsbG5lc3MvSExBcnRpY2xlcy9BcmNoaXZlcy8wMl8xOV8xNV9Nb25zdGVyTW91dGguYXNweGQCAQ9kFgICAQ8WAh8ABT8vQ292ZXJlZFNlcnZpY2VzL0JlbmVmaXRVcGRhdGVzL0FyY2hpdmVzLzAyXzE4XzE1X0FpckV2YWNzLmFzcHhkAgIPZBYCAgEPFgIfAAU8L0NvdmVyZWRTZXJ2aWNlcy9CZW5lZml0VXBkYXRlcy9BcmNoaXZlcy8wMl8xM18xNV9HQVNwTy5hc3B4ZAIDD2QWAgIBDxYCHwAFRC9IZWFsdGhXZWxsbmVzcy9ITEFydGljbGVzL0FyY2hpdmVzLzAyXzEwXzE1X1dpbnRlclNhZmV0eUF0SG9tZS5hc3B4ZAIED2QWAgIBDxYCHwAFRi9Db3ZlcmVkU2VydmljZXMvQmVuZWZpdFVwZGF0ZXMvQXJjaGl2ZXMvMDJfMDJfMTVfUnhDb3BheUluY3JlYXNlLmFzcHhkAgUPZBYCAgEPFgIfAAVBL0hlYWx0aFdlbGxuZXNzL0hMQXJ0aWNsZXMvQXJjaGl2ZXMvMDFfMjhfMTVfV2ludGVyU2FmZXR5MTAxLmFzcHhkAgkPZBYCZg9kFgJmD2QWAgIBDxYCHwECCWRkBfEtH02LKZyw5DVGicEyVwo7zPk=" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="5A1CB5BB" />
+</div>
+    <div id="top">
+        
+<script type="text/javascript">
+
+    function HandleSearchBoxTopPress(e, control) {
+        var keynum = 0;
+        keynum = e.keyCode;
+
+        if (keynum == 13) {
+            var btnSearch = document.getElementById("header_0_btnSearch");
+            btnSearch.click();
+            return false;
+        }
+        else
+            return true;
+    }
+
+</script>
+<!-- Top -->
+
+<div class="container">
+
+    
+    
+
+	<h1 class="hidden">Home</h1>
+
+    <div class="logo left">
+        <a href="#">TRICARE</a>
+    </div>
+
+
+    <div class="skipnav">
+        <a href="#content" class="hidden">Skip to Content</a>
+    </div>
+    
+    <!--<div class="pull-left welcome">
+        <div class="title">
+            Welcome, Beneficiaries
+        </div>
+        <p class="desc">
+            TRICARE<sup>&reg;</sup> is the health care program serving Uniformed Service members, retirees and their families worldwide.
+        </p>
+    </div>-->
+
+    <div class="right" id="utilnav">
+        <div id="SocialMedia">
+            <ul class="icn_social_media">
+                <li class="icn_fb"><a target="_blank" href="https://www.facebook.com/TRICARE" alt="Facebook" title="Facebook">Facebook</a></li> 
+                <li class="icn_googleplus"><a title="Google+" alt="Google+" href="https://plus.google.com/114088132178019381861" target="_blank">Google+</a></li>
+
+                <li class="icn_twitter"><a target="_blank" href="https://twitter.com/TRICARE"  alt="Twitter" title="Twitter">Twitter</a></li>
+                <!--
+                <li class="icn_instagram"><a title="Instagram" alt="Instagram" href="#" target="_blank">Instagram</a></li>
+                -->
+                <li class="icn_youtube"><a target="_blank" href="http://www.youtube.com/tricare" alt="YouTube" title="YouTube" >Youtube</a></li>
+                <li class="icn_govdel"><a target="_blank" href="https://public.govdelivery.com/accounts/USMHSTMA/subscriber/new" alt="Email Updates" title="Email Updates">Email Updates</a></li>
+                <li class="icn_rss"><a href="/rss" alt="RSS Feed" title="RSS Feed">RSS Feed</a></li>
+                <li class="icn_podcast"><a href="/About/MediaCenter/Podcasts.aspx" alt="Podcast" title="Podcast">Podcast</a></li>
+                <li class="icn_webinars"><a target="_blank" href="http://www.militaryonesource.mil/social/webinar-archives" alt="Webinars" title="Webinars">Webinars</a></li> 
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div id="search" class="right">
+            <div nowrap="yes">
+                <label for="header_0_textBoxSearchValue" id="header_0_lblSearch" class="hidden">Search</label>
+                <input name="header_0$textBoxSearchValue" type="text" id="header_0_textBoxSearchValue" class="search-input" search-id="home-search" tricare-search-autocomplete="true" onkeydown="javascript:return HandleSearchBoxTopPress(event,this);" />
+                <input type="submit" name="header_0$btnSearch" value="Search" id="header_0_btnSearch" class="btn btn-red search-btn" search-for="home-search" /><br />
+
+            </div>
+        </div>
+        <div class="btn btn-secure right">
+            <a href="/ContactUs/Login.aspx" id="header_0_SecureLogin" class="icn-secure">Secure Login</a>
+        </div>
+    </div>
+
+
+</div>
+<div class="clear"></div>
+<!-- / -->
+
+    </div>
+    <div id="wrap">
+        <div id="mainnav">
+            <div class="container">
+                
+    
+<!-- MAIN NAV -->
+<!--<div id="mainnav">-->
+<div class="nav">
+    <h2 class="hidden">Main Nav First Bar</h2>
+    <ul>
+        <!--<li class="active"><a href="#">TRICARE Home</a></li>
+                <li><a href="#">TRICARE Overview</a></li>
+                <li><a href="#">Medical</a></li>
+                <li><a href="#">Dental</a></li>
+                <li><a href="#">Vision</a></li>
+                <li><a href="#">Prescriptions</a></li>
+                <li><a href="#">Mental Health and Behavior</a></li>
+                <li><a href="#">Life Events</a></li>-->
+        
+                <li class="nav-link-home"><a href="/" >Home</a></li>
+            
+                <li><a href="/Welcome.aspx" >Welcome</a></li>
+            
+                <li><a href="/Plans.aspx" >Plans</a><ul class="submenu">
+<li><a href="/Plans/Eligibility.aspx" >Eligibility</a></li>
+<li><a href="/Plans/New.aspx" >New to TRICARE</a></li>
+<li><a href="/Plans/HealthPlans.aspx" >Health Plans</a></li>
+<li><a href="/Plans/PlanFinder.aspx" >Plan Finder</a></li>
+<li><a href="/Plans/ComparePlans.aspx" >Compare Plans</a></li>
+<li><a href="/Plans/Enroll.aspx" >Enroll or Purchase a Plan</a></li>
+<li><a href="/Plans/OHI.aspx" >Using Other Health Insurance</a></li>
+<li><a href="/Plans/DentalPlans.aspx" >Dental Plans</a></li>
+<li><a href="/Plans/SpecialPrograms.aspx" >Special Programs</a></li>
+</ul>
+</li>
+            
+                <li><a href="/CoveredServices.aspx" >See What's Covered</a><ul class="submenu">
+<li><a href="/CoveredServices/IsItCovered.aspx" >Is It Covered?</a></li>
+<li><a href="/CoveredServices/Dental.aspx" >Dental Care</a></li>
+<li><a href="/CoveredServices/Mental.aspx" >Mental Health Care</a></li>
+<li><a href="/CoveredServices/Pharmacy.aspx" >Pharmacy</a></li>
+<li><a href="/CoveredServices/SpecialNeeds.aspx" >Special Needs</a></li>
+<li><a href="/CoveredServices/Vision.aspx" >Vision Care</a></li>
+<li><a href="/CoveredServices/BenefitUpdates.aspx" >Benefit Updates</a></li>
+</ul>
+</li>
+            
+                <li><a href="/FindDoctor.aspx" >Find a Doctor</a><ul class="submenu">
+<li><a href="/FindDoctor/Appointments.aspx" >Book Appointments</a></li>
+<li><a href="/FindDoctor/Traveling.aspx" >Getting Care When Traveling</a></li>
+<li><a href="/FindDoctor/Military.aspx" >Military Hospitals and Clinics</a></li>
+<li><a href="/FindDoctor/MSM.aspx" >Multi-Service Markets</a></li>
+<li><a href="/FindDoctor/Network.aspx" >Network Providers</a></li>
+<li><a href="/FindDoctor/NonNetwork.aspx" >Non-Network Providers</a></li>
+<li><a href="/FindDoctor/Overseas.aspx" >Overseas Providers</a></li>
+<li><a href="/FindDoctor/Medicare.aspx" >Medicare Providers</a></li>
+<li><a href="/FindDoctor/USFHP.aspx" >US Family Health Plan Providers</a></li>
+<li><a href="/FindDoctor/VAFacilities.aspx" >Veterans Affairs Facilities</a></li>
+</ul>
+</li>
+            
+                <li><a href="/Costs.aspx" >Costs</a><ul class="submenu">
+<li><a href="/Costs/HealthPlanCosts.aspx" >Health Plan Costs</a></li>
+<li><a href="/Costs/PrescriptionCosts.aspx" >Prescription Costs</a></li>
+<li><a href="/Costs/DentalCosts.aspx" >Dental Costs</a></li>
+<li><a href="/Costs/PayFees.aspx" >Pay My Bill</a></li>
+<li><a href="/Costs/CatCap.aspx" >Catastrophic Cap</a></li>
+</ul>
+</li>
+            
+                <li><a href="/LifeEvents.aspx" >Life Events</a><ul class="submenu">
+<li><a href="/LifeEvents/Baby.aspx" >Having a Baby or Adopting</a></li>
+<li><a href="/LifeEvents/Retiring.aspx" >Retiring</a></li>
+<li><a href="/LifeEvents/Marriage.aspx" >Getting Married</a></li>
+<li><a href="/LifeEvents/Moving.aspx" >Moving</a></li>
+<li><a href="/LifeEvents/Divorce.aspx" >Getting Divorced</a></li>
+<li><a href="/LifeEvents/Medicare.aspx" >Becoming Medicare-Eligible</a></li>
+<li><a href="/LifeEvents/Separating.aspx" >Separating from Active Duty</a></li>
+<li><a href="/LifeEvents/ChildAdult.aspx" >Children Becoming Adults</a></li>
+<li><a href="/LifeEvents/College.aspx" >Going to College</a></li>
+<li><a href="/LifeEvents/SponsorDeath.aspx" >Sponsor Dies</a></li>
+<li><a href="/LifeEvents/Deactivating.aspx" >Deactivating</a></li>
+<li><a href="/LifeEvents/Activating.aspx" >Activating</a></li>
+<li><a href="/LifeEvents/InjuredonAD.aspx" >Injured on Active Duty</a></li>
+<li><a href="/LifeEvents/Deploying.aspx" >Deploying</a></li>
+</ul>
+</li>
+            
+                <li><a href="/HealthWellness.aspx" >Health and Wellness</a><ul class="submenu">
+<li><a href="/HealthWellness/Alcohol.aspx" >Alcohol Awareness</a></li>
+<li><a href="/HealthWellness/Tobacco.aspx" >Tobacco Cessation</a></li>
+<li><a href="/HealthWellness/Preventive.aspx" >Preventive Services</a></li>
+<li><a href="/HealthWellness/GetFit.aspx" >Get Fit</a></li>
+<li><a href="/HealthWellness/HealthyLivingPartners.aspx" >Healthy Living Partners</a></li>
+<li><a href="/HealthWellness/HLArticles.aspx" >Healthy Living Articles</a></li>
+</ul>
+</li>
+            
+    </ul>
+    
+</div>
+<div class="clear">
+</div>
+<!-- / MAIN NAV -->
+
+            </div>
+            <div id="mobile">
+                <a class="toggle" href="#mainnav"><span class="icn-bar"></span><span class="icn-bar">
+                </span><span class="icn-bar"></span></a><a class="profile_btn hidden" href="#">Enter
+                    Profile</a>
+            </div>
+        </div>
+        <div id="header">
+            
+
+<script type="text/javascript">
+    InitializeCookies();
+    $('#questions').css('background', '#36abe1');
+    $(document).ready(function () {
+        initProfile();
+    });
+    
+    function initProfile() {
+        $('[ID*=txtZip]').val('ZIP Code');
+        LoadLists();
+        var makingAjaxCall = false;
+        $('.box.loading').ajaxStart(function () {
+            makingAjaxCall = true;
+            setTimeout(function () { if (makingAjaxCall == true) { $('.box.loading').show(); } }, 400);
+        });
+        $('.box.loading').ajaxStop(function () {
+            makingAjaxCall = false;
+            //if ($('#loadingbox').is(":visible")) { $('#loadingbox').hide(); }
+            $('.box.loading').hide();
+        });
+    }
+    
+    function GetOption(name, id, isDefaultSelected, isSelectedNow) {
+
+            return '<option value="' + id + '" ' + (isSelectedNow == true || isDefaultSelected == true ? 'selected' : '') + '>' + name + '</option>';
+    }
+
+    //Lock form is used to lock the profile form and puts it in an initial state where service must be selected.
+    function LockForm()
+    {
+        var selService = $('[ID*=ddlServices] option:selected').val();
+
+        if (selService == "0") {
+            $('[ID*=ddlCountries]').attr('disabled', true);
+            $('[ID*=txtZip]').attr('disabled', true);
+            LoadBlankPlans();
+        }
+        else
+        {
+            //open up the forms.
+            $('[ID*=ddlCountries]').attr('disable', false);
+            $('[ID*=txtZip]').attr('disabled', false);
+        }
+
+
+    }
+
+    function LoadLists() {
+            LoadBlankPlans();
+            $.ajax({
+                type: "POST",
+                url: '/Handlers/Profile.ashx',
+                data: { command: 'LoadData' },
+                dataType: "json",
+                success: function (data) {
+                    if (data.sStatus == "Success") {
+                        var services = data.aServices;
+                        var countries = data.aCountries;
+                        if (services) {
+                            $.each(services, function (index, item) {
+                                if (index == 0) {
+                                    $('[ID*=ddlServices]').append(GetOption("Who are you?", "0", true, false));
+                                    $('[ID*=ddlServices]').append('<optgroup label="---------">');
+                                }
+                                var opt = GetOption(item.Name, item.sID, false, item.IsSelected);
+                                var sOptGroup = ((item.ShowDividerBelow == "1") ? "</optgroup><optgroup label='---------'>" : "");
+                                $('[ID*=ddlServices]').append(
+                                    opt
+                                );
+                                $('[ID*=ddlServices]').append(
+                                    sOptGroup
+                                );
+                            });
+                        }
+                        if (countries) {
+                            $.each(countries, function (index, item) {
+                                $('[ID*=ddlCountries]').append(
+                                        GetOption(item.Name, item.sID, false, item.IsSelected)
+                                    );
+                            });
+                        }
+                        if (data.sZip != '') {
+                            $('[ID*=txtZip]').val(data.sZip);
+                            $('[ID*=txtZip]').attr('disabled', false);
+                            InitPlansByZip(data.sZip, $('[ID*=ddlServices]').val(), data.sPlan);
+                        }
+                        else if ($('[ID*=ddlCountries]').val() != "0" && $('[ID*=ddlServices]').val() != "0") {
+                            InitPlansByCountry($('[ID*=ddlServices]').val(), $('[ID*=ddlCountries] option:selected').text(), data.sPlan);
+                        }
+                        else if ($('[ID*=ddlCountries]').val() == '999') {
+                            $('[ID*=txtZip]').attr('disabled', false);
+                        }
+
+                        LockForm();
+
+                    }
+                },
+                error: function (xhr, error) {
+                },
+                complete: function (response) {
+                }
+            });
+        }
+
+        function SetSelectedPlan(plan) {
+            if (plan != '') {
+                var elem = $('[ID*=ddlPlans] option').filter(function(index) { return $(this).text() == plan; });
+                if (elem) {
+                    elem.attr('selected', 'selected');
+                    //$('[ID*=btnSubmit]').attr('disabled', false);
+                    EnableSubmit(true);
+                }
+            }
+        }
+
+        function LoadBlankPlans() {
+            $('[ID*=ddlPlans]').empty();
+            $('[ID*=ddlPlans]').append(GetOption("What plan are you using?", "0"));
+            //$('[ID*=btnSubmit]').attr('disabled', true);
+            //$('[ID*=btnSubmit]').addClass('btndisabled');
+            EnableSubmit(false);
+        }
+
+        function InitPlansByZip(zip, serviceID, plan) {
+            if (zip.length == 5 && IsInt(zip)) {
+                $.ajax({
+                    type: "POST",
+                    url: '/Handlers/Profile.ashx',
+                    data: { command: 'LoadPlansByZip', zip: zip, serviceID: serviceID },
+                    dataType: "json",
+                    success: function(data) {
+                        if (data.sStatus == "Success") {
+                            var plans = data.aPlans;
+                            if (plans) {
+                                BindPlans(plans);
+                            }
+                            if (plan)
+                                SetSelectedPlan(plan);
+                        }
+                        else {
+                            LoadBlankPlans();
+                            $('[ID*=lblZipError]').show();
+                        }
+                    },
+                    error: function(xhr, error) {
+                        LoadBlankPlans();
+                    }
+                });
+            }
+            else {
+                $('[ID*=lblZipError]').hide();
+            }
+        }
+
+        function InitPlansByCountry(serviceID, country, plan) {
+            $.ajax({
+                type: "POST",
+                url: '/Handlers/Profile.ashx',
+                data: { command: 'LoadPlansByCountry', serviceID: serviceID, country: country },
+                dataType: "json",
+                success: function(data) {
+                    if (data.sStatus == "Success") {
+                        var plans = data.aPlans;
+                        if (plans) {
+                            BindPlans(plans);
+                        }
+                        if (plan)
+                            SetSelectedPlan(plan);
+                    }
+                    else {
+                        LoadBlankPlans();
+                    }
+                },
+                error: function(xhr, error) {
+                    LoadBlankPlans();
+                }
+            });
+
+        }
+
+    function BindPlans(plans) {
+        $.each(plans, function(index, item) {
+            if (index == 0) {
+                $('[ID*=ddlPlans]').attr('disabled', false);
+                $('[ID*=ddlPlans]').empty();
+                $('[ID*=ddlPlans]').append(GetOption("What plan are you using?", "0"));
+                $('[ID*=ddlPlans]').val("0");
+            }
+            $('[ID*=ddlPlans]').append(
+                                GetOption(item.Name, item.sID)
+                            );
+        });
+        $('[ID*=ddlPlans]').focus();
+    }
+
+        function HandleLookupIndexChanged(e, control) {
+            // if user selected "not sure" from the services drop down - redirect to planfinder
+            var selService = $('[ID*=ddlServices] option:selected').text().toLowerCase();
+            var selServiceVal = $('[ID*=ddlServices] option:selected').val();
+            if (selService.indexOf('not sure') != -1) {
+
+                $.ajax({
+                    type: "Post",
+                    url: '/Handlers/Profile.ashx',
+                    data: { command: 'RecordServiceSetNotSure', service: $('[ID*=ddlServices] option:selected').text(), plan: $('[ID*=ddlPlans] option:selected').text(), fromUrl: "/sitecore/content/Home" },
+                    dataType: "text",
+                    async: false
+                });
+
+                document.location.href = '/Plans/PlanFinder.aspx';
+            }
+            else if (selServiceVal == "0")
+            {
+                //If the user chooses the "Who Are You" button, make sure we stop form submission.
+                LockForm();
+                LoadBlankPlans();
+            }
+            else {
+                LoadBlankPlans();
+                //Unlock countries.
+                $('[ID*=ddlCountries]').attr('disabled', false);
+                if ($('[ID*=ddlCountries]').val() != "0" && $('[ID*=ddlServices]').val() != "0") {
+
+                    if ($('[ID*=ddlCountries]').val() == "999") {
+                        $('[ID*=txtZip]').attr('disabled', false);
+                        $('[ID*=txtZip]').focus();
+                        EnableSubmit(false);
+                        InitPlansByZip($('[ID*=txtZip]').val(), $('[ID*=ddlServices]').val());
+                    }
+                    else {
+                        $('[ID*=txtZip]').attr('disabled', true);
+                        $('[ID*=txtZip]').val('ZIP Code');
+                        $('[ID*=lblZipError]').hide();
+                        InitPlansByCountry($('[ID*=ddlServices]').val(), $('[ID*=ddlCountries] option:selected').text());
+                    }
+                }
+                else if ($('[ID*=ddlCountries]').val() != "0" && $('[ID*=ddlServices]').val() == "0") {
+                    if ($('[ID*=ddlCountries]').val() == "999") {
+                        $('[ID*=txtZip]').attr('disabled', false);
+                        $('[ID*=txtZip]').focus();
+                    }
+                    else {
+                        $('[ID*=txtZip]').attr('disabled', true);
+                        $('[ID*=txtZip]').val('ZIP Code');
+                        $('[ID*=lblZipError]').hide();
+                    }
+                }
+                else if ($('[ID*=ddlCountries]').val() == "0" && $('[ID*=ddlServices]').val() != "0") {
+                    $('[ID*=ddlCountries]').focus();
+                }
+            }
+        }
+
+        function HandlePlansIndexChanged(e, control) {
+            if ($(control).val() != "0") {
+                //$('[ID*=btnSubmit]').attr('disabled', false);
+                //$('[ID*=btnSubmit]').attr('onclick', 'return Submit();');
+                $('[ID*=btnSubmit]').unbind('click');
+                $('[ID*=btnSubmit]').click(function() {
+                    return Submit();
+                });
+                $('[ID*=btnSubmit]').focus();
+            }
+            else {
+                $('[ID*=btnSubmit]').unbind('click');
+                $('[ID*=btnSubmit]').click(function () {
+                    return false;
+                });
+                //$('[ID*=btnSubmit]').attr('disabled', true);
+            }
+        }
+
+        function HandleZipKeyPress(e, control) {
+            var keynum = 0;
+            keynum = e.keyCode
+            $('[ID*=lblZipError]').hide();
+            var textSelected = GetSelectedText();
+            if (IsKeynumShiftDel(keynum) || (textSelected && !IsKeynumLetter(keynum)) || IsKeynumArrows(keynum)) {
+                return true;
+            }
+            else {
+                var txtzip = control;
+                if (txtzip.value.length > 4 || !IsKeynumValid(keynum) || IsKeynumLetter(keynum))
+                    return false;
+            }
+
+        }
+
+        function HandleZipKeyUp(e, control) {
+            var keynum = 0;
+            keynum = e.keyCode;
+            var textSelected = GetSelectedText();
+            if (!IsKeynumShiftDel(keynum) && textSelected == false) {
+                if (control.value.length == 5 && !IsKeynumArrows(keynum) && !IsKeynumLetter(keynum)) {
+                    InitPlansByZip($(control).val(), $('[ID*=ddlServices]').val());
+                }
+                else {
+                    $('[ID*=lblZipError]').hide();
+                    //EnableSubmit(false);
+                    LoadBlankPlans();
+                }
+            }
+            else
+                LoadBlankPlans();
+        }
+
+        function HandleZipFocus(e, control) {
+            if (control.value == "ZIP Code")
+                control.value = "";
+        }
+
+        function HandleZipBlur(e, control) {
+            if (control.value == "")
+                control.value = "ZIP Code";
+        }
+
+        function EnableSubmit(enabled) {
+            if (enabled == true) {
+                $('[ID*=btnSubmit]').unbind('click');
+                $('[ID*=btnSubmit]').click(function () {
+                    return Submit();
+                });
+                //$('[ID*=btnSubmit]').attr('disabled', false); 
+                $('[ID*=ddlPlans]').attr('disabled', false);
+            }
+            else {
+                $('[ID*=btnSubmit]').unbind('click');
+                $('[ID*=btnSubmit]').click(function () {
+                    return false;
+                });
+                //$('[ID*=btnSubmit]').attr('disabled', true);
+                $('[ID*=ddlPlans]').attr('disabled', true);
+            }
+        }
+
+        function Submit() {
+            var sData = $.ajax({
+                type: "POST",
+                url: '/Handlers/Profile.ashx',
+                data: { command: 'SubmitProfile', service: $('[ID*=ddlServices] option:selected').text(), plan: $('[ID*=ddlPlans] option:selected').text(), fromUrl: "/sitecore/content/Home" },
+                dataType: "json",
+                async: false
+            }).responseText;
+            var data = $.parseJSON(sData);
+            if (data.sStatus == "Success") {
+                window.location = data.sUrl;
+                return false;
+            }
+            return false;
+        }
+
+        function GetSelectedText() {
+            var selText = "";
+            if (window.getSelection) {  // all browsers, except IE before version 9
+                if (document.activeElement &&
+                        (document.activeElement.tagName.toLowerCase() == "textarea" ||
+                         document.activeElement.tagName.toLowerCase() == "input")) {
+                    var text = document.activeElement.value;
+                    selText = text.substring(document.activeElement.selectionStart,
+                                              document.activeElement.selectionEnd);
+                }
+                else {
+                    var selRange = window.getSelection();
+                    selText = selRange.toString();
+                }
+            }
+            else {
+                if (document.selection.createRange) { // Internet Explorer
+                    var range = document.selection.createRange();
+                    selText = range.text;
+                }
+            }
+            return selText;
+        }
+
+        function IsInt(num) {
+
+            var intRegex = /^\d+$/;
+            if (intRegex.test(num))
+                return true;
+            else return false;
+        }
+
+        function IsKeynumInt(num) {
+            return (num >= 48 && num <= 57) // numbers
+                || (num >= 96 && num <= 105); // numpad numbers
+        }
+        function IsKeynumArrows(num) {
+            return (num >= 37 && num <= 40);  // arrows
+        }
+        function IsKeynumValid(num) {
+            return IsKeynumInt(num) || IsKeynumArrows(num);
+        }
+        function IsKeynumLetter(num) {
+            return (num >= 65 && num <= 90) || (num == 13);  // letters
+        }
+        function IsKeynumShiftDel(num) {
+            return (num == 9 || num == 16 || num == 46 || num == 8);
+        }   
+
+</script>
+
+<div id="questions" class="questions clearfix" style="overflow: hidden; display: none;">
+</div>
+<!-- /questions  -->
+<div class="box loading" style="display: none">
+    <img src="/_inc/img/tricare_preloader.gif" alt="Loading" />
+</div>
+<div class="banner">
+    
+
+    <div class="container top-container shdw_brdr">
+    
+        <div id="profileq">
+            <h2>Get My Plan Info</h2>
+            <div class="form form-profile">
+                <div class="form-control">
+                    <label for="profile_0_ddlServices" id="profile_0_lblServices" class="hidden">Service Status</label>
+                    <select name="profile_0$ddlServices" id="profile_0_ddlServices" class="form-input" onchange="javascript:return HandleLookupIndexChanged(event,this);">
+
+</select>
+                </div>
+                <div class="form-control">
+                    <label for="profile_0_ddlCountries" id="profile_0_lblCountries" class="hidden">Countries</label>
+                    <select name="profile_0$ddlCountries" id="profile_0_ddlCountries" class="form-input medium" onchange="javascript:return HandleLookupIndexChanged(event,this);">
+
+</select>
+                    <label for="profile_0_txtZip" id="profile_0_lblZip" class="hidden">Zip Code</label>
+                    <input name="profile_0$txtZip" type="text" id="profile_0_txtZip" disabled="disabled" class="form-input small" autocomplete="off" onkeydown="javascript:return HandleZipKeyPress(event,this);" onkeyup="javascript:return HandleZipKeyUp(event,this);" onfocus="javascript:HandleZipFocus(event,this);" onblur="javascript:HandleZipBlur(event,this);" />
+                </div>
+                <div class="form-control">
+                    <label for="profile_0_ddlPlans" id="profile_0_lblPlans" class="hidden">Plans</label>
+                    <select name="profile_0$ddlPlans" id="profile_0_ddlPlans" disabled="disabled" class="form-input" onchange="javascript:return HandlePlansIndexChanged(event,this);">
+
+</select>
+                </div>
+                <div class="clearfix">
+                    <input type="submit" id="btnSubmit" title="Submit" class="btn btn-red submit" value="Submit" /> &nbsp;
+	                <!-- <a href="/Welcome.aspx" id="profile_0_lnkSkip" class="btn btn-blue skipbtn">Skip <span class="icn_skip"></span></a> -->
+                    <span id="profile_0_lblZipError" style="color: Red; padding-left: 10px;
+                        display: none">Enter valid zip code</span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="action-box action-box-collapsed">
+            <div class="action-header">
+                <h2>I want to...</h2>
+                <span class="lshdw"></span>
+            </div>
+
+            <div class="action-items action-items-main">
+                
+                        <ul class="nostyle">
+                    
+                        <li><a href="/FindDoctor/Appointments.aspx">Book Appointments</a></li>
+                    
+                        <li><a href="/CoveredServices/IsItCovered.aspx">See What's Covered</a></li>
+                    
+                        <li><a href="/FindDoctor.aspx">Find a Doctor</a></li>
+                    
+                        <li><a href="/Plans/Enroll.aspx">Enroll or Purchase a Plan</a></li>
+                    
+                        <li><a href="/Plans/ComparePlans.aspx">Compare Plans</a></li>
+                    
+                        <li><a href="/CoveredServices/Pharmacy/ManageScripts.aspx">Manage My Prescriptions</a></li>
+                    
+                        <li><a href="/FindDoctor/Appointments/CheckStatus.aspx">View My Referrals/Authorizations</a></li>
+                    
+                        <li><a href="/Resources/Forms.aspx">Download a Form</a></li>
+                    
+                        </ul>
+                    
+
+                <a class="btn-more" href="#" onclick="showQuickLinks(); return false;" title="Show More">More</a>
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="container bottom-container shdw_brdr">
+    <div class="action-box">
+        <div class="action-items action-items-sub" style="display:none">
+            
+                    <ul class="nostyle">
+                
+                    <li><a href="/Costs.aspx">Look Up Costs</a></li>
+                
+                    <li><a href="/Costs/PayFees.aspx">Pay My Bill</a></li>
+                
+                    <li><a href="/Plans/HealthPlans/Prime/ChangePCM.aspx">Change My Primary Care Manager</a></li>
+                
+                    <li><a href="/Resources/Claims/MedicalClaims.aspx">File or Check a Claim</a></li>
+                
+                    <li><a href="/Publications.aspx">Download a Handbook or Brochure</a></li>
+                
+                    <li><a href="/Plans/Eligibility/DEERS/milConnect/Proof.aspx">Get Proof of TRICARE Coverage</a></li>
+                
+                    <li><a href="/CoveredServices/Dental.aspx">Get Dental Care</a></li>
+                
+                    <li><a href="/Resources/MedicalRecords.aspx">View My Military Health Record</a></li>
+                
+                    </ul>
+                
+            <a class="btn-less" href="#" onclick="hideQuickLinks(); return false;" title="Show Less">Less</a>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<script type="text/javascript">
+    var showLinks = $('.action-items-sub ul li').length > 0;
+    var rgba = supportsRGBA();
+
+    function supportsRGBA() {
+        var scriptElement = document.getElementsByTagName('script')[0];
+        var prevColor = scriptElement.style.color;
+        try {
+            scriptElement.style.color = 'rgba(1,5,13,0.44)';
+        } catch (e) { }
+        var result = scriptElement.style.color != prevColor;
+        scriptElement.style.color = prevColor;
+        return result;
+    }
+
+    $(document).ready(function () {
+        if (showLinks) {
+            $('.action-items-sub').hide();
+        }
+    });
+
+    function showQuickLinks() {
+        if (rgba) {
+            $('.action-box-collapsed').animate({ backgroundColor: 'rgba(234, 245, 254, 1)' }, 10);
+        }
+        $('.action-box-collapsed').removeClass('action-box-collapsed').addClass('action-box-expanded');
+        $('.action-items-sub').slideDown('10');
+        $('.btn-more').fadeOut('10', function () {
+            //$('.action-items-main ul li:last').fadeIn('10');
+        });
+    }
+
+    function hideQuickLinks() {
+        if (rgba) {
+            $('.action-box-expanded').animate({ backgroundColor: 'rgba(255,255,255,0.8)' }, 10);
+        }
+        $('.action-box-expanded').removeClass('action-box-expanded').addClass('action-box-collapsed');
+        $('.action-items-sub').slideUp('10');
+        //$('.action-items-main ul li:last').fadeOut('10', function () {
+        $('.btn-more').fadeIn('10');
+        //});
+    }
+</script>
+        </div>
+        <div id="content">
+            
+
+
+<div class="container shdw_brdr">
+    
+<!-- ALERT -->
+<div id="content_0_alert_0_pnlAlert">
+	
+<div class="row">
+    <div class="alert">
+        <div class="alert_img">
+            <img src="/~/media/Images/TRICARE/Alerts/snow_storm.png" alt="snow storm icon" width="116" height="77" />
+        </div>
+        <div class="alert_msg">
+            <h2>
+            States of Emergency Issued in Multiple States
+            </h2>
+            <p>
+            <p>A&nbsp;State of Emergency&nbsp;is issued in multiple states. Emergency prescription refills are in place in those states through March 18, 2015.&nbsp;<a href="/Resources/DisasterInfo.aspx">&gt;&gt;Learn More</a>&nbsp;</p>
+            </p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+</div>
+<!-- / ALERT -->
+
+
+    <!-- TRICARE News -->
+    <div id="TRICARENews" class="content-box left">
+    
+        <h2>TRICARE News</h2>
+        <ul class="nostyle news-list">
+            
+                    <li>
+                        <a href="/HealthWellness/HLArticles/Archives/02_19_15_MonsterMouth.aspx" id="content_0_rptArticles_ctl00_lnkTitle">
+                            Webinar to Discuss TRICARE Dental Options for Children
+                        </a>
+                        <!-- <p>
+                            
+                        </p> -->
+                    </li>
+                
+                    <li>
+                        <a href="/CoveredServices/BenefitUpdates/Archives/02_18_15_AirEvacs.aspx" id="content_0_rptArticles_ctl01_lnkTitle">
+                            Air Evacs Are Covered When Medically Necessary and Only to the Nearest, Safest Place
+                        </a>
+                        <!-- <p>
+                            
+                        </p> -->
+                    </li>
+                
+                    <li>
+                        <a href="/CoveredServices/BenefitUpdates/Archives/02_13_15_GASpO.aspx" id="content_0_rptArticles_ctl02_lnkTitle">
+                            TRICARE Beneficiaries: Are You Ready to Ditch the Snuff for Better Stuff?
+                        </a>
+                        <!-- <p>
+                            
+                        </p> -->
+                    </li>
+                
+                    <li>
+                        <a href="/HealthWellness/HLArticles/Archives/02_10_15_WinterSafetyAtHome.aspx" id="content_0_rptArticles_ctl03_lnkTitle">
+                            The Lights Are Out and Everybody’s Home: Now What?
+                        </a>
+                        <!-- <p>
+                            
+                        </p> -->
+                    </li>
+                
+                    <li>
+                        <a href="/CoveredServices/BenefitUpdates/Archives/02_02_15_RxCopayIncrease.aspx" id="content_0_rptArticles_ctl04_lnkTitle">
+                            Small Increase to TRICARE Pharmacy Copays Begins February 1, 2015
+                        </a>
+                        <!-- <p>
+                            
+                        </p> -->
+                    </li>
+                
+                    <li>
+                        <a href="/HealthWellness/HLArticles/Archives/01_28_15_WinterSafety101.aspx" id="content_0_rptArticles_ctl05_lnkTitle">
+                            Are You Ready for Winter? TRICARE Shares Safety Tips for the Season
+                        </a>
+                        <!-- <p>
+                            
+                        </p> -->
+                    </li>
+                
+        </ul>
+        <!--
+        <div class="spanfooter_media">
+            <a href="/About/MediaCenter/Podcasts.aspx" class="icn_podcast" title="Podcasts">Podcasts</a>
+            <a href="/About/MediaCenter/TRICARETV.aspx" class="icn_video" title="Videos">Videos</a>
+        </div>
+        --> 
+        <a class="right more-link" href="/About/MediaCenter/News.aspx">More News</a>
+        <div class="clear"></div>
+        
+    </div>
+    <!-- / -->
+
+    <!-- PLAN FINDER -->
+        <div id="PlanFinder" class="content-box highlight-box right">
+            <div class="highlight-ribbon">
+                <span class="icn_findplan"></span>
+            </div>
+            <h2>Find a TRICARE Plan</h2>
+            <p>Answer some questions to find the right TRICARE plan for you and your family.</p>
+
+            <!-- 
+            
+            <div class="plan-finder-img"><img src="/~/media/Images/TRICARE/Home/mag-glass.png" alt="Plan Finder Image" width="275" height="156" />
+            </div>
+            -->
+            <a class="btn btn-blue right" href="/Plans/PlanFinder.aspx">Go to the Plan Finder</a>
+            <div class="clear"></div>
+        </div>
+    <!-- / --> 
+
+    <!-- LIFE EVENTS --> 
+
+    <div id="LifeEvents" class="content-box highlight-box right">
+        <div class="highlight-ribbon">
+            <span class="icn_lifeevent"></span>
+        </div>
+        <h2>Something Changed?</h2>
+        <p>See what you need to do when you have a life-changing event.</p>
+       
+        <ul class="nostyle events-list">
+            <li><a href="/LifeEvents/Baby.aspx" title="Having a baby?">
+                    <img src="/~/media/Images/TRICARE/Home/img_baby.jpg" class="events-img" alt="Having a Baby Icon" width="72" height="72" />
+                    <span class="events-text">Having a Baby?</span>
+                </a>
+            </li>
+            <li><a href="/LifeEvents/Retiring.aspx" title="Retiring?">
+                    <img src="/~/media/Images/TRICARE/Home/img_retiring.jpg" class="events-img" alt="Retiring Icon" width="72" height="72" />
+                    <span class="events-text">Retiring?</span>
+                </a>
+            </li>
+            <li><a href="/LifeEvents/Marriage.aspx" title="Getting Married?">
+                    <img src="/~/media/Images/TRICARE/Home/img_marry.jpg" class="events-img" alt="Getting Married Icon" width="72" height="72" />
+                    <span class="events-text">Getting Married?</span>
+                </a>
+            </li>
+            <li><a href="/LifeEvents/Moving.aspx" title="Moving?">
+                    <img src="/~/media/Images/TRICARE/Home/img_moving.jpg" class="events-img" alt="Moving Icon" width="72" height="72" />
+                    <span class="events-text">Moving?</span>
+                </a>
+            </li>
+            <li><a href="/LifeEvents.aspx" title="More Life Events?">
+                    <img src="/~/media/Images/TRICARE/Home/img_more.jpg" class="events-img" alt="More Life Events?" width="72" height="72" />
+                    <span class="events-text">More Life Events?</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+
+</div>
+
+<!-- TOL 
+
+<div class="col tol-portal">
+    <h3>Secure Login</h3>
+    <p>Log in to update DEERS, enroll, pay bills, manage prescriptions and more...</p>
+    <img src="_inc/img/img-secure.png" alt="Secure Login" />
+    <br />
+    <div class="spanfooter">
+        <a href="SecureLogin.aspx" title="Secure Log In" >Find Out More</a>
+    </div>
+</div>
+
+-->
+
+<!-- SOCIAL MEDIA --> 
+<!--<div class="content-box social-media">
+    <h3>Stay Connected with TRICARE!</h3>
+    <ul class="icn_social_media">
+        <li class="icn_fb"><a target="_blank" href="https://www.facebook.com/TRICARE" alt="Facebook" title="Facebook">Facebook</a></li>
+        <li class="icn_googleplus"><a title="Google+" alt="Google+" href="https://plus.google.com/114088132178019381861" target="_blank">Google+</a></li>
+        <li class="icn_twitter"><a target="_blank" href="https://twitter.com/TRICARE "  alt="Twitter" title="Twitter">Twitter</a></li>
+        <li class="icn_instagram"><a title="Instagram" alt="Instagram" href="#" target="_blank">Instagram</a></li>
+        <li class="icn_youtube"><a target="_blank" href="http://www.youtube.com/tricare" alt="YouTube" title="YouTube" >Youtube</a></li>
+        <li class="icn_govdel"><a target="_blank" href="https://public.govdelivery.com/accounts/USMHSTMA/subscriber/new" alt="Email Updates" title="Email Updates">Email Updates</a></li>
+        <li class="icn_rss"><a href="/rss" alt="RSS Feed" title="RSS Feed">RSS Feed</a></li>
+        <li class="icn_podcast"><a href="/About/MediaCenter/Podcasts.aspx" alt="Podcast" title="Podcast">Podcast</a></li>
+    </ul>
+    <div class="clearfix"></div>
+</div>-->
+
+        </div>
+        <div id="footer">
+            
+
+<!-- HOMEPAGE - FOOTER -->
+    <div id="footernav" class="nav">
+        <ul class="nostyle">
+        
+                    <li>
+                        <a href="/About.aspx" title="About Us">About Us</a>
+                    </li>
+                
+                    <li>
+                        <a href="/Providers.aspx">For Providers</a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" href="https://mhs.health.mil">For Staff</a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" href="http://health.mil/media">For Media</a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" href="http://www.health.mil/Military-Health-Topics/Acquisition-Procurement-and-Small-Business">Vendors</a>
+                    </li>
+                
+                    <li>
+                        <a href="/FAQs.aspx">FAQs</a>
+                    </li>
+                
+                    <li>
+                        <a href="/Publications.aspx">Publications</a>
+                    </li>
+                
+                    <li>
+                        <a href="/Resources.aspx" title="Forms">Resources</a>
+                    </li>
+                
+                    <li>
+                        <a href="/ContactUs.aspx" title="Contact Us">Contact Us</a>
+                    </li>
+                
+            
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div id="footer_content">
+        <div class="container center">
+            <div class="logo_DoD">
+             <img src="/~/media/Images/logo_dod_seal.png" alt="Footer Logo" width="63" height="63" />
+            </div>
+
+            <p><a href="/Privacy.aspx" shape="rect">Privacy Policy</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://dodcio.defense.gov/TodayinCIO/DoDSection508/Std_Stmt.aspx" target="_blank">Accessibility/Section 508</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.health.mil/fraud" target="_blank">Fraud&nbsp;&amp; Abuse</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.tricare.mil/tma/privacy/foia.aspx" target="_blank" shape="rect">FOIA</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.usa.gov/" target="_blank">USA.gov</a></p>
+<p><a href="http://www.tricare.mil" shape="rect">www.tricare.mil</a>&nbsp;is the official website of the&nbsp;Defense Health Agency (DHA) a component of the&nbsp;<a href="http://health.mil" title="Health.mil" target="_blank" shape="rect">Military Health System</a>&nbsp;<br />
+DHA Address: 7700 Arlington Boulevard, Suite 5101, Falls Church, VA&nbsp;&nbsp; 22042-5101</p>
+<p><strong>Need to submit a claim?&nbsp;Send it&nbsp;to the correct <a href="/Resources/Forms/ClaimForms/Medical/Addresses.aspx">claims address</a>.</strong></p>
+<p>TRICARE is a registered trademark of the Department of Defense (DoD),&nbsp;DHA. All rights reserved. </p>
+<p>The appearance of hyperlinks to external websites does not constitute endorsement by the&nbsp;DHA of these websites or the information, products or services contained therein. For other than authorized government activities,&nbsp;the DHA&nbsp;does not exercise any editorial control over the information you may find at other locations. Such links are provided consistent with the stated purpose of this DoD website.</p>
+        </div>
+        <!--<div id="footer_0_pnlViewMobile">
+	
+        <br /><br /><a id="footer_0_btnSwitchToMobile" href="javascript:__doPostBack(&#39;footer_0$btnSwitchToMobile&#39;,&#39;&#39;)">View Mobile Site</a>
+        
+</div>-->
+
+    </div>
+
+<!-- / --> 
+        </div>
+    </div>
+    </form>
+</body>
+</html>
+";i:2;s:4:"9018";}

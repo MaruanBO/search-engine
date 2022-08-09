@@ -1,0 +1,485 @@
+a:3:{i:0;s:14:"http://fi.com/";i:1;s:34417:"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+	Investor Education Site | Fisher Investments
+</title><meta id="Keywords" name="Keywords" content="fisher investments, ken fisher, investor, education, learning, stock market outlook, books, guides, resources, individuals" /><meta id="Description" name="Description" content="Access educational guides, research reports, and other helpful investing resources for individuals at the Fisher Investments Education Center" /><meta id="robots" name="robots" content="index, follow" /><link id="basestyle" href="css/base.css" rel="stylesheet" type="text/css" /><link id="sitestyle" href="css/fi.css" rel="stylesheet" type="text/css" /><link type="text/css" href="css/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" /><link id="Link1" href="css/fi.jquery.ui.tabs.custom.css" rel="stylesheet" type="text/css" /><link id="Link3" href="css/jquery.ui.tabs.css" rel="stylesheet" type="text/css" />
+
+
+    <script type="text/javascript" src="http://fi.com/js/base.js" language="javascript"></script>
+    <script type="text/javascript" src="http://fi.com/js/googleSearch.js"></script>
+    
+    <script type="text/javascript" src="http://fi.com/js/jquery-1.4.2.js" language="javascript"></script>
+    <script type="text/javascript" src="http://fi.com/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://fi.com/js/jquery-ui.min.tab.js"></script>
+
+    <script type="text/javascript" src="http://fi.com/js/jquery.corner.js" language="javascript"></script>
+    <script type="text/javascript" src="http://fi.com/js/jquery.gradient.js" language="javascript"></script>
+    <script type="text/javascript" src="http://fi.com/js/jquery.zrssfeed.min.js" language="javascript"></script>
+    <script type="text/javascript" src="http://fi.com/js/navigation.js"></script>
+    <script type="text/javascript" src="http://fi.com/js/jquery.validate.js" language="javascript"></script>
+    <script type="text/javascript" src="http://fi.com/js/jquery.validate.additional.js" language="javascript"></script>
+    <script type="text/javascript" src="http://fi.com/js/jquery.innerfade.js" language="javascript"></script>
+    <script type="text/javascript" src="http://fi.com/js/easySlider1.7.js" language="javascript"></script>    
+    
+
+    <script type="text/javascript" src="http://fi.com/js/tinyfader.js" language="javascript"></script>
+    <script type="text/javascript" src="http://fi.com/js/mbox.js"></script>
+
+    </head>
+<body onload="javascript:navTab('http://fi.com/');">
+    <form method="post" action="" id="MainForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTI1NjYzODM4NQ9kFgJmD2QWAmYPZBYCZg9kFgYCAQ8WAh4HY29udGVudAV6ZmlzaGVyIGludmVzdG1lbnRzLCBrZW4gZmlzaGVyLCBpbnZlc3RvciwgZWR1Y2F0aW9uLCBsZWFybmluZywgc3RvY2sgbWFya2V0IG91dGxvb2ssIGJvb2tzLCBndWlkZXMsIHJlc291cmNlcywgaW5kaXZpZHVhbHNkAgIPFgIfAAWNAUFjY2VzcyBlZHVjYXRpb25hbCBndWlkZXMsIHJlc2VhcmNoIHJlcG9ydHMsIGFuZCBvdGhlciBoZWxwZnVsIGludmVzdGluZyByZXNvdXJjZXMgZm9yIGluZGl2aWR1YWxzIGF0IHRoZSBGaXNoZXIgSW52ZXN0bWVudHMgRWR1Y2F0aW9uIENlbnRlcmQCAw8WAh8ABQ1pbmRleCwgZm9sbG93ZGTiKEIRl6RXbXlmGqY+BAqK4VReJf2/Gv5cZZ1sT1AdLQ==" />
+
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+$('.siteboxlayout').corner('8px');
+$('.box').corner('7px');
+$('.searchbutton_area').gradient({ from: 'FFFFFF', to: 'EFEFEF' });
+$('.rssheader').gradient({ from: 'FFFFFF', to: 'E5EBEA' });
+$('.relatedsitesheaderbox').corner('round top 8px');
+$('.relatedsitesheader').corner('round top 7px');
+
+
+
+
+$('#portfolio').innerfade({
+    speed: 4000,
+    timeout: 10000,
+    type: 'sequence',
+    containerheight: '379px'
+});
+
+$("#slider").easySlider({
+    auto: false,
+    continuous: false,
+    numeric: true
+});
+
+/*======================functions for Investment Education Center======================*/
+
+$(function () {
+    $("#fi-edu-center-tabs").tabs();
+    //    $("#fi-edu-center-tabs").tabs("load",0); // try to force reloading
+    $("#mainContentLeft").css("display", "none");
+    $("#mainContentRight").css("width", "100%");
+});
+$("#fi-edu-center-tabs").bind("click", function () {
+    var imgSrc = $("#eduCenterImgSrc").val();
+    var activeIdx = $("#fi-edu-center-tabs").tabs().tabs('option', 'active'); // selected for version before 1.9
+    // with jquery 1.7
+    //var visiblePaneId = $('div.tab-pane.active').attr('id');
+    //var activeTabIndex = $('#fi-edu-center-tabs a[href="#' + visiblePaneId + '"]').parent().index();
+    var thumbs = $("#fi-edu-center-tabs ul li a img");
+    for (var i = 0; i < thumbs.length; i++) {
+        if (i != activeIdx) {
+            thumbs[i].src = imgSrc + "img/fi-edu-center/Tab_Button_0" + (i + 3) + ".png";
+        }
+        else {
+            //$(thumbs[i]).fadeIn(1000)[0].src = "Content/images/fi-edu-center/Tab_Button-Active_0" + (activeIdx + 3) + ".png";
+            thumbs[i].src = imgSrc + "img/fi-edu-center/Tab_Button-Active_0" + (activeIdx + 3) + ".png";
+        }
+    }
+});
+/*======================end of functions for Investment Education Center======================*/
+
+$('#objataglanceRSS').text('At A Glance');
+
+$('#ataglanceRSS').rssfeed('http://www.marketminder.com/rss/xml/ataglance.xml', { limit: 1 });
+
+$('#objcoverstoryRSS').text('Cover Story');
+
+$('#coverstoryRSS').rssfeed('http://www.marketminder.com/rss/xml/commentary.xml', { limit: 3 });
+
+$('#objcolumnsRSS').text('Columns');
+
+$('#columnsRSS').rssfeed('http://www.marketminder.com/rss/xml/columns.xml', { limit: 3 });
+
+$('#objtodaysnewsRSS').text('Today’s News');
+
+$('#todaysnewsRSS').rssfeed('http://www.marketminder.com/rss/xml/todaynews.xml', { limit: 3 });
+});
+//]]>
+</script>
+
+        <div class="content">
+            <center>
+                <table border="0" cellspacing="0" cellpadding="0" >
+                <tr>
+                    <td class="bodytop"></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodycontent">
+                        <center>
+                            <div class="siteboxlayout">
+                                <table id="ImageHeader" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <div class="mainLogo" >
+                                                <a href="./" id="logo">
+                                                    <img src="http://fi.com/img/logo-fieducenter.png" alt="Fisher Investments Education Center" style="border: 0" />
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div id="GoogleSearch">
+                                                <div id='cse-search-box' align='right'>
+    <input type='hidden' name='cx' value='011925274680028676297:9p_gtaqtere' />
+    <input type='hidden' name='cof' value='FORID:10' />
+    <input type='hidden' name='ie' value='UTF-8' />
+    <div class='search-box'>
+        <img src='http://www.fi.com/img/Search_Icon.jpg' width='20' height='18' alt='' runat='server' />
+        <input type='text' class='searchbox' id='q' name='q' onload='javascript:setFocus();' onkeypress="javascript:return SubmitOnEnter(this,event,'http://www.fi.com/');" />
+        <div class='searchbutton_area'>
+            <input type='button' class='searchbutton' title='Search' value='Search' onclick="javascript:SearchSite('http://www.fi.com/');" onkeypress="javascript:SearchSite('http://www.fi.com/');" />
+        </div>
+    </div>
+</div>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center">
+                                            <table border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td id="topnavigation">
+                                                        <ul id="nav">
+                                                            <li class="top"><a href="./" id="A1" class="top_link"><span>Home</span></a></li>
+                                                            <li class="topimage"></li>
+                                                            <li class="top"><a href="investment-education-center/" id="A2" class="top_link"><span>Education Center</span></a>
+                                                                <ul class="sub">
+                                                                    <li><a href="investment-education-center/retirement-considerations/" id="A2a" class="fly">Retirement Considerations</a></li>
+                                                                    <li><a href="investment-education-center/investing-decisions-guide/" id="A2b" class="fly">Investing Decisions Guide</a></li>
+                                                                    <li><a href="investment-education-center/global-investment/" id="A2c" class="fly">Global Investing</a></li>
+                                                                    <li><a href="investment-education-center/personal-money-management/" id="A2d" class="fly">Money Management</a></li>
+                                                                    <li><a href="investment-education-center/mutual-funds/" id="A2e" class="fly">Pros and Cons of Mutual Funds</a></li>
+                                                                    <li><a href="investment-education-center/investors-mistakes/" id="A2f" class="fly">The 8 Biggest Investing Mistakes</a></li>
+                                                                    <li><a href="investment-education-center/investment-tips/" id="A2g" class="fly">Different Investing Styles</a></li>                                                                    
+                                                                </ul>
+                                                            </li>
+                                                            <li class="topimage"></li>
+                                                            <li class="top"><a href="fisher-investments-resources/" id="A3" class="top_link"><span class="down">Investor Resources</span></a>
+                                                                <ul class="sub">                                                                    
+                                                                    <li><a href="fisher-investments-resources/assessing-risk/" id="A3a" class="fly">Assessing Risk</a></li>
+                                                                    <li><a href="fisher-investments-resources/guide-to-making-investing-decisions/" id="A3b" class="fly">Making Investing Decisions</a></li>
+                                                                    <li><a href="fisher-investments-resources/fifteen-minutes-retirement/" id="A3c" class="fly">Retirement Planning</a></li>
+                                                                    <li><a href="fisher-investments-resources/global-diversification/" id="A3d" class="fly">Global Diversification</a></li>
+                                                                    <li><a href="fisher-investments-resources/mutual-funds/" id="A3f" class="fly">Fisher Investments on Mutual Funds</a></li>
+                                                                    <li><a href="fisher-investments-resources/investing-101/" id="A3g" class="fly">Investing 101</a></li>
+                                                                    <li><a href="fisher-investments-resources/portfolio-management-rules/" id="A3h" class="fly">4 Rules of Portfolio Management</a></li>
+                                                                    <li><a href="fisher-investments-resources/fisher-investments-stock-market-outlook/" id="A3i" class="fly">Stock Market Outlook</a></li>
+                                                                    <li><a href="fisher-investments-resources/topics-of-interest/" id="A3j" class="fly">Topics of Interest</a></li>
+                                                                    <li><a href="fisher-investments-resources/fisher-investments-forbes-columnist/" id="A3k" class="fly">Fisher Investments’ <em>Forbes</em> Columnist, Ken Fisher</a></li>
+                                                                    <li><a href="fisher-investments-resources/fisher-investments-youtube/" id="A3l" class="fly">Fisher Investments YouTube</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="topimage"></li>
+                                                            <li class="top"><a href="investor-survey" id="A4" class="top_link"><span>Investor Quiz</span></a></li>
+                                                            <li class="topimage"></li>
+                                                            <li class="top"><a href="about-fisher-investments/" id="A5" class="top_link"><span class="down">About Fisher Investments</span></a>
+                                                                <ul class="sub">
+                                                                    <li><a href="about-fisher-investments/financial-management/" id="A5a" class="fly">Fisher Investments Performance</a></li>
+                                                                    <li><a href="about-fisher-investments/investment-manager-bios/" id="A5b" class="fly">Investment Policy Committee</a></li>
+                                                                    <li><a href="about-fisher-investments/investment-advisor-questions/" id="A5c" class="fly">Frequently Asked Questions</a></li>
+                                                                    <li><a href="about-fisher-investments/investment-services/" id="A5d" class="fly">Fisher Investments Solutions</a></li>
+                                                                    <li><a href="about-fisher-investments/investment-research/" id="A5e" class="fly">Fisher Investments Research</a></li>
+                                                                    <li><a href="about-fisher-investments/fisher-investments-services/" id="A5f" class="fly">Fisher Investments Approach and Fee Structure</a></li>
+                                                                    <li><a href="about-fisher-investments/fisher-investments-client-service/" id="A5g" class="fly">Fisher Investments Client Services</a></li>
+                                                                    <li><a href="about-fisher-investments/fisher-investments-process/" id="A5h" class="fly">Fisher Investments Process</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="topimage"></li>
+                                                            <li class="top"><a href="contact-us/" id="A6" class="top_link"><span>Contact Us</span></a>
+                                                                <ul class="sub">
+                                                                    <li><a href="contact-us/fisher-investments-office-locations/" id="A6a" class="fly">Locations</a></li>
+                                                                    <li><a href="contact-us/employment-opportunities-at-fisher-investments/" id="A6b" class="fly">Employment Opportunities at Fisher Investments</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr align="left">
+                                        <td colspan="2" valign="top">
+                                            
+        
+<input type="hidden" id="eduCenterImgSrc" value="http://fi.com/"/>
+
+    <div>
+        <div id="fi-edu-center-tabs">
+            <div id="fi-edu-center-tabs-1">
+                <div id="mainHeadingText" class="mainHeadingText" ><table id="ChannelTable"><tr><td><div itemscope itemtype="http://schema.org/Article"><table id="ArticleTable"><tr><td><table id="ArticleInnerTable"><tr><td id="ArticleContent"><div class="fi-edu-center-tabs-content">
+ <div>
+  <strong><span style="font-size: 25px">Stock Market Outlook</span></strong><br />
+  <br />
+  Where are markets going from here? Access our in-depth analysis of current investing conditions and our forecast for the period ahead. This timely report looks at key stock market drivers including market, political, and economic factors. You will learn:</div>
+ <div>
+  <div class="fi-edu-center-tabs-content-left">
+   <p>
+    &bull;&nbsp;Do we expect additional market upside ahead, or is a bear market looming?<br />
+    &bull;&nbsp;How to position your portfolio to take advantage of current trends.<br />
+    &bull;&nbsp;The biggest risks to your portfolio in the next six months.</p>
+  </div>
+  <div class="fi-edu-center-tabs-content-right">
+   <a class="btn" href="http://clk.atdmt.com/INV/go/477003205/direct/01/" target="_blank">Click here</a></div>
+ </div>
+</div>
+<p>
+ &nbsp;</p>
+</td><td id="ImageRight"><a href="http://clk.atdmt.com/INV/go/477003205/direct/01/" target="_blank"><img id="ImageItem" src="http://view.atdmt.com/INV/view/477003205/direct/01/" alt="Stock Market Outlook" border="0" /></a></td></tr></table></td></tr></table></div></td></tr></table></div>
+            </div>
+            <div id="fi-edu-center-tabs-2">
+                <div id="mainHeadingText" class="mainHeadingText" ><table id="ChannelTable"><tr><td><div itemscope itemtype="http://schema.org/Article"><table id="ArticleTable"><tr><td><table id="ArticleInnerTable"><tr><td id="ArticleContent"><div class="fi-edu-center-tabs-content">
+ <div>
+  <span style="font-size: 25px"><strong>15-Minute Retirement Plan</strong></span><br />
+  <br />
+  Running out of money in retirement is one of the biggest risks investors face. Working your whole life to gather enough wealth for retirement, only to realize too late it&#39;s just not enough, can be devastating. This guide addresses important issues investors face in retirement, including:</div>
+ <div>
+  <div class="fi-edu-center-tabs-content-left">
+   <p>
+    &bull;&nbsp;How long your portfolio will actually need to provide for you.<br />
+    &bull;&nbsp;How cash distributions and inflation impact your portfolio.<br />
+    &bull;&nbsp;Why you need to establish a primary investment objective.</p>
+  </div>
+  <div class="fi-edu-center-tabs-content-right">
+   <a class="btn" href="http://clk.atdmt.com/INV/go/477003204/direct/01/" target="_blank">Click here</a></div>
+ </div>
+</div>
+<p>
+ &nbsp;</p>
+</td><td id="ImageRight"><a href="http://clk.atdmt.com/INV/go/477003204/direct/01/" target="_blank"><img id="ImageItem" src="http://view.atdmt.com/INV/view/477003204/direct/01/" alt="15-Minute Retirement Plan" border="0" /></a></td></tr></table></td></tr></table></div></td></tr></table></div>
+            </div>
+            <div id="fi-edu-center-tabs-3">
+                <div id="mainHeadingText" class="mainHeadingText" ><table id="ChannelTable"><tr><td><div itemscope itemtype="http://schema.org/Article"><table id="ArticleTable"><tr><td><table id="ArticleInnerTable"><tr><td id="ArticleContent"><div class="fi-edu-center-tabs-content">
+ <div>
+  <span style="font-size: 25px"><strong>Eight Biggest Mistakes Investors Make</strong></span><br />
+  <br />
+  In the world of investing, there are many common mistakes investors might make. Over time, these mistakes may have a larger negative impact than anticipated, especially when it comes to retirement planning. In this must read guide, you will learn our views on:</div>
+ <div>
+  <div class="fi-edu-center-tabs-content-left">
+   <p>
+    &bull;&nbsp;An important factor often overlooked when diversifying a portfolio...and how it can cost you.<br />
+    &bull;&nbsp;Why foreign securities can help improve portfolio performance and decrease risk.<br />
+    &bull;&nbsp;Plus, a serious error people often make in retirement planning.</p>
+  </div>
+  <div class="fi-edu-center-tabs-content-right">
+   <a class="btn" href="http://clk.atdmt.com/INV/go/477003207/direct/01/" target="_blank">Click here</a></div>
+ </div>
+</div>
+<p>
+ &nbsp;</p>
+</td><td id="ImageRight"><a href="http://clk.atdmt.com/INV/go/477003207/direct/01/" target="_blank"><img id="ImageItem" src="http://view.atdmt.com/INV/view/477003207/direct/01/" alt="Eight Biggest Mistakes Investors Make" border="0" /></a></td></tr></table></td></tr></table></div></td></tr></table></div>
+            </div>
+            <div id="fi-edu-center-tabs-4">
+                <div id="mainHeadingText" class="mainHeadingText" ><table id="ChannelTable"><tr><td><div itemscope itemtype="http://schema.org/Article"><table id="ArticleTable"><tr><td><table id="ArticleInnerTable"><tr><td id="ArticleContent"><div class="fi-edu-center-tabs-content">
+ <div>
+  <span style="font-size: 25px"><strong>Annuity Insights</strong></span><br />
+  <br />
+  Annuities are complex investment products and can trip-up the savviest investors. Before committing to an annuity, be sure to completely understand how annuities work. In this must read guide, you will learn our views on:</div>
+ <div>
+  <div class="fi-edu-center-tabs-content-left">
+   <p>
+    &bull;&nbsp;Annuity features that could cost you extra fees and expenses.<br />
+    &bull;&nbsp;The different types of annuities and the advantages and disadvantages of each.<br />
+    &bull;&nbsp;Why annuity owners should do further due diligence on their annuity.</p>
+  </div>
+  <div class="fi-edu-center-tabs-content-right" style="margin-top: 16px">
+   <a class="btn" href="http://clk.atdmt.com/INV/go/477003208/direct/01/" target="_blank">Click here</a></div>
+ </div>
+</div>
+<p>
+ &nbsp;</p>
+</td><td id="ImageRight"><a href="http://clk.atdmt.com/INV/go/477003208/direct/01/" target="_blank"><img id="ImageItem" src="http://view.atdmt.com/INV/view/477003208/direct/01/" alt="Annuity Insights" border="0" /></a></td></tr></table></td></tr></table></div></td></tr></table></div>
+            </div>
+            <div id="headerguide">Free Investing Guides:</div>
+            <ul>
+                <li><a href="#fi-edu-center-tabs-1"><img src="http://fi.com/img/fi-edu-center/Tab_Button-Active_03.png" alt="Stock Market Outlook" /></a></li>
+                <li><a href="#fi-edu-center-tabs-2"><img src="http://fi.com/img/fi-edu-center/Tab_Button_04.png" alt="15-Minute Retirement Plan" /></a></li>
+                <li><a href="#fi-edu-center-tabs-3"><img src="http://fi.com/img/fi-edu-center/Tab_Button_05.png" alt="Eight Biggest Mistakes Investors Make" /></a></li>
+                <li><a href="#fi-edu-center-tabs-4"><img src="http://fi.com/img/fi-edu-center/Tab_Button_06.png" alt="Annuity Insights" /></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top" colspan="2">
+                                            <table id="mainContentTable" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td colspan="2">
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td id="mainContentRight">
+                                                        
+        
+    <div><table id="ChannelTable"><tr><td><div itemscope itemtype="http://schema.org/Article"><table id="ArticleTable"><tr><td><span itemprop="articleBody"><table border="0" cellpadding="15" cellspacing="0">
+ <tbody>
+  <tr>
+   <td>
+    <p>
+     <strong>Market Insights & Research</strong></p>
+    <p>
+     Whether you enjoy learning about investment strategies or keeping current with the market, Fisher Investments offers an array of educational resources ranging from investing books to market commentary. Learn more:</p>
+    <ul>
+     <li>
+      <a href="http://clk.atdmt.com/INV/go/477003205/direct/01/" target="_blank">Stock Market Outlook</a></li>
+     <li>
+      <a href="http://www.marketminder.com/" target="_blank">MarketMinder.com</a></li>
+     <li>
+      <a href="http://www.forbes.com/sites/kenfisher/" target="_blank">Ken Fisher&rsquo;s Forbes Articles</a></li>
+     <li>
+      <a href="http://www.fisher-investments-press.com/" target="_blank">Fisher Investments Press</a></li>
+     <li>
+      <a href="http://www.youtube.com/user/fisherinvestments" target="_blank">Video Commentary</a><br />
+      <br />
+      &nbsp;</li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <strong>Retirement Resources</strong></p>
+    <p>
+     How do you help ensure your investments will last throughout your retirement? It starts with an appropriate investment strategy, and requires ongoing management to make sure you&rsquo;re still on track. Learn more from our retirement resources:</p>
+    <ul>
+     <li>
+      <a href="http://clk.atdmt.com/INV/go/477003204/direct/01/" target="_blank">15-minute Retirement Plan</a></li>
+     <li>
+      <a href="http://www.fisherinvestments.com/market-insights/investing-guides" target="_blank">Other Retirement Guides</a></li>
+     <li>
+      <a href="http://www.fisherinvestments.com/tools-calculators" target="_blank">Investing Calculators</a></li>
+     <li>
+      <a href="http://www.fi.com/template/survey.aspx?country=US&alleycode=5A" target="_blank">Investor Quiz</a></li>
+     <li>
+      <a href="https://clk.atdmt.com/INV/go/294667668/direct/01/" target="_blank"><span style="color: #ff0000">Special TV Offer</span></a><br />
+      &nbsp;</li>
+    </ul>
+   </td>
+   <td>
+    <p>
+     <strong>About Fisher Investments </strong></p>
+    <p>
+     Our goal is simple&mdash;to help you achieve your long-term financial goals. We believe our client-centric approach is why we&rsquo;ve been managing portfolios for more than 35 years and currently serve over 25,000 private clients. Learn more:</p>
+    <ul>
+     <li>
+      <a href="http://www.fisherinvestments.com/about" target="_blank">About Us</a></li>
+     <li>
+      <a href="http://www.fisherinvestments.com/investing-with-fisher/portfolio-management-team" target="_blank">Portfolio Management Team</a></li>
+     <li>
+      <a href="http://www.fisherinvestments.com/investing-with-fisher" target="_blank">Investing Approach</a></li>
+     <li>
+      <a href="http://www.fisherinvestments.com/about/fees-performance" target="_blank">Fees and Performance</a></li>
+     <li>
+      <a href="http://www.fisherinvestments.com/contact" target="_blank">Contact Us</a><br />
+      <br />
+      &nbsp;</li>
+    </ul>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p>
+ &nbsp;</p>
+</span></td></tr></table></div></td></tr></table></div>
+    
+    <div class="mboxDefault">
+    </div>
+    <script type="text/javascript">mboxCreate('FI_HomePagePixel_Box');</script>
+
+
+                                                    </td>
+                                                    <td id="mainContentLeft">
+                                                        
+                                                        <div><table id="ChannelTable"><tr><td><div itemscope itemtype="http://schema.org/Article"><table id="ArticleTable"><tr><td><span itemprop="articleBody"><p>
+ <!-- Rubicon Project TAP Pixel: FI Re-Targeting --><img border="0" height="1" src="http://pixel.rubiconproject.com/tap.php?v=17571" width="1" /> <!-- Rubicon Project TAP Pixel: FI Re-Targeting --><img border="0" height="1" src="https://pixel.rubiconproject.com/tap.php?v=17571" width="1" /> <!-- x + 1 --><!-- start cloudfront --><script src="http://djt0cz0t3xxdn.cloudfront.net/validate_visit2.js"
+type="text/javascript" charset="utf-8"></script><script type="text/javascript"> CF.clientId = '15606'; CF.validateVisit('google');</script><!-- end cloudfront -->
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44160600-2', 'fi.com');
+      ga('send', 'pageview');
+
+      </script></p>
+</span></td></tr></table></div></td></tr></table></div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="edu-center-footer">
+                                               <div id="footer-nav" class="footer-nav" ><table id="ChannelTable"><tr><td><div itemscope itemtype="http://schema.org/Article"><table id="ArticleTable"><tr><td><span itemprop="articleBody"><p>
+ <a href="http://www.fi.com/contact-us/" runat="server">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://www.fi.com/legal/security.aspx" runat="server">Privacy & Security</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://www.fi.com/legal/legal.aspx" runat="server">Legal Information</a>&nbsp;&nbsp;|&nbsp;&nbsp; <!-- <a href="http://www.fi.com/legal/fisher-investments-related-websites.aspx" runat="server">Fisher Investments Related Websites</a>&nbsp;&nbsp;|&nbsp;&nbsp; --><a href="http://www.fi.com/legal/sitemap.aspx" runat="server">Site Map</a></p>
+</span></td></tr></table></div></td></tr></table></div>
+                                               <div id="copyright">Copyright &copy; 2015 Fisher Asset Management, LLC, doing business as Fisher Investments. All rights reserved.</div>
+                                        </td>
+                                        <td>
+                                            <div id="social-buttons" class="social-buttons" ><table id="ChannelTable"><tr><td><div itemscope itemtype="http://schema.org/Article"><table id="ArticleTable"><tr><td><span itemprop="articleBody"><p>
+ <span>Follow us on:</span>&nbsp;&nbsp;<a href="http://www.facebook.com/fisherinvestments" target="_blank"><img alt="Fisher Investments on Facebook" border="0" src="http://www.fi.com/img/icon_facebook.gif" title="Fisher Investments on Facebook" /></a>&nbsp;&nbsp;<a href="http://twitter.com/fisherinvest" target="_blank"><img alt="Fisher Investments on Twitter" border="0" src="http://www.fi.com/img/icon_twitter.gif" title="Fisher Investments on Twitter" /></a>&nbsp;&nbsp;<a href="http://www.linkedin.com/companies/fisher-investments?trk=fc_badge" target="_blank"><img alt="Fisher Investments on LinkedIn" border="0" src="http://www.fi.com/img/icon_linkedin.jpg" title="Fisher Investments on LinkedIn" /></a>&nbsp;&nbsp;<a href="https://www.youtube.com/user/fisherinvestments?sub_confirmation=1" target="_blank"><img alt="Fisher Investments on YouTube" border="0" src="http://s.ytimg.com/yt/img/creators_corner/YouTube/youtube_24x24.png" title="Fisher Investments on YouTube" /></a><img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/YouTube/youtube_24x24.png" style="display: none" />&nbsp;&nbsp;<a href="http://www.flickr.com/photos/fisher-investments/" target="_blank"><img alt="Fisher Investments on Flickr" border="0" src="http://www.fi.com/img/icon_flickr.jpg" title="Fisher Investments on Flickr" /></a></p>
+</span></td></tr></table></div></td></tr></table></div>
+                                        </td>
+                                    </tr>
+                               </table>
+                            </div>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bodybottom"></td>
+                </tr>
+            </table>
+            </center>
+        </div>
+    </form>
+    <!-- SiteCatalyst code version: H.6.
+Copyright 1997-2006 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script language="JavaScript" src="http://www.fi.com/js/s_code.js"></script>
+<script language="JavaScript"><!--
+/* You may give each page an identifying name, server, and channel on the next lines. */
+s.pageName="http://fi.com/default.aspx"
+s.server=""
+s.channel="http://fi.com/default.aspx"
+s.pageType=""
+s.prop1=""
+s.prop2=""
+s.prop3=""
+s.prop4=""
+s.prop5=""
+/* E-commerce Variables */
+s.campaign=""
+s.state=""
+s.zip=""
+s.events=""
+s.products=""
+s.purchaseID=""
+s.eVar1=""
+s.eVar2=""
+s.eVar3=""
+s.eVar4=""
+s.eVar5=""
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<!-- End SiteCatalyst code version: H.7. -->
+
+</body>
+</html>";i:2;s:3:"833";}

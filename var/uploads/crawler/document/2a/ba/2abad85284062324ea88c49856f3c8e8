@@ -1,0 +1,884 @@
+a:3:{i:0;s:27:"http://hopkinsmedicine.org/";i:1;s:48847:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<title>Johns Hopkins Medicine, based in Baltimore, Maryland</title>
+<meta name="author" content="Admin" />
+<meta name="keywords" content="find a doctor, patients, research, students, surgery, employment" />
+<meta name="generator" content="SiteExecutive v2013" />
+<meta name="y_key" content="f53342a0472c6a76" />
+<meta name="description" content="The homepage for Johns Hopkins Medicine.  The organization brings together the faculty, physicians, and scientists of the School of Medicine with professionals of the Johns Hopkins Health System." />
+<meta name="date" content="2015-02-17T12:58:43-05:00" />
+<meta name="title" content="Johns Hopkins Medicine, based in Baltimore, Maryland" />
+<meta property="og:url" content="http://www.hopkinsmedicine.org/" />
+<meta property="og:title" content="Johns Hopkins Medicine, based in Baltimore, Maryland" />
+<meta property="og:description" content="The homepage for Johns Hopkins Medicine.  The organization brings together the faculty, physicians, and scientists of the School of Medicine with professionals of the Johns Hopkins Health System." />
+<meta property="og:type" content="article" /> 
+	<link id="csspage" rel="stylesheet" type="text/css" media="screen,handheld,aural,braille,embossed,projection,tty,tv" href="/se/styles/out/BE1326A1403339A1A779A5784162299D.css"/>
+	<link rel="stylesheet" type="text/css" media="print" href="/se/styles/out/DBAADB817110AD4962E7AF79ECB523C3.css" /> 
+<script type='text/javascript' src='/se/util/setracker.cfm'></script>
+
+	
+	<!-- template head text -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<link href="//cloud.webtype.com/css/27ac8aa2-abdb-4b51-94d2-dfaa26f47444.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
+
+<link href="/sebin/d/i/responsive-template.css" rel="stylesheet" type="text/css" />
+<link href="/sebin/z/h/responsive-home-new.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+
+
+
+<!--[if lte IE 9]> 
+<link href="/sebin/t/g/responsive_home_ie9.css" rel="stylesheet" type="text/css" media="screen" /> 
+<![endif]-->
+
+<!--[if lte IE 8]> 
+<link href="/sebin/d/i/responsive_home_ie8.css" rel="stylesheet" type="text/css" media="screen" /> 
+<![endif]--> 
+
+<!--[if lte IE 7]> 
+<link href="/sebin/n/j/responsive_home_ie7.css" rel="stylesheet" type="text/css" media="screen" /> 
+<![endif]--> 
+
+<!--[if lte IE 6]>
+<link href="/sebin/n/o/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<script src="http://www.hopkinsmedicine.org/lib/js/require.js"></script>
+<script>
+require.config({
+baseUrl: 'http://www.hopkinsmedicine.org/lib/js/',
+paths: {
+responsive: '',
+jquery: 'jquery-1.8.3.min',
+search: '../template_engine.cfm?template=searchhbs',
+resjs: '../../sebin/r/b/thincrust-responsive',
+ems: '../template_engine.cfm?template=responsiveems',
+modernizr: 'modernizr.min',
+jQueryTweet: 'jquery.tweet.js'
+},
+shim: { 
+modernizr: { exports: 'Modernizr' },
+'jquery.slideshow': ['jquery'],
+'jquery.autocomplete.min':['jquery']
+}
+});
+
+define('responsive', function () {
+
+});
+
+require(['domready!', 'jquery', 'resjs','jquery.slideshow','jquery.autocomplete.min'], function (dom, $, resjs, jqs, jqa) {
+resjs.setupThincrustActions();
+
+// Preload Images
+$( '#slider1 img' ).each( function( i, ele ) {
+var image = $('<img />').attr('src', $( ele ).data( 'full-image' ) );
+});
+
+//Initialize Slider
+var slider = $('#slider1').jhmSlider({
+auto: true,
+displaySlideQty: 7,
+moveSlideQty: 1,
+pause: 9000,
+controls: true,
+nextImage: 'http://hopkinsmedicine.org/sebin/z/z/slideshow_next.png',
+prevImage:'http://hopkinsmedicine.org/sebin/f/l/slideshow_prev.png',
+nextSelector:'.slider-next',
+prevSelector: '.slider-prev',
+mode:'vertical',
+onBeforeSlide: function( currentSlideNumber, totalSlideQty, currentSlideHtmlObject ) {
+// Empty for now
+},
+onAfterSlide: function( currentSlideNumber, totalSlideQty, currentSlideHtmlObject ) {
+var $selected = $( currentSlideHtmlObject );
+var $thumb = $selected.find( 'img' );
+
+// Give the new thumbnail the selected class
+$selected.addClass( 'selected' ).siblings().removeClass( 'selected' );
+
+//change the masthead image
+var banner_src = $thumb.attr( 'data-full-image' );
+var alt_text = $thumb.attr( 'alt' );
+var title_text = $thumb.attr( 'title' );
+var description = $thumb.data('description')
+? $thumb.data('description')
+: null;
+var link = $thumb.attr('data-href')
+? $thumb.attr('data-href')
+: '#';
+var target = $thumb.attr('data-target')
+? $thumb.attr('data-target')
+: '_top';
+
+// Create a new image element and place it "under" the current
+// masthead image.
+var $newMasthead = $( new Image() );
+$newMasthead
+.addClass( 'slide' )
+.attr( 'alt', alt_text )
+.attr( 'src', banner_src )
+.prependTo( '.banner-inner' )
+;
+if(link){ 
+var a = $('<a/>'); a.attr('href', link); a.attr("target",target);
+$newMasthead.wrap(a);
+}
+// Apply any caption to the image
+if( title_text ) {
+var title = $('<h2>' + title_text + '</h2>').wrapInner(a).get(0).outerHTML;
+var caption = description && description.length
+  ? $('<p>' + description +'<span></span></p>').wrapInner(a).get(0).outerHTML
+  : "";
+$newMasthead.parent('a').after( '<div class="caption">' + title + caption + '</div>' );
+}
+else {
+// If no caption exists, display a placeholder in case the next slide
+// does contain one. If the placeholder doesn't exist, the .caption:last
+// selector below will pick up the caption we want to display next and
+// remove it.
+$newMasthead.after( '<div class="caption"></div>' );
+}
+
+
+
+// The :not(:first) of each element will include the one that is currently being displayed. We
+// need to fade that one out so that the one beneath effectively fades in. Which will be the first elment
+$( '.banner .banner-inner .slide:not(:first), .banner .banner-inner .caption:not(:first)' )
+.stop( true, true )
+.fadeOut( 1500, function() {
+var $this = $( this );
+if($this.hasClass('slide')){
+$this.parent().remove();
+}else{
+$this.remove();
+}
+});
+}
+});
+
+// Register a thumbnail event listener
+$('#slider1').on('click', 'img', function( e ) {
+var $container = $( e.delegateTarget );
+var $this = $(this);
+
+// $.index() is 0-based. Something else doesn't appear to be in case
+// you find your self wondering why we're subtracting 1 below.
+var i = $container.find( 'li' ).index( $this.parent() ) - 1; 
+goTo = i < slider.getSlideCount()
+? i
+: i - slider.getSlideCount();
+
+slider.stopShow();
+slider.goToSlide( goTo, false );
+slider.startShow();
+});
+
+// Get Facebook likes
+$.getJSON("https://api.facebook.com/method/fql.query?query=select%20%20like_count%20from%20link_stat%20where%20url=%22https://www.facebook.com/Johns.Hopkins.Medicine%22&format=json",
+function(data) {
+$('.facebook-likes').prepend(addCommas(data[0].like_count));
+});
+// Get data from the youtube user 
+$.getJSON("https://gdata.youtube.com/feeds/api/users/johnshopkinsmedicine?callback=?&v=2&alt=json",
+{}, function(data) {
+$('.subscriber-count').prepend(addCommas(data.entry.yt$statistics.subscriberCount));
+$('.view-count').prepend(addCommas(data.entry.yt$statistics.totalUploadViews));
+});
+/** Add commas for stat formatting */
+function addCommas(nStr)
+{
+nStr += '';
+x = nStr.split('.');
+x1 = x[0];
+x2 = x.length > 1 ? '.' + x[1] : '';
+var rgx = /(\d+)(\d{3})/;
+while (rgx.test(x1)) {
+x1 = x1.replace(rgx, '$1' + ',' + '$2');
+}
+return x1 + x2;
+}
+
+//Tab functionality
+$('ul.tabs li.tab').hide();
+$('ul.tabs li.active').show();
+$('ul.tab-titles li').click(function(event) { 
+var t_class = "." + $(this).attr('class'); //current tab class
+var x = t_class.replace(/(<[^>]*>)/g,'').split(' '); // grab first class only
+//add active to tab, remove active from other tabs
+$(x[0]).addClass('active').siblings().removeClass('active'); 
+//hide/show tabs
+$('ul.tabs li.tab').hide();
+$('ul.tabs li.active').show();
+event.preventDefault(); //stop the href from redirecting
+});
+
+// remove height and width attributes from flexible images
+$('.flex-img img').each(function(){
+$(this).removeAttr('width');
+$(this).removeAttr('height');
+});
+
+var sdcAC = $("#spec_disease").autocomplete({
+serviceUrl: window.location.protocol + "//" + window.location.host + "/dataservice/query",
+minChars:2,
+delimiter:'',
+maxHeight:240,
+width:$("#spec_disease").width(),
+zIndex:9999,
+params: {
+hch_doc: 'no',
+jh_doc: 'yes',
+cp_doc: 'yes',
+gs_doc: 'yes',
+vip_doc: 'yes',
+type: 'sdc'
+},
+noCache:false,
+onSelect: function(value,data){return true;}
+});
+});
+</script>
+
+<!--Google Analytics Script - June 24, 2011-->
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-561229-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+<script type="text/javascript" src="http://www.hopkinsmedicine.org/lib/foresee/foresee-trigger.js"></script>
+	<!-- page head text -->
+	<link rel="alternate" type="application/rss+xml" title="Johns Hopkins Medicine RSS" href="/RSS/HopkinsRSS.xml">
+	<!-- end page head text -->
+</head>
+
+<body>
+	<div style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;"><a href="#Skip" title="Skip Navigation, Go To Main Body Content">Skip Navigation</a></div><script>
+// default sub site search code
+
+define('jhmContext', function () {
+	return {};
+});
+</script><div id="jhm-wrapper"><div id="jhm-canvas"><div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '175746025893862', // App ID from the App Dashboard
+      channelUrl : '//www.hopkinsmedicine.org/_templates/includes/responsive_home/channel.html', // Channel File for x-domain communication
+      status     : true, // check the login status upon init?
+      cookie     : true, // set sessions cookies to allow your server to access the session?
+      xfbml      : true  // parse XFBML tags on this page?
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+
+  };
+
+  // Load the SDK's source Asynchronously
+  // Note that the debug version is being actively developed and might 
+  // contain some type checks that are overly strict. 
+  // Please report such bugs using the bugs tool.
+  (function(d, debug){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document, /*debug*/ false));
+</script><div class="thincrust">
+	<div class="thincrust-inner">
+		<div id="explore-tools">
+			<a href="#" class="explore">
+				<span class="menu-button">
+					<span class="button1"></span>
+					<span class="button2"></span>
+					<span class="button3"></span>
+				</span>
+				<span class="menu-button-text">Explore Johns Hopkins Medicine</span>
+			</a>
+			<a href="#" class="search2"><span>Search</span></a>
+		</div>
+		<div class="topmenu-about-wrapper">
+			<div class="topmenu-patient-care-wrapper">
+				<div class="topmenu-research-wrapper">
+					<div class="topmenu-education-wrapper">
+						<ul class="topmenu">
+							<li class="topmenu-about"><a class="ImgAbout" href="http://www.hopkinsmedicine.org/about/index.html">About <span class="thincrust-more">+</span></a>
+								<ul>
+									<li class="hidden-link"><a href="http://www.hopkinsmedicine.org/about/index.html" class="subLink">About Johns Hopkins Medicine</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/about/centers_departments/index.html" class="subLink">Centers &amp; Departments</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/directions/index.html" class="subLink">Maps  &amp;  Directions</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/news/index.html" class="subLink">News &amp; Publications </a></li>
+									<li><a href="http://www.hopkinsmedicine.org/news/media/index.html" class="subLink">For the Media </a></li>
+									<li><a href="http://www.hopkinsmedicine.org/employment/index.html" class="subLink">Careers </a></li>
+									<li><a href="http://www.hopkinsmedicine.org/ContactUs/index.html" class="subLink">Contact Us</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/support/index.html" class="subLink">Make a Gift</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/" class="subLink">Hopkins Medicine Home</a></li>
+								</ul>
+							</li>
+							<li class="topmenu-patient-care"><a class="ImgCare" href="http://www.hopkinsmedicine.org/patient_care/index.html">Patient Care <span class="thincrust-more">+</span></a>
+								<ul>									
+									<li class="hidden-link"><a href="http://www.hopkinsmedicine.org/patient_care/index.html" class="subLink">Patient Care Home</a></li>
+									
+									<li><a href="http://www.hopkinsmedicine.org/patient_care/hospital_locations.html" class="subLink">Hospitals &amp; Patient Care Locations</a></li>
+<li><a href="http://www.hopkinsmedicine.org/health" class="subLink">Health Information</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/healthlibrary/conditions/adult/" class="subLink">Diseases &amp; Conditions</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/health_professionals/index.html" class="subLink">For Health Professionals</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/profiles/" class="subLink">Find a Doctor</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/health_professionals/physicians.html" class="subLink">Refer a Patient</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/patient_care/johns_hopkins_medicine_request_appointment.html" class="subLink">Request an Appointment</a></li>
+
+
+
+									<li><a href="http://www.hopkinsmedicine.org/international/patients" class="subLink">International Patients</a></li>
+
+									<li><a href="http://www.hopkinsmedicine.org/patient_care/pay_bill/pay_bill.html" class="subLink">Pay Your Bill</a></li>
+									<li><a href="http://trials.johnshopkins.edu/" class="subLink">Search Clinical Trials</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/healthseminars/" class="subLink">Attend a Health Seminar</a></li>
+									<li><a href="https://mychart.hopkinsmedicine.org/MyChart/" class="subLink">MyChart</a></li>
+								</ul>
+							</li>
+							<li class="topmenu-research"><a class="ImgResearch" href="http://www.hopkinsmedicine.org/research/index.html">Research <span class="thincrust-more">+</span></a>
+								<ul>
+									<li class="hidden-link"><a href="http://www.hopkinsmedicine.org/research/index.html" class="subLink">Research Home</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/Research/johns_hopkins_research_topics.html" class="subLink">Research Topics</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/Research/index_2.html" class="subLink">For Our Researchers</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/Research/academic_research_departments.html" class="subLink">Departments, Divisions &amp; Institutes</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/Research/research_centers.html" class="subLink">Research Centers</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/Research/core_facilities/index.html" class="subLink">Core Facilities</a></li>
+									<li><a href="http://trials.johnshopkins.edu/" class="subLink">Clinical Trials</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/Research/johns_hopkins_faculty_chairs.html" class="subLink">Faculty Directors</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/scical/" class="subLink">Events Calendar</a></li>
+								</ul>
+							</li>
+							<li class="topmenu-education"><a class="ImgEducation" href="http://www.hopkinsmedicine.org/education/index.html">Education <span class="thincrust-more">+</span></a>
+								<ul>
+									<li class="hidden-link"><a href="http://www.hopkinsmedicine.org/education/index.html" class="subLink">Education Home</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/som/" class="subLink">School of Medicine</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/education/johns_hopkins_students.html" class="subLink">Students</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/som/faculty/index.html" class="subLink">Faculty</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/education/residents_fellows.html" class="subLink">Residents &amp; Fellows</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/education/health_professionals.html" class="subLink">Health Professionals</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/education/johns_hopkins_alumni.html" class="subLink">Alumni &amp; Friends</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/education/johns_hopkins_schools.html" class="subLink">Schools</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/education/academic_research_departments.html" class="subLink">Departments</a></li>
+                                    <li><a href="http://www.hopkinsmedicine.org/institute_nursing/index.html" class="subLink">Institute for Nursing</a></li>
+									<li><a href="http://www.hopkinsmedicine.org/education/apply_to_johns_hopkins.html" class="subLink">Apply For Admissions</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!-- thincrust responsive end --><div id="wrapper-canvas"><script>
+require(['jquery','jhmContext','resjs'], function ( $, c, res) {
+	if(typeof c.gsa !== 'undefined') {
+		var searchOptDiv = document.createElement('div'),
+			jhmInpOpt = document.createElement('input'),
+			subSiteInpOpt = document.createElement('input'),
+			sitesearchInpOpt = document.createElement('input');
+		
+		$(jhmInpOpt).attr({
+			id: 'subSiteSearchOptMain',
+			value: 'site',
+			name: 'subSiteSearchFlag',
+			type: 'radio'
+		});
+		
+		$(subSiteInpOpt).attr({
+			id: 'subSiteSearchOptSub',
+			value: 'sitesearch',
+			name: 'subSiteSearchFlag',
+			type: 'radio'
+		});
+		
+		if (typeof c.gsa.subsiteurl !== 'undefined') {
+			$(sitesearchInpOpt).attr({
+				value: c.gsa.subsiteurl,
+				name: 'sitesearch',
+				type: 'hidden'
+			});
+		}
+		
+		if(c.gsa.defaultToSubSite) {
+			$(subSiteInpOpt).attr('checked',true);
+		} else {
+			$(jhmInpOpt).attr('checked',true);
+		}
+		
+		if(typeof c.gsa.external !== 'undefined') {
+			$('#jhmSubSiteSearch').attr('action',c.gsa.external);
+		}
+		
+		if(typeof c.gsa.inputName !== 'undefined') {
+			$('#subsite-search-field').attr('name',c.gsa.inputName);
+		}
+		
+		if(typeof c.gsa.client !== 'undefined') {
+			$('#jhmSubSiteSearch input[name="client"]').val(c.gsa.client);
+		}
+		
+		if(typeof c.gsa.proxystyle !== 'undefined') {
+			$('#jhmSubSiteSearch input[name="proxystylesheet"]').val(c.gsa.proxystyle);
+		}
+		
+		if(typeof c.gsa.collection !== 'undefined') {
+			$('#jhmSubSiteSearch input[name="site"]').val(c.gsa.collection);
+		}
+		
+		$(searchOptDiv).addClass('search-options')
+			.appendTo($('.search-field-wrapper'))
+			.append(jhmInpOpt)
+			.append('<label>Johns Hopkins Medicine</label>')
+			.append(subSiteInpOpt)
+			.append('<label>' + c.gsa.display + '</label>');
+			
+		$('#jhmSubSiteSearch').append(sitesearchInpOpt);
+	}
+	
+	res.setupSearchFunctions();
+});	
+</script>
+
+<div id="bannerWrapper">
+    <div id="banner">
+        <div id="logoAndTabs">
+            <a title="Johns Hopkins Medicine" href="http://www.hopkinsmedicine.org/"><img src="http://www.hopkinsmedicine.org/sebin/z/j/johns_hopkins_medicine.png" alt="Johns Hopkins Medicine" /></a>
+        </div>
+		<div id="jhm-search">
+			<form method="get" id="jhmSiteSearch" action="http://www.hopkinsmedicine.org/search">
+				<input type="hidden" name="client" value="hopkinsmedicine_frontend">
+				<input type="hidden" name="proxystylesheet" value="hopkinsmedicine_frontend">
+				<input type="hidden" name="output" value="xml_no_dtd">
+				<input type="hidden" name="site" value="hopkinsmedicine_collection">
+				<div class="search-box">
+					<div class="search-field-wrapper">
+						<div class="search-field-inner"></div>
+						<a class="search-logo">Search</a>
+						<input name="q" id="search-field" size="30" maxlength="256" title="Enter your search" type="text">
+					</div>
+					<button class="bannerSearchButton" name="btnG" type="submit" value="Search">Search</button>
+				</div>
+			</form>
+			<form method="get" id="jhmSubSiteSearch" action="http://www.hopkinsmedicine.org/search" style="display:none;">
+					<input type="hidden" name="q" id="subsite-search-field" size="30" maxlength="256">
+			        <input type="hidden" name="client" value="hopkinsmedicine_frontend">
+					<input type="hidden" name="proxystylesheet" value="hopkinsmedicine_frontend">
+					<input type="hidden" name="output" value="xml_no_dtd">
+					<input type="hidden" name="site" value="hopkinsmedicine_collection">	
+			</form>
+		</div>
+    </div>
+</div><div class="wrapperBody"><div class="contentMainSub"><div class="wrapperContentflex"><!-- skip navigation removed from included pages --><div class="banner">
+  <div class="banner-inner">
+    <a href="http://www.hopkinsmedicine.org/health/awareness/heart_health.html" ><img class="slide" alt="multi colored heart" src="/sebin/b/z/heart_slide2.jpg"/></a>
+
+    <div class="thumbs">
+
+      <div class="thumbs-inner">
+
+        <ul id="slider1">
+<li class="item"><img src="http://www.hopkinsmedicine.org/sebin/h/k/heart_thumb.jpg" alt="multi-colored heart" data-href="http://www.hopkinsmedicine.org/health/awareness/heart_health.html" data-full-image="http://www.hopkinsmedicine.org/sebin/b/z/heart_slide2.jpg" title="Get Pumped for Heart Health" data-description="Discover how to get more heart smart with expert insights, information and tips."  width="140" height="75"/></li>
+
+<li class="item"><img src="http://www.hopkinsmedicine.org/sebin/h/i/021515_brain_cancer_thumb.jpg" alt="poisonous snake on the ground" data-href="http://www.hopkinsmedicine.org/news/stories/this_week_in_research.html" data-full-image="http://www.hopkinsmedicine.org/sebin/d/u/021515_brain_cancer_slide.jpg" title="Advancements in Research" data-description="Snake venom’s role in epilepsy and schizophrenia research, applying lessons from autism to brain cancer and more."  width="140" height="75"/></li>
+
+<li class="item"><img src="http://www.hopkinsmedicine.org/sebin/h/a/biennial_report_thumb.jpg" alt="child holding hands with the thought-controlled prosthetic arm" data-href="http://www.hopkinsmedicine.org/about/biennial_report/" data-full-image="http://www.hopkinsmedicine.org/sebin/l/e/biennial_report_slide.jpg" title="24 months/730 days/17,520 hours" data-description="The past two years saw incredible things happen at Johns Hopkins Medicine. See the Biennial Report, exclusively online, now."  width="140" height="75"/></li>
+
+<li class="item"><img src="http://www.hopkinsmedicine.org/sebin/b/n/lifeline_slide_thumb.jpg" alt="lifeline helicopter about to take off" data-href="http://www.youtube.com/watch?v=_zZspS6UhHU" data-full-image="http://www.hopkinsmedicine.org/sebin/h/g/lifeline_slide2.jpg" data-target="_blank"  title="World-Class Care in the Air" data-description="Watch the extraordinary care delivered to our patients by the staff of Johns Hopkins Lifeline."  width="140" height="75"/></li>
+
+<li class="item"><img src="http://www.hopkinsmedicine.org/sebin/t/i/delmarva-slide-thumb.jpg" alt="Photos of Johns Hopkins Hospital, Bayview Medical and Sibley Memorial" data-href="http://www.hopkinsmedicine.org/news/media/releases/three_johns_hopkins_medicine_hospitals_recognized_by_the_delmarva_foundation_for_medical_care_for_their_commitment_to_quality_improvement" data-full-image="http://www.hopkinsmedicine.org/sebin/j/h/delmarva_slide.jpg" title="Top Performers in Quality and Safety" data-description="The Johns Hopkins Hospital, Johns Hopkins Bayview Medical Center and Sibley Memorial Hospital honored for patient care and quality improvement."  width="140" height="75"/></li>
+
+        </ul>
+
+      </div>
+
+      <div class="slider-prev"></div>
+
+      <div class="slider-next"></div>
+
+    </div>
+
+  </div>
+  
+</div><!-- skip navigation removed from included pages --><script>
+require(['domready!','jquery','jquery.autocomplete.min'],function(d,$,a){
+      var autoParams = { 
+               'type': 'sdcLastName',
+            'hch_doc': 'no',
+          'jh_doc': 'yes',
+          'cp_doc': 'yes',
+          'gs_doc': 'yes',
+          'vip_doc': 'yes',
+         'rsch_doc': 'no'
+  };
+
+  var queryInput = $('#physicianSearch #query');
+    ipsAutoSuggest = queryInput.autocomplete({
+                serviceUrl: window.location.protocol + "//" + window.location.host + "/dataservice/query",
+            minChars:2,
+               maxHeight:240,
+            params: autoParams,
+               zIndex:9999,
+              noCache:false
+     });
+});
+</script>
+
+<div class="tab-module">
+
+ <ul class="tab-titles">
+
+     <li class="active tab-doctors doctors">
+
+         <a href="#" title="Find a Doctor"><span class="tab-wide">Find a Doctor</span><span class="tab-narrow">Doctors</span></a>
+
+        </li>
+
+     <li class="tab-health-info health-info">
+
+            <a href="#" title="Find Health Information"><span class="tab-wide">Find Health Information</span><span class="tab-narrow">Health Info</span></a>
+
+      </li>
+
+     <li class="tab-appointment appointment">
+
+            <a href="#" title="Request an Appointment"><span class="tab-wide">Request An Appointment</span><span class="tab-narrow">Appointment</span></a>
+
+       </li>
+
+ </ul>
+
+ <ul class="tabs">
+
+       <li class="tab tab-doctors doctors active">
+         
+         <form id="physicianSearch" class="activeSearch" method="post" action="/profiles/results/search/" name="physicianSearch">
+               
+              <div id="spec_disease_container">
+                 
+                  <h3>Search by specialty, name or keyword...</h3>
+
+                    <input size="30" maxlength="50" id="query" name="query" value="" type="text" class="physicianSearchTextInput">
+
+                    <input type="submit" value="Go" name="expertiseSearchSubmit" id="expertiseSearchSubmit" class="physicianSearchButton">
+                    
+              </div>
+              
+                  
+          </form><br/><br/>
+
+         <div class="clear"></div>
+
+         <h4>Search other member hospitals:</h4>
+
+           <ul class="member-hospitals">
+                <li><a href="http://www.hopkinsmedicine.org/howard_county_general_hospital/doctors/index.html" target="_blank">Howard County General Hospital</a></li>
+               <li><a href="http://www.suburbanhospital.org/FindDoctor/" target="_blank">Suburban Hospital</a></li>
+               <li><a href="http://www.sibley.org/physicians/find_a_doctor.aspx" target="_blank">Sibley Memorial Hospital</a></li>
+               <li><a href="http://www.allkids.org/body.cfm?id=720" target="_blank">All Children's Hospital</a></li>
+</ul> 
+
+     </li>
+
+     <li class="tab tab-health-info health-info">
+
+            <h3>Search Health Topics</h3>
+         
+          <!-- health library search -->
+          
+          <form name="hi_search" id="hi_search" action="http://www.hopkinsmedicine.org/healthlibrary/search" method="get">
+                
+              <input type="text" name="q" value="">
+
+               <input type="submit" id="searchsubmit" type="hidden" value="Go">
+
+          </form>
+
+           <div class="clear"></div>
+
+         <h3>Look Up a Health Topic in Our A to Z Listing</h3>
+
+           <ul class="a-z">
+
+                <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/a/">A</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/b/">B</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/c/">C</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/d/">D</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/e/">E</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/f/">F</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/g/">G</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/h/">H</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/i/">I</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/j/">J</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/k/">K</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/l/">L</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/m/">M</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/n/">N</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/o/">O</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/p/">P</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/q/">Q</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/r/">R</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/s/">S</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/t/">T</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/u/">U</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/v/">V</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/w/">W</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/x/">X</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/y/">Y</a></li>
+
+             <li><a href="http://www.hopkinsmedicine.org/healthlibrary/atoz/z/">Z</a></li>
+
+         </ul>
+
+         <div class="clear"></div>
+
+         <p>(A-Z listing includes diseases, conditions, tests and procedures)</p>
+
+        </li>
+
+     <li class="tab tab-appointment appointment">
+
+            <div>
+
+             <h4>Maryland Patients</h4>
+
+              <p>410-955-5000 (Adults)<br/>
+
+               410-955-2000 (Pediatrics)</p>
+
+             <p><a href="http://hopkinsmedicine.org/profiles/">Find a Doctor &raquo;</a></p>
+
+          </div>
+
+            <div>
+
+             <h4>U.S. Patients</h4>
+
+              <p>Call our Medical Concierge Services team.</p>
+
+               <p>1-855-695-4872 (toll free)</p>
+
+               <p>8 a.m. to 6 p.m., EST, Monday through Friday</p>
+
+             <p><a href="http://www.hopkinsmedicine.org/usa/patient_information/appointments/index.html">Visit the Johns Hopkins USA website to learn more  &raquo;</a></p>
+
+         </div>
+
+            <div>
+
+             <h4>International Patients</h4>
+
+             <p>Call our International Medical Concierge Services team.</p>
+
+              <p>+1-410-614-4633</p>
+
+              <p>7 a.m. to 6 p.m., EST, Monday through Friday</p>
+
+             <p><a href="http://www.hopkinsmedicine.org/international/patients/appointments/index.html">Visit the Johns Hopkins Medicine International website to learn more &raquo;</a></p>
+
+            </div>
+
+        </li>
+
+ </ul>
+
+ <div class="quicklinks">
+
+        <h3>I Want To...</h3>
+
+       <ul>
+
+          <li class="refer-patient"><a href="http://hopkinsmedicine.org/health_professionals/physicians/index.html">Refer a Patient</a></li>
+
+<li class="second-opinion"><a href="http://www.hopkinsmedicine.org/patient_care/hospital_locations.html">Find Patient Care Locations</a></li>
+
+          <li class="gift"><a href="http://www.hopkinsmedicine.org/support">Make a Gift</a></li>
+
+          <li class="attend-seminar"><a href="http://www.hopkinsmedicine.org/health/healthseminars/upcoming">Attend a Health Seminar</a></li>
+
+          <li class="clinical-trials"><a href=" http://trials.johnshopkins.edu/">Search Clinical Trials</a></li>
+
+           <li class="pay-bill"><a href="http://hopkinsmedicine.org/patient_care/pay_bill/pay_bill.html">Pay My Bill</a></li>
+
+        </ul>
+
+ </div>
+
+</div>&#160; <div id="main-content"><div id="main-content-inner"><div id="primary"><div><a name="Skip"></a></div><h2>Top Features</h2><ul class="news-featured"><li class="first"><div class="flex-img"><a href="http://www.hopkinsmedicine.org/news/media/releases/johns_hopkins_and_cdc_prepare_emergency_department_staff_to_care_for_patients_with_infectious_diseases" ><img src="/sebin/x/l/emergency-department.jpg" alt="Emergency department entrance" /></a></div><h3><a href="http://www.hopkinsmedicine.org/news/media/releases/johns_hopkins_and_cdc_prepare_emergency_department_staff_to_care_for_patients_with_infectious_diseases" >Johns Hopkins and CDC Prepare Emergency Department Staff to Care for Patients with Infectious Diseases</a></h3><p>The Centers for Disease Control and Prevention have <a href="http://www.hopkinsmedicine.org/news/media/releases/johns_hopkins_and_cdc_prepare_emergency_department_staff_to_care_for_patients_with_infectious_diseases" >released four web-based training modules developed by Johns Hopkins Medicine</a> for emergency department personnel who treat patients with infectious diseases.</p></li><li class="first"><div class="flex-img"><a href="http://www.hopkinsmedicine.org/institute_basic_biomedical_sciences/news_events/articles_and_stories/education_grad_med/2015_02_bci.html" ><img src="/sebin/f/f/deidre_internship.jpg" alt="Ph.D. grad Deidre Ribbens sitting at a desk typing with coworkers. " /></a></div><h3><a href="http://www.hopkinsmedicine.org/institute_basic_biomedical_sciences/news_events/articles_and_stories/education_grad_med/2015_02_bci.html" >All Aboard</a></h3><p>Historically, earning a biomedical Ph.D. has been chiefly associated with an academic research career, but a new program at Johns Hopkins is working with students to <a href="http://www.hopkinsmedicine.org/institute_basic_biomedical_sciences/news_events/articles_and_stories/education_grad_med/2015_02_bci.html" >identify other career paths and figure out how to get there</a>.</p></li><li><div class="flex-img"><a target="_blank" href="https://www.youtube.com/watch?v=3r3vrYvxfvY" ><img src="/sebin/r/n/neonatal_nurse.JPG" alt="Video preview of a neonatal nurse taking the temperature of an infant in a hospital room. " /></a></div><h3><a target="_blank" href="https://www.youtube.com/watch?v=3r3vrYvxfvY" >What Does It Take to Be a Johns Hopkins Nurse?</a></h3><p>Learn more about the way nurses contribute to patient care at The Johns Hopkins Hospital and how nurses can <a target="_blank" href="https://www.youtube.com/watch?v=3r3vrYvxfvY" >provide experience in new, groundbreaking therapies and comprehensive treatments</a>.</p></li><li><div class="flex-img"><a href="http://www.hopkinsmedicine.org/health/healthy_heart/stay_healthy/six-heart-health-mistakes-made-by-women-and-how-to-avoid-them" ><img src="/sebin/h/l/women_jogging.jpg" alt="Two women jogging together on a wooded trail. " /></a></div><h3><a href="http://www.hopkinsmedicine.org/health/healthy_heart/stay_healthy/six-heart-health-mistakes-made-by-women-and-how-to-avoid-them" >6 Heart Health Mistakes Made by Women — and How to Avoid Them</a></h3><p>Even though you think you’re being careful, it’s still easy to slip up when it comes to keeping your heart healthy. Johns Hopkins experts give <a href="http://www.hopkinsmedicine.org/health/healthy_heart/stay_healthy/six-heart-health-mistakes-made-by-women-and-how-to-avoid-them" >tips on how to stay on track</a>.</p></li></ul><h2><a href="http://www.hopkinsmedicine.org/news/media/releases" >News &amp; Views</a></h2><ul class="news-secondary"><li><h3><a href="http://www.hopkinsmedicine.org/news/media/releases/what_autism_can_teach_us_about_brain_cancer" >What Autism Can Teach Us About Brain Cancer</a></h3><p>“My laboratory’s research on cargo transport inside the cells of patients with autism has led to a new strategy for treating a deadly brain cancer,” says physiologist Rajini Rao. “This is a great example of the <a href="http://www.hopkinsmedicine.org/news/media/releases/what_autism_can_teach_us_about_brain_cancer" >unexpected good that can come from going wherever the science takes us</a>.”</p></li><li><h3><a href="http://www.hopkinsmedicine.org/news/publications/johns_hopkins_urology/johns_hopkins_urology_winter_2015/erectile_dysfunction_and_low_testosterone_offer_gateway_to_mens_health" >Erectile Dysfunction and Low Testosterone Offer Gateway to Men's Health</a></h3><p>Low testosterone and erectile dysfunction are causes of concern for many men, but urologist Kevin Billups notes these problems don't occur in a vacuum — they often <a href="http://www.hopkinsmedicine.org/news/publications/johns_hopkins_urology/johns_hopkins_urology_winter_2015/erectile_dysfunction_and_low_testosterone_offer_gateway_to_mens_health" >point to developing conditions occurring behind the scenes</a>.</p></li><li><h3><a href="http://www.hopkinsmedicine.org/health/articles/measles_what_you_need_to_know.html" >Measles: What You Need to Know</a></h3><p>Stories about the measles outbreak have saturated the public, dominating news media and social outlets and sparking lively discussions. Johns Hopkins Children’s Center infectious disease experts Julia McMillan and Aaron Milstone <a href="http://www.hopkinsmedicine.org/health/articles/measles_what_you_need_to_know.html" >provide answers to some common questions about measles</a>.</p></li><li><h3><a href="http://www.hopkinsmedicine.org/news/media/releases/study_of_former_nfl_players_reveals_specifics_of_concussive_brain_damage" >Study of Former NFL Players Reveals Specifics of Concussive Brain Damage</a></h3><p>A team of Johns Hopkins specialists, using a battery of imaging and cognitive tests, has gathered evidence of accumulated brain damage that could be linked to specific memory deficits in former NFL players <a href="http://www.hopkinsmedicine.org/news/media/releases/study_of_former_nfl_players_reveals_specifics_of_concussive_brain_damage" >experienced decades after they stopped playing the game</a>.</p></li><li><a href="http://www.hopkinsmedicine.org/news/media/releases" >Get more news from Johns Hopkins Medicine.</a></li></ul></div><div id="secondary"><!-- skip navigation removed from included pages --><div id="patientcare-research-education">
+
+    <div class="patientcare">
+
+       <h2><a href="http://www.hopkinsmedicine.org/patient_care/index.html">Patient Care</a></h2>
+
+        <img src="http://hopkinsmedicine.org/sebin/v/v/patientcare.png" alt="Patient Care" />
+
+     <p>Our innovations in cancer treatment, neurosurgery, transplants, patient safety  and more give hope to patients around the world.</p>
+
+     <p><a href="http://www.hopkinsmedicine.org/patient_care/index.html">Connect with our clinical services.</a></p>
+
+    </div>
+
+    <div class="research">
+
+      <h2><a href="http://www.hopkinsmedicine.org/research/index.html">Research</a></h2>
+
+        <img src="http://hopkinsmedicine.org/sebin/f/p/research.png" alt="Research" />
+
+     <p>Our findings in areas ranging from the genetic links of disease to the uses of medical devices point the way to care and cure. </p>
+
+     <p><a href="http://www.hopkinsmedicine.org/research/index.html">Discover what drives our science.</a></p>
+
+    </div>
+
+    <div class="education">
+
+     <h2><a href="http://www.hopkinsmedicine.org/education/index.html">Education</a></h2>
+
+      <img src="http://hopkinsmedicine.org/sebin/d/a/education.png" alt="Education" />
+
+     <p>We revolutionized the study of medicine at our founding. We’re reimagining the medical curriculum for the 21st century.</p>
+
+     <p><a href="http://www.hopkinsmedicine.org/education/index.html">Learn about our education opportunities.</a></p>
+
+    </div>
+
+</div><!-- skip navigation removed from included pages --><!-- Begin Video Widget -->
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['vw._setAccount', 'UA-561229-1']);
+_gaq.push(['vw._trackEvent', 'Video Widget', 'Embedded Full Width', '1mmysQHHAMI', 1, true]);
+</script>
+<div class="flex-video-wrapper">
+    <div class="flex-video-outer">
+      <div class="flex-video">
+        <div class="flex-video-inner">
+          <iframe width="915" height="515" src="http://www.youtube.com/embed/1mmysQHHAMI?wmode=transparent&amp;rel=0" frameborder="0"></iframe>
+        </div>
+      </div>
+      <div class="flex-video-text">
+<p><strong>Receiving a Bionic Eye: Adolf's Story</strong></p>
+<p>Adolf suffers from Usher syndrome, a condition characterized by deafness and progressive vision loss. After losing his sight, he felt isolated from the rest of the world. Discover how receiving a "bionic eye" helped change his life.</p>
+      </div>
+    </div>
+</div>
+<!-- End Video Widget -->.<!-- skip navigation removed from included pages --><div id="facebook">
+  <h2><a href="http://facebook.com/Johns.Hopkins.Medicine/">Facebook <span class="social-stat facebook-likes">&nbsp;fans</span></a></h2>
+    <div class="fb-like-box" data-href="http://www.facebook.com/johns.hopkins.medicine" data-width="615" data-show-faces="true" data-stream="true" data-header="false" data-border-color="#ffffff"></div>
+</div><!-- #facebook -->
+<div id="twitter">
+   <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/HopkinsMedicine"  data-widget-id="319469246868496385">Tweets by @HopkinsMedicine</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div><!-- #twitter --><!-- skip navigation removed from included pages --><div id="youtube">
+
+   <h2><a href="http://youtube.com/JohnsHopkinsMedicine/">YouTube <span class="social-stat view-count">&nbsp;views</span><span class="social-stat">&nbsp;|&nbsp;</span><span class="social-stat subscriber-count">&nbsp;subscribers</span></a></h2>
+
+    <h3>The Promise of Medicine: Stories of Innovation, Collaboration and Hope</h3>
+
+    <div class="youtube-videos">
+
+       <div class="first video">
+
+       <div class="flex-video">
+
+            <div class="flex-video-inner">
+
+                <iframe width="201" height="113" src="http://www.youtube.com/embed/qVCtprUY870?rel=0" frameborder="0"></iframe>
+
+            </div><!-- .flex-video-inner -->
+
+        </div><!-- .flex-video -->
+
+        <h3>Continuity of Care</h3>
+
+        <p>Johns Hopkins Medicine is developing new approaches to inpatient discharges, including creating shorter discharge summaries for physicians, reducing the turnaround time for these summaries and directly connecting with primary care physicians upon patient release.</p>
+
+        <p><a href="http://www.youtube.com/watch?v=qVCtprUY870?rel=0">Watch on YouTube</a></p>
+
+     </div><!-- .first-video -->
+
+     <div class="last video">
+
+        <div class="flex-video">
+
+            <div class="flex-video-inner">
+
+              <iframe width="201" height="113" src="http://www.youtube.com/embed/d3sfcA2-QuU?rel=0" frameborder="0"></iframe>
+
+            </div><!-- .flex-video-inner -->
+
+        </div><!-- .flex-video -->
+
+        <h3>Gastric Cancer – Stephanie’s Story</h3>
+
+        <p>Facing a cancer with a 29% cure rate at age 20, Stephanie White found Mark Duncan, M.D., and the Johns Hopkins Sidney Kimmel Comprehensive Cancer Center. She talks about her treatment, recovery and meeting her fiancé.</p>
+
+        <p><a href="http://www.youtube.com/watch?v=d3sfcA2-QuU?rel=0">Watch on YouTube</a></p>
+
+      </div><!-- .last-video -->
+
+    </div>
+
+</div></div></div></div><div class="reset">&#160;</div><!-- skip navigation removed from included pages --><div class="contentFooter"><div class="footerLeft"><ul><li><a href="http://www.hopkinsmedicine.org/index.html" ><strong>Home</strong></a></li><li><a href="http://www.hopkinsmedicine.org/about/" >About Johns Hopkins Medicine</a></li><li><a href="http://www.hopkinsmedicine.org/ContactUs/" >Contact Johns Hopkins Medicine</a></li><li><a href="http://www.hopkinsmedicine.org/about/centers_departments/" >Centers &amp; Departments</a></li><li><a href="http://www.hopkinsmedicine.org/directions/" >Maps &amp; Directions</a></li><li><a href="http://www.hopkinsmedicine.org/profiles/index.html" >Find a Doctor</a></li><li><a href="http://www.hopkinsmedicine.org/patient_care/" >Patient Care</a></li><li><a href="http://www.hopkinsmedicine.org/education/" >Education</a></li><li><a href="http://www.hopkinsmedicine.org/Research/" >Research</a></li><li><a href="http://www.hopkinsmedicine.org/news/" >News</a></li><li><a href="http://www.hopkinsmedicine.org/employment/index.html" >Careers</a></li></ul></div><div class="footerMiddle"><p><strong>Connect with Johns Hopkins Medicine</strong></p><div class="socialIcons"><a target="_blank" href="https://www.facebook.com/Johns.Hopkins.Medicine" ><img src="/sebin/n/b/facebook-footer-icon.png" alt="Facebook Icon" height="23" hspace="0" vspace="0" width="23" /> Facebook</a> <a target="_blank" href="https://twitter.com/HopkinsMedicine" ><img src="/sebin/p/g/twitter-footer-logo.png" alt="Twitter Icon" height="23" hspace="0" vspace="0" width="23" /> Twitter</a> <a target="_blank" href="http://www.youtube.com/user/JohnsHopkinsMedicine" ><img src="/sebin/r/d/icon_youtube.png" alt="YouTube Icon" height="23" hspace="0" vspace="0" width="23" /> YouTube</a> <a target="_blank" href="http://www.linkedin.com/company/johns-hopkins-medicine" ><img src="/sebin/x/u/linkedin-footer-icon.png" alt="LinkedIn Icon" height="23" hspace="0" vspace="0" width="23" /> LinkedIn</a><a target="_blank" href="https://plus.google.com/?wwc=1#117036896895720589586/about" ><img src="/sebin/d/k/google-plus-footer-logo.png" alt="Google Plus Icon" height="23" hspace="0" vspace="0" width="23" /> Google+</a><a target="_blank" href="http://instagram.com/hopkinsmedicine#" ><img src="/sebin/h/a/instagram-footer-icon.png" alt="Instagram Icon" height="23" hspace="0" vspace="0" width="23" /> Instagram</a><a target="_blank" href="http://www.pinterest.com/HopkinsMedicine/" ><img src="/sebin/h/m/pinterest_footer_icon.png" alt="Pinterest Icon" height="23" hspace="0" vspace="0" width="23" /> Pinterest</a><a target="_blank" href="http://www.sharecare.com/group/johns-hopkins-medicine" ><img src="/sebin/v/j/sharecare_icon.jpg" alt="Sharecare Icon" height="23" hspace="0" vspace="0" width="23" /> Sharecare</a><a href="http://www.hopkinsmedicine.org/news/e-newsletters/" ><img src="/sebin/l/s/enews-footer-icon.png" alt="E-News Icon" height="23" hspace="0" vspace="0" width="23" /> E-News</a><a href="http://www.hopkinsmedicine.org/news/audio/" ><img src="/sebin/x/q/podcast-footer-logo.png" alt="Podcast Icon" height="23" hspace="0" vspace="0" width="23" /> Podcasts</a></div><br /> <p><a href="http://www.hopkinsmedicine.org/social_media/" >Join Our Social Media Communities &gt;</a></p></div><div class="footerRight"><ul><li><a href="http://www.hopkinsmedicine.org/Privacy/patients.html" ><strong>Notice of Privacy Practices</strong></a><br /> (Patients &amp; Health Plan Members)</li><li><a href="http://www.hopkinsmedicine.org/Privacy/index.html" ><strong>Privacy Policy and Disclaimer</strong></a></li></ul><style>
+div.footerRight ul {padding:0;}
+div.footerRight ul li {
+list-style-type: none;
+font-weight: normal;
+margin: 0 0 20px 0;
+font-size:11px;
+line-height:18px;
+}
+div.footerRight ul li a {font-size:12px;}
+
+</style></div><div class="reset">&#160;</div></div></div></div></div><div class="wrapperBottom"><div class="wbLeft">&#160;</div><div class="wbMiddle">&#160;</div><div class="wbRight">&#160;</div><div class="reset">&#160;</div></div><div class="footerNav"><!-- skip navigation removed from included pages --><p class="floatleft">© The Johns Hopkins University, The Johns Hopkins Hospital, and Johns Hopkins Health System. All rights reserved.</p></div></div></div></div> 
+</body>
+</html>
+";i:2;s:4:"5392";}

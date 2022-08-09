@@ -1,0 +1,47 @@
+a:3:{i:0;s:14:"http://0nd.it/";i:1;s:1204:"<html>
+<head>
+<title>Ondit - Url Shortener</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function showLink()
+{
+var xmlhttp;
+var b= document.getElementById("ori_url").value;
+b = encodeURIComponent(b);
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("shortUrl").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","shorten.php?a=shorten&u="+b,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body>
+<div class="logo"><img src="http://tech.ondit.eu/wp-content/uploads/2012/03/logo_met_baseline.png" width="250"/>
+</div>
+<div class="top"><div class="title">Paste your link here:</div></div>
+
+<div class="middle">
+<div class="input">
+<input type="text" class="inputlink" id="ori_url" name="ori_url" /> <input type="button" class="inputbutton" onclick="showLink()" value="Shorten" /><br />
+<div id="shortUrl"></div>
+</div>
+</div>
+
+<div class="bottom"></div>
+
+</body>
+</html>
+";i:2;s:4:"7101";}

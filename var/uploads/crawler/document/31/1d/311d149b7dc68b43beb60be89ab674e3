@@ -1,0 +1,479 @@
+a:3:{i:0;s:22:"http://snapwidget.com/";i:1;s:32607:"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQICUlZUGwcFV1BRAA=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:19,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:19,2:20,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:20,2:19,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:20,2:19,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:20,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&u&&u.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=l.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,u=c.document,f="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},l=e.exports={offset:i(),origin:p,features:{}};u[f]?(u[f]("DOMContentLoaded",o,!1),c[f]("load",n,!1)):(u[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:18,handle:"D5DuLP"}],18:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],19:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],20:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:19,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+<title>SnapWidget | Instagram Widget</title>
+<meta name="description" content="SnapWidget allows you to display your Instagram photo gallery on your website or blog using an easily customizable and embeddable Instagram widget.">
+<meta name="author" content="snapwidget">
+<meta property="og:title" content="SnapWidget | Instagram Widget"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="http://snapwidget.com"/>
+<meta property="og:image" content="http://snapwidget.com/images/logo.png"/>
+<meta property="og:site_name" content="SnapWidget"/>
+<meta property="og:description" content="SnapWidget allows you to display your Instagram photo gallery on your website or blog using an easily customizable and embeddable Instagram widget."/>
+<meta property="fb:app_id" content="251213898324149"/>
+<meta property="fb:admins" content="100003032665178"/>
+ 
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+ 
+<link href="css/combined.css" rel="stylesheet">
+<link href="css/lightbox.css" rel="stylesheet">
+ 
+<link rel="shortcut icon" href="images/favicon.ico">
+ 
+<script src="//cdn.ravenjs.com/1.1.15/jquery,native/raven.min.js"></script>
+<script>
+        var options = {
+            ignoreUrls: [
+                /connect\.facebook\.net\/en_US\/all\.js/i,
+                /platform\.twitter\.com/i,
+                /googlesyndication\.com/i
+            ]
+        };
+        Raven.config('https://2e02c5bdfd944aa7879508fdb4748ffd@app.getsentry.com/29267', options).install();
+    </script>
+ 
+<script src="//cdn.optimizely.com/js/1606600194.js"></script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-26211480-1', 'snapwidget.com');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+    </script>
+<script>
+      !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+      arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+      d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+      insertBefore(d,q)}(window,document,'script','_gs');
+
+      _gs('GSN-717924-E');
+    </script>
+</head>
+<body>
+<noscript>
+<center>For full functionality of this site it is necessary to enable JavaScript.
+Here are the <a href="http://www.enable-javascript.com/" target="_blank">
+instructions how to enable JavaScript in your web browser</a>.</center>
+</noscript>
+<div class="header">
+<div class="topbar">
+<div class="fill">
+<div class="container">
+<span class="brand"><a href="http://snapwidget.com">SnapWidget</a> <small>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Instagram Widget</small></span>
+<ul class="nav secondary-nav">
+<li class="active"><a href="#">Home</a></li>
+<li><a href="#getstarted">Get Started</a></li>
+<li><a href="http://snapwidget.com/pro-widget?trcksrc=105">Pro Widget</a></li>
+<li><a href="http://snapwidget.com/tutorials">Tutorials</a></li>
+<li><a href="http://snapwidget.com/galleries/">Galleries</a></li>
+<li><a href="http://blog.snapwidget.com">Blog</a></li>
+<li style="padding: 7px 5px; margin-top: 5px;">|</li>
+<li><a href="http://snapwidget.com/pro-widget">Log In</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="container">
+ 
+<div class="hero-unit">
+<div class="screens">
+<div class="hero-actions">
+<h1>Display your Instagram photos on your website</h1>
+<br/>
+<h2>Used by more than 100,000 websites daily, SnapWidget is the most popular <strong>Instagram Widget</strong> that allows you to quickly and easily embed a photo gallery in your website or blog.</h2>
+<br/>
+<a href="#getstarted" id="btnGetStarted" class="btn primary" style="text-align: center; padding: 10px 20px;" title="Get Your Free Widget">
+<span style="font-weight: 900; font-size: 20px">Get Your Free Widget</span>
+</a>
+&nbsp;
+<a href="images/snapwidget_example1.jpg" id="btnExamples" rel="lightbox[examples]" class="btn" style="text-align: center; padding: 10px 27px;">
+<span style="font-weight: 900; font-size: 20px">Examples</span>
+</a>
+<a href="images/snapwidget_example2.jpg" rel="lightbox[examples]"></a>
+<a href="images/snapwidget_example3.jpg" rel="lightbox[examples]"></a>
+<a href="images/snapwidget_example4.jpg" rel="lightbox[examples]"></a>
+<a href="images/snapwidget_example5.jpg" rel="lightbox[examples]"></a>
+</div>
+<div class="image">
+<a href="#getstarted" id="screenshotLink">
+<img src="images/screens.png" alt="instagram widget screenshot" height="420px" width="480px">
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="features">
+<div class="container">
+<div class="row">
+<div class="span6">
+<div class="image">
+<img src="images/instagram.png" alt="usernames and hashtags image" height="75px" width="75px">
+</div>
+<div class="description" style="width: 255px">
+<h5>Supports usernames and hashtags</h5>
+<p>Display an Instagram photo gallery for a specific username or a hashtag on your blog or website.</p>
+</div>
+</div>
+<div class="span5">
+<div class="image">
+<img src="images/code.png" alt="easy embed image" height="75px" width="75px">
+</div>
+<div class="description">
+<h5>Easy to install</h5>
+<p>To add the widget to your site, simply copy and paste the snippet.</p>
+</div>
+</div>
+<div class="span5">
+<div class="image">
+<img src="images/free.png" alt="free image" height="75px" width="75px">
+</div>
+<div class="description">
+<h5>Completely free!</h5>
+<p>You don't pay anything to use the basic widget on your website.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a name="getstarted"></a>
+<div class="content">
+<div class="container">
+<div class="row">
+<div class="span5">
+<h2>Basic Widget</h2>
+<div class="clearfix">&nbsp;</div>
+<div class="row">
+<div class="span4">
+<div class="alert-message block-message info" style="padding-top: 5px;">
+<h4 style="font-size: 18px; font-weight: 900;">$0 <small>/ month</small></h4>
+<ul>
+<li>Free to use</li>
+<li>Quick and easy setup</li>
+<li>Filter by username or hashtag</li>
+<li>Grid, Slideshow or Photo Map</li>
+<li>Highly customizable</li>
+</ul>
+<br/>
+<h4 style="margin-bottom: 5px;">Want more? Try Pro:</h4>
+<a href="/pro-widget?trcksrc=107" class="btn success large" id="btnGoProWidget" style="text-align: center;">
+<span style="font-weight: 900; font-size: 16px">Get Started Today</span>
+</a>
+</div>
+</div>
+</div>
+<h3>Need Help?</h3>
+<ul>
+<li>Watch the <a href="http://youtu.be/bV_1MDpR0xQ" target="_blank">tutorial</a></li>
+<li>Visit our <a href="http://support.snapwidget.com/" target="_blank">support</a> page</li>
+<li>Email us: <a href="/cdn-cgi/l/email-protection#2b585e5b5b44595f6b58454a5b5c424f4c4e5f05484446"><span class="__cf_email__" data-cfemail="cebdbbbebea1bcba8ebda0afbeb9a7aaa9abbae0ada1a3">[email&#160;protected]</span><script cf-hash='f9e31' type="text/javascript">
+/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("cf-hash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}}}catch(u){}}();/* ]]> */</script></a></li>
+<li>Follow us on <a href="http://twitter.com/snapwidget" target="_blank">Twitter</a> for updates</li>
+</ul>
+<div class="sharing-row">
+<div class="sharing-col">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=150937331669032";
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like" data-href="http://snapwidget.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+</div>
+<div class="sharing-col" style="width: 105px">
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="Check it out, I'm using SnapWidget to display my #instagram photos! Get it here:" data-url="http://snapwidget.com" data-count="horizontal" data-via="snapwidget">Tweet</a>
+</div>
+<div class="sharing-col" style="position:relative; z-index:1; width: 80px;">
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<g:plusone size="medium"></g:plusone>
+ 
+</div>
+</div>
+</div>
+<div class="span11">
+<h2>Customize your widget <small data-twipsy="enabled" title="Fill in your username or hashtag below. Click Preview to see your widget. Click Get Widget to get the code snippet. Paste the snippet in your website.">More Info</small></h2>
+<form id="settings">
+<fieldset>
+<div class="clearfix">
+<label for="username">Username</label>
+<div class="input">
+<div class="input-prepend">
+<span class="add-on">@</span>
+<input class="medium" id="username" name="username" size="16" type="text">
+<span class="help-inline">Your Instagram username goes here</span>
+</div>
+</div>
+</div>
+<div class="clearfix">
+<label for="hashtag">Hashtag</label>
+<div class="input">
+<div class="input-prepend">
+<span class="add-on">#</span>
+<input class="medium" id="hashtag" name="hashtag" size="16" type="text" value="amazing">
+<span class="help-inline">or, enter a hashtag here</span>
+</div>
+</div>
+</div>
+<div class="clearfix">
+<label for="widgetType">Widget Type</label>
+<div class="input">
+<select class="medium" name="widgetType" id="widgetType">
+<option value="in" selected>Grid</option>
+<option value="bd">Board</option>
+<option value="sc">Scrolling</option>
+<option value="sl">Slideshow</option>
+<option value="mp">Map</option>
+</select>
+<span class="help-inline">The type of widget to display your photos in</span>
+</div>
+</div>
+<div class="clearfix">
+<label for="thumbnailSize" id="thumbnailSizeLabel">Thumbnail Size</label>
+<div class="input">
+<div class="input-append">
+<input class="mini validate" id="thumbnailSize" name="thumbnailSize" maxlength="3" size="16" type="text" value="125">
+<label class="add-on">px</label>
+</div>
+<span class="help-inline" id="thumbnailSizeHelp">The size of each of the photos in the widget</span>
+</div>
+</div>
+<div class="clearfix" id="widgetWidthGroup">
+<label for="widgetWidth" id="widgetWithLabel">Widget Width</label>
+<div class="input">
+<div class="input-append">
+<input class="mini validate" id="widgetWidth" name="widgetWidth" maxlength="4" size="16" type="text" value="500">
+<label class="add-on">px</label>
+</div>
+<span class="help-inline" id="widgetWidthHelp">The width of the widget to create</span>
+</div>
+</div>
+<div class="clearfix" id="autoStartGroup">
+<label for="autoStart" id="autoStartLabel">Auto Start Scrolling</label>
+<div class="input">
+<select class="mini" name="autoStart" id="autoStart">
+<option value="onStart" selected>Yes</option>
+<option value="">No</option>
+</select>
+<span class="help-inline" id="autoStartHelp">The width of the widget to create</span>
+</div>
+</div>
+<div class="clearfix" id="layoutGroup">
+<label for="layoutX">Layout</label>
+<div class="input">
+<input class="micro validate" id="layoutX" name="layoutX" maxlength="2" size="8" type="text" value="3">
+x
+<input class="micro validate" id="layoutY" name="layoutY" maxlength="2" size="8" type="text" value="3">
+<span class="help-inline">The number of photos across and down. Max 60.</span>
+</div>
+</div>
+<div class="clearfix" id="photoBorderGroup">
+<label for="photoBorder">Photo Border</label>
+<div class="input">
+<select class="mini" name="photoBorder" id="photoBorder">
+<option value="yes">Yes</option>
+<option value="no" selected>No</option>
+</select>
+<span class="help-inline">Should a border be displayed around each photo</span>
+</div>
+</div>
+<div class="clearfix" id="backgroundColorGroup">
+<label for="backgroundColor">Background Color</label>
+<div class="input">
+<div class="input-prepend">
+<span class="add-on">#</span>
+<input class="mini" id="backgroundColor" name="backgroundColor" size="16" type="text" value="">
+<span class="help-inline">Background of the widget. Leave empty for transparent.</span>
+</div>
+</div>
+</div>
+<div class="clearfix" id="photoPaddingGroup">
+<label for="photoPadding">Photo Padding</label>
+<div class="input">
+<div class="input-append">
+<input class="mini validate" id="photoPadding" name="photoPadding" size="16" type="text" value="5">
+<label class="add-on">px</label>
+</div>
+<span class="help-inline">Amount of space between each photo</span>
+</div>
+</div>
+<div class="clearfix" id="hoverEffectGroup">
+<label for="hoverEffect">Hover Effect</label>
+<div class="input">
+<select class="small" name="hoverEffect" id="hoverEffect">
+<option value="none" selected>None</option>
+<option value="fadeIn">Fade In</option>
+<option value="fadeOut">Fade Out</option>
+</select>
+<span class="help-inline">Effect applied when a visitor hovers their mouse over a photo in the widget</span>
+</div>
+</div>
+<div class="clearfix" id="sharingButtonsGroup">
+<label for="sharingButtons">Sharing Buttons</label>
+<div class="input">
+<select class="mini" name="sharingButtons" id="sharingButtons">
+<option value="yes" selected>Yes</option>
+<option value="no">No</option>
+</select>
+<span class="help-inline">Adds sharing buttons to each photo in the widget for easy sharing</span>
+</div>
+</div>
+<div class="clearfix" id="responsiveGroup">
+<label for="responsive">Responsive</label>
+<div class="input">
+<select class="mini" name="responsive" id="responsive">
+<option value="yes">Yes</option>
+<option value="no" selected>No</option>
+</select>
+<span class="label notice">New</span>
+<span class="help-inline">Make the widget responsive so it adjusts with the size of the screen</span>
+</div>
+</div>
+<div class="actions">
+<button type="reset" class="btn" id="btnPreview">Preview</button>
+<button type="submit" class="btn success" id="btnGetCode">Get Widget</button>
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div id="bottomSection"></div>
+<div class="footer">
+<div class="container">
+<p class="pull-right">This product uses the Instagram API but is not endorsed or certified by Instagram.</p>
+<p>&copy; <script type="text/javascript">var d = new Date(); document.write(d.getFullYear());</script> <a href="http://snapwidget.com"><strong>SnapWidget</strong></a> | <a href="http://snapwidget.com/about">About Us</a> | <a href="http://snapwidget.com/pricing">Pricing</a> | <a href="http://snapwidget.com/advertise">Advertise</a> | <a href="http://snapwidget.com/privacy">Privacy</a> | <a href="http://snapwidget.com/terms">Terms</a></p>
+</div>
+</div>
+ 
+<div id="previewModal" class="modal hide fade in" style="display: none; ">
+<div class="modal-header">
+<a href="#" data-dismiss="modal" class="close">×</a>
+<h3>This is how your widget will look - <small><a href="#" id="btnOpenWindow">Open in new window</a></small></h3>
+</div>
+<div class="modal-body">
+</div>
+<div class="modal-footer">
+<p class="pull-left">Not seeing your photos? Visit our <a href="http://support.snapwidget.com/customer/portal/articles/926931-why-is-the-widget-not-displaying-any-photos-for-my-username-" target="_blank">support</a> page for more info.</p>
+<a href="#" class="btn primary" id="btnPreviewModalClose">Close</a>
+</div>
+</div>
+<div id="getCodeModal" class="modal hide fade in" style="display: none; ">
+<div class="modal-header">
+<a href="#" data-dismiss="modal" class="close">×</a>
+<h3>Copy and Paste the below code into your website</h3>
+</div>
+<div class="modal-body">
+<pre class="prettyprint" id="widgetCode">
+                </pre>
+<p>Paste this code anywhere on your website where you want the widget to be displayed.</p>
+<p>To use the secured version of the widget for Facebook pages, replace the <b>http</b> in the above snippet with <b>https</b>.</p>
+<div class="sharing-row">
+<div class="sharing-col">
+<div class="fb-like" data-href="http://snapwidget.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+</div>
+<div class="sharing-col" style="width: 105px">
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://snapwidget.com" data-text="Check it out, I'm using SnapWidget to display my #instagram photos! Get it here:" data-count="horizontal" data-via="snapwidget">Tweet</a>
+</div>
+<div class="sharing-col" style="position:relative; z-index:1; width: 80px;">
+<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fsnapwidget.com&media=http%3A%2F%2Fsnapwidget.com%2Fimages%2Fscreenshot.png" class="pin-it-button" count-layout="horizontal">Pin It</a>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<p class="pull-left">Need more customization? Try our <a href="/pro-widget?trcksrc=106">Pro Widget</a></p>
+<a href="#" class="btn primary" id="btnGetCodeModalClose">Close</a>
+</div>
+</div>
+<div id="thankYouModal" class="modal hide fade in" style="display: none; ">
+<div class="modal-header">
+<a href="#" data-dismiss="modal" class="close">×</a>
+<h3>Thanks for using SnapWidget!</h3>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="span3">
+<h4>Follow Us</h4>
+ 
+<div class="addthis_toolbox addthis_32x32_style addthis_default_style">
+<a class="addthis_button_facebook_follow" addthis:userid="snapwidget"></a>
+<a class="addthis_button_twitter_follow" addthis:userid="snapwidget"></a>
+<a class="addthis_button_instagram_follow" addthis:userid="snapwidget"></a>
+<a class="addthis_button_youtube_follow" addthis:userid="snapwidget"></a>
+</div>
+ 
+</div>
+<div class="span6">
+<h4>Share SnapWidget</h4>
+ 
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet" tw:url="http://snapwidget.com" tw:text="Check it out, I'm using SnapWidget to display my #instagram photos! Get it here:" tw:via="snapwidget"></a>
+<a class="addthis_counter addthis_pill_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":false, data_ga_property: 'UA-26211480-1', data_ga_social : true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e9e7c7d26c37a15"></script>
+ 
+</div>
+</div>
+<br/>
+</div>
+<div class="modal-footer">
+<a href="#" class="btn primary" id="btnThankYouModalClose">Close</a>
+</div>
+</div>
+ 
+<script>
+    var _APP_URL = 'http://snapwidget.com';
+var _SECURE_APP_URL = 'https://snapwidget.com';
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/display.js"></script>
+<script src="js/script.js"></script>
+<script src="js/lightbox.js"></script>
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+ 
+<script type="text/javascript">
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {}; 
+  _dcs.account = '9231741';
+  
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true; 
+    dc.src = '//tag.getdrip.com/9231741.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+<script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(t,e){window.heap.appid=t,window.heap.config=e;var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+t+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(t){return function(){heap.push([t].concat(Array.prototype.slice.call(arguments,0)))}},p=["clearEventProperties","identify","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};  
+    heap.load("872047274");
+</script>
+<script type="text/javascript">
+  (function() {
+    window._pa = window._pa || {};
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.perfectaudience.com/serve/54dde646d6e2b949a8000151.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+  })();
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-3.newrelic.com","licenseKey":"a53393d12f","applicationID":"453137","transactionName":"ZlNSMUNXWBcFW0FRCV8ZZRdYGV8KAF1NFhZZRg==","queueTime":0,"applicationTime":0,"atts":"ShRRRwtNSxk=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-515.min.js"}</script><script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l=document.getElementsByTagName("a"),t=document.createElement("textarea");for(i=0;l.length-i;i++){try{a=l[i].getAttribute("href");if(a&&a.indexOf("/cdn-cgi/l/email-protection") > -1  && (a.length > 28)){s='';j=27+ 1 + a.indexOf("/cdn-cgi/l/email-protection");if (a.length > j) {r=parseInt(a.substr(j,2),16);for(j+=2;a.length>j&&a.substr(j,1)!='X';j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}j+=1;s+=a.substr(j,a.length-j);}t.innerHTML=s.replace(/</g,"&lt;").replace(/>/g,"&gt;");l[i].setAttribute("href","mailto:"+t.value);}}catch(e){}}}catch(e){}})();
+/* ]]> */
+</script>
+</body>
+</html>
+";i:2;s:3:"612";}

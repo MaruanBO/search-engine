@@ -1,0 +1,1805 @@
+a:3:{i:0;s:28:"http://eyemedvisioncare.com/";i:1;s:55334:"<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- rel=dynamic-content indicates an element that is replaced with the contents produced by the specified href. 
+	 dyn-cs:* URIs are resolved using the WP DynamicContentSpotMappings resource environment provider. These values can
+	 also be set using theme metadata if a theme is specified in the URI (e.g. @tl:oid:theme_unique_name). -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="EyeMed Vision Care" />
+<meta name="keywords" content="EyeMed, Vision, Eyes" />
+<title>EyeMed Vision Care</title>
+<meta name="viewport" content="width=device-width">
+<!-- Call to head.jsp -->
+
+
+
+
+
+
+
+<meta property="og:site_name" content="Eyemed Visionary"/>
+<meta property="og:url" content="http://portal.eyemedvisioncare.com/wps/portal/em/eyemed/members/!ut/p/b1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOI9Lc2cLZwMHQ38Q51dDDz9gozNPAx8DA3cTYEKIoEKDHAARwNC-r30o9Jz8pOAVoXrR6EqNjCwMAAqdnIP8PYwNTDwNYUqwGOZn0d-bqp-QW5EZXBAuiIA0MIAbQ!!/dl4/d5/L2dBISEvZ0FBIS9nQSEh/" />
+<meta property="fb:app_id" content="1518748328395712" />
+<meta property="og:type" content="blog" />
+<meta property="og:locale" content="en_US" />            <!-- Default -->
+<meta property="og:locale:alternate" content="fr_FR" />  <!-- French -->
+<meta property="og:locale:alternate" content="it_IT" />  <!-- Italian -->
+<meta property="article:author" content="http://www.eyemed.com/visionary" />
+<meta property="article:publisher" content="http://www.eyemed.com/visionary" />
+<script language="JavaScript" type="text/javascript" src="//s3.amazonaws.com/searchdiscovery-satellite-production/937cb54b033a87f12f6cd0b13c9480e752639c80/satelliteLib-881deb2c928e2422642b2c4c43283abb853ec230.js"></script>
+<!--[if IE 7]>
+
+<script type="text/javascript">document.getElementsByTagName("html")[0].className+=" lotusui_ie lotusui_ie7";</script>
+<![endif]-->
+<!--[if IE 8]>
+<script type="text/javascript">document.getElementsByTagName("html")[0].className+=" lotusui_ie8";</script>
+<![endif]-->
+
+<title>CT - Find a Provider</title>
+ 
+
+
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+<link href="/css/mediaelementplayer.css" rel="stylesheet" type="text/css">
+<script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+<script src="/js/vendor/jquery-1.9.0.min.js"></script>
+<script src="/js/vendor/jquery.placeholder.js"></script>
+<script src="/js/foresee/foresee-trigger.js"></script>
+<script src="/js/vendor/jquery.min.js"></script>
+<script src="/js/vendor/jquery.simplemodal.1.4.4.min.js"></script>
+
+<script src="/js/client_ids.js"></script>
+<script src="/js/oauth/hello.js"></script>
+<script src="/js/oauth/modules/facebook.js"></script>
+<script src="/js/oauth/modules/google.js"></script>
+<script src="/js/emAppJS.js"></script>
+
+<script>
+var loggedInUser = '';
+var userAlreadySet = 'false';
+var holdBannerDetails = "";
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+	loggedInUser = getCookie("LOGGEDIN_USER_NAME");
+	var networkVal;
+hello.on('auth.login', function(r){
+	// Get Profile
+	networkVal = r.network;
+	hello.api(r.network+':/me', function(p){
+	var showLogin = 'true';
+	loggedInUser = p.name;	
+	if(r.network!=null || p.name!=null){
+		showLogin = 'false';
+	}
+	if(showLogin == 'false'){
+		if(document.getElementById('userLoginForComments')!= null){
+			document.getElementById('userLoginForComments').style.display = "none";
+		}	
+		if(document.getElementById('leaveUrComment')!= null){
+			document.getElementById('leaveUrComment').style.display = "block";
+		}
+		if(document.getElementById('blogNavWithLoginDetails')!= null){
+			userAlreadySet = 'true';
+			document.getElementById('blogNavWithLoginDetails').innerHTML = document.getElementById('blogNavWithLoginDetails').innerHTML + '<a href="#" style="color:#981d97;text-decoration:underline" onclick="externalUserLogout(networkVal);">'+p.name+' (click to log out)</a>';
+		}		
+	}else{
+		if(document.getElementById('userLoginForComments')!= null){
+			document.getElementById('userLoginForComments').style.display = "block";
+		}
+	}
+		});
+});
+
+var redirect = window.location.href;
+hello.init({
+	//'linkedin' : LINKEDIN_CLIENT_ID,
+	'facebook' : FACEBOOK_CLIENT_ID,
+	//'twitter' : TWITTER_CLIENT_ID,		
+	'google' : GOOGLE_CLIENT_ID,
+},{
+	scope : ['friends','email'],
+	redirect_uri: redirect,
+	oauth_proxy: OAUTH_PROXY_URL
+	
+});
+
+$(document).ready(function ()
+{	
+	linkedInLoginResponse = getCookie("LINKEDIN_USER_NAME");
+	
+	if(linkedInLoginResponse != null && linkedInLoginResponse != "") {
+		loggedInUser = getCookie("LINKEDIN_USER_NAME");
+		var networkVal = "linkedin";
+		if(document.getElementById('userLoginForComments')!= null){
+			document.getElementById('userLoginForComments').style.display = "none";
+		}	
+		if(document.getElementById('leaveUrComment')!= null){
+			document.getElementById('leaveUrComment').style.display = "block";
+		}
+		if(document.getElementById('blogNavWithLoginDetails')!= null){
+			holdBannerDetails = document.getElementById('blogNavWithLoginDetails').innerHTML;
+			userAlreadySet = 'true';
+			document.getElementById('blogNavWithLoginDetails').innerHTML = document.getElementById('blogNavWithLoginDetails').innerHTML + '<a href="#" style="color:#981d97;text-decoration:underline" onclick="deleteLinkedInCookies();">'+linkedInLoginResponse+' (click to log out)</a>';
+		}
+	}			
+});
+
+function deleteLinkedInCookies() 
+{	
+	loggedInUser = "";
+	var cookies = document.cookie.split(";");
+	for (var i = 0; i < cookies.length; i++) 
+	{
+		var cookie = cookies[i];
+		var eqPos = cookie.indexOf("=");
+		var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+		document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	}
+	setEyeMedCookie("LINKEDIN_USER_NAME","");
+	if(document.getElementById("userLoginForComments") != null){
+		document.getElementById('userLoginForComments').style.display = "block";
+	}	
+	if(document.getElementById("leaveUrComment") != null){
+		document.getElementById('leaveUrComment').style.display = "none";
+	}
+	
+	if(document.getElementById('blogNavWithLoginDetails')!= null){
+		//document.getElementById('blogNavWithLoginDetails').style.display = "none";
+		document.getElementById('blogNavWithLoginDetails').innerHTML = holdBannerDetails; //document.getElementById('blogNavWithLoginDetails').innerHTML + '<a href="#" style="color:#981d97;text-decoration:underline" onclick="internalUserLogout()">'+loggedInUser+' (click to log out)</a>';
+	}
+	location.reload();
+}
+
+$(document).ready(function ()
+{	
+	twitterLoginResponse = getCookie("TWITTER_USER_NAME");
+	
+	if(twitterLoginResponse != null && twitterLoginResponse != "") {
+		loggedInUser = getCookie("TWITTER_USER_NAME");
+		var networkVal = "linkedin";
+		if(document.getElementById('userLoginForComments')!= null){
+			document.getElementById('userLoginForComments').style.display = "none";
+		}	
+		if(document.getElementById('leaveUrComment')!= null){
+			document.getElementById('leaveUrComment').style.display = "block";
+		}
+		if(document.getElementById('blogNavWithLoginDetails')!= null){
+			holdBannerDetails = document.getElementById('blogNavWithLoginDetails').innerHTML;
+			userAlreadySet = 'true';
+			document.getElementById('blogNavWithLoginDetails').innerHTML = document.getElementById('blogNavWithLoginDetails').innerHTML + '<a href="#" style="color:#981d97;text-decoration:underline" onclick="deleteTwitterCookies();">'+twitterLoginResponse+' (click to log out)</a>';
+		}
+	}			
+});
+
+function deleteTwitterCookies() 
+{
+	loggedInUser = "";
+	var cookies = document.cookie.split(";");
+	for (var i = 0; i < cookies.length; i++) 
+	{
+		var cookie = cookies[i];
+		var eqPos = cookie.indexOf("=");
+		var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+		document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	}
+	setEyeMedCookie("TWITTER_USER_NAME","");
+	if(document.getElementById("userLoginForComments") != null){
+		document.getElementById('userLoginForComments').style.display = "block";
+	}	
+	if(document.getElementById("leaveUrComment") != null){
+		document.getElementById('leaveUrComment').style.display = "none";
+	}
+	
+	if(document.getElementById('blogNavWithLoginDetails')!= null){
+		//document.getElementById('blogNavWithLoginDetails').style.display = "none";
+		document.getElementById('blogNavWithLoginDetails').innerHTML = holdBannerDetails; //document.getElementById('blogNavWithLoginDetails').innerHTML + '<a href="#" style="color:#981d97;text-decoration:underline" onclick="internalUserLogout()">'+loggedInUser+' (click to log out)</a>';
+	}
+	
+	window.open("/sign-in-with-twitter/signout.jsp","",500,500);
+	
+	//location.reload();
+}
+
+</script>
+
+
+<link id="com.ibm.lotus.NavStateUrl" rel="alternate" href="/wps/portal/em/eyemed/members/!ut/p/b1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOI9Lc2cLZwMHQ38Q51dDDz9gozNPAx8DA3cTYEKIoEKDHAARwNC-r30o9Jz8pOAVoXrR6EqNjCwMAAqdnIP8PYwNTDwNYUqwGOZn0d-bqp-QW5EZXBAuiIA0MIAbQ!!/dl4/d5/L2dJQSEvUUt3QS80SmtFL1o2X0k5NkM4QjFBME9VQ0QwSU5SMzZIMEwxMEc1/" />
+<link rel="bookmark" title='Members' href='/wps/portal/em/eyemed/members/!ut/p/b1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOI9Lc2cLZwMHQ38Q51dDDz9gozNPAx8DA3cTYEKIoEKDHAARwNC-r30o9Jz8pOAVoXrR6EqNjCwMAAqdnIP8PYwNTDwNYUqwGOZn0d-bqp-QW5EZXBAuiIA0MIAbQ!!/dl4/d5/L2dJQSEvUUt3QS80SmtFL1o2X0k5NkM4QjFBME9VQ0QwSU5SMzZIMEwxMEc1/' hreflang="en"/>
+
+<link rel="schema.PORTAL_CP" href="http://www.ibm.com/xmlns/prod/websphere/portal/v7.0/portal-contextual-portal"/>
+<link href="/wps/contenthandler/em/!ut/p/digest!9fKGlL0b_wUEan0R4ZeRCw/res/EyeMedTheme/themes/html/EyeMedTheme/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+<link rel="stylesheet alternate edit_mode" href="/mccbuilder/css/portal_editmode_widgets.css" type="text/css" />
+<link rel="stylesheet" href="/portal_dojo/v1.4.3/dijit/themes/tundra/tundra.css" type="text/css" />
+<link rel="stylesheet" href="/wps/contenthandler/em/!ut/p/digest!QyyWsUT7ylOSCqW9bevWLw/dav/fs-type1/common-resources/ibm/css/common.css" type="text/css" />
+<link rel="stylesheet" href="/wps/contenthandler/em/!ut/p/digest!9fKGlL0b_wUEan0R4ZeRCw/res/EyeMedTheme/themes/html/EyeMedTheme/css/master.css" type="text/css" />
+<link rel="stylesheet" href="/portal_dojo/v1.4.3/com/ibm/widgets/css/widgets_combined.css" type="text/css" />
+
+<script type="text/javascript">
+var djConfig = {parseOnLoad: false, locale: 'en'.replace(/_/, '-').replace(/iw/, 'he').toLowerCase(), baseUrl: "/portal_dojo/v1.4.3/dojo/"};
+</script>
+<script type="text/javascript" src="/portal_dojo/v1.4.3/dojo/dojo.js"></script>
+<script type="text/javascript" src="/portal_dojo/v1.4.3/openajaxhub/OpenAjaxManagedHub-all.js"></script>
+
+<script type="text/javascript">//<![CDATA[
+var style = dojo.isIE ? "<style>.ibmLayoutContainersHidden{position:absolute;top:-9999px;z-index=-1;}</style>" :
+			"<style>.ibmLayoutContainersHidden{opacity:0;height:0;max-height:0;}</style>";
+document.write(style);
+//]]>
+</script>
+<script type="text/javascript">
+	dojo.addOnLoad(function() {
+		com.ibm.pb.themes.commonInit({
+			setWindowTitle : true,
+			useNavigationController : true,
+			useRenderingController : true,
+			useDNDController : true,
+			initLiveTextService : true,
+			lazyLoadModeWidgets : true,
+			navPrimingContainers : [ "selectionPathPrimer", "topNavLinks",
+					"navTabsRoot" ],
+			customInit : com.ibm.themes.PageBuilder2.init
+		});
+		dojo.publish("com.ibm.portal.theme.portlet_ready"); // notifies ASA that portlet IDs are ready to be found in the DOM
+	});
+</script>
+<!-- rendering is delegated to the specified href for each locale -->
+</head>
+
+<!-- BODY part has been modified as per EyeMedDefault theme requirement -->
+<body>
+	<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+	<!--Header section -->
+	<!-- responsible for the top most navigation links (horizontal list) -->
+	<!-- Call to bannerNav.jsp contains all the dynamic header logic -->
+	
+<script language="JavaScript" type="text/javascript">
+	var topLevelPage = null;
+	var secondLevelPage = null;	
+</script>
+<div class="loader"><img alt="loading" src="/images/loading.gif"></div>
+<div class="modal_overlay"></div>
+<header class="clearfix siteHeader"> 
+
+<div class="wrap">
+<a href="/wps/portal/em/eyemed/members" class="logo"><img src="/wps/wcm/connect/2efe1011-c859-483a-ba5a-8c28ba7b9644/eyemed.jpg?MOD=AJPERES&amp;CACHEID=2efe1011-c859-483a-ba5a-8c28ba7b9644" border="0" alt="eyemed" name="&lt;img&gt;"  /></a>
+<form action='/wps/portal/em/eyemed/members/search' method="GET" onSubmit="this.search_query.value=addFilter(this.query.value)" >
+ <div class="searchPanel">
+            <input type="text" class="searchText" placeholder="Search" required title="Search" name="query" />
+            <input type="submit" class="searchButton" value="Search" />
+          </div>
+<input type=hidden name="search_query"/>
+</form>
+
+<script language="Javascript">
+function addFilter(queryIn){
+return queryIn ;
+}
+</script>
+
+
+	<nav class="clearfix">
+	<ul class="mainNav" role="navigation">
+			
+				<li id="Z6_I96C8B1A0OUCD0INR36H0L10G5"  
+					class="active" data-nm-primed="{&#034;id&#034;:&#034;Z6_I96C8B1A0OUCD0INR36H0L10G5&#034;,&#034;locale&#034;:&#034;en&#034;,&#034;title&#034;:&#034;Members&#034;,&#034;isPrivate&#034;:false,&#034;type&#034;:&#034;STATICPAGE&#034;,&#034;children&#034;:[],&#034;metadata&#034;:{&#034;param.sharing.scope&#034;:&#034;ibm.wcm.0.6117132720234507&#034;,&#034;com.ibm.portal.static.page.file.name.html&#034;:&#034;layout.html&#034;}}">
+							
+							<a href="/wps/portal/em/eyemed/members"> 
+								
+									<script language="JavaScript" type="text/javascript">
+										topLevelPage = 'Members';
+									</script>
+										
+										<strong> Members
+										</strong>
+									 
+							</a>
+						
+				</li>
+			
+				<li id="Z6_I96C8B1A00RA70INV0HERP1080"  
+					class="" data-nm-primed="{&#034;id&#034;:&#034;Z6_I96C8B1A00RA70INV0HERP1080&#034;,&#034;locale&#034;:&#034;en&#034;,&#034;title&#034;:&#034;Benefit Administrators&#034;,&#034;isPrivate&#034;:false,&#034;type&#034;:&#034;STATICPAGE&#034;,&#034;children&#034;:[],&#034;metadata&#034;:{&#034;param.sharing.scope&#034;:&#034;ibm.wcm.0.7667836685099775&#034;,&#034;com.ibm.portal.static.page.file.name.html&#034;:&#034;layout.html&#034;}}">
+							
+							<a href="/wps/portal/em/eyemed/benefitsadministrators"> 
+								Benefit Administrators 
+							</a>
+						
+				</li>
+			
+				<li id="Z6_I96C8B1A08R170INB9CC500082"  
+					class="" data-nm-primed="{&#034;id&#034;:&#034;Z6_I96C8B1A08R170INB9CC500082&#034;,&#034;locale&#034;:&#034;en&#034;,&#034;title&#034;:&#034;Brokers&#034;,&#034;isPrivate&#034;:false,&#034;type&#034;:&#034;STATICPAGE&#034;,&#034;children&#034;:[],&#034;metadata&#034;:{&#034;param.sharing.scope&#034;:&#034;ibm.wcm.0.2969234593298684&#034;,&#034;com.ibm.portal.static.page.file.name.html&#034;:&#034;layout.html&#034;}}">
+							
+							<a href="/wps/portal/em/eyemed/brokers"> 
+								Brokers 
+							</a>
+						
+				</li>
+			
+				<li id="Z6_I96C8B1A0G0HF0INBVP44M20S3"  
+					class="" data-nm-primed="{&#034;id&#034;:&#034;Z6_I96C8B1A0G0HF0INBVP44M20S3&#034;,&#034;locale&#034;:&#034;en&#034;,&#034;title&#034;:&#034;Strategic Alliances&#034;,&#034;isPrivate&#034;:false,&#034;type&#034;:&#034;LABEL&#034;,&#034;children&#034;:[],&#034;metadata&#034;:{}}">
+							
+							<a href="/wps/portal/em/eyemed/strategicalliance"> 
+								Strategic Alliances 
+							</a>
+						
+				</li>
+			
+				<li id="Z6_I96C8B1A08R170INB9CC5000A4"  
+					class="" data-nm-primed="{&#034;id&#034;:&#034;Z6_I96C8B1A08R170INB9CC5000A4&#034;,&#034;locale&#034;:&#034;en&#034;,&#034;title&#034;:&#034;Providers&#034;,&#034;isPrivate&#034;:false,&#034;type&#034;:&#034;STATICPAGE&#034;,&#034;children&#034;:[],&#034;metadata&#034;:{&#034;param.sharing.scope&#034;:&#034;ibm.wcm.0.12892596432829107&#034;,&#034;com.ibm.portal.static.page.file.name.html&#034;:&#034;layout.html&#034;}}">
+							
+							<a href="/wps/portal/em/eyemed/providers"> 
+								Providers 
+							</a>
+						
+				</li>
+			
+		
+	</ul>
+	</nav>
+</div>
+
+
+
+<div class="secondaryNav clearfix">
+	<div class="wrap">
+		<ul class="subNav" role="navigation">
+			
+				<li id="Z6_J5LAAB1A0G9C50AQSJFLGQ1005"  
+					data-nm-primed="{&#034;id&#034;:&#034;Z6_J5LAAB1A0G9C50AQSJFLGQ1005&#034;,&#034;locale&#034;:&#034;en&#034;,&#034;title&#034;:&#034;Shop&#034;,&#034;isPrivate&#034;:false,&#034;type&#034;:&#034;EXTERNALURL&#034;,&#034;children&#034;:[{}],&#034;metadata&#034;:{}}"> 
+						
+						<a target="" href="/wps/portal/em/eyemed/members/Shop" class="">
+							Shop
+						</a>
+					
+				</li>
+				
+				<li id="Z6_I96C8B1A0OPC40INRVTSG03030"  
+					data-nm-primed="{&#034;id&#034;:&#034;Z6_I96C8B1A0OPC40INRVTSG03030&#034;,&#034;locale&#034;:&#034;en&#034;,&#034;title&#034;:&#034;Why EyeMed&#034;,&#034;isPrivate&#034;:false,&#034;type&#034;:&#034;STATICPAGE&#034;,&#034;children&#034;:[],&#034;metadata&#034;:{&#034;param.sharing.scope&#034;:&#034;ibm.wcm.0.3505814850099579&#034;,&#034;com.ibm.portal.static.page.file.name.html&#034;:&#034;layout.html&#034;}}"> 
+						
+						<a target="" href="/wps/portal/em/eyemed/members/whyeyemed" class="">
+							Why EyeMed
+						</a>
+					
+				</li>
+				
+				<li id="Z6_I96C8B1A00DN90INNBQLTV10C0"  
+					data-nm-primed="{&#034;id&#034;:&#034;Z6_I96C8B1A00DN90INNBQLTV10C0&#034;,&#034;locale&#034;:&#034;en&#034;,&#034;title&#034;:&#034;Vision Wellness&#034;,&#034;isPrivate&#034;:false,&#034;type&#034;:&#034;STATICPAGE&#034;,&#034;children&#034;:[{}],&#034;metadata&#034;:{&#034;param.sharing.scope&#034;:&#034;ibm.wcm.0.5837387172040731&#034;,&#034;com.ibm.portal.static.page.file.name.html&#034;:&#034;layout.html&#034;}}"> 
+						
+						<a target="" href="/wps/portal/em/eyemed/members/visionwellness" class="">
+							Vision Wellness
+						</a>
+					
+				</li>
+				
+				<li id="Z6_I96C8B1A000800INBGPKH50074"  
+					data-nm-primed="{&#034;id&#034;:&#034;Z6_I96C8B1A000800INBGPKH50074&#034;,&#034;locale&#034;:&#034;en&#034;,&#034;title&#034;:&#034;The Big Picture&#034;,&#034;isPrivate&#034;:false,&#034;type&#034;:&#034;STATICPAGE&#034;,&#034;children&#034;:[{}],&#034;metadata&#034;:{&#034;param.sharing.scope&#034;:&#034;ibm.wcm.0.6221202046638901&#034;,&#034;com.ibm.portal.static.page.file.name.html&#034;:&#034;layout.html&#034;}}"> 
+						
+						<a target="" href="/wps/portal/em/eyemed/members/thebigpicture" class="">
+							The Big Picture
+						</a>
+					
+				</li>
+				
+		</ul>
+
+		<ul class="mastHeadLinks">
+
+	
+
+	
+
+	
+	
+	
+			<li><a target="_blank" href="https://www.eyemedvisioncare.com/locator/locator.emvc">
+				Find a Provider
+			</a></li>
+	
+	
+	
+	 
+	
+
+
+
+	
+
+	
+
+	
+	
+			<li><a target="_blank" href="https://www.eyemedvisioncare.com/member">
+				Member Login
+			</a></li>
+	
+	
+	
+	
+	 
+	
+
+</ul>
+	</div>
+</div>
+
+
+
+</header>
+<script src="/js/main.js"></script>
+<script src="/js/vendor/mediaelement-and-player.min.js"></script>
+<script src="/js/vendor/selectivizr-min.js"></script><div class="mainContainer clearfix">
+		<div class="content clearfix">
+		
+		<!-- #main-container to load all content in body -->
+			<style type="text/css">
+.leftPanel {width:720px;float:left;position:relative}
+.rightPanel {float:right;width:255px;}
+</style>
+<!-- this layout has two fluid equal sized columns -->
+<div class='component-container leftPanel id-Z7_I96C8B1A0OUCD0INR36H0L1084' name='ibmMainContainer' ><div class='component-control id-Z7_JCGC8B1A083IE0IFHVSA8K00C5' ><div class="ibmPortalControl decoration-aria-region"> 
+	<!-- decoration marks the Dojo resource name of the decoration object instantiated at the root of this layout control -->
+	<span style="display:none" class="decoration">com.ibm.skins.NoSkin.skin</span>
+	<!-- asa.portlet.id marks the node whose contents are the id of this layout control; set at runtime by script in the decoration instance -->
+	<span style="display:none" class="asa.portlet.id"></span>
+	<!-- Hide the text of the title, but still provide the lm-dynamic-title container for accessing the dynamic title -->
+	<span class="ibmPortalHiddenText"><span class="lm-dynamic-title asa.portlet.title decoration-title">Home Page Main Content</span></span>
+	<div class="lotusOverflowAuto"> <!-- lm:control dynamic spot injects markup of layout control -->
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		    
+		
+	
+	
+	
+	       		           
+    
+		
+	
+	
+		
+			
+			<article class="posRelative">
+        <ul class="landingBackgroundCarousel"><li class="carouselItem"> 
+        
+        <img src="/wps/wcm/connect/142d3e53-2afd-454c-b189-8f04dfad1c8e/App-Main-Banner.jpg?MOD=AJPERES&amp;CACHEID=142d3e53-2afd-454c-b189-8f04dfad1c8e" border="0" alt="App Info Graphic"  />
+        <div class="carouselItemText">
+                <header>
+                        <h1>View your vision benefits on the go</h1>
+                </header>
+                
+
+	<a href="/wps/portal/em/eyemed/information/appinfographic" class="buttonLink">
+		<span>Download the eyemed app</span>
+	</a>
+
+
+
+
+
+
+
+
+
+        </div>
+</li>
+<li class="carouselItem"> 
+        
+        <img src="/wps/wcm/connect/5daa72da-6fde-482f-b937-dfef0d588e1b/brush_teeth_718x296.jpg?MOD=AJPERES&amp;CACHEID=5daa72da-6fde-482f-b937-dfef0d588e1b" border="0" alt="EyeMed"  />
+        <div class="carouselItemText">
+                <header>
+                        <h1>There's so much to see</h1>
+                </header>
+                
+
+	<a href="/wps/portal/em/eyemed/members/whyeyemed/" class="buttonLink">
+		<span>Learn More</span>
+	</a>
+
+
+
+
+
+
+
+
+
+        </div>
+</li>
+<li class="carouselItem"> 
+        
+        <img src="/wps/wcm/connect/89bafce6-ac33-4c35-9717-a27cf3d286c8/dough2_718x296.jpg?MOD=AJPERES&amp;CACHEID=89bafce6-ac33-4c35-9717-a27cf3d286c8" border="0" alt="EyeMed"  />
+        <div class="carouselItemText">
+                <header>
+                        <h1>There is so much to see</h1>
+                </header>
+                
+
+	<a href="/wps/portal/em/eyemed/members/whyeyemed/" class="buttonLink">
+		<span>Learn More</span>
+	</a>
+
+
+
+
+
+
+
+
+
+        </div>
+</li>
+<li class="carouselItem"> 
+        
+        <img src="/wps/wcm/connect/40a86102-e026-4234-9a52-917f5e242fc3/kissing_baby_718x296.jpg?MOD=AJPERES&amp;CACHEID=40a86102-e026-4234-9a52-917f5e242fc3" border="0" alt="EyeMed"  />
+        <div class="carouselItemText">
+                <header>
+                        <h1>Life is beautiful</h1>
+                </header>
+                
+
+	<a href="/wps/portal/em/eyemed/members/whyeyemed/" class="buttonLink">
+		<span>Learn More</span>
+	</a>
+
+
+
+
+
+
+
+
+
+        </div>
+</li>
+<li class="carouselItem"> 
+        
+        <img src="/wps/wcm/connect/016e2af6-ca83-4acb-852b-949362a811c8/birthday_cap_718x296.jpg?MOD=AJPERES&amp;CACHEID=016e2af6-ca83-4acb-852b-949362a811c8" border="0" alt="EyeMed"  />
+        <div class="carouselItemText">
+                <header>
+                        <h1>There's so much to see</h1>
+                </header>
+                
+
+	<a href="/wps/portal/em/eyemed/members/whyeyemed/" class="buttonLink">
+		<span>Learn More</span>
+	</a>
+
+
+
+
+
+
+
+
+
+        </div>
+</li>
+</ul>
+
+</article>
+
+<article class="mainContent clearfix">
+        <article class="twoColumn">
+                
+        <header>
+                <h2>Member Resources</h2>
+        </header>
+        <ul class="teaserComponent">
+
+
+
+
+
+<li class="videoList">
+        <img src="/wps/wcm/connect/0809ccbb-33e4-4f12-85b2-16bce675f1ba/Smiley+Girl+Media+Thumbnail.jpg?MOD=AJPERES&amp;CACHEID=0809ccbb-33e4-4f12-85b2-16bce675f1ba" border="0" width="314" height="213"  />
+        <h2>Nice to meet you</h2>
+        
+                
+                        <a href="#"  class="buttonLink"> 
+                                <span>Play</span>
+                        </a> 
+                        <div class="videoPlayer">
+       	                        <strong class="closeVideo">Close <span>x</span></strong>
+                                <video width="768" height="432" id="player1" class="no-svg">
+                                        
+                                        
+                                                <source type="video/youtube" src="http://www.youtube.com/watch?v=I_ApCTW7c2I" />
+                                        
+	                        </video>
+       	               </div> 
+               
+      
+</li>
+
+
+
+<li class="articleList">
+        <h3>Got Questions? </h3>
+        
+        <div class="rteStyle">
+                
+            
+                <ul>
+<li>I don’t wear glasses and can see fine. Why do I need an eye exam?</li>
+
+<li>How do I use my benefits?</li>
+
+<li>Where can I find a list of lens and lens option tiers?</li>
+
+<li>Can I view my EyeMed benefits online?</li>
+
+<li>Does EyeMed sell individual plans?</li>
+</ul>
+ 
+        </div>
+        
+
+        
+	<p>
+		<a title="Get answers" href="/wps/portal/em/eyemed/members/faqglossary" class="articleLink">
+			Get answers
+		</a>
+	</p>
+
+
+
+
+
+
+
+
+
+       
+</li>
+
+
+
+
+
+
+<li class="articleList">
+        <h3>What’s in it for me?</h3>
+        
+        <div class="rteStyle">
+                
+            
+                Can’t decide if you should enroll in EyeMed? Check out our tools to help you find the vision coverage option that’s best for you and your family
+ 
+        </div>
+        
+
+        
+	<p>
+		<a title="Get started!" href="/wps/portal/em/eyemed/members/decisiontools" class="articleLink">
+			Get started!
+		</a>
+	</p>
+
+
+
+
+
+
+
+
+
+       
+</li>
+
+
+
+
+</ul>
+        </article>
+        <article class="twoColumn last">
+                <header>
+                        <h2>Welcome to EyeMed </h2>
+                </header>
+                <ul class="teaserComponent">
+        
+        <li class="articleList">
+        <h3>Did you know? </h3>
+        
+        <div class="rteStyle">
+                
+            
+                <div id="followus_email_container">That by signing up for our member e-mail you can receive tips to keep your eyes healthy and happy, promotions and helpful information about your benefits?<br />
+<br />
+<a href="/pdf/EyeMed_Member_Email_June2013.pdf" target="blank" >Take a peek</a>at one of our past e-mails and sign up below!<br />
+<br />
+<script type="text/javascript" src="/js/email/email.js"></script><script type="text/javascript" src="/js/email/jquery-ui-1.10.3.js"></script><script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script><label for="email">Enter your e-mail address</label><br />
+ <input id="email" name="email" size="50" type="text" />
+<div id="status"></div>
+
+<div id="captcha"></div>
+</div>
+ 
+        </div>
+        
+
+        
+
+
+
+
+
+
+
+
+       
+</li>
+
+
+
+        
+        <li class="articleList">
+        <h3>Using your benefits is easy! </h3>
+        
+        <div class="rteStyle">
+                
+            
+                <p>We know that sometimes life can get complicated but using your vision benefits is easy. We’ve laid out a clear path to your benefits to guide you.</p>
+ 
+        </div>
+        
+
+        
+
+
+	<p>
+		<a title="Follow the roadmap" href="http://www.discovereyemed.com/roadmap" class="articleLink" target="_blank">
+			Follow the roadmap
+		</a>
+	</p>
+
+
+
+
+
+
+
+       
+</li>
+
+
+
+
+        
+        <li class="videoList">
+       <img src="/wps/wcm/connect/395d8e36-113a-453a-aefd-dab6bc8b67a9/Google_glass.png?MOD=AJPERES&amp;CACHEID=395d8e36-113a-453a-aefd-dab6bc8b67a9" border="0" alt="Google Glass"  />
+       <h2>Is tech-savvy your style?</h2>
+
+
+
+	
+		<a title="Learn about Glass" href="http://www.innovation.eyemed.com/" class="buttonLink" target="_blank">
+			<span>
+			Learn about Glass
+                </span>
+		</a>
+	
+
+
+
+
+
+
+
+</li>
+
+</ul>
+        </article>
+</article>
+		
+		
+	
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+       
+       <span class="asa.wcm.content_item.path" style="display:none">eyemed content library - english/ST - EyeMed/SA - Members/CT - Home Page Main Content</span>
+
+       
+       <span class="asa.wcm.content_item.title" style="display:none">Home Page Main Content</span>
+
+</div>
+</div> 
+</div><div class='component-control id-Z7_I96C8B1A0GJ9E0INRV15VU00G0' ><div class="ibmPortalControl decoration-aria-region"> 
+	<!-- decoration marks the Dojo resource name of the decoration object instantiated at the root of this layout control -->
+	<span style="display:none" class="decoration">com.ibm.skins.NoSkin.skin</span>
+	<!-- asa.portlet.id marks the node whose contents are the id of this layout control; set at runtime by script in the decoration instance -->
+	<span style="display:none" class="asa.portlet.id"></span>
+	<!-- Hide the text of the title, but still provide the lm-dynamic-title container for accessing the dynamic title -->
+	<span class="ibmPortalHiddenText"><span class="lm-dynamic-title asa.portlet.title decoration-title">Web Content Viewer (JSR 286)</span></span>
+	<div class="lotusOverflowAuto"> <!-- lm:control dynamic spot injects markup of layout control -->
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		    
+		
+	
+	
+	
+	       		           
+    
+		
+	
+	
+		
+			
+			<section class="statsSection">
+   
+   <ul class="clearfix">
+      <li class="themeGrape">
+         <div class="textWrap">
+             <h2>36</h2>
+             <p>million members</p>
+         </div>
+      </li>
+      <li class="themeSunny">
+         <div class="textWrap">
+             <h2>14.2</h2>
+             <p>seconds for us to answer your call</p>
+         </div>
+      </li>
+      <li class="last themeLips">
+         <div class="textWrap">
+             <h2>102</h2>
+             <p>hours of live-agent assistance each week</p>
+         </div>
+      </li>
+   </ul>
+</section>
+		
+		
+	
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+       
+       <span class="asa.wcm.content_item.path" style="display:none">eyemed content library - english/ST - EyeMed/SA - Members/ST - Statistics bar/CT - Members Statistics</span>
+
+       
+       <span class="asa.wcm.content_item.title" style="display:none">CT - Members Statistics</span>
+
+</div>
+</div> 
+</div></div><div class='component-container rightPanel id-Z7_I96C8B1A0OUCD0INR36H0L1082' name='right' ><div class='component-control id-Z7_I96C8B1A0GJ9E0INRV15VU00G2' ><div class="ibmPortalControl decoration-aria-region"> 
+	<!-- decoration marks the Dojo resource name of the decoration object instantiated at the root of this layout control -->
+	<span style="display:none" class="decoration">com.ibm.skins.NoSkin.skin</span>
+	<!-- asa.portlet.id marks the node whose contents are the id of this layout control; set at runtime by script in the decoration instance -->
+	<span style="display:none" class="asa.portlet.id"></span>
+	<!-- Hide the text of the title, but still provide the lm-dynamic-title container for accessing the dynamic title -->
+	<span class="ibmPortalHiddenText"><span class="lm-dynamic-title asa.portlet.title decoration-title">CT - Find a Provider</span></span>
+	<div class="lotusOverflowAuto"> <!-- lm:control dynamic spot injects markup of layout control -->
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		    
+		
+	
+	
+	
+	       		           
+    
+		
+	
+	
+		
+			
+			<div class="rightPortlet themeGrape">
+
+
+     <h1>Wondering where to get your next eye exam?  </h1>
+      
+<p>We have 65,000 vision care providers to choose from. Find the one nearest you.</p>
+
+
+
+   <div class="buttonPanel">
+      
+
+
+ 
+
+
+
+
+
+
+      
+
+
+
+                     <a title="" target="_blank" href="https://www.eyemedvisioncare.com/locator/locator.emvc" class="buttonLink grayButton"><span> Let's go</span></a>   
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+   </div>
+ 
+</div>
+
+		
+		
+	
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+       
+       <span class="asa.wcm.content_item.path" style="display:none">eyemed content library - english/ST - EyeMed/SA - Members/ST - Right rail/CT - Find a Provider</span>
+
+       
+       <span class="asa.wcm.content_item.title" style="display:none">CT - Find a Provider</span>
+
+</div>
+</div> 
+</div><div class='component-control id-Z7_I96C8B1A0GI270INN8B7A000F1' ><div class="ibmPortalControl decoration-aria-region"> 
+	<!-- decoration marks the Dojo resource name of the decoration object instantiated at the root of this layout control -->
+	<span style="display:none" class="decoration">com.ibm.skins.NoSkin.skin</span>
+	<!-- asa.portlet.id marks the node whose contents are the id of this layout control; set at runtime by script in the decoration instance -->
+	<span style="display:none" class="asa.portlet.id"></span>
+	<!-- Hide the text of the title, but still provide the lm-dynamic-title container for accessing the dynamic title -->
+	<span class="ibmPortalHiddenText"><span class="lm-dynamic-title asa.portlet.title decoration-title">Web Content Viewer (JSR 286)</span></span>
+	<div class="lotusOverflowAuto"> <!-- lm:control dynamic spot injects markup of layout control -->
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		    
+		
+	
+	
+	
+	       		           
+    
+		
+	
+	
+		
+			
+			<div class="rightPortlet themeSunny">
+
+
+     <h1>Member Login</h1>
+      
+<p><table>
+<tr>
+<td width="429">Manage your account, check on claims and more.</td>
+</tr>
+</table></p>
+
+
+
+   <div class="buttonPanel">
+      
+
+
+ 
+
+
+
+
+
+
+
+                     <a title="" target="_blank" href="https://www.eyemedvisioncare.com/member" class="buttonLink grayButton"><span> Login now</span></a>   
+      
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+   </div>
+ 
+</div>
+
+		
+		
+	
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+       
+       <span class="asa.wcm.content_item.path" style="display:none">eyemed content library - english/ST - EyeMed/SA - Members/ST - Right rail/CT - Member Login</span>
+
+       
+       <span class="asa.wcm.content_item.title" style="display:none">CT - Member Login</span>
+
+</div>
+</div> 
+</div><div class='component-control id-Z7_I96C8B1A0GJ9E0INRV15VU0080' ><div class="ibmPortalControl decoration-aria-region"> 
+	<!-- decoration marks the Dojo resource name of the decoration object instantiated at the root of this layout control -->
+	<span style="display:none" class="decoration">com.ibm.skins.NoSkin.skin</span>
+	<!-- asa.portlet.id marks the node whose contents are the id of this layout control; set at runtime by script in the decoration instance -->
+	<span style="display:none" class="asa.portlet.id"></span>
+	<!-- Hide the text of the title, but still provide the lm-dynamic-title container for accessing the dynamic title -->
+	<span class="ibmPortalHiddenText"><span class="lm-dynamic-title asa.portlet.title decoration-title">Twitter Tout</span></span>
+	<div class="lotusOverflowAuto"> <!-- lm:control dynamic spot injects markup of layout control -->
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		    
+		
+	
+	
+	
+	       		           
+    
+		
+	
+	
+		
+			
+			<div class="rightPortlet themeLips">
+  
+       <h1>Stay connected with EyeMed! </h1>
+      
+
+
+      <div class="buttonPanel"> <a target="_blank" class="buttonLink grayButton" href="https://twitter.com/EyeMedVision"><span>Follow us on Twitter</span></a> </div>
+    </div>
+
+		
+		
+	
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+       
+       <span class="asa.wcm.content_item.path" style="display:none">eyemed content library - english/ST - EyeMed/SA - Members/ST - Right rail/Twitter Tout</span>
+
+       
+       <span class="asa.wcm.content_item.title" style="display:none">Twitter Tout</span>
+
+</div>
+</div> 
+</div></div>
+</div>
+	</div>
+	<!-- Call to footer.jsp contains all the dynamic footer logic -->
+	
+
+
+<script>
+if(loggedInUser!="" && loggedInUser!=null && loggedInUser!="null" && userAlreadySet=='false'){
+userAlreadySet = 'true'; 
+			if(document.getElementById('userLoginForComments')!= null){
+				document.getElementById('userLoginForComments').style.display = "none";
+			}	
+			if(document.getElementById('leaveUrComment')!= null){
+				document.getElementById('leaveUrComment').style.display = "block";
+			}
+			if(document.getElementById('blogNavWithLoginDetails')!= null){
+				document.getElementById('blogNavWithLoginDetails').innerHTML = document.getElementById('blogNavWithLoginDetails').innerHTML + '<a href="#" style="color:#981d97;text-decoration:underline" onclick="externalUserLogout(networkVal);">'+loggedInUser+' (click to log out)</a>';
+			}	
+		}
+</script>
+<footer>
+<div class="footer-container clearfix">
+<div class="wrap">
+
+
+    
+    <section class="bigImageThumb">
+      <ul>
+        <li> 
+        <img src="/wps/wcm/connect/a7015be7-3764-48c9-8263-d6bd50e42479/college_grad_292x249.jpg?MOD=AJPERES&amp;CACHEID=a7015be7-3764-48c9-8263-d6bd50e42479" border="0" alt="NPP Link"  />
+        <h1>We have a new Notice of Privacy Practices</h1>
+
+	
+			<a class="buttonLink" href="/wps/portal/em/eyemed/privacylegal">
+				<span>
+					Learn more
+				</span>
+			</a>
+	
+
+	
+
+	
+	
+	
+	
+	
+	 
+	
+
+          </li>
+      </ul>
+      
+              <div class="socialmediaSection">
+                      <h2>Social</h2>
+                      <ul class="socialmedia">
+                             <li class="twitter" title="Twitter">
+        <a href="https://twitter.com/EyeMedVision" target="_blank" >&nbsp;</a>
+</li>
+<li class="linkedin" title="LinkedIn">
+        <a href="http://www.linkedin.com/company/eyemed-vision-care?trk=top_nav_home" target="_blank" >&nbsp;</a>
+</li>
+<li class="youtube" title="YouTube">
+	<a href="http://www.youtube.com/user/eyemedvisioncare" target="_blank" >&nbsp;</a>
+</li>
+<li title="Pinterest" class="pinterest">
+        <a href="http://pinterest.com/eyemedvision/" target="_blank" >&nbsp;</a>
+</li>
+                      </ul>
+              </div>
+      
+
+</section>
+
+
+	
+	<section class="sitemap">
+<h1>Sitemap</h1>
+<div class="footerContent">
+
+
+<article><h2>Members</h2>
+<ul>
+
+
+
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/members/whyeyemed">Why EyeMed?</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/members/visionwellness">Vision Wellness</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/members/thebigpicture">The Big Picture</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/members/Shop">Shop</a></li>
+
+
+</ul>
+</article>
+<article><h2>Benefit Administrators</h2>
+<ul>
+
+
+
+
+
+<li><a target="" title="" href="/wps/portal/em/benefitsadministrators/whyeyemed">Why EyeMed?</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/benefitsadministrators/administratorresources">Administrative Resources</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/benefitsadministrators/becomeaclient">Become a Client</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/benefitsadministrators/products">Products</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/benefitsadministrators/blog">Blog</a></li>
+
+
+</ul>
+</article>
+<article><h2>Brokers</h2>
+<ul>
+
+
+
+
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/brokers/whyeyemed/">Why EyeMed?</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/brokers/becomeabroker">Become a Broker</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/brokers/products">Products</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/brokers/events">Events</a></li>
+
+
+</ul>
+</article>
+<article><h2>Strategic Alliances</h2>
+<ul>
+
+
+
+
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/strategicalliance/whyeyemed">Why EyeMed?</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/strategicalliance/benefits">Strategic Alliances Benefits</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/strategicalliance/joinourstrategicalliance">Join Our Strategic Alliance</a></li>
+
+
+</ul>
+</article>
+<article><h2>Providers</h2>
+<ul>
+
+
+
+
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/providers/whyeyemed">Why EyeMed?</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/providers/providerresources">Provider Resources</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/providers/contactus">Contact Us</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/providers/visionwellness">Vision Wellness</a></li>
+
+
+</ul>
+</article>
+<article><h2>About</h2>
+<ul>
+
+
+
+
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/about/onesight">OneSight</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/about/careers">Careers</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/about/newsroom">Newsroom</a></li>
+
+<li><a target="" title="" href="/wps/portal/em/eyemed/about/media">Media</a></li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+</article>
+</div>
+</section> 
+
+
+
+<section class="contactSection">
+    <h1>Contact Us</h1>
+        <div class="footerContent">
+            <div class="leftContactSection">
+                <article>
+                    <h2>Location</h2>
+                    <address>
+                        EyeMed Vision Care<br/>4000 Luxottica Place <br/>Mason, Ohio 45040
+                    </address>
+                </article>
+                <article>
+                 <a href="/wps/portal/em/eyemed/information/appinfographic"><img src="/wps/wcm/connect/87bc2060-e0ca-49fc-8a52-0b39284dd71b/iphone_app.jpg?MOD=AJPERES&amp;CACHEID=87bc2060-e0ca-49fc-8a52-0b39284dd71b" border="0" width="96" height="42"  /></a>
+                </article>    
+            </div>
+            <div class="rightContactSection">
+                
+	             <article>
+	                 <h2>Members</h2>
+	                 <ul>
+	                     
+		                 <li>1.866.939.3633 </li>
+	                     
+	                     
+		                 
+		                 
+
+		                 
+			             <li>
+                                         <a title="email us" href="https://eyemed.esecurecare.net/cgi-bin/eyemed.cfg/php/enduser/ask.php" target="_blank">
+				         email us
+				         </a>
+                                     </li>
+		                 
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+	
+	</ul>
+	</article>
+
+
+
+
+	<article>
+	<h2>Brokers</h2>
+	<ul>
+	
+		    <li>1.888.439.3633</li>
+	
+
+	
+		
+
+		
+
+		
+			<li><a title="Locate a representative " href="http://www.whyeyemedsmallbusiness.com/" target="_blank">
+				      Locate a representative 
+				      </a></li>
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+	
+	</ul>
+	</article>
+
+
+
+
+	<article>
+	<h2>Benefit Administrators</h2>
+	<ul>
+	
+		    <li>1.888.439.3633</li>
+	
+
+	
+	</ul>
+	</article>
+
+
+
+	<article>
+	<h2>Providers</h2>
+	<ul>
+	
+		    <li>1.888.581.3648 </li>
+	
+
+	
+	</ul>
+	</article>
+
+</div>
+</div>
+</section>    
+</div>
+</div>
+
+
+
+<div class="siteFooter">
+  <div class="wrap clearfix">
+    <p class="floatLeft">© 2014 EyeMed Vision Care. All rights reserved.
+<br/><a href="/wps/portal/em/eyemed/privacylegal"  class="footerLinks">Terms and conditions</a>
+</p>
+
+    <div class="footerLogos">
+<img src="/images/footerLogos_lenscrafters.jpg" alt="lens crafter"/> 
+<img src="/images/footerLogos_pearlevision.jpg" alt="pearl vision"/> 
+<img src="/images/footerLogos_sears.jpg" alt="sears"/> 
+<img src="/images/footerLogos_optical.jpg" alt="optical"/> 
+<img src="/images/footerLogos_optical1.jpg" alt="optical"/> 
+<img src="/images/footerLogos_private.jpg" alt="private practitioner"/>
+</div>
+
+  </div>
+</div>
+
+</footer>
+
+
+<script type="text/javascript">_satellite.pageBottom();</script><!-- This is responsible for bootstrapping the configuration for the javascript framework. 
+		This is located here instead of the head section to improve client performance. -->
+	<script type="text/javascript" src="/wps/menu/menu_service.js"></script>
+<script type="text/javascript" >var menuService_AppletCodebase ="/wps/menu";</script>
+
+<script type="text/javascript" src="/EyeMedTheme/themes/html/EyeMedTheme/./js/config_js.jsp"></script>
+<script type="text/javascript">
+(function(){
+	ibmCfg.controllers = {rendering: null,navigation: null,dnd: null};
+	ibmCfg.userName = "";
+	dojo.mixin(ibmCfg.themeConfig, {editModeJSURL: "/portal_dojo/v1.4.3/com/ibm/themes/PageBuilder2/theme.edit.js",themeUniqueName: "EyeMedTheme",skinRootURI: stripTrailingSlash("/wps/contenthandler/em/!ut/p/digest!QyyWsUT7ylOSCqW9bevWLw/dav/fs-type1/skins"),themeRootURI: stripTrailingSlash("/wps/contenthandler/em/!ut/p/digest!9fKGlL0b_wUEan0R4ZeRCw/res/EyeMedTheme/themes/html/EyeMedTheme/"),commonResourcesRootURI: stripTrailingSlash("/wps/contenthandler/em/!ut/p/digest!QyyWsUT7ylOSCqW9bevWLw/dav/fs-type1/common-resources"),isRTL: false,handleBrowserResize: "null",isPageRenderModeCSA: false,navHiddenMetadata: ["com.ibm.portal.rendertype","param.sharing.scope","com.ibm.portal.Hidden","com.ibm.portal.cp.tagging.isTaggingDisabled","com.ibm.portal.cp.rating.isRatingDisabled","com.ibm.portal.theme.template.file.name.html","com.ibm.portal.layout.template.ref","com.ibm.portal.static.page.file.name.html"],portletOverridePageTitle: "CT - Find a Provider",currentContentNodeOID: "Z6_I96C8B1A0OUCD0INR36H0L10G5",contextMenus: {}});
+	var portalContext = "/wps",contextRegExp = new RegExp("^" + portalContext),locale = "en",formattedLocale = locale.replace(/_/, "-").replace(/iw/, "he").toLowerCase(),contentHandlerURI = "/wps/mycontenthandler/em/!ut/p/digest!L-7PLNwvOUysml5A19xZ8A/",contentHandlerURIPublic = "/wps/contenthandler/em/!ut/p/digest!L-7PLNwvOUysml5A19xZ8A/";
+	dojo.mixin(ibmCfg.enablerConfig, {"com.ibm.mashups.proxy.url" : "/wps/proxy","com.ibm.mashups.contextroot" : "/wps","com.ibm.mashups.productname" : "IBM WebSphere Portal","com.ibm.mashups.contenthandler.private": contentHandlerURI.replace(contextRegExp, ""),"com.ibm.mashups.contenthandler.public": contentHandlerURIPublic.replace(contextRegExp, ""),anonymousUser: true,"com.ibm.mashups.anonymous.mode" : "true",locale: formattedLocale,"displayLocale": formattedLocale,sessionId: "null",fontSizeEnlarged: (function(){var localePref = formattedLocale.substr(0,2);return localePref=="zh"||localePref=="ja"||localePref=="ko";})(),extensions: [],"serviceDocumentUrl":"/wps/contenthandler/em/!ut/p/digest!L-7PLNwvOUysml5A19xZ8A/model/service-document",user:"null"});
+	dojo.mixin(ibmCfg.portalConfig, {portalURI: "/wps/portal",locale: locale,contentHandlerURI: contentHandlerURIPublic,themeRootURI:  "/EyeMedTheme/themes/html/EyeMedTheme",parentPageID: "Z6_I96C8B1A000800INBGPKH500M5",currentPageOID: "Z6_I96C8B1A0OUCD0INR36H0L10G5",bootstrapState: "&lt;?xml version=\&#034;1.0\&#034; encoding=\&#034;UTF-8\&#034;?&gt;&lt;root xmlns=\&#034;http://www.ibm.com/xmlns/prod/websphere/portal/v6.1/portal-state\&#034;&gt;&lt;state type=\&#034;navigational\&#034;&gt;&lt;selection selection-node=\&#034;Z6_I96C8B1A0OUCD0INR36H0L10G5\&#034;&gt;&lt;mapping src=\&#034;Z6_000000000000000000000000A0\&#034; dst=\&#034;Z6_I96C8B1A0OUCD0INR36H0L10G5\&#034;/&gt;&lt;/selection&gt;&lt;shared-parameters id=\&#034;global\&#034;/&gt;&lt;expansions&gt;&lt;node id=\&#034;Z6_I96C8B1A000800INBGPKH500M5\&#034;/&gt;&lt;node id=\&#034;Z6_000000000000000000000000A0\&#034;/&gt;&lt;/expansions&gt;&lt;theme-template&gt;Home&lt;/theme-template&gt;&lt;/state&gt;&lt;/root&gt;".replace(/&lt;/gm, "<").replace(/&gt;/gm, ">").replace(/&amp;/gm, "&").replace(/&#039;/gm, "\'").replace(/&#034;/gm, "\""),currentUser: "",currentUserOID: "",isUserLoggedIn: false,aggregatedStyle: "null",  wcmPageMetadata: {contentRoot: "null",sharingScope: "ibm.wcm.0.6117132720234507"}});})();
+</script>
+<script type="text/javascript">
+
+ibmPortalConfig = ibmCfg.portalConfig;
+ibmConfig = ibmCfg.enablerConfig;
+portalMashupsConfig = {
+	portalContext: ibmCfg.portalConfig.portalContext,
+	hubURL: ibmCfg.enablerConfig.hubURL,
+	portalProxyUrl: ibmCfg.portalConfig.proxyURL,
+	serviceDocURL: ibmCfg.enablerConfig.serviceDocumentUrl,
+	contentHandlerContextPath: ibmCfg.portalConfig.contentHandlerURI
+};
+</script>
+
+	<script type="text/javascript">var ibmPortalCPConfig = {"isTagCenterAvailable":false,"portletContextMenu":{"isTaggingEnabled":true,"isRatingEnabled":true},"tagging":{"dialog":{"displayTabs":true,"defaultView":"PUBLIC","order":"DESC","privateTaggingEnabled":true,"localePickerEnabled":true,"deletingEnabled":true,"maxPersonalTags":50,"countsEnabled":false,"orderMetric":"TAG_SPACE_COUNT_REVERSE_NAME","maxCommunityTags":50,"messageFadeOutDuration":1000},"inline":{"maxResults":5,"displayTwisty":"COLLAPSED","showDialogLauncher":true,"tagClickActionMode":"TAG_CENTER","tagsClickable":true,"tagScope":"COMMUNITY_PERSONAL_PUBLIC","countsEnabled":false,"tagClickTransmitScopes":false,"order":"DESC","orderMetric":"TAG_SPACE_COUNT_REVERSE_NAME","tagsChangedEvent":"tagsChanged"},"validation":{"validationRegex":"[^\\<\\>\\(\\)\\[\\]:]{1,50}"}},"isTaggingEnabled":true,"isRatingEnabled":true,"operations":{"canCreatePrivateTags":false,"canCreatePublicRatings":false,"canViewRatings":false,"canBrowseTags":false,"canDeleteOtherUsersTags":false,"canCreatePublicTags":false,"canViewTags":false,"canResetRatingPerResource":false,"canCreatePrivateRatings":false},"rating":{"dialog":{"displayTabs":true,"privateRatingEnabled":true,"defaultView":"PUBLIC","deletingEnabled":true,"numStars":5,"messageFadeOutDuration":1000},"maxRatingValue":5,"inline":{"displayTwisty":"COLLAPSED","showDialogLauncher":"COLLAPSED","ratingScope":"COMMUNITY_PERSONAL_PUBLIC","onStarHoverShowRatingDistribution":true,"onStarClickOpenDialog":true,"ratingDistributionPosition":"30,30","numStars":5,"ratingsChangedEvent":"ratingsChanged"}},"contextMenu":{"isTaggingEnabled":true,"isRatingEnabled":true}}</script>
+
+<script type="text/javascript" src="/wps_semanticTag/javascript/semanticTagService.js"></script>
+<script type="text/javascript">
+
+ibmCfg.enablerConfig.livetextService = ibmConfig.livetextService = [			
+  {"match":"*.iWidgetSkin[skin]","processEnclosedTags":true,'waitOnPreTag':true, 
+	"module":"tagservices", "path":ibmConfig["com.ibm.mashups.contextroot"]+"/js/com/ibm/mm/livetext", "baseClass":"tagservices.skins"},
+  {"match":"*.iw-OSGadget,*.mm_OSGadget","processEnclosedTags":false,'waitOnPreTag':false, 
+	"module":"tagservices", "path":ibmConfig["com.ibm.mashups.contextroot"]+"/js/com/ibm/mm/livetext", "baseClass":"tagservices.osgadgets"},
+  {"match":"*.iw-iWidget,*.mm_iWidget","processEnclosedTags":false,'waitOnPreTag':false, 
+	"module":"tagservices", "path":ibmConfig["com.ibm.mashups.contextroot"]+"/js/com/ibm/mm/livetext", "baseClass":"tagservices.widgets"}
+]
+;
+
+(function(){
+	
+	var themeRootURI = ibmCfg.themeConfig.themeRootURI, builderRoot = ibmCfg.enablerConfig["com.ibm.mashups.contextroot.builder"];
+	dojo.registerModulePath("com.ibm.themes.PageBuilder2.menuDefinitions", themeRootURI+"/menuDefinitions");
+	dojo.registerModulePath("com.ibm.skins", ibmCfg.themeConfig.skinRootURI);
+	dojo.registerModulePath("com.ibm.common-resources", ibmCfg.themeConfig.commonResourcesRootURI);
+	dojo.registerModulePath("com.ibm.mashups", ibmCfg.enablerConfig["com.ibm.mashups.contextroot.enabler"] + "/js/com/ibm/mashups");
+	dojo.registerModulePath("com.ibm.mm", ibmCfg.enablerConfig["com.ibm.mashups.contextroot.enabler"] + "/js/com/ibm/mm");
+	dojo.registerModulePath("com.ibm.mashups.builder", ibmCfg.enablerConfig["com.ibm.mashups.contextroot.builder"] + "/js/com/ibm/mashups/builder");
+	dojo.registerModulePath("com.ibm.mm.builder", ibmCfg.enablerConfig["com.ibm.mashups.contextroot.builder"] + "/js/com/ibm/mm/builder");
+	dojo.registerModulePath("widget-catalog", ibmCfg.enablerConfig["com.ibm.mashups.contextroot.builder"] + "/widget-catalog");
+	dojo.registerModulePath("widget_catalog", dojo.moduleUrl("widget-catalog", ""));
+	
+	try {
+		var traceStr = dojo.cookie("digest.ignore.debug.traceString");
+		if(traceStr) {
+			var traceConfig = dojo.fromJson(traceStr);
+			ibmConfig.traceConfig = ibmCfg.enablerConfig.traceConfig = traceConfig;
+		}
+	}
+	catch(err){
+		
+	}
+})();
+</script>
+
+<script type="text/javascript" src="/portal_dojo/layerLoader.jsp?path=v1.4.3/com/ibm/themes/PageBuilder2&name=theme&locale=en"></script><script type="text/javascript">
+ibmCfg.themeConfig.contextMenus.bannerLinks = ([{
+	bundlePackage: "com.ibm.bundles",
+	bundleName: "Theme",
+	bundleKey: "theme_sign_up",
+	iconClass: "",
+	ordinal: 50,
+	enabled: true,
+	metadata: {
+		reload: true,
+		targetPageID: "wps.Selfcare",
+		urlParams: {
+			ao: "thm",
+			OCN: "${navID}"
+		}
+	},
+	actionFn: com.ibm.pb.contextMenu.sharedActions.navigateToPage,
+	visibilityFn: com.ibm.pb.contextMenu.sharedActions.isAnonymous,
+	id: "BannerLinks:signUp"
+},
+{
+	bundlePackage: "com.ibm.bundles",
+	bundleName: "Theme",
+	bundleKey: "theme_sign_up",
+	title: ibmCfg.userName,
+	iconClass: "dropDownLink",
+	ordinal: 60,
+	enabled: true,
+	actionFn: com.ibm.pb.contextMenu.sharedActions.broadcastEvent,
+	visibilityFn: com.ibm.pb.contextMenu.sharedActions.isAuthenticated,
+	metadata: {
+		event: "UserActions.open"
+	},
+	markup: com.ibm.domUtilities.decodeXML('&lt;a href="javascript:;" aria-haspopup="true" role="button"&gt;${title} &lt;img aria-label="This project composes all of the WebSphere custom content and libraries." alt="This project composes all of the WebSphere custom content and libraries." src="' + dojo.moduleUrl("dojo","resources/blank.gif") + '" class="lotusArrow lotusDropDownSprite"&gt;&lt;span class="lotusAltText"&gt;&#9660;&lt;/span&gt;&lt;/a&gt;'),
+	id: "BannerLinks:userName"
+},
+{
+	bundlePackage: "com.ibm.bundles",
+	bundleName: "Theme",
+	bundleKey: "theme_actions",
+	iconClass: "dropDownLink",
+	ordinal: 70,
+	enabled: true,
+	actionFn: function() {
+		if(!ibmCfg.themeConfig._actionsLoaded) {
+			dojo.query("link[rel~=edit_mode]").forEach(function(elem) { 
+				dojo.attr(elem, "rel", "stylesheet");
+			});
+			ibmCfg.themeConfig._actionsLoaded = true;
+		}
+		if(ibmCfg.themeConfig.navigationPrimed) {
+			var nm = com.ibm.mashups.enabler.navigation.Factory.getNavigationModel();
+			nm.discard();
+			ibmCfg.themeConfig.navigationPrimed = false;
+		}
+		return com.ibm.pb.contextMenu.sharedActions.broadcastEvent.apply(this, arguments);
+	},
+	visibilityFn: com.ibm.pb.contextMenu.sharedActions.confirmOperation,
+	metadata: {
+		event: "PageActions.open",
+		operation: com.ibm.pb.extension.Operations.PAGE_ACTIONS
+	},
+	markup: com.ibm.domUtilities.decodeXML('&lt;a href="javascript:;" aria-haspopup="true" role="button"&gt;${title} &lt;img aria-label="This project composes all of the WebSphere custom content and libraries." alt="This project composes all of the WebSphere custom content and libraries." src="' + dojo.moduleUrl("dojo","resources/blank.gif") + '" class="lotusArrow lotusDropDownSprite"&gt;&lt;span class="lotusAltText"&gt;&#9660;&lt;/span&gt;&lt;/a&gt;'),
+	id: "BannerLinks:pageActions"
+}]);
+</script>
+<script type="text/javascript" src="/wps/contenthandler/em/!ut/p/digest!9fKGlL0b_wUEan0R4ZeRCw/res/EyeMedTheme/themes/html/EyeMedTheme/js/init.js"></script>
+</body>
+</html>";i:2;s:5:"10204";}

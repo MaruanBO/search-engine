@@ -1,0 +1,324 @@
+a:3:{i:0;s:23:"http://wcicustomer.com/";i:1;s:13602:"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+
+</title>
+    <script type="text/javascript" src="/Resources/Js/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="/Resources/Js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="/Resources/Js/j4-js-library-0.0.1.js"></script>
+    <script type="text/javascript" src="/Resources/Js/jquery.validate.js"></script>
+    <script type="text/javascript" src="/Resources/Js/customSelect.jquery.js"></script>
+	<script type="text/javascript" src="/Resources/Js/JSON2.js"></script>
+    <link href="/Resources/Css/wcnx.css" rel="stylesheet" type="text/css" /><link href="/Resources/Css/main.css" rel="stylesheet" type="text/css" />
+     <!--[if lte IE 7]><link rel="stylesheet" href="Resources/MasterPages/css/ie.css" type="text/css" /><![endif]-->
+    <link href="/Resources/Css/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        $("#form1").ready(function () {
+		    $("body").ajaxError(
+                function (e, request) {
+                    if (request.status == 403) {
+                        $("#divError").dialog("close"); //don't show the standard error box.
+                        alert("For your security purposes, you have been logged out due to inactivity. You must log back in to continue.");
+                        window.location.reload();
+                    }
+                }
+            );
+            $.ajaxSetup({ cache: false });
+            $("#divProgress").bind({
+                ajaxStart: function () { $(this).show(); },
+                ajaxStop: function () { $(this).hide(); }
+            });
+
+            $("#divShowMe").dialog({
+                dialogClass: 'wcnxModalBg',
+                width: 680,
+                height: 540,
+                autoOpen: false,
+                modal: true
+            });
+			
+			$("#WCITerms").click(function(e) {
+				e.preventDefault(); // if desired...
+				$("#divTerms").dialog({
+					closeOnEscape: true,
+					title: "Waste Connections Terms of Use",
+					modal: true,
+					height: 400,
+					width: 600,
+					autoOpen: false
+				});
+				$("#divTerms").dialog("open");
+			});
+			$("#WCIPrivacy").click(function(e) {
+				
+				e.preventDefault(); // if desired...
+				$("#divPrivacy").dialog({
+					closeOnEscape: true,
+					title: "Waste Connections Privacy Policy",
+					modal: true,
+					height: 400,
+					width: 600,
+					autoOpen: false
+				});
+				$("#divPrivacy").dialog("open");
+			});
+			
+			
+        });
+
+        function overrideButtonClicks() { 
+            var override = false;
+            if(override){
+                var pageButtons = $(".csrDisable");
+                pageButtons.each(function(){
+                    $(this).unbind("click").click(function (e) {
+                        e.preventDefault();
+                        alert('This functionality is disabled in CSR mode. ');
+                    });
+                });
+            }
+        }
+		
+
+		
+		
+    </script>
+    
+    <script type="text/javascript">
+        $("#divLogin").ready(function () {
+            $(".aShowMeAcct").click(function (e) {
+                e.preventDefault();
+                $("#divShowMe").dialog("open");
+            });
+
+            $('#btnLogin').click(function () {
+                $("#divProgress").show();
+            });
+			
+			$("#cphMain_lblMessageBoard").hide();
+
+			
+			if (false) {
+					$("#cphMain_lblMessageBoard").show();
+					if (false) {
+						$("#divLogin").hide();
+					}
+				}
+			
+        });
+    </script>
+</head>
+<body style="width:100%;">
+<div id="divProgress" style="display:none;">
+    <div class="loading">Loading...</div>
+    <img src="/Images/loading.gif" alt="Loading..." class="loading" />
+</div>
+<form method="post" action="Login.aspx?redirect=no" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEyMzkwNTc3MDNkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBRtjdGwwMCRjcGhNYWluJGNoa1JlbWVtYmVyTWVQ2Uo6l3QKPkEbSj6HO4GMAeQgPBaMLRo3md7LmW84Eg==" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C2EE9ABB" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBQL+t+W0CgKN25vaBgLOtK6mDQKfsNj1AwKUiafMATISA4QsswtSmtfRnt1cYs/l2xmJQHjF2E9nCjbeclM9" />
+<div id="wrap">
+    
+<script type="text/javascript">
+    $("#header").ready(function () {
+        if(false){
+            initPageHeaderControl("");
+        }
+		setDistrict("");
+    });
+
+	  function setDistrict(districtNumber) {
+        var url = "/Login.aspx/GetDistrictInfo";
+        var data = "{'districtNumber':'" + districtNumber + "'}";
+        var errorDiv = "divError";
+        var myAjax = ajaxObject(url, data, errorDiv);
+        myAjax.done(function (data) {
+            fillDistrict(data.d);
+        });
+    }
+	
+	
+    function initPageHeaderControl(districtNumber) {
+        var url = "/User/AuthenticatedUserServices.asmx/GetDistrictByDistrictNumber";
+        var data = "{'districtNumber':'" + districtNumber + "'}";
+        var errorDiv = "divError";
+        var myAjax = ajaxObject(url, data, errorDiv);
+        myAjax.done(function (data) {
+            fillDistrict(data.d);
+        });
+    }
+
+    function fillDistrict(district) {
+        var ul = $("#ulCompanyInfo");
+        if (district.Name != null && district.Name != ""){
+            ul.empty();
+            ul.append("<li>" + district.Name + "</li>");
+            if (district.AddressOne != null) ul.append("<li>" + district.AddressOne + "</li>");
+            if (district.AddressTwo != null) ul.append("<li>" + district.AddressTwo + "</li>");
+            var cityStateZip = "";
+            if (district.City != null) cityStateZip += district.City;
+            if (district.State != null) cityStateZip += ", " + district.State;
+            if (district.Zip != null) cityStateZip += " " + district.Zip;
+            if (cityStateZip != "" && cityStateZip != null) ul.append("<li>" + cityStateZip + "</li>");
+            if (district.Phone != null) ul.append("<li>" + district.Phone + "</li>");
+            if (district.Email != null) ul.append("<li>" + district.Email + "</li>");
+            if (district.LogoUrl != null && district.LogoUrl != "") {
+                var logo = $("#logo a");
+                logo.css("background","url(" + district.LogoUrl + ") no-repeat");
+            } else {
+                // [KPG 8.17.12] Revert back to default if nothing in DB
+                var logo = $("#logo a");
+                logo.css("background","url(/resources/img/logo.gif) no-repeat");
+            }
+        }
+        //else alert('null district info');
+    }
+</script>
+<div id="header">
+    <h1 id="logo"><a href="#" title="Waste Connections, Inc.">Waste Connections, Inc.</a></h1>
+    
+    <div id="header_right">
+        <ul id="ulCompanyInfo">
+            <li>Waste Connections, Inc.</li>
+            <li></li>
+        </ul>
+    </div>
+       
+</div><!-- End header -->
+<div id="main-menu">
+    <div class="menu-wrapper">
+        <ul style="float:left;">
+            <li class="first"><a href="/Index.aspx" id="MainHeader_aMain" class="vision_values">HOME</a></li>
+            <li><a id="MainHeader_hlBillPay" class="active investor_relations" href="User/KubraContainer.aspx?lp=6">BILL PAY</a></li>
+            <!--<li><a class="business_development" href="#">RECYCLE CONNECTIONS</a></li>-->
+            <li><a href="User/ProfileMgr.aspx" id="MainHeader_aProfile" class="update_profile">UPDATE PROFILE</a></li>
+            <li><a href="User/AddAccount.aspx" id="MainHeader_aAccounts" class="business_development">ACCOUNTS</a></li>
+            <li><a class="customer_service" href="Help.aspx" target="_blank">HELP</a></li>
+            <li class="last"><a href="/ContactUs.aspx" id="MainHeader_aContactUs" class="stock_quote">CONTACT US</a></li>
+        </ul>
+        <div style="clear:both;"></div>
+    </div>
+</div><!-- End Main menu -->   
+
+    <div id="content" class="clearfix">
+        <div id="right_content">
+            
+<h1>Welcome to Online Billpay</h1>
+	<span id="cphMain_lblMessageBoard"><b><font color="Red">
+            <div class="loginMsg" style="width: 400px; padding: 5px; border: 1px solid black;background-color: #FFFF33; color: #335500;"><h3><font color='#C32148'>From 2:00 AM to 6:00 AM CDT, on Sunday, December 7th, our system will be undergoing a maintenance upgrade.  During this time you will not be able to access your online account.  We apologize for this inconvenience.</font></h3></div><br />
+    </font></b></span>
+<div id="divLogin">
+    
+    <div class="plain-container larger-item"> 
+
+        <h2>Existing Users</h2> 
+
+        <div class="line-item">
+            <div class="line-title"><label>User ID:</label></div>
+            <div class="line-input"><input name="ctl00$cphMain$txtUserID" type="text" id="cphMain_txtUserID" tabindex="1" /></div>
+            <div class="line-extras-10">
+                &nbsp;
+                <a href="ForgotUserId.aspx">Forgot User ID?</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="line-item">
+            <div class="line-title"><label>Password:</label></div>
+            <div class="line-input"><input name="ctl00$cphMain$txtPassword" type="password" id="cphMain_txtPassword" tabindex="2" autocomplete="off" /></div>
+            <div class="line-extras-10">
+                <a href="ForgotPassword.aspx">Forgot password?</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="line-item">
+            <input id="cphMain_chkRememberMe" type="checkbox" name="ctl00$cphMain$chkRememberMe" tabindex="3" />&nbsp;<label>Remember my User ID</label>
+        </div>
+        <div class="twenty-spacer"></div>
+        <div class="line-item">
+            <input type="submit" name="ctl00$cphMain$btnLogin" value="LOGIN" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$cphMain$btnLogin&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="btnLogin" tabindex="4" class="green-button" />
+        </div>
+        <div class="clear"></div>
+        
+        <div class="twenty-spacer"></div>
+    </div>
+    <hr class="WcnxHr" />
+    <div class="twenty-spacer"></div>
+    <div class="plain-container larger-item">
+        <h2>New Users</h2>
+         <h3>To help protect your identity, you will need your:</h3>
+         <div class="ten-spacer"></div>
+        <div class="line-item">
+            <div class="line-title" style="width:120px;">
+                <ul>
+                    <li>Account Number</li>
+                    <li>Invoice Number</li>
+                </ul>
+            </div> 
+            <div class="line-extras">
+                <a href="#" class="aShowMeAcct"><span class="blue">[SHOW ME]</span></a>
+            </div>
+            <div class="clear"></div> 
+        </div>
+        <div class="line-item">
+            <a href="Enroll1.aspx" class="green-button">ENROLL</a>
+        </div>
+    </div>
+</div>
+
+        </div>
+        <div id="left_content">
+            
+
+            <!-- quick links -->
+            <div id="divQuickLinks" class="lastbox">
+                <h1 class="quick">Quicklinks</h1>
+                <div class="box_in_box">
+                    <h3><span class="green">Welcome </span></h3>
+                    <p>Welcome to our online billpay website.  View our FAQs and help.</p>
+                    <span class="blue"><a href="Help.aspx">[MORE]</a></span>
+                </div>
+                <div class="box_in_box lastbox">
+                    <h3><span class="green">Feedback</span></h3>
+                    <p>Let us know what you think.  Send us an email.</p>
+                    <span class="blue"><a href="ContactUs.aspx">[MORE]</a></span>
+                </div>     
+            </div>
+            <!-- end quick links -->
+        </div>
+    </div><!-- End content -->
+    </form>
+    <div id="footer">
+       <span style="text-align:right;float:left;"> Copyright &copy; 2010 - 2014 Waste Connections, Inc. | 877.288.WCNX (9269) </span>
+				<span style="text-align:right;float:right;">
+					<a id="WCITerms" href="#">Terms of Use</a> | <a id="WCIPrivacy" href="#">Privacy Policy</a>
+				</span>
+		
+	</div>
+		
+
+	<!-- End wrap -->
+
+<div id="divError"></div>
+
+<div id="divPrivacy" style="display:none; overflow:hidden; margin:0px">
+    <iframe id="privacyFrame" frameborder="0" scrolling="auto" height="100%" width="100%" src="https://www.wasteconnections.com/WCIPrivacy.html"></iframe>
+</div>
+<div id="divTerms" style="display:none; overflow:hidden; margin:0px">
+    <iframe id="termsFrame" frameborder="0" scrolling="auto" height="100%" width="100%" src="https://www.wasteconnections.com/WCITerms.html"></iframe>
+</div>
+
+<div id="divShowMe" title="Sample Waste Connections Invoice" style="display:none;">
+    <img src="/Images/OnlinePaymentIllustration.jpg" alt="Invoice Example" />
+</div>
+<script type="text/javascript">
+    $("#form1").ready(function () {
+        overrideButtonClicks();
+    });
+</script>
+</body>
+</html>
+";i:2;s:5:"10033";}

@@ -1,0 +1,433 @@
+a:3:{i:0;s:18:"http://ob1trk.com/";i:1;s:13845:"
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<HTML>
+<HEAD>
+
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+	<TITLE>Lookout Deals</TITLE>
+	<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1, user-scalable=0" name="viewport">
+
+	<link rel='stylesheet' href='css/bootstrap.min.css' />
+	<link rel='stylesheet' href='css/bootstrap-theme.min.css' />
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/underscore-min.js"></script>
+	<script src="js/backbone-min.js"></script>
+	<script src="//cdn.optimizely.com/js/2334010932.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="js/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+	<link rel='stylesheet' href='css/main.css' />
+
+
+	<script>
+		(function($, _){
+
+			var BoxesView = Backbone.View.extend({
+
+				el: '#boxes',
+				keyphrase_typetags: {},
+				test: '',
+
+				initialize: function(options) {
+					var that = this;
+					that.options = options;
+					that.boxes = that.options.boxes;
+					// run a test.
+					if (that.options.test_boxes) {
+						var possible_tests = [that.boxes, that.options.test_boxes];
+						that.boxes = _.sample(possible_tests);
+						// that.boxes = possible_tests[1]; // if you just want to show the test.
+						if (_.has(that.boxes, 'css')) {
+							that.import_style(that.boxes['css']);
+						}
+						that.test = possible_tests.indexOf(that.boxes);
+					}
+				},
+
+				render: function() {
+					var that = this;
+					this.add_all(that.boxes.keyphrases);
+				},
+
+      			add_one: function(box) {
+      				var that = this;
+      				// map the keyphrase to the box data. for easy access later on.
+      				that.keyphrase_typetags[box.keyphrase] = box;
+          			var view = new BoxView({box: box});
+			        view.render(that.boxes.template_id);
+      			},
+
+		      	add_all: function(boxes) {
+		      		var that = this;
+		      		_.each(boxes, function(box) {
+		      			that.add_one(box);
+		      		});
+		      	},
+
+			   /**
+			    * Import a css style shsset.
+			    * style_name: Directory path and name of the style to import. String.
+			    * callback: Callback function. If you want to run a script after the style has loaded. Function. 
+			    * <link rel="stylesheet" href="css/main.css" type="text/css">
+			    */
+			    import_style: function(style_name, callback) {
+			        var css = document.createElement("link");
+			        css.type = "text/css";
+			        css.rel = "stylesheet";
+			        css.href = style_name;
+			        // Then bind the event to the callback function. There are several events for cross browser compatibility.
+			        css.onreadystatechange = callback;
+			        css.onload = callback;
+			        // add js script to the page.
+			        var head = document.head || document.getElementsByTagName("head")[0];
+			        head.appendChild(css);
+			    }
+
+			});
+
+			var BoxView = Backbone.View.extend({
+
+				el: '#selectorPage',
+
+				initialize: function(options) {
+					var that = this;
+					that.options = options;
+					that.box = that.options.box;
+				},
+
+				render: function(template_id) {
+					var that = this;
+					var template_id = (template_id) ? template_id : 'box-template';
+					template_html = $('#' + template_id).html();
+					template_options = {box: that.box};
+                	that.template = _.template(template_html, template_options);
+                	that.$el.append(that.template);
+				}
+
+			});
+
+
+ 			$(document).ready(function(){
+
+				var adCount = 4,
+					affiliate = 23,
+					cid = 2972,
+					s1 = get_url_parameter('s1'),
+					style = 'rewardcorporation.com',
+					pub_id = get_url_parameter('pub') || '987654';
+
+					var keyphrase_typetags = {
+	 					template_id: 'box-template',
+	 					keyphrases: [
+						{
+							keyphrase: 'Click-N-Loans',
+							img: 'payDay.png',
+							url: 'http://extracashdirect.com/?pub=' + pub_id
+						},
+						{
+							keyphrase: 'Top Credit Card Offers',
+							img: 'creditCards.png',
+							url: 'http://2onbltk.com/?a=134&c=7299&p=c&s1='	
+						},
+						{
+							keyphrase: 'Online Nursing Programs',
+							img: 'Healthcare-Degreev2.png',
+							url: 'http://mynursingschoolnetwork.com/?pub=' + pub_id
+						},
+						{
+							keyphrase: 'Medical Coding Courses',
+							img: 'medicare.jpg',
+							url: 'http://mymedicaldegreeconnect.com/?pub=' + pub_id
+						},
+						{
+							keyphrase: 'Drug and Alcohol Rehab',
+							img: 'rehab.jpg',
+							url: 'http://rehabseek.com/?pub=' + pub_id
+						},
+						{
+							keyphrase: 'Free Credit Report & Score',
+							img: 'creditReport.jpg',
+							url: 'http://myonlinecreditreportconnect.com/?pub=' + pub_id	
+						},
+						{
+							keyphrase: 'Debt Consolidation Help',
+							img: 'auction.jpg',
+							url: 'http://debtconsolidationconnect.com/?pub=' + pub_id
+						},
+						{
+							keyphrase: 'Free Insurance Quotes',
+							img: 'smart/insurance_active@2x.png',
+							url: 'http://myinsuranceradar.com/?pub=' + pub_id
+						},
+						{
+							keyphrase: 'Free Tax Filing Companies',
+							img: 'smart/refinance_active@2x.png',
+							url: 'http://taxpreparationworld.com/?pub=' + pub_id
+						},
+						{
+							keyphrase: 'Best Education Grants',
+							img: 'smart/student_active@2x.png',
+							url: 'http://myeducationgrantsconnect.com/?pub=' + pub_id	
+						},
+						{
+							keyphrase: 'Online Education 2015',
+							img: 'education.png',
+							url: 'http://myeducationradar.com/?pub=' + pub_id
+						},
+						{
+							keyphrase: 'Cheap Hybrid Car Quotes',
+							img: 'carshow.png',
+							url: 'http://besthybridcarsalerts.com/?pub=' + pub_id
+						}
+						]
+					}
+
+ 				var boxes_view = new BoxesView({boxes: keyphrase_typetags});
+ 				boxes_view.render();
+
+
+				// $('.tlaCategory').click(click_btn);
+
+				// button has been clicked, so collect the data from the button to put into the pop-up.
+				function click_btn(event, link) {
+					// save the content forlater
+					last_event_content = $('#pop-up').clone();
+					last_event_content.addClass('current');
+
+					var btn = $(event.currentTarget);
+					var name = btn.data('categoryname');
+					var url = keyphrase_typetags[name]['url'];
+					// open the url in a new tab.
+					window.open(url, '_blank');
+				}
+
+				// old
+
+ 				// used to pass content to the pop up.
+ 				var last_event_content, 
+ 					saved_data = {};
+
+ 				var fancy_params = {
+					width		: '600',
+					height 		: '85%',
+					autoSize	: false,
+					closeClick	: false, 
+					padding  	: 0, 
+					closeBtn	: true,
+					scrolling 	: 'auto',
+					helpers 	: {
+						overlay : {
+							closeClick : false
+						}
+					},
+				    beforeShow   : function() {
+				        this.inner.hide();
+				    },
+				    afterShow   : function() {
+				        this.inner.html(last_event_content);
+				        // add the data to the pop up.
+				        add_data(saved_data);
+				        this.inner.show();
+				    }
+				};
+
+				if (isPhone()) {
+					fancy_params['autoResize'] = true;
+					// fancy_params['autoCenter'] = true;
+					fancy_params['fitToView'] = true;
+					fancy_params['autoSize'] = true;	
+				}
+
+ 				// $('.tlaCategory').fancybox(fancy_params);
+
+				// $('.tlaCategory').click(click_btn_y);
+				//$('.bottom-img').click(click_bottom_img);
+
+				// $( "body" ).on( "click", ".bottom-img", click_bottom_img);
+
+				// must occur after the last_event_content has been given the class "current"
+				// and had been placed in the pop up
+				// then replace all the content with the latest stuff.
+				function add_data(saved_data) {
+					$('.current #pop-up-img').attr('src', saved_data.img);
+					$('.current #pop-up-title').html(saved_data.name);
+					$('.current .sponsored_keyphrase').html(saved_data.name);
+					saved_data.search_feed = $('.current #tlaIframe');
+					var tracking_params = {
+						typeTag: saved_data.typetag,
+						keywords: saved_data.keyphrase,
+						syndicator: saved_data.name,
+						s1: s1,
+						adCount: adCount,
+						affiliate: affiliate,
+						cid: cid,
+						style: style
+					}
+					setup_tracking(saved_data.search_feed, tracking_params);
+				}
+
+				// button has been clicked, so collect the data from the button to put into the pop-up.
+				function click_btn_y(event, link) {
+					// save the content forlater
+					last_event_content = $('#pop-up').clone();
+					last_event_content.addClass('current');
+
+					saved_data.btn = $(event.currentTarget);
+					saved_data.name = saved_data.btn.data('categoryname');
+					saved_data.saved_btn = saved_data.btn.clone();
+					saved_data.img = saved_data.btn.data('img');
+					saved_data.typetag = keyphrase_typetags[saved_data.name]['typetag'];
+					saved_data.keyphrase = get_random(keyphrase_typetags[saved_data.name]['keyphrases']);	
+					// used b/c fancybox is a bit too fancy and was removing the button.
+					if (!link) saved_data.btn.after(saved_data.saved_btn);
+				}
+
+				// search feed has allready loaded.
+				function click_bottom_img(event) {
+					click_btn(event, true);
+					add_data(saved_data);
+				}
+
+				// get a random value from array.
+				function get_random(myArray) {
+					return myArray[Math.floor(Math.random() * myArray.length)];
+				}
+
+				/**
+				 * Set up the tracking by passing the affiliate and campaign parameters to the Iframe.
+				 */
+				function setup_tracking(search_feed, tracking_params) {
+					// get the current search feed url.
+					// if there is no search feed on the page.
+					if (!search_feed) return;
+					// go through all of the search feeds on the page.
+					var search_feed_url = search_feed.attr('url_src');
+					var url_params = encode_query_data(tracking_params);
+					// add the affiliate to the tracking url.
+					var tracking_seach_feed_url = search_feed_url + "&" + url_params;
+					search_feed.attr('src', tracking_seach_feed_url);
+				}
+				// end old
+
+				function encode_query_data(data) {
+				    var ret = [];
+				    for (var d in data)
+				        ret.push(encodeURIComponent(d) + "=" + encodeURIComponent(data[d]));
+				    return ret.join("&");
+				}
+
+		        /**
+		         * Get url parameters. Used to pass data from the url to the program.
+		         * url: google.com/?name=jeremy&email=hey%40fetchdeals.com
+		         * name: the url parameter you want to get. email
+		         * return: The value associated with the url param. Otherwise null. For the name 'email', it would return hey%40fetchdeals.com.
+		         */
+		        function get_url_parameter(name) {
+		            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		                results = regex.exec(location.search);
+		            return results == null ? "" : decodeURIComponent(results[1].replace(/\\+/g, " "));
+		        }
+
+				/**
+				 * Check if the browser is a smart phone.
+				 */
+				function isPhone() {
+					if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) return true;
+					return false;
+				}
+
+			});
+ 		})(jQuery, _);
+	</script>
+
+	<script id="box-template" type="text/template">
+		<a class="tlaCategory col-xs-12 col-sm-6 col-md-4" href="<%= box.url %>" target="_blank">
+		   <div class="tlaBorder">
+		      <div class="tlaThumbnail"><img class="icon" src="img/<%= box.img %>" /></div>
+		     	<button type="button" data-categoryname="<%= box.keyphrase %>" data-toggle="button" data-img="img/<%= box.img %>" class="tlaSubmit_link btn btn-success">
+		     		Find <%= box.keyphrase %>
+		     	</button>
+		      <div style="width: 100%;clear:both;"></div>
+		   </div>
+		</a>
+	</script>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-56371015-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+	<style></style>
+	<!--[if lt IE 9]>
+	<style>
+		#selectorPage .tlaSubmit {
+		   margin-left: 39%;
+		}
+
+		.col-md-4 , .col-md-6 {
+		   float: left;
+		   position: relative;
+		   min-height: 1px;
+		   padding-right: 15px;
+		   padding-left: 15px;
+		}
+
+		.col-md-4 { width: 33.33333333333333%; }
+
+		.col-md-6 { width: 50%; }
+
+	</style>
+	<![endif]-->
+
+
+
+</HEAD>
+<BODY>
+
+	<div style="display: none" id="load-pop-up">
+		<div id="pop-up" class="contentBlock">
+			<div class="contentTitle">
+				<img id="pop-up-img" class="icon" src="http://img.mspub1.com/amp/tla/category/icons/creditCards.png">
+				<span id="pop-up-title">Credit Cards</span>
+			</div>
+			<div class="content">
+				<p class="sponsored">Sponsored Listing for <span class="sponsored_keyphrase"></span></p>
+				<iframe id="tlaIframe" scrolling="no" url_src="http://eds.fetchdealsnetwork.com/news/view_custom.php?custom_page_id=65&no_header=Y" src=""></iframe>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+
+	<div id="pageContent" class="col-xs-12">
+		<div class="container">
+			<div class="mobileBanner categoryBanner visible-xs col-xs-12"><img class="img-responsive center-block" src="img/categoryBanner_mobile.png"></div>
+			<div class="normalBanner categoryBanner hidden-xs col-xs-12"><img class="img-responsive center-block" src="img/categoryBanner.png"></div>
+			<h4 style="text-align:center;">Ads</h4><div class="complainceFooter">Sponsored Ads*</div>
+
+			<div id="selectorPage">
+
+
+				<div class="clearfix"></div>
+			</div>
+			<div class="complainceFooter"></div>
+		</div>
+	</div>
+
+	<div style="text-align: center;">
+		<u><a href="http://lookout-deals.com/terms.html" target="_self">Terms &amp; Conditions</a></u>
+	</div>
+</BODY>
+</HTML>
+";i:2;s:4:"3890";}

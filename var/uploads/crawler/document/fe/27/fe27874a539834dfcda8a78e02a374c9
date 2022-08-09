@@ -1,0 +1,2631 @@
+a:3:{i:0;s:19:"http://govexec.com/";i:1;s:107401:"<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+  <script type="text/javascript">
+  if(typeof String.prototype.trim !== 'function') {
+    String.prototype.trim = function() {
+      return this.replace(/^\s+|\s+$/g, '');
+    }
+  }
+
+  function hasCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+      var c = ca[i].trim();
+      if (c.indexOf(name)==0) return true;
+    }
+    return false;
+  }
+
+  function deleteCookie(cname) {
+    //set to a past expiration to delete cookie
+    setCookie(cname, "delete", -2);
+  }
+
+  function setCookie(cname,cvalue,exdays) {
+    if (typeof exdays != "undefined") {
+      var d = new Date();
+      d.setTime(exdays);
+      var expires = "expires="+d.toGMTString();
+      document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/";
+    } else {
+      document.cookie = cname + "=" + cvalue + "; path=/";
+    }
+  }
+
+  function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0; i<ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1);
+          if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
+      }
+      return "";
+  }
+</script>
+
+  
+
+    <script type="text/javascript">
+      //<![CDATA[
+      
+        var suppressWelcomeAd = false;
+      
+
+      var isiPad = navigator.userAgent.match(/iPad/i) != null;
+      var isFb = navigator.userAgent.match(/facebookexternalhit/i) != null;
+      // iPad detection and  check for onswipe_redirect=never in the URL
+      if (isiPad && !hasCookie("desktopPreferred")) {
+        function getUrlVar(key){
+          var result = new RegExp(key + "=([^&]*)", "i").exec(window.location.search);
+          return result && encodeURIComponent(result[1]) || "";
+        }
+        if (getUrlVar("onswipe_redirect") == "never") {
+          // set cookie to enable welcome ad for iPad
+          setCookie("desktopPreferred", "1");
+        }
+      }
+      if (!hasCookie("welcomeAdViewed") && (!isiPad || isiPad && hasCookie("desktopPreferred")) && !isFb) {
+        setCookie("cookiesEnabled", "1");
+        if (hasCookie("cookiesEnabled"))	{
+          deleteCookie("cookiesEnabled");
+          currentDate = new Date();
+          eod = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 23, 59, 0, 0);
+          setCookie("welcomeAdViewed", "1", Math.round((eod.getTime())));
+
+          if (!suppressWelcomeAd) {
+            // Set cookie with referrer for Omniture script to use
+            if (document.referrer == "") {
+              setCookie("referrer:" + window.location, "Typed/Bookmarked");
+            } else {
+              // trick for getting the hostname
+              var host_tmp = document.createElement("a");
+              host_tmp.href = document.referrer;
+
+              setCookie("referrer:" + window.location, host_tmp.hostname);
+            }
+
+
+            window.location = 'http://cdn.govexec.com/interstitial.html?v=2.1.1&rf='+encodeURIComponent(window.location);
+          }
+        }
+      }
+      //]]>
+    </script>
+
+  
+
+
+  <title>Government News, Research and Events for Federal Employees - GovExec.com</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="Government news resource covering technology, performance, employment, telework, cybersecurity, and more for federal employees." />
+
+  <meta property="article:publisher" content="http://www.facebook.com/GovernmentExecutive" />
+  <meta property="fb:admins" content="578600878" />
+  <meta property="og:site_name" content="Government Executive" />
+
+  
+  
+<meta name="sailthru.date" content="2015-02-19T21:37:32Z"/>
+<meta name="sailthru.description" content="Government news resource covering technology, performance, employment, telework, cybersecurity, and more for federal employees."/>
+<meta name="sailthru.title" content="Government News, Research and Events for Federal Employees"/>
+<meta name="sailthru.tags" content="type-homepage,site-govexec"/>
+  
+
+  
+    
+    <link rel="canonical" href="http://www.govexec.com" />
+    
+  
+
+  
+
+  
+    
+    	<script type="text/javascript">
+  //<![CDATA[
+    var _sf_startpt=(new Date()).getTime();
+  //]]>
+  </script>
+    <script type="text/javascript" src="http://cdn.govexec.com/js/jquery-1.8.1.min.js"></script>
+
+    <script type="text/javascript" src="http://cdn.govexec.com/js/omniture/s-code.js?v=1.1"></script>
+    <script type="text/javascript" src="http://cdn.govexec.com/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="http://cdn.govexec.com/js/jquery-ui-1.8.21.custom.min.js"></script><!-- custom download: Core, Effects Core, Effect "Fade" -->
+    <script type="text/javascript" src="http://cdn.govexec.com/js/disqus-loader.js?v=2.5.7.2" ></script>
+    <script type="text/javascript" src="http://cdn.govexec.com/js/jquery.main.js?v=2.5.7.2"></script>
+    <script type="text/javascript" src="http://cdn.govexec.com/js/ad-toggle.js?v=2.5.7.2"></script>
+
+    
+    
+  <!--[if !IE]> -->
+  <script type="text/javascript" src="http://cdn.onswipe.com/synapse/on.js?usr=govexec" id="onswipe_synapse"></script>
+  <!-- <![endif]-->
+
+
+    <script type="text/javascript">
+      //<![CDATA[
+      var adblock = true;
+      var number_of_ad_checks = 0;
+      var top_right_ad_size_check_called = false;
+      function top_right_ad_size_check() {
+        top_right_ad_size_check_called = true;
+        number_of_ad_checks++;
+        if ($("#topblock-ad").height() > 599) {
+          $("#bottomblock-ad").hide();
+        } else if ($("#topblock-ad").height() < 250 && number_of_ad_checks < 11) {
+          setTimeout("top_right_ad_size_check()", 500);
+        }
+      }
+      var facebookXdReceiverPath = 'http://www.govexec.com/xd_receiver.htm';
+      //]]>
+    </script>
+    <script type="text/javascript" src="http://cdn.govexec.com/js/adframe.js"></script>
+    
+      <script type="text/javascript">
+        //<![CDATA[
+        var disqus_title = "Government News, Research and Events for Federal Employees";
+        //]]>
+      </script>
+          <script type="text/javascript">
+    //<![CDATA[
+      var addthis_config = {"data_track_clickback":true};
+      var addthis_share = {
+        templates: {
+          twitter: '{{title}} {{url}} via @govexec'
+        }
+      }
+    //]]>
+    </script>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ee7a1b53b23332d"></script>
+      
+        
+    <script type="text/javascript">
+    //<![CDATA[
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-395628-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    //]]>
+    </script>
+      
+    
+  
+  
+    <link media="all" rel="stylesheet" type="text/css" href="http://cdn.govexec.com/css/all.css?v=2.5.7.2" />
+    <link media="all" rel="stylesheet" type="text/css" href="http://cdn.govexec.com/css/responsive_embed.css?v=2.5.7.2" />
+    <!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="http://cdn.govexec.com/css/ie.css?v=2.5.7.2" /><![endif]-->
+    <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="http://cdn.govexec.com/css/ie8.css?v=2.5.7.2" /><![endif]-->
+  
+  
+</head>
+
+<body class="">
+
+
+<script type="text/javascript">
+//<![CDATA[
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+s.server="www.govexec.com"
+s.channel="home"
+s.pageName="government news research and events for federal employees - home"
+s.prop1=""
+s.prop2="0"
+s.prop3="government news research and events for federal employees - home"
+s.prop4="/"
+s.prop5=""
+s.prop6="Home"
+s.prop7="home"
+s.prop8="home - landing"
+s.prop9=""
+s.prop10=""
+s.prop11=""
+s.prop12=""
+s.prop13=""
+s.prop14=""
+s.prop15=""
+s.prop16=""
+s.prop17="Government News, Research and Events for Federal Employees"
+s.prop18=""
+s.prop19="government news research and events for federal employees - home"
+s.prop20=""
+s.prop21="government news research and events for federal employees - home"
+s.prop22=""
+s.prop23=""
+s.prop24=""
+s.prop25=""
+s.prop26=""
+s.prop27=""
+s.prop32="False"
+s.prop34=""
+s.prop35=""
+s.prop36=""
+s.prop37=""
+s.prop38=""
+s.prop39="Error: not set"
+s.hier1="home/landing/government news research and events for federal employees"
+s.hier2=""
+s.hier3=""
+
+if ((typeof(Govexec) != "undefined") && (typeof(Govexec.get_format)=== 'function')){
+  s.prop38 = Govexec.get_format();
+}
+
+if (typeof(adblock) != 'undefined' && adblock) {
+  s.prop32 = "True";
+}
+
+// Collect referrer; override omniture referrer; clear cookie
+var referrerCookieName = "referrer:" + window.location;
+var referredThroughInterstitial = document.referrer.indexOf("interstitial.html") > -1;
+s.prop50 = (referredThroughInterstitial) ? "true" : "false";
+if (referredThroughInterstitial) {
+  if (hasCookie(referrerCookieName)) {
+    var originalReferrer = getCookie(referrerCookieName);
+    deleteCookie(referrerCookieName);
+
+    // Might be Typed/Bookmarked or Referrer (see layout file)
+    s.prop39 = originalReferrer;
+  } else {
+    // Referrer cookie lost
+    s.prop39 = "Referrer Lost"
+  }
+} else {
+  // Not routed through interstitial
+  if (document.referrer != "") {
+    // Not routed through interstitial; set prop39 to standard referrer
+
+    // trick for getting the hostname
+    var host_tmp = document.createElement("a");
+    host_tmp.href = document.referrer;
+
+    s.prop39 = host_tmp.hostname;
+  } else {
+    // No referrer; URL was directly entered / bookmarked
+    s.prop39 = "Typed/Bookmarked";
+  }
+}
+
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code) document.write(s_code)
+if(navigator.appVersion.indexOf('MSIE')>=0) document.write(unescape('%3C')+'\!-'+'-');
+//]]>
+</script> 
+<noscript>
+	<div>
+		<a href="http://www.omniture.com" title="Web Analytics" ><img
+src="http://metrics.govexec.com/b/ss/atlanticge2010/1/H.17--NS/0"
+height="1" width="1" alt="" /></a>
+	</div>
+</noscript>
+<!--/DO NOT REMOVE/-->
+
+<div id="wrapper">
+  <div id="header">
+    <div class="panel container_12">
+      <div class="panel-holder">
+        <div class="search-form">
+          <form action="/search/">
+            <fieldset>
+              <div class="inp-wrap">
+                <input type="text" name="q" value="Search Government Executive..." />
+              </div>
+              <input type="submit" value="SEARCH" class="submit" />
+            </fieldset>
+          </form>
+        </div>
+        <ul class="social-networks">
+          <li><a class="facebook" href="http://www.facebook.com/GovernmentExecutive" rel="external" title="Facebook">facebook</a></li>
+          <li><a class="twitter" href="http://twitter.com/govexec" rel="external" title="Twitter">twitter</a></li>
+          <li><a class="linkedin" href="http://www.linkedin.com/company/government-executive-media-group" rel="external" title="LinkedIn" >linkedin</a></li>
+          <li><a class="tumblr" href="http://governmentexecutive.tumblr.com/" rel="external" title="Tumblr" >tumblr</a></li>
+          <li><a class="rss" href="/feeds/" title="RSS">rss</a></li>
+        </ul>
+        <ul class="add-nav">
+          <li><a href="/newsletters/">NEWSLETTERS</a></li>
+          <li><a href="/gbc/">RESEARCH</a></li>
+          <li><a href="/events/">EVENTS</a></li>
+          <li><a href="/magazine/">MAGAZINE</a></li>
+          <li><a href="/mailbag/">MAILBAG</a></li>
+          <li><a href="http://jobs.govexec.com/home/">JOBS</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="top-news container_12">
+      
+
+
+
+  <div class="box">
+    
+  		<div>
+  	
+    <a href="/pay-benefits/pay-benefits-watch/2015/02/transit-benefits-cutting-contractor-pay-collective-bargaining-and-more/105561/?oref=skybox">
+      <img src="http://cdn.govexec.com/media/img/upload/2015/02/18/021815metro/skybox.jpg"
+     alt=""
+     title=""
+     
+     height="89" 
+     width="148" 
+/>
+
+
+      <strong class="title">Transit Benefits, Cutting Contractor Pay and More</strong>
+    </a>
+	</div>
+  </div>
+
+
+  <div class="box">
+    
+  		<div>
+  	
+    <a href="/management/2015/02/postal-groups-new-lethal-weapon-danny-glover/105447/?oref=skybox">
+      <img src="http://cdn.govexec.com/media/img/upload/2015/02/17/021715dannyglover_1/skybox.jpg"
+     alt="Danny Glover in the first Lethal Weapon movie. "
+     title="Danny Glover in the first Lethal Weapon movie. "
+     
+     height="89" 
+     width="148" 
+/>
+
+
+      <strong class="title">Postal Groups’ New Lethal Weapon</strong>
+    </a>
+	</div>
+  </div>
+
+
+  <div class="box">
+    
+  		<div>
+  	
+    <a href="/pay-benefits/2015/02/military-compensation-reform-reminds-lawmaker-calculus-and-s-not-good-thing/105201/?oref=skybox">
+      <img src="http://cdn.govexec.com/media/img/upload/2015/02/12/021215calc/skybox.jpg"
+     alt=""
+     title=""
+     
+     height="89" 
+     width="148" 
+/>
+
+
+      <strong class="title">The Calculus of Military Compensation Reform</strong>
+    </a>
+	</div>
+  </div>
+
+
+  <div class="box">
+    
+  		<div>
+  	
+    <a href="/federal-news/fedblog/2015/02/video-fox-show-rips-feds-afge-chief-valentines-day/105405/?oref=skybox">
+      <img src="http://cdn.govexec.com/media/img/upload/2015/02/17/15890881774_955fa0816f_k/skybox.jpg"
+     alt="Cox made the comments at the AFGE 2015 Legislative Conference."
+     title="Cox made the comments at the AFGE 2015 Legislative Conference."
+     
+     height="89" 
+     width="148" 
+/>
+
+
+      <strong class="title">Fox on Cox And Overpaid Feds</strong>
+    </a>
+	</div>
+  </div>
+
+
+  <div class="box">
+    
+  		<div>
+  	
+    <a href="/state-local/2015/02/phoenix-graffiti-blight-busters/105213/?oref=skybox">
+      <img src="http://cdn.govexec.com/media/img/upload/2015/02/12/Screen_Shot_2015-02-12_at_8.27.23_AM/skybox.png"
+     alt="The city of Phoenix trains volunteers to assist with graffiti removal."
+     title="The city of Phoenix trains volunteers to assist with graffiti removal."
+     
+     height="89" 
+     width="148" 
+/>
+
+
+      <strong class="title">Phoenix's Secret Weapon In Its War Against Graffiti</strong>
+    </a>
+	</div>
+  </div>
+
+
+  <div class="box">
+    
+  		<div>
+  	
+    <a href="/federal-news/fedblog/2015/02/tales-government-works/105027/?oref=skybox">
+      <img src="http://cdn.govexec.com/media/img/upload/2015/02/10/Great_Seal/skybox.jpg"
+     alt=""
+     title=""
+     
+     height="89" 
+     width="148" 
+/>
+
+
+      <strong class="title">eBook: Tales of a Government That Works</strong>
+    </a>
+	</div>
+  </div>
+
+    </div>
+
+    
+    <div class="container_12">
+      <strong class="logo"><a href="/">Government Executive</a></strong>
+      <div class="ad ad-topleader" id="topleader-ad">
+	
+	<div class="ad-container">
+		<script type="text/javascript">
+//<![CDATA[
+if (typeof window.dart_random_ord == 'undefined') {
+	window.dart_random_ord = ('000000000' + Math.ceil(Math.random() * 1000000000).toString()).slice(-9);
+}
+
+var this_ad_link = 'http://ad.doubleclick.net/N617/adj/govexec.com/homepage;pos=topleader;sz=728x90;tile=1;ord=' + window.dart_random_ord + '?';
+document.write('<' + 'script type="text/javascript" src="' + this_ad_link + '">' + '<' + '/script>');
+
+//]]>
+		</script>
+    
+      <noscript>
+      <a href="http://ad.doubleclick.net/N617/jump/govexec.com/homepage;pos=topleader;sz=728x90;" title="">
+        <img src="http://ad.doubleclick.net/N617/ad/govexec.com/homepage;pos=topleader;sz=728x90;tile=1;" alt="" />
+      </a>
+      </noscript>
+    
+	</div>
+</div>
+    </div>
+  </div>
+  
+
+  <div class="nav-wrap">
+    
+
+
+    <div class="nav-inner-wrap container_12">
+        <ul id="nav">
+
+
+  
+  
+  
+	
+          <li class="federal-news first-child"><a href="/federal-news/?oref=nav"><strong><span>NEWS</span></strong></a>
+            <div class="drop">
+              <div class="t"></div>
+              <div class="c">
+                <div class="top-story">
+                
+                  <div class="holder">
+                    <strong class="heading"><a href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=dropdown">TOP STORY</a></strong>
+                    <div class="block">
+                      <a href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=dropdown"><img src="http://cdn.govexec.com/media/img/upload/2015/02/19/shutterstock_191023448/thumb-large.jpg" alt="New Yorkers line up at a food truck in May." title="New Yorkers line up at a food truck in May." height="131" width="218" /></a>
+                      <div class="text-box">
+                        <strong class="title"><a href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=dropdown">A Healthy Menu Makeover for Food Trucks</a></strong>
+                        <div class="story-info">
+                          <em class="date">3:45 PM ET</em>
+                          <a href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=dropdown#disqus_thread" class="comments" data-disqus-identifier="post_105645">Leave a comment</a>
+                        </div>
+                        <p>
+                           An NIH-funded project aims to expand nutritious dining options in Los Angeles.
+
+                        </p>
+                        <div class="wrap">
+                          <a href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=dropdown" class="more">READ MORE</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+                
+                
+                
+                <div class="news full-width">
+                  <div class="latest-news">
+                    <strong class="heading"><a href="/federal-news/?oref=dropdown">LATEST NEWS</a></strong>
+                    <ul>
+                      
+                      <li><strong class="title"><a href="/defense/2015/02/most-americans-now-back-ground-troops-against-isis/105639/?oref=dropdown">Most Americans Now Back Ground Troops Against ISIS</a></strong><em class="date">3:37 PM ET</em></li>
+                      
+                      <li><strong class="title"><a href="/management/2015/02/watchdog-pentagon-could-learn-hhs-curbing-medical-claims-fraud/105627/?oref=dropdown">Watchdog: Pentagon Could Learn from HHS on Curbing Medical Claims Fraud</a></strong><em class="date">2:24 PM ET</em></li>
+                      
+                      <li><strong class="title"><a href="/management/2015/02/va-and-nasa-win-multiple-innovation-awards/105624/?oref=dropdown">VA and NASA Win Multiple Innovation Awards</a></strong><em class="date">1:28 PM ET</em></li>
+                      
+                    </ul>
+                  </div>  
+                  
+                </div>
+                
+              </div>
+              <div class="b"></div>
+            </div>
+          </li>
+
+  
+  
+  
+	
+          <li class="management"><a href="/management/?oref=nav"><strong><span>MANAGEMENT</span></strong></a>
+            <div class="drop">
+              <div class="t"></div>
+              <div class="c">
+                <div class="top-story">
+                
+                  <div class="holder">
+                    <strong class="heading"><a href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=dropdown">TOP STORY</a></strong>
+                    <div class="block">
+                      <a href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=dropdown"><img src="http://cdn.govexec.com/media/img/upload/2015/02/19/shutterstock_191023448/thumb-large.jpg" alt="New Yorkers line up at a food truck in May." title="New Yorkers line up at a food truck in May." height="131" width="218" /></a>
+                      <div class="text-box">
+                        <strong class="title"><a href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=dropdown">A Healthy Menu Makeover for Food Trucks</a></strong>
+                        <div class="story-info">
+                          <em class="date">3:45 PM ET</em>
+                          <a href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=dropdown#disqus_thread" class="comments" data-disqus-identifier="post_105645">Leave a comment</a>
+                        </div>
+                        <p>
+                           An NIH-funded project aims to expand nutritious dining options in Los Angeles.
+
+                        </p>
+                        <div class="wrap">
+                          <a href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=dropdown" class="more">READ MORE</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+                
+                
+                
+                <div class="news full-width">
+                  <div class="latest-news">
+                    <strong class="heading"><a href="/management/?oref=dropdown">LATEST NEWS</a></strong>
+                    <ul>
+                      
+                      <li><strong class="title"><a href="/defense/2015/02/most-americans-now-back-ground-troops-against-isis/105639/?oref=dropdown">Most Americans Now Back Ground Troops Against ISIS</a></strong><em class="date">3:37 PM ET</em></li>
+                      
+                      <li><strong class="title"><a href="/management/2015/02/watchdog-pentagon-could-learn-hhs-curbing-medical-claims-fraud/105627/?oref=dropdown">Watchdog: Pentagon Could Learn from HHS on Curbing Medical Claims Fraud</a></strong><em class="date">2:24 PM ET</em></li>
+                      
+                      <li><strong class="title"><a href="/management/2015/02/va-and-nasa-win-multiple-innovation-awards/105624/?oref=dropdown">VA and NASA Win Multiple Innovation Awards</a></strong><em class="date">1:28 PM ET</em></li>
+                      
+                    </ul>
+                  </div>  
+                  
+                </div>
+                
+              </div>
+              <div class="b"></div>
+            </div>
+          </li>
+
+  
+  
+  
+	
+          <li class="oversight"><a href="/oversight/?oref=nav"><strong><span>OVERSIGHT</span></strong></a>
+            <div class="drop">
+              <div class="t"></div>
+              <div class="c">
+                <div class="top-story">
+                
+                  <div class="holder">
+                    <strong class="heading"><a href="/oversight/2015/02/why-democrats-wont-cave-immigration/105594/?oref=dropdown">TOP STORY</a></strong>
+                    <div class="block">
+                      <a href="/oversight/2015/02/why-democrats-wont-cave-immigration/105594/?oref=dropdown"><img src="http://cdn.govexec.com/media/img/upload/2015/02/19/021915cuellar/thumb-large.jpg" alt="&#34;History would tell us that Republicans would get more blame,&#34; said Rep. Henry Cuellar, D-Texas. &#34;It&#39;s a replay of the same movie.&#34;" title="&#34;History would tell us that Republicans would get more blame,&#34; said Rep. Henry Cuellar, D-Texas. &#34;It&#39;s a replay of the same movie.&#34;" height="131" width="218" /></a>
+                      <div class="text-box">
+                        <strong class="title"><a href="/oversight/2015/02/why-democrats-wont-cave-immigration/105594/?oref=dropdown">Why Democrats Won't Cave on Immigration to Avoid a Shutdown</a></strong>
+                        <div class="story-info">
+                          <em class="date">11:15 AM ET</em>
+                          <a href="/oversight/2015/02/why-democrats-wont-cave-immigration/105594/?oref=dropdown#disqus_thread" class="comments" data-disqus-identifier="post_105594">Leave a comment</a>
+                        </div>
+                        <p>
+                           Democrats believe that the optics of a partial shutdown will favor them. 
+                        </p>
+                        <div class="wrap">
+                          <a href="/oversight/2015/02/why-democrats-wont-cave-immigration/105594/?oref=dropdown" class="more">READ MORE</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+                
+                
+                
+                <div class="news full-width">
+                  <div class="latest-news">
+                    <strong class="heading"><a href="/oversight/?oref=dropdown">LATEST NEWS</a></strong>
+                    <ul>
+                      
+                      <li><strong class="title"><a href="http://www.nextgov.com/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/?oref=dropdown">America Needs a New FOIA Overseer: Is it You? </a></strong><em class="date">1:15 PM ET</em></li>
+                      
+                      <li><strong class="title"><a href="/oversight/2015/02/play-day-biden-massage-ashton-carter-video/105591/?oref=dropdown">Play of the Day: Diamond Joe Strikes Again</a></strong><em class="date">8:41 AM ET</em></li>
+                      
+                      <li><strong class="title"><a href="/management/2015/02/obama-picks-27-year-veteran-secret-service-head-troubled-agency/105543/?oref=dropdown">Obama Picks Secret Service Insider to Head the Troubled Agency</a></strong><em class="date">February 18, 2015</em></li>
+                      
+                    </ul>
+                  </div>  
+                  
+                </div>
+                
+              </div>
+              <div class="b"></div>
+            </div>
+          </li>
+
+  
+  
+  
+	
+          <li class="defense"><a href="/defense/?oref=nav"><strong><span>DEFENSE</span></strong></a>
+            <div class="drop">
+              <div class="t"></div>
+              <div class="c">
+                <div class="top-story">
+                
+                  <div class="holder">
+                    <strong class="heading"><a href="/defense/2015/02/most-americans-now-back-ground-troops-against-isis/105639/?oref=dropdown">TOP STORY</a></strong>
+                    <div class="block">
+                      <a href="/defense/2015/02/most-americans-now-back-ground-troops-against-isis/105639/?oref=dropdown"><img src="http://cdn.govexec.com/media/img/upload/2015/02/19/021915isis/thumb-large.jpg" alt="" title="" height="131" width="218" /></a>
+                      <div class="text-box">
+                        <strong class="title"><a href="/defense/2015/02/most-americans-now-back-ground-troops-against-isis/105639/?oref=dropdown">Most Americans Now Back Ground Troops Against ISIS</a></strong>
+                        <div class="story-info">
+                          <em class="date">3:37 PM ET</em>
+                          <a href="/defense/2015/02/most-americans-now-back-ground-troops-against-isis/105639/?oref=dropdown#disqus_thread" class="comments" data-disqus-identifier="post_105639">Leave a comment</a>
+                        </div>
+                        <p>
+                           The Islamic State's brutality has dramatically shifted public opinion in the United States.
+
+                        </p>
+                        <div class="wrap">
+                          <a href="/defense/2015/02/most-americans-now-back-ground-troops-against-isis/105639/?oref=dropdown" class="more">READ MORE</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+                
+                
+                
+                <div class="news full-width">
+                  <div class="latest-news">
+                    <strong class="heading"><a href="/defense/?oref=dropdown">LATEST NEWS</a></strong>
+                    <ul>
+                      
+                      <li><strong class="title"><a href="/management/2015/02/watchdog-pentagon-could-learn-hhs-curbing-medical-claims-fraud/105627/?oref=dropdown">Watchdog: Pentagon Could Learn from HHS on Curbing Medical Claims Fraud</a></strong><em class="date">2:24 PM ET</em></li>
+                      
+                      <li><strong class="title"><a href="/defense/2015/02/white-house-struggles-language-terrorism/105597/?oref=dropdown">White House Struggles with the Language of Terrorism</a></strong><em class="date">10:02 AM ET</em></li>
+                      
+                      <li><strong class="title"><a href="/defense/2015/02/why-obama-wont-talk-about-islamic-terrorism/105429/?oref=dropdown">Why Obama Won't Talk About Islamic Terrorism</a></strong><em class="date">February 17, 2015</em></li>
+                      
+                    </ul>
+                  </div>  
+                  
+                </div>
+                
+              </div>
+              <div class="b"></div>
+            </div>
+          </li>
+
+  
+  
+  
+	
+          <li class="technology"><a href="/technology/?oref=nav"><strong><span>TECH</span></strong></a>
+            <div class="drop">
+              <div class="t"></div>
+              <div class="c">
+                <div class="top-story">
+                
+                  <div class="holder">
+                    <strong class="heading"><a href="/technology/2015/02/irs-welcomes-jump-taxpayers-using-its-website/105321/?oref=dropdown">TOP STORY</a></strong>
+                    <div class="block">
+                      <a href="/technology/2015/02/irs-welcomes-jump-taxpayers-using-its-website/105321/?oref=dropdown"><img src="http://cdn.govexec.com/media/img/upload/2015/02/13/021315irsgov/thumb-large.jpg" alt="" title="" height="131" width="218" /></a>
+                      <div class="text-box">
+                        <strong class="title"><a href="/technology/2015/02/irs-welcomes-jump-taxpayers-using-its-website/105321/?oref=dropdown">IRS Welcomes Jump in Taxpayers Using Its Website</a></strong>
+                        <div class="story-info">
+                          <em class="date">February 13, 2015</em>
+                          <a href="/technology/2015/02/irs-welcomes-jump-taxpayers-using-its-website/105321/?oref=dropdown#disqus_thread" class="comments" data-disqus-identifier="post_105321">Leave a comment</a>
+                        </div>
+                        <p>
+                           Call volume around President’s Day expected to strain staff.  
+                        </p>
+                        <div class="wrap">
+                          <a href="/technology/2015/02/irs-welcomes-jump-taxpayers-using-its-website/105321/?oref=dropdown" class="more">READ MORE</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+                
+                
+                
+                <div class="news full-width">
+                  <div class="latest-news">
+                    <strong class="heading"><a href="/technology/?oref=dropdown">LATEST NEWS</a></strong>
+                    <ul>
+                      
+                      <li><strong class="title"><a href="http://www.nextgov.com/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/?oref=dropdown">GSA Shops Around New Ways to Buy Tech</a></strong><em class="date">4:33 PM ET</em></li>
+                      
+                      <li><strong class="title"><a href="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/?oref=dropdown">‘Data Science is a Team Sport': DJ Patil Spends First Day Pitching Silicon Valley on Joining Government</a></strong><em class="date">4:11 PM ET</em></li>
+                      
+                      <li><strong class="title"><a href="http://www.nextgov.com/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/?oref=dropdown">America Needs a New FOIA Overseer: Is it You? </a></strong><em class="date">1:15 PM ET</em></li>
+                      
+                    </ul>
+                  </div>  
+                  
+                </div>
+                
+              </div>
+              <div class="b"></div>
+            </div>
+          </li>
+
+  
+  
+  
+	
+          <li class="contracting"><a href="/contracting/?oref=nav"><strong><span>CONTRACTING</span></strong></a>
+            <div class="drop">
+              <div class="t"></div>
+              <div class="c">
+                <div class="top-story">
+                
+                  <div class="holder">
+                    <strong class="heading"><a href="/contracting/2015/02/former-employee-government-contractor-alleges-sexual-harassment-and-retaliation/105444/?oref=dropdown">TOP STORY</a></strong>
+                    <div class="block">
+                      <a href="/contracting/2015/02/former-employee-government-contractor-alleges-sexual-harassment-and-retaliation/105444/?oref=dropdown"><img src="http://cdn.govexec.com/media/img/upload/2015/02/17/AP110608021033/thumb-large.jpg" alt="President and CEO of Garda World Stephan Cretier, a defendant in the lawsuit, speaks at a news conference in June 2011." title="President and CEO of Garda World Stephan Cretier, a defendant in the lawsuit, speaks at a news conference in June 2011." height="131" width="218" /></a>
+                      <div class="text-box">
+                        <strong class="title"><a href="/contracting/2015/02/former-employee-government-contractor-alleges-sexual-harassment-and-retaliation/105444/?oref=dropdown">Former Employee of Government Contractor Alleges Sexual Harassment and Retaliation</a></strong>
+                        <div class="story-info">
+                          <em class="date">February 17, 2015</em>
+                          <a href="/contracting/2015/02/former-employee-government-contractor-alleges-sexual-harassment-and-retaliation/105444/?oref=dropdown#disqus_thread" class="comments" data-disqus-identifier="post_105444">Leave a comment</a>
+                        </div>
+                        <p>
+                           Complaint against global security firm depicts Mad Men culture at ‘guys with guns’ company.
+
+                        </p>
+                        <div class="wrap">
+                          <a href="/contracting/2015/02/former-employee-government-contractor-alleges-sexual-harassment-and-retaliation/105444/?oref=dropdown" class="more">READ MORE</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+                
+                
+                
+                <div class="news full-width">
+                  <div class="latest-news">
+                    <strong class="heading"><a href="/contracting/?oref=dropdown">LATEST NEWS</a></strong>
+                    <ul>
+                      
+                      <li><strong class="title"><a href="http://www.nextgov.com/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/?oref=dropdown">GSA Shops Around New Ways to Buy Tech</a></strong><em class="date">4:33 PM ET</em></li>
+                      
+                      <li><strong class="title"><a href="http://www.nextgov.com/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/?oref=dropdown">The Big Fix: Is Washington Ready for IT Reform?</a></strong><em class="date">10:56 AM ET</em></li>
+                      
+                      <li><strong class="title"><a href="http://www.nextgov.com/cloud-computing/2015/02/gsa-seeks-new-cloud-procurement-models/105474/?oref=dropdown">GSA Considers New Cloud Contract Vehicle</a></strong><em class="date">February 17, 2015</em></li>
+                      
+                    </ul>
+                  </div>  
+                  
+                </div>
+                
+              </div>
+              <div class="b"></div>
+            </div>
+          </li>
+
+  
+  
+  
+	
+          <li class="pay-benefits"><a href="/pay-benefits/?oref=nav"><strong><span>PAY &amp; BENEFITS</span></strong></a>
+            <div class="drop">
+              <div class="t"></div>
+              <div class="c">
+                <div class="top-story">
+                
+                  <div class="holder">
+                    <strong class="heading"><a href="/pay-benefits/2015/02/military-compensation-reform-reminds-lawmaker-calculus-and-s-not-good-thing/105201/?oref=dropdown">TOP STORY</a></strong>
+                    <div class="block">
+                      <a href="/pay-benefits/2015/02/military-compensation-reform-reminds-lawmaker-calculus-and-s-not-good-thing/105201/?oref=dropdown"><img src="http://cdn.govexec.com/media/img/upload/2015/02/12/021215calc/thumb-large.jpg" alt="" title="" height="131" width="218" /></a>
+                      <div class="text-box">
+                        <strong class="title"><a href="/pay-benefits/2015/02/military-compensation-reform-reminds-lawmaker-calculus-and-s-not-good-thing/105201/?oref=dropdown">Military Compensation Reform Reminds Lawmaker of Calculus – And That’s Not a Good Thing</a></strong>
+                        <div class="story-info">
+                          <em class="date">February 12, 2015</em>
+                          <a href="/pay-benefits/2015/02/military-compensation-reform-reminds-lawmaker-calculus-and-s-not-good-thing/105201/?oref=dropdown#disqus_thread" class="comments" data-disqus-identifier="post_105201">Leave a comment</a>
+                        </div>
+                        <p>
+                           Explaining proposals to overhaul military pay and benefits to lawmakers is just as hard as selling them, panel finds.
+                        </p>
+                        <div class="wrap">
+                          <a href="/pay-benefits/2015/02/military-compensation-reform-reminds-lawmaker-calculus-and-s-not-good-thing/105201/?oref=dropdown" class="more">READ MORE</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+                
+                
+                
+                <div class="news full-width">
+                  <div class="latest-news">
+                    <strong class="heading"><a href="/pay-benefits/?oref=dropdown">LATEST NEWS</a></strong>
+                    <ul>
+                      
+                      <li><strong class="title"><a href="/pay-benefits/retirement-planning/2015/02/youve-invested-retirement-now-what/105636/?oref=dropdown">You’ve Invested for Retirement. Now What?</a></strong><em class="date">2:37 PM ET</em></li>
+                      
+                      <li><strong class="title"><a href="/pay-benefits/pay-benefits-watch/2015/02/transit-benefits-cutting-contractor-pay-collective-bargaining-and-more/105561/?oref=dropdown">Transit Benefits, Cutting Contractor Pay, Collective Bargaining and More</a></strong><em class="date">February 18, 2015</em></li>
+                      
+                      <li><strong class="title"><a href="/contracting/2015/02/former-employee-government-contractor-alleges-sexual-harassment-and-retaliation/105444/?oref=dropdown">Former Employee of Government Contractor Alleges Sexual Harassment and Retaliation</a></strong><em class="date">February 17, 2015</em></li>
+                      
+                    </ul>
+                  </div>  
+                  
+                </div>
+                
+              </div>
+              <div class="b"></div>
+            </div>
+          </li>
+
+  
+  
+  
+	
+          <li class="state-local last-child"><a href="/state-local/?oref=nav"><strong><span>STATE &amp; LOCAL</span></strong></a>
+            <div class="drop">
+              <div class="t"></div>
+              <div class="c">
+                <div class="top-story">
+                
+                  <div class="holder">
+                    <strong class="heading"><a href="/state-local/2015/02/city-stats-programs-performance/105513/?oref=dropdown">TOP STORY</a></strong>
+                    <div class="block">
+                      <a href="/state-local/2015/02/city-stats-programs-performance/105513/?oref=dropdown"><img src="http://cdn.govexec.com/media/img/upload/2015/02/18/cincinnati_cincystat/thumb-large.jpg" alt="Cincinnati, Ohio" title="Cincinnati, Ohio" height="131" width="218" /></a>
+                      <div class="text-box">
+                        <strong class="title"><a href="/state-local/2015/02/city-stats-programs-performance/105513/?oref=dropdown">Stats Surge Continues in Cities and States</a></strong>
+                        <div class="story-info">
+                          <em class="date">February 18, 2015</em>
+                          <a href="/state-local/2015/02/city-stats-programs-performance/105513/?oref=dropdown#disqus_thread" class="comments" data-disqus-identifier="post_614406">Leave a comment</a>
+                        </div>
+                        <p>
+                           Cincinnati hopes to “leapfrog to the front of the class” of municipal stats programs. Here’s how they’ve worked in Louisville, Baltimore and Somerville, Massachusetts.
+                        </p>
+                        <div class="wrap">
+                          <a href="/state-local/2015/02/city-stats-programs-performance/105513/?oref=dropdown" class="more">READ MORE</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+                
+                
+                
+                <div class="news full-width">
+                  <div class="latest-news">
+                    <strong class="heading"><a href="/state-local/?oref=dropdown">LATEST NEWS</a></strong>
+                    <ul>
+                      
+                      <li><strong class="title"><a href="/state-local/2015/02/us-now-has-its-first-bisexual-governor-does-it-matter/105564/?oref=dropdown">The U.S. Now Has Its First Bisexual Governor. Does It Matter?</a></strong><em class="date">February 18, 2015</em></li>
+                      
+                      <li><strong class="title"><a href="/state-local/2015/02/6-reasons-new-yorks-latest-traffic-pricing-plan-will-succeed/105558/?oref=dropdown">6 Reasons New York's Latest Traffic Pricing Plan Will Succeed</a></strong><em class="date">February 18, 2015</em></li>
+                      
+                      <li><strong class="title"><a href="/state-local/2015/02/city-stats-programs-performance/105513/?oref=dropdown">Stats Surge Continues in Cities and States</a></strong><em class="date">February 18, 2015</em></li>
+                      
+                    </ul>
+                  </div>  
+                  
+                </div>
+                
+              </div>
+              <div class="b"></div>
+            </div>
+          </li>
+
+        </ul>
+    </div>
+
+
+  </div>
+
+  <div id="main">
+    <div class="ad ad-gutter" id="gutter-ad">
+	
+	<div class="ad-container">
+		<script type="text/javascript">
+//<![CDATA[
+if (typeof window.dart_random_ord == 'undefined') {
+	window.dart_random_ord = ('000000000' + Math.ceil(Math.random() * 1000000000).toString()).slice(-9);
+}
+
+var this_ad_link = 'http://ad.doubleclick.net/N617/adj/govexec.com/homepage;pos=gutter;sz=460x800;tile=2;ord=' + window.dart_random_ord + '?';
+document.write('<' + 'script type="text/javascript" src="' + this_ad_link + '">' + '<' + '/script>');
+
+//]]>
+		</script>
+    
+	</div>
+</div>
+
+    <div id="blue_box"></div>
+
+    
+    
+    <div id="twocolumns" class="container_12">
+      <div class="twocolumns-holder">
+        
+        <div id="content" class="grid_8 alpha omega ">
+        
+              
+              <div class="last-news">
+                <div class="story">
+                  <h1 class="homepage-feature"><a href="/management/2015/02/despite-scandal-va-firings-nose-dived-2014/105567/?oref=top-story">Despite Scandal, VA Firings Nosedived in 2014</a></h1>
+                  <p>
+                    VA secretary’s numbers on firings related to data manipulation don&#39;t match report to Congress.  
+                  </p><p>
+                    <a href="/management/2015/02/despite-scandal-va-firings-nose-dived-2014/105567/?oref=top-story" class="more">Read more</a><em class="date">February 18</em><a href="/management/2015/02/despite-scandal-va-firings-nose-dived-2014/105567/?oref=top-story#disqus_thread" class="comments" data-disqus-identifier="post_105567">Leave a comment</a>
+                    
+                    <span class="newindex-photo-description">
+                      
+                      <span class="photo-info photo-info-no-description"> Michael L. Moore/VA</span>
+                      
+                    </span>
+                    
+                  </p>
+                  <div class="photo">
+                    <a href="/management/2015/02/despite-scandal-va-firings-nose-dived-2014/105567/?oref=top-story">
+                      <img src="http://cdn.govexec.com/media/img/upload/2015/02/18/021815mcdonald/large.jpg" alt="VA has fired about 900 employees since Bob McDonald took over as secretary, almost entirely for reasons not associated with patient data manipulation. " title="VA has fired about 900 employees since Bob McDonald took over as secretary, almost entirely for reasons not associated with patient data manipulation. " height="284" width="618" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+
+              
+              
+              <div class="section latest-news">
+
+                
+                
+                
+                    
+                    
+                
+                    
+                    
+                        
+                    
+                
+
+                <div class="wrap">
+                    <strong class="heading">LATEST NEWS</strong>
+                </div>
+                
+
+    
+    
+
+    
+        
+            
+        
+        
+    
+        
+            
+        
+        
+    
+
+    <div class="row">
+        <div class="river-column box parent left">
+                
+                    <span class="from ng"><a href="http://www.nextgov.com" target="_blank">Nextgov</a></span>
+                
+
+                
+
+                <h2>
+                    <a href="http://www.nextgov.com/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/?oref=river"
+                        
+                           target="_blank"
+                        
+                    >GSA Shops Around New Ways to Buy Tech</a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />GSA&#39;s recent moves indicate the agency is searching for acquisition platforms that can keep up with ...</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                4:33 PM ET
+                            
+                        </em>
+                        <a
+                            href="http://www.nextgov.com/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105615"
+                            
+                               target="_blank"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="river-column box parent right">
+                
+                    <span class="from ng"><a href="http://www.nextgov.com" target="_blank">Nextgov</a></span>
+                
+
+                
+
+                <h2>
+                    <a href="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/?oref=river"
+                        
+                           target="_blank"
+                        
+                    >‘Data Science is a Team Sport': DJ Patil Spends First Day Pitching Silicon Valley on Joining Government</a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />In its quest to get more data ...</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                4:11 PM ET
+                            
+                        </em>
+                        <a
+                            href="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105648"
+                            
+                               target="_blank"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+    
+    
+
+    
+        
+            
+        
+        
+    
+        
+            
+        
+        
+    
+
+    <div class="row">
+        <div class="river-column box parent left">
+                
+                   <span class="from blog">Management</span>
+                
+
+                
+
+                <h2>
+                    <a href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=river"
+                        
+                    >A Healthy Menu Makeover for Food Trucks</a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />An NIH-funded project aims to expand nutritious dining options in Los Angeles.</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                3:45 PM ET
+                            
+                        </em>
+                        <a
+                            href="/management/2015/02/healthy-menu-makeover-food-trucks/105645/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105645"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="river-column box parent right">
+                
+                    <span class="from custom">Islamic State</span>
+                
+
+                
+
+                <h2>
+                    <a href="/defense/2015/02/most-americans-now-back-ground-troops-against-isis/105639/?oref=river"
+                        
+                    >Most Americans Now Back Ground Troops Against ISIS</a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />The Islamic State&#39;s brutality has dramatically shifted public opinion in the United ...</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                3:37 PM ET
+                            
+                        </em>
+                        <a
+                            href="/defense/2015/02/most-americans-now-back-ground-troops-against-isis/105639/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105639"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+    
+    
+
+    
+        
+            
+        
+        
+    
+        
+            
+        
+        
+    
+
+    <div class="row">
+        <div class="river-column box parent left">
+                
+                    <span class="from blog">Retirement Planning</span>
+                
+
+                
+
+                <h2>
+                    <a href="/pay-benefits/retirement-planning/2015/02/youve-invested-retirement-now-what/105636/?oref=river"
+                        
+                    >You’ve Invested for Retirement. Now What?</a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />What to do with the wealth you’ve accumulated in the Thrift Savings Plan.</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                2:37 PM ET
+                            
+                        </em>
+                        <a
+                            href="/pay-benefits/retirement-planning/2015/02/youve-invested-retirement-now-what/105636/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105636"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="river-column box parent right">
+                
+                   <span class="from blog">Management</span>
+                
+
+                
+
+                <h2>
+                    <a href="/management/2015/02/watchdog-pentagon-could-learn-hhs-curbing-medical-claims-fraud/105627/?oref=river"
+                        
+                    >Watchdog: Pentagon Could Learn from HHS on Curbing Medical Claims Fraud</a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />Health and Human Services has a better system than Defense does for ...</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                2:24 PM ET
+                            
+                        </em>
+                        <a
+                            href="/management/2015/02/watchdog-pentagon-could-learn-hhs-curbing-medical-claims-fraud/105627/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105627"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+    
+    
+
+    
+        
+            
+        
+        
+    
+        
+            
+        
+        
+    
+
+    <div class="row">
+        <div class="river-column box parent left">
+                
+                   <span class="from blog">Management</span>
+                
+
+                
+
+                <h2>
+                    <a href="/management/2015/02/va-and-nasa-win-multiple-innovation-awards/105624/?oref=river"
+                        
+                    >VA and NASA Win Multiple Innovation Awards</a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />Harvard’s Ash Center recognizes 13 federal programs in state-centered list.</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                1:28 PM ET
+                            
+                        </em>
+                        <a
+                            href="/management/2015/02/va-and-nasa-win-multiple-innovation-awards/105624/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105624"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="river-column box parent right">
+                
+                    <span class="from ng"><a href="http://www.nextgov.com" target="_blank">Nextgov</a></span>
+                
+
+                
+
+                <h2>
+                    <a href="http://www.nextgov.com/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/?oref=river"
+                        
+                           target="_blank"
+                        
+                    >America Needs a New FOIA Overseer: Is it You? </a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />The office in charge of monitoring governmentwide FOIA compliance and policy is looking for a ...</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                1:15 PM ET
+                            
+                        </em>
+                        <a
+                            href="http://www.nextgov.com/emerging-tech/emerging-tech-blog/2015/02/america-needs-new-foia-overseer-it-you/105621/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105621"
+                            
+                               target="_blank"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+    
+    
+
+    
+        
+            
+        
+        
+    
+        
+            
+        
+        
+    
+
+    <div class="row">
+        <div class="river-column box parent left">
+                
+                    <span class="from custom">Stay Out of Cities</span>
+                
+
+                
+
+                <h2>
+                    <a href="/management/2015/02/quietest-places-america-mapped/105600/?oref=river"
+                        
+                    >The Quietest Places in America, Mapped</a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />New data from National Park Service scientists shows that &#34;most people live in environments where ...</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                12:00 PM ET
+                            
+                        </em>
+                        <a
+                            href="/management/2015/02/quietest-places-america-mapped/105600/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105600"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="river-column box parent right">
+                
+                   <span class="from blog">Oversight</span>
+                
+
+                
+
+                <h2>
+                    <a href="/oversight/2015/02/why-democrats-wont-cave-immigration/105594/?oref=river"
+                        
+                    >Why Democrats Won't Cave on Immigration to Avoid a Shutdown</a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />Democrats believe that the optics of a partial shutdown will favor them.</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                11:15 AM ET
+                            
+                        </em>
+                        <a
+                            href="/oversight/2015/02/why-democrats-wont-cave-immigration/105594/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105594"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+    
+    
+
+    
+        
+            
+        
+        
+    
+        
+            
+        
+        
+    
+
+    <div class="row">
+        <div class="river-column box parent left">
+                
+                    <span class="from ng"><a href="http://www.nextgov.com" target="_blank">Nextgov</a></span>
+                
+
+                
+
+                <h2>
+                    <a href="http://www.nextgov.com/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/?oref=river"
+                        
+                           target="_blank"
+                        
+                    >The Big Fix: Is Washington Ready for IT Reform?</a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />From creating digital fix-it squads to promoting unorthodox methods of buying technology, ...</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                10:56 AM ET
+                            
+                        </em>
+                        <a
+                            href="http://www.nextgov.com/cio-briefing/2015/02/big-fix-washington-ready-it-reform/105606/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105606"
+                            
+                               target="_blank"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+        <div class="river-column box parent right">
+                
+                    <span class="from custom">Islamic State</span>
+                
+
+                
+
+                <h2>
+                    <a href="/defense/2015/02/white-house-struggles-language-terrorism/105597/?oref=river"
+                        
+                    >White House Struggles with the Language of Terrorism</a>
+                    
+                    
+                    <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="arrow" />&#34;We must never accept the premise that they put forward, because it is a lie,&#34; Obama ...</h2>
+
+                <div class="info">
+                    <div class="info">
+                        <em class="date">
+                            
+                                10:02 AM ET
+                            
+                        </em>
+                        <a
+                            href="/defense/2015/02/white-house-struggles-language-terrorism/105597/?oref=river#disqus_thread"
+                            class="comments"
+                            data-disqus-identifier="post_105597"
+                            
+                        >Leave a comment</a>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+                <div class="wrap more-news">
+                  <a href="/federal-news/all/" class="more">MORE NEWS</a>
+                </div>
+              </div>
+
+              <div class="section sl">
+                <div class="wrap">
+                  <strong class="heading SL-heading"><a href="/state-local/?oref=sl-homepage-flag">STATE & LOCAL</a></strong>
+                </div>
+                
+                  <div class="box parent">
+                    
+                      <div class="img-box">
+                        <a href="/state-local/2015/02/americas-infrastructure-crisis-really-maintenance-crisis/105315/?oref=sl-homepage-module">
+                          <img src="http://cdn.govexec.com/media/img/upload/2015/02/13/021315pothole/skybox.jpg" alt="A driver runs over a porthole in Portland in December." title="A driver runs over a porthole in Portland in December." height="89" width="148" />
+                        </a>
+                      </div>
+                    
+                    <h2>
+                      <a href="/state-local/2015/02/americas-infrastructure-crisis-really-maintenance-crisis/105315/?oref=sl-homepage-module">America's Infrastructure Crisis Is Really a Maintenance Crisis</a>
+                    </h2>
+                    <div class="info">
+                      <em class="date">
+                        
+                          February 13
+                        
+                      </em>
+                      <a href="/state-local/2015/02/americas-infrastructure-crisis-really-maintenance-crisis/105315/?oref=sl-homepage-module#disqus_thread" class="comments" data-disqus-identifier="post_105315">Leave a comment</a>
+                    </div>
+                  </div>
+                
+                  <div class="box parent">
+                    
+                      <div class="img-box">
+                        <a href="/state-local/2015/02/us-now-has-its-first-bisexual-governor-does-it-matter/105564/?oref=sl-homepage-module">
+                          <img src="http://cdn.govexec.com/media/img/upload/2015/02/18/021815katebrown/skybox.jpg" alt="Oregon Gov. Kate Brown" title="Oregon Gov. Kate Brown" height="89" width="148" />
+                        </a>
+                      </div>
+                    
+                    <h2>
+                      <a href="/state-local/2015/02/us-now-has-its-first-bisexual-governor-does-it-matter/105564/?oref=sl-homepage-module">The U.S. Now Has Its First Bisexual Governor. Does It Matter?</a>
+                    </h2>
+                    <div class="info">
+                      <em class="date">
+                        
+                          February 18
+                        
+                      </em>
+                      <a href="/state-local/2015/02/us-now-has-its-first-bisexual-governor-does-it-matter/105564/?oref=sl-homepage-module#disqus_thread" class="comments" data-disqus-identifier="post_105564">Leave a comment</a>
+                    </div>
+                  </div>
+                
+                <div class="wrap end">
+                  <a href="/state-local/?oref=sl-homepage-module" class="more">MORE STATE & LOCAL</a>
+                </div>
+              </div>
+
+              
+              <div class="section eig">
+                <div class="wrap">
+
+                  <strong class="heading"><a href="/excellence/?oref=eig-homepage-flag">EXCELLENCE IN GOVERNMENT</a></strong>
+
+                </div>
+                
+                  <div class="box parent">
+                    
+                      <div class="img-box">
+                        <a href="/excellence/promising-practices/2015/02/escaping-groundhog-day-5-tips-innovation/105549/?oref=eig-homepage-module">
+                          <img src="http://cdn.govexec.com/media/img/upload/2015/02/18/021915groundhog/skybox.jpg" alt="Punxsutawney Phil, held by Ben Hughes in 2010, is famous for predicting more of the same." title="Punxsutawney Phil, held by Ben Hughes in 2010, is famous for predicting more of the same." height="89" width="148" />
+                        </a>
+                      </div>
+                    
+                    <h2>
+                      <a href="/excellence/promising-practices/2015/02/escaping-groundhog-day-5-tips-innovation/105549/?oref=eig-homepage-module">Escaping Groundhog Day: 5 Tips for Innovation</a>
+                    </h2>
+                    <div class="info">
+                      <em class="date">
+                        
+                          10:00 AM ET
+                        
+                      </em>
+                      <a href="/excellence/promising-practices/2015/02/escaping-groundhog-day-5-tips-innovation/105549/?oref=eig-homepage-module#disqus_thread" class="comments" data-disqus-identifier="post_105549">Leave a comment</a>
+                    </div>
+                  </div>
+                
+                  <div class="box parent">
+                    
+                      <div class="img-box">
+                        <a href="/excellence/promising-practices/2015/02/american-millennials-are-behind-most-their-counterparts-some-basic-skills/105468/?oref=eig-homepage-module">
+                          <img src="http://cdn.govexec.com/media/img/upload/2015/02/17/shutterstock_3053152/skybox.jpg" alt="Americans should study harder for their math tests. " title="Americans should study harder for their math tests. " height="89" width="148" />
+                        </a>
+                      </div>
+                    
+                    <h2>
+                      <a href="/excellence/promising-practices/2015/02/american-millennials-are-behind-most-their-counterparts-some-basic-skills/105468/?oref=eig-homepage-module">American Millennials are Behind Most of Their Counterparts in Some Basic Skills</a>
+                    </h2>
+                    <div class="info">
+                      <em class="date">
+                        
+                          February 18
+                        
+                      </em>
+                      <a href="/excellence/promising-practices/2015/02/american-millennials-are-behind-most-their-counterparts-some-basic-skills/105468/?oref=eig-homepage-module#disqus_thread" class="comments" data-disqus-identifier="post_105468">Leave a comment</a>
+                    </div>
+                  </div>
+                
+                <div class="wrap end">
+                  <a href="/excellence/?oref=eig-homepage-module" class="more">MORE EXCELLENCE IN GOVERNMENT</a>
+                </div>
+				      </div>
+
+                <div class="section special-reports">
+                  <div class="wrap">
+                    <strong class="heading">EARLYBIRD</strong>
+                  </div>
+                  <div class="boxes">
+                    
+                      <div class="box">
+                        <h2><a class="earlybird" href="http://blogs.wsj.com/washwire/2015/02/19/critics-cheer-wal-mart-wage-boost-demand-more/?mod=WSJBlog" rel="external">
+                            Critics See Wal-Mart Wage Boost as First Step
+                          </a>
+                          <em class="date earlybird">4:08 PM ET</em>
+                          <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" />
+
+
+
+                            <span class="place">Washington Wire (Wall Street Journal)</span>
+
+
+
+
+                        </h2>
+                      </div>
+                    
+                      <div class="box">
+                        <h2><a class="earlybird" href="http://rssfeeds.usatoday.com/~/85592375/0/usatodaycomwashington-topstories~For-some-theres-still-time-to-enroll-in-Obamacare/" rel="external">
+                            For some, there&#39;s still time to enroll in Obamacare
+                          </a>
+                          <em class="date earlybird">3:37 PM ET</em>
+                          <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" />
+
+
+
+                            <span class="place">USA Today - Washington</span>
+
+
+
+
+                        </h2>
+                      </div>
+                    
+                      <div class="box">
+                        <h2><a class="earlybird" href="http://rssfeeds.usatoday.com/~/85590460/0/usatodaycomwashington-topstories~Bobby-Jindal-defends-Giuliani-on-Obama-critique/" rel="external">
+                            Bobby Jindal defends Giuliani on Obama critique
+                          </a>
+                          <em class="date earlybird">2:15 PM ET</em>
+                          <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" />
+
+
+
+                            <span class="place">USA Today - Washington</span>
+
+
+
+
+                        </h2>
+                      </div>
+                    
+                      <div class="box">
+                        <h2><a class="earlybird" href="http://rss.cnn.com/~r/rss/cnn_allpolitics/~3/Yx5YtGOf9s0/index.html" rel="external">
+                            Giuliani stands by, explains Obama &#39;America&#39; remarks
+                          </a>
+                          <em class="date earlybird">1:58 PM ET</em>
+                          <img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" />
+
+
+
+                            <span class="place">CNN politics</span>
+
+
+
+
+                        </h2>
+                      </div>
+                    
+
+
+                  </div>
+                <div class="wrap">
+                    <a href="/news/earlybird/?oref=earlybird" class="more">ALL EARLYBIRD HEADLINES</a>
+                  </div>
+                </div>
+
+
+
+
+              
+
+<div class="section special-reports">
+  <div class="wrap">
+    <strong class="heading">SPECIAL REPORTS</strong>
+  </div>
+  <div class="boxes">
+    
+      <div class="box">
+        <div class="img-box">
+          <a href="http://www.facebook.com/GovernmentExecutive"><img src="http://cdn.govexec.com/media/img/upload/2012/05/21/052112FBpromoGE/thumb.jpg"
+     alt=""
+     title=""
+     
+     height="83" 
+     width="138" 
+/>
+
+</a>
+        </div>
+        <h2><a href="http://www.facebook.com/GovernmentExecutive">Like GovExec on Facebook</a><img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" />Interact with the best news source for federal government news. <a class="more" href="http://www.facebook.com/GovernmentExecutive">Read more</a></h2>
+      </div>
+    
+      <div class="box">
+        <div class="img-box">
+          <a href="/excellence/promising-practices/2015/01/value-remembering-ordinary-moments/103710/?oref=special-reports"><img src="http://cdn.govexec.com/media/img/upload/2015/01/26/shutterstock_152537771/thumb.jpg"
+     alt=""
+     title=""
+     
+     height="83" 
+     width="138" 
+/>
+
+</a>
+        </div>
+        <h2><a href="/excellence/promising-practices/2015/01/value-remembering-ordinary-moments/103710/?oref=special-reports">The Value of Remembering Ordinary Moments</a><img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" />Though writing down daily events may seem mundane, participants in a recent study were happy to have records of them in the future.
+ <a class="more" href="/excellence/promising-practices/2015/01/value-remembering-ordinary-moments/103710/?oref=special-reports">Read more</a></h2>
+      </div>
+    
+      <div class="box">
+        <div class="img-box">
+          <a href="/contracting/2015/01/acquisition-101-when-bargain-isnt-bargain/102672/?oref=special-reports"><img src="http://cdn.govexec.com/media/img/upload/2015/01/12/011214GE_vacuum/thumb.jpg"
+     alt=""
+     title=""
+     
+     height="83" 
+     width="138" 
+/>
+
+</a>
+        </div>
+        <h2><a href="/contracting/2015/01/acquisition-101-when-bargain-isnt-bargain/102672/?oref=special-reports">Acquisition 101: When a Bargain Isn’t a Bargain</a><img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" />The recurring pitfalls of chasing the lowest price in federal procurements. <a class="more" href="/contracting/2015/01/acquisition-101-when-bargain-isnt-bargain/102672/?oref=special-reports">Read more</a></h2>
+      </div>
+    
+      <div class="box">
+        <div class="img-box">
+          <a href="https://twitter.com/#!/govexec"><img src="http://cdn.govexec.com/media/img/upload/2012/06/27/twitter/thumb.png"
+     alt=""
+     title=""
+     
+     height="83" 
+     width="138" 
+/>
+
+</a>
+        </div>
+        <h2><a href="https://twitter.com/#!/govexec">Follow GovExec on Twitter</a><img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" />Get breaking links and more from the best news source for federal government news. <a class="more" href="https://twitter.com/#!/govexec">Read more</a></h2>
+      </div>
+    
+  </div>
+</div>
+              
+
+<div class="section sponsors">
+  <div class="wrap">
+    <strong class="heading"><span>PROMOTIONS</span></strong>
+  </div>
+  <div class="boxes">
+    
+      <div class="box">
+        <div class="img-box">
+          <a href="http://www.nextgov.com/the-big-fix-2015/"><img src="http://cdn.govexec.com/media/img/upload/2015/02/18/Skybox_BigFix_5/thumb.jpg"
+     alt=""
+     title=""
+     
+     height="83" 
+     width="138" 
+/>
+
+</a>
+        </div>
+        <h2><a href="http://www.nextgov.com/the-big-fix-2015/">Get Nextgov's New eBook!</a><img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" /></h2>
+      </div>
+    
+      <div class="box">
+        <div class="img-box">
+          <a href="/gbc/reports/anticipating-threats-community-approaches-protecting-data/102183/"><img src="http://cdn.govexec.com/media/img/upload/2015/01/14/13334080323_7b02cb3f42_k_1/thumb.jpg"
+     alt=""
+     title=""
+     
+     height="83" 
+     width="138" 
+/>
+
+</a>
+        </div>
+        <h2><a href="/gbc/reports/anticipating-threats-community-approaches-protecting-data/102183/">Anticipating Threats: Community Approaches to Protecting Data</a><img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" />Read more</h2>
+      </div>
+    
+      <div class="box">
+        <div class="img-box">
+          <a href="/gbc/protecting-your-agencys-core-data-hybrid-cloud/99797/"><img src="http://cdn.govexec.com/media/img/upload/2014/11/24/11406978145_7751112cf1_o/thumb.jpg"
+     alt=""
+     title=""
+     
+     height="83" 
+     width="138" 
+/>
+
+</a>
+        </div>
+        <h2><a href="/gbc/protecting-your-agencys-core-data-hybrid-cloud/99797/">Protecting Your Agency's Data with Hybrid Cloud</a><img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" />Read more</h2>
+      </div>
+    
+      <div class="box">
+        <div class="img-box">
+          <a href="/gbc/reports/competitive-landscape-federal-it-procurement/100773/"><img src="http://cdn.govexec.com/media/img/upload/2014/12/09/CeBit_Hannover_2007/thumb.jpg"
+     alt=""
+     title=""
+     
+     height="83" 
+     width="138" 
+/>
+
+</a>
+        </div>
+        <h2><a href="/gbc/reports/competitive-landscape-federal-it-procurement/100773/">The Competitive Landscape of Federal IT Procurement</a><img class="bullet" src="http://cdn.govexec.com/images/arrow02.png" width="4" height="8" alt="image description" />Learn more</h2>
+      </div>
+    
+  </div>
+</div>
+              <div class="section">
+<div class="wrap">
+  <strong class="heading">TSP TICKER</strong>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th class="col1">FUND</th>
+      <th class="col2">G</th>
+      <th class="col3">F</th>
+      <th class="col4">C</th>
+      <th class="col5">S</th>
+      <th class="col6">I</th>
+      <th class="col7"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col1">FEB 18 CLOSE</td>
+      <td class="col2">$14.6549</td>
+      <td class="col3">$16.9227</td>
+      <td class="col4">$27.7847</td>
+      <td class="col5">$37.6842</td>
+      <td class="col6">$25.5164</td>
+      <td class="col7"></td>
+    </tr>
+    <tr>
+      <td class="col1">DAILY CHANGE</td>
+      <td class="col2">0.0006</td>
+      <td class="col3">0.0617</td>
+      <td class="col4"><span class="mark">-0.0073</span></td>
+      <td class="col5">0.1346</td>
+      <td class="col6">0.1830</td>
+      <td class="col7"></td>
+    </tr>
+    <tr>
+      <td class="col1">THIS MONTH (%)</td>
+      <td class="col2">0.08</td>
+      <td class="col3"><span class="mark">-1.38</span></td>
+      <td class="col4">5.44</td>
+      <td class="col5">5.78</td>
+      <td class="col6">4.12</td>
+      <td class="col7"></td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th class="col1">FUND</th>
+      <th class="col2">L 2050</th>
+      <th class="col3">L 2040</th>
+      <th class="col4">L 2030</th>
+      <th class="col5">L 2020</th>
+      <th class="col6">L Income</th>
+      <th class="col7"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col1">FEB 18 CLOSE</td>
+      <td class="col2">$15.4196</td>
+      <td class="col3">$27.1010</td>
+      <td class="col4">$25.4046</td>
+      <td class="col5">$23.3408</td>
+      <td class="col6">$17.6095</td>
+      <td class="col7"><a href="/pay-benefits/2005/08/about-the-new-tsp-ticker/19833/?oref=tsp">About the TSP Ticker</a></td>
+    </tr>
+    <tr>
+      <td class="col1">DAILY CHANGE</td>
+      <td class="col2">0.0387</td>
+      <td class="col3">0.0601</td>
+      <td class="col4">0.0494</td>
+      <td class="col5">0.0358</td>
+      <td class="col6">0.0121</td>
+      <td class="col7"><a href="/pay-benefits/tsp/?oref=tsp">Monthly Returns</a></td>
+    </tr>
+    <tr>
+      <td class="col1">THIS MONTH (%)</td>
+      <td class="col2">4.31</td>
+      <td class="col3">3.8</td>
+      <td class="col4">3.27</td>
+      <td class="col5">2.52</td>
+      <td class="col6">0.99</td>
+      <td class="col7"><a href="http://www.tsp.gov/" rel="external">TSP Site</a></td>
+    </tr>
+  </tbody>
+</table>
+<div class="wrap">
+  <a href="/pay-benefits/tsp/?oref=tsp" class="more">SEE MORE</a>
+</div>
+              </div>
+              <div class="section more-from">
+                <div class="wrap">
+                  <strong class="heading">MORE FROM GOVERNMENT EXECUTIVE MEDIA GROUP</strong>
+                </div>
+                <div class="holder">
+
+                  
+                  
+    <div class="box">
+      <div class="img-box">
+        <a href="http://www.defenseone.com/" target="_blank"><img src="http://cdn.govexec.com/defenseone/img/logo.png" alt="Defenseone" width="149" height="68" /></a>
+      </div>
+      <div class="text-box">
+        <ul>
+          
+            <li><h2><a href="http://www.defenseone.com/news/2015/02/d-brief-feb-19/105588/" target="_blank">The D Brief: Will the situation in Ukraine prompt the ...</a></h2><em class="date">7:27 AM ET</em></li>
+          
+            <li><h2><a href="http://www.defenseone.com/politics/2015/02/pentagon-press-secretary-kirby-be-replaced-civilian/105585/" target="_blank">Pentagon Press Secretary Kirby To Be Replaced by a ...</a></h2><em class="date">February 18</em></li>
+          
+        </ul>
+        <div class="wrap">
+          <a href="http://www.defenseone.com/" class="more" target="_blank">SEE MORE NEWS FROM Defense One</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="box">
+      <div class="img-box">
+        <a href="http://www.nextgov.com/" target="_blank"><img src="http://cdn.govexec.com/images/img12.jpg" alt="NextGov" width="149" height="68" /></a>
+      </div>
+      <div class="text-box">
+        <ul>
+          
+            <li><h2><a href="http://www.nextgov.com/cloud-computing/2015/02/gsa-shops-around-new-ways-buy-tech/105615/" target="_blank">GSA Shops Around New Ways to Buy Tech</a></h2><em class="date">4:33 PM ET</em></li>
+          
+            <li><h2><a href="http://www.nextgov.com/big-data/2015/02/data-science-team-sport-dj-patil-spends-first-day-pitching-silicon-valley-joining-government/105648/" target="_blank">‘Data Science is a Team Sport': DJ Patil Spends First ...</a></h2><em class="date">4:11 PM ET</em></li>
+          
+        </ul>
+        <div class="wrap">
+          <a href="http://www.nextgov.com/" class="more" target="_blank">SEE MORE TECHNOLOGY NEWS FROM Nextgov</a>
+        </div>
+      </div>
+    </div>
+
+
+                  
+
+
+                </div>
+              </div>
+
+
+
+
+
+                  
+
+
+
+<script type="text/javascript">
+disqus_landing = true;
+</script>
+
+      </div>
+      <div id="sidebar" class="grid_4 omega">
+        
+          
+            
+
+              <div class="side-box highlight">
+                <div class="holder">
+                  <div class="frame">
+                    <div class="wrap">
+                      <strong class="heading">HIGHLIGHT</strong>
+                    </div>
+                    <div class="wrap parent">
+                      <div class="img-box">
+                        <a href="http://www.nextgov.com/the-big-fix-2015/" rel="external"><img src="http://cdn.govexec.com/media/img/upload/2015/02/19/Skybox_BigFix/highlight.jpg"
+     alt=""
+     title=""
+     class="img-link"
+     height="77" 
+     width="128" 
+/>
+
+</a>
+                      </div>
+                      <div class="text-box">
+                        <h2><a href="http://www.nextgov.com/the-big-fix-2015/" rel="external">Nextgov's New eBook is Here!</a></h2>
+                        <p>
+                          Read the latest on shaking up federal IT acquisition. 
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          
+
+          
+
+            <div class="ad ad-topblock" id="topblock-ad">
+	
+	<div class="ad-container">
+		<script type="text/javascript">
+//<![CDATA[
+if (typeof window.dart_random_ord == 'undefined') {
+	window.dart_random_ord = ('000000000' + Math.ceil(Math.random() * 1000000000).toString()).slice(-9);
+}
+
+var this_ad_link = 'http://ad.doubleclick.net/N617/adj/govexec.com/homepage;pos=topblock;sz=300x250,300x1000,300x600;tile=3;ord=' + window.dart_random_ord + '?';
+document.write('<' + 'script type="text/javascript" src="' + this_ad_link + '">' + '<' + '/script>');
+
+//]]>
+		</script>
+    
+      <noscript>
+      <a href="http://ad.doubleclick.net/N617/jump/govexec.com/homepage;pos=topblock;sz=300x250,300x1000,300x600;" title="">
+        <img src="http://ad.doubleclick.net/N617/ad/govexec.com/homepage;pos=topblock;sz=300x250,300x1000,300x600;tile=3;" alt="" />
+      </a>
+      </noscript>
+    
+	</div>
+</div>
+          
+
+          
+            
+              
+              <div class="side-box">
+  <div class="holder">
+    <div class="frame">
+      <div class="wrap">
+        <strong class="heading">NEWSLETTERS</strong>
+      </div>
+      <div class="newsletter-form">
+        <form action="/newsletters/subscribe/" data-form-name="right-column-subscribe" method="post" id="newsletter-signup" name="qualform">
+          <input type="hidden" value="ge-right-rail" name="newsletter_signup_source" />
+
+          <fieldset>
+            <div class="row">
+              <input type="checkbox" name="newsletter:newsletter_ge_today" id="newsletter:newsletter_ge_today" class="check" value="1"/>
+              <label for="newsletter:newsletter_ge_today">GovExec Today</label>
+            </div>
+            <div class="row">
+              <input type="checkbox" name="newsletter:newsletter_pay_and_benefits_watch" id="newsletter:newsletter_pay_and_benefits_watch" class="check" value="1"/>
+              <label for="newsletter:newsletter_pay_and_benefits_watch">Pay &amp; Benefits</label>
+            </div>
+            <div class="row">
+              <input type="checkbox" name="newsletter:newsletter_state_and_local" id="newsletter:newsletter_state_and_local" class="check" value="1"/>
+              <label for="newsletter:newsletter_state_and_local">State and Local</label>
+            </div>
+            <div class="row">
+              <input type="checkbox" name="newsletter:newsletter_research_and_insights" id="newsletter:newsletter_research_and_insights" class="check" value="1"/>
+              <label for="newsletter:newsletter_research_and_insights">Research & Insights</label>
+            </div>
+            <div class="row">
+              <input type="checkbox" name="newsletter:newsletter_ng_threatwatch" id="newsletter:newsletter_ng_threatwatch" class="check" value="1"/>
+              <label for="newsletter:newsletter_ng_threatwatch">Nextgov ThreatWatch</label>
+              <a href="/newsletters/" class="more">SEE ALL</a>
+            </div>
+
+            <div class="row">
+              <div class="inp-wrap">
+                <input type="text" id="email_address" name="email_address"  value="Enter email address"/>
+              </div>
+              <input type="submit" value="SUBSCRIBE" class="submit"/>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+            
+          
+
+
+          
+            
+            
+        
+
+
+        
+          
+            <div class="ad ad-bottomblock" id="bottomblock-ad">
+	
+	<div class="ad-container">
+		<script type="text/javascript">
+//<![CDATA[
+if (typeof window.dart_random_ord == 'undefined') {
+	window.dart_random_ord = ('000000000' + Math.ceil(Math.random() * 1000000000).toString()).slice(-9);
+}
+if ($('#topblock-ad script[src*="widgetserver"]').length == 0 && $('#topblock-ad script[src*="flite"]').length == 0 && top_right_ad_size_check_called == false && $("#topblock-ad").height() < 600) {
+      if ($("#topblock-ad").height() < 250) {
+          top_right_ad_size_check();
+      }
+var this_ad_link = 'http://ad.doubleclick.net/N617/adj/govexec.com/homepage;pos=bottomblock;sz=300x250;tile=4;ord=' + window.dart_random_ord + '?';
+document.write('<' + 'script type="text/javascript" src="' + this_ad_link + '">' + '<' + '/script>');
+}
+//]]>
+		</script>
+    
+      <noscript>
+      <a href="http://ad.doubleclick.net/N617/jump/govexec.com/homepage;pos=bottomblock;sz=300x250;" title="">
+        <img src="http://ad.doubleclick.net/N617/ad/govexec.com/homepage;pos=bottomblock;sz=300x250;tile=4;" alt="" />
+      </a>
+      </noscript>
+    
+	</div>
+</div>
+          
+        
+
+        
+          
+            
+              
+
+  <div class="side-box highlight gbc-sidebar-promo">
+    <div class="holder">
+      <div class="frame">
+        <div class="wrap">
+          <strong class="heading">Research</strong>
+        </div>
+        
+          <div class="wrap parent post">
+            <div class="img-box">
+              <a href="/gbc/does-pentagon-have-tools-manage-upcoming-personnel-cuts/105114/?oref=sidebar-gbc-promo"><img src="http://cdn.govexec.com/media/img/upload/2015/02/17/Screen_Shot_2015-02-17_at_1.04.57_PM_1/highlight.png"
+     alt=""
+     title=""
+     class="img-link"
+     height="77" 
+     width="128" 
+/>
+
+</a>
+            </div>
+            <div class="text-box">
+              <h2>
+                <a href="/gbc/does-pentagon-have-tools-manage-upcoming-personnel-cuts/105114/?oref=sidebar-gbc-promo">
+                  Can the Pentagon Manage Upcoming Personnel Cuts?
+                </a>
+              </h2>
+            </div>
+          </div>
+        
+          <div class="wrap parent post">
+            <div class="img-box">
+              <a href="/gbc/reports/bringing-federal-it-speed/100346/?oref=sidebar-gbc-promo"><img src="http://cdn.govexec.com/media/img/upload/2015/02/17/Screen_Shot_2015-02-17_at_1.06.49_PM/highlight.png"
+     alt=""
+     title=""
+     class="img-link"
+     height="77" 
+     width="128" 
+/>
+
+</a>
+            </div>
+            <div class="text-box">
+              <h2>
+                <a href="/gbc/reports/bringing-federal-it-speed/100346/?oref=sidebar-gbc-promo">
+                  Bringing Federal IT Up to Speed
+                </a>
+              </h2>
+            </div>
+          </div>
+        
+          <div class="wrap parent post">
+            <div class="img-box">
+              <a href="/gbc/reports/360-degree-view-defense-logistics/103221/?oref=sidebar-gbc-promo"><img src="http://cdn.govexec.com/media/img/upload/2015/02/19/deflog_1/highlight.jpg"
+     alt=""
+     title=""
+     class="img-link"
+     height="77" 
+     width="128" 
+/>
+
+</a>
+            </div>
+            <div class="text-box">
+              <h2>
+                <a href="/gbc/reports/360-degree-view-defense-logistics/103221/?oref=sidebar-gbc-promo">
+                  A 360 Degree View of Defense Logistics
+                </a>
+              </h2>
+            </div>
+          </div>
+        
+        <div class="wrap link">
+          <a href="/gbc/">See more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+            
+
+
+
+            
+
+
+<div class="side-box">
+  <div class="holder">
+    <div class="frame">
+      <div class="wrap">
+        <strong class="heading">VOICES</strong>
+      </div>
+      <ul class="voices-list">
+        
+        
+        
+          <li>
+            <div class="img-box">
+              <a href="/excellence/promising-practices/?oref=voices-module"><img src="http://cdn.govexec.com/images/voices/promising-practices.png?v=2.3.9" width="40" height="53" alt="Promising Practices" /></a>
+            </div>
+            <div class="text-box">
+              <h2><a href="/excellence/promising-practices/2015/02/escaping-groundhog-day-5-tips-innovation/105549/?oref=voices-module">Escaping Groundhog Day: 5 Tips for Innovation</a></h2>
+              <p>
+                <strong>Promising Practices</strong> by 
+  
+    Chelsea Matzen
+              </p>
+            </div>
+          </li>
+        
+          <li>
+            <div class="img-box">
+              <a href="/federal-news/fedblog/?oref=voices-module"><img src="http://cdn.govexec.com/images/voices/fedblog.png?v=2.3.9" width="40" height="53" alt="Fedblog" /></a>
+            </div>
+            <div class="text-box">
+              <h2><a href="/federal-news/fedblog/2015/02/video-fox-show-rips-feds-afge-chief-valentines-day/105405/?oref=voices-module">Video: Fox Show Rips Feds, AFGE Chief on Valentine&#39;s Day</a></h2>
+              <p>
+                <strong>Fedblog</strong> by 
+  
+    Ross Gianfortune
+              </p>
+            </div>
+          </li>
+        
+          <li>
+            <div class="img-box">
+              <a href="/excellence/executive-coach/?oref=voices-module"><img src="http://cdn.govexec.com/images/voices/executive-coach.png?v=2.3.9" width="40" height="53" alt="Executive Coach" /></a>
+            </div>
+            <div class="text-box">
+              <h2><a href="/excellence/executive-coach/2015/02/lesson-managing-expectations/105411/?oref=voices-module">A Lesson on Managing Expectations</a></h2>
+              <p>
+                <strong>Executive Coach</strong> by 
+  
+    Scott Eblin
+              </p>
+            </div>
+          </li>
+        
+          <li>
+            <div class="img-box">
+              <a href="/oversight/on-politics/?oref=voices-module"><img src="http://cdn.govexec.com/images/voices/on-politics.png?v=2.3.9" width="40" height="53" alt="On Politics" /></a>
+            </div>
+            <div class="text-box">
+              <h2><a href="/oversight/on-politics/2015/01/bush-clinton-and-fatigue-factor/103161/?oref=voices-module">Bush, Clinton and the Fatigue Factor</a></h2>
+              <p>
+                <strong>On Politics</strong> by 
+  
+    Charlie Cook
+              </p>
+            </div>
+          </li>
+        
+          <li>
+            <div class="img-box">
+              <a href="/pay-benefits/pay-benefits-watch/?oref=voices-module"><img src="http://cdn.govexec.com/images/voices/pay-benefits-watch.png?v=2.3.9" width="40" height="53" alt="Pay &amp; Benefits Watch" /></a>
+            </div>
+            <div class="text-box">
+              <h2><a href="/pay-benefits/pay-benefits-watch/2015/02/transit-benefits-cutting-contractor-pay-collective-bargaining-and-more/105561/?oref=voices-module">Transit Benefits, Cutting Contractor Pay, Collective Bargaining and ...</a></h2>
+              <p>
+                <strong>Pay &amp; Benefits Watch</strong> by 
+  
+    Eric Katz
+              </p>
+            </div>
+          </li>
+        
+          <li>
+            <div class="img-box">
+              <a href="/pay-benefits/retirement-planning/?oref=voices-module"><img src="http://cdn.govexec.com/images/voices/retirement-planning.png?v=2.3.9" width="40" height="53" alt="Retirement Planning" /></a>
+            </div>
+            <div class="text-box">
+              <h2><a href="/pay-benefits/retirement-planning/2015/02/youve-invested-retirement-now-what/105636/?oref=voices-module">You’ve Invested for Retirement. Now What?</a></h2>
+              <p>
+                <strong>Retirement Planning</strong> by 
+  
+    Tammy Flanagan
+              </p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+            
+              
+
+  
+
+
+
+
+              <div class="sponsors-box">
+                <div class="holder">
+                  <div class="frame">
+                    <div class="wrap">
+                      <strong class="heading"><span>SPONSORED LINKS</span></strong>
+                    </div>
+                    <ul>
+                      <script type="text/javascript" src="http://jlinks.industrybrains.com/jsct?sid=884&amp;ct=GOVERNMENT_EXECUTIVE_ROS&amp;tr=HOMEPAGE&amp;num=4&amp;layt=5&amp;fmt=simp"></script>
+
+  
+    
+  
+
+                      <li><strong class="title"><a href="https://actiac.org/events/AE2015?utm_source=GovExec%20promo&amp;utm_medium=GovExec%20enews&amp;utm_campaign=AE%20GovExec%20enews%20promo" rel="external">Acquisition Excellence 2015 | Grand Hyatt, Washington, DC | March 3</a></strong>
+                          Hosted by ACT-IAC in collaboration with DHS, GSA and VA Acquisition Academy.  <img width="4" height="8" src="http://cdn.govexec.com/images/arrow02.png" alt="" />
+                          <a href="https://actiac.org/events/AE2015?utm_source=GovExec%20promo&amp;utm_medium=GovExec%20enews&amp;utm_campaign=AE%20GovExec%20enews%20promo" rel="external">Register now at actiac.org/events/AE2015</a>
+                      </li>
+
+  
+    
+  
+
+                      <li><strong class="title"><a href="http://www.govexec.com/sponsored/government-evolved/" rel="external">Get the Next Generation of Government in Your Inbox</a></strong>
+                          Receive monthly updates on technologies powering the agency of the future <img width="4" height="8" src="http://cdn.govexec.com/images/arrow02.png" alt="" />
+                          <a href="http://www.govexec.com/sponsored/government-evolved/" rel="external">www.govexec.com/govevolved</a>
+                      </li>
+
+  
+    
+  
+
+                      <li><strong class="title"><a href="/gbc/reports/lessons-learned-federal-cloud-adoption/100887/" rel="external">Lessons Learned in Federal Cloud Adoption</a></strong>
+                          Read more <img width="4" height="8" src="http://cdn.govexec.com/images/arrow02.png" alt="" />
+                          <a href="/gbc/reports/lessons-learned-federal-cloud-adoption/100887/" rel="external">www.govexec.com/fedcloud</a>
+                      </li>
+
+  
+    
+  
+
+                      <li><strong class="title"><a href="http://www.govexec.com/sponsored/government-rewritten/" rel="external">Subscribe to Government Rewritten</a></strong>
+                          Get monthly updates on tech trends in mobility, security, and software.
+ <img width="4" height="8" src="http://cdn.govexec.com/images/arrow02.png" alt="" />
+                          <a href="http://www.govexec.com/sponsored/government-rewritten/" rel="external">www.govexec.com/govrewritten</a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            
+          
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+</div>
+<div id="footer">
+  <div class="container_12">
+    <strong class="logo"><a href="/">Government Executive</a></strong>
+    <div class="block">
+      <div class="box">
+        <ul class="nav">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/about/contact/">Contact</a></li>
+          <li><a href="http://www.govexecmediagroup.com/">Advertise</a></li>
+          <li><a href="/about/list-rentals/">List Rentals</a></li>
+          <li><a href="/editorial-calendar/">Editorial Calendar</a></li>
+          <li><a href="/about/faq/">FAQ</a></li>
+        </ul>
+        <ul class="nav">
+          <li><a href="/magazine/subscribe/">Print Subscriptions</a></li>
+          <li><a href="/about/reprints/">Reprints</a></li>
+          
+          <li><a href="/about/site-map/">Site Map</a></li>
+          <li><a href="/about/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/about/terms-and-conditions/">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <ul class="links">
+        <li><a href="http://www.nextgov.com/">Nextgov</a></li>
+        <li><a href="http://www.defenseone.com/">Defense One</a></li>
+        <li><a href="http://qz.com/" rel="external">Quartz</a></li>
+        <li><a href="http://www.nationaljournal.com/" rel="external">National Journal</a></li>
+        <li><a href="http://www.theatlantic.com/" rel="external">The Atlantic</a></li>
+        <li><a href="http://www.citylab.com/" rel="external">CityLab</a></li>
+      </ul>
+      <p class="copyright">
+        &copy; 2015 by National Journal Group, Inc. All rights reserved. | <a href="http://www.edgecast.com/">CDN</a> powered by Edgecast Networks
+      </p>
+    </div>
+  </div>
+</div>
+
+
+  
+    <div id="modal_window">
+  <div id="modal_window_content"><img src="http://cdn.govexec.com/images/ajax-loading.gif" width="32" height="32" alt="Loading..." /></div>
+
+  <a href="#" class="close_button"><img src="http://cdn.govexec.com/images/close-circle.png" alt="Close window" width="30" height="30" /></a>
+</div>
+
+<script type="text/javascript" src="http://cdn.govexec.com/js/jquery.form.js"></script>
+
+<script type="text/javascript" src="http://cdn.govexec.com/js/newsletter.form.js?v=2.5.7.2"></script>
+  
+
+
+
+
+
+  
+    
+    <script type="text/javascript">
+    //<![CDATA[
+      var _comscore = _comscore || [];
+      _comscore.push({ c1: "2", c2: "6463921" });
+      (function() {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0];
+        s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+      })();
+    //]]>
+    </script>
+    <noscript>
+      <img src="http://b.scorecardresearch.com/p?c1=2&c2=6463921&cv=2.0&cj=1" />
+    </noscript>
+    
+	<div id="parsely-root" style="display: none">
+	  <a id="parsely-cfg" data-parsely-site="govexec.com" href="http://parsely.com">Powered by the Parse.ly Publisher Platform (P3).</a>
+	</div>
+	<script type="text/javascript">
+    //<![CDATA[
+	  (function(s, p, d) {
+	    var h=d.location.protocol, i=p+"-"+s,
+	      e=d.getElementById(i), r=d.getElementById(p+"-root"),
+	      u=h==="https:"?"d1z2jf7jlzjs58.cloudfront.net"
+	      :"static."+p+".com";
+	    if (e) return;
+	      e = d.createElement(s); e.id = i; e.async = true;
+	      e.src = h+"//"+u+"/p.js"; r.appendChild(e);
+	  })("script", "parsely", document);
+    //]]>
+	</script>
+    
+    <script type="text/javascript">
+    //<![CDATA[
+      var _sf_async_config={uid:17396,domain:"govexec.com"};
+
+      _sf_async_config.title = "Government News, Research and Events for Federal Employees";
+
+      (function(){
+        function loadChartbeat() {
+          window._sf_endpt=(new Date()).getTime();
+          var e = document.createElement('script');
+          e.setAttribute('language', 'javascript');
+          e.setAttribute('type', 'text/javascript');
+          e.setAttribute('src', (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") +
+"js/chartbeat.js");
+          document.body.appendChild(e);
+        }
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != 'function') ?
+        loadChartbeat : function() { oldonload(); loadChartbeat(); };
+      })();
+    //]]>
+    </script>
+    <script type="text/javascript">
+_bizo_data_partner_id = "1016";
+</script>
+<script type="text/javascript">
+(function() {
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";
+b.async = true;
+b.src = (window.location.protocol === "https:" ? "https://sjs" : "http://js") + ".bizographics.com/insight.min.js";
+s.parentNode.insertBefore(b, s);
+})();
+</script>
+<noscript>
+<img height="1" width="1" alt="" style="display:none;" src="//www.bizographics.com/collect/?pid=1016&fmt=gif" />
+</noscript>
+  
+  <script type="text/javascript">
+    //<![CDATA[
+    var disqus_shortname = 'govexec';
+    var disqus_all_shortnames = {'defenseone': 'defenseone', 'govexec': 'govexec', 'nextgov': 'nextgov'};
+    (function () {
+        var scriptElement = document.createElement('script'); scriptElement.async = true;
+        scriptElement.type = 'text/javascript';
+        scriptElement.src = 'http://cdn.govexec.com/js/custom_disqus_count_ge.js?v=2.1.4';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(scriptElement);
+    }());
+    //]]>
+</script>
+
+  
+  <script type="text/javascript" src="https://ak.sail-horizon.com/horizon/v1.js"></script>
+<script type="text/javascript">
+  $(function() {
+    // Sailthru Concierge
+    if (window.Sailthru) {
+    
+      Sailthru.setup({
+        domain: 'horizon.govexec.com',
+        
+        spider: false,
+        
+        concierge: false
+      });
+    
+    }
+  });
+</script>
+  
+
+
+<script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+
+
+  
+    <!-- Google Code for Remarketing Tag -->
+<!--
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+-->
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 962442471;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/962442471/?value=0&amp;guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+  
+
+
+</body>
+</html>";i:2;s:4:"5455";}

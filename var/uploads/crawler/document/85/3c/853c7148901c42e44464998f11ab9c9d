@@ -1,0 +1,3456 @@
+a:3:{i:0;s:14:"http://tsn.ca/";i:1;s:173291:"<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" ng-app="myApp"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8" ng-app="myApp"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9" ng-app="myApp"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10" ng-app="myApp"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" ng-app="myApp"> <!--<![endif]-->
+<head>
+  <meta http-equiv="X-UA-Compatible" content="text/html, charset=UTF-8, IE=edge, chrome=1">	
+  <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+  <link rel="shortcut icon" type="image/x-icon" href="http://images.tsn.ca/favicon32.ico">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable = no">
+
+    
+  <!-- General OG meta tags -->
+    <meta property="og:url" content="http://www.tsn.ca/"/>
+  <meta property="og:site_name" content="TSN"/>
+  
+  <!-- General bellmedia GSA meta tags -->
+  <meta name="bm-url" content="http://www.tsn.ca/cm/2.621/"/>
+  <meta name="bm-lang" content="en"/>
+  <meta name="bm-brand" content="tsn" />
+
+  
+  
+              <!-- Non page specific OG meta tags -->
+    <meta property="og:title" content=""/>
+    <meta property="og:description" content=""/>
+    <meta property="og:image" content="http://www.tsn.ca/img/tsn/site-content/tsn-logo.png"/>
+    <meta property="og:type" content="website"/>
+    <!-- Non page specific bellmedia GSA meta tags -->
+    <meta name="bm-title" content=""/>
+    <meta name="bm-description" content=""/>
+    <meta name="bm-thumbnail" content="http://www.tsn.ca/img/tsn/site-content/tsn-logo.png"/>
+          <meta name="bm-type" content="TSN"/>
+        <!-- End of meta tags -->
+
+        <meta name="robots" content="index" />
+      <meta name="robots" content="ACAP allow-index" />
+  
+            
+  <title>TSN</title>
+
+  
+  
+    
+  
+    <link rel="stylesheet" href="/css/tsn/style.css?5">
+  
+  <link href="//tsnimages.tsn.ca/sprite/all/24,40,48,80?cachebust" rel="stylesheet" type="text/css">
+
+  
+  
+  
+  
+
+
+  <script>
+  //Fix to add in IE generic stylesheet
+  if (/*@cc_on!@*/false) { 
+    var head = document.head,
+        link = document.createElement('link');
+
+        link.type = 'text/css';
+        link.rel = 'stylesheet';
+        link.href = '/css/tsn/style-ie.css?5';
+
+    if (head) {
+      head.appendChild(link);
+    }
+  }
+  </script>
+
+  <!--[if IE]>
+  	<link rel="stylesheet" href="/css/tsn/style-ie.css?5">  <![endif]-->
+  <!--[if IE 9]>
+  	<link rel="stylesheet" href="/css/tsn/style-ie9.css?5">  <![endif]-->
+  <!--[if IE 8]>
+  	<link rel="stylesheet" href="/css/tsn/style-ie8.css?5">  <![endif]-->
+  <!--[if IE 7]>
+  	<link rel="stylesheet" href="/css/tsn/style-ie7.css?5">  <![endif]-->
+  <!--[if IE 6]>
+  	<link rel="stylesheet" href="/css/tsn/style-ie7.css?5">  <![endif]-->
+
+  <!--[if lt IE 9]>
+   <script type="text/javascript" src="/js/tsn/vendor/selectivizr/selectivizr-min.js?5"></script>  <![endif]-->
+
+    <script type="text/javascript" src="/js/tsn/vendor/jquery/jquery.min.js?5"></script>
+    <script type="text/javascript" src="/js/tsn/vendor/jquery/jquery-ui-1.10.4.custom.min.js?5"></script>  <script type="text/javascript" src="/js/tsn/vendor/jquery/jquery.ui.touch-punch.min.js?5"></script>
+  	<script type="text/javascript" src="/js/tsn/partials/gigya.min.js?5"></script>
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/tsn/vendor/html5shiv/html5shiv.min.js?5"></script>  <![endif]-->
+
+</head>  <body>
+    <div class="top-container">
+      <div class="main-header">
+        <div class='scoreboard-wrapper'>
+          
+                  
+    
+  
+    
+  
+    
+    
+        <script>
+	var scoreboard = {
+		webApiUrl: "http://stats.tsn.ca/GET/urn:tsn:%s:scoreboard?type=json",
+		updateInterval: "10000 ",
+		gamePageUrl: "/nhl/game/%s",
+		retina: window.devicePixelRatio > 1
+	}
+</script>
+
+<script>
+    var currentSport = "nhl";
+    var currentSportUrl = "nhl";
+</script>
+
+<section class='scoreboard' ng-controller="MainCtrl">
+	<div class="scoreboard-sports-toggle" ng-class="{ 'overflow' : ! showSports }" ng-cloak>
+    	<span ng-click="showSports = ! showSports"><span class="selectedSport" ng-show="currentSport">{{ currentSport }}</span><span class="dropdown-arrow"></span></span>
+        <ul class="sports-dropdown" ng-class="{ 'hidden': ! showSports }">
+    											<li class="active" ng-click="changeSport('nhl', 'nhl'); showSports = ! showSports">nhl</li>
+																<li  ng-click="changeSport('nfl', 'nfl'); showSports = ! showSports">nfl</li>
+																<li class="otherlink"><a href="      /nba/scores  ">NBA</a></li>
+                						
+        </ul>
+    </div> 
+
+	<div class="scoreboard-arrow scoreboard-left"></div>
+    <div class="scoreboard-scores-wrapper">
+
+        <div class="preloader-white" ng-hide="dataLoaded"></div>
+
+      <div class="scoreboard-scores"ng-cloak ng-hide="!dataLoaded">
+    	<ul class="scoreboard-game-list desktop {{currentSport}}">
+			<li class="game-date" ng-repeat-start="day in Days track by $index" ng-class="{'active': day.IsCurrentDay || day.isCurrentWeek, 'game-week': currentSport == 'nfl', 'preseason': day.SeasonType.indexOf('pre-') > -1}" ng-cloak>
+            	<div class="date" ng-if="currentSport == 'nfl'">
+                    <div class="season" ng-if="day.SeasonType.indexOf('pre-') > -1">PRESEASON</div>
+                    <strong ng-if="day.Week < 18">WEEK</strong>
+                    <div class="month-daynumber" ng-if="day.Week < 18">{{day.Week}}</div>
+
+                    <strong ng-if="day.Week == 18">WC</strong>
+                    <strong ng-if="day.Week == 19">DIV</strong>
+                    <strong ng-if="day.Week == 20">CONF</strong>
+                    <div class="month-daynumber" ng-if="day.Week > 17 && day.Week < 20">Round</div>
+                    <div class="month-daynumber" ng-if="day.Week == 20">CHAMP</div>
+                                        
+                    <strong ng-if="day.Week == 21">PRO</strong>
+                    <strong ng-if="day.Week == 22">SUPER</strong>
+                    <div class="month-daynumber" ng-if="day.Week > 20">BOWL</div>
+                </div>
+                <div class="date" ng-if="currentSport == 'cfl'">
+                    <div class="season" ng-if="day.SeasonType.indexOf('pre-') > -1">PRESEASON</div>
+
+                    <strong ng-if="day.Week < 21">WEEK</strong>
+                    <div class="month-daynumber" ng-if="day.Week < 21">{{day.Week}}</div>
+
+                    <strong ng-if="day.Week == 21 || day.Week == 22">DIV</strong>
+                    <div class="month-daynumber" ng-if="day.Week == 21">SEMIS</div>
+                    <div class="month-daynumber" ng-if="day.Week == 22">FINALS</div>
+                    
+                    <strong ng-if="day.Week == 23">GREY</strong>
+                    <div class="month-daynumber" ng-if="day.Week == 23">CUP</div>
+                </div>
+                <div class="date" ng-if="currentSport != 'nfl' || currentSport != 'cfl'">
+                    <strong>{{::day.Date | amDateFormat:'ddd'}}</strong>
+                    <div class="month-daynumber">{{::day.Date | amDateFormat:'MMM DD'}}</div>
+                </div>
+        	</li>
+			<li class="game-score {{currentSport}}" ng-repeat-end ng-repeat="game in day.Games track by game.Id" ng-cloak jq-slider-game>
+				<a ng-href="/{{currentSportUrl}}/game/{{game.Id || game.SeoId}}">
+    				<div ng-if="game.State == 'PreGame'">
+        				<div id="{{ game.Id }}" class="game-status pre-game" >
+        					<div class="status">{{ game.StateDetails }}</div>
+                    		<div class="game-station">{{ ::game.Channel }}</div>
+        				</div>
+        				<div class="game-teams">
+        					<div class="team-1" >
+        						<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ ::game.Away.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ ::game.Away.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ ::game.Away.Team.Acronym }}</span></div>
+							</div>
+        					<div class="team-2"> 
+        						<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ ::game.Home.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ ::game.Home.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ ::game.Home.Team.Acronym }}</span></div>
+							</div>
+							<div class="team-record" ng-if="currentSport != 'wjhc'">
+    							<span class="record">{{::game.Away.Record}} <span streak-initial streak="{{::game.Away.Streak}}" ng-if="game.Away.Streak"></span></span>
+    							<span class="record">{{::game.Home.Record}} <span streak-initial streak="{{::game.Home.Streak}}" ng-if="game.Home.Streak"></span></span>
+							</div>
+        				</div>
+    				</div>
+    				<div ng-if="game.State == 'InProgress'">
+        				<div id="{{ game.Id }}" class="game-status live" ng-if="game.State == 'InProgress'">
+        					<div class="status">{{ game.StateDetails }}</div>
+                    		<div class="game-station">{{ game.Channel }}</div>
+        				</div>
+    					<div class="game-teams">
+                            <div class="team-1 ">
+        						<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ game.Away.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ game.Away.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ game.Away.Team.Acronym }}</span>
+									<span class="possession-marker" ng-class="{'active': game.Away.Linescore.HasPossession}"></span>
+                                    <span class="nhl-strength" ng-class="{'active': game.Away.Linescore.HasPowerplay == true}" ng-show="game.Away.Linescore.HasPowerplay == true">PP {{game.Away.Linescore.StrengthType}}</span>
+								</div>
+								
+        						<div class="team-score" ng-if="currentSport == 'mlb'"><span score-change="{{ game.Away.Runs }}" animation="flash">{{ game.Away.Runs }}</span></div>
+        					    <div class="team-score" ng-if="currentSport != 'mlb'"><span score-change="{{ game.Away.Linescore.Score }}" animation="flash">{{ game.Away.Linescore.Score }}</span></div>
+                            </div>
+        					<div class="team-2">
+        						<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ game.Home.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ game.Home.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ game.Home.Team.Acronym }}</span>
+									<span class="possession-marker" ng-class="{'active': game.Home.Linescore.HasPossession}"></span>
+                                    <span class="nhl-strength" ng-class="{'active': game.Home.Linescore.HasPowerplay == true}" ng-show="game.Home.Linescore.HasPowerplay == true">PP {{game.Home.Linescore.StrengthType}}</span>
+								</div>
+								
+        						<div class="team-score" ng-if="currentSport == 'mlb'"><span score-change="{{ game.Home.Runs }}" animation="flash">{{ game.Home.Runs }}</span></div>
+        					    <div class="team-score" ng-if="currentSport != 'mlb'"><span score-change="{{ game.Home.Linescore.Score }}" animation="flash">{{ game.Home.Linescore.Score }}</span></div>
+                            </div>                            
+        				</div>
+                        <div class="mlb-bases" ng-if="currentSport == 'mlb'">
+        					<div ng-repeat="base in game.Situation.BaseRunners track by $index" class="mlb-base mlb-base-{{$index + 1}}" ng-class="{'active': base}"></div>
+                            <div class="mlb-status">{{ game.Situation.Outs }} Out</div>
+                        </div>
+                        <div class="nfl-possession" ng-if="currentSport == 'nfl' || currentSport == 'cfl'" ng-hide="game.Situation.Downs == null || !game.Situation.Downs || game.Situation.Downs == '' || game.Situation.Distance == null || !game.Situation.Distance || game.Situation.Distance == '' ">
+                            <div class="nfl-status ball-on">{{ game.Situation.BallOn }}</div>
+                            <div class="nfl-status distance-downs">{{ game.Situation.Downs }} & {{ game.Situation.Distance }}</div>
+                        </div>
+                        
+                    </div>
+    				<div ng-if="game.State == 'Final'">
+        				<div id="{{ game.Id }}" class="game-status post-game" ng-if="game.State == 'Final'">
+        					<div class="status">{{ game.StateDetails }}</div>
+                    		<div class="game-station">{{ ::game.Channel }}</div>
+        				</div>
+    					<div class="game-teams">
+                            <div class="team-1" ng-class="{'winner': game.Away.IsWinner}">
+        						<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ ::game.Away.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ ::game.Away.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ ::game.Away.Team.Acronym }}</span></div>
+        						<div class="team-score" ng-if="currentSport == 'mlb'"><span>{{ ::game.Away.Runs }}</span></div>
+        					    <div class="team-score" ng-if="currentSport != 'mlb'"><span>{{ ::game.Away.Linescore.Score }}</span></div>
+                            </div>
+        					<div class="team-2" ng-class="{'winner': game.Home.IsWinner}">
+        						<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ ::game.Home.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ ::game.Home.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ ::game.Home.Team.Acronym }}</span></div>
+    						    <div class="team-score" ng-if="currentSport == 'mlb'"><span>{{ ::game.Home.Runs }}</span></div>
+        					    <div class="team-score" ng-if="currentSport != 'mlb'"><span>{{ ::game.Home.Linescore.Score }}</span></div>
+        					</div>                            
+        				</div>
+    				</div>
+				</a>
+        	</li>
+		</ul>
+      </div>
+    </div>
+    <div class="scoreboard-arrow scoreboard-right"></div>
+    <div class="scoreboard-full-scores">
+    	<span><a href="/{{currentSportUrl}}/scores">Full<br>Scores</a></span>
+    </div>
+	
+	    <div class="scores-nav-mobile">
+        <div class="scoreboard-mobile-header"><h3>Scoreboard</h3>
+			<div class="scoreboard-sports-toggle" ng-class="{ 'overflow' : ! showSports }" ng-cloak>
+				<span ng-click="showSports = ! showSports"><span class="selectedSport" ng-show="currentSport">{{ currentSport }}</span><span class="dropdown-arrow"></span></span>
+                <ul class="sports-dropdown" ng-class="{ 'hidden': ! showSports }">
+            		        				        					<li class="active" ng-click="changeSport('nhl'); showSports = ! showSports">nhl</li>
+                                			        				        					<li  ng-click="changeSport('nfl'); showSports = ! showSports">nfl</li>
+                                			        				        					<li class="otherlink"><a href="      /nba/scores  ">NBA</a></li>
+        				        			                </ul>
+            </div> 
+		</div>
+        <div class="scoreboard-game-list mobile">
+    		<ul class="date-list">
+    			<li class="game-date" ng-repeat="day in Days track by $index" ng-if="$index <3" ng-class="{'active': day.IsCurrentDay || day.isCurrentWeek}" ng-click="mobDateClicked($index)">
+                	<div class="date" ng-if="currentSport == 'nfl'">
+                        <strong ng-if="day.Week < 18"><span ng-if="day.SeasonType.indexOf('pre-') > -1">PRE-</span>WEEK</strong>
+                        <strong ng-if="day.Week == 18">WC</strong>
+                        <strong ng-if="day.Week == 19">DIV</strong>
+                        <strong ng-if="day.Week == 20">CONF</strong>
+                        <strong ng-if="day.Week == 21">PRO</strong>
+                        <strong ng-if="day.Week == 22">SUPER</strong>
+                        <div class="month-daynumber" ng-if="day.Week < 18">{{::day.Week}}</div>
+                        <div class="month-daynumber" ng-if="day.Week > 17 && day.Week < 20">ROUND</div>
+                        <div class="month-daynumber" ng-if="day.Week == 20">CHAMP</div>
+                        <div class="month-daynumber" ng-if="day.Week > 20">BOWL</div>
+                    </div>
+                    <div class="date" ng-if="currentSport == 'cfl'">
+                        <strong ng-if="day.Week < 21"><span ng-if="day.SeasonType.indexOf('pre-') > -1">PRE-</span>WEEK</strong>
+                        <strong ng-if="day.Week == 21 && day.Week == 22">DIV</strong>
+                        <strong ng-if="day.Week == 23">GREY</strong>
+                        <div class="month-daynumber" ng-if="day.Week < 21">{{::day.Week}}</div>
+                        <div class="month-daynumber" ng-if="day.Week == 21 ">SEMIS</div>
+                        <div class="month-daynumber" ng-if="day.Week == 22 ">FINALS</div>
+                        <div class="month-daynumber" ng-if="day.Week == 23 ">CUP</div>
+                    </div>
+                    <div class="date" ng-if="currentSport != 'nfl' && currentSport != 'cfl'">
+                        <strong>{{::day.Date | amDateFormat:'ddd'}}</strong>
+                        <div class="month-daynumber">{{::day.Date | amDateFormat:'MMM DD'}}</div>
+                    </div>
+                </li>
+    		</ul>
+			<div class="game-lists">
+			<ul class="game-list" ng-repeat="day in Days track by $index" ng-class="{'active': day.IsCurrentDay || day.isCurrentWeek }">
+				<li class="game-score" ng-repeat-end ng-repeat="game in day.Games track by game.Id" ng-cloak>
+    				<a ng-href="/{{currentSportUrl}}/game/{{game.Id || game.SeoId}}">
+        				<div ng-if="game.State == 'PreGame'">
+            				<div id="{{ game.Id }}" class="game-status pre-game" >
+            					<div class="status">{{ game.StateDetails }}</div>
+                        		<div class="game-station">{{ ::game.Channel }}</div>
+            				</div>
+            				<div class="game-teams">
+            					<div class="team-1" >
+            						<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ ::game.Away.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ ::game.Away.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ ::game.Away.Team.Acronym }}</span></div>
+            					</div>
+            					<div class="team-2">
+            						<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ ::game.Home.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ ::game.Home.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ ::game.Home.Team.Acronym }}</span></div>
+            					</div>
+								<div class="team-record" ng-if="currentSport != 'wjhc'">
+        							<span class="record">{{::game.Away.Record}} <span streak-initial streak="{{::game.Away.Streak}}" ng-if="game.Away.Streak"></span></span>
+        							<span class="record">{{::game.Home.Record}} <span streak-initial streak="{{::game.Home.Streak}}" ng-if="game.Home.Streak"></span></span>
+    							</div>
+            				</div>
+        				</div>
+        				<div ng-if="game.State == 'InProgress'">
+            				<div id="{{ game.Id }}" class="game-status live" ng-if="game.State == 'InProgress'">
+            					<div class="status">{{ game.StateDetails }}</div>
+                        		<div class="game-station">{{ game.Channel }}</div>
+            				</div>
+        					<div class="game-teams">
+                                <div class="team-1 ">
+									<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ game.Away.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ game.Away.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ game.Away.Team.Acronym }}</span>
+									<span class="possession-marker" ng-class="{'active': game.Away.Linescore.HasPossession}" ng-if="currentSport == 'nfl'"></span>
+                                    <span class="possession-marker" ng-class="{'active': game.Away.Team.Id == game.Situation.TeamAtBat }" ng-if="currentSport == 'mlb'"></span>
+								    <span class="nhl-strength" ng-show="game.Away.Linescore.HasPowerplay == true">PP {{game.Away.Linescore.StrengthType}}</span>
+                                </div>
+								
+									<div class="team-score" ng-if="currentSport == 'mlb'"><span score-change="{{ game.Away.Runs }}" animation="flash">{{ game.Away.Runs }}</span></div>
+									<div class="team-score" ng-if="currentSport != 'mlb'"><span score-change="{{ game.Away.Linescore.Score }}" animation="flash">{{ game.Away.Linescore.Score }}</span></div>
+                                </div>
+            					<div class="team-2">
+            						<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ game.Home.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ game.Home.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ game.Home.Team.Acronym }}</span>
+    									<span class="possession-marker" ng-class="{'active': game.Home.Linescore.HasPossession}" ng-if="currentSport == 'nfl'"></span>
+                                        <span class="possession-marker" ng-class="{'active': game.Home.Team.Id == game.Situation.TeamAtBat }" ng-if="currentSport == 'mlb'"></span>
+    								    <span class="nhl-strength" ng-show="game.Home.Linescore.HasPowerplay == true">PP {{game.Home.Linescore.StrengthType}}</span>
+                                    </div>
+    								
+            						<div class="team-score" ng-if="currentSport == 'mlb'"><span score-change="{{ game.Home.Runs }}" animation="flash">{{ game.Home.Runs }}</span></div>
+            					    <div class="team-score" ng-if="currentSport != 'mlb'"><span score-change="{{ game.Home.Linescore.Score }}" animation="flash">{{ game.Home.Linescore.Score }}</span></div>
+                                </div>   
+            				</div>
+                            <div class="mlb-bases" ng-if="currentSport == 'mlb'">
+            					<div ng-repeat="base in game.Situation.BaseRunners track by $index" class="mlb-base mlb-base-{{$index + 1}}" ng-class="{'active': base}"></div>
+                                <div class="mlb-status">{{ game.Situation.Outs }} Out</div>
+                            </div>
+                            <div class="nfl-possession" ng-if="currentSport == 'nfl'" ng-hide="game.Situation.Downs == null || !game.Situation.Downs || game.Situation.Downs == ''  || game.Situation.Distance == null || !game.Situation.Distance || game.Situation.Distance == '' ">
+                                <div class="nfl-status ball-on">{{ game.Situation.BallOn }}</div>
+                                <div class="nfl-status distance-downs">{{ game.Situation.Downs }} & {{ game.Situation.Distance }}</div>
+                            </div>
+        				</div>
+        				<div ng-if="game.State == 'Final'">
+            				<div id="{{ game.Id }}" class="game-status post-game" ng-if="game.State == 'Final'">
+            					<div class="status">{{ game.StateDetails }}</div>
+                        		<div class="game-station">{{ ::game.Channel }}</div>
+            				</div>
+        					<div class="game-teams">
+            					<div class="team-1" ng-class="{'winner': game.Away.IsWinner}">
+									<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ ::game.Away.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ ::game.Away.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ ::game.Away.Team.Acronym }}</span></div>
+									<div class="team-score" ng-if="currentSport == 'mlb'"><span>{{ ::game.Away.Runs }}</span></div>
+									<div class="team-score" ng-if="currentSport != 'mlb'"><span>{{ ::game.Away.Linescore.Score }}</span></div>
+                                </div>
+            					<div class="team-2" ng-class="{'winner': game.Home.IsWinner}">
+            						<div class="team-name"><div ng-if="currentSport != 'wjhc'" class="logo" team-class team-name="{{ ::game.Home.Team.SeoId }}" logo-size="24" sport="{{currentSport}}"></div><div ng-if="currentSport == 'wjhc'" class="logo flags-logo" team-class team-name="{{ ::game.Home.Team.SeoId }}" logo-size="24" sport="flags"></div><span>{{ ::game.Home.Team.Acronym }}</span></div>
+        						    <div class="team-score" ng-if="currentSport == 'mlb'"><span>{{ ::game.Home.Runs }}</span></div>
+									<div class="team-score" ng-if="currentSport != 'mlb'"><span>{{ ::game.Home.Linescore.Score }}</span></div>
+            					</div> 
+                                <div class="team-record" ng-if="currentSport != 'wjhc'">
+        							<span class="record">{{::game.Away.Record}} <span streak-initial streak="{{::game.Away.Streak}}" ng-if="game.Away.Streak"></span></span>
+        							<span class="record">{{::game.Home.Record}} <span streak-initial streak="{{::game.Home.Streak}}" ng-if="game.Home.Streak"></span></span>
+    							</div>
+            				</div>
+        				</div>
+    				</a>
+            	</li>
+			</ul>
+			</div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+      
+  
+              </div>
+        <div class='site-header-background'>
+          <div class="site-header">
+            
+                  
+    
+  
+    
+  
+    
+    
+        <span id="gigya_login"></span>
+      
+    
+    
+        
+
+
+  
+    
+                  
+  <div class="global-search-element">
+
+        <div class="site-header-search">
+      <div class="search-form-item">
+        <form class='search-form' action="/search/tsn-search-7.128772" method="get">
+          <input class='search-field' type="text" name="q" value="SEARCH">
+          <input src="/img/tsn/icons/tsn-search-small.png" class='search-submit submit' type="image" value="Search">
+        </form>
+      </div>
+    </div>
+      
+        
+  </div>
+
+
+      
+    
+    
+        <div class="mobile-header-nav">
+	<div class="site-header-mobile">
+		<h1 class="site-header-logo"><a title="TSN" href="/">TSN</a></h1>
+		<ul class="site-nav">
+			<li class="menu-mobile-nav-toggle"><a id="left-menu" href="#left-menu"/><div class="icon"></div></a></li>
+			<li class="sports-nav-scores"><a id="right-menu" href="#right-menu"/><div class="icon"></div></a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="menu-nav-mobile">
+	<ul class="menu-nav-dropdown">
+    	        
+        		<li id="gigya_mobile_login" class="menu-sports">
+			<a href="#" onclick="gigyaMobileLogin()"><span>Login / Register</span></a>
+		</li>
+
+					<li class="menu-sports"><a href="/nhl">NHL</a></li>
+					<li class="menu-sports"><a href="/nfl">NFL</a></li>
+					<li class="menu-sports"><a href="/nba">NBA</a></li>
+					<li class="menu-sports"><a href="/cfl">CFL</a></li>
+					<li class="menu-sports"><a href="/mlb">MLB</a></li>
+					<li class="menu-sports"><a href="/golf">Golf</a></li>
+					<li class="menu-sports"><a href="/soccer">Soccer</a></li>
+					<li class="menu-sports"><a href="/hockey-canada">Hockey Canada</a></li>
+					<li class="menu-sports"><a href="/auto-racing">Auto Racing</a></li>
+					<li class="menu-sports"><a href="/tennis">Tennis</a></li>
+					<li class="menu-sports"><a href="/curling">Curling</a></li>
+					<li class="menu-sports"><a href="/ncaa">NCAA</a></li>
+					<li class="menu-sports"><a href="/nascar">NASCAR</a></li>
+					<li class="menu-sports"><a href="/chl">CHL</a></li>
+					<li class="menu-sports"><a href="/ahl">AHL</a></li>
+					<li class="menu-sports"><a href="/figure-skating">Figure Skating</a></li>
+					<li class="menu-sports"><a href="/skiing">Skiing</a></li>
+					<li class="menu-sports"><a href="/world-cup">World Cup</a></li>
+					<li class="menu-sports"><a href="/ufc">UFC</a></li>
+					<li class="menu-sports"><a href="/world-juniors">World Juniors</a></li>
+					<li class="menu-sports"><a href="/canada-games">Canada Games</a></li>
+					<li class="menu-sports"><a href="/boxing">Boxing</a></li>
+					<li class="menu-sports"><a href="/rugby">Rugby</a></li>
+					<li class="menu-sports"><a href="/cis">CIS</a></li>
+					<li class="menu-sports"><a href="/olympics">Olympics</a></li>
+					<li class="menu-sports"><a href="/horse-racing">Horse Racing</a></li>
+					<li class="menu-sports"><a href="/lacrosse">Lacrosse</a></li>
+					<li class="menu-sports"><a href="/cycling">Cycling</a></li>
+					<li class="menu-sports"><a href="/other-sports">Other Sports</a></li>
+							<li class="menu-sports"><a href="/video">Video</a></li>
+					<li class="menu-sports"><a href="/tv">TV</a></li>
+					<li class="menu-sports"><a href="/radio">Radio</a></li>
+					<li class="menu-sports"><a href="/fantasy">Fantasy</a></li>
+					<li class="menu-sports"><a href="http://www2.tsn.ca/bardown/">BARDOWN</a></li>
+					<li class="menu-sports"><a href="https://tsnshop.ca">Shop</a></li>
+			</ul>
+</div>
+
+<div class="scores-nav-mobile">
+    <div class="scoreboard-mobile-header"><h3>Scoreboard</h3></div>
+    <ul class="scoreboard-game-list mobile">
+		<li class="date-list-wrapper">
+			<ul class="date-list"></ul>
+		</li>
+		<li class="game-list-wrapper"></li>
+    </ul>
+</div>
+
+<div class="site-header-main">
+	<a title="TSN" href="/"><h1 class="site-header-logo">TSN</h1></a>
+	<ul class="site-nav">
+					<li class="sports-nav-toggle sports">
+                <a href="#" style="pointer-events:none;"/>
+                    <div class="icon"></div>
+                    <div class="title">Sports</div>
+				</a>
+				<div class="sports-nav">
+					<ul class="sports-nav-dropdown">
+                                                	                        								<li data-submenu-id="submenu-1">
+								<a href="/nhl">NHL</a>
+								<div id="submenu-1" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/nhl">News</a></li>
+                                        											<li><a href="/nhl/video">Video</a></li>
+                                        											<li><a href="/nhl/scores">Scores</a></li>
+                                        											<li><a href="/nhl/schedule">Schedule</a></li>
+                                        											<li><a href="/nhl/standings">Standings</a></li>
+                                        											<li><a href="/nhl/statistics">Statistics</a></li>
+                                        											<li><a href="/nhl/leaders">Leaders</a></li>
+                                        											<li><a href="/nhl/teams">Teams</a></li>
+                                        											<li><a href="/nhl/players">Players</a></li>
+                                        											<li><a href="/nhl/injuries">Injuries</a></li>
+                                        											<li><a href="/nhl/transactions">Transactions</a></li>
+                                        											<li><a href="/tradecentre">Tradecentre</a></li>
+                                        											<li><a href="/draftcentre">Draftcentre</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/medical-breakthrough-prompts-talk-of-testing-active-nhlers-for-cte-1.210725"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Medical breakthrough prompts talk of testing active NHLers for CTE</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/trade-talk-the-dish-on-petry-1.210836"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Trade Talk: The dish on Petry</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/where-does-quick-rank-among-nhl-goalies-1.211009"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Where does Quick rank among NHL goalies?</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/senators-rookie-a-promising-scorer-1.210950"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Senators rookie a promising scorer</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/tear-down-won-t-be-so-easy-lupul-warns-1.211138"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Tear-down won't be so easy, Lupul warns</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/bozak-this-is-where-i-want-to-be-1.211084"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Bozak: ''This is where I want to be''</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/questions-on-d-as-habs-host-panthers-1.210866"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Questions on D as Habs host Panthers</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/canucks-kick-off-key-eastern-trip-vs-rangers-1.210846"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Canucks kick off key Eastern trip vs. Rangers</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/jets-set-to-visit-ovechkin-capitals-1.210961"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Jets set to visit Ovechkin, Capitals</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/thursday-s-ice-chips-crosby-back-after-maintenance-day-1.210908"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Thursday's Ice Chips: Crosby back after maintenance day</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        								<li data-submenu-id="submenu-2">
+								<a href="/nfl">NFL</a>
+								<div id="submenu-2" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/nfl">News</a></li>
+                                        											<li><a href="/nfl/video">Video</a></li>
+                                        											<li><a href="/nfl/scores">Scores</a></li>
+                                        											<li><a href="/nfl/schedule">Schedule</a></li>
+                                        											<li><a href="/nfl/standings">Standings</a></li>
+                                        											<li><a href="/nfl/statistics">Statistics</a></li>
+                                        											<li><a href="/nfl/leaders">Leaders</a></li>
+                                        											<li><a href="/nfl/teams">Teams</a></li>
+                                        											<li><a href="/nfl/players">Players</a></li>
+                                        											<li><a href="/nfl/injuries">Injuries</a></li>
+                                        											<li><a href="/nfl/transactions">Transactions</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/elway-we-want-peyton-back-1.211204"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Elway: We want Peyton back</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/medical-breakthrough-prompts-talk-of-testing-active-nhlers-for-cte-1.210725"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Medical breakthrough prompts talk of testing active NHLers for CTE</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/3-things-we-learned-at-the-combine-wednesday-1.210440"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>3 things we learned at the combine: Wednesday</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/kaepernick-gets-personal-with-twitter-beef-1.211054"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Kaepernick gets personal with Twitter beef</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/browns-gm-farmer-apologizes-for-texts-1.211035"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Browns GM Farmer apologizes for texts</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/giants-rams-face-high-profile-personnel-decisions-1.210892"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Giants, Rams face high-profile personnel decisions</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/knighton-wants-to-remain-with-broncos-1.211040"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Knighton wants to remain with Broncos</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/bengals-falcons-need-pass-rush-help-1.210890"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Bengals, Falcons need pass-rush help</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/will-the-jets-and-buccaneers-pursue-qbs-1.210884"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Will the Jets and Buccaneers pursue QBs?</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/state-trooper-takes-stand-in-hernandez-murder-trial-1.210984"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>State trooper takes stand in Hernandez murder trial</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        								<li data-submenu-id="submenu-3">
+								<a href="/nba">NBA</a>
+								<div id="submenu-3" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/nba">News</a></li>
+                                        											<li><a href="/nba/video">Video</a></li>
+                                        											<li><a href="/nba/scores">Scores/Schedule</a></li>
+                                        											<li><a href="/nba/standings">Standings</a></li>
+                                        											<li><a href="/nba/statistics">Statistics</a></li>
+                                        											<li><a href="/nba/leaders">Leaders</a></li>
+                                        											<li><a href="/nba/teams">Teams</a></li>
+                                        											<li><a href="/nba/players">Players</a></li>
+                                        											<li><a href="/nba/injuries">Injuries</a></li>
+                                        											<li><a href="/nba/transactions">Transactions</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/ujiri-we-feel-confident-in-this-team-1.211212"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Ujiri: ''We feel confident in this team''</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/four-team-blockbuster-beats-nba-deadline-1.211139"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Four-team blockbuster beats NBA deadline</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/report-heat-acquire-g-dragic-from-suns-1.211120"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Report: Heat acquire G Dragic from Suns</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/jackson-kanter-move-in-three-way-deal-1.211110"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Jackson, Kanter move in three-way deal</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/report-garnett-dealt-back-to-t-wolves-1.211097"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Report: Garnett dealt back to T-wolves</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/report-sixers-trade-mcdaniels-to-rockets-1.211132"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Report: Sixers trade McDaniels to Rockets</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/nuggets-send-afflalo-to-blazers-1.210972"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Nuggets send Afflalo to Blazers</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/report-pistons-reacquire-f-prince-from-celtics-1.211160"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Report: Pistons reacquire F Prince from Celtics</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/report-nuggets-send-mcgee-to-76ers-1.210945"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Report: Nuggets send McGee to 76ers</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/report-kings-acquire-miller-from-wizards-1.210952"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Report: Kings acquire Miller from Wizards</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        								<li data-submenu-id="submenu-4">
+								<a href="/cfl">CFL</a>
+								<div id="submenu-4" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/cfl">News</a></li>
+                                        											<li><a href="/cfl/video">Video</a></li>
+                                        											<li><a href="/cfl/scoreboard">Scores/Schedule</a></li>
+                                        											<li><a href="/cfl/standings">Standings</a></li>
+                                        											<li><a href="/cfl/teams">Teams</a></li>
+                                        											<li><a href="/cfl/leaders">Leaders</a></li>
+                                        											<li><a href="/cfl/team-stats">Team Stats</a></li>
+                                        											<li><a href="/cfl/tracker">Game Tracker</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/riders-bring-back-glenn-add-hinse-1.211147"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Riders bring back Glenn; add Hinse</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/roughriders-sign-dl-chick-to-extension-1.210904"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Roughriders sign DL Chick to extension</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/lions-ink-howard-university-qb-mcghee-1.211081"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Lions ink Howard University QB McGhee</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/alouettes-sign-free-agent-dt-mitchell-1.210002"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Alouettes sign free agent DT Mitchell </strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/ticats-legend-barrow-passes-away-at-79-1.210275"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Ticats legend Barrow passes away at 79</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/report-roughriders-extend-de-chick-1.208747"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Report: Roughriders extend DE Chick</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/cfl-opens-2015-schedule-in-montreal-1.206844"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>CFL opens 2015 schedule in Montreal</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/argonauts-to-play-opener-in-fort-mcmurray-1.206918"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Argonauts to play opener in Fort McMurray</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/calvillo-hopeful-canadian-qbs-get-a-shot-1.206995"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Calvillo hopeful Canadian QBs get a shot</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/bombers-bring-back-qb-brohm-1.209245"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Bombers bring back QB Brohm</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        								<li data-submenu-id="submenu-5">
+								<a href="/mlb">MLB</a>
+								<div id="submenu-5" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/mlb">News</a></li>
+                                        											<li><a href="/mlb/video">Video</a></li>
+                                        											<li><a href="/mlb/scores">Scores</a></li>
+                                        											<li><a href="/mlb/schedule">Schedule</a></li>
+                                        											<li><a href="/mlb/standings">Standings</a></li>
+                                        											<li><a href="/mlb/statistics">Statistics</a></li>
+                                        											<li><a href="/mlb/leaders">Leaders</a></li>
+                                        											<li><a href="/mlb/teams">Teams</a></li>
+                                        											<li><a href="/mlb/players">Players</a></li>
+                                        											<li><a href="/mlb/injuries">Injuries</a></li>
+                                        											<li><a href="/mlb/transactions">Transactions</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/trumbo-beats-diamondbacks-in-arbitration-1.211091"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Trumbo beats Diamondbacks in arbitration</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/hosmer-royals-agree-to-13-9m-two-year-contract-1.210517"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Hosmer, Royals agree to $13.9M, two-year contract</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/moehringer-talks-about-a-rod-article-1.211029"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Moehringer talks about A-Rod article</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/mariners-prospect-sanchez-hospitalized-1.210547"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Mariners prospect Sanchez hospitalized</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/dodgers-lose-closer-jansen-for-up-to-three-months-1.209770"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Dodgers lose closer Jansen for up to three months</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/a-rod-apologizes-with-handwritten-note-1.209401"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>A-Rod apologizes with handwritten note</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/radio/griffin-jays-have-questions-marks-in-batting-order-1.210283"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Griffin: Jays have questions marks in batting order</strong>
+    																        															        																<img src="/img/tsn/icons/article-audio-arrow.png">
+        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/tigers-optimistic-cabrera-will-be-ready-1.210356"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Tigers 'optimistic' Cabrera will be ready</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/alvarez-pirates-take-salary-case-to-arbitration-1.210177"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Alvarez, Pirates take salary case to arbitration</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/parnell-expects-to-regain-mets-closer-job-1.210178"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Parnell expects to regain Mets' closer job</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        								<li data-submenu-id="submenu-6">
+								<a href="/golf">Golf</a>
+								<div id="submenu-6" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/golf">News</a></li>
+                                        											<li><a href="/golf/pga">PGA</a></li>
+                                        											<li><a href="/golf/lpga">LPGA</a></li>
+                                        											<li><a href="/golf/champions">Champions</a></li>
+                                        											<li><a href="/golf/european-tour">European Tour</a></li>
+                                        											<li><a href="/golf/web-com">Web.com</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/pga-northern-trust-open-preview-1.209715"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>PGA: Northern Trust Open Preview</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/irishman-clarke-named-2016-ryder-cup-captain-1.209910"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Irishman Clarke named 2016 Ryder Cup captain</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/pga-northern-trust-open-preview-1.209715"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>PGA: Northern Trust Open Preview</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/henderson-loving-life-as-a-full-time-lpga-pro-1.210784"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Henderson loving life as a full-time LPGA pro</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/report-love-iii-the-choice-as-ryder-cup-captain-for-2016-1.208965"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Report: Love III the choice as Ryder Cup captain for 2016</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/snedeker-sets-record-with-pebble-beach-win-1.208254"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Snedeker sets record with Pebble Beach win</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/dodt-edges-thongchai-hend-to-win-thailand-classic-1.208279"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Dodt edges Thongchai, Hend to win Thailand Classic</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/janzen-wins-playoff-to-take-ace-group-classic-1.208234"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Janzen wins playoff to take ACE Group Classic</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/pga-shot-of-the-day-1.208283"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>PGA: Shot of the Day</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/teenager-oh-wins-australian-ladies-masters-1.208027"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Teenager Oh wins Australian Ladies Masters</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        								<li data-submenu-id="submenu-7">
+								<a href="/soccer">Soccer</a>
+								<div id="submenu-7" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/soccer">News</a></li>
+                                        											<li><a href="/soccer/video">Video</a></li>
+                                        											<li><a href="/world-cup">World Cup</a></li>
+                                        											<li><a href="/soccer/mls">MLS</a></li>
+                                        											<li><a href="/soccer/bpl">BPL</a></li>
+                                        											<li><a href="/soccer/champions">Champions</a></li>
+                                        											<li><a href="/soccer/serie-a">Serie A</a></li>
+                                        											<li><a href="/soccer/bundesliga">Bundesliga</a></li>
+                                        											<li><a href="/soccer/la-liga">La Liga</a></li>
+                                        											<li><a href="/soccer/ligue-1">Ligue 1</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/women-s-wc-trophy-tour-hits-canada-1.210854"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Women’s WC trophy tour hits Canada</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/women-s-world-cup-once-in-a-lifetime-experience-1.211149"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Women's World Cup: Once in a lifetime experience</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/canada-to-play-guatemala-puerto-rico-in-friendlies-1.211153"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Canada to play Guatemala, Puerto Rico in friendlies</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/real-madrid-beats-schalke-in-champions-league-1.210384"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Real Madrid beats Schalke in Champions League</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/big-europa-league-away-wins-for-everton-napoli-1.211140"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Big Europa League away wins for Everton, Napoli</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/report-autumn-2022-world-cup-a-done-deal-1.210293"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Report: Autumn 2022 World Cup a 'done deal'</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/bony-set-for-man-city-debut-five-weeks-after-signing-1.210928"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Bony set for Man City debut, five weeks after signing</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/morales-ready-to-lead-whitecaps-1.210464"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Morales ready to lead Whitecaps</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/chelsea-fans-stop-man-from-boarding-train-1.209895"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Chelsea fans stop man from boarding train</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/psg-earns-draw-against-chelsea-1.209536"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>PSG earns draw against Chelsea</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        								<li data-submenu-id="submenu-8">
+								<a href="/hockey-canada">Hockey Canada</a>
+								<div id="submenu-8" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/hockey-canada">News</a></li>
+                                        											<li><a href="/hockey-canada/video">Video</a></li>
+                                        											<li><a href="/world-juniors">World Juniors</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/wickenheiser-to-miss-world-championship-1.209471"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Wickenheiser to miss world championship</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/order-of-hockey-s-2015-class-unveiled-1.204336"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Order of Hockey's 2015 class unveiled</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/youngster-potomak-turning-heads-at-camp-1.193821"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Youngster Potomak turning heads at camp</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/canada-to-play-for-world-sledge-hockey-bronze-1.201026"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Canada to play for world sledge hockey bronze</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/new-and-familiar-faces-take-part-in-canada-s-women-s-camp-1.193320"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>New and familiar faces take part in Canada's women's camp</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/red-army-the-most-dangerous-team-of-a-generation-1.195201"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Red Army: The most dangerous team of a generation</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/wickenheiser-ouellette-leading-by-example-1.192873"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Wickenheiser, Ouellette leading by example </strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/wickenheiser-headlines-canadian-women-s-camp-roster-1.188564"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Wickenheiser headlines Canadian women's camp roster</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/tsn-rds-draw-7-1m-viewers-to-world-junior-gold-medal-game-1.176379"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>TSN, RDS draw 7.1M viewers to World Junior gold medal game</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/canada-s-sledge-hockey-team-hits-the-gym-1.184493"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Canada's sledge hockey team hits the gym</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        								<li data-submenu-id="submenu-9">
+								<a href="/auto-racing">Auto Racing</a>
+								<div id="submenu-9" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/auto-racing">News</a></li>
+                                        											<li><a href="/auto-racing/video">Video</a></li>
+                                        											<li><a href="">Auto Racing on TSN</a></li>
+                                        											<li><a href="/nascar">NASCAR</a></li>
+                                        											<li><a href="/auto-racing/formula-1">Formula 1</a></li>
+                                        											<li><a href="/auto-racing/indycar">IndyCar</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/patrick-hamlin-wreck-during-daytona-500-practice-1.210375"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Patrick, Hamlin wreck during Daytona 500 practice</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/gordon-takes-pole-for-final-daytona-500-1.208158"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Gordon takes pole for final Daytona 500</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/earnhardt-hamlin-fail-inspection-1.208214"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Earnhardt, Hamlin fail inspection</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/judge-issues-no-contact-order-sought-by-ex-girlfriend-of-kurt-busch-1.208683"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Judge issues no-contact order sought by ex-girlfriend of Kurt Busch</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/kenseth-wins-crash-filled-sprint-unlimited-1.207851"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Kenseth wins crash-filled Sprint Unlimited</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/harvick-logano-exchange-words-in-sprint-unlimited-1.207945"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Harvick, Logano exchange words in Sprint Unlimited</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/reporting-at-120-mph-1.208110"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Reporting At 120 MPH</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/new-format-for-daytona-500-qualifying-1.206949"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>New format for Daytona 500 qualifying</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/wide-range-of-talk-on-daytona-500-media-day-1.206346"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Wide range of talk on Daytona 500 media day</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/all-eyes-on-gordon-as-nascar-swan-song-begins-1.205311"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>All eyes on Gordon as NASCAR swan song begins</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        								<li data-submenu-id="submenu-10">
+								<a href="/tennis">Tennis</a>
+								<div id="submenu-10" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/tennis">News</a></li>
+                                        											<li><a href="/tennis/video">Video</a></li>
+                                        											<li><a href="/tennis/atp">ATP</a></li>
+                                        											<li><a href="/tennis/wta">WTA</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/top-seeded-raonic-upset-at-open-13-1.210888"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Top-seeded Raonic upset at Open 13</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/pliskova-beats-safarova-to-reach-dubai-semis-1.210911"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Pliskova beats Safarova to reach Dubai semis</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/v-williams-ousted-by-safarova-in-dubai-1.209897"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>V. Williams ousted by Safarova in Dubai</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/yen-hsun-upsets-top-seeded-anderson-1.210371"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Yen-Hsun upsets top-seeded Anderson </strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/agut-and-monfils-reach-open-13-quarters-1.210468"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Agut and Monfils reach Open 13 quarters</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/fognini-advances-at-rio-open-1.209299"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Fognini advances at Rio Open</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/begu-leads-seeded-women-into-rio-open-quarters-1.210029"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Begu leads seeded women into Rio Open quarters</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/nishikori-wins-memphis-open-title-1.208225"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Nishikori wins Memphis Open title</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/dolgopolov-beats-gabashvili-at-delray-beach-open-1.208875"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Dolgopolov beats Gabashvili at Delray Beach Open</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/no-2-begu-into-second-round-at-rio-open-1.208568"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>No. 2 Begu into second round at Rio Open</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        								<li data-submenu-id="submenu-11">
+								<a href="/curling">Curling</a>
+								<div id="submenu-11" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/curling">News</a></li>
+                                        											<li><a href="/curling/scotties">Scotties</a></li>
+                                        											<li><a href="/curling/video">Video</a></li>
+                                        											<li><a href="/curling/season-of-champions">Season of Champions</a></li>
+                                        											<li><a href="/curling/men-s-tour">Men's Tour</a></li>
+                                        											<li><a href="/curling/women-s-tour">Women's Tour</a></li>
+                                        											<li><a href="/curling/curling-on-tsn">Curling on TSN</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/jones-strengthens-grip-on-second-at-scotties-1.211017"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Jones strengthens grip on second at Scotties</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/morris-excited-to-skip-team-canada-1.210184"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Morris excited to skip Team Canada</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/anderson-gives-saskatchewan-scotties-experience-1.210786"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Anderson gives Saskatchewan Scotties experience</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/nova-scotia-hands-jones-manitoba-first-loss-1.210131"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Nova Scotia hands Jones, Manitoba first loss</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/scotties-tournament-of-hearts-draw-12-1.210598"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Scotties Tournament of Hearts - Draw 12</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/scotties-tournament-of-hearts-draw-11-1.210605"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Scotties Tournament of Hearts - Draw 11</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/scotties-tournament-of-hearts-draw-10-1.209920"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Scotties Tournament of Hearts - Draw 10</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/manitoba-remains-unbeaten-at-scotties-1.209589"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Manitoba remains unbeaten at Scotties</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/tradition-rules-the-day-at-scotties-1.209126"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Tradition rules the day at Scotties</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/video/scotties-tournament-of-hearts-draw-9-1.209737"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Scotties Tournament of Hearts - Draw 9</strong>
+    																        																<img src="/img/tsn/icons/article-video-arrow.png">
+        															        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        								<li data-submenu-id="submenu-12">
+								<a href="/ncaa">NCAA</a>
+								<div id="submenu-12" class="sports-nav-popover">
+									<ul>
+                                        											<li><a href="/ncaa">News</a></li>
+                                        											<li><a href="/ncaa/video">Video</a></li>
+                                        											<li><a href="/ncaa/basketball">Basketball</a></li>
+                                        											<li><a href="/ncaa/football">Football</a></li>
+                                        									</ul>
+									<div class="sports-nav-feed">
+										<ul class="sports-nav-feed-list">
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/duke-outlasts-unc-in-ot-thriller-1.210698"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Duke outlasts UNC in OT thriller</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/no-5-wisconsin-hangs-on-to-beat-penn-state-1.210604"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>No. 5 Wisconsin hangs on to beat Penn State</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/no-11-uni-crushes-loyola-chicago-1.210686"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>No. 11 UNI crushes Loyola-Chicago</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/no-1-kentucky-tops-vols-to-stay-undefeated-1.209734"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>No. 1 Kentucky tops Vols to stay undefeated</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/grant-leads-no-10-notre-dame-over-wake-forest-1.209758"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Grant leads No. 10 Notre Dame over Wake Forest</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/no-6-villanova-easily-wins-rematch-with-seton-hall-1.208962"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>No. 6 Villanova easily wins rematch with Seton Hall</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/virginia-outlasts-pitt-moves-to-24-1-1.208961"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Virginia outlasts Pitt, moves to 24-1</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/kentucky-matches-best-start-in-team-history-1.207660"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Kentucky matches best start in team history</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/kaminsky-no-5-wisconsin-down-illinois-1.208160"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Kaminsky, No. 5 Wisconsin down Illinois</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            												<li class="item">
+													<div class="item-content">
+														<div class="article-content">
+															<a href="/virginia-survives-wake-forest-1.207767"/>
+    															<img src="/img/tsn/icons/viewall-arrow.png">
+																<span>
+    																<strong>Virginia survives Wake Forest</strong>
+    																        																															</span>
+    															
+															</a>
+														</div>
+													</div>
+												</li>
+                                            										</ul>
+									</div>
+								</div>
+                        	</li>
+                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                                                	                        	                        
+                    													<li data-submenu-id="submenu-13" class="more-sports">
+							<a href="#">More Sports</a>
+							<div id="submenu-13" class="sports-nav-popover more-sports-popover">
+					            <ul>
+																								        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	                    <li><a href="/nascar">NASCAR</a></li>
+															        																	                    <li><a href="/chl">CHL</a></li>
+															        																	                    <li><a href="/ahl">AHL</a></li>
+															        																	                    <li><a href="/figure-skating">Figure Skating</a></li>
+															        																	                    <li><a href="/skiing">Skiing</a></li>
+															        																	                    <li><a href="/world-cup">World Cup</a></li>
+															        																	                    <li><a href="/ufc">UFC</a></li>
+															        																	                    <li><a href="/world-juniors">World Juniors</a></li>
+															        																	                    <li><a href="/canada-games">Canada Games</a></li>
+															        																	                    <li><a href="/boxing">Boxing</a></li>
+															        																	                    <li><a href="/rugby">Rugby</a></li>
+															        																	                    <li><a href="/cis">CIS</a></li>
+															        																	                    <li><a href="/olympics">Olympics</a></li>
+															        																	        																	        																	        																	        							            </ul>
+
+					            					            					            <ul class="more-sports-nav-2">
+					            																        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	        																	                    <li><a href="/horse-racing">Horse Racing</a></li>
+															        																	                    <li><a href="/lacrosse">Lacrosse</a></li>
+															        																	                    <li><a href="/cycling">Cycling</a></li>
+															        																	                    <li><a href="/other-sports">Other Sports</a></li>
+															        							            </ul>
+					            				            </div>
+						</li>
+						
+					</ul>
+					<div class="nav-footer sports"></div>
+				</div>
+			</li>
+		        			<li class="hidden">
+				<a href="/video">Video</a>
+			</li>
+					<li class="hidden">
+				<a href="/tv">TV</a>
+			</li>
+					<li class="hidden">
+				<a href="/radio">Radio</a>
+			</li>
+					<li class="hidden">
+				<a href="/fantasy">Fantasy</a>
+			</li>
+					<li class="hidden">
+				<a href="http://www2.tsn.ca/bardown/">BARDOWN</a>
+			</li>
+					<li class="hidden">
+				<a href="https://tsnshop.ca">Shop</a>
+			</li>
+		
+		<li class="more-nav">
+			<p>More</p>
+            <ul>
+									<li class="hidden">
+						<a href="/video">Video</a>
+					</li>
+									<li class="hidden">
+						<a href="/tv">TV</a>
+					</li>
+									<li class="hidden">
+						<a href="/radio">Radio</a>
+					</li>
+									<li class="hidden">
+						<a href="/fantasy">Fantasy</a>
+					</li>
+									<li class="hidden">
+						<a href="http://www2.tsn.ca/bardown/">BARDOWN</a>
+					</li>
+									<li class="hidden">
+						<a href="https://tsnshop.ca">Shop</a>
+					</li>
+								<li class="nav-footer"></li>
+            </ul>
+
+		</li>
+
+	</ul>
+
+	
+</div>
+      
+  
+                </div>
+        </div>      
+      </div>
+    </div>
+    <div id="content-container">
+            
+                  
+    
+  
+    
+  
+    
+    
+        <div class="breaking-news">
+	<div class="breaking-news-inner">
+		<ul class="breaking-news-list">
+        		</ul>
+		<div class="breaking-news-buttons">
+			<div class="breaking-news-prev"></div>
+			<div class="breaking-news-counter"></div>
+			<div class="breaking-news-next"></div>
+		</div>
+	</div>
+</div>
+      
+  
+            
+                  
+    
+  
+    
+  
+    
+    
+        <div id="tsnHeaderAd">
+	<div id="leaderboard-ad"></div>
+</div>
+      
+  
+            
+      <div class='content-wrapper'>      
+      <div class='section-header section-header-homepage '>
+                    </div>
+      <section class='content'>
+        <div class='wide'>
+                            </div>
+        <div class='content-right '>
+            		    
+                  
+    
+  
+    
+  
+    
+    
+        <div id="bigbox-ad"></div>
+      
+    
+    
+        
+<style>
+  #statsiframeTradeCentre-Countdown-Clock{
+    width: 100%;
+    height: 130px;
+    border: none;
+    overflow-y: hidden;
+  }
+</style>
+
+<div class="iframe-wrapper">
+	<iframe id="statsiframeTradeCentre-Countdown-Clock" scrolling="yes" seamless="seamless" src=" http://countdown.pairshaped.ca/" frameBorder="0"></iframe>
+</div>
+      
+    
+    
+        
+<section class="widget" id="tsn-tonight">
+	<header class="rightrail-header">
+		<p>Live On TSN</p>
+		<div class="clear"></div>
+	</header>
+
+	<!-- List of shows -->
+			<ul>
+						    
+<li class="tsnTonight-container">
+		
+		<h4>Scotties Tournament of Hearts: Draw 15</h4>
+
+			<div class="tonight-info">
+		
+	</div>
+	
+					
+		<!-- TV or Radio CTA -->
+									<a href="      /tv#/
+  " class="view-all"  alt="">Watch Now</a>
+						
+		
+</li>						    
+<li class="tsnTonight-container">
+		
+		<h4>Jets on TSN: Jets vs. Capitals</h4>
+
+		
+					<p class="schedule">
+
+									Today at 
+			
+						
+															<span>	
+					
+				6PM
+	
+					CT
+	</span>
+							
+										 on 
+									<a class="tv-cta" href="      /tv#/TSN3
+  "  alt="">TSN3</a>
+									</p>
+	
+			<div class="tonight-info">
+		Available to viewers in the Jets region.
+	</div>
+	
+</li>						    
+<li class="tsnTonight-container">
+		
+		<h4>Countdown to TradeCentre</h4>
+
+			<div class="tonight-info">
+		
+	</div>
+	
+					<p class="schedule">
+
+						
+									Tonight at 
+			
+															<span>	
+					
+				7:30PM
+	
+					ET
+	</span>
+																/ <span>	
+		
+				4:30PM
+	
+					PT
+	</span>
+							
+										 on 
+									<a class="tv-cta" href="      /tv#/
+  "  alt="">TSN1, TSN4 and TSN5</a>
+									</p>
+	
+		
+</li>						    
+<li class="tsnTonight-container">
+		
+		<h4>Scotties Tournament of Hearts: Draw 16</h4>
+
+			<div class="tonight-info">
+		
+	</div>
+	
+					<p class="schedule">
+
+						
+									Tonight at 
+			
+															<span>	
+					
+				8PM
+	
+					ET
+	</span>
+																/ <span>	
+		
+				5PM
+	
+					PT
+	</span>
+							
+										 on 
+									<a class="tv-cta" href="      /tv#/
+  "  alt="">TSN1, TSN3, TSN4 and TSN5</a>
+									</p>
+	
+		
+</li>						    
+<li class="tsnTonight-container">
+		
+		<h4>Canada Winter Games: Men's Curling</h4>
+
+			<div class="tonight-info">
+		
+	</div>
+	
+					<p class="schedule">
+
+						
+									Tonight at 
+			
+															<span>	
+					
+				11PM
+	
+					ET
+	</span>
+																/ <span>	
+		
+				8PM
+	
+					PT
+	</span>
+							
+										 on 
+									<a class="tv-cta" href="      http://www.tsn.ca/tv#/TSN2
+  "  alt="">TSN2</a>
+									</p>
+	
+		
+</li>						    
+<li class="tsnTonight-container">
+		
+		<h4>Scotties Tournament of Hearts: Draw 17</h4>
+
+			<div class="tonight-info">
+		
+	</div>
+	
+					<p class="schedule">
+
+						
+						
+															<span>	
+															Fri
+						
+				10AM
+	
+					ET
+	</span>
+																/ <span>	
+		
+				7AM
+	
+					PT
+	</span>
+							
+										 on 
+									<a class="tv-cta" href="      /tv#/
+  "  alt="">TSN1, TSN3, TSN4 and TSN5</a>
+									</p>
+	
+		
+</li>						    
+<li class="tsnTonight-container">
+		
+		<h4>NCAA Hockey: Yale vs. Quinnipiac</h4>
+
+			<div class="tonight-info">
+		
+	</div>
+	
+					<p class="schedule">
+
+						
+						
+															<span>	
+															Fri
+						
+				7PM
+	
+					ET
+	</span>
+																/ <span>	
+		
+				4PM
+	
+					PT
+	</span>
+							
+										 on 
+									<a class="tv-cta" href="      http://www.tsn.ca/tv#/TSN2
+  "  alt="">TSN2</a>
+									</p>
+	
+		
+</li>					</ul>
+		            <a href="      http://www.tsn.ca/tv#/
+  " class="view-all"  alt="">WATCH NOW ON TSN</a>
+    </section>
+
+      
+    
+    
+        
+<section class="widget" id="columnists">
+    <header class="rightrail-header">
+        <p>Columnists</p>
+        <div class="clear"></div>
+    </header>
+    
+            <div class="columnists-container">
+                        
+                                <ul>
+                                                            <li>
+                                                        <div class="left">
+                                                                <h4 class="category-header"><a href="/talent/jonas-siegel-1.56429">Jonas Siegel</a></h4>							
+                                <p><a href="/tear-down-won-t-be-so-easy-lupul-warns-1.211138">Tear-down won't be so easy, Lupul warns</a></p>
+                            </div>
+							                            <div class="right">
+                            	                                <a href="/tear-down-won-t-be-so-easy-lupul-warns-1.211138"><img src="http://tsnimages.tsn.ca/ImageProvider/AssetImage?seoId=jonas-siegel&width=140&height=140" alt="Jonas Siegel" /></a>
+                            </div>
+							                            <br class="clear">
+                        </li>
+                                                                                <li>
+                                                        <div class="left">
+                                                                <h4 class="category-header"><a href="/talent/kerry-fraser-1.88470">Kerry Fraser</a></h4>							
+                                <p><a href="/c-mon-ref-when-players-are-allowed-to-jam-at-goalie-1.211102">C'Mon, Ref: When players are allowed to jam at goalie</a></p>
+                            </div>
+							                            <div class="right">
+                            	                                <a href="/c-mon-ref-when-players-are-allowed-to-jam-at-goalie-1.211102"><img src="http://tsnimages.tsn.ca/ImageProvider/AssetImage?seoId=kerry-fraser&width=140&height=140" alt="Kerry Fraser" /></a>
+                            </div>
+							                            <br class="clear">
+                        </li>
+                                                                                <li>
+                                                        <div class="left">
+                                                                <h4 class="category-header"><a href="/talent/travis-yost-1.101359">Travis Yost</a></h4>							
+                                <p><a href="/where-does-quick-rank-among-nhl-goalies-1.211009">Where does Quick rank among NHL goalies?</a></p>
+                            </div>
+							                            <div class="right">
+                            	                                <a href="/where-does-quick-rank-among-nhl-goalies-1.211009"><img src="http://tsnimages.tsn.ca/ImageProvider/AssetImage?seoId=travis-yost&width=140&height=140" alt="Travis Yost" /></a>
+                            </div>
+							                            <br class="clear">
+                        </li>
+                                                                                <li>
+                                                        <div class="left">
+                                                                <h4 class="category-header"><a href="/talent/scott-cullen-1.56454">Scott Cullen</a></h4>							
+                                <p><a href="/senators-rookie-a-promising-scorer-1.210950">Senators rookie a promising scorer</a></p>
+                            </div>
+							                            <div class="right">
+                            	                                <a href="/senators-rookie-a-promising-scorer-1.210950"><img src="http://tsnimages.tsn.ca/ImageProvider/AssetImage?seoId=scott-cullen&width=140&height=140" alt="Scott Cullen" /></a>
+                            </div>
+							                            <br class="clear">
+                        </li>
+                                                                                <li>
+                                                        <div class="left">
+                                                                <h4 class="category-header"><a href="/talent/rick-westhead-1.88451">Rick Westhead</a></h4>							
+                                <p><a href="/medical-breakthrough-prompts-talk-of-testing-active-nhlers-for-cte-1.210725">Medical breakthrough prompts talk of testing active NHLers for CTE</a></p>
+                            </div>
+							                            <div class="right">
+                            	                                <a href="/medical-breakthrough-prompts-talk-of-testing-active-nhlers-for-cte-1.210725"><img src="http://tsnimages.tsn.ca/ImageProvider/AssetImage?seoId=rick-westhead&width=140&height=140" alt="Rick Westhead" /></a>
+                            </div>
+							                            <br class="clear">
+                        </li>
+                                                    </ul>
+                
+                    </div>
+        
+                    <a href="      /columnists  " class="view-all"  alt="More from TSN's columnists!">Read more from TSN's columnists</a>
+    </section>
+
+      
+    
+    
+        <!-- TWITTER -->
+
+
+
+
+<section id="twitter" class="widget">
+    <header class="rightrail-header">
+        <p>TSN on Twitter</p>
+        <span></span>
+        <div class="clear"></div>
+    </header>
+    <div id="twitterWidget">
+					<ul class='tweet_list'>
+											<li>
+					<span class="tweet-info">
+						<span class="username"><a href='http://twitter.com/GinoRedaTSN' target='_blank' title='view tweet on twitter'>Gino Reda</a></span>
+						<span class="handle"><a href='http://twitter.com/GinoRedaTSN' target='_blank' title='view tweet on twitter'>@GinoRedaTSN</a></span>
+                        <span class="time"><a href='https://twitter.com/GinoRedaTSN/statuses/568523939556638722' target='_blank' title='view tweet on twitter'>12m</a></span>
+					</span>
+					<span class="tweet">
+                                                                                                            "are
+                                                                                                                we
+                                                                                                                going
+                                                                                                                to
+                                                                                                                just
+                                                                                                                restart
+                                                                                                                with
+                                                                                                                a
+                                                                                                                whole
+                                                                                                                complete
+                                                                                                                group
+                                                                                                                with
+                                                                                                                4
+                                                                                                                guys
+                                                                                                                next
+                                                                                                                year
+                                                                                                                and
+                                                                                                                just
+                                                                                                                try
+                                                                                                                and
+                                                                                                                finish
+                                                                                                                last?-
+                                                                                                                Lupul
+                                                                                                                <a href='http://t.co/QiHG9W9rhN' target='_blank' title='view http://t.co/QiHG9W9rhN on twitter'>http://t.co/QiHG9W9rhN</a>
+                                                                        </span>
+					<span class="share">
+                        <ul>
+                            <li class="rep"><a class="" href="https://twitter.com/intent/tweet?in_reply_to=568523939556638722" title="Reply" target="_blank"><span></span>Reply</a></li>
+                            <li class="ret"><a class="" href="https://twitter.com/intent/retweet?tweet_id=568523939556638722" title="Retweet" target="_blank"><span></span>Retweet</a></li>
+                            <li class="fav"><a class="" href="https://twitter.com/intent/favorite?tweet_id=568523939556638722" title="Favorite" target="_blank"><span></span>Favorite</a></li>
+                            <br class="clear">
+                        </ul>
+                    </span>
+					<br class="clear">
+				</li>
+															<li>
+					<span class="tweet-info">
+						<span class="username"><a href='http://twitter.com/GinoRedaTSN' target='_blank' title='view tweet on twitter'>Gino Reda</a></span>
+						<span class="handle"><a href='http://twitter.com/GinoRedaTSN' target='_blank' title='view tweet on twitter'>@GinoRedaTSN</a></span>
+                        <span class="time"><a href='https://twitter.com/GinoRedaTSN/statuses/568523490652860417' target='_blank' title='view tweet on twitter'>14m</a></span>
+					</span>
+					<span class="tweet">
+                                                                                                            “You
+                                                                                                                can’t
+                                                                                                                just
+                                                                                                                throw
+                                                                                                                out..young
+                                                                                                                guys
+                                                                                                                &amp;
+                                                                                                                say
+                                                                                                                Well
+                                                                                                                we’re
+                                                                                                                going
+                                                                                                                to
+                                                                                                                get
+                                                                                                                our
+                                                                                                                ass
+                                                                                                                kicked
+                                                                                                                this
+                                                                                                                year
+                                                                                                                but
+                                                                                                                then
+                                                                                                                we’ll
+                                                                                                                be
+                                                                                                                better
+                                                                                                                the
+                                                                                                                year
+                                                                                                                after"-Lupul
+                                                                        </span>
+					<span class="share">
+                        <ul>
+                            <li class="rep"><a class="" href="https://twitter.com/intent/tweet?in_reply_to=568523490652860417" title="Reply" target="_blank"><span></span>Reply</a></li>
+                            <li class="ret"><a class="" href="https://twitter.com/intent/retweet?tweet_id=568523490652860417" title="Retweet" target="_blank"><span></span>Retweet</a></li>
+                            <li class="fav"><a class="" href="https://twitter.com/intent/favorite?tweet_id=568523490652860417" title="Favorite" target="_blank"><span></span>Favorite</a></li>
+                            <br class="clear">
+                        </ul>
+                    </span>
+					<br class="clear">
+				</li>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											</ul>
+					 
+    </div>
+        
+                <a href="      https://twitter.com/TSN_Sports
+  " class="view-all" target="_blank" alt="TSN on Twitter">More Tweets from TSN</a>
+    </section>
+<div class="clearer"></div>
+<!-- TWITTER -->
+
+
+
+      
+    
+    
+        <section class="widget" id="promotions">
+	<header class="rightrail-header">
+		<p>TSN Promotions</p>
+		<div class="clear"></div>
+	</header>
+
+    
+			<div class="promotions-container">
+
+				    
+		        			    <ul>
+			    			    						<li>
+										    <div class="promo-content">
+					    					    	<div class="right">
+					    						                    <a href="      http://www.tsn.ca/1v1
+  "  alt="vote on the better play"><img title='Photo: N/A, License: N/A' height='79' alt='1v1_asset' width='140' src='/polopoly_fs/1.56398.1407254340!/fileimage/httpImage/image.jpg_gen/derivatives/landscape_140/1v1-asset.jpg' /></a>
+				                			            	</div>
+						   	<h4><a href="      http://www.tsn.ca/1v1
+  "  alt="vote on the better play">1V1</a></h4>
+					    	<p>Every Champion needs a Challenger.</p>					    	
+					    	            <a href="      http://www.tsn.ca/1v1
+  " class="view-all"  alt="vote on the better play">WATCH NOW</a>
+    					    </div>
+					    			            <div class="logo-container clear">
+			            	<span class="presented">Presented by</span>
+				            								<span class="logo">
+														                	<img title='Photo: N/A, License: N/A' height='34' alt='Dodge Ram' width='80' src='/polopoly_fs/1.54225.1406901159!/fileimage/httpImage/image.jpg_gen/derivatives/default/dodge-ram.jpg' />					                								</span>
+													</div>
+											    <div class="clear"></div>
+				    </li>
+												    						<li>
+										    <div class="promo-content">
+					    					    	<div class="right">
+					    						                    <a href="      http://www.tsn.ca/moves-like-no-other/video
+  "  alt=""><img title='Photo: TSN, License: N/A' height='79' alt='Moves Like No Other' width='140' src='/polopoly_fs/1.78765.1410284228!/fileimage/httpImage/image.jpg_gen/derivatives/landscape_140/moves-like-no-other.jpg' /></a>
+				                			            	</div>
+						   	<h4><a href="      http://www.tsn.ca/moves-like-no-other/video
+  "  alt="">Moves Like No Other</a></h4>
+					    	<p>Who is the best player in the National Hockey League?</p>					    	
+					    	            <a href="      http://www.tsn.ca/moves-like-no-other/video
+  " class="view-all"  alt="">WATCH NOW</a>
+    					    </div>
+					    			            <div class="logo-container clear">
+			            	<span class="presented">Presented by</span>
+				            								<span class="logo">
+														                	<img title='Photo: N/A, License: N/A' height='40' alt='Gillette Flexball' width='59' src='/polopoly_fs/1.92214.1411765555!/fileimage/httpImage/image.png_gen/derivatives/default/gillette-flexball.png' />					                								</span>
+													</div>
+											    <div class="clear"></div>
+				    </li>
+												    </ul>
+				            <a href="      /contests/
+  " class="view-all"  alt="See More Promotions from TSN">More Promotions</a>
+    		    	    </div>
+	</section>
+      
+    
+    
+        <section class="widget" id="promotions">
+	<header class="rightrail-header">
+		<p>Fantasy Games</p>
+		<div class="clear"></div>
+	</header>
+
+    
+			<div class="promotions-container">
+
+				    
+		        			    <ul>
+			    			    						<li>
+										    <div class="promo-content">
+					    					    	<div class="right">
+					    						                    <a href="      http://games.espn.go.com/flb/welcome
+  "  alt=""><img title='Photo: N/A, License: N/A' height='79' alt='TSN Fantasy Baseball' width='140' src='/polopoly_fs/1.205123.1423675532!/fileimage/httpImage/image.jpg_gen/derivatives/landscape_140/tsn-fantasy-baseball.jpg' /></a>
+				                			            	</div>
+						   	<h4><a href="      http://games.espn.go.com/flb/welcome
+  "  alt="">Fantasy Baseball</a></h4>
+					    	<p>Create or join a TSN Fantasy Baseball league for your chance at winning a cool $5,000.</p>					    	
+					    	            <a href="      http://games.espn.go.com/flb/welcome
+  " class="view-all"  alt="">Sign In</a>
+    					    </div>
+					    					    <div class="clear"></div>
+				    </li>
+												    						<li>
+										    <div class="promo-content">
+					    					    	<div class="right">
+					    						                    <a href="      http://games.espn.go.com/frontpage/hockey
+  "  alt=""><img title='Photo: TSN , License: N/A' height='79' alt='Fantasy Hockey' width='140' src='/polopoly_fs/1.101541.1412716384!/fileimage/httpImage/image.jpg_gen/derivatives/landscape_140/fantasy-hockey.jpg' /></a>
+				                			            	</div>
+						   	<h4><a href="      http://games.espn.go.com/frontpage/hockey
+  "  alt="">Fantasy Hockey</a></h4>
+					    	<p>TSN Fantasy Hockey returns with a fully-customizable game that is 100% free!</p>					    	
+					    	            <a href="      http://games.espn.go.com/frontpage/hockey
+  " class="view-all"  alt="">SIGN IN</a>
+    					    </div>
+					    					    <div class="clear"></div>
+				    </li>
+												    						<li>
+										    <div class="promo-content">
+					    					    	<div class="right">
+					    						                    <a href="      http://games.espn.go.com/fba/welcome
+  "  alt=""><img title='Photo: N/A, License: N/A' height='79' alt='TSN Fantasy Basketball' width='140' src='/polopoly_fs/1.103953.1412968446!/fileimage/httpImage/image.jpg_gen/derivatives/landscape_140/tsn-fantasy-basketball.jpg' /></a>
+				                			            	</div>
+						   	<h4><a href="      http://games.espn.go.com/fba/welcome
+  "  alt="">Fantasy Basketball</a></h4>
+					    	<p>Put your managerial hat on and create or join a TSN Fantasy Basketball league today. Best part is it's free!</p>					    	
+					    	            <a href="      http://games.espn.go.com/fba/welcome
+  " class="view-all"  alt="">SIGN IN</a>
+    					    </div>
+					    					    <div class="clear"></div>
+				    </li>
+												    </ul>
+				            <a href="      /fantasy/fantasy-games
+  " class="view-all"  alt="See more TSN Fantasy Content!">More Fantasy Games</a>
+    		    	    </div>
+	</section>
+      
+    
+    
+        
+<style>
+  #statsiframe1v1-hosted{
+    width: 100%;
+    height: 400px;
+    border: none;
+    overflow-y: hidden;
+  }
+</style>
+
+<div class="iframe-wrapper">
+	<iframe id="statsiframe1v1-hosted" scrolling="yes" seamless="seamless" src="http://tsn-polls.pairshaped.ca/sections/one_v_one/polls/current" frameBorder="0"></iframe>
+</div>
+      
+    
+    
+        <div id="Adoop"></div>
+      
+  
+        		            </div>
+        <div class='content-main'>
+                                                  
+                  
+    
+  
+    
+  
+    
+    
+        
+ 
+            <ul class="feed">
+                                                                                                                            
+    
+                                    
+            <li class="5 feed-item">
+                                                        <article class="tsn-article-feed super-promo">
+                        <header>
+        <div class="date">
+        <p>            
+        
+                    20m ago
+            <p>
+    </div>
+        <div class="tags">
+        <ul>
+                                                                                <li class="highlighted">            <h4><a  href="/nba" >NBA</a></h4>
+    </li>
+                                                                                                                                <li>            <h4><a  href="/nba/teams/toronto-raptors" >TORONTO RAPTORS</a></h4>
+    </li>
+                                                        
+                                                                                <li><h4><a href="/related/tag?Tag=Masai Ujiri
+">Masai Ujiri</a></h4></li>
+                                            </ul>
+    </div>
+</header>
+                        <div class="headline-super">
+                            <a href="            /video/ujiri-we-feel-confident-in-this-team-1.211212    " >
+                                <h2>Ujiri: ''We feel confident in this team''</h2>
+
+                                                                                                                                                                                <div class="media margin-bottom">
+                                            <div class="media-overlay">
+                                                                                                    <img class="icon-large-video" title="$titleImage" alt="Ujiri: ''We feel confident in this team''" src="/img/tsn/icons/icon-video-play.png"/>
+                                                                                            </div>
+                                            <img title="Ujiri: ''We feel confident in this team''" alt="Ujiri: ''We feel confident in this team''" src="http://images.9c9media.com/image_asset/2015_2_19_d2db68b0-9aa9-0132-0d00-34b52f6f1279_jpg_1920x1080.jpg?height=349&width=620"/>
+                                                    
+                    
+                
+                <div class="video-duration">(2:57)</div>
+                                            </div>
+                                                                                                </a>
+                        </div>
+
+                        
+                                                    <p>Raptors president and general manager Masai Ujiri discussed his team's quiet trade deadline day and how much of a vote of confidence it is to keep the team as it is for the rest of the season.</p>
+                        
+                        
+                                                    <div class="related ">
+        <ul class="">
+                                                            
+      
+    
+    
+        
+<div class="main-features">
+<h1>Features</h1>
+    <ul>
+            
+            
+	        
+                        
+	        
+	        <li>
+                                                        <article class="tsn-article-feed promo-image-related">
+                        <header>
+        <div class="tags">
+        <ul>
+                                                                                <li class="highlighted">            <h4><a  href="/nhl" >NHL</a></h4>
+    </li>
+                                                                                                                                <li>            <h4><a  href="/tradecentre" >TradeCentre</a></h4>
+    </li>
+                                                        
+                                        </ul>
+    </div>
+</header>
+                        <div class="headline">
+                            <a href="                  /tradecentre      " >
+                                                                                                    <div class="media">
+                                                                                
+                                                                                
+                                        <img title='TradeCentre 2014' height='135' alt='TradeCentre 2014' width='240' align='' src='/polopoly_fs/1.204321.1423590837!/fileimage/httpImage/image.jpg_gen/derivatives/landscape_240/tradecentre-2014.jpg' />
+                                                        
+                                        </div>
+                                                            </a>
+
+                                                        <div class="article-content">
+                                <a href="                  /tradecentre      " ><h3>TradeCentre 2015</h3></a>
+                                                                                                    <p>Get all the breaking trades, news, rumours and speculation leading up to the NHL trade deadline. And follow TradeCentre live on TSN, TSN.ca, TSN Radio and TSN GO on Monday, Mar. 2 beginning at 8am et/5am pt.</p>
+                                                            </div>
+                        </div>
+                                                                            <div class="related ">
+        <ul class="">
+                                                            
+      
+    
+    
+        
+<div class="main-features">
+<h1>Trending</h1>
+    <ul>
+            
+            
+	        
+                        
+	        
+	        <li>
+                                                        <article class="tsn-article-feed promo-image">
+                        <header>
+        <div class="tags">
+        <ul>
+        
+                                        </ul>
+    </div>
+</header>
+                        <div class="headline">
+                            <a href="            /tsn-hockey-the-quiz-on-hubub-1.112526    " >
+                                
+                                                                                                    <div class="media">
+                                        
+                                                                                
+                                        <img title='The Quiz, TSN' height='135' alt='The Quiz' width='240' align='' src='/polopoly_fs/1.125188.1415134664!/fileimage/httpImage/image.jpg_gen/derivatives/landscape_240/the-quiz.jpg' />
+                                                        
+                                        </div>
+                                                            </a>
+
+                                                        <div class="article-content">
+                                <a href="            /tsn-hockey-the-quiz-on-hubub-1.112526    " ><h3>TSN Hockey: The Quiz on Hubub</h3></a>
+                                                                                                    <p>Welcome to TSN Hockey on Hubub - home of The Quiz. Get the latest hockey updates and analysis from TSN, TSN.ca and TSN Radio and engage the Hubub community with TSN's debates and poll questions, courtesy of The Quizmaster.</p>
+                                                            </div>
+                        </div>
+                                            </article>
+                            </li>
+                    
+	        
+                        
+	        
+	        <li>
+                                                        <article class="tsn-article-feed promo-image">
+                        <header>
+        <div class="tags">
+        <ul>
+        
+                                        </ul>
+    </div>
+</header>
+                        <div class="headline">
+                            <a href="                  http://www2.tsn.ca/bardown/
+      " >
+                                
+                                                                                                    <div class="media">
+                                        
+                                                                                
+                                        <img title='BarDown, TSN.ca' height='135' alt='BarDown' width='240' align='' src='/polopoly_fs/1.195686.1422637568!/fileimage/httpImage/image.jpg_gen/derivatives/landscape_240/bardown.jpg' />
+                                                        
+                                        </div>
+                                                            </a>
+
+                                                        <div class="article-content">
+                                <a href="                  http://www2.tsn.ca/bardown/
+      " ><h3>20 Questions with Dave Hodge</h3></a>
+                                                                                                    <p>TSN's Dave Hodge is back to share 20 questions he has from around the world of sports.</p>
+                                                            </div>
+                        </div>
+                                            </article>
+                            </li>
+              </ul>
+   </div>
+      
+  
+              </div>
+      </section>
+    </div>
+
+    <footer class='hub-footer'>
+  <div class="footer-pages footer-main-nav">
+    <ul> 
+              <li>
+  			  <a href="/video">Video</a>
+        </li>
+              <li>
+  			  <a href="/tv">TV</a>
+        </li>
+              <li>
+  			  <a href="/radio">Radio</a>
+        </li>
+              <li>
+  			  <a href="/fantasy">Fantasy</a>
+        </li>
+              <li>
+  			  <a href="http://www2.tsn.ca/bardown/">BARDOWN</a>
+        </li>
+              <li>
+  			  <a href="https://tsnshop.ca">Shop</a>
+        </li>
+          </ul>
+  </div>      
+  <div class="footer-pages footer-sports-nav">
+    <ul>
+            <li>
+			  <a href="/nhl">NHL</a>
+      </li>               
+            <li>
+			  <a href="/nfl">NFL</a>
+      </li>               
+            <li>
+			  <a href="/nba">NBA</a>
+      </li>               
+            <li>
+			  <a href="/cfl">CFL</a>
+      </li>               
+            <li>
+			  <a href="/mlb">MLB</a>
+      </li>               
+            <li>
+			  <a href="/golf">Golf</a>
+      </li>               
+            <li>
+			  <a href="/soccer">Soccer</a>
+      </li>               
+            <li>
+			  <a href="/hockey-canada">Hockey Canada</a>
+      </li>               
+            <li>
+			  <a href="/auto-racing">Auto Racing</a>
+      </li>               
+            <li>
+			  <a href="/tennis">Tennis</a>
+      </li>               
+            <li>
+			  <a href="/curling">Curling</a>
+      </li>               
+            <li>
+			  <a href="/ncaa">NCAA</a>
+      </li>               
+            <li>
+			  <a href="/nascar">NASCAR</a>
+      </li>               
+            <li>
+			  <a href="/chl">CHL</a>
+      </li>               
+            <li>
+			  <a href="/ahl">AHL</a>
+      </li>               
+            <li>
+			  <a href="/figure-skating">Figure Skating</a>
+      </li>               
+            <li>
+			  <a href="/skiing">Skiing</a>
+      </li>               
+            <li>
+			  <a href="/world-cup">World Cup</a>
+      </li>               
+            <li>
+			  <a href="/ufc">UFC</a>
+      </li>               
+            <li>
+			  <a href="/world-juniors">World Juniors</a>
+      </li>               
+            <li>
+			  <a href="/canada-games">Canada Games</a>
+      </li>               
+            <li>
+			  <a href="/boxing">Boxing</a>
+      </li>               
+            <li>
+			  <a href="/rugby">Rugby</a>
+      </li>               
+            <li>
+			  <a href="/cis">CIS</a>
+      </li>               
+            <li>
+			  <a href="/olympics">Olympics</a>
+      </li>               
+            <li>
+			  <a href="/horse-racing">Horse Racing</a>
+      </li>               
+            <li>
+			  <a href="/lacrosse">Lacrosse</a>
+      </li>               
+            <li>
+			  <a href="/cycling">Cycling</a>
+      </li>               
+            <li>
+			  <a href="/other-sports">Other Sports</a>
+      </li>               
+          </ul>
+  </div>      
+  <div class='site-footer'>    
+    <div class='site-footer-main'> 
+      <ol class='site-footer-nav'>
+                <li>
+          <a href="/1.89048">TSN.ca Help</a>
+        </li>
+    		        <li>
+          <a href="http://support.bell.ca/Billing-and-Accounts/Security_and_privacy/How_does_Bell_respect_my_privacy">Privacy</a>
+        </li>
+    		        <li>
+          <a href="http://www.bellmedia.ca/bell-media-website-terms-conditions/">Terms & Conditions</a>
+        </li>
+    		        <li>
+          <a href="http://jobs.bce.ca/go/jobs-with-bell-media/357957/">Careers</a>
+        </li>
+    		        <li>
+          <a href="/advertise-with-tsn-ca-1.80463">Advertise with TSN.ca</a>
+        </li>
+    		        <li>
+          <a href="/tsn-front-row">TSN Front Row</a>
+        </li>
+    		      </ol>            
+      <div class="left">&copy; 2015<a href="http://www.bellmedia.ca/"><img alt="Bell Media" class="site-footer-bell-logo" src="/img/tsn/site-footer/bell-media-logo.png" /></a>All Rights Reserved</div>
+    </div>
+  </div>
+  <div id="getsat-widget-7028"></div>
+</footer>
+
+
+<script type="text/javascript" src="/js/tsn/plugins.min.js?5"></script>
+<!--[if gt IE 8]><!--> <script type="text/javascript" src="/js/tsn/angular.min.js?5"></script> <!--<![endif]-->
+<!--[if lt IE 9]> <script type="text/javascript" src="/js/tsn/angular-ie8.min.js?5"></script> <![endif]-->
+
+
+
+<script>
+  //Ad zones variables
+	var adZone = "";
+  var subPage = "";
+</script>
+
+<!-- Google Ad Script -->
+<script type="text/javascript" src="http://metrics.ctvdigital.net/comscore/beacon.js"></script>
+<script type="text/javascript">
+	
+  var gptadslots = [];
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+  (function () {
+    var gads = document.createElement('script');
+    gads.async = true; gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+  })();
+    
+  function adserve(ad) {
+    var adunit = ad.adunit,
+        size = ad.size,
+        divid = ad.divid
+    	  slot = ad.slot,
+        refresh = ad.refresh,
+        adscript = "$(window).load(function () {googletag.cmd.push(function(){gptadslots" + slot + "= googletag.defineSlot('" + adunit + "', [" + size + "],'" + divid + "').addService(googletag.pubads()).addService(googletag.companionAds());googletag.pubads().enableAsyncRendering();googletag.pubads().collapseEmptyDivs();googletag.enableServices();googletag.display('" + divid + "');googletag.pubads().setTargeting('ksgmnt',Krux.segments);googletag.pubads().setTargeting('u',Krux.user);});});"
+    var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.text = adscript;               // use this for inline script
+        $("#" + divid).append(script);
+    }
+
+    function adserveoop(ad) {
+      var adunit = ad.adunit,
+          divid = ad.divid
+      	  slot = ad.slot,
+          adscript = "$(window).load(function () {googletag.cmd.push(function(){gptadslots" + slot + "= googletag.defineOutOfPageSlot('" + adunit + "','" + divid + "').addService(googletag.pubads()).addService(googletag.companionAds());googletag.pubads().enableAsyncRendering();googletag.enableServices();googletag.display('" + divid + "');googletag.pubads().setTargeting('ksgmnt',Krux.segments);googletag.pubads().setTargeting('u',Krux.user);});});"
+
+      var script = document.createElement("script");
+          script.type = "text/javascript";
+          script.text = adscript;               // use this for inline script
+          $("#" + divid).append(script);
+    }
+</script>
+
+<script type="text/javascript" src="/js/tsn/main.min.js?5"></script>
+
+
+<script>
+  //Ad zone variable for deeper nested pages (Game Pages, Team Pages, Player Pages)
+  var subPageType = "";
+</script>
+
+  
+  
+
+
+<script type="text/javascript">
+  window.sportSection = '';
+                                                                                                                                                                                </script>
+
+<script type="text/javascript" src="/js/tsn/tracking.min.js?5"></script>
+<script type="text/javascript">
+  // Gigya API KEY
+  var apiKey = '3_NO0S7G3K4yA7tylTjbxf7Vk-jLJBY926wR1ptGDaNNyfj5XIQVvZh7rI6j_lTvAi'; //TSN PROD
+  // Set gigya registration source
+  window.__gigyaConf = { regSource : 'www.tsn.ca' };
+  // Load gigya script asyncronously
+  (function() {
+    var s = document.createElement('script');
+    s.type='text/javascript';
+    s.async=true;
+    s.src = "http://cdn.gigya.com/js/gigya.js?apiKey=" + apiKey;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+
+<script type="text/javascript">
+  var autoRefreshEnabled = ('true' == 'true') ? true : false,
+      autoRefreshInterval = parseInt('15'), //Assume in mins
+      minRefreshInterval = 1000 * 60 * 5; //5 mins
+
+  // Convert and set auto refresh interval
+  if (!isNaN(autoRefreshInterval)) {
+    // Convert refresh interval to milliseconds
+    autoRefreshInterval = autoRefreshInterval * 60 * 1000;
+    // Make sure refresh interval is above minRefreshInterval
+    if (autoRefreshInterval < minRefreshInterval) autoRefreshInterval = minRefreshInterval;
+  } else {
+    // Otherwise set interval to minRefreshInterval
+    autoRefreshInterval = minRefreshInterval;
+  }
+  
+  // If auto refresh checkbox is enabled
+  if (autoRefreshEnabled) {
+    // Start timeout
+    setTimeout(function(){
+       window.location.reload(1); //Force clear cache
+    }, autoRefreshInterval);
+  }
+</script>
+    <div class='sidr-blocker'></div>
+    </div>
+  </body>
+</html>";i:2;s:4:"9208";}

@@ -1,0 +1,1230 @@
+a:3:{i:0;s:23:"http://metvnetwork.com/";i:1;s:66171:"<!doctype html>
+<html>
+    <head>
+    	<link href='http://fonts.googleapis.com/css?family=Open+Sans:800,300,700' rel='stylesheet' type='text/css'>
+		<base href="http://metvnetwork.com/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>MeTV Network | Memorable Entertainment Television</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        
+		        <!-- This is a comment because I triple hate Subversion. -->
+        <!--<link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>-->
+        <link rel="stylesheet" href="/css/style.css?pickles=7" media="screen" />
+        <link rel="stylesheet" href="/css/extra.css?pickles=18" media="screen" />
+        <!-- <link rel="stylesheet" href="/css/debug.css" media="screen" />-->
+        <link rel="stylesheet" href="/css/jquery-ui-1.10.3.custom.min.css" media="screen" />
+        <link rel="stylesheet" href="/css/dropkick.css" media="screen" />
+        <link rel="stylesheet" href="/css/tooltipster.css" media="screen" />
+        <!-- Makes HTML5 work in IE6-8 -->
+        <!--[if lt IE 9]>
+        <script>
+            document.createElement('header');
+            document.createElement('nav');
+            document.createElement('section');
+            document.createElement('article');
+            document.createElement('aside');
+            document.createElement('footer');
+            document.createElement('hgroup');
+        </script>
+        <![endif]-->
+        <script src="/js/jquery.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!--<script>
+            //Jquery $.browser patch
+            jQuery.browser = {};
+            jQuery.browser.mozilla = /mozilla/.test(navigator.userAgent.toLowerCase()) && !/webkit/.test(navigator.userAgent.toLowerCase());
+            jQuery.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());
+            jQuery.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());
+            jQuery.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
+        </script>-->
+        <script src="/js/jquery.validate.min.js"></script>
+        <script src="/js/additional-methods.min.js"></script>
+        
+        <script src="/js/jquery-ui.js"></script>
+        <script src="/js/jquery.jcarousel.min.js"></script>
+        <script src="/js/jquery.masonry.min.js"></script>
+        <script src="/js/jquery.sticky.js"></script>
+        <script src="/js/jquery.hoverIntent.min.js"></script>
+        <script src="/js/jquery.hashchange.js"></script>
+        <script src="/js/jquery.dropkick.js"></script>
+        <script src="/js/responsive-tables.js"></script>
+        <script src="/js/jquery.colorbox-min.js"></script>
+        <script src="/js/jquery.autotab.min.js"></script>
+                <script src="/js/cufon-yui.js" type="text/javascript"></script>
+		<script src="/js/OPTIChampionBold_700.font.js" type="text/javascript"></script>
+        <script>
+            /*Cufon.replace('nav a:not(.nocufon)', { hover: true });*/
+			Cufon.replace('.fall-block-title-time');
+			Cufon.replace('.fall-show-title');
+			Cufon.replace('.fall-show-time');
+			Cufon.replace('.fall-block-day');
+			Cufon.replace('.fall-sci-fi-block-title');
+			Cufon.replace('.fall-print-sched-links');
+			Cufon.replace('.fall-print-sched-wrap span');
+			Cufon.replace('.fall-footer-ep');
+			Cufon.replace('.fall-footer-cm');
+			Cufon.replace('.jan2015-print-sched-links');
+			Cufon.replace('.jan2015-print-sched-wrap span');
+			Cufon.replace('.jan2015-goodbye');
+			Cufon.replace('.jan2015-print-sched-ep');
+			Cufon.replace('.jan2015-print-sched-cm');
+        </script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0IT-oHEbRKrT4zfbnnbwxRvlX1wuD8Ds&sensor=false"></script>
+        
+		<script>
+         var alerts = [];
+
+            //check to see if the placeholder attribute is supported
+            function placeholder() {
+				var test = document.createElement('input');
+				return ('placeholder' in test);
+			}
+	
+			$(document).ready(function() {
+					
+				$('body').scrollTop(0);
+				
+				
+				//Detect mobile devices and redirect fall landing to fall blog post
+					
+					
+								
+				
+								
+				
+				/**
+				 *  Incase placeholder is not supported
+				 */
+				if (!placeholder) {
+					$('input').each(function(index, item) {
+						$(this).val($(this).attr('placeholder')).addClass('placeholder');
+					});
+				}
+	
+				$('.placeholder').on('click focus', function() {
+					if ($(this).val() == '' || $(this).val() == $(this).attr('placeholder')) {
+						$(this).val('');
+					}
+				}).on('blur', function() {
+					if ($(this).val() == '' || $(this).val() == $(this).attr('placeholder')) {
+					$(this).val($(this).attr('placeholder'));
+					}
+				});
+		
+				/**************************************/
+				
+				$('.media-carousel').jcarousel();
+				$('.featured-video-carousel').jcarousel({
+					vertical: true
+				});
+
+
+
+				/* Affiliate Tab Hover Drop Down */
+				var $affiliate_list = $('.affiliate-list');
+				$('.wtw > ul > li').hoverIntent(function() {
+					$affiliate_list.slideToggle('fast');
+				});
+
+		
+				if ($(window).width() > 979) {
+					/* Main Nav Flyouts */
+					function mainNavFlyout(flyoutSection, flyoutTab) {
+						var $flySec = $(flyoutSection);
+						/*$flySec.hide();*/
+						$(flyoutTab).hoverIntent(function() {
+							$flySec.fadeIn();
+						}, function() {
+							$flySec.fadeOut();
+						});
+					}
+			
+					mainNavFlyout('ul.schedule-flyout', '.sched-nav-tab'); /* Schedule Flyout */
+					mainNavFlyout('ul.programs-flyout', '.prog-nav-tab'); /* Programs Flyout */
+					mainNavFlyout('ul.videos-flyout', '.vid-nav-tab'); /* Videos Flyout */
+					
+				}
+				
+				/* Makes header stick when scrolling */
+				$("#header").sticky({
+					topSpacing: 0,
+					onStick: function(s) {
+						if (s.stickyId == 'header') {
+						}
+					},
+					onUnStick: function(s) {
+						if (s.stickyId == 'header') {
+						}
+					}
+				});
+                
+				$(window).resize(function() {
+					//console.log($(window).width());
+					//$(".is-sticky").sticky().update;
+					if ($(window).width() < 785) {
+					//                        var cnt = $('#undefined-sticky-wrapper').contents();
+					//                        $('#undefined-sticky-wrapper').replaceWith(cnt);
+					//$('#undefined-sticky-wrapper').remove();
+					}
+				});
+
+				/* Expand sub nav */
+				$('.menu-tab').click(function() {
+					$('.sub-nav').slideToggle('fast');
+				});
+	
+				/* Expand about dropdown */
+				$('li.about-us').hoverIntent(function(){
+					$('ul.about-us-dropdown').slideToggle('fast');
+				});
+
+				/* Disqus */
+				var disqus_shortname = 'metvnetwork';
+				(function() {
+					var dsq = document.createElement('script');
+					dsq.type = 'text/javascript';
+					dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			
+				$('.scroll_to').click(function(e) {
+					e.preventDefault();
+					window.location.hash = '!' + $(this).data('target');
+				});
+
+				$(window).hashchange(function(e) {
+					e.preventDefault();
+					var new_hash = window.location.hash.replace('#!', '');
+					var aTag = $("a[name='" + new_hash + "']");
+				
+					if (new_hash && aTag.length) {
+						$('body,html,document').animate({
+							scrollTop: aTag.offset().top - $('.header-inner-wrap').outerHeight()
+						}, 'slow', function() {
+				
+						});
+					}
+				});
+				$(window).hashchange();
+				
+				/* Hide form input values on focus*/ 
+				$('input:text').each(function(){
+					var txtval = $(this).val();
+					$(this).focus(function(){
+						if($(this).val() == txtval){
+							$(this).val('')
+						}
+					});
+					$(this).blur(function(){
+						if($(this).val() == ""){
+							$(this).val(txtval);
+						}
+					});
+				});
+				
+				
+				/* Makes iframe videos responsive */
+				// Find all YouTube / Vimeo videos
+				var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src^='//www.youtube.com']"),
+				
+					// The element that is fluid width
+					$fluidEl = $("#content-col");
+				
+				// Figure out and save aspect ratio for each video
+				$allVideos.each(function() {
+				
+				  $(this)
+					.data('aspectRatio', this.height / this.width)
+				
+					// and remove the hard coded width/height
+					.removeAttr('height')
+					.removeAttr('width');
+				
+				});
+				
+				// When the window is resized
+				$(window).resize(function() {
+				
+				  var newWidth = $fluidEl.width();
+				
+				  // Resize all videos according to their own aspect ratio
+				  $allVideos.each(function() {
+				
+					var $el = $(this);
+					$el
+					  .width(newWidth)
+					  .height(newWidth * $el.data('aspectRatio'));
+				
+				  });
+				
+				// Kick off one resize to fix all videos on page load
+				}).resize();
+				
+				
+				/* Makes embeded object / embed videos responsive */
+				// Find all Limelight videos
+				var $allVideos = $("object, embed"),
+				
+					// The element that is fluid width
+					$fluidEl = $(".video-page-main-vid");
+				
+				// Figure out and save aspect ratio for each video
+				$allVideos.each(function() {
+				
+				  $(this)
+					.attr('data-aspectRatio', this.height / this.width)
+				
+					// and remove the hard coded width/height
+					.removeAttr('height')
+					.removeAttr('width');
+				
+				});
+				
+				// When the window is resized
+				$(window).resize(function() {
+				
+				  var newWidth = $fluidEl.width();
+				
+				  // Resize all videos according to their own aspect ratio
+				  $allVideos.each(function() {
+					newWidth = $(this).parent().parent().width();	
+					var $el = $(this);
+					$el
+						.width(newWidth)
+						.height(newWidth * $el.attr('data-aspectRatio'));
+				
+				  });
+				
+				// Kick off one resize to fix all videos on page load
+				}).resize();
+				var hasStorage =false;
+            if(typeof(Storage)!== void(0)){
+               hasStorage = true;
+            }
+            
+            for(i in alerts){
+               msg = alerts[i];
+               var html_alert = '<div class="system-alert" id="alert_'+msg.id+'"><span class="system-alert-close">x</span><p>'+msg.message+'</p><input type="hidden" value="'+msg.id+'"></div>';
+            
+               if(hasStorage && localStorage.getItem('alert_'+msg.id)==msg.id){
+                  //$('#wrapper').prepend(html_alert);
+               }else{
+                  $('#wrapper').prepend(html_alert);
+               }
+            }
+            
+				$('.system-alert-close').click(function(e){
+					
+					if(e.target) targ = e.target;
+               else if (e.srcElement) targ = e.srcElement;
+               if(targ.nodeType==3) targ = targ.parentNode;
+               
+               alt_box = $(targ.parentNode);
+               id = alt_box.children('input').val();
+               
+               alt_box.fadeOut();
+               if(hasStorage){
+                  localStorage.setItem('alert_'+id,id);
+               }
+				});
+            
+			});/* end $(document).ready(); */
+		</script>
+       	 
+        <!-- Share This Scripts -->
+	<!--
+		<script type="text/javascript">var switchTo5x=true;</script>
+		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+        -->
+        <!-- DFP/Google Adsense -->
+        <script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js"></script>
+		<script type="text/javascript">
+			GS_googleAddAdSenseService("ca-pub-0852133682462285");
+			GS_googleEnableAllServices();
+        </script>
+        <script language="JavaScript">
+			GA_googleAddAttr("site", "metvnetwork.com");
+			GA_googleAddAttr("page", "index.php");
+        </script> 
+        <script type="text/javascript">
+            GA_googleAddSlot("ca-pub-0852133682462285", "Leaderboard");
+			GA_googleAddSlot("ca-pub-0852133682462285", "Leaderboard_Medium");
+			GA_googleAddSlot("ca-pub-0852133682462285", "Leaderboard_Small");
+            GA_googleAddSlot("ca-pub-0852133682462285", "Schedule_Leaderboard1");
+			GA_googleAddSlot("ca-pub-0852133682462285", "Schedule_Leaderboard1_Medium");
+			GA_googleAddSlot("ca-pub-0852133682462285", "Schedule_Leaderboard1_Small");
+			GA_googleAddSlot("ca-pub-0852133682462285", "Schedule_Leaderboard2");
+			GA_googleAddSlot("ca-pub-0852133682462285", "Schedule_Leaderboard2_Medium");
+			GA_googleAddSlot("ca-pub-0852133682462285", "Schedule_Leaderboard2_Small");
+            GA_googleAddSlot("ca-pub-0852133682462285", "Rectangle");<!-- Adsense disabled -->
+			GA_googleAddSlot("ca-pub-0852133682462285", "Rectangle2");<!-- Adsense enabled -->
+            GA_googleAddSlot("ca-pub-0852133682462285", "Square");<!-- Adsense disabled -->
+			GA_googleAddSlot("ca-pub-0852133682462285", "Square2");<!-- Adsense enabled -->
+			GA_googleAddSlot("ca-pub-0852133682462285", "Large_Mobile_Banner");<!-- Adsense enabled -->
+			GA_googleAddSlot("ca-pub-0852133682462285", "AntennasDirect");
+			GA_googleAddSlot("ca-pub-0852133682462285", "AntennasDirect_468x60");
+			GA_googleAddSlot("ca-pub-0852133682462285", "AntennasDirect_320x50");
+
+        </script>
+        <script type="text/javascript">
+        	GA_googleFetchAds();
+        </script>
+        
+        <!-- Google Analytics -->
+        <script type="text/javascript">
+        	/*
+			var _gaq = _gaq || [];
+			
+				ga('create', 'UA-5553426-11', 'metvnetwork.com');
+				ga('send', 'pageview');
+			
+			
+			(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+			*/
+		</script>
+		
+		<!-- New Analytics -->
+		<script>
+			
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			
+			
+				ga('create', 'UA-5553426-11', 'metvnetwork.com');
+				ga('send', 'pageview');
+			
+		</script>
+		<!-- End new analytics -->
+		
+		<!-- Google AdSense / Analytics linking -->
+		<script type="text/javascript">
+			window.google_analytics_uacct = "UA-5553426-11";
+		</script>
+        
+        <!-- Google reCaptcha -->
+        <script src='https://www.google.com/recaptcha/api.js'></script>       
+    </head>
+
+    <body class="homepage-bg-gradient">
+        <div id="shapes-wrapper">
+    	<!-- Facebook "like" button script -->
+        <div id="fb-root"></div>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId      : '141684619223996',
+					status     : true,
+					xfbml      : true
+				});
+			};
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+        <!-- END - Facebook "like" button script -->
+
+        <div class="header-ad">
+            <iframe id="0.430071055656299_matchbin_ad-div-iframe" width="728" height="90" style="border: 0px; " scrolling="no" frameborder="0" src="http://ads.radiatemedia.com/ad_frame?site_id=990&amp;fallback_adspace_id=413907&amp;tags=728x90leaderboard1_ad&amp;height=90&amp;sitename=rm.kcsg.001&amp;site_constraints_ignored=dimensions&amp;width=728&amp;instance=728x90leaderboard1_ad&amp;x=679&amp;y=1968&amp;viewport_height=708&amp;viewport_width=1334"></iframe>
+        </div>
+        <header id="header">
+            <div class="header-inner-wrap clearfix">
+                <div class="logo-wtw-wrap clearfix">
+                    <a class="logo" href="/"></a>
+                    <div class="wtw">
+                        <!--<ul>
+                            <li><span class="affiliate-tab">AFFILIATE <img src="images/affiliates_arrow.png" width="18" height="17" /></span>
+                                <ul class="affiliate-list" style="display: none;">
+                                    <li><a href="#">WCIU</a></li>
+                                    <li><a href="#">WXXA</a></li>
+                                    <li><a href="#">See more stations</a></li>
+                                </ul>
+                            </li>
+                        </ul>-->
+                        <img src="/images/logos/logo_slc.png" />
+                        <span class="not-you">NOT YOUR LOCATION? <a href="/wheretowatch/">Click Here &raquo;</a></span>
+                    </div>
+                </div><!-- .logo-wtw-wrap -->
+                <nav class="clearfix">
+                    <ul class="sub-nav clearfix">
+                        <li class="about-us">
+                        	<a href="/about-us/">ABOUT</a>
+                            <ul class="about-us-dropdown">
+                            	<li><a href="/advertise/">ADVERTISE</a></li>
+                                <li><a href="/privacy-policy/">PRIVACY POLICY</a></li>
+                                <li><a href="/terms-of-use/">TERMS OF USE</a></li>
+                                                                                                                                 <li><a href="/contests/">CONTEST WINNERS</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/faq/">FAQ</a></li>
+                        <li><a href="/press/">PRESS</a></li>
+                        <li><a href="/contact/">CONTACT</a></li>
+                        <li class="search">
+                            <div class="search-box-wrap">
+                                <form action="/search/" method="get" enctype="multipart/form-data">
+                                    <input type="text" value="" placeholder="Search" class="search-box" name="search_term" />
+                                    <input type="submit" value="" class="search-box-submit" />
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                    <span class="menu-tab clearfix"></span>
+                    <ul class="main-nav">
+                        <li class="sched-nav-tab">
+                            <a href="/schedule/">SCHEDULE</a>
+                            <ul class="schedule-flyout">
+                                <li>
+                                                                        <div class="now-sched">
+                                        NOW
+                                        <span class="now-sched-title-time"> 3:30PM</span>
+                                                                                	                                            <a href="shows/the-rifleman">
+                                                                                        <img class="schedule-flyout-thumb" src="http://metvnetwork.com/assets/show/49/featured/323x230 BLUE_rifleman.jpg" width="160" height="114" />
+                                            </a>
+                                                                                <div class="flyout-sched-desc">
+                                            <span class="sched-show-title">
+                                                                                                                                            <a href="shows/the-rifleman">
+                                                                                                The Rifleman
+                                                </a>
+                                                                                        </span>
+                                            <span class="sched-episode-title">
+                                                                                        <a href='shows/the-rifleman/episode-guide#RFMN116'>
+                                                                                        The Decision
+                                                                                        </a>
+                                                                                        </span>
+                                                                                                                                                                                                                                Corey Hazlett insists he's innocent of murder, despite Lucas's eyewitness testimony.
+                                                                                    </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="next-sched">
+                                                                                NEXT
+                                        <span class="now-sched-title-time"> 4:00PM</span>
+                                                                                                                                <a href="shows/voyage-to-the-bottom-of-the-sea">
+                                                                                        <img class="schedule-flyout-thumb" src="http://metvnetwork.com/assets/show/43/featured/323x230 BLUE_voyage_to_sea.jpg" width="160" height="114" />
+                                            </a>
+                                                                                <div class="flyout-sched-desc">
+                                            <span class="sched-show-title">
+                                                                                                                                    <a href="shows/voyage-to-the-bottom-of-the-sea">
+                                                                                        Voyage to the Bottom of the Sea
+                                            </a>
+                                                                                        </span>
+                                            <span class="sched-episode-title">
+                                                                                        <a href='shows/voyage-to-the-bottom-of-the-sea/episode-guide#'>
+                                                                                        
+                                                                                        </a>
+                                                                                        </span>
+                                                                                        
+                                                                                    </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tonight-sched">
+                                        Later
+                                                                                <!--<span class="now-sched-title-time">?PM-?AM</span>-->
+                                        <table class="tonight-sched-table">
+                                            <tbody>
+                                                                                                    <tr>
+                                                        <td> 3:30PM</td>
+                                                        <td>
+                                                        	                                                            <a href='/shows/the-rifleman'>
+                                                                                                                        The Rifleman
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                    <tr>
+                                                        <td> 4:00PM</td>
+                                                        <td>
+                                                        	                                                            <a href='/shows/voyage-to-the-bottom-of-the-sea'>
+                                                                                                                        Voyage to the Bottom of the Sea
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                    <tr>
+                                                        <td> 5:00PM</td>
+                                                        <td>
+                                                        	                                                            <a href='/shows/'>
+                                                                                                                        Wild Wild West
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                    <tr>
+                                                        <td> 6:00PM</td>
+                                                        <td>
+                                                        	                                                            <a href='/shows/chips'>
+                                                                                                                        CHiPs
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                    <tr>
+                                                        <td> 7:00PM</td>
+                                                        <td>
+                                                        	                                                            <a href='/shows/hogan-s-heroes'>
+                                                                                                                        Hogan's Heroes
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                    <tr>
+                                                        <td> 7:30PM</td>
+                                                        <td>
+                                                        	                                                            <a href='/shows/hogan-s-heroes'>
+                                                                                                                        Hogan's Heroes 
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                    <tr>
+                                                        <td> 8:00PM</td>
+                                                        <td>
+                                                        	                                                            <a href='/shows/the-andy-griffith-show'>
+                                                                                                                        The Andy Griffith Show
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                    <tr>
+                                                        <td> 8:30PM</td>
+                                                        <td>
+                                                        	                                                            <a href='/shows/the-andy-griffith-show'>
+                                                                                                                        The Andy Griffith Show
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                    <tr>
+                                                        <td> 9:00PM</td>
+                                                        <td>
+                                                        	                                                            <a href='/shows/hogan-s-heroes'>
+                                                                                                                        Hogan's Heroes
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                                    <tr>
+                                                        <td> 9:30PM</td>
+                                                        <td>
+                                                        	                                                            <a href='/shows/the-twilight-zone'>
+                                                                                                                        The Twilight Zone
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                                                            </tbody>
+                                        </table>
+                                        <a class="full-sched-flyout" href="/schedule/">FULL SCHEDULE</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="prog-nav-tab">
+                            <a href="/shows/">SHOWS</a>
+                            <ul class="programs-flyout">
+                                <li>
+                                    <span class="feat-progs-header">FEATURED SHOWS</span>
+                                    
+                                                                                                                                                        
+                                        <div class="feat-prog-1">
+                                                                                                                            <a href="/shows/quincy-m-e"><img class="prog-flyout-thumb" src="http://metvnetwork.com/assets/show/220/featured/323x230 BLUE_00000.jpg" width="160" height="114" /></a>
+                                                                                
+                                        <div class="flyout-prog-desc">
+                                            <span class="prog-show-title"><a href="/shows/quincy-m-e">Quincy, M.E.</a></span>
+                                                                                            <span class="prog-show-airing">Weekdays at 10 AM</span>
+                                                                                        NEXT EPISODE:
+                                            <span class="prog-episode-title"><a href="shows/quincy-m-e/episode-guide#QCY51008">Dead and Alive</a></span>
+                                            "An apparent murder victim becomes the object of Quincy's thorough investigation and identification when his mother and sister insist that he is still alive."
+                                        </div>
+                                    </div>
+                                        
+                                                                                                                    
+                                        <div class="feat-prog-2">
+                                                                                                                            <a href="/shows/carol-burnett-and-friends"><img class="prog-flyout-thumb" src="http://metvnetwork.com/assets/show/221/featured/323x230 BLUE_00000.jpg" width="160" height="114" /></a>
+                                                                                
+                                        <div class="flyout-prog-desc">
+                                            <span class="prog-show-title"><a href="/shows/carol-burnett-and-friends">Carol Burnett and Friends</a></span>
+                                                                                            <span class="prog-show-airing">Weeknights at 10 PM</span>
+                                                                                        NEXT EPISODE:
+                                            <span class="prog-episode-title"><a href="shows/carol-burnett-and-friends/episode-guide#CBRNETT624">Barby and Ben / Rancid Harvest</a></span>
+                                            "In Barby and Ben, a toy couple's marriage is threatened by the arrival of a G.I. doll. Then, in Rancid and Harvest, a parody of "Random Harvest",...<a href='shows/carol-burnett-and-friends/episode-guide#CBRNETT624'>MORE</a>
+                                        </div>
+                                    </div>
+                                        
+                                                                        
+                                   <!-- .feat-prog-lg -->
+                                   <!--
+                                    <div class="feat-prog-0">
+                                        <img class="prog-flyout-thumb" src="http://www.placehold.it/160x114" />
+                                        <div class="flyout-prog-desc">
+                                            <span class="prog-show-title">Perry Mason</span>
+                                            <span class="prog-show-airing">NEXT EPISODE AIRING 8PM</span>
+                                            <span class="prog-episode-title">The Fugitive Nurse</span>
+                                            Janet Norris is charged with poisoning her doctor husband just before he flew to his death in his private plane. Further investigation reveals that Dr. Norris did not die in the plane crash and that he is in Mexico with his nurse mistress. The man killed in ...<a href="#">more</a>
+                                        </div>
+                                    </div>
+                                    <div class="feat-prog-1">
+                                        <img class="prog-flyout-thumb" src="http://www.placehold.it/160x114" />
+                                        <div class="flyout-prog-desc">
+                                            <span class="prog-show-title">Perry Mason</span>
+                                            <span class="prog-show-airing">NEXT EPISODE AIRING 8PM</span>
+                                            <span class="prog-episode-title">The Fugitive Nurse</span>
+                                            Janet Norris is charged with poisoning her doctor husband just before he flew to his death in his private plane. Further investigation reveals that Dr. Norris did not die in the plane crash and that he is in Mexico with his nurse mistress. The man killed in ...<a href="#">more</a>
+                                        </div>
+                                    </div>-->
+                                </li>
+                                <li>
+                                    <div class="pop-progs">
+                                        SHOWS A to Z
+                                                                                    <a href="/shows/the-abbott-and-costello-show">The Abbott and Costello Show</a>
+                                                                                    <a href="/shows/adventures-of-superman">Adventures of Superman</a>
+                                                                                    <a href="/shows/the-alfred-hitchcock-hour">The Alfred Hitchcock Hour</a>
+                                                                                    <a href="/shows/the-andy-griffith-show">The Andy Griffith Show</a>
+                                                                                    <a href="/shows/batman">Batman</a>
+                                                                                    <a href="/shows/the-beverly-hillbillies">The Beverly Hillbillies</a>
+                                                                                    <a href="/shows/the-big-valley">The Big Valley</a>
+                                                                                    <a href="/shows/black-sheep-squadron">Black Sheep Squadron</a>
+                                                                                    <a href="/shows/the-bob-newhart-show">The Bob Newhart Show</a>
+                                                                                    <a href="/shows/bonanza">Bonanza</a>
+                                                                                    <a href="/shows/the-brady-bunch">The Brady Bunch</a>
+                                                                                    <a href="/shows/branded">Branded</a>
+                                                                                    <a href="/shows/carol-burnett-and-friends">Carol Burnett and Friends</a>
+                                                                                <a class="full-progs-flyout" href="/shows/">ALL SHOWS</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="vid-nav-tab">
+                            <a href="/videos/">VIDEOS</a>
+														                            <ul class="videos-flyout">
+                                <div class="vid-fly-thumbs">
+                                    
+                                    
+                                                                                                            <a href="/videos/metv-promos/the-twilight-zone-alien-week">
+                                        <img class="videos-play-icon-flyout" src="images/videos_play_icon.png" alt="" width="92" height="90" />
+                                        <img class="vid-fly-lg-thumb" src="http://img.delvenetworks.com/q-4tX62JRMckNtqC_07nr0/zhVTJKoRRaMjmjil8qkD0I/FJ0.540x302.jpeg" alt="" width="312" height="209" />
+                                    </a>
+                                    <span class="prog-show-title">MeTV Promos</span>
+                                    <span class="prog-episode-title"><a href="/videos/metv-promos/the-twilight-zone-alien-week">The Twilight Zone - Alien Week</a></span>
+                                    <div class="flyout-video-desc">
+                                    	All this week, tune in to 'The...<a href='/videos/metv-promos/the-twilight-zone-alien-week'>MORE</a>
+                                    </div>
+                                    <div class="vid-fly-small-thumbs clearfix">
+                                                                                                                                                    <div class="vid-fly-sm-margin">
+                                            <a href="/videos/metv-promos/wake-up-with-metv-weekdays" class="vid-fly-modal-trigger" rel="#modal-video-wrap">
+                                                <img class="videos-play-icon-sm-flyout" src="images/videos_play_icon.png" alt="" width="35" height="34" />
+                                                <img class="vid-fly-sm-margin" src="http://images.lvp.llnw.net/abee2d5fad8944c790db6a0bfd3b9ebd/media/1dc2a99eb6004ef8b6842d13e274b996/T8r.540x303.jpeg" width="95" height="64" />
+                                            </a>
+                                            <a class="vid-fly-small-thumb-text" href="/videos/metv-promos/wake-up-with-metv-weekdays" class="vid-fly-modal-trigger" rel="#modal-video-wrap">Wake Up with MeTV - Weekdays</a>
+                                        </div>   
+                                                                                                                                                    <div class="vid-fly-sm-margin">
+                                            <a href="/videos/metv-promos/the-mary-tyler-moore-show-weekdays" class="vid-fly-modal-trigger" rel="#modal-video-wrap">
+                                                <img class="videos-play-icon-sm-flyout" src="images/videos_play_icon.png" alt="" width="35" height="34" />
+                                                <img class="vid-fly-sm-margin" src="http://img.delvenetworks.com/q-4tX62JRMckNtqC_07nr0/X0b9BroiQYok4sEnjUWow4/Mt8.540x302.jpeg" width="95" height="64" />
+                                            </a>
+                                            <a class="vid-fly-small-thumb-text" href="/videos/metv-promos/the-mary-tyler-moore-show-weekdays" class="vid-fly-modal-trigger" rel="#modal-video-wrap">The Mary Tyler Moore Show - Weekdays</a>
+                                        </div>   
+                                                                                                                                                    <div class="vid-fly-sm-margin">
+                                            <a href="/videos/metv-promos/carol-burnett-friends" class="vid-fly-modal-trigger" rel="#modal-video-wrap">
+                                                <img class="videos-play-icon-sm-flyout" src="images/videos_play_icon.png" alt="" width="35" height="34" />
+                                                <img class="vid-fly-sm-margin" src="http://images.lvp.llnw.net/abee2d5fad8944c790db6a0bfd3b9ebd/media/34f3e5f1cdaf4e9facf9d65f44fcf809/2Qn.540x303.jpeg" width="95" height="64" />
+                                            </a>
+                                            <a class="vid-fly-small-thumb-text" href="/videos/metv-promos/carol-burnett-friends" class="vid-fly-modal-trigger" rel="#modal-video-wrap">Carol Burnett & Friends</a>
+                                        </div>   
+                                                                                                            </div><!-- .vid-fly-small-thumbs -->
+                                </div><!-- .vid-fly-thumbs -->
+                                <div class="vid-fly-links">
+                                                                                                            <a href="/videos/metv-promos">MeTV Promos</a>
+                                                                        <a href="/videos/roller-derby-live">Roller Derby </a>
+                                                                        <a href="/videos/the-rifleman">The Rifleman</a>
+                                                                        <a href="/videos/abbott-and-costello-live">The Abbott and Costello Show</a>
+                                                                        <a href="/videos/donna-reed">The Donna Reed Show</a>
+                                                                        <a href="/videos/hr-pufnstuf">H.R. Pufnstuf</a>
+                                                                        <a href="/videos/the-doris-day-show">The Doris Day Show</a>
+                                                                        <a href="/videos/land-of-the-lost">Land Of The Lost</a>
+                                                                        <a href="/videos/wanted-dead-or-alive">Wanted: Dead or Alive</a>
+                                                                        <a href="/videos/the-saint">The Saint</a>
+                                                                        <a href="/videos/peter-gunn">Peter Gunn</a>
+                                                                        <a href="/videos/the-invisible-man">The Invisible Man</a>
+                                                                        <a href="/videos/loretta-young">The Loretta Young Show</a>
+                                                                        <a href="/videos/">And more...</a>
+                                </div><!-- .vid-fly-links -->
+                            </ul>                
+							                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id="wrapper" class="clearfix">
+                                                        <script src="/js/imagesLoaded.js"></script>
+<script src="/js/responsiveslides.min.js"></script>
+<div class="tile blog-post-tile social skeleton cms-skeleton">
+    <div class="blog-post-tile-inner">
+        <span class="bp-title">CMS ITEM</span>
+        <img src="#thumbnail#" #imagesize#>
+        <h2>#title#</h2> 
+        <a class="more-link" href="#url#">MORE&raquo;</a>
+        <span class="tile-meta">#since# - #date#</span>
+    </div>
+</div>
+<div class="tile twitter-tile social skeleton twitter-skeleton">
+	<a class="social-tile-viewthis" href="#link#">View this post on Twitter</a>
+    <div class="social-tile-content clearfix">
+        #thumbnail#
+    	#content#
+    </div>
+    <span class="tile-meta">#since# - #date#</span>
+</div>
+<div class="tile press_release-tile social skeleton press_release-skeleton">
+    <div class="press-release-tile-inner">
+        <div class="press-release-content">
+            <span class="pr-title">BREAKING NEWS <img src="images/pdf_icon.png" alt="PDF" width="38" height="14"></span>
+            <span class="pr-date">#date#</span>
+            <h2>#title#</h2>
+            #content#<a class="more-link" href="#url#">MORE»</a>
+            <span class="tile-meta">#since# - #date#</span>
+        </div>
+    </div>
+</div>
+<div class="tile url_feed-tile social skeleton url_feed-skeleton">
+   <a href="#url#">
+   <img width="293" src="#thumbnail#" #imagesize#>
+    <div class="url_feed-tile-content">
+    	<span class="tile-meta">#since# - #date#</span>
+        #title#
+    </div>
+   </a>
+</div>
+
+<div class="tile twitter-tile social skeleton retweet-skeleton">
+	<a class="social-tile-viewthis" href="#">View this post on Twitter</a>
+    <div class="social-tile-content clearfix">
+    	<img class="retweet-icon" src="images/retweet_icon.png" alt="retweet" width="24" height="13" />
+        <div class="twitter-header clearfix">
+        	<img src="http://placehold.it/30x30" />
+            <span class="twitter-username">themetvnetwork</span>
+        </div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="#">#classic</a>
+        <a class="twitpic-url" href="#">pic.twitter.com/BFXt6rFJG6</a>
+        <img src="http://placehold.it/300x300" />
+    </div>
+    <span class="tile-meta">19 seconds ago - Feb 21 2013</span>
+</div>
+<div class="tile facebook-tile social skeleton facebook-skeleton">
+    <a class="social-tile-viewthis" href="#link#">View this post on Facebook</a>
+    <div class="social-tile-content clearfix">
+        <a href="#link#"><img src="#thumbnail#" #imagesize#></a>
+        #content#
+    </div>
+    <span class="tile-meta">#since# - #date#</span>
+</div>
+<div class="tile limelight-tile social skeleton delve-skeleton limelight-skeleton">
+    <a href="#link#">
+	    <img class="limelight-tile-play-icon" src="/images/videos_play_icon.png">
+	    <img src="#thumbnail#" width="320">
+	    <div class="limelight-tile-content">
+	    	<span class="tile-meta">#since# - #date#</span>
+	        #title#
+	    </div>
+    </a>
+</div>
+<div class="tile breaking-news-tile social skeleton news-skeleton">
+    <div class="breaking-news-tile-inner">
+        <div class="breaking-news-content">
+            <span class="bn-title">BREAKING NEWS</span>
+            <h2>#title#</h2>
+            #content#<a class="more-link" href="#link#">MORE»</a>
+            <span class="tile-meta">#since# - #date#</span>
+        </div>
+    </div>
+</div>
+<div class="tile video-tile social skeleton delve-skeleton">
+	<img src="#thumbnail#" #imagesize#>
+    <div class="video-tile-content">
+    	<span class="tile-meta">#since# - #date#</span>
+        #content#
+    </div>
+</div>
+<div class="tile store-tile shopify-skeleton skeleton">
+    <span class="store-title">ME-TV STORE</span>
+    <!--<img src="http://placehold.it/320x230" />-->
+    <img src="#thumbnail#" #imagesize#>
+    <div class="store-item-info">
+    	<span class="store-item-price">$8</span>
+        #content#
+    </div>
+    <div class="store-link"><a href="#url#">DETAILS / BUY NOW</a></div>
+    <!--<span class="tile-meta">#since#</span>-->
+</div>
+<div class="tile instagram-tile instagram-skeleton social skeleton" >
+    <a class="social-tile-viewthis" href="#link#">View this post on Instagram</a>
+    <div class="social-tile-content">
+        <a href="#link#"><img src="#thumbnail#" width="300" height="300"></a>
+        #content#
+        <!-- hashtags are inside the post
+        <div class="hashtags">
+            #hashtags#
+        </div>
+        -->
+    </div>
+    <span class="tile-meta">#since# - #date#</span>
+</div>
+<div class="tile page-tile social skeleton page-skeleton">
+    <div class="page-tile-inner">
+        <h2><a href="#url#">#title#</a></h2>
+        #content#
+        <a class="more-link" href="#url#"> MORE»</a>
+        <span class="tile-meta">#date#</span>
+    </div>
+</div>
+<div class="tile blog-post-tile social skeleton blog-skeleton">
+    <div class="blog-post-tile-inner">
+    	<div class="blog-post-tile-img-wrap">
+            <img class="bp-tile-logo-dark" src="images/blog_tile_logo_dark.png" alt="The Me-TV Monitor" width="293" height="55" />
+            #placeholder#
+        </div>
+        <h2><a href="/monitor/#url#">#title#</a></h2>
+        #content#
+        <a class="more-link" href="/monitor/#url#"> MORE»</a>
+        <span class="tile-meta">#date#</span>
+    </div>
+</div>
+<div class="homepage-slider">
+    <div id="homepage-slides">
+                                <a href="http://metvnetwork.com/shows/adventures-of-superman"><img src='http://metvnetwork.com/assets/billboard/111/billboard_image/MeTV_Superman_0115_metvbb.png' id='http://metvnetwork.com/shows/adventures-of-superman' width="1000" height="380"></a>
+                                <a href="http://metvnetwork.com/shows/quincy-m-e"><img src='http://metvnetwork.com/assets/billboard/110/billboard_image/MeTV_Quicy_0115_metvbb.png' id='http://metvnetwork.com/shows/quincy-m-e' width="1000" height="380"></a>
+                                <a href="http://metvnetwork.com/shows/perry-mason"><img src='http://metvnetwork.com/assets/billboard/109/billboard_image/MeTV_PerryMason_0115_metvbb.png' id='http://metvnetwork.com/shows/perry-mason' width="1000" height="380"></a>
+                                <a href="http://metvnetwork.com/shows/the-mary-tyler-moore-show"><img src='http://metvnetwork.com/assets/billboard/114/billboard_image/MeTV_MaryTylerMoore_0115_metvbb.png' id='http://metvnetwork.com/shows/the-mary-tyler-moore-show' width="1000" height="380"></a>
+            </div>
+</div><!-- .homepage-slider -->
+
+<div class="antennas-direct-hp-ad-wrap">
+    <div class="antennas-direct-hp-ad">
+        <script type='text/javascript'>
+            var width = window.innerWidth || document.documentElement.clientWidth;
+            if(width >= 1000){
+                GA_googleFillSlot("AntennasDirect");
+            }else if(width >= 500){
+                GA_googleFillSlot("AntennasDirect_468x60");
+            }else{
+                GA_googleFillSlot("AntennasDirect_320x50");
+            }
+        </script>
+    </div>
+</div>
+
+<div class="featured-internal-ads clearfix" id="featured-internal-ads">
+	        <div class="feature-int-ad clearfix ">
+        <a href="/videos/roller-derby-live"><img src="http://metvnetwork.com/assets/featured/14/featured_image/featBannerRollerDerby.jpg" alt="" width="233" height="156" /></a>
+        <div class="feature-int-ad-text"><a href="/videos/roller-derby-live">Roller Derby</a></div>
+    </div>
+        <div class="feature-int-ad clearfix feature-int-ad-margin">
+        <a href="remind-me"><img src="http://metvnetwork.com/assets/featured/15/featured_image/featRemindMe2.jpg" alt="" width="233" height="156" /></a>
+        <div class="feature-int-ad-text"><a href="remind-me">Remind Me</a></div>
+    </div>
+        <div class="feature-int-ad clearfix feature-int-ad-margin">
+        <a href="wheretowatch/affiliate/"><img src="http://metvnetwork.com/assets/featured/10/featured_image/featWhereToWatch.jpg" alt="" width="233" height="156" /></a>
+        <div class="feature-int-ad-text"><a href="wheretowatch/affiliate/">Tune-in Information</a></div>
+    </div>
+        <div class="feature-int-ad clearfix feature-int-ad-margin">
+        <a href="videos/"><img src="http://metvnetwork.com/assets/featured/12/featured_image/featFullEpisodes.jpg" alt="" width="233" height="156" /></a>
+        <div class="feature-int-ad-text"><a href="videos/">Watch complete episodes!</a></div>
+    </div>
+        </div><!-- .featured-internal-ads -->
+
+<!--<div class="station-logos-home">
+	<a href="http://www.wciu.com/"><img src="images/logo_wciu.png" alt="WCIU The U" width="79" height="38" /></a>
+    <a href="http://theutoo.com/"><img src="images/logo_utoo.png" alt="The UToo" width="108" height="38" /></a>
+    <a href="http://metvnetwork.com/schedule.php?station=metoo"><img src="images/logo_metoo.png" alt="Me Too" width="79" height="38" /></a>
+</div>--> 
+
+<!--<div class="filter-stories-panel clearfix">
+    <span class="filter-text">filter by</span> <a class="filter-btn" href="#">NEWS</a> <a class="filter-btn" href="#">VIDEOS</a> <a class="filter-btn" href="#">SOCIAL</a>
+</div>--><!-- .filter-stories-panel -->
+<div class="tile-wrap clearfix">
+	<div class="tile page-tile ad-tile">
+    	<script type="text/javascript">
+			GA_googleFillSlot("Rectangle2");
+		</script>
+    </div>
+    <!-- ajax generated data goes here -->
+</div><!-- .tile-wrap -->
+<!--<div class="load-btn"><img src="images/load_more_btn.png" width="94" height="48" /></div>-->	
+<div class="loaded-response">No more content to load...</div>
+
+<!-- Facebook, Twitter, Retweet, Instagram -->
+<!--<div class="tile social skeleton">
+    <a class="social-tile-viewthis" href="#link#" target="_blank">View this post on #title#</a>
+    <div class="social-tile-content clearfix">
+        
+<img class="retweet-icon" src="images/retweet_icon.png" alt="retweet" width="24" height="13" />
+        <div class="retweet-header clearfix">
+                <img src="http://placehold.it/30x30" />
+            <span class="retweet-username">themetvnetwork</span>
+        </div>
+        
+        #content#
+        #thumbnail#
+                
+                        <div class="hashtags">
+                                        
+                        </div>
+        
+    </div>
+    <span class="tile-meta">#since# - #date#</span>
+</div>
+-->
+
+
+<script>
+    var processing = false;
+    var homepage_item_next = 0;
+    var homepage_item_limit = 6;
+    var fia_offset;
+    var stickyMenu = false;
+    var timeout;
+    var $homepage_tiles;
+
+    $(window).load(function() {
+        if ($(window).width() >= 1000) {
+        /* Makes featured ads stick */
+        $("#featured-internal-ads").sticky({
+            topSpacing: 100,
+            wrapperClassName: 'sticky-ads',
+            onStick: function(s) {
+                if (s.stickyId == 'featured-internal-ads') {
+                    featured_ads('stick');
+                }
+            },
+            onUnStick: function(s) {
+                if (s.stickyId == 'featured-internal-ads') {
+                    featured_ads('unstick');
+                }
+            }
+        });
+
+        $('.featured-internal-ads').css('z-index', '9997');
+		}
+		
+		/* Initial load of first 6 tiles */
+		homepage_item_loader();
+
+        $(window).scroll(function() {
+            if ($(window).scrollTop() >= ($(document).height() - $(window).height() - 100)) {
+                processing = true;
+                homepage_item_loader();
+            }
+        });
+	
+//        $.ajax({
+//            url: '/homepage_cache.json',
+//            data: null,
+//            type: 'GET',
+//            dataType: 'json',
+//            success: function(response) {
+//                console.log(response);
+//            },
+//            error: function(xhr, ajaxOptions, thrownError) {
+//                console.log(xhr);
+//            }
+//        });
+        
+        /* Masonry - Creates floating grid layout */
+        $homepage_tiles = $('.tile-wrap');
+        $homepage_tiles.masonry({
+            itemSelector: '.tile',
+            columnWidth: 330
+        });
+		
+        /*$homepage_tiles.imagesLoaded(
+            $homepage_tiles.masonry('reload')
+        );*/
+
+    });
+
+    function featured_ads(status) {
+        var $featured_internal_ads = $('.featured-internal-ads');
+        var $featured_int_ad_text = $('.feature-int-ad-text');
+        if (status == 'stick') {
+            $featured_internal_ads.addClass('fia-height');
+            $featured_int_ad_text.show();
+        } else {
+            $featured_internal_ads.removeClass('fia-height');
+            $featured_int_ad_text.hide();
+        }
+    }
+    
+    function time_diff(epoch){
+        var now = new Date();       
+        var then = new Date();
+        if (epoch <10000000000) epoch *= 1000; //js uses milliseconds
+        then.setTime(epoch);
+        
+        //When saved on server it used New York Time (4 hours UTC)
+        //Now account for that time offset
+        var offsetHours = 4; 
+        then.setTime(then.getTime() - (offsetHours*60*60*1000)); 
+        
+        timediff = now - then;
+        timediff = Math.floor(timediff/1000); //back to seconds
+        hour_diff = Math.floor(timediff/3600); //to hours
+        min_diff = Math.floor(timediff/60);
+        if(hour_diff> 47){
+            return Math.floor(hour_diff / 24) + ' Days Ago';
+        }
+      
+        if(hour_diff <= 0)
+        {
+            if(min_diff == 1)
+                return min_diff + ' Minute Ago';
+            else
+                return min_diff + ' Minutes Ago';
+        }
+        
+        if(hour_diff == 1)
+            return hour_diff + ' Hour ago';
+        else
+            return hour_diff + ' Hours ago';            
+    }
+
+    function homepage_item_loader() {
+        $.get('homepage_cache.json?pickles=' + Math.random(), function(data) {
+		if(!data) return false;
+
+            data = data.splice(homepage_item_next, homepage_item_limit);
+            homepage_item_next = (homepage_item_next + homepage_item_limit);
+            $.each(data, function(index, item) {
+		if($('.'+item.type+'-skeleton').length === 0){
+                    console.log('error: no skeleton('+item.type+')');
+                    console.log($(this));
+                    return false;
+                }
+                
+		console.log(item);
+                $clone = $('.'+item.type+'-skeleton').clone();
+
+                var html = $clone.html();
+				
+                var blogImg = '';
+
+                if(item.thumbnail != ''){
+                        blogImg = '<a href="/monitor/'+item.url+'"><img src="'+item.thumbnail+'" width="'+item.width+'" height="'+item.height+'"></a>';
+                }
+                if(item.type == "twitter")
+                {
+                    if(item.thumbnail == ''){
+                        item.thumbnail = '<div class="twitter-header clearfix">' + 
+                                            '<a href="https://twitter.com/metv"><img src="images/twitter_avatar.jpg" width="30" height="30" /></a>' + 
+                                            '<span class="twitter-username"><a href="https://twitter.com/metv">metv</a></span>' + 
+                                        '</div>';
+                    }
+                    else
+                        item.thumbnail = '<a href="' + item.link + '"><img class="twitter_thumb" src="' + item.thumbnail + '" width="130"></a>';
+                }
+                //item.since uses the time at the time of cache, so we need to use time_diff instead
+                var since_time = item.epoch ? time_diff(item.epoch) : item.since;
+                //var regexp = new RegExp('#([^\\s]*)','g');
+                var content = item.content;
+                html = html/*.replace(/#title#/, (item.title != null) ? item.title : '')*/
+				.replace(/#title#/,capitaliseFirstLetter(item.title))
+				.replace(/#url#/g, item.url)
+				.replace(/#link#/g, item.link)
+                                .replace(/#imagesize#/,item.imagesize ) 
+				.replace(/#content#/, content)
+				.replace(/#date#/g, item.date)
+				.replace(/#since#/, since_time)
+				.replace(/#thumbnail#/, item.thumbnail)
+				.replace(/#placeholder#/, blogImg)
+				;
+                                
+                //console.log(html);
+                $clone.html(html).show().removeClass(item.type+'-skeleton skeleton').addClass(item.type + '-tile');
+                $('.tile-wrap').append($clone);       
+            });
+            
+            //hack fixes overflowing twitter tiles
+            //because imagesLoaded fires too early... 
+            setTimeout(function(){         
+                $('.tile-wrap').masonry('reload'); 
+            }, 100)
+            
+            $homepage_tiles.imagesLoaded( 
+                $homepage_tiles.masonry('reload')
+            );
+
+            processing = false;
+        });
+    }
+	
+	// Used to capitalize the first letter of the social media types
+	function capitaliseFirstLetter(string){
+		if(!string) return false;
+    	return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+	
+	/* Responsive Slides */
+	$(function() {
+		$("#homepage-slides").responsiveSlides({
+			timeout: 8000,
+			pager: true,
+			pause: true,
+			maxwidth: '1000',
+			namespace: 'homepage_slides'
+		});
+	});
+</script>
+
+    <!-- #container -->
+<footer class="clearfix">
+    <div class="footer-section footer-section-one">
+    <div class="footer-social-icons">
+        <!--<a href="#"><img src="images/pinterest.png" alt="Pinterest" width="32" height="32" /></a>-->
+        <a href="https://www.facebook.com/metvnetwork" target="_blank"><img src="images/facebook.png" alt="Facebook" width="32" height="32" /></a>
+        <a href="https://twitter.com/metv" target="_blank"><img src="images/twitter.png" alt="Twitter" width="32" height="32" /></a>
+        <a href="https://instagram.com/metvnetwork" target="_blank"><img src="images/instagram.png" alt="Instagram" width="32" height="32" /></a>
+    </div>
+    Say Hello! Connect with MeTV on Facebook, Twitter and Instagram!
+</div>
+<div class="footer-section footer-section-two">
+    <img src="images/news_icon.png" alt="News" />
+    Stay up to date with our newsletter! Don’t miss out on contests, special events or promotions!. <a href="http://visitor.r20.constantcontact.com/d.jsp?llr=5cvozafab&p=oi&m=1104907031646&sit=dagqep8fb" target="_blank">Sign up now</a>!
+</div>
+<div class="footer-section footer-section-three">
+	    <a href="http://www.kcsg.com/" target="_blank"><img src="images/footerLogos/kcsg.png" alt="" /></a>
+    </div>
+<div class="footer-copyright">&copy; 2015 MeTV National Limited Partnership</div>
+
+</footer>
+</div><!-- #wrapper -->
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+
+(function() {
+    var elem = document.createElement('script');
+    elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+    elem.async = true;
+    elem.type = "text/javascript";
+    var scpt = document.getElementsByTagName('script')[0];
+    scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+    qacct:"p-ABr3vnavgD8JD"
+});
+</script>
+
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-ABr3vnavgD8JD.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+</div>
+</body>
+</html>
+";i:2;s:4:"7711";}

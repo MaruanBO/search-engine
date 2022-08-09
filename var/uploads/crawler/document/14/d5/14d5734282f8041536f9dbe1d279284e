@@ -1,0 +1,1180 @@
+a:3:{i:0;s:26:"http://survivethrive.club/";i:1;s:50608:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Survive and Thrive Club</title>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/order.css" type="text/css" media="screen" />
+<style type="text/css">
+.rtext
+{
+    -moz-border-radius: 5px;
+ 	border-radius: 5px;
+    border:solid 1px black;
+    padding:5px;
+}
+.bigButton
+{
+	border-color: rgb(255, 0, 0); 
+	BORDER: rgb(255,0,0) 5px solid;
+	FONT-SIZE: 15pt;
+	_FONT-SIZE: 11.5pt;
+	font-weight: bold;
+	_width:210px;
+	height:45px;
+	background-color:#fccf34;
+	color:#006;
+	vertical-align:middle;
+	outline:transparent;
+}
+</style>
+<script type="text/javascript" src="js/jQuery.min.js"></script>
+<script type="text/javascript">
+function showDiffShip() {
+	if (document.getElementById('differentShippingAddress').checked == true)
+    	document.getElementById('diffship').style.display = 'block';
+	else
+    	document.getElementById('diffship').style.display = 'none';
+}
+
+function checkTerms() {
+    var f=document.paymentForm;
+    if(f.differentShippingAddress.checked == false) {
+        f.shipping_address1.value = f.billing_address1.value;
+        f.shipping_address2.value = f.billing_address2.value;
+        f.shipping_city.value = f.billing_city.value;
+        f.shipping_state.value = f.billing_state.value;
+        f.shipping_zip.value = f.billing_zip.value;
+        f.shipping_country.value = f.billing_country.value;
+    }
+    if(f.firstname.value==""){
+        alert("First Name is missing");
+        f.firstname.focus();
+        return false;
+    }
+    if(f.lastname.value==""){
+        alert("Last Name is missing");
+        f.lastname.focus();
+        return false;
+    }
+    if(f.email.value==""){
+        alert("Email is missing");
+        f.email.focus();
+        return false;
+    }
+
+    if(f.home_phone.value==""){
+        alert("Phone Number is missing");
+        f.home_phone.focus();
+        return false;
+    }
+
+    if(f.billing_country.value==""){
+        alert("Billing Country is missing");
+        f.billing_country.focus();
+        return false;
+    }
+
+    if(f.billing_address1.value==""){
+        alert("Billing Address is missing");
+        f.billing_address1.focus();
+        return false;
+    }
+
+    if(f.billing_city.value==""){
+        alert("Billing City is missing");
+        f.billing_city.focus();
+        return false;
+    }
+	if(f.billing_country.value == "US"){
+		if(f.billing_state.value==""){
+			alert("Billing State is missing");
+			f.billing_state.focus();
+			return false;
+		}
+    }
+
+    if(f.billing_zip.value==""){
+        alert("Billing Postal Code is missing");
+        f.billing_zip.focus();
+        return false;
+    }
+	if(f.differentShippingAddress.checked){
+		if(f.shipping_address1.value==""){
+			alert("Shipping Address is missing");
+			f.shipping_address1.focus();
+			return false;
+		}
+
+		if(f.shipping_city.value==""){
+			alert("Shipping City is missing");
+			f.shipping_city.focus();
+			return false;
+		}
+		if(f.shipping_state.value==""){
+			alert("Shipping State is missing");
+			f.shipping_state.focus();
+			return false;
+		}
+		if(f.shipping_zip.value==""){
+			alert("Shipping Zip is Missing");
+			f.shipping_zip.focus();
+			return false;
+		}
+		if(f.shipping_country.value==""){
+			alert("Shipping Country is missing");
+			f.shipping_country.focus();
+			return false;
+		}
+	}
+
+    if(f.card_number.value==""){
+        alert("Card Number is missing");
+        f.card_number.focus();
+        return false;
+    }
+    if(f.card_expire_month.value==""){
+        alert("Card Expiration Month is missing");
+        f.card_expire_month.focus();
+        return false;
+    }
+    if(f.card_expire_year.value==""){
+        alert("Card Expiration Year is missing");
+        f.card_expire_year.focus();
+        return false;
+    }
+
+    if(f.card_code.value==""){
+        alert("CSV is missing");
+        f.card_code.focus();
+        return false;
+    }
+    /*
+    if(document.getElementById('agree').checked != true){
+    	alert("You must agree to the payment terms");
+        f.agree.focus();
+        return false;
+    }
+    */
+    showPopup = false;
+	return true;
+}
+function changeState(country){
+	var f=document.paymentForm;
+	if((country != "US") && (country != "CA") && (country != "")){
+		document.getElementById("billing_state").selectedIndex = 1;
+	}
+	else{
+		document.getElementById("billing_state").selectedIndex = 0;
+	}
+}
+
+showPopup = true;
+is_good_to_go = false;
+jQuery( window ).on( "focus", function() {
+    if( ! window.showPopup ) {
+        if( ! is_good_to_go ) {
+            window.location = "https://www.survivethrive.club/links/112";
+        }
+    }
+} );
+jQuery( window ).on( 'beforeunload', function( e ) {
+    window.focus();
+    if( window.showPopup ) {
+        window.showPopup = false;
+        var showstr = "\n\nWAIT!\n\nClick The \"Cancel\" or \"Stay On This Page\" Button To Receive Your Free Survival Presentation!\n\n";
+        if( e ) {  //for ie and firefox
+            e.returnValue = showstr;
+        }
+        return showstr; //for safari and chrome
+    }
+} );
+</script>
+
+</head>
+<body >
+<!-- Begin Wrapper -->
+<div id="wrap">
+  <div id="column">
+    <div id="outer" style="position: relative;"><div align="center" id="container">
+        <div align="center" >
+        <table style="BORDER-COLLAPSE: collapse" id="AutoNumber2" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+          <tbody>
+            <tr >
+              <td valign="top" style="border-bottom:0px dotted #e6e6e6;" width="60%">
+                <div align="center">
+                	<div style="display: inline-block; vertical-align: middle; line-height: 15px;">
+                	
+                    <div style="float:left;">
+                		<img src="images/hislogosmall.jpg" alt="Men's Complete Survival System" />
+                    </div>
+                    
+                    <img src="images/NRA_Business_Alliance_Logo.gif" class="" style="padding-top: 35px; padding-left: 10px;" alt="NRA Business Aliance" />
+                    
+                    </div>
+                    <br />
+                	<img src="images/His3D22.png" alt="Men's Complete Survival System" width="260" height="353" />
+                </div>
+                </td>
+              <td valign="top" width="" style="text-align: center; border:1px solid #ddd;background:#f9f9f9; padding:5px; line-height: 20px;"><div id="stocknotice">
+                  <h3><strong>Get Your FREE Copy of<br /> &quot;The Men's Complete Survival System&quot;
+                          NOW!<br/>
+                  </strong></h3>
+                  </div>
+                <p><strong>You Only Pay Shipping</strong><br />
+                  Tell Me Where I Can Send Your Copy Below:</p>
+                <strong>                  
+                	LIMITED SUPPLIES AVAILABLE
+                </strong>
+                <div align="center">
+                  <p></p>
+                  <div style="background-color:#fff; border:1px solid #ccc;margin:5px;padding:5px;"> 1
+                    &quot;The Men's Complete Survival System&quot;&nbsp;-  FREE + $4.95
+                    Shipping &amp; Handling</div>
+                    <p><input class="bigButton" onmouseover="this.style.borderColor='#009900'" onmouseout="this.style.borderColor='#ff0000'" type="button" name="sbmt" value="Enter Your Shipping Details" onclick="location.href='#compStart';return false;" /></p>
+                    <br />
+                  <p>
+                  	<a href="" onclick="location.href='#compStart';return false;"><img src="images/secure_ss.png"  alt="secure shipping" border="0" /></a>
+                  </p>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" colspan="2" style="padding:20px 10px;">
+  					<table width="90%" border="0" cellspacing="3" align="center">
+    <tr>
+                    <td><div align="center">
+                      <h2 style="line-height: 32px;"><font color="#CC0000" size="5">&quot;Consider
+                          Yourself <u>Lucky</u>!  This Is The <u>Best</u> and
+                        Most Complete Survival System On The Planet!&quot;</font></h2>
+                        
+                        <h2 style="text-align:right"><font size="3"><em>- Corporal Joshua Johnson<br /> 
+                        United States Marine Corps</em></font></h2>
+						<br />
+                      <p style="line-height: 30px;"><strong><font size="5">Here&#8217;s Just A Small Piece
+                            Of What's Included <br />
+                            In &#8220;The Men's Complete Survival System&#8221;:</font></strong></p>
+                    </div>
+                    <p>&nbsp;</p>
+                      <ul class="smallchecks">
+                        <li>Using my 8 years
+                            of experience and &#8220;know how&#8221; as
+                          a Marine, what I have developed is the ultimate system
+                          to Survival during a Government Collapse &amp; Financial
+                          Crisis as well as other Man Made &amp; Natural Disasters
+                          so you're prepared long BEFORE the &quot;stuff&quot; hits
+                          the fan!<br />
+                        </li>
+                        <li><strong> This
+                              system was created from a MAN&#8217;S perspective,
+                              specifically to help guys like you understand what
+                              is needed to take control, lead, and protect you
+                          and your family at all costs.<br />
+                        </strong></li>
+                        <li>You&#8217;ll get the facts you need on why the next
+                          disaster will be FAR worse than the Great Depression,
+                          and why it&#8217;s not a matter of if...but WHEN.<br />
+                        </li>
+                        <li><strong>Besides
+                              the obvious essentials such as First Aid kits, self
+                              defense weapons
+                          and canned goods&#8230;you'll get the nitty gritty
+                          and I'll walk you through step by step of all the vital gear
+                          you&#8217;ll need for survival, and how to make sure
+                          you choose the best of the best.</strong><br />
+                        </li>
+                        <li>You&#8217;ll
+                            have the ultimate bug out or bug in bag built before
+                            you know it.<br />
+                          </li>
+                        <li><strong>I&#8217;m
+                              going to provide the info you need to make sure
+                              your water
+                          supply never runs dry.</strong><br />
+                        </li>
+                        <li>You'll
+                              discover the right foods to keep in stock, and
+                              detail the steps
+                              you
+                          would take if you need to go hunting at any point.
+                              How to track animals, the correct weapons to use
+                              to subdue
+                          them, and more&#8230; <strong><br />
+                          </strong></li>
+                        <li><strong>With
+                              the most imminent cause for a national crisis at
+                              this point being a financial meltdown in the government,
+                              it&#8217;s only right I provide some financial
+                          secrets you should heed before and after the collapse.<br />
+                        </strong></li>
+                        <li>And so
+                              much MORE... You'll discover <u>everything</u>!<br />
+                        </li>
+                         <li>
+                         <a name="compStart"></a>
+                         <span class="highlight"><strong>UNADVERTISED
+                               BONUS -</strong></span> TODAY
+                           ONLY - When you grab your FREE copy of "The Men's Complete Survival System" today you also gain access to a full free 15-Day trial 
+                           to my private membership, "Survive and Thrive Club". The Club keeps you continually updated with information on valuable 
+                           skills, tricks, hacks, news, and early warnings of pending threats and spreading viruses. You'll also get detailed training 
+                           courses (not available anywhere else) that will give you step-by-step preparation for any crisis or disaster, 
+                           whether natural or man made.  You'll also get offers for free gear like tools, knives, flashlights, firestarters, water 
+                           purifiers and more.  Our Club is well known and companies like to get our members involved to test and spread the word 
+                           about their products.  After the free 15-Day trial period, you'll be billed the discounted rate of $14.95 month which will 
+                           be conveniently charged to the same credit card you're using today. Of course, you can cancel any time and never be billed 
+                           again by contacting our friendly support staff.
+                             <strong>This
+                          normally costs $<s>200</s>, but today it's yours <u>free</u>!</strong></li>
+                        </ul>
+                        
+                      <p>Your family and
+                          friends will thank you and rest easy when they know
+                          you're always prepared for any crisis. Whether
+                          it be a financial crisis or a natural disaster, the
+                          &quot;The Men's Complete Survival System&quot; will reveal how to not only survive
+                        the crisis...but also THRIVE.</p>
+                      </td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr>
+              <td colspan="2"><div id="of2col">
+              <a name="shipForm"></a>
+                  <div class="" align="center" style="line-height: 30px; font-weight:bold">
+                    
+                    <font color="#CC0000" size="5">Claim Your FREE Copy Of<br />&quot;The Men's
+                      Complete Survival System&quot; Right Now,<br /> You Only Pay  $4.95 Shipping &amp; Handling!</font>
+                  </div>
+                  <br />
+                  
+                  <!-- Begin Left Column -->
+                  <div id="leftcol">
+                    <div class="clear" id="orderfor">
+                    	<a name="orderform"></a>
+                        <form action="" method="post" name="paymentForm" onsubmit="return checkTerms();">
+                        
+                        <div class="formsection">
+                          <h3 class="fheader"><strong>Enter Your Information
+                              To Claim Your Free Copy:</strong></h3>
+                          <p><i>* Required Info</i></p>
+                        
+                          <p>
+                          	 <label class="moonray_fieldname mr_firstname">First Name<span class="moonray_required">*</span></label><br/>
+                             <input type="text" name="firstname" value="" class="rtext" size="30"/>
+                          </p>
+                          <p>
+                            <label class="moonray_fieldname mr_lastname">Last Name<span class="moonray_required">*</span></label><br/>
+                            <input type="text" name="lastname" value="" class="rtext" size="30"/>
+                          </p>
+                          <p>
+                            <label class="moonray_fieldname mr_email">Email<span class="moonray_required">*</span></label><br/>
+                            <input type="text" name="email" value="" class="rtext" size="30"/>
+                          </p>
+                          <p>
+                            <label class="moonray_fieldname mr_home_phone">Phone Number</label><span class="moonray_required">*</span>
+                            <br/><input type="text" name="home_phone" value="" class="rtext" size="30"/>
+                          </p>
+                        </div>
+                        
+                        <div class="formsection">
+                          <h3 class="fheader">Billing Address</h3>
+                          <div id="billing">
+                            <p>
+                              <label class="moonray_fieldname mr_billing_country">Country<span class="moonray_required">*</span></label><br/>
+                              <select name="billing_country" class="rtext" onchange="changeState(this.value)">
+                              	<option value="" selected="selected">Select Country</option> 
+							    
+							    <option value="US" >United States</option>
+							    
+							    <option value="AR" >Argentina</option>
+							    
+							    <option value="AU" >Australia</option>
+							    
+							    <option value="AT" >Austria</option>
+							    
+							    <option value="BH" >Bahrain</option>
+							    
+							    <option value="BY" >Belarus</option>
+							    
+							    <option value="BE" >Belgium</option>
+							    
+							    <option value="BR" >Brazil</option>
+							    
+							    <option value="BG" >Bulgaria</option>
+							    
+							    <option value="CL" >Chile</option>
+							    
+							    <option value="CN" >China</option>
+							    
+							    <option value="CR" >Costa Rica</option>
+							    
+							    <option value="HR" >Croatia</option>
+							    
+							    <option value="CY" >Cyprus</option>
+							    
+							    <option value="CZ" >Czech Republic</option>
+							    
+							    <option value="DK" >Denmark</option>
+							    
+							    <option value="EE" >Estonia</option>
+							    
+							    <option value="FI" >Finland</option>
+							    
+							    <option value="FR" >France</option>
+							    
+							    <option value="DE" >Germany</option>
+							    
+							    <option value="GI" >Gibraltar</option>
+							    
+							    <option value="GR" >Greece</option>
+							    
+							    <option value="GL" >Greenland</option>
+							    
+							    <option value="VA" >Holy See (Vatican City State)</option>
+							    
+							    <option value="HK" >Hong Kong</option>
+							    
+							    <option value="HU" >Hungary</option>
+							    
+							    <option value="IS" >Iceland</option>
+							    
+							    <option value="IE" >Ireland</option>
+							    
+							    <option value="IL" >Israel</option>
+							    
+							    <option value="IT" >Italy</option>
+							    
+							    <option value="JP" >Japan</option>
+							    
+							    <option value="LT" >Lithuania</option>
+							    
+							    <option value="LU" >Luxembourg</option>
+							    
+							    <option value="MT" >Malta</option>
+							    
+							    <option value="MX" >Mexico</option>
+							    
+							    <option value="ME" >Montenegro</option>
+							    
+							    <option value="NL" >Netherlands</option>
+							    
+							    <option value="NZ" >New Zealand</option>
+							    
+							    <option value="NO" >Norway</option>
+							    
+							    <option value="PL" >Poland</option>
+							    
+							    <option value="PT" >Portugal</option>
+							    
+							    <option value="QA" >Qatar</option>
+							    
+							    <option value="RE" >Reunion</option>
+							    
+							    <option value="RO" >Romania</option>
+							    
+							    <option value="SA" >Saudi Arabia</option>
+							    
+							    <option value="RS" >Serbia</option>
+							    
+							    <option value="SG" >Singapore</option>
+							    
+							    <option value="SK" >Slovakia</option>
+							    
+							    <option value="SI" >Slovenia</option>
+							    
+							    <option value="ES" >Spain</option>
+							    
+							    <option value="SE" >Sweden</option>
+							    
+							    <option value="CH" >Switzerland</option>
+							    
+							    <option value="TW" >Taiwan</option>
+							    
+							    <option value="TH" >Thailand</option>
+							    
+							    <option value="TR" >Turkey</option>
+							    
+							    <option value="AE" >United Arab Emirates</option>
+							    
+							    <option value="UK" >United Kingdom</option>
+							    
+                              </select>
+                            </p>
+                            <p>
+							  <label class="moonray_fieldname mr_billing_address1">Billing Address<span class="moonray_required">*</span></label><br/>
+                              <input type="text" name="billing_address1" value="" class="rtext" size="30"/>
+                              <br />
+                              <!--<label class="moonray_fieldname mr_billing_address2" for="billing_address2">Address 2</label>--><br/>
+                              <input type="text" name="billing_address2" value="" class="rtext" size="30"/>
+                            </p>
+                            <p>
+							  <label class="moonray_fieldname mr_billing_city">City<span class="moonray_required">*</span></label><br/>
+                              <input type="text" name="billing_city" value="" class="rtext" size="30"/>
+                            </p>
+                            <p>
+							  <label class="moonray_fieldname mr_billing_state">State<span class="moonray_required">*</span></label><br/>
+                              <select id="billing_state" name="billing_state" class="rtext">
+                              	  <option value="">
+	                              	Choose State
+	                              </option>
+	                            
+							    <option value="ZZ" >Outside US and Canada</option>
+							    
+							    <option value="AL" >Alabama</option>
+							    
+							    <option value="AK" >Alaska</option>
+							    
+							    <option value="AS" >American Samoa</option>
+							    
+							    <option value="AZ" >Arizona</option>
+							    
+							    <option value="AR" >Arkansas</option>
+							    
+							    <option value="CA" >California</option>
+							    
+							    <option value="CO" >Colorado</option>
+							    
+							    <option value="CT" >Connecticut</option>
+							    
+							    <option value="DE" >Delaware</option>
+							    
+							    <option value="DC" >District Of Columbia</option>
+							    
+							    <option value="FM" >Federated States Of Micronesia</option>
+							    
+							    <option value="FL" >Florida</option>
+							    
+							    <option value="GA" >Georgia</option>
+							    
+							    <option value="GU" >Guam GU</option>
+							    
+							    <option value="HI" >Hawaii</option>
+							    
+							    <option value="ID" >Idaho</option>
+							    
+							    <option value="IL" >Illinois</option>
+							    
+							    <option value="IN" >Indiana</option>
+							    
+							    <option value="IA" >Iowa</option>
+							    
+							    <option value="KS" >Kansas</option>
+							    
+							    <option value="KY" >Kentucky</option>
+							    
+							    <option value="LA" >Louisiana</option>
+							    
+							    <option value="ME" >Maine</option>
+							    
+							    <option value="MH" >Marshall Islands</option>
+							    
+							    <option value="MD" >Maryland</option>
+							    
+							    <option value="MA" >Massachusetts</option>
+							    
+							    <option value="MI" >Michigan</option>
+							    
+							    <option value="MN" >Minnesota</option>
+							    
+							    <option value="MS" >Mississippi</option>
+							    
+							    <option value="MO" >Missouri</option>
+							    
+							    <option value="MT" >Montana</option>
+							    
+							    <option value="NE" >Nebraska</option>
+							    
+							    <option value="NV" >Nevada</option>
+							    
+							    <option value="NH" >New Hampshire</option>
+							    
+							    <option value="NJ" >New Jersey</option>
+							    
+							    <option value="NM" >New Mexico</option>
+							    
+							    <option value="NY" >New York</option>
+							    
+							    <option value="NC" >North Carolina</option>
+							    
+							    <option value="ND" >North Dakota</option>
+							    
+							    <option value="MP" >Northern Mariana Islands</option>
+							    
+							    <option value="OH" >Ohio</option>
+							    
+							    <option value="OK" >Oklahoma</option>
+							    
+							    <option value="OR" >Oregon</option>
+							    
+							    <option value="PW" >Palau</option>
+							    
+							    <option value="PA" >Pennsylvania</option>
+							    
+							    <option value="PR" >Puerto Rico</option>
+							    
+							    <option value="RI" >Rhode Island</option>
+							    
+							    <option value="SC" >South Carolina</option>
+							    
+							    <option value="SD" >South Dakota</option>
+							    
+							    <option value="TN" >tennessee</option>
+							    
+							    <option value="TX" >Texas</option>
+							    
+							    <option value="UT" >Utah</option>
+							    
+							    <option value="VT" >Vermont</option>
+							    
+							    <option value="VI" >Virgin Islands</option>
+							    
+							    <option value="VA" >Virginia</option>
+							    
+							    <option value="WA" >Washington</option>
+							    
+							    <option value="WV" >West Virginia</option>
+							    
+							    <option value="WI" >Wisconsin</option>
+							    
+							    <option value="WY" >Wyoming</option>
+							    
+							    <option value="AE" >Armed Forces Africa \ Canada \ Europe \ Middle East</option>
+							    
+							    <option value="AA" >Armed Forces America (Except Canada)</option>
+							    
+							    <option value="AP" >Armed Forces Pacific</option>
+							    
+							    <option value="BC" >British Columbia</option>
+							    
+							    <option value="ON" >Ontario</option>
+							    
+							    <option value="NL" >Newfoundland and Labrador</option>
+							    
+							    <option value="NS" >Nova Scotia</option>
+							    
+							    <option value="PE" >Prince Edward Island</option>
+							    
+							    <option value="NB" >New Brunswick</option>
+							    
+							    <option value="QC" >Quebec</option>
+							    
+							    <option value="MB" >Manitoba</option>
+							    
+							    <option value="SK" >Saskatchewan</option>
+							    
+							    <option value="AB" >Alberta</option>
+							    
+							    <option value="NT" >Northwest Territories</option>
+							    
+							    <option value="NU" >Nunavut</option>
+							    
+							    <option value="YT" >Yukon Territory</option>
+							    
+
+                              </select>
+                            </p>
+                            <p>
+                              <label class="moonray_fieldname mr_billing_zip">Postal Code<span class="moonray_required">*</span></label><br/>
+                              <input type="text" name="billing_zip" value="" class="rtext" size="30"/>
+                            </p>
+                          </div>
+                        </div>
+                        
+                        
+                        <div class="formsection">
+                          <h3 class="fheader">Shipping Address</h3>
+                          <div id="shipping">
+                          <p>
+                            <input type="checkbox" class="checkbox differentShippingAddress" name="differentShippingAddress" id="differentShippingAddress" value="yes" onclick="showDiffShip();"  />
+                            <label for="differentShippingAddress" class="checkbox">My shipping address is different</label><br />
+                          </p>
+                          <fieldset id="diffship" style="display:none">
+                              <p>
+                                <label class="moonray_fieldname mr_shipping_address1">Shipping Address</label><br/>
+                                <input type="text" name="shipping_address1" value="" class="rtext" size="30"/>
+                               <br/><br />
+                                <input type="text" name="shipping_address2" value="" class="rtext" size="30"/>
+                              </p>
+                              <p>
+                                <label class="moonray_fieldname mr_shipping_city">City</label><br/>
+                                <input type="text" name="shipping_city" value="" class="rtext" size="30"/>
+                              </p>
+                              <p>
+                                <label class="moonray_fieldname mr_shipping_state">State</label><br/>
+                                <select name="shipping_state" class="rtext">
+                                <option value="" >
+	                              	Choose State
+	                              </option>
+	                              
+							    <option value="ZZ" >Outside US and Canada</option>
+							    
+							    <option value="AL" >Alabama</option>
+							    
+							    <option value="AK" >Alaska</option>
+							    
+							    <option value="AS" >American Samoa</option>
+							    
+							    <option value="AZ" >Arizona</option>
+							    
+							    <option value="AR" >Arkansas</option>
+							    
+							    <option value="CA" >California</option>
+							    
+							    <option value="CO" >Colorado</option>
+							    
+							    <option value="CT" >Connecticut</option>
+							    
+							    <option value="DE" >Delaware</option>
+							    
+							    <option value="DC" >District Of Columbia</option>
+							    
+							    <option value="FM" >Federated States Of Micronesia</option>
+							    
+							    <option value="FL" >Florida</option>
+							    
+							    <option value="GA" >Georgia</option>
+							    
+							    <option value="GU" >Guam GU</option>
+							    
+							    <option value="HI" >Hawaii</option>
+							    
+							    <option value="ID" >Idaho</option>
+							    
+							    <option value="IL" >Illinois</option>
+							    
+							    <option value="IN" >Indiana</option>
+							    
+							    <option value="IA" >Iowa</option>
+							    
+							    <option value="KS" >Kansas</option>
+							    
+							    <option value="KY" >Kentucky</option>
+							    
+							    <option value="LA" >Louisiana</option>
+							    
+							    <option value="ME" >Maine</option>
+							    
+							    <option value="MH" >Marshall Islands</option>
+							    
+							    <option value="MD" >Maryland</option>
+							    
+							    <option value="MA" >Massachusetts</option>
+							    
+							    <option value="MI" >Michigan</option>
+							    
+							    <option value="MN" >Minnesota</option>
+							    
+							    <option value="MS" >Mississippi</option>
+							    
+							    <option value="MO" >Missouri</option>
+							    
+							    <option value="MT" >Montana</option>
+							    
+							    <option value="NE" >Nebraska</option>
+							    
+							    <option value="NV" >Nevada</option>
+							    
+							    <option value="NH" >New Hampshire</option>
+							    
+							    <option value="NJ" >New Jersey</option>
+							    
+							    <option value="NM" >New Mexico</option>
+							    
+							    <option value="NY" >New York</option>
+							    
+							    <option value="NC" >North Carolina</option>
+							    
+							    <option value="ND" >North Dakota</option>
+							    
+							    <option value="MP" >Northern Mariana Islands</option>
+							    
+							    <option value="OH" >Ohio</option>
+							    
+							    <option value="OK" >Oklahoma</option>
+							    
+							    <option value="OR" >Oregon</option>
+							    
+							    <option value="PW" >Palau</option>
+							    
+							    <option value="PA" >Pennsylvania</option>
+							    
+							    <option value="PR" >Puerto Rico</option>
+							    
+							    <option value="RI" >Rhode Island</option>
+							    
+							    <option value="SC" >South Carolina</option>
+							    
+							    <option value="SD" >South Dakota</option>
+							    
+							    <option value="TN" >tennessee</option>
+							    
+							    <option value="TX" >Texas</option>
+							    
+							    <option value="UT" >Utah</option>
+							    
+							    <option value="VT" >Vermont</option>
+							    
+							    <option value="VI" >Virgin Islands</option>
+							    
+							    <option value="VA" >Virginia</option>
+							    
+							    <option value="WA" >Washington</option>
+							    
+							    <option value="WV" >West Virginia</option>
+							    
+							    <option value="WI" >Wisconsin</option>
+							    
+							    <option value="WY" >Wyoming</option>
+							    
+							    <option value="AE" >Armed Forces Africa \ Canada \ Europe \ Middle East</option>
+							    
+							    <option value="AA" >Armed Forces America (Except Canada)</option>
+							    
+							    <option value="AP" >Armed Forces Pacific</option>
+							    
+							    <option value="BC" >British Columbia</option>
+							    
+							    <option value="ON" >Ontario</option>
+							    
+							    <option value="NL" >Newfoundland and Labrador</option>
+							    
+							    <option value="NS" >Nova Scotia</option>
+							    
+							    <option value="PE" >Prince Edward Island</option>
+							    
+							    <option value="NB" >New Brunswick</option>
+							    
+							    <option value="QC" >Quebec</option>
+							    
+							    <option value="MB" >Manitoba</option>
+							    
+							    <option value="SK" >Saskatchewan</option>
+							    
+							    <option value="AB" >Alberta</option>
+							    
+							    <option value="NT" >Northwest Territories</option>
+							    
+							    <option value="NU" >Nunavut</option>
+							    
+							    <option value="YT" >Yukon Territory</option>
+							    
+
+                                </select>
+                              </p>
+                              <p>
+                                <label class="moonray_fieldname mr_shipping_zip">Postal Code</label><br/>
+                                <input type="text" name="shipping_zip" value="" class="rtext" size="30"/>
+                              </p>
+                              <p>
+                                <label class="moonray_fieldname">Country</label><br />
+                                <select name="shipping_country" class="rtext">
+                                <option value="" selected="selected">Select Country</option> 
+                                
+							    <option value="US" >United States</option>
+							    
+							    <option value="AR" >Argentina</option>
+							    
+							    <option value="AU" >Australia</option>
+							    
+							    <option value="AT" >Austria</option>
+							    
+							    <option value="BH" >Bahrain</option>
+							    
+							    <option value="BY" >Belarus</option>
+							    
+							    <option value="BE" >Belgium</option>
+							    
+							    <option value="BR" >Brazil</option>
+							    
+							    <option value="BG" >Bulgaria</option>
+							    
+							    <option value="CA" >Canada</option>
+							    
+							    <option value="CL" >Chile</option>
+							    
+							    <option value="CN" >China</option>
+							    
+							    <option value="CR" >Costa Rica</option>
+							    
+							    <option value="HR" >Croatia</option>
+							    
+							    <option value="CY" >Cyprus</option>
+							    
+							    <option value="CZ" >Czech Republic</option>
+							    
+							    <option value="DK" >Denmark</option>
+							    
+							    <option value="EE" >Estonia</option>
+							    
+							    <option value="FI" >Finland</option>
+							    
+							    <option value="FR" >France</option>
+							    
+							    <option value="DE" >Germany</option>
+							    
+							    <option value="GI" >Gibraltar</option>
+							    
+							    <option value="GR" >Greece</option>
+							    
+							    <option value="GL" >Greenland</option>
+							    
+							    <option value="VA" >Holy See (Vatican City State)</option>
+							    
+							    <option value="HK" >Hong Kong</option>
+							    
+							    <option value="HU" >Hungary</option>
+							    
+							    <option value="IS" >Iceland</option>
+							    
+							    <option value="IE" >Ireland</option>
+							    
+							    <option value="IL" >Israel</option>
+							    
+							    <option value="IT" >Italy</option>
+							    
+							    <option value="JP" >Japan</option>
+							    
+							    <option value="LT" >Lithuania</option>
+							    
+							    <option value="LU" >Luxembourg</option>
+							    
+							    <option value="MT" >Malta</option>
+							    
+							    <option value="MX" >Mexico</option>
+							    
+							    <option value="ME" >Montenegro</option>
+							    
+							    <option value="NL" >Netherlands</option>
+							    
+							    <option value="NZ" >New Zealand</option>
+							    
+							    <option value="NO" >Norway</option>
+							    
+							    <option value="PL" >Poland</option>
+							    
+							    <option value="PT" >Portugal</option>
+							    
+							    <option value="QA" >Qatar</option>
+							    
+							    <option value="RE" >Reunion</option>
+							    
+							    <option value="RO" >Romania</option>
+							    
+							    <option value="SA" >Saudi Arabia</option>
+							    
+							    <option value="RS" >Serbia</option>
+							    
+							    <option value="SG" >Singapore</option>
+							    
+							    <option value="SK" >Slovakia</option>
+							    
+							    <option value="SI" >Slovenia</option>
+							    
+							    <option value="ES" >Spain</option>
+							    
+							    <option value="SE" >Sweden</option>
+							    
+							    <option value="CH" >Switzerland</option>
+							    
+							    <option value="TW" >Taiwan</option>
+							    
+							    <option value="TH" >Thailand</option>
+							    
+							    <option value="TR" >Turkey</option>
+							    
+							    <option value="AE" >United Arab Emirates</option>
+							    
+							    <option value="UK" >United Kingdom</option>
+							    
+                                </select>
+                              </p>
+                          </fieldset>
+                          </div>
+                        </div>
+                        
+                        <div class="formsection">
+                          <div id="ccinfo">
+                            <h3 class="fheader"><strong>Credit Card Information</strong></h3>
+                            <div class="credit_cards moonray-form-cc-logo-new-markup" align="center"></div>
+                          	<p>
+                              <label class="moonray_fieldname mr_payment_number">Card Number<span class="moonray_required">*</span></label><br />
+                              <input type="text" name="card_number" value="" class="rtext" size="30"/>
+                            </p>
+                            <p>
+                              <label class="moonray_fieldname mr_payment_expire">Expiration Date<span class="moonray_required">*</span></label><br />
+                              <select name="card_expire_month" class="rtext" style="width: 120px;">
+                              <option value="01">01 - January</option><option value="02">02 - February</option><option value="03">03 - March</option><option value="04">04 - April</option><option value="05">05 - May</option>
+                              <option value="06">06 - June</option><option value="07">07 - July</option><option value="08">08 - August</option><option value="09">09 - September</option><option value="10">10 - October</option>
+                              <option value="11">11 - November</option><option value="12">12 - December</option>
+                              </select>&nbsp;
+                              <select name="card_expire_year" class="rtext" style="width: 80px;">
+                              <option value="15">2015</option><option value="16">2016</option><option value="17">2017</option><option value="18">2018</option>
+                              <option value="19">2019</option><option value="20">2020</option><option value="21">2021</option><option value="22">2022</option><option value="23">2023</option>
+                              <option value="24">2024</option><option value="25">2025</option><option value="26">2026</option><option value="27">2027</option><option value="28">2028</option>
+                              </select>
+                            </p>
+                            <p>
+                              <label class="moonray_fieldname mr_payment_code">CVC Number<span class="moonray_required">*</span></label><br />
+                              <input type="text" name="card_code" value="" class="rtext" size="10"/>
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div class="formsection">
+                          <h3  class="fheader"><strong>Order Summary</strong></h3>
+                          <table class="moonray_order_form_totals">
+                          <tbody>
+                            <tr class="">
+                            <td colspan="3" class="label" style="font-weight:bold;">(1)
+                              The Men's Complete Survival System - </td>
+                            <td width="69" class="" style="font-weight:bold">FREE</td></tr>
+                            <tr class=""><td colspan="3" class="label">Shipping &amp; Handling</td><td>$4.95</td></tr>
+                            <tr class="priceDisplay"><td colspan="3" class="label">Tax</td><td>$<span class="tax_sum">0</span></td></tr>
+                            <tr class="priceDisplay" ><td colspan="4"><hr /></td></tr>
+                            <tr class="priceDisplay"><td colspan="3" class="label"><b>Order Total</b></td><td class="total"><span class="totalDueNow"><b>$4.95</b></span></td></tr>
+                            <!--
+                            <tr>
+                            	<td colspan="4">&nbsp;</td>
+                            </tr>
+                            -->
+                            <!--
+                            <tr class="priceDisplay">
+                              
+                              <td width="34" height="33" class="label"><img src="/images/right-arrow-s1.gif" border="0" alt="rarrow" /></td>
+                              <td class="label"><input type="checkbox" name="agree" value="yes" id="agree" />I agree to the payment terms</td>
+                              <td class="label" colspan="4" align="center"></td>
+                            </tr>
+                            -->
+                            <!--
+                            <tr>
+                            	<td colspan="3">
+                            		&nbsp;
+                            	</td>
+                            </tr>
+                            -->
+                          </tbody>
+                          </table>
+                          
+                          
+                          <div align="center">
+                          <p>
+                            <input type="hidden" name="sqfrom" value="" />
+                            <input type="hidden" name="doOrder" value="yes" />
+                          	<input class="bigButton" onmouseover="this.style.borderColor='#009900'" onmouseout="this.style.borderColor='#ff0000'" type="submit" name="sbmt" value="Ship My Free Copy" />
+                          </p>
+                          </div>
+                        </div>
+                      </form>
+                      
+                    </div>
+                  </div>
+                  <!-- End Left Column -->
+                  
+                  
+                  <div id="rightcol">
+                    <p align="center"><img src="images/secure_ss.png" alt="Secure Form"  /></p>
+                    <blockquote>
+                        <div style="float: left; padding-right: 10px; valign: top;">
+                            <img src="images/1_mod.jpg" alt="Testimonial" />
+                        </div>
+                        <div style="valign: top;">"I must say there
+                            was a gaping hole in my survival resume, which now feels
+                            whole again after getting this system..."
+                         </div>
+                         <p></p>
+                    </blockquote>
+                    <blockquote>
+                      <div style="float: left; padding-right: 10px; valign: top;">
+                            <img src="images/2_mod.jpg" alt="Testimonial" />
+                      </div>
+                      <div>"I consider myself
+                        darn near close to a survival expert myself, but was
+                        pleasantly a little shocked after getting your system
+                        and <span style="text-decoration:underline">not</span> feeling the urge to ask for a refund. (which
+                        I just KNEW I would do)"
+                      </div>
+</blockquote>
+                    <blockquote>
+						<div style="float: left; padding-right: 10px; valign: top;">
+                            <img src="images/3_mod.jpg" alt="Testimonial" />
+                      </div>
+                      <div>"I thought the
+                        bug out bag I had been building for the last few years
+                        was complete, until I checked out page 17 that gives
+                        the FULL rundown of what I really need..."</div>
+                    </blockquote>
+                    <blockquote>
+                    <div style="float: left; padding-right: 10px; valign: top;">
+                            <img src="images/4_mod.jpg" alt="Testimonial" />
+                      </div>
+                      <div>"The fact that you
+                        are actually a Marine is a huge deal to me. The previous
+                        guides I purchased just didn't give me that same sense
+                        of authenticity and ability to virtually place me in
+                        the middle of the moment as your system was able to."</div>
+                    </blockquote>
+                    <blockquote>
+                     <div style="float: left; padding-right: 10px; valign: top;">
+                            <img src="images/5_mod.jpg" alt="Testimonial" />
+                      </div>
+                      <div>"This is literally
+                        the coolest survival system I've ever owned. Much respect!"</div>
+                      <p class="name">&nbsp;</p>
+                      <p class="name">&nbsp;</p>
+                      
+                    </blockquote>
+                    <!--
+                    <div align="center">
+                    	<img src="images/hislogosmall.jpg" class="" />
+                    	<br /><br />
+                    	<img src="images/NRA_Business_Alliance_Logo.gif" class="" />
+                    </div>
+                    -->
+                  </div>
+                </div>
+                </td>
+            </tr>
+            <tr>
+              <td colspan="2" ><div style="padding:0 10px 0;" >
+              <strong>Important Information</strong>: The "Men's Complete Survival System" is free and will be physically delivered to you on a 
+              digitally secure disc in pdf format anywhere in the world. When you claim your free copy of the "The Men's Complete Survival System" 
+              today you will be charged $4.95 shipping &amp; handling and be enrolled in a 15-day free trial of the "Survive and Thrive" club for 50% of 
+              valued price where every month you remain a paying member you'll receive a new survival training system that will reveal every survival 
+              tactic known to man. If your trial is not canceled during the 15-day trial period on the 15th day after the purchase you will be charged 
+              the 50% discounted rate of $14.95 a month for the lifetime of your membership to the "SurviveThrive.club" membership. Your account will show 
+              a charge by "SurviveThrive.club". If you do not want to maintain your membership simply email or call our friendly support staff and let 
+              us know. We offer a 60 day 100% money back guarantee.
+               <br /><br />
+			<br /><center> Support contact info below.<br />
+      		Email Support: Support@SurviveThrive.club<br />
+      		Phone Support: 866-916-5837
+      		</center>
+			</div>
+                
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div id="footer" style="color:#FFF">
+        &copy; 2015 SurviveThrive.club
+        <br />
+        1568 River Drive
+        <br />
+        Traverse City, MI. 49696
+        <br />
+        USA
+        <br /><br />
+        <a href="/support.html" target="_blank">Contact Us</a> | 
+        <a href="/privacy.html" target="_blank">Privacy Policy</a> | 
+        <a href="/terms.html" target="_blank">Terms of Service</a>
+        <br /><br />
+  </div>
+</div>
+</body>
+</html>
+";i:2;s:4:"8593";}

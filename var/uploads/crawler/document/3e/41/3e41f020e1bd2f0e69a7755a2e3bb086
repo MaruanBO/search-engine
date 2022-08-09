@@ -1,0 +1,852 @@
+a:3:{i:0;s:20:"http://moneypak.com/";i:1;s:38540:"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	Green Dot - MoneyPak
+</title>
+<script type="text/javascript">
+    function RedirectFromJavascript(urlCode)
+    {        
+          window.location = moneyPakURLs[urlCode];                   
+    }
+    var moneyPakURLs = 
+      {
+            ReloadHowItWorks: '/ReloadHowItWorks.aspx',
+            StoreLocator: '/StoreLocator.aspx',
+            RetailerDisplays: '/RetailerDisplays.aspx',
+            WhoAccepts: '/WhoAccepts.aspx',
+            PaypalIndex: '/Paypal/Index.aspx',
+            BalanceInquiry: '/BalanceInquiry.aspx',
+            RefundRequest: '/RefundRequest.aspx',
+            RefundStatusInquiry: '/RefundStatusInquiry.aspx',
+            PaymentHowItWorks: '/Partner/PaymentHowItWorks.aspx',
+            AboutGreenDot: '/AboutGreenDot.aspx',
+            FAQ: '/FAQ.aspx',
+            FAQReload: '/FAQReload.aspx',
+            FAQPayment: '/FAQPayment.aspx',
+            FAQCashDeposit: '/FAQCashDeposit.aspx',
+            ProtectYourMoney: '/ProtectYourMoney.aspx'                
+      };
+   
+</script><link href="/Content/css/MoneyPak.reset.css" id="ResetStyle" rel="stylesheet" type="text/css"></link>
+<link type="text/css" href="/Content/jQueryThemes/base/ui.all.css" rel="stylesheet" />
+
+
+<link href="/Content/css/MoneyPak.consolidated.css" id="LandingStyle" rel="stylesheet" type="text/css"></link> 
+
+
+
+
+<script src="/Content/js/jquery.js" type="text/javascript"></script>
+<script src="/Content/js/jquery.validate.js" type="text/javascript"></script>
+<script src="/Content/js/jquery.meio.mask.min.js" type="text/javascript"></script>
+<script src="/Content/js/jquery-ui.js" type="text/javascript"></script>
+<script src="/Content/js/menu.js" type="text/javascript"></script>
+<script src="/Content/js/tips.js" type="text/javascript"></script>
+
+<script src="/Content/js/FaqQAs.js" type="text/javascript"></script>
+<script src="/Content/js/Help.js" type="text/javascript"></script>
+<script src="/Content/js/swfobject.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // HOME - CREDIT CARD NUMBER
+        $("#formReload").validate({
+            rules: {
+                AccountNum: {
+                    required: true,
+                    minlength: function(element) {
+                        if (isAmEx($("#AccountNum").val())) return 17;
+                        return 19;
+                    }
+                }
+            },
+            messages: {
+                AccountNum: {
+                    required: "An account number is required. Please enter a number and try again.",
+                    minlength: "Invalid account number. Please check the number and try again."
+                }
+            },
+			errorPlacement: function(error, element) {
+                $(".box_calloutbot #errorcardnumber").html(error);
+            }
+			
+        });
+
+        changeSection("home");
+    });
+
+    // HOME - CREDIT CARD NUMBER VALIDATION
+    function checkReloadForm() {
+        if ($("#formReload").validate().form()) {
+            $("#formReload").submit();
+        } else {
+            $("#formReload").find("#input1").eq(0).focus();
+        }
+    }
+
+    // MASKED INPUT
+    jQuery(function($) {
+        setCreditCardMask($("#AccountNum"));
+    });
+
+    // DEMO DIALOG
+    $(function() {
+        $('#viewDemo').click(function () {
+            swfobject.embedSWF('/Content/flash/MP_MainTutorial.swf', "video_content_inner", "650", "400", "9.0.0", "", "", params);
+            $("#dialog").dialog("destroy");
+            $("#dialog").dialog({
+                open: function () { $("#dialog").html($("#video_content_outer").html()); },
+                bgiframe: true,
+                width: 666,
+                height: 440,
+                modal: true,
+                close: function () { $("#dialog").dialog("destroy"); $("#dialog").html(""); }
+            });
+        });
+
+
+        // for Add Cash popup start  
+        if ($(".field-validation-error").length > 0) {
+            $(".addCashPopup_content").hide();
+            $(".buttonClose").hide();
+        }
+        else {
+            $(".addCashPopup_content").slideDown(4000);
+        }
+
+        $("#button-container").click(function () {
+            $(".addCashPopup_content").slideToggle(function () {
+                if ($(".addCashPopup_content").is(":visible")) {
+                    $(".buttonClose").show();
+                }
+                else {
+                    $(".buttonClose").hide();
+                }
+            });
+        });
+        // for Add Cash popup end
+    
+        $("#button-close-takeover").click(function () {
+        $(".buttonClose").hide();
+        $(".addCashPopup_content").hide();
+        
+        });
+
+    });
+
+</script>
+
+</head>
+<body>
+    <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PT5KGQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({ 'gtm.start':
+new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+'//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PT5KGQ');</script>
+<!-- End Google Tag Manager -->
+    
+
+
+<script type="text/javascript">
+    /* <![CDATA[ */
+    $(document).ready(function() {
+	
+		$("#formZip #SearchZip").setMask("99999");
+	
+        // HEADER - ZIP CODE
+        $("#tip_ZipError").hide();
+        $("#formZip #SearchZip").attr("value", "Enter Zip Code");
+
+        $("#formZip #SearchZip").bind("focus", function() {
+            if ($(this).attr("value") == "Enter Zip Code") {
+                $(this).attr("value", "");
+            }
+        });
+
+        $("#formZip #SearchZip").bind("blur", function() {
+            if ($(this).attr("value") == "") {
+                $(this).attr("value", "Enter Zip Code");
+            }
+        });
+
+        /*$("#formZip").validate({
+            //errorContainer: $("#tip_ZipError"),
+            rules: {
+            SearchZip: {
+                    required: true,
+                    rangelength: [5, 9],
+                    digits: true
+                }
+            },
+            messages: {
+            SearchZip: {
+                    required: "",
+                    rangelength: "",
+                    maxlength: "",
+                    digits: ""
+                }
+            },
+            invalidHandler: function(form, validator) {
+                if ($.browser.msie) {
+                    $("#tip_ZipError").show();
+                } else {
+                    $("#tip_ZipError").fadeIn("def");
+                }
+                var errorTime = window.setTimeout(function() {
+                    if ($.browser.msie) {
+                        $("#tip_ZipError").hide();
+                    } else {
+                        $("#tip_ZipError").fadeOut("def");
+                    }
+                    errorTime = null;
+                }, 2000);
+            }
+        });*/
+    });
+
+
+    // MAIN FUNCTIONS
+    var currentSection = "";
+
+    function changeSection(section) {
+        if (String(section) == "") section = "home";
+
+        if (section == currentSection) return;
+
+        selectMenuSection(section);
+
+        var currentDiv = $("#content_" + currentSection);
+        var nextDiv = $("#content_" + section);
+
+        if (currentDiv && nextDiv) {
+            currentDiv.hide();
+            nextDiv.show();
+
+            currentSection = section;
+        }
+    }
+    /* ]]> */
+</script>
+<div id="cntr_header">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td id="cntr_header_left">
+				<img src="/Content/Images/spacer.gif" alt="" />
+			</td>
+			<td id="cntr_header_center">
+				<div id="box_header">
+					<div id="box_header_top">
+						<div>
+							<a href="/"><img src="/Content/Images/spacer.gif" alt="" name="box_header_logo" id="box_header_logo" /></a>
+						</div>
+						<!-- SEARCH -->
+						<div id="box_header_search">
+                        <form action="/StoreLocator.aspx" id="formZip" method="post" name="formZip"><input class="text" id="SearchZip" maxlength="5" name="SearchZip" type="text" value="" />
+                            <input type="submit" name="sub" id="sub" value="" class="sub" />
+                        </form>
+                        <div id="tip_ZipError">
+	                        <p>
+	                        Please enter a 5 digit zip code</p>
+                        </div>
+						</div>
+						
+
+	<div id="cntr_menu_header">
+		<ul id="menu">
+			<li><a rel="home" class="option01" href="/Home.aspx"><span class="menuText">Home</span></a></li>
+    			<li><a rel="about" class="option02" href="/AboutMoneyPak.aspx"><span class="menuText">About MoneyPak</span></a>
+				<ul id="ulSubMenuAbout">
+					<li>
+						<div id="divSubMenuAbout">
+                        <ul>
+                            
+                            <li><a href="/ReloadHowItWorks.aspx ">Reload a Prepaid Card</a></li>
+                            <li><a href="/PayPal/Index.aspx ">Add Money to PayPal</a></li>
+                            <li><a href="/Partner/PaymentHowItWorks.aspx">Make a Payment</a></li>
+                            <li><a href="/Partner/Payment.aspx/Serve">Add Funds to Serve</a></li>
+                            <li><a href="/Partner/CashDepositHowItWorks.aspx">Cash Deposit</a></li>
+                        </ul>
+                    </div>
+					</li>
+				</ul>
+			</li>
+			<li><a rel="use" class="option03" href="/UseMoneyPak.aspx"><span class="menuText">Use a MoneyPak</span></a>
+				<ul id="ulSubMenuUse">
+					<li>
+						<div id="divSubMenuUse">
+                        <ul>
+                            
+                            <li><a href="/Partner/Reload.aspx">Reload a Prepaid Card</a></li>
+                            <li><a href="/PayPal/AddFundsStart.aspx">Add Money to PayPal</a></li>
+                            <li><a href="/Partner/MakeAPayment.aspx">Make a Payment</a></li>
+                            <li><a href="/Partner/Reload.aspx/Serve">Add Funds to Serve</a></li>
+                            <li><a href="/Partner/MakeACashDeposit.aspx">Cash Deposit</a></li>
+                        </ul>
+                        <div class="breakonly">
+                        </div>
+                    </div>
+					</li>
+				</ul> 
+			</li>
+			<li><a rel="paypal" class="option04" href="/PayPal/Index.aspx"><span class="menuText">PayPal</span></a>
+				<ul id="ulSubMenuPayPal">
+					<li>
+						<div id="divSubMenuPayPal">
+							<ul>
+								
+								<li><a href="/PayPal/Index.aspx">How it Works</a></li>
+								<li><a href="/PayPal/AddFundsStart.aspx">Add Money Now</a></li>
+								<li><a href="/PayPalFAQ.aspx">FAQ</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</li>
+			
+			<li><a rel="faqs" class="option05" href="/FAQ.aspx"><span class="menuText">FAQs</span></a>
+				<ul id="ulSubMenuFaqs">
+					<li>
+						<div id="divSubMenuFaqs">
+                        <ul>
+                                                  
+                            <li><a href="/AboutMoneyPak.aspx?Tab=1">What is a MoneyPak?</a></li>
+                            <li><a href="/AboutMoneyPak.aspx?Tab=1">How Does a MoneyPak Work?</a></li>
+                            <li><a href="/AboutMoneyPak.aspx?Tab=5">How Much Does It Cost?</a></li>
+                            <li><a href="/WhoAccepts.aspx">Where can I use a MoneyPak?</a></li>
+                            <li><a href="/StoreLocator.aspx">Where can I buy a MoneyPak?</a></li>
+                            <li><a href="/FAQ.aspx">More FAQs</a></li>
+                            <li><a href="/Help.aspx">MoneyPak Help</a></li>
+                        </ul>
+                    </div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<div class="breakonly"><!-- empty --></div>
+	</div>
+					<!-- END SEARCH -->
+					</div>
+				</div>
+			</td>
+			<td id="cntr_header_right">
+				<img src="/Content/Images/spacer.gif" alt="" />
+			</td>
+		</tr>
+	</table>
+</div>
+ 
+
+<div id="content_home" class="divContainer">
+    <!-- for Add Cash popup start  -->
+     <div id="addCashPopup-div">          
+        <div id="button-container"><div class="buttonClose"></div></div>
+        <div class="addCashPopup_content">
+             
+            <div id="button-close-takeover"><a class="slidingDoorHyperLink"><span>Close</span></a></div>
+               
+                <div class="addcash-top-content"> 
+                    <div style="width: 341px; float: left; margin-left: 30px;"><iframe width="310" height="174" src="//www.youtube.com/embed/7ETBgwrk_o8?html5=1&rel=0&controls=1&showinfo=0" frameborder="0" allowfullscreen></iframe></div> 
+                    <div class="rapidReloadDiv">
+                        <div><img alt="AtTheRegister" border="0" class="reload-register-logo-takeover" id="attheregLog" name="attheregLog" src="/Content/Images/logo_atthereg-sunset.png"></img></div>
+                        <div>
+                            <div style="float:left;">
+                                <div><span class="text_keydescription">Reload your prepaid card faster and easier than ever.</span></div>
+                                <div><span class="text_keydescription">No more scratch off numbers - simply swipe your card at the register.</span></div>
+                            </div>
+                            <div>
+                                <a href="https://www.attheregister.com/cashreload" target="_blank" class="slidingDoorHyperLink btnLearnMore" style="margin-top:7px;"><span>Learn more</span></a>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                <div class="addcash-MainDivider-Plus">
+                    <div class="dash1"></div>
+                    <div class="plus"><span>PLUS</span></div>
+                    <div class="dash1"></div>
+                </div>
+                <div>
+                </div>
+                <div style="clear:both;"></div>
+                <div class="addcash_plus">
+                    <table class="addcash_plus_Container">
+                        <tr>
+                            <td class="leftCell">
+                                <table>
+                                    <tr class="row">
+                                        <td class="cell" style="width: 92px;">
+                                            <img src="/Content/Images/icon_dollarsmile.png" alt=""/>
+                                        </td>
+                                        <td class="cell" style="width: 130px; padding-left: 10px;">
+                                            <span class="text_keydescription">Send money to<br />friends from your<br />prepaid card.</span>
+                                        </td>
+                                        <td class="cell">
+                                            <a href="/send" class="slidingDoorHyperLink btnLearnMore"><span>Learn more</span></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr class="row">
+                                        <td class="cell" style="width: 244px;">
+                                            <img src="/Content/Images/icon_paypalcoming.png" alt="" />
+                                        </td>
+                                        <td class="cell" style="width: 160px; padding-left: 10px;">
+                                             <span class="text_keydescription">Add cash to your<br />PayPal account at<br />your favorite retailer.</span>
+                                        </td>
+                                        <td class="cell">
+                                            <a href="/PayPal/Index.aspx" class="slidingDoorHyperLink btnLearnMore"><span>Learn more</span></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+    </div> 
+    <!-- for Add Cash popup start  -->
+    <!-- MODULE 1 -->
+	<div id="box_LeftTopHome">
+	    <div class="rapidReloadDiv">
+            <a class="rapidReloadLink" href="https://www.attheregister.com/cashreload" target="_blank"><span></span></a>
+	    </div>
+	</div>
+	<!-- END MODULE 1 -->
+	<!-- MODULE 2 -->
+	<script type="text/javascript">
+	    var flashvars = {
+	        path_to_resource: '/Content/flash/ads.html?1'
+	    };
+	    var params = { wmode: "transparent", quality: "high" };
+	    swfobject.embedSWF('/Content/flash/adrotater.swf', "box_flashHome_inner", "331", "194", "9.0.0", "", flashvars, params);
+	</script>
+	<div id="box_flashHome">
+        <div id="box_flashHome_inner">
+        <p>
+            <a href="http://www.adobe.com/go/getflashplayer">
+                <img src="https://www.adobe.com/images/shared/download_buttons/get_flash_player.gif"
+            alt="Get Adobe Flash player" />
+            </a>
+        </p>
+	</div>
+	</div>
+	<!-- END MODULE 2 -->
+	
+	
+
+	<!-- MODULE 3 -->
+	<div id="indexz" class="box_calloutbot">
+	<form action="/Payment/CardReloadStart.aspx" id="formReload" method="post">
+		<h1><span>Reload</span> a Prepaid Card</h1>
+		<p style="margin-bottom:9px;"> <!-- allow more room between How It Works and the next form -->
+		    Enter your prepaid card number to get started now.
+			<a href="/home/ReloadHowItWorks.aspx">How it works</a></p> <br/><!-- allow more room between How It Works and the next form -->
+		<div class="box_calloutbot_bottom">
+        <input id="CardNumOrigin" name="CardNumOrigin" type="hidden" value="Home" /> 
+         
+         <input autocomplete="off" id="AccountNum" maxlength="19" name="AccountNum" size="23"></input>
+         <a tip="{'div':'#tip_homeCalloutLeft','top':29,'left':28}" href="javascript:void(0);" class="tip1"><img alt="Help" border="0" class="iconquestion" id="imgTipQuestion" name="imgTipQuestion" src="/Content/Images/spacer.gif"></img></a>
+         <br />
+         <div style="margin-top:5px;"> 
+            <div style="float:left;margin-top:5px;">
+         <button class="submitBtn" id="btnSubmit" onclick="" type="submit"><span>Reload</span></button>
+            </div>
+            <div id="errorcardnumber" class="text_error" style="float:left;margin-left:5px;width:190px;">
+                
+            </div> 
+         </div>     
+
+        </div>
+		<!-- Tip calloutLeft -->
+		<div id="tip_homeCalloutLeft" class="tip">
+			<p>
+			Enter the account number on
+			<br /> the front of your card.</p>
+		</div>
+	    <!-- END Tip calloutLeft -->
+    </form>	
+	</div>
+	<!-- END MODULE 3 -->
+	<!-- MODULE 4 -->
+	<div class="box_calloutbot marginleft">
+
+		<h1 class="blue">Add Money to <span>PayPal</span></h1>      
+		<p>Use your MoneyPak to add money to your PayPal account for instant online spending power.
+		<a href="/PayPal/Index.aspx">How it works</a></p><p>
+		<img alt="Ebay and Paypal" border="0" id="ebay_paypal_logo" name="ebay_paypal_logo" src="/Content/Images/paypal_ebay_logos.png"></img>
+		</p>
+		<div class="box_calloutbot_bottom">
+            <a href="/PayPal/AddFundsStart.aspx" class="slidingDoorHyperLink"><span>Add Money to PayPal</span></a> 			
+		</div>
+	</div>
+	<!-- END MODULE 4 -->
+	<!-- MODULE 5 -->
+	<div class="box_calloutbot marginleft">
+		<h1>Make a <span>Same-Day</span> Payment</h1>
+		<p>Use your MoneyPak to make same-day payments for satellite TV, cell phones, credit cards and more.
+		<a href="/Partner/PaymentHowItWorks.aspx">How it works</a></p>
+		<div class="box_calloutbot_bottom form2"  style="margin-top:2.8em;">	
+        
+
+<script type="text/javascript">
+    function SelectListGoToPartner(url) {        
+        window.location = url.value;        
+    }    
+</script>
+
+<div>
+    <select id="PartnerId" name="PartnerId" onchange="SelectListGoToPartner(this);"><option value="">Who do you want to pay?</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">Affirm Credit Card</option>
+<option value="https://www.moneypak.com/Partner/PhoneService.aspx">Affordable Phone Services</option>
+<option value="https://www.moneypak.com/Partner/PhoneService.aspx">All American Home Phone</option>
+<option value="https://www.moneypak.com/Partner/CashDeposit.aspx/BetAmerica">Bet America</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">Blaze MasterCard Credit Card</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">Blaze Visa</option>
+<option value="https://www.moneypak.com/ReloadHowItWorks.aspx">Boom Prepaid Visa&#174;</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">Bryant State MasterCard</option>
+<option value="https://www.moneypak.com/ReloadHowItWorks.aspx">CBW Bank Prepaid MasterCard&#174;</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">CorTrust Bank Credit Card</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">Credit Cards</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">First National Credit Card</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">First Premier Bank Credit Card</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">First Savings Credit Card</option>
+<option value="https://www.moneypak.com/Partner/CashDeposit.aspx/ADW">Horse Racing ADW</option>
+<option value="https://www.moneypak.com/Partner/Payment.aspx/Infomercial">Infomercials</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">Legacy Visa Credit Card</option>
+<option value="https://www.moneypak.com/Partner/MetroPCS.aspx">MetroPCS</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">Mid America Bank &amp; Trust Credit Card</option>
+<option value="https://www.moneypak.com/Partner/CashDeposit.aspx/NetBank">NetBank</option>
+<option value="https://www.moneypak.com/PayPal/Index.aspx">Online Purchase</option>
+<option value="https://www.moneypak.com/Partner/PhoneService.aspx">Phone Service</option>
+<option value="https://www.moneypak.com/ReloadHowItWorks.aspx">Prepaid Cards</option>
+<option value="https://www.moneypak.com/Partner/CashDeposit.aspx/Rixty">Rixty</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">Show MasterCard Credit Card</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">The Credit Store Credit Card</option>
+<option value="https://www.moneypak.com/Partner/CCPayment.aspx">Total Card Credit Card</option>
+<option value="https://www.moneypak.com/Partner/CashDeposit.aspx/TVG">TVG</option>
+<option value="https://www.moneypak.com/Partner/CashDeposit.aspx/TwinSpires">TwinSpires</option>
+<option value="https://www.moneypak.com/Partner/CashDeposit.aspx/Xpressbet">Xpressbet</option>
+</select>
+</div>
+
+        </div>
+	</div>
+	<!-- END MODULE 5 -->
+	
+	<div id="fraud_alert" class="box_calloutwide3"> 
+		<img alt="Fraud Alert" border="0" id="fraud_alert_sign" name="fraud_alert_sign" src="/Content/Images/fraud_alert_sign.jpg"></img>
+		<h1 class="red paddingtop8">How to Stop A Scam:</h1>
+		<div class="calloutwide_full">
+			<p>Use your MoneyPak number only with businesses on our <a href="/WhoAccepts.aspx">approved list</a>.  If anyone else asks for your MoneyPak number or information from your receipt, it’s probably a scam.  Don’t give your MoneyPak number to pay for something you buy through the classifieds or to collect a prize or sweepstakes.  Do not give away your receipt information to another party either.  If you give your MoneyPak number or information about the purchase transaction to a criminal, Green Dot is not responsible for paying you back.  Your MoneyPak is not a bank account.  The funds are not insured against loss.
+            </p>
+            <p><span style="color: #ff0000;">WARNING: </span><div class="warning_language">MoneyPak offers only ONE Toll Free Number to apply your money.  It is listed on the back of your MoneyPak. 
+             <br />All other phone numbers are not ours and are fraudulent.</div>
+            </p>
+<!--BOTTOM OF CALLOUT BOX-->
+    <div class="box_calloutbot_bottom box_callout_bottom-full">
+            <p><a class="slidingDoorHyperLink" href="/Help.aspx"><span>MoneyPak Help</span></a>    
+            
+            <a class="slidingDoorHyperLink" style="margin-left: 10px;" href="/ProtectYourMoney.aspx"><span>Tips to Protect Yourself</span></a>
+             <a class="slidingDoorHyperLink" style="margin-left: 10px;" href="/ProtectYourMoney.aspx#Scams"><span>Most Common Scams to Avoid</span></a>
+             <a class="slidingDoorHyperLink" style="margin-left: 10px;" href="/WhoAccepts.aspx"><span>Approved MoneyPak Partners</span></a>
+             
+        
+                
+          </p>         
+    </div>
+
+		</div>
+		<!--<div class="bottom-link-margin-align bottom-link-align calloutwide_right">
+			<h1 class="red">Protect Yourself from Fraud</h1>
+			
+			<ul>
+			<li><a href="/ProtectYourMoney.aspx">Tips to Protect Yourself</a></li>
+			<li><a href="/WhoAccepts.aspx">Approved MoneyPak Partners</a></li>
+			<li><a href="https://support.greendot.cust-serv.com/greendotcare/General/AlertFeedback.aspx" target="_blank">Report Fraudulent Activity</a></li>
+            <li><a href="https://www.moneypak.com/ProtectYourMoney.aspx#Scams">Most Common Scams to Avoid</a></li>         
+            <li><a href="https://www.moneypak.com/ProtectYourMoney.aspx#AddResources">Additional Resources</a></li>           
+			</ul>
+		</div>-->
+	</div>
+</div>
+</div>
+<div id="content_about" class="divContainer"><!--Leave this empty-->
+</div>
+
+<div id="content_use" class="divContainer"><!--Leave this empty-->
+</div>
+
+<div id="content_paypal" class="divContainer"><!--Leave this empty-->
+</div>
+
+<div id="content_faqs" class="divContainer"><!--Leave this empty-->
+</div>
+
+
+
+   
+
+<!-- demo goes into this div -->
+<div id="dialog" style="padding:10px;display:none; overflow:hidden;"></div>
+<div id="video_content_outer" style="display:none;">
+    <div id="video_content_inner">
+        <p>
+        <a href="http://www.adobe.com/go/getflashplayer">
+        <img src="https://www.adobe.com/images/shared/download_buttons/get_flash_player.gif"
+            alt="Get Adobe Flash player" /></a>
+        </p>
+    </div>
+</div>
+
+
+
+
+<div id="cntr_footer">
+	<div id="box_footer_menu">
+		<p>
+		    <a href="/Home.aspx" id="A1">Home</a> |
+		    <a href="/AboutMoneyPak.aspx" id="A2">About MoneyPak</a> |
+		    <a href="/UseMoneyPak.aspx" id="A3">Use a MoneyPak</a> |
+            <a href="/PayPal/Index.aspx" id="A4">PayPal</a> |
+            <a href="/Faq.aspx" id="A7">FAQs</a> |
+            <a href="/Help.aspx" id="A10">MoneyPak Help</a> |             
+            <a href="http://resp.survey01.net/servlet/survey?surveyId=MTYyMjQS1">Give Us Your Feedback</a> |
+            <a href="/ProtectYourMoney.aspx" id="A6">Protect Your Money</a> 
+        </p>
+        <p>
+            <a href="/AboutGreenDot.aspx" id="A6">About Us</a> |
+            <a href="/PressReleases.aspx" id="A5">Press Releases</a> |
+            <a href="/TermsOfServices.aspx" id="A8">MoneyPak Terms and Conditions</a> |
+            <a href="/PrivacyPolicy.aspx" id="A9">Web Site Terms of Use and Privacy Policy</a> |
+            <a href="#" id="interestBased">Interest-Based Ads</a> |
+			
+            <a href="#" id="stateLicense">State Licensing Notices</a>
+        </p>
+	</div>
+	<div id="box_footer_security">
+		<a href="https://seal.thawte.com/thawtesplash?form_file=fdf/thawtesplash.fdf&dn=WWW.MONEYPAK.COM&lang=en" target="_blank">
+		<img alt="This Site is Secure" border="0" id="Secure" name="Secure" src="/Content/Images/btn_footer_security.gif"></img></a>
+	</div>
+	<div id="box_footer_legal">
+		<p>
+		Green Dot ® is a service of Green Dot Corporation. Other trademarks are the Property of their respective owners and are used with</p>
+		<p>
+		permission. © 2003-2015 <a href="/AboutGreenDot.aspx">Green Dot Corporation</a> All Rights Reserved.</p>
+	</div>
+	<!-- tip_MoneyPakHelp -->
+	<div id="tip_MoneyPakHelp" class="tip">
+		<p>If you are having difficulties finding the MoneyPak Number,
+		 please call the MoneyPak Help Line at <br />1-866-963-6219.</p>
+	</div>
+    <!-- END tip_MoneyPakHelp -->
+</div>
+<!--Interest Based Ads Dialogue Box -->
+<div id="interestBasedAds" style="display: none; ">
+    <div title="Interest-Based Ads" class="interest-based-ads">
+    <h2>Interest-Based Ads</h2>
+            <p class="fontBold">What we do</p>
+            <p>In order to understand how people use our site, and to serve ads based upon your interests, we collect data about your use of our site directly and through our partners. To find out more about how Green Dot uses data to tailor your web experience on our sites and at partner sites, and for other purposes, please click here to view our <a href="https://www.moneypak.com/PrivacyPolicy.aspx" target="_blank">Technology Privacy Statement</a>.</p>
+            <p>To better address your interest in Green Dot, we and our network advertisers may periodically show you Green Dot ads online for products and services in which you might be interested based on your visits to both our site and other websites (a process known as “behavioral advertising”). In order to do this, we need to place a <a href="https://www.greendot.com/greendot/online-safety-tips?selectedlanguage=en-US#collection_np_info" target="_blank">cookie</a> or other tracking device on your computer. 
+            </p>
+            <hr />
+            <p class="fontBold">How to opt out of behavioral advertising</p>
+            <p>If you prefer to not receive Green Dot online ads in this manner, you can opt-out of some network advertising programs that use your information by tracking your browsing habits via cookies or other tracking devices. To do so you can use the Network Advertising Initiative (NAI) Opt-Out Tool. It shows you which advertising networks have placed cookies on your computer, and lets you opt-out of being tracked by them, should you wish to do so. To opt out of an NAI member’s advertising program, simply follow the steps below:</p>
+                <ol>
+                    <li>Go to the NAI (Network Advertising Initiative) consumer opt-out page by clicking <a href="http://www.networkadvertising.org/managing/opt_out.asp" target="_blank">here</a>.</li>
+                    <li>Check the box that corresponds to the company from which you wish to opt out. Alternatively, you can check the box labeled “Select All” and each member’s opt-out box will be checked for you.</li>
+                    <li>Next click the “Submit” button. The Tool will automatically replace the specified advertising cookie(s) and verify your opt-out status.</li>
+                </ol>
+              
+            <p>Opting out of a network does not mean you will no longer receive online advertising. It only means that the network from which you opted out will no longer deliver ads tailored to your Web preferences and usage patterns.
+            </p>
+    </div>        
+        <div style="clear:both; padding-top:12px;">
+        <button type="button"  id="btncloseState">Close</button>
+        </div>
+</div>
+
+<!--State Licensing Dialogue Box -->
+<div id="stateLicenseBox" style="display: none;">
+<div title="Special Notice for Maryland Residents" class="maryLandPopup">
+	<h2>Special Notice for Colorado Residents</h2>
+	<p>If there are questions or concerns regarding a transaction with Green Dot Corporation, please contact the Colorado Division of Banking at 303-894-7575 or by mail at:</p>
+    <div class="popupAddress">
+        <p>Colorado Division of Banking <br />
+          1560 Broadway, Suite 975<br />
+          Denver, Colorado 80202</p>
+    </div>
+    <p class="fontBold">Consumer complaints should be in writing, providing as much detail as possible.  Please include the following information:</p>
+    <ul class="fontBold">
+    <li>The name of the institution and the name of any person(s) at the institution with whom the complainant has had contact. Include telephone number(s) and addresses.</li>
+    <li>A complete description of the complaint and any efforts that have been made to resolve the complaint directly with the institution.</li>
+    <li>Copies of any available documentation supporting the complaint and efforts toward resolution.</li>
+    <li>Any suggestions regarding a preferred resolution of the complaint.</li>
+    </ul>
+    <div>&nbsp;</div>
+    <hr />
+</div>
+<div title="Special Notice for Maryland Residents" class="maryLandPopup">
+	<h2>Special Notice for Maryland Residents</h2>
+	<p>The Commissioner of Financial Regulation for the State of Maryland will accept all questions or complaints from Maryland residents regarding Green Dot Corporation at 500 North Calvert Street, Room 402, Baltimore, Maryland 21202-3651, (888) 784-0136.</p>
+     <hr />
+</div>
+<div  class="maryLandPopup" title="Special Notice for Maryland Residents">
+	<h2>Special Notice for Texas Residents</h2>
+	<p >If you have a complaint, first contact the consumer assistance division
+     of <strong>Green Dot Corporation</strong> at <strong>1-866-795-7597,</strong> if you still have an unresolved complaint regarding
+      the company&#39;s money transmission or currency exchange activity, please direct your complaint to the 
+      Texas Department of Banking</p>
+     <div class="texas-width floatLeft">
+            <div class="texas-left width200">
+                In Person or U.S. Mail</div>
+            <div class="width200 marginBTM20">
+                <div class="texas-left">
+                    Texas Department of Banking</div>
+                <div class="texas-left">
+                    2601 North Lamar Boulevard</div>
+                <div class="">
+                    Suite 300</div>
+                <div class="texas-left">
+                Austin, TX 78705-4294</div>
+            </div>
+
+        </div>
+         <br />
+        <br />       
+        <div class="texas-width floatLeft">
+            <div class="texas-left width200">
+                Telephone
+            </div>
+            <div class="">
+                1-877-276-5554 (toll free)</div>
+        <br />
+        <br />
+        </div>
+
+        <div class="texas-width floatLeft">
+            <div class="texas-left width200">
+                Fax
+            </div>
+            <div class="">
+                512-475-1313</div>
+        <br />
+        <br />
+        </div>
+
+        <div class="texas-width">
+            <div class="texas-left width200">
+                E-Mail
+            </div>
+            <div class="">
+                consumer.complaints@dob.texas.gov</div>
+        <br />
+        <br />
+        </div>
+
+        <div class="texas-width">
+            <div class="texas-left width200">
+                Website
+            </div>
+            <div class="">
+                www.dob.texas.gov</div>
+        </div>
+        <div style="clear:both; padding-top:12px;">
+        <button type="button"  id="btncloseState">Close</button>
+        </div>
+
+	</div>
+</div>
+<script type="text/javascript">
+	//STATE LICENSING DIALOGUE
+    $(function () {
+        $('#stateLicense').click(function () {
+            
+            $("#dialog").dialog("destroy");
+            $("#dialog").dialog({
+                open: function () { 
+                $("#dialog").html($("#stateLicenseBox").html()); 
+                $("#dialog").addClass("newStyle"); 
+                $(".ui-dialog").addClass("st-licence-dialog");
+                $(".ui-dialog-titlebar").hide();                
+                },
+                bgiframe: true,
+                width: 500,
+                height: 1110,
+                modal: true,
+                close: function () { $("#dialog").dialog("destroy"); $("#dialog").html(""); }
+            });
+        });
+        $("#btncloseState").live("click", function(){
+        
+            $("#dialog").dialog( "close" );
+        
+        
+        });
+    });
+    </script>
+
+    <script type="text/javascript">
+    //INTEREST BASED ADS
+    $(function () {
+        $('#interestBased').click(function () {
+            
+            $("#dialog").dialog("destroy");
+            $("#dialog").dialog({
+                open: function () { 
+                $("#dialog").html($("#interestBasedAds").html()); 
+                $("#dialog").addClass("newStyle"); 
+                $(".ui-dialog").addClass("interest-based-ads");
+                $(".ui-dialog-titlebar").hide();                
+                },
+                bgiframe: true,
+                width: 500,
+                height: 930,
+                modal: true,
+                close: function () { $("#dialog").dialog("destroy"); $("#dialog").html(""); }
+            });
+        });
+        $("#btncloseState").live("click", function(){
+        
+            $("#dialog").dialog( "close" );
+        
+        
+        });
+    });
+    </script>
+
+
+
+
+
+    <script language="javascript" type="text/javascript">
+      <!-- 
+        if (window.top != window.self) { window.top.location=window.self.location; } 
+      --> 
+    </script>
+	
+	
+
+
+
+
+
+
+
+<iframe src="https://www.cdn-gdc.com/content/track/moneypak/?path=%2f" height="10" width="10" frameborder="0" style="display:none"></iframe>
+
+</body>
+</html>
+
+
+
+
+
+";i:2;s:5:"10390";}

@@ -1,0 +1,271 @@
+a:3:{i:0;s:34:"http://driving-directions-map.com/";i:1;s:13045:"<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>Driving Directions And Maps</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/jumbotron.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmQq5fLrsxS1LiEAhIyQ2wFU03cS4v7d4&sensor=false"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+  </head>
+
+  <body class="bg-pattern">
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form form-horizontal" role="form" id="forma-2" method="get" action="#">
+            <div class="col-md-4" id="site-logo">
+              <img src="img/drivingderections-map-logo.jpg">
+            </div>
+
+            
+            <div class="col-md-8">
+                <label class="col-md-3 control-label label-emphasize" for="inputStartingPointTop">Search Maps</label>
+                  <div class="col-md-7 padding-left-zero">
+                    <input type="text" class="form-control " placeholder="Enter address, business or landmark" autocomplete="off" name="from" id="inputStartingPointTop">                   
+                  </div>
+                  <div class="col-md-2 pull-left padding-left-zero">
+                    <button type="submit" class="btn btn-success btn-blue"><strong>GO</strong></button>
+                  </div>                     
+            </div>            
+          </form> 
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container full-screen">
+      	<div class="navbar-shadow navbar-shadow-top"></div>      	
+      	<div id="map-canvas"></div>
+      	<!--<div class="navbar-shadow navbar-shadow-bottom"></div>-->
+
+      	<div id="b2-form-wrap">
+        <div id="b2-form-in">
+          <h1 id="b2-form-in-h1">Get Driving Directions <span class="geo-ins"></span></h1>
+          <div id="the-form">
+
+          	<!-- #step-1 -->
+            <div id="step-1">
+            	<form action="#" method="get" class="form-horizontal" role="form" id="forma-1">
+            			<div class="form-group">
+            				<label for="inputStartingPoint" class="col-md-1 control-label rep pin-a"></label>
+            				<div class="col-md-11 input-group">
+            					<input type="text" placeholder="Enter address, business or landmark" id="inputStartingPoint" class="form-control" name="from" autocomplete="off">
+            					<span><i class="icon-car"></i></span>
+            					<!--<span class="add-on"><i class="icon-car"></i></span>-->
+            				</div>
+            			</div>
+
+            			<div class="form-group">
+            				<label for="inputEndingPoint" class="col-md-1 control-label rep pin-b"></label>
+            				<div class="col-md-11 input-group">
+            					<input type="text" placeholder="Enter address, business or landmark" id="inputEndingPoint" class="form-control" name="to" autocomplete="off">
+            					<span><i class="icon-car"></i></span>
+            					<!--<span class="add-on"><i class="icon-car"></i></span>-->
+            				</div>
+            			</div>
+
+            			<div class="form-group margin-bottom-zero">
+       						<div class="col-sm-offset-1 col-sm-10">
+         						 <button type="submit" class="submit pull-right"><span class="button-big">Get Directions</span>
+         						 </button>
+    						</div>
+      					</div>
+            	</form>
+            </div> <!-- #step-1 end-->
+
+
+            <!-- #step-2 -->
+            <div style="display: none;" id="step-2">
+              <div id="s2-loading">
+                <div id="s2-loading-text">Loading...</div>
+              </div>
+            </div> <!-- #step-2 end -->
+
+            <!-- #step-3 -->
+            <div style="display: none;" id="step-3">
+              <div id="pdc">
+                <h1><span id="headingInstallBox">Directions Found!</span></h1>
+                <p>Please Install MapsGalaxy&reg; To Get <br>Your Maps and Driving Features.</p>
+                <ul>
+                  <li>
+                    <strong>Maps</strong>
+                    <br>
+                    Search world maps with highly detailed satellite images.
+                  </li>
+                  <li>
+                    <strong>Driving Directions</strong>
+                    <br>
+                    Get the fastest route to your destination with turn-by-turn directions.
+                  </li>
+                  <li>
+                    <strong>Traffic Reports</strong>
+                    <br>
+                    Avoid heavy traffic by instantly checking busy roads or highways.
+                  </li>
+                </ul>
+                <a class="button-3" target="_blank" id="downloadButton" href="#">Install Now</a>
+              </div> <!-- #pdc -->
+            </div> <!-- #step-3 end -->
+          </div> <!-- #the-form -->
+        </div> <!-- #b2-form-in -->
+      </div>
+      </div>
+    </div>
+
+    <div class="container bg-pattern">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <p class="text-center">We provide you turn-by-turn directions so you can relax knowing that we'll get you to your destination fast and easy. We guarantee it. Never get stuck in traffic again! Our live traffic reports will always keep you up to date on areas you should avoid due to delays, accidents, ect. We make avoiding traffic easy. 100% accurate map directions. Our route planner has gone through rigorous testing to ensure it is never wrong. You're welcome. With our high-tech route planner, we present you with multiple routes to get to your destination. So whether you want the quickest route possible or you feel like kicking back and taking the scenic route, we've got you covered. Print easy to read driving directions! All of our driving directions are made specifically to be easy to read and effortless to print. So stop wasting time with those other guys. We make getting <a href="https://plus.google.com/109281177547383935814" rel="publisher">driving directions</a> simple and easy with our 1 step system!</p>
+
+          <p><img src="img/toolbar.png" alt="" class="col-md-offset-1" /></p>
+
+          <p class="text-center"><small><strong>The MapsGalaxy™ toolbar offers convenient web search, homepage, and default search. <a href="http://eula.mindspark.com/reset-homepage-default-search-settings/">More Info</a>.</strong></small></p>
+        </div>
+      </div>
+
+      <hr>
+    </div> <!-- /container -->
+
+    <div class="footer">
+      	<div class="container">
+      		<div class="row">
+      			<div class="col-md-4 pull-left padding-left-zero"><p>&copy; Cuban Company 2013 - All Rights Reserved.</p></div>
+      			<div class="col-md-8 pull-right padding-right-zero">
+      				<div class="navbar-text navbar-right">
+      					<a href="#aboutModal" class="navbar-link" data-toggle="modal" >About</a> | 
+      					<a href="#contactModal" class="navbar-link" data-toggle="modal">Contact US</a> | 
+      					<a href="#privacyPolicyModal" class="navbar-link" data-toggle="modal">Privacy Policy</a> | 
+      					<a href="http://support.mindspark.com/link/portal/30028/30031/Article/222/Uninstalling-Mindspark-Toolbar" class="navbar-link" target="_blank">Uninstall</a> | 
+      					<a href="http://eula.mindspark.com" class="navbar-link" target="_blank">End User Agreement</a>
+
+      				</div>
+      			</div>
+      			
+      		</div>
+
+      		<div class="row">
+      			<hr>
+      			<p class="text-center col-md-8 col-md-offset-2"><small>Any third party products, brands or trademarks listed above are the sole properly of their respective owner.  No affiliation or endorsement is intended or implied. Mindspark Interactive Network, Inc. is the source of the MapsGalaxy™ application.</small></p>
+      		</div>
+      	</div>
+        
+  	</div>
+
+    <!-- Modal About Us-->
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">About Us</h4>
+      </div>
+      <div class="modal-body">
+          <p>DDM is dedicated to creating a better browsing experience and strives to simplify your online activity. By providing access to browser enhancement tools, we aim to provide our customers a more efficient and convenient way of exploring the web.</p>
+          <p>Today, we are working around the clock to provide you access to tools that will enrich your online work and past time experience.</p>
+          <p>These tools work in the background and consume very little computer resources and bandwidth. They are easy to install and uninstall. Best of all, they are completely free to use.
+          Please get into contact with us if you have any questions, ideas or suggestions that will help improve our service.</p>
+          <p>
+          Thank You,<br>
+          DDM Team</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- Modal Contact Us-->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
+      </div>
+      <div class="modal-body">
+            <p>Our team is committed to providing you a great user experience.</p>
+          <p>Should you have any questions, comments, or compliments, you can reach us via email at support@DDmap.com. We welcome your feedback!</p>
+          <p>
+          Thank You,<br>
+          DDMTeam</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Contact Us-->
+<div class="modal fade" id="privacyPolicyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Privacy Policy</h4>
+      </div>
+      <div class="modal-body">
+          <p>You can find the privacy policy at http://mapsgalaxy.com/policies.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Redirect URL Variables -->
+<ul class="hide url-vars">
+	<li id="s1">a2</li>
+	<li id="s2"></li>
+	<li id="s3"></li> 
+	<li id="s4"></li>
+	<li id="s5"></li>     
+</ul>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app/site.js"></script>
+    
+  </body>
+</html>
+";i:2;s:4:"5893";}

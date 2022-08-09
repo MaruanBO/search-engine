@@ -1,0 +1,408 @@
+a:3:{i:0;s:22:"http://shoptocook.com/";i:1;s:18552:"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- Copyright (C) 2010, ShoptoCook, Inc. All rights reserved. -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <title>ShoptoCook, Inc.</title>
+
+    <meta name="Author" content="ShoptoCook, Inc." />
+    <meta http-equiv="pragma" content="nocache" />
+    <meta name="Keywords" content="ShoptoCook, Inc., 165 Rano St., buffalo, ny, kiosks, touchscreens, mobile, web, grocery, supermarket, grocery store, food, recipes, weekly specials, circular" />
+    <meta name="Description" content="ShoptoCook is the number one provider of meal solution content delivered through customer facing interactive technologies, in the retail food industry." />
+
+
+
+
+
+    <meta property="fb:admins" content="100001663338176" />
+    
+
+
+
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/shoptocookstyle.css?time=1424382209704" />
+
+    <script type="text/javascript" src="/js/swfobject.js"></script>
+    <script type="text/javascript" src="/js/base.js?time=1424382209704"></script>
+</head>
+<body>
+
+<style>
+
+#topbannerbg {height: 100px;}
+#topbanner {height: 100px;}
+#bodycontainer {width: 938px;}
+#bodywidth {width: 938px;}
+
+</style>
+
+
+<div id="bg">
+<div id="topgradient">
+<div id="bodycontainer">
+<div id="topbanner">
+    <div id="topbannerbg" style="z-index: 1000;">
+        <a title="ShoptoCook, Inc." style="text-decoration: none; position: absolute; left: 20px; top: 5px; width: 225px; height: 61px;" href="/index.jsp"><img border="0" src="/shoptocook/Web/shoptocook/shoptocook.png" /></a>
+
+        <div class="headermenu2" style="position: absolute; top: 5px; left: 500px; width: 380px; text-align: right;">
+            <a href="http://pinterest.com/shoptocook/"><img src="http://passets-cdn.pinterest.com/images/big-p-button.png" width="40" height="40" alt="Follow Me on Pinterest" /></a>&nbsp;&nbsp;
+            <a href="http://www.facebook.com/pages/ShoptoCook-Inc/179619975383559" target="_blank"><img border="0" src="/shoptocook/Web/shoptocook/facebook.png" /></a>&nbsp;&nbsp;
+            <a href="http://twitter.com/shoptocook" target="_blank"><img border="0" src="/shoptocook/Web/shoptocook/twitter.png" /></a>
+        </div>
+
+        <div class="headermenu2" style="position: absolute; top: 50px; left: 300px; width: 580px; text-align: right;">
+            
+                <a class="headerlink2" href="javascript: showPopup('/popups/login.jsp?id=-1');">Sign In</a> &bull;
+                <a class="headerlink2" href="http://reports.shoptocook.com/portal/index.jsp">Customer Admin</a> &bull;
+                <a class="headerlink2highlighted" href="/recipeweb/index.jsp">Recipes</a>
+            
+        </div>
+
+
+        <div class="headermenu" style="position: absolute; top: 75px; left: 0px; width: 938px; text-align: center;">
+            <a class="headerlink" href="/index.jsp">Home</a>
+            | <a class="headerlink" href="/stc/connect.jsp">Connect</a>
+            | <a class="headerlink" href="/stc/inyourstore.jsp">In Your Store</a>
+            | <a class="headerlink" href="/stc/ontheweb.jsp">On The Web</a>
+            | <a class="headerlink" href="/stc/mobile.jsp">Mobile</a>
+            | <a class="headerlink" href="/stc/aboutus.jsp">About Us</a>
+            <!--| <a class="headerlink" href="/stc/employment.jsp">Employment</a>-->
+            | <a class="headerlink" href="/stc/whatsnew.jsp">What's New</a>
+            | <a class="headerlink" href="/stc/contactus.jsp">Contact Us</a>
+        </div>
+
+    </div>
+</div>
+
+<div id="mainbody">
+
+
+
+
+<script>
+function sendContactEmail() {
+    var violation = true;
+    var violString = "The following errors occurred on the form:\n\n";
+
+    var contactname = document.getElementById("contactname").value;
+    var contactemail = document.getElementById("contactemail").value;
+    var contactphone1 = document.getElementById("contactphone1").value;
+    var contactphone2 = document.getElementById("contactphone2").value;
+    var contactphone3 = document.getElementById("contactphone3").value;
+    var contactcomment = document.getElementById("contactcomment").value;
+
+    if (contactname.length == 0) {
+        violString += "- Name is a required field.\n";
+        violation = false;
+    }
+
+    if (contactemail.length == 0 || !echeck(contactemail)) {
+        violString += "- Email is a required field and must be a valid address.\n";
+        violation = false;
+    }
+
+    if ((contactphone1.length != 0 || contactphone2.length != 0 || contactphone3.length != 0)
+            && (isNaN(contactphone1) || contactphone1.length != 3 || isNaN(contactphone2) || contactphone2.length != 3 || isNaN(contactphone3) || contactphone3.length != 4)) {
+
+        violString += "- Phone is an invalid format. [ex. 555-555-5555]\n";
+        violation = false;
+    }
+
+    if (contactcomment.length == 0) {
+        violString += "- Comment is a required field.\n";
+        violation = false;
+    }
+
+    if (!violation) {alert(violString); return;}
+
+    var xmlHTTP = getXMLHTTPObject();
+    if (!xmlHTTP) {return;}
+
+    xmlHTTP.onreadystatechange=function() {
+        if (xmlHTTP.readyState==4) {
+            var responseText = xmlHTTP.responseText;
+            var message = "Sorry, there was an error.";
+
+            if (responseText.indexOf("<message>") != -1 && responseText.indexOf("</message>") != -1) {
+                message = responseText.substring(responseText.indexOf("<message>") + 9, responseText.indexOf("</message>"));
+            }
+
+            if (responseText.indexOf("<errorFlag>") != -1 && responseText.indexOf("</errorFlag>") != -1) {
+                var errorFlag = responseText.substring(responseText.indexOf("<errorFlag>") + 11, responseText.indexOf("</errorFlag>"));
+
+                if (errorFlag == "0") {
+                    document.getElementById("contactname").value = "";
+                    document.getElementById("contactemail").value = "";
+                    document.getElementById("contactphone1").value = "";
+                    document.getElementById("contactphone2").value = "";
+                    document.getElementById("contactphone3").value = "";
+                    document.getElementById("contactcomment").value = "";
+
+                    showPopup("/popups/greenmessage.jsp?messagetitle=Thank you!&messagebody=" + message);
+                } else {
+                    alert(message);
+                }
+            }
+        }
+    }
+
+    var date = new Date();
+    var timestamp = date.getTime();
+
+    var data = "contactname=" + cleanURL(contactname) + "&contactemail=" + cleanURL(contactemail) + "&contactphone1=" + cleanURL(contactphone1) + "&contactphone2=" + cleanURL(contactphone2) + "&contactphone3=" + cleanURL(contactphone3) +
+        "&contactcomment=" + cleanURL(contactcomment);
+
+    xmlHTTP.open("POST", "/stc/sendcontactemail.jsp?time=" + timestamp, true);
+    xmlHTTP.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xmlHTTP.send(data);
+}
+</script>
+
+
+
+<div id="bodywidth">
+
+<div style="padding: 20px; background-color: white; margin-bottom: 5px;">
+     <script type="text/javascript">
+                    if (swfobject.hasFlashPlayerVersion("6.0.0")) {
+                        var fn = function() {
+                            var att = { data:"/shoptocook/Web/shoptocook/flashbannerv2.swf", width:"898", height:"372", quality:"high", wmode:"opaque" };
+                            var par = { wmode:"opaque" };
+                            var id = "replaceMe";
+                            var myObject = swfobject.createSWF(att, par, id);
+                        };
+                        swfobject.addDomLoadEvent(fn);
+                    }
+                    </script>
+                    <div id="replaceMe"><a href="/stc/connect.jsp"><img border="0" src="/shoptocook/Web/stc/connect.jpg"/></a></div>
+<!--    <object width="898" height="372">
+        <param name="movie" value="/shoptocook/Web/shoptocook/flashbanner.swf" />
+        <param name="quality" value="high" />
+        <param name="wmode" value="opaque" />
+        <embed src="/shoptocook/Web/shoptocook/flashbanner.swf" quality="high" type="application/x-shockwave-flash" width="898" height="372" wmode="opaque"></embed>
+    </object>-->
+</div>
+
+<div>
+    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr style="height: 32px;">
+            <td style="width: 310px;"><img border="0" src="/shoptocook/Web/shoptocook/servicesandsolutions.gif" /></td>
+            <td rowspan="100%" style="width: 5px;"></td>
+            <td style="width: 310px;"><img border="0" src="/shoptocook/Web/shoptocook/contactus.gif" /></td>
+            <td rowspan="100%" style="width: 5px;"></td>
+            <td style="width: 308px;"><img border="0" src="/shoptocook/Web/shoptocook/news.gif" /></td>
+        </tr>
+        <tr>
+            <td class="submenubody" valign="top">
+                <div style="padding-left: 5px; padding-bottom: 8px; font-weight: bold">See how ShoptoCook can help get you connected!</div>
+                <div style="padding-left: 5px; padding-bottom: 4px;"><div style="float: left; width: 13px;">&nbsp;&bull; </div><div style="padding-bottom: 4px; margin-left: 13px;">View a video demonstration of our big screen <nobr>in-store</nobr> solution. &nbsp;&nbsp;<nobr><a class="homeboldlink" href="/stc/inyourstore.jsp">Watch Video >></a></nobr></div></div>
+                <div style="padding-left: 5px; padding-bottom: 4px;"><div style="float: left; width: 13px;">&nbsp;&bull; </div><div style="padding-bottom: 4px; margin-left: 13px;">Professional web development, email marketing, Facebook and Twitter management. &nbsp;&nbsp;<nobr><a class="homeboldlink" href="/stc/ontheweb.jsp">Read More >></a></nobr></div></div>
+                <div style="padding-left: 5px; padding-bottom: 4px;"><div style="float: left; width: 13px;">&nbsp;&bull; </div><div style="padding-bottom: 4px; margin-left: 13px;">Mobile web and text message marketing provide connections with shoppers on the go. &nbsp;&nbsp;<nobr><a class="homeboldlink" href="/stc/mobile.jsp">Read More >></a></nobr></div></div>
+            </td>
+            <td class="submenubody" valign="top">
+                <div style="padding-bottom: 8px;">
+                    <div style="padding-left: 5px; padding-bottom: 8px; font-weight: bold">We look forward to hearing from you!</div>
+                    <div style="padding-left: 35px; padding-bottom: 2px;">&bull; Call - <b>716.362.3168</b></div>
+                    <div style="padding-left: 35px; padding-bottom: 2px;">&bull; Email - <a class="homeboldlink" style="font-style: normal;" href="mailto: inquire@shoptocook.com">inquire@shoptocook.com</a></div>
+                    <div style="padding-left: 35px;">&bull; Or contact us directly using the form below!</div>
+                </div>
+                <div style="font-size: 8pt;">
+                    <form action="" name="contactform" method="post" onsubmit="javascript: sendContactEmail(); return false;">
+                    <table cellspacing="2" cellpadding="0" border="0" width="100%">
+                        <tr>
+                            <td style="width: 65px;" align="right"><span style="color: red; font-size: 8pt;">*</span> Name:</td>
+                            <td style="width: 5px;" rowspan="100%"></td>
+                            <td style="width: 216px;"><input type="text" id="contactname" style="width: 200px; font-size: 8pt;" maxlength="100" autocomplete="off" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right"><span style="color: red; font-size: 8pt;">*</span> Email:</td>
+                            <td><input type="text" id="contactemail" style="width: 200px; font-size: 8pt;" maxlength="200" autocomplete="off" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right">Phone:</td>
+                            <td><input type="text" id="contactphone1" style="width: 50px; font-size: 8pt;" maxlength="3" autocomplete="off" />-<input type="text" id="contactphone2" style="width: 50px; font-size: 8pt;" maxlength="3" autocomplete="off" />-<input type="text" id="contactphone3" style="width: 60px; font-size: 8pt;" maxlength="4" autocomplete="off" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" valign="top" style="padding-top: 2px;">
+                                <div style="padding-bottom: 10px;"><span style="color: red; font-size: 8pt;">*</span> Comment:</div>
+                                <div><span style="color: red; font-size: 8pt;">* required</span></div>
+                            </td>
+                            <td style="padding-top: 2px;"><textarea id="contactcomment" style="width: 200px; height: 70px; font-size: 8pt;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" id="contactsubmit" value="Submit" style="font-size: 8pt;" /></td>
+                        </tr>
+                    </table>
+                    </form>
+                </div>
+            </td>
+            <td class="submenubody" valign="top">
+
+        <div style="padding-left: 5px; padding-bottom: 15px;">
+            <div style="padding-bottom: 2px; font-weight: bold; font-style: italic; color: #5E5E5E;">September 8, 2014</div>
+            <div style="font-weight: bold;">ShoptoCook introduces online ordering for cakes, deli platters, gift cards, and more!</div>
+            <div style="padding-bottom: 2px;">A growing number of shoppers have come to expect the convenience of online ordering and will often take their business elsewhere if your website doesn't have it. ShoptoCook offers a wide range of online ordering solutions that meet the needs of today's shoppers; from platters and plates to flowers and cakes, online ordering is now easy and inexpensive to execute for the most common catering and party planning solutions you offer. &nbsp; <nobr><a class="homeboldlink" href="/stc/whatsnew.jsp?id=14">Read More >></a></nobr></div>
+        </div>
+
+
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- Copyright (C) 2010, ShoptoCook, Inc. All rights reserved. -->
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="footercontainer">
+    <div id="footer">
+        <div id="footerstyle">
+            <div>
+                <a href="/index.jsp">Home</a>&nbsp;
+                | &nbsp;<a href="/stc/connect.jsp">Connect</a>&nbsp;
+                | &nbsp;<a href="/stc/inyourstore.jsp">In Your Store</a>&nbsp;
+                | &nbsp;<a href="/stc/ontheweb.jsp">On The Web</a>&nbsp;
+                | &nbsp;<a href="/stc/mobile.jsp">Mobile</a>&nbsp;
+                | &nbsp;<a href="/stc/aboutus.jsp">About Us</a>&nbsp;
+                <!--| &nbsp;<a href="/stc/employment.jsp">Employment</a>&nbsp;-->
+                | &nbsp;<a href="/recipeweb/index.jsp">Recipes</a>&nbsp;
+                | &nbsp;<a href="/stc/whatsnew.jsp">What's New</a>&nbsp;
+                | &nbsp;<a href="/stc/contactus.jsp">Contact Us</a>
+            </div>
+            <div style="padding-top: 6px;">Copyright &copy; 2015 ShoptoCook&trade; Inc. Buffalo, NY&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="http://www.shoptocook.com">www.shoptocook.com</a> </div> 
+        </div>
+    </div>
+</div>
+
+<div style="z-index: 50000; visibility: hidden;" id="blackoutsite"></div>
+<div style="z-index: 50001; visibility: hidden;" id="blackoutpopup"></div>
+
+<!-- Copyright (C) 2010, ShoptoCook, Inc. All rights reserved. -->
+
+
+
+
+<script>
+    var shoppingListBaseY = getObjYPos(document.getElementById("shoppinglistpadding"));
+    var shoppingListFooterY = getObjYPos(document.getElementById("footer"));
+    var yScroll = 0 - shoppingListBaseY;
+
+
+    function setShoppingListPadding() {
+        if (document.getElementById("shoppinglistbottomy") == null) {return;}
+
+        var tempYScroll = getScrollXY()[1] - shoppingListBaseY;
+        if (tempYScroll < 0) {tempYScroll = Math.floor(tempYScroll);} else {tempYScroll = Math.ceil(tempYScroll);}
+
+        var shoppingListBottomY = getObjYPos(document.getElementById("shoppinglistbottomy"));
+        var shoppingListTopY = getObjYPos(document.getElementById("shoppinglisttopy"));
+
+        if (tempYScroll != yScroll) {
+            var tempScroll = (tempYScroll - yScroll) / 8;
+
+            if (tempScroll < 0) {yScroll += Math.floor(tempScroll);} else {yScroll += Math.ceil(tempScroll);}
+
+            if (yScroll < -40) {
+                document.getElementById("shoppinglistpadding").innerHTML = "<div style=\"height: 0px; line-height: 0px;\">&nbsp;</div>";
+
+            } else if (((yScroll + 50) + shoppingListBaseY + (shoppingListBottomY - shoppingListTopY)) > (shoppingListFooterY - 20)) {
+                var yHeight = (shoppingListFooterY - 20) - (shoppingListBottomY - shoppingListTopY) - shoppingListBaseY;
+                document.getElementById("shoppinglistpadding").innerHTML = "<div style=\"height: " + yHeight + "px; line-height: " + yHeight + "px;\">&nbsp;</div>";
+
+            } else {
+                document.getElementById("shoppinglistpadding").innerHTML = "<div style=\"height: " + (yScroll + 50) + "px; line-height: " + (yScroll + 50) + "px;\">&nbsp;</div>";
+            }
+        }
+
+        setTimeout("setShoppingListPadding()", 10);
+    }
+
+    setShoppingListPadding();
+</script>
+
+
+
+
+<div id="adpopup"></div>
+<div id="adrecipelinkpopup"></div>
+<div id="adblackout"></div>
+<div id="adrecipe"></div>
+<div id="aditemadded"></div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(
+  ['_setAccount', 'UA-8463582-1'],
+  ['_trackPageview'],
+  ['aggregate._setAccount', 'UA-31031425-2'],
+  ['aggregate._trackPageview']
+  );  
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+  </body>
+</html>
+
+
+
+";i:2;s:4:"7713";}

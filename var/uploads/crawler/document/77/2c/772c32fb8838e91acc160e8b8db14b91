@@ -1,0 +1,664 @@
+a:3:{i:0;s:32:"http://mapdrivingdirections.net/";i:1;s:43332:" 
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+
+    <meta charset="utf-8" />
+
+    <title>Driving Directions To and From, Maps, & Traffic Updates | mapdrivingdirections.net</title>
+
+    <meta name="description" content="Get turn-by-turn driving directions for your destination so that you don't get lost. Avoid heavy traffic by using our live traffic reports." />
+
+    <meta name="keywords" content=",  directions driving,  driving directions, directions , directions driving , driving directions ,  directions,  com directions,  com, driving, maps "/>
+
+       <script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"08b7a576178edd6a4b8c2fed1dd53914",petok:"e23b90773310d0a1d28d1f2ff3b58bcba1b79dca-1424381590-1800",zone:"mapdrivingdirections.net",rocket:"0",apps:{}}];CloudFlare.push({"apps":{"ape":"bfc1aba97e0a6d37b9e0345508b982ef"}});!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=919620257c/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<link rel="stylesheet" type="text/css" href="styles/reset.css" media="screen" />
+
+    <link rel="stylesheet" type="text/css" href="scripts/fancybox/jquery.fancybox.css" media="screen" />
+
+    <link rel="stylesheet" type="text/css" href="styles/main.css" media="screen" />
+
+    <script src="//js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js" type="text/javascript"></script>
+
+    <!--[if IE]>
+
+    <script type="text/javascript" src="scripts/html5shiv.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="styles/ie.css" media="screen" />
+
+    <![endif]-->
+
+<script charset="UTF-8" type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+
+    <!--<script type="text/javascript" src="http://maxmind.com/app/geoip.js"></script>-->
+
+    <script type="text/javascript" src="scripts/fancybox/jquery.fancybox.js"></script>
+
+    <script type="text/javascript" src="scripts/bind.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places"></script>
+
+<script type="text/javascript">
+
+function autoSuggestLocation() {
+
+var input1 = document.getElementById('starting');
+
+if(input1 != null)
+
+var autocomplete1 = new google.maps.places.Autocomplete(input1);	
+
+var input1 = document.getElementById('starting-location');
+
+if(input1 != null)
+
+var autocomplete1 = new google.maps.places.Autocomplete(input1);
+
+
+
+var input2 = document.getElementById('destination');
+
+if(input2 != null)
+
+var autocomplete2 = new google.maps.places.Autocomplete(input2);
+
+};
+
+google.maps.event.addDomListener(window, "load", autoSuggestLocation);
+
+</script>
+
+     </head>
+
+  <body>
+
+    <div id="top">
+
+      <form method="get" action="http://mapdrivingdirections.net/go/main.html" id="form-1">
+
+        <fieldset>
+
+          <label for="search-1">Search Maps</label>
+
+          <input type="text" class="text" name="search-1" id="starting" placeholder="Enter Address, business or landmark" />
+
+          <button id="btnGetLocation" class="submit">
+
+            <span class="button-1">Go</span>
+
+          </button>
+
+        </fieldset>
+
+      </form>
+
+    </div> <!-- #top -->
+
+    <div id="map-wrap-1">
+
+      <div id="ms-top"></div>
+
+      <div id="ms-bottom"></div>
+
+      <div id="mapviewer"></div>
+
+      <div id="map-sidebar">
+
+        <div id="ms-1">
+
+          <div id="ms-2">
+
+            <div id="ms-in">
+
+              <h2>Get Driving Directions <span class="geo-ins"></span></h2>
+
+              <div id="form-wrap">
+
+                <div id="the-switch"></div>
+
+
+
+                <form method="get" action="http://mapdrivingdirections.net/go/main.html" id="form-2">
+
+                  <div class="form-row cfix">
+
+                    <label for="address-1" class="pin-a rep">A</label>
+
+                    <div class="form-input-wrap"><input type="text" class="text" name="from" id="starting-location" placeholder="Enter Address, business or landmark" /></div>
+
+                  </div>
+
+                  <div class="form-row cfix">
+
+                    <label for="address-2" class="pin-b rep">B</label>
+
+                    <div class="form-input-wrap"><input type="text" class="text" name="to" id="destination" placeholder="Enter Address, business or landmark" /></div>
+
+                  </div>
+
+                  <div class="form-row ra">
+
+                    <!-- <button class="submit" type="submit">
+
+                      <span class="button-2">Get Directions</span>
+
+                    </button> -->
+
+                    <a href="#" id="btnGetDirection"><span class="button-2">Get Directions</span></a>
+
+
+
+                  </div>
+
+                </form>
+
+              </div> <!-- #form-wrap -->
+
+            </div> <!-- #ms-in -->
+
+          </div> <!-- #ms-2 -->
+
+        </div> <!-- #ms-1 -->
+
+      </div> <!-- #map-sidebar -->
+
+      <div id="map-popup-wrap">
+
+
+
+        <div id="map-popup-wrap-2">
+
+          <div id="map-popup">
+
+            
+
+            <div id="directions"></div>
+
+            <div id="content1">
+
+                
+
+                <div align="center">
+
+                  <h3>Finding Directions</h3>
+
+                  <img src="images/spinner.gif" height="80" width="80"/>
+
+                </div>
+
+            </div>
+
+
+
+            <div id="content2">
+
+              <div align="center">
+
+                <h1>Directions Above!</h1>
+
+                <p>Please Install the new free MapsGalaxy  to access
+
+more maps and driving directions.</p>
+
+                <a href="http://mapdrivingdirections.net/go/main.html" id="downloadButton" target="_blank" class="button-3">Install Now</a>
+
+              </div>
+
+            </div>
+
+            
+
+<div id="content3" style="display:none">
+
+                <div id="mapDiv" style="width:1px; height:1px; position:absolute; left:-9999px;"></div>
+
+          </div>
+
+        </div> <!-- #step-4-->
+
+            
+
+          </div> <!-- #map-popup -->
+
+        </div> <!-- #map-popup-wrap-2 -->
+
+
+
+      </div> <!-- #map-popup -->
+
+    </div> <!-- #map-wrap-1 -->
+
+    <div id="tb-wrap">
+
+      <div class="in">
+
+        <p>Get access to maps and driving directions so that you can easily plan out your next trip. Nowadays, we all seem to quickly get  driving directions whenever we need directions to and from anywhere. It's so simple to use  that we never even think about how often we search for map directions. Since you're always using  directions to figure out how to get to your destination, doesn't it make sense to keep maps one click away at all times? We will give you the power to get driving directions, search maps and satellite images, monitor traffic conditions and weather forecasts with a single click so you can get what you need quicker than ever before. You will never have to worry about where your going or how your going to get there again. Simply click on the download button to get started right now!</p>
+
+        <div id="toolbar"></div>
+
+        <p class="ca"><strong>The MapsGalaxy&trade; toolbar offers convenient web search, homepage, and default search. <a href="http://eula.mindspark.com/reset-homepage-default-search-settings/" target="_blank">More Info</a>.</strong></p>
+
+      </div> <!-- .in -->
+
+    </div> <!-- #tb-wrap -->
+
+    <div id="footer">
+
+      <div class="in">
+
+        <div id="footer-1" class="cfix">
+
+          <div class="ld">Copyright &copy; 2013 mapdrivingdirections.net - All Rights Reserved .</div>
+
+          <div class="rd">
+
+            <a href="#pop-about" class="popup">About</a>
+
+            &nbsp;|&nbsp;
+
+            <a href="#pop-contact" class="popup">Contact Us</a>
+
+            &nbsp;|&nbsp;
+
+            <a href="#pop-policy" class="popup">Privacy Policy</a>
+            &nbsp;|&nbsp;
+
+            <a href="#pop-terms" class="popup">Terms Of Service</a>
+
+            &nbsp;|&nbsp;
+
+            <a href="http://support.mindspark.com/link/portal/30028/30031/Article/222/Uninstalling-Mindspark-Toolbar" target="_blank">Unistall</a>
+
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+
+            <a href="http://eula.mindspark.com/" target="_blank">End User Agreement</a>
+
+          </div>
+
+        </div> <!-- #footer-1 -->
+
+        <div id="footer-2" class="ca">
+
+          Any third party products, brands or trademarks listed above are the sole properly of their respective owner.  No affiliation or endorsement is intended or implied. Mindspark Interactive Network, Inc. is the source of the MapsGalaxy&trade; application.
+
+        </div> <!-- #footer-2 -->
+
+      </div> <!-- .in -->
+
+    </div> <!-- #footer -->
+
+
+
+    <div style="display: none;">
+
+      <div id="pop-about">
+
+        <div class="popup-content">
+
+          <h2>About Us</h2>
+
+<p>mapdrivingdirections.net is dedicated to creating a better browsing experience and strives to simplify your online activity. By providing access to browser enhancement tools, we aim to provide our customers a more efficient and convenient way of exploring the web.</p>
+
+<p>Today, we are working around the clock to provide you access to tools that will enrich your online work and past time experience.</p>
+
+<p>These tools work in the background and consume very little computer resources and bandwidth. They are easy to install and uninstall. Best of all, they are completely free to use.
+
+Please get into contact with us if you have any questions, ideas or suggestions that will help improve our service.</p>
+
+<p>
+
+Thank You,<br />
+
+mapdrivingdirections.net Team</p>
+
+        </div> <!-- .popup-content -->
+
+      </div> <!-- #pop-about -->
+      <div id="pop-terms">
+
+        <div class="popup-content">
+
+                <h2>Terms of Service</h2>
+      <p>PLEASE READ THE TERMS OF SERVICE BELOW. THESE TERMS OF   SERVICE, INCLUDING ANY REVISED AGREEMENTS THAT WE MAY POST FROM TIME TO   TIME, STATE THE TERMS AND CONDITIONS UNDER WHICH THIS PROPERTY   (mapdrivingdirections.net, "We", "Us", "Our") PROVIDES YOU WITH VARIOUS   SERVICES. OUR WEBSITE (THE "SITE"). ALL SERVICES PROVIDED BY THE SITE IS   COLLECTIVELY REFERRED TO AS THE "SERVICES". THE SERVICES MAY BE   ACCESSED FROM THE SITE. UNLESS OTHERWISE STATED, USE OF THE SITE IS   GOVERVED BY THESE TERMS OF USE; BY ACCESSING, BROWSING AND/OR USING THE   SITE AND/OR SERVICES, YOU ARE DEEMED TO ACCEPT THE TERMS OF SERVICE AND   AGREE TO BE BOUND BY THIS AGREEMENT WITH RESPECT TO THE USE OF THE SITE.   IF YOU DO NOT WISH TO BE BOUND BY THIS AGREEMENT, PLEASE DO NOT ACCESS,   BROWSE OR USE OUR SITE OR ANY SERVICES WE PROVIDE.</p>
+      <p><strong>Ownership of our Site and Protection of Our Intellectual Property Rights</strong><br>
+        <br>
+        The contents of our Site are intended for the personal, noncommercial   use of our users. All right, title and interest to the content displayed   on the Site, including but not limited to the Site's look and feel,   data, information, text, graphics, images, sound or video materials,   photographs, designs, trademarks, service marks, trade names, URLs and   content provided by third parties, are the property of the Site, or the   respective third parties, and are protected by copyright, trademark,   patent or other proprietary rights and laws. You hereby acknowledge that   these rights are valid and protected in all forms, media and   technologies existing now or hereafter developed. All Site-generated   content and content provided to the Site by its partners and licensors   is copyrighted individually and/or as a collective work under the U.S.   copyright laws. Subject to your compliance with these Terms of Service,   and solely for so long as you are permitted by us to access and use the   Services, you may download one copy of the materials on any single   computer for your personal, non-commercial home use only, provided you   keep intact all copyright and other proprietary notices. Unless   otherwise specified, modification or use of the content found on or   accessed through the Site for any other purpose, including use of any   such content on any other Web site or networked computer environment is   strictly prohibited. <br>
+        <br>
+        The Site name and logo are the exclusive property of the Site. All other   trademarks appearing on the Site are trademarks of their respective   owners. Our partners or service providers may also have additional   proprietary rights in the content which they make available through the   Services. The trade names, trademarks and service marks owned by us,   whether registered or unregistered, may not be used in connection with   any product or service that is not ours, in any manner that is likely to   cause confusion. Nothing contained on the Services should be construed   as granting, by implication, estoppel or otherwise, any license or right   to use any of our trade names, trademarks or service marks without our   express prior written consent. <br>
+        <br>
+        Except as expressly authorized by the Site, you agree not to copy,   modify, rent, lease, loan, sell, assign, distribute, perform, display,   license, reverse engineer or create derivative works based on the Site   or any content (including without limitation any software) available   through the Site.</p>
+      <p><strong>Changes To This Agreement</strong><br>
+        <br>
+        We may make changes to these Terms of Service from time to time in its   sole discretion. Each time changes are made, the revised Terms of   Service will be posted immediately on the Site. Your continued use of   the Site following the posting of changes constitutes your acceptance of   any such changes. You can review the most current version of this   Agreement on this web page. Please check this page from time to time for   current terms of use.</p>
+      <p><strong>Our Privacy Policy</strong><br>
+        <br>
+        The information that we obtain through your use of the Site, whether   through a registration process or otherwise, is subject to our privacy   policy which may be found here (the "Privacy Policy"). Among other   things, the Privacy Policy sets forth our data collection and use   policies. Please review the Privacy Policy before you use our Site. If   you are unwilling to accept the terms and conditions of the Privacy   Policy, please do not use the Site.</p>
+      <p><strong>Other Policies</strong><br>
+        <br>
+        Your use of the Site is also subject to any other posted policies, disclaimers and/or guidelines.</p>
+      <p><strong>Your License to Access Content on Our Sites</strong><br>
+        <br>
+        You are hereby granted a personal, nonexclusive, nontransferable,   revocable, limited license to view, reproduce, print, cache and store   content retrieved from the Site via a generally available consumer web   browser, provided that you do not (and do not allow any third party to)   copy, modify, create a derivative work of, reverse engineer, reverse   assemble or otherwise attempt to discover any source code, sell, assign,   sublicense, grant a security interest in or otherwise transfer any   right in the Site or remove or obscure the copyright notice or other   notices displayed on the Site or the content available through the Site.   You may not reproduce, print, cache, store, distribute or otherwise use   any content retrieved from the Site for any commercial use without the   prior written permission by Us or the copyright holder identified in the   relevant copyright notice. <br>
+        <br>
+        Except as expressly provided in these Terms of Service, nothing   contained herein or on the Site shall be construed as conferring any   other license or right, expressly, by implication, by estoppel or   otherwise, with respect to any of Our content or the content of any   third party. Any rights not expressly granted herein are reserved to the   Site.</p>
+      <p><strong>You agree not to use the Site to:</strong><br>
+        <br>
+        - Post any posting that is unlawful, harmful, threatening, abusive,   harassing, tortuous, defamatory, vulgar, obscene, libelous, invasive of   another's privacy, hateful, or racially, ethnically, or otherwise   objectionable;<br>
+        - Harm or threaten to harm users in any way;<br>
+        - "Stalk" or otherwise harass any other person or entity;<br>
+        - Impersonate any person or entity (including an agent, enthusiast, or   moderator), or falsely state or otherwise misrepresent your affiliation   with a person or entity;<br>
+        - Post any unsolicited or unauthorized advertising, promotional   materials, junk mail, spam, chain letters, pyramid schemes, or any other   form of solicitation except in areas that are expressly designated by   Us for such purpose;<br>
+        - Disseminate or transmit any Content that infringes or violates any   party's copyright, trademark, trade secret, patent or other proprietary   right, including, but not limited to, using third party copyrighted   materials, without appropriate permission, using third party trademarks   without appropriate permission or attribution, or using or distributing   third party information (whether or not protected as a trade secret) in   violation of a duty of confidentiality;<br>
+        - Disseminate or transmit any worms, viruses or other harmful, disruptive or destructive files, code or programs;<br>
+        - Violate any law (whether local, state, national, or international), whether or not intentionally;<br>
+        - Forge headers or otherwise manipulate identifiers in order to disguise the origin of any Posting;<br>
+        - Post any content that you do not have a right to under any law or   under contractual or fiduciary relationship (which includes inside   information, proprietary or confidential information learned or   disclosed as part of employment relationships or under nondisclosure   agreements);<br>
+        - Interfere with or disrupt the Services, Site, or servers or networks   connected to the Site, or disobey any requirements, procedures,   policies, or regulations of networks connected to the Site;<br>
+        - Collect or store personal data about other users;<br>
+        - Engage in any activities that would violate the personal privacy   rights of others, including but not limited to, collecting and   distributing information about Internet users without their permission,   except as permitted by applicable law; or<br>
+        - Post any material that contains software viruses or any other computer   code, files, or programs designed to interrupt, destroy, or limit the   functionality of any computer software or hardware or telecommunications   equipment. <br>
+        <br>
+        You acknowledge that We do not pre-screen postings, content or other   results or materials which may be accessible on or via the Site, but   that We have the right, but not the obligation, to refuse to make   available, to modify or to remove any postings, content, results or   materials, or portions of any of the foregoing, in its sole discretion   and at any time without notice. <br>
+        <br>
+        You agree that your use of any information on the Site is at your own   risk, including any reliance on the accuracy, completeness, or   usefulness of the information. <br>
+        <br>
+        If you choose to make any submission or communication to the Site, you   agree that We may copy, distribute, display, publish, modify or   translate such submission for any purpose and in any medium worldwide   without any obligation to compensate you or any other third party in any   way for any such use. We may grant other parties these same rights as   to the submission.</p>
+      <p><strong>Registration</strong><br>
+        <br>
+        Certain portions of the Site may require users to register to access or   use certain services. By registering for these services, you agree to:   (a) provide true, accurate, current and complete information about   yourself as requested by a registration form (the "Registration   Information") and (b) maintain and update the Registration Information   to keep it true, accurate, current and complete. In addition to other   grounds for suspension or termination of your use of any Site services,   if you provide any information that is untrue, inaccurate, not current   or incomplete, or We have reasonable grounds to suspect that information   you have provided is untrue, inaccurate, not current or incomplete, We   have the right to suspend or terminate your access and refuse you any   and all use of the Site. Registrants have the right to terminate their   account at any time by sending an e-mail to an address provided on the   Site.</p>
+      <p><strong>Passwords and Security</strong><br>
+        <br>
+        Access to certain Site services may require you to choose a user name   (or nickname) and password. If you do so, you are responsible for   maintaining the confidentiality of your password and account and for   logging out of your account at the end of each session. In selecting a   user name, you agree that you will not (i) select or use a screen name   of another person with the intent to impersonate that person; (ii) use a   name subject to the rights of any person without their authorization;   or (iii) use a screen name that is offensive to people of ordinary   sensitivities, illegal, or infringing. You are fully responsible for all   activities that occur under your password or account. You agree (a) to   notify Us immediately of any unauthorized use of your password or   account or any other breach of security, and (b) to ensure that you exit   from your account at the end of each session. We cannot and will not be   liable for any loss or damage arising from your failure to comply with   this section.</p>
+      <p><strong>Links to Other Web Sites</strong><br>
+        <br>
+        A central part of the Site includes links to other World Wide Web sites   or resources. Because We have no control over such sites and resources,   you acknowledge and agree that We are not responsible for the   availability of such external sites or resources, and does not endorse   and is not responsible or liable for any content, advertising, products,   or other materials on or available from such sites or resources. You   further acknowledge and agree that We shall not be responsible or   liable, directly or indirectly, for any damage or loss caused by or in   connection with use of or reliance on any such content, goods or   services available on or through any such site or resource. Finally, you   acknowledge that such external sites usually have their own terms and   conditions, including privacy policies, over which We have no control   and which will govern your rights and obligations with respect to the   use of those Web sites.</p>
+      <p><strong>Your Contact With Advertisers Or Third Party Vendors</strong><br>
+        <br>
+        Your dealings with advertisers and third party vendors found on or   through the Site or any related services, including your participation   in promotions, the purchase of goods, and any terms, conditions,   warranties or representations associated with such activities, are   solely between you and the third party. We do not make any   representations or warranties with respect to any goods or web sites   that may be obtained from such third parties, and you agree that We will   have no liability for any loss or damage of any kind incurred as a   result of any activities you undertake in connection with the use of or   reliance on any content, goods, services, information or other materials   available, or through such third parties, on our Site. You acknowledge   that such external sites usually have their own terms and conditions,   including privacy policies, over which We have no control and which will   govern your rights and obligations with respect to the use of those Web   sites.</p>
+      <p><strong>Compliance with Laws</strong><br>
+        <br>
+        You agree to comply with all applicable laws regarding your use of our   Site including, without limitation, all applicable laws (as well as   associated licenses and approvals) regarding the transmission of   technical data exported from the United States or the country in which   you reside.</p>
+      <p><strong>Modifications To the Services</strong><br>
+        <br>
+        We reserve the right at any time and from time to time to modify,   suspend, discontinue or terminate the Site (or any part thereof) with or   without notice. You agree that We will not be liable to you or to any   third party for any modification, suspension, discontinuation or   termination of the Site.</p>
+      <p><strong>Termination of Your Access to the Site, Services</strong><br>
+        <br>
+        You agree that we may, in our sole discretion, terminate your access to   any of the Site or the Site services, and/or remove, discard or modify   any content within the services, for any reason, including, without   limitation, for lack of use or if We believe that you have violated or   acted inconsistently with the letter or spirit of these Terms of   Service. You agree that any termination of your access to the Site or   related services may be effected without prior notice, and acknowledge   and agree that We may immediately deactivate or delete your account and   all related information and files in your account and/or bar any further   access to such files or the Site or services. If you use the Site in   violation of these Terms of Service, We may, in its sole discretion,   retain all data collected from your use of the Site. Further, you agree   that We shall not be liable to you or any third party for the   discontinuation or termination of your access to the Site.</p>
+      <p><strong>Information Disclaimer and Disclaimer of Warranties</strong><br>
+        <br>
+        BY USING THE SITE OR RELATED SERVICES YOU UNDERSTAND AND AGREE THAT: <br>
+        <br>
+        THE SITE AND RELATED SERVICES ARE PROVIDED FOR PERSONAL AND   INFORMATIONAL PURPOSES ONLY. NO CONTENT ON OUR SITE IS INTENDED TO   CONSTITUTE PROFESSIONAL ADVICE, WHETHER MEDICAL, FINANCIAL, LEGAL OR   OTHERWISE. WE AND THOSE POSTING OR OTHERWISE PROVIDING INFORMATION,   SERVICES OR MATERIAL ON OUR SITE ARE NOT RESPONSIBLE OR LIABLE FOR ANY   CONSEQUENCES RELATING DIRECTLY OR INDIRECTLY TO ANY ACTION OR INACTION   YOU TAKE BASED ON THE INFORMATION, SERVICES OR OTHER MATERIAL ON THE   SITE. <br>
+        <br>
+        YOUR USE OF THE SITE AND RELATED SERVICES IS AT YOUR SOLE RISK. THE SITE   AND RELATED SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE"   BASIS. WE EXPRESSLY DISCLAIM ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS   OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF   TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-   INFRINGEMENT. <br>
+        <br>
+        WE MAKE NO REPRESENTATION OR WARRANTY THAT THE SITE OR RELATED SERVICES   WILL MEET YOUR REQUIREMENTS, THAT THEY WILL BE UNINTERRUPTED, SECURE,   CURRENT OR ERROR-FREE, THAT THE RESULTS THAT MAY BE OBTAINED FROM THE   USE THEREOF WILL BE ACCURATE, TIMELY, USEFUL OR RELIABLE, OR THAT THE   QUALITY OF ANY POSTINGS, PRODUCTS, SERVICES, INFORMATION OR OTHER   MATERIAL OBTAINED BY YOU THROUGH THE SITE OR RELATED SERVICES WILL MEET   YOUR NEEDS. <br>
+        <br>
+        ANY MATERIAL OBTAINED THROUGH THE USE OF THE SITE OR RELATED SERVICES IS   DONE AT YOUR OWN DISCRETION AND RISK, AND YOU WILL BE SOLELY   RESPONSIBLE FOR ANY DAMAGE TO COMPUTER SYSTEMS OR FOR LOSS OF DATA THAT   RESULTS FROM THE DOWNLOAD OR USE OF ANY SUCH MATERIAL. <br>
+        <br>
+        NO ADVICE OR INFORMATION, WHETHER ORAL OR WRITTEN, OBTAINED BY YOU FROM   OUR SITE OR THROUGH OR FROM THE RELATED SERVICES SHALL CREATE ANY   WARRANTY NOT EXPRESSLY STATED IN THEIR TERMS. <br>
+        <br>
+        WE EXPRESSLY DISCLAIM ALL WARRANTIES RELATING TO PRODUCTS AND/OR SERVICES PROVIDED BY THIRD PARTY VENDORS.</p>
+      <p><strong>Limitation Of Liability</strong><br>
+        <br>
+        YOU UNDERSTAND AND AGREE THAT WE ARE NOT LIABLE FOR ANY INDIRECT,   INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE DAMAGES,   INCLUDING, BUT NOT LIMITED TO, ANY LOSS OF USE, LOSS OF PROFITS, LOSS OF   DATA, LOSS OF GOODWILL, COST OF PROCUREMENT OF SUBSTITUTE SERVICES, OR   ANY OTHER INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR   PUNITIVE DAMAGES, HOWSOEVER CAUSED, AND ON ANY THEORY OF LIABILITY,   WHETHER FOR BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE AND STRICT   LIABILITY), OR OTHERWISE RESULTING FROM: (1) THE USE OF, OR THE   INABILITY TO USE, THE SITE OR RELATED SERVICES, (2) THE COST OF   PROCUREMENT OF SUBSTITUTE SERVICES, GOODS OR AND WEB SITES, (3)   UNAUTHORIZED ACCESS TO OR ALTERATION OF YOUR TRANSMISSIONS OR DATA, (4)   THE STATEMENTS OR CONDUCT OF ANY THIRD PARTY ON THE SITE, (5) RELIANCE   ON CONTENT OR POSTINGS ON THE SITE, OR (6) ANY OTHER MATTER RELATING TO   THE SITE OR THE RELATED SERVICES. THESE LIMITATIONS WILL APPLY WHETHER   OR NOT WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES AND   NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY.   EXCEPT AS REQUIRED BY THE INDEMNITY PROVISIONS HEREIN, IN NO EVENT WILL   OUR DIRECT LIABILITY HEREUNDER EXCEED $100.00. <br>
+        <br>
+        SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OR EXCLUSION OF LIABILITY   FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE   DAMAGES, SO SOME OF THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU.</p>
+      <p><strong>Indemnification</strong><br>
+        <br>
+        You agree to indemnify and hold Us, our subsidiaries, and affiliates,   and their officers, directors, employees and agents harmless from and   against any and all liability, losses, claims, demands, disputes,   damages or costs of any kind, including, without limitation, reasonable   attorneys' fees and costs of litigation, resulting from or in any way   connected with (a) content you submit or that is submitted from your   account, (b) your use of or reliance on the Site or related services,   (c) your connection to the Site, (d) your violation of these Terms of   Service, or (e) your violation of any rights of another party. <br>
+        <br>
+        Third Party Intellectual Property; Copyright Notifications  We respect the intellectual property of others, and we ask our users to   do the same. We may, in appropriate circumstances and at its discretion,   terminate the accounts of users who infringe the intellectual property   rights of others. We will remove infringing materials in accordance with   the Digital Millennium Copyright Act if properly notified that content   infringes copyright.</p>
+      <p><strong>No Other Agreements Between Us</strong><br>
+        <br>
+        With the exception of our Privacy Policy, these Terms of Service   constitute the entire agreement between you and Us for governing your   use of the Site and related services and supersedes any prior agreements   between you and Us for that purpose, including any membership   agreements or other similar agreements applying to the Site or related   services.</p>
+      <p><strong>Law Applicable to Interpretations and Disputes</strong><br>
+        <br>
+        This Agreement and the relationship between you and Us are governed by   the laws of the State of Texas without regard to its conflict of law   provisions. You and Us agree to submit to the personal and exclusive   jurisdiction of the state and federal courts located within Texas.</p>
+      <p><strong>Severability of This Agreement</strong><br>
+        <br>
+        If any provision of this Agreement is found by a court or other binding   authority to be invalid, you agree that every attempt shall be made to   give effect to the parties' intentions as reflected in that provision,   and the remaining provisions contained in this Agreement shall continue   in full force and effect.</p>
+      <p><strong>Limitation of Actions Brought Against Us</strong><br>
+        <br>
+        You agree that any claim or cause of action arising out of your use of   the Site or these Terms of Service must be filed within one year after   such claim or cause of action arose or it shall forever be barred,   notwithstanding any statute of limitations or other law to the contrary.   Within this period, any failure by Us to enforce or exercise any   provision of these Terms of Service or related right shall not   constitute a waiver of that right or provision.</p>
+      <p><strong>Contact Information</strong><br>
+        <br>
+        If you have any questions or concerns with respect to these Terms of   Service or our Site, you may contact Us at   support@mapdrivingdirections.net</p>
+    
+
+
+        </div> <!-- .popup-content -->
+
+      </div> <!-- #pop-about -->
+
+
+      <div id="pop-contact">
+
+        <div class="popup-content">
+
+          <h2>Contact Us</h2>
+
+       <p>Our team is committed to providing you a great user experience.</p>
+
+<p>Should you have any questions, comments, or compliments, you can reach us via email at support@mapdrivingdirections.net. We welcome your feedback!</p>
+
+<p>
+
+Thank You,<br />
+
+mapdrivingdirections.net.com Team</p>
+
+        </div> <!-- .popup-content -->
+
+      </div> <!-- #pop-about -->
+
+      <div id="pop-policy">
+
+        <div class="popup-content">
+
+         <h2>Privacy Policy</h2>
+
+            <p> mapdrivingdirections.net provides this Privacy Policy to help users,   customers and suppliers of the business make an informed decision as to   whether to use or continue using the Website and business services of   mapdrivingdirections.net. <br />
+
+  <br />
+
+  PLEASE NOTE: OUR PRIVACY POLICY CHANGES FROM TIME TO TIME AND CHANGES   ARE EFFECTIVE UPON POSTING. PLEASE CHECK BACK FREQUENTLY FOR UPDATES AS   IT IS YOUR SOLE RESPONSIBILITY TO BE AWARE OF CHANGES. WE DO NOT PROVIDE   NOTICES OF CHANGES IN ANY MANNER OTHER THAN BY POSTING THE CHANGES AT   THIS WEB SITE. IF YOU DO NOT AGREE WITH THE TERMS OF THIS PRIVACY POLICY   PLEASE DO NOT PROVIDE ANY INFORMATION TO OR USE ANY OF THE SERVICES OR   PRODUCTS OFFERED OR PROVIDED ON ANY OF THE WEB SITES REFERRED IN THIS   PRIVACY POLICY.</p>
+
+<p><strong>Overview of our Privacy Policy</strong><br />
+
+  <br />
+
+  We provide access to free utility software. This may include Toolbars,   which add search functionality to your browser. Mindspark Interactive   Network, Inc. is the source of the Mapsgalaxy™ Toolbar application.<br />
+
+  <br />
+
+  Please read this Privacy Policy carefully so that you understand our online privacy practices regarding: <br />
+
+  <br />
+
+  - Information we collect<br />
+
+  - How we use the information<br />
+
+  - How we share your information, if at all<br />
+
+  - Your choices </p>
+
+<p><strong>What information do we collect?</strong><br />
+
+  <br />
+
+  We collect information from you when you register on our site, subscribe   to our newsletter, respond to a survey or fill out a form. <br />
+
+  <br />
+
+  When ordering or registering on our site, as appropriate, you may be   asked to enter your: e-mail address. You may, however, visit our site   anonymously. <br />
+
+  <br />
+
+  Google, as a third party vendor, uses cookies to serve ads on your site.   Google's use of the DART cookie enables it to serve ads to your users   based on their visit to your sites and other sites on the Internet.   Users may opt out of the use of the DART cookie by visiting the Google   ad and content network privacy policy.  What do we use your information for? <br />
+
+  <br />
+
+  Any of the information we collect from you may be used in one of the following ways: <br />
+
+  <br />
+
+  - To personalize your experience (your information helps us to better respond to your individual needs)<br />
+
+  - To improve our website (we continually strive to improve our website   offerings based on the information and feedback we receive from you)<br />
+
+  - To improve customer service (your information helps us to more   effectively respond to your customer service requests and support needs)<br />
+
+  - To administer a contest, promotion, survey or other site feature<br />
+
+  - To send periodic emails. The email address you provide may be used to   send you information, respond to inquiries, and/or other requests or   questions. <br />
+
+  <br />
+
+  Note: If at any time you would like to unsubscribe from receiving future   emails, we include detailed unsubscribe instructions at the bottom of   each email.</p>
+
+<p><strong>How do we protect your information?</strong><br />
+
+  <br />
+
+  We implement a variety of security measures to maintain the safety of   your personal information when you enter, submit, or access your   personal information.</p>
+
+<p><strong>Do we use cookies?</strong><br />
+
+  <br />
+
+  Yes (Cookies are small files that a site or its service provider   transfers to your computers hard drive through your Web browser (if you   allow) that enables the sites or service providers systems to recognize   your browser and capture and remember certain information. <br />
+
+  <br />
+
+  We use cookies to understand and save your preferences for future visits   and compile aggregate data about site traffic and site interaction so   that we can offer better site experiences and tools in the future.</p>
+
+<p><strong>Do we use web beacons or pixels?</strong><br />
+
+  <br />
+
+  Yes. We and our Partners employ a software technology that helps us   better manage content on our site. Web beacons or Pixels are tiny   graphics with a unique identifier, similar in function to cookies. They   track your online Web movement. We embed Pixels invisibly on Web pages.   They are about the size of the period at the end of this sentence. We do   not tie the information gathered by Pixels to our customers&rsquo; Personally   Identifiable Information. <br />
+
+  <br />
+
+  Some of the Partner Offers may also use Pixels. We have no control over   our partners&rsquo; Pixels. We also have no control over how they use   information collected.</p>
+
+<p><strong>Do we disclose any information to outside parties?</strong><br />
+
+  <br />
+
+  We do not sell, trade, or otherwise transfer to outside parties your   personally identifiable information. This does not include trusted third   parties who assist us in operating our website, conducting our   business, or servicing you, so long as those parties agree to keep this   information confidential. We may also release your information when we   believe release is appropriate to comply with the law, enforce our site   policies, or protect ours or others rights, property, or safety.   However, non-personally identifiable visitor information may be provided   to other parties for marketing, advertising, or other uses.</p>
+
+<p><strong>Third party links</strong><br />
+
+  <br />
+
+  Occasionally, at our discretion, we may include or offer third party   products or services on our website. These third party sites have   separate and independent privacy policies. We therefore have no   responsibility or liability for the content and activities of these   linked sites. Nonetheless, we seek to protect the integrity of our site   and welcome any feedback about these sites.</p>
+
+<p><strong>How do toolbars affect your browser and operating system?</strong><br />
+
+  <br />
+
+  Toolbars install into your Internet browser and allow you to search the   Internet. If you consent to make a toolbar your default search, your   Internet browser default search feature will be set and you will access   search services (i) by entering queries in your browser search box; (ii)   by entering queries in your browser address bar, and/or (iii) in   response to misspelled, incorrectly formatted or unresolved DNS   submissions in your browser address bar. <br />
+
+  <br />
+
+  Toolbars do not affect your operating system. Toolbars can be removed at any time.</p>
+
+<p><strong>General uninstall instructions</strong><br />
+
+  <br />
+
+  If, for any reason at all, you decide you no longer want the downloaded   software or offers on your computer, you can easily uninstall them at   any time. Please <a href="http://support.mindspark.com/link/portal/30028/30031/Article/222/Uninstalling-Mindspark-Toolbar" target="_blank">click here</a>.</p>
+
+<p><strong>California Online Privacy Protection Act Compliance</strong><br />
+
+  <br />
+
+  Because we value your privacy we have taken the necessary precautions to   be in compliance with the California Online Privacy Protection Act. We   therefore will not distribute your personal information to outside   parties without your consent.</p>
+
+<p><strong>Childrens Online Privacy Protection Act Compliance</strong><br />
+
+  <br />
+
+  We are in compliance with the requirements of COPPA (Childrens Online   Privacy Protection Act), we do not collect any information from anyone   under 13 years of age. Our website, products and services are all   directed to people who are at least 13 years old or older.</p>
+
+<p><strong>Online Privacy Policy</strong><br />
+
+  <br />
+
+  Only This online privacy policy applies only to information collected   through our website and not to information collected offline.</p>
+
+<p><strong>Terms and Conditions</strong><br />
+
+  <br />
+
+  Please also visit our Terms and Conditions section establishing the use,   disclaimers, and limitations of liability governing the use of our   website.</p>
+
+<p><strong>Your Consent</strong><br />
+
+  <br />
+
+  By using our site, you consent to our online privacy policy.</p><br /><br />
+
+            <span></span><span></span>
+
+            <center>
+
+          </p>
+
+        </div> <!-- .popup-content -->
+
+      </div> <!-- #pop-about -->
+
+    </div>
+
+     <!-- Google Code for new Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 969271116;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "sHw0CJjig1cQzM6XzgM";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/969271116/?label=sHw0CJjig1cQzM6XzgM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript><!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=10093454; 
+var sc_invisible=1; 
+var sc_security="b5f7b885"; 
+var sc_https=1; 
+var sc_remove_link=1; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><img class="statcounter"
+src="http://c.statcounter.com/10093454/0/b5f7b885/1/"
+alt="web counter"></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+</body>
+
+    </html>";i:2;s:4:"1454";}

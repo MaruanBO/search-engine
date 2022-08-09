@@ -1,0 +1,690 @@
+a:3:{i:0;s:23:"http://stephenking.com/";i:1;s:54877:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="alternate" type="application/rss+xml" href="http://www.stephenking.com/stephenking-rss.xml" title="RSS feed for StephenKing.com" /><meta http-equiv="Content-Language" content="en-us" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="keywords" content="Stephen King, Stephen, King, Author, Dark Tower, The Dark Tower, StephenKing, Steven King, Official King Website" /><meta name="description" content="The Official Website for the author Stephen King." /><meta http-equiv="X-UA-Compatible" content="IE=8" /><meta property="fb:admins" content="10212811" /><meta name="avgthreatlabs-verification" content="1435b9e957652cab2779f77a19fed5d5ce3fdc01" /><title>Welcome to StephenKing.com</title>
+
+<script src="/assets/Include/JavaScript/AC_RunActiveContent.js" type="text/javascript" async></script>
+<script type="text/javascript" src="/assets/Include/JavaScript/hs/highslide-full.js" async></script>
+
+<script type="text/javascript">
+
+   function officePop(){window.open( "http://www.stephenking.com/the_office/", "TheOffice","status = 0, height = 768, width = 1280, resizable = 1,location=0,toolbar=0,scrollbars=1,directories=0" );}
+
+    var iframeids=["poll"];
+	var iframehide="no";
+
+	var getFFVersion=navigator.userAgent.substring(navigator.userAgent.indexOf("Firefox")).split("/")[1];
+	var FFextraHeight=parseFloat(getFFVersion)>=0.1? 3 : 0; //extra height in px to add to iframe in FireFox 1.0+ browsers
+
+	function resizeCaller()
+	{
+		var dyniframe=new Array()
+		for (i=0; i<iframeids.length; i++)
+		{
+			if (document.getElementById)
+				resizeIframe(iframeids);
+			//reveal iframe for lower end browsers? (see var above):
+			if ((document.all || document.getElementById) && iframehide=="no")
+			{
+				var tempobj=document.all? document.all[iframeids] : document.getElementById(iframeids);
+				tempobj.style.display="block";
+			}
+		}
+	}
+
+	function getInternetExplorerVersion()
+	{
+	  var rv = -1; // Return value assumes failure.
+	  if (navigator.appName == 'Microsoft Internet Explorer')
+	  {
+	    var ua = navigator.userAgent;
+	    var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+	    if (re.exec(ua) != null)
+	      rv = parseFloat( RegExp.$1 );
+	  }
+	  return rv;
+	}
+	
+	function resizeIframe(frameid)
+	{
+		var currentfr=document.getElementById(frameid);
+		var ie=getInternetExplorerVersion();
+		
+		if (currentfr && ie!=-1)
+		{
+			currentfr.height = document.frames[frameid].document.body.scrollHeight;
+		}
+		else if (currentfr && !window.opera)
+		{
+			currentfr.style.display="block";
+			if (currentfr.contentDocument && currentfr.contentDocument.body.offsetHeight) //ns6 syntax
+				currentfr.height = currentfr.contentDocument.body.offsetHeight+FFextraHeight;
+			else if (currentfr.Document && currentfr.Document.body.scrollHeight) //ie5+ syntax
+				currentfr.height = currentfr.Document.body.scrollHeight;
+
+			if (currentfr.addEventListener)
+				currentfr.addEventListener("load", readjustIframe, false);
+			else if (currentfr.attachEvent)
+			{
+				currentfr.detachEvent("onload", readjustIframe); // Bug fix line
+				currentfr.attachEvent("onload", readjustIframe);
+			}
+		}
+	}
+	
+	function readjustIframe(loadevt)
+	{
+		var crossevt=(window.event)? event : loadevt;
+		var iframeroot=(crossevt.currentTarget)? crossevt.currentTarget : crossevt.srcElement;
+
+		if (iframeroot)
+			resizeIframe(iframeroot.id);
+	}
+
+	function loadintoIframe(iframeid, url)
+	{
+		if (document.getElementById)
+			document.getElementById(iframeid).src=url;
+	}
+
+	if (window.addEventListener)
+		window.addEventListener("load", resizeCaller, false);
+	else if (window.attachEvent)
+		window.attachEvent("onload", resizeCaller);
+	else
+		window.onload=resizeCaller;
+		
+		
+	function MM_swapImgRestore() { //v3.0
+	  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+	}
+	function MM_preloadImages() { //v3.0
+	  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+	    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+	    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+	}
+	
+	function MM_findObj(n, d) { //v4.01
+	  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+	    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+	  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+	  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+	  if(!x && d.getElementById) x=d.getElementById(n); return x;
+	}
+	
+	function MM_swapImage() { //v3.0
+	  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+	   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+	}
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="/assets/Include/CSS/highslide.min.css" />
+<link rel="stylesheet" type="text/css" href="/assets/Include/CSS/site.min.css" />
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/assets/Include/CSS/IEstyles.css" /><![endif]-->
+<!--[if lt IE 9]>
+<style type="text/css">
+   li a {display:inline-block;}
+   li a {display:block;}
+</style>
+<![endif]-->
+<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="/assets/Include/CSS/ie7.css" /><![endif]-->
+
+</head><body onload="MM_preloadImages('/images/nav_menu/16_library_over.jpg','/images/nav_menu/17_author_over.jpg','/images/nav_menu/18_news_over.jpg','/images/nav_menu/19_future_over.jpg','/images/nav_menu/20_faq_over.jpg','/images/nav_menu/21_multimedia_over.jpg','/images/nav_menu/22_ipt_over.jpg','/images/nav_menu/23_dark_tower_over.jpg')">
+<table style="width: 1018px" cellpadding="0" cellspacing="0" class="style1" align="center">
+<tr><td><table width="1018" border="0" cellspacing="0" cellpadding="0" class="main_nav_table"><tbody>
+  <tr>
+  <td colspan="5" style="width:1018px; height:8px; background-image:url(/images/nav_menu/01_top_bar.jpg);"><img src="/images/interface/transparent_button.gif" border="0" width="1" height="1" alt="" /></td>
+  </tr>
+  <tr>
+  
+    <td height="152" width="19" rowspan="3" style="width:19px; height:152px; background-image:url(/images/nav_menu/02_left_bar.jpg);"><img src="/images/interface/transparent_button.gif" border="0" width="1" height="1" alt="" /></td>
+		
+    <td width="611" height="152" style="width:611px; height:111px; background-image:url(/images/nav_menu/03_site_logo.jpg);vertical-align:top;" valign="top"><a href="/index.html"><img src="/images/nav_menu/03_site_logo.jpg" title="StephenKing.com's Homepage" width="611" height="111" alt="StephenKing.com Home" border="0" /></a></td>
+    <td width="351"><table width="351" border="0" cellpadding="0" cellspacing="0" style="width:351px;">
+    	<tr>
+    		<td width="112" height="42" style="width:112px; height:42px;"><a href="http://www.cafepress.com/stephenking" target="_blank"><img src="/images/nav_menu/04_sk_merchandise.jpg" width="112" height="42" alt="Stephen King Merchandise" border="0" /></a></td>
+    		<td width="13" height="42" style="width:13px; height:42px;background-image:url(/images/nav_menu/05_top_divider.jpg);"><img src="/images/interface/transparent_button.gif" border="0" width="1" height="1" alt="" /></td>
+    		<td width="111" height="42" style="width:111px; height:42px;"><a href="/xf/"><img src="/images/nav_menu/06_message_board.jpg" width="111" height="42" alt="Message Board" title="The Official StephenKing.com Message Board" border="0" /></a></td>
+    		<td width="14" height="42" style="width:14px; height:42px;background-image:url(/images/nav_menu/07_top_divider.jpg);"><img src="/images/interface/transparent_button.gif" border="0" width="1" height="1" alt="" /></td>
+    		<td width="101" height="42" style="width:101px; height:42px;"><a href="/links.html"><img src="/images/nav_menu/08_miscellaneous.jpg" width="101" height="42" alt="Miscellaneous" title="Links to Organizations & Foundations Related to Stephen" border="0" /></a></td>
+    	</tr>
+    	<tr height="12">
+    		<td colspan="5" height="12" style="height:12px;width:351px;background-image:url(/images/nav_menu/11_search_top.jpg);"><img src="/images/interface/transparent_button.gif" border="0" width="1" height="1" alt="" /></td>
+		</tr>
+    	<tr>
+    		<td colspan="5" height="57"><form name="thisForm" action="/results.php" method="GET"><table width="351" height="57" border="0" cellpadding="0" cellspacing="0" align="left">
+    			<tr>
+        			<td width="314" height="57" valign="top" style="background-image: url(/images/nav_menu/12_search_content.jpg); width:314px; height: 57px;">
+        				<table width="100%" border="0" cellpadding="0" cellspacing="0" height="57">
+		        <tr>
+		        	<td>&nbsp;</td>
+		        	<td width="230" align="center" valign="top"><input name="q" type="text" class="searchText" /></td>
+		        	<td width="5">&nbsp;</td>
+		        	</tr></table>
+		        </td>
+		        <td height="57" width="28">
+		        	<table border="0" cellpadding="0" cellspacing="0" height="57" width="28">
+		            <tr height="31"><td width="28" style="width:28px; height:31px;"><input type="image" title="Search StephenKing.com" src="/images/nav_menu/13_search_button.jpg" width="28" height="31" alt="Search" border="0" /></td></tr>
+		            <tr height="26">
+		            	<td width="28" style="background-image:url(/images/nav_menu/15_search_bottom.jpg); width:28px; height:26px;"><img src="/images/interface/transparent_button.gif" border="0" width="1" height="1" alt="" /></td></tr>
+		            </table>
+		        </td>
+		        <td width="9" style="background-image:url(/images/nav_menu/14_search_right.jpg); width:9px; height:57px;"><img src="/images/interface/transparent_button.gif" border="0" width="1" height="1" alt="" /></td>
+		        </tr></table></form></td>
+    	</tr></table></td>
+    <td width="20" style="width:20px; height:111px; background-image:url(/images/nav_menu/09_top_right.jpg);"><img src="/images/interface/transparent_button.gif" border="0" width="1" height="1" alt="" /></td>
+		
+    <td rowspan="3" height="152" width="17" style="height:152px; width:17px; background-image:url(/images/nav_menu/10_right_bar.jpg);"><img src="/images/interface/transparent_button.gif" border="0" width="1" height="1" alt="" /></td>
+		
+  </tr>
+  <tr>
+    <td colspan="3" height="36" valign="top" align="left"><table height="36" border="0" cellpadding="0" cellspacing="0" align="left" valign="top" class="nav_buttons_table">
+	    <tr height="36">
+		    <td width="151" height="36" valign="top"><a href="/the_library.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('TheLibrary','','/images/nav_menu/16_library_over.jpg',1)"><img src="/images/nav_menu/16_library_up.jpg" alt="The Library" name="TheLibrary" width="151" height="36" border="0" id="TheLibrary" title="The Complete Library of Stephen's Works" /></a></td>
+		    <td width="139" height="36" valign="top"><a href="/the_author.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('TheAuthor','','/images/nav_menu/17_author_over.jpg',1)"><img src="/images/nav_menu/17_author_up.jpg" alt="The Author" name="TheAuthor" width="139" height="36" border="0" id="TheAuthor" title="Biographical Information on Stephen &amp; Stephen's Images" /></a></td>
+		    <td width="90" height="36" valign="top"><a href="/news.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('News','','/images/nav_menu/18_news_over.jpg',1)"><img src="/images/nav_menu/18_news_up.jpg" alt="News" name="News" width="90" height="36" border="0" id="News" title="News On Stephen &amp; His Works" /></a></td>
+		    <td width="164" height="36" valign="top"><a href="/future_works.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('FutureWorks','','/images/nav_menu/19_future_over.jpg',1)"><img src="/images/nav_menu/19_future_up.jpg" alt="Future Works" name="FutureWorks" width="164" height="36" border="0" id="FutureWorks" title="Information Regarding Stephen's Upcoming Releases" /></a></td>
+		    <td width="75" height="36" valign="top"><a href="/faq.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('FAQ','','/images/nav_menu/20_faq_over.jpg',1)"><img src="/images/nav_menu/20_faq_up.jpg" alt="Frequently Asked Questions" name="FAQ" width="75" height="36" border="0" id="FAQ" title="The Answers to Frequently Asked Questions" /></a></td>
+		    <td width="142" height="36" valign="top"><a href="/multimedia.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Multimedia','','/images/nav_menu/21_multimedia_over.jpg',1)"><img src="/images/nav_menu/21_multimedia_up.jpg" alt="Multimedia" name="Multimedia" width="142" height="36" border="0" id="Multimedia" title="Audio, Video &amp; Interactive Features Releated to Stephen's Works" /></a></td>
+		    <td width="78" height="36" valign="top"><a href="/promo/ipt/works/index_ipt.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('IPT','','/images/nav_menu/22_ipt_over.jpg',1)"><img src="/images/nav_menu/22_ipt_up.jpg" alt="Illustrated Publishing Tracker" name="IPT" width="78" height="36" border="0" id="IPT" title="Tracking Illustrated Adaptations (Graphic Novels &amp; Comics) Based on Stephen's Works" /></a></td>
+		    <td width="143" height="36" valign="top"><a href="/darktower/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('DarkTower','','/images/nav_menu/23_dark_tower_over.jpg',1)"><img src="/images/nav_menu/23_dark_tower_up.jpg" alt="The Dark Tower" name="DarkTower" width="143" height="36" border="0" id="DarkTower" title="The Official Web Site for The Dark Tower Books, Comics &amp; Movies" /></a></td>
+	    </tr>
+	    </table></td>
+  </tr>
+  <tr height="5">
+  	<td colspan="3" width="982" style="width:982px;height:5px;background-image:url(/images/nav_menu/24_bottom_bar.jpg);" height="5" align="left" valign="top"><img src="/images/interface/transparent_button.gif" border="0" width="1" height="1" alt="" /></td></tr>
+</tbody></table></td></tr>
+
+	<tr>
+		<td class="ExtendableBodyFiller"><table style="width: 962px" cellpadding="0" cellspacing="0" align="center" class="style1">
+			<tr>
+				<td><iframe name="FeatureContent" id="I1" src="feature_content/feature1.html" style="width: 962px; height: 438px" title="Main Feature Content" scrolling="no" border="0" frameborder="0" marginwidth="1" marginheight="1">Your browser does not support inline frames or is currently configured not to display inline frames.</iframe></td>
+			</tr>
+		</table></td>
+	</tr>
+
+<!-- Begin New In Stores -->
+<tr>
+		<td class="ExtendableBodyFiller">
+		<table style="width: 100%;" class="style1" align="left" cellpadding="0" cellspacing="0">
+
+			<tbody><tr>
+				<td class="PrimaryGutter" valign="top">&nbsp;</td>
+				<td class="LeftColumnBuffer" valign="top">
+				<span class="Titles">New Releases:</span>&nbsp;<br>
+				<div class="under_title_links"><span class="UnderLinks">More: &nbsp;
+<a href="/new_in_stores/audiobooks.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Audiobooks</a> &nbsp; |&nbsp; 
+<a href="/new_in_stores/anthologies.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Anthologies</a> &nbsp; |&nbsp; 
+<a href="/new_in_stores/novels.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Novels</a> &nbsp; |&nbsp; 
+<a href="/new_in_stores/comics.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Comics</a> &nbsp; |&nbsp; 
+<a href="/new_in_stores/special_editions.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Special Editions</a> &nbsp; |&nbsp; 
+<a href="/new_in_stores/movies.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Movies</a> &nbsp; |&nbsp; 
+<a href="/new_in_stores.html">All</a></span></div>
+				<table style="width: 100%;" class="style1" align="left" cellpadding="0" cellspacing="0">
+					<tbody>
+<tr class="podbreak_dark"><td class="podbreak_dark" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_dark">
+		<td class="alternate_dark"><table align="left" cellpadding="0" cellspacing="0">
+		<tbody><tr><td class="PrimaryColumnBuffer">&nbsp;</td><td valign="top" style="padding-top:4px;">
+
+		<a href="/images/movies/a-good-marriage/a_good_marriage_dvd_1_full.jpg" class="highslide" onclick="return hs.expand(this, {captionId: 'caption0'})">
+	    	<img src="/images/movies/a-good-marriage/a_good_marriage_dvd_1_tn.jpg" alt="A Good Marriage DVD" height="186" width="130" border="0" /></a><br> <br>
+		
+		</td>
+
+		<td class="PrimaryColumnBuffer" valign="top">&nbsp;</td><td class="LeftColumnBuffer" style="width: 445px;" valign="top">
+		<span class="PodTitles">A Good Marriage DVD</span><br>
+		<span class="TinyText1">Release Date: February 3rd, 2015</span><br/><br/>
+		<span class="BodyText"><p class="BodyText"><em>A Good Marriage</em>&nbsp;is now available as a DVD and as a 99&cent;&nbsp;rental from iTunes for limited time.</p>
+
+<p class="BodyText"><a href="/promo/a-good-marriage/" style="line-height: 20.7999992370605px;">More Information</a></p>
+
+<p class="BodyText"><span style="font-family:arial,sans-serif; font-size:10pt"><a href="http://www.walmart.com/store" target="_blank">Buy the DVD at Walmart (Find a Store)</a></span></p>
+
+<p class="BodyText">Order the DVD:&nbsp;<a href="http://www.walmart.com/ip/41736784" target="_blank">Walmart</a>&nbsp;|&nbsp;<a href="http://www.amazon.com/Stephen-Kings-Good-Marriage-Lang/dp/B00NW6KW16/ref=sr_1_1?ie=UTF8&amp;qid=1422900129&amp;sr=8-1&amp;keywords=stephen king's a good marriage" target="_blank">Amazon</a>&nbsp;|&nbsp;<a href="http://www.rakuten.com/prod/stephen-kings-a-good-marriage/271270620.html" target="_blank">Rakuten</a></p>
+
+<p class="BodyText"><a href="https://itunes.apple.com/us/movie/stephen-kings-a-good-marriage/id918631631#" target="_blank">Rent A Good Marriage on iTunes for 99&cent; (Limited Time)</a><br />
+<span style="font-size:11px">Please Note: The 99&cent; rental price is only shown in the iTunes application.</span></p></span> <br> <br>
+
+		</span><br></td><td class="PrimaryColumnBuffer" valign="top">&nbsp;</td></tr>
+		</tbody></table></td></tr><tr class="podbreak_light"><td class="podbreak_light" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_light">
+		<td class="alternate_light"><table align="left" cellpadding="0" cellspacing="0">
+		<tbody><tr><td class="PrimaryColumnBuffer">&nbsp;</td><td valign="top" style="padding-top:4px;">
+
+		<a href="/images/books/mr_mercedes/mr_mercedes_paperback_full.jpg" class="highslide" onclick="return hs.expand(this, {captionId: 'caption0'})">
+	    	<img src="/images/books/mr_mercedes/mr_mercedes_paperback_tn.jpg" alt="Mr. Mercedes Paperback Edition" height="202" width="130" border="0" /></a><br> <br>
+		
+		</td>
+
+		<td class="PrimaryColumnBuffer" valign="top">&nbsp;</td><td class="LeftColumnBuffer" style="width: 445px;" valign="top">
+		<span class="PodTitles">Mr. Mercedes Paperback Edition</span><br>
+		<span class="TinyText1">Release Date: January 6th, 2015</span><br/><br/>
+		<span class="BodyText"><p class="BodyText">The paperback edition of Mr. Mercedes is now available.</p>
+
+<p class="BodyText"><a href="/promo/mr_mercedes/#retail">Order Now</a></p>
+
+<p class="BodyText">In the gloomy pre-dawn hours of a distressed Midwestern city,&nbsp;hundreds of unemployed hopefuls are lined up for a job fair. Without warning, a merciless driver plows through the crowd in a roaring Mercedes. Eight people are killed; 15 are wounded. The killer escapes into the early-spring fog never to be seen from again. Until now...</p>
+
+<p class="BodyText"><a href="http://www.stephenking.com/promo/mr_mercedes/" style="line-height: 20.7999992370605px;">More Information</a></p>
+
+<p class="BodyText"><a href="/promo/mr_mercedes/book-trailer.html">Watch the Book Trailer</a></p></span> <br> <br>
+
+		</span><br></td><td class="PrimaryColumnBuffer" valign="top">&nbsp;</td></tr>
+		</tbody></table></td></tr><tr class="podbreak_dark"><td class="podbreak_dark" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_dark">
+		<td class="alternate_dark"><table align="left" cellpadding="0" cellspacing="0">
+		<tbody><tr><td class="PrimaryColumnBuffer">&nbsp;</td><td valign="top" style="padding-top:4px;">
+
+		<a href="/images/comics/drawing_of_the_three_prisoner/dt_dott_prisoner_5_full.png" class="highslide" onclick="return hs.expand(this, {captionId: 'caption0'})">
+	    	<img src="/images/comics/drawing_of_the_three_prisoner/dt_dott_prisoner_5_tn.png" alt="Dark Tower: The Drawing of the Three - The Prisoner #5 (of 5)" height="200" width="130" border="0" /></a><br> <br>
+		
+		</td>
+
+		<td class="PrimaryColumnBuffer" valign="top">&nbsp;</td><td class="LeftColumnBuffer" style="width: 445px;" valign="top">
+		<span class="PodTitles">Dark Tower: The Drawing of the Three - The Prisoner #5 (of 5)</span><br>
+		<span class="TinyText1">Release Date: December 23rd, 2014</span><br/><br/>
+		<span class="BodyText"><p class="BodyText">With magic doors appearing, his eyes changing color, strange voices in his head, and monstrous lobstrosities hungry for his flesh, can the drug-addled Eddie Dean survive his desperate mission to Miami?&nbsp;A bold new chapter comes to a chilling conclusion by writers Peter David (All-New X-Factor) and Robin Furth (The Dark Tower: A Complete Concordance), and artist Piotr Kowalski (Marvel Knights: Hulk)!</p>
+
+<p class="BodyText"><a href="/promo/dark-tower-drawing-of-the-three-prisoner/">More Information</a></p>
+
+<p class="BodyText"><a href="http://cdn.stephenking.com/dt-prisoner-excerpt-1.pdf" style="color: rgb(53, 53, 53); font-family: Arial, Helvetica, sans-serif; line-height: 15px; background-color: rgb(231, 231, 231);" target="_blank">Read an&nbsp;Excerpt from The Prisoner #1</a></p>
+
+<p class="BodyText"><a href="http://www.comicshoplocator.com/Home/1/1/57/575" style="color: rgb(53, 53, 53);">Find a Local Comic Book Shop</a></p>
+
+<p class="BodyText">Buy the Digital Version on Comixology:&nbsp;<a href="http://www.comixology.com/Dark-Tower-The-Drawing-Of-The-Three-The-Prisoner-1-of-5/digital-comic/135536" target="_blank">#1</a> | <a href="http://www.comixology.com/Dark-Tower-The-Drawing-Of-The-Three-The-Prisoner-1-of-5/digital-comic/135536" target="_blank">#2</a>&nbsp;| <a href="https://www.comixology.com/Dark-Tower-The-Drawing-Of-The-Three-The-Prisoner-3-of-5/digital-comic/145076?ref=c2VhcmNoL2luZGV4L2Rlc2t0b3Avc2xpZGVy" target="_blank">#3</a>&nbsp;| <a href="https://www.comixology.com/Dark-Tower-The-Drawing-Of-The-Three-The-Prisoner-4-of-5/digital-comic/158834?ref=c2VhcmNoL2luZGV4L2Rlc2t0b3Avc2xpZGVy" target="_blank">#4</a>&nbsp;| <a href="https://www.comixology.com/Dark-Tower-The-Drawing-Of-The-Three-The-Prisoner-5-of-5/digital-comic/172317?ref=c2VhcmNoL2luZGV4L2Rlc2t0b3Avc2xpZGVyTGlzdC9pdGVtU2xpZGVy" target="_blank">#5</a></p></span> <br> <br>
+
+		</span><br></td><td class="PrimaryColumnBuffer" valign="top">&nbsp;</td></tr>
+		</tbody></table></td></tr><tr class="podbreak_light"><td class="podbreak_light" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_light">
+		<td class="alternate_light"><table align="left" cellpadding="0" cellspacing="0">
+		<tbody><tr><td class="PrimaryColumnBuffer">&nbsp;</td><td valign="top" style="padding-top:4px;">
+
+		<a href="/images/limited_edition/carrie/carrie_dse_full.jpg" class="highslide" onclick="return hs.expand(this, {captionId: 'caption0'})">
+	    	<img src="/images/limited_edition/carrie/carrie_dse_tn.jpg" alt="Carrie Deluxe Special Editions" height="185" width="130" border="0" /></a><br> <br>
+		
+		</td>
+
+		<td class="PrimaryColumnBuffer" valign="top">&nbsp;</td><td class="LeftColumnBuffer" style="width: 445px;" valign="top">
+		<span class="PodTitles">Carrie Deluxe Special Editions</span><br>
+		<span class="TinyText1">Release Date: December 23rd, 2014</span><br/><br/>
+		<span class="BodyText"><p class="BodyText">As the first offering in their six-part &ldquo;Doubleday Years&rdquo; series of classic books by Stephen, Cemetery Dance is&nbsp;now shipping&nbsp;Carrie:&nbsp;The Deluxe Special Edition.</p>
+
+<p class="BodyText">Cemetery Dance publishes their special editions with craftsmanship and inspired artwork sure to please the most discriminating collector. This edition of Carrie is no exception.</p>
+
+<p class="BodyText"><a href="/promo/carrie_dse/">More Information</a></p></span> <br> <br>
+
+		</span><br></td><td class="PrimaryColumnBuffer" valign="top">&nbsp;</td></tr>
+		</tbody></table></td></tr><tr class="podbreak_dark"><td class="podbreak_dark" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_dark">
+		<td class="alternate_dark"><table align="left" cellpadding="0" cellspacing="0">
+		<tbody><tr><td class="PrimaryColumnBuffer">&nbsp;</td><td valign="top" style="padding-top:4px;">
+
+		<a href="/images/books/revival/revival_full.jpg" class="highslide" onclick="return hs.expand(this, {captionId: 'caption0'})">
+	    	<img src="/images/books/revival/revival_tn.jpg" alt="Revival" height="202" width="130" border="0" /></a><br> <br>
+		
+		<div class="UK"><a href="/images/books/revival/uk_edition/revival_uk_full.jpg" class="highslide" style="text-decoration:none;" onclick="return hs.expand(this, {captionId: 'caption0'})">View UK Version</a></div>
+		</td>
+
+		<td class="PrimaryColumnBuffer" valign="top">&nbsp;</td><td class="LeftColumnBuffer" style="width: 445px;" valign="top">
+		<span class="PodTitles">Revival</span><br>
+		<span class="TinyText1">Release Date: November 11th, 2014</span><br/><br/>
+		<span class="BodyText"><p class="BodyText">Revival is now available in hardcover, ebook and audiobook editions. The epic tale is a&nbsp;dark and electrifying novel about addiction, fanaticism, and what might exist on the other side of life.&nbsp;Revival spans five decades and concludes with a shocking climax sure to frighten even the most diehard of Constant Readers.</p>
+
+<p class="BodyText"><a href="/promo/revival">More Information</a></p>
+
+<p class="BodyText"><a href="/promo/revival/#audio-trailer">Listen to the Audio Trailer</a></p>
+
+<p class="BodyText"><a href="/promo/revival/#commercial">Watch the Commercial</a></p>
+
+<p class="BodyText"><a href="/promo/experience-revival/" style="line-height: 20.7999992370605px;">Visit Experience Revival</a></p>
+
+<p class="BodyText"><a href="https://prepareforrevival.com/">Visit Prepare for Revival</a></p></span> <br> <br>
+
+		</span><br></td><td class="PrimaryColumnBuffer" valign="top">&nbsp;</td></tr>
+		</tbody></table></td></tr><tr class="podbreak_light"><td class="podbreak_light" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_light">
+		<td class="alternate_light"><table align="left" cellpadding="0" cellspacing="0">
+		<tbody><tr><td class="PrimaryColumnBuffer">&nbsp;</td><td valign="top" style="padding-top:4px;">
+
+		<a href="/images/movies/a-good-marriage/a_good_marriage_full.jpg" class="highslide" onclick="return hs.expand(this, {captionId: 'caption0'})">
+	    	<img src="/images/movies/a-good-marriage/a_good_marriage_tn.jpg" alt="A Good Marriage" height="183" width="130" border="0" /></a><br> <br>
+		
+		</td>
+
+		<td class="PrimaryColumnBuffer" valign="top">&nbsp;</td><td class="LeftColumnBuffer" style="width: 445px;" valign="top">
+		<span class="PodTitles">A Good Marriage</span><br>
+		<span class="TinyText1">Release Date: October 3rd, 2014</span><br/><br/>
+		<span class="BodyText"><p class="BodyText">A Good Marriage is now in showing in theaters and is also available&nbsp;on VOD and iTunes. Originally published as a short story in&nbsp;Full Dark No Stars, the film&#39;s screenplay was written by Stephen and is directed by Peter Askin.&nbsp;The film stars Joan Allen, Anthony LaPaglia, Kristen Connolly, and Stephen Lang.</p>
+
+<p class="BodyText"><a href="/promo/a-good-marriage/" style="line-height: 20.7999992370605px;">More Information</a></p>
+
+<p class="BodyText">UPDATE 2/4/15:&nbsp;<em>A Good Marriage</em>&nbsp;is now available as a DVD and as a 99&cent;&nbsp;rental from iTunes for limited time.</p>
+
+<p class="BodyText">Order the DVD:&nbsp;<a href="http://www.walmart.com/ip/41736784" target="_blank">Walmart</a>&nbsp;|&nbsp;<a href="http://www.amazon.com/Stephen-Kings-Good-Marriage-Lang/dp/B00NW6KW16/ref=sr_1_1?ie=UTF8&amp;qid=1422900129&amp;sr=8-1&amp;keywords=stephen king's a good marriage" target="_blank">Amazon</a>&nbsp;|&nbsp;<a href="http://www.rakuten.com/prod/stephen-kings-a-good-marriage/271270620.html" target="_blank">Rakuten</a></p>
+
+<p class="BodyText"><a href="https://itunes.apple.com/us/movie/stephen-kings-a-good-marriage/id918631631#" style="line-height: 20.7999992370605px;" target="_blank">Rent A Good Marriage on iTunes for 99&cent; (Limited Time)</a><br />
+<span style="font-size:11px">Please Note: The 99&cent; rental price is only shown in the iTunes application.</span></p></span> <br> <br>
+
+		</span><br></td><td class="PrimaryColumnBuffer" valign="top">&nbsp;</td></tr>
+		</tbody></table></td></tr><tr><td><br>
+	<span class="Titles">Coming Soon:</span>&nbsp;<br>
+	<div class="under_title_links"><span class="UnderLinks">More: &nbsp;
+	
+	<a href="/coming_soon/limited_edition.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Limited Edition</a> &nbsp; |&nbsp; 
+<a href="/coming_soon/audiobooks.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Audiobooks</a> &nbsp; |&nbsp; 
+<a href="/coming_soon/novels.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Novels</a> &nbsp; |&nbsp; 
+<a href="/coming_soon/collections.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Collections</a> &nbsp; |&nbsp; 
+<a href="/future_works.html">All</a></span></div></td></tr><tr class="podbreak_dark"><td class="podbreak_dark" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_dark">
+		<td class="alternate_dark"><table align="left" cellpadding="0" cellspacing="0">
+		<tbody><tr><td class="PrimaryColumnBuffer">&nbsp;</td><td valign="top" style="padding-top:4px;">
+
+		<a href="/images/books/finders-keepers/finders_keepers_full.jpg" class="highslide" onclick="return hs.expand(this, {captionId: 'caption0'})">
+	    	<img src="/images/books/finders-keepers/finders_keepers_tn.jpg" alt="Finders Keepers" height="202" width="130" border="0" /></a><br> <br>
+		
+		<div class="UK"><a href="/images/books/finders-keepers/finders_keepers_uk_full.png" style="text-decoration:none;" class="highslide" onclick="return hs.expand(this, {captionId: 'caption0'})">View UK Version</a></div>
+		</td>
+
+		<td class="PrimaryColumnBuffer" valign="top">&nbsp;</td><td class="LeftColumnBuffer" style="width: 445px;" valign="top">
+		<span class="PodTitles">Finders Keepers</span><br>
+		<span class="TinyText1">Release Date: June 2nd, 2015</span><br/><br/>
+		<span class="BodyText"><p class="BodyText"><em>Finders Keepers</em>&nbsp;is the second book of the&nbsp;<em>Mr. Mercedes</em>&nbsp;trilogy.&nbsp;<span style="font-family:arial,sans-serif; font-size:14px">A masterful, intensely suspenseful novel about a reader whose obsession with a reclusive writer goes far too far&mdash;a book about the power of storytelling, starring the same trio of unlikely and winning heroes Stephen introduced in&nbsp;</span><em>Mr. Mercedes</em><span style="font-family:arial,sans-serif; font-size:14px">.</span></p>
+
+<p class="BodyText"><a href="/library/novel/finders_keepers.html">More Information</a></p>
+
+<p class="BodyText"><a href="/promo/finders-keepers/cover-reveal/">View the Cover</a></p>
+
+<p class="BodyText">&nbsp;</p></span> <br> <br>
+
+		</span><br></td><td class="PrimaryColumnBuffer" valign="top">&nbsp;</td></tr>
+		</tbody></table></td></tr><tr class="podbreak_light"><td class="podbreak_light" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_light">
+		<td class="alternate_light"><table align="left" cellpadding="0" cellspacing="0">
+		<tbody><tr><td class="PrimaryColumnBuffer">&nbsp;</td><td valign="top" style="padding-top:4px;">
+
+		<a href="/images/cover_image_coming_soon/full.jpg" class="highslide" onclick="return hs.expand(this, {captionId: 'caption0'})">
+	    	<img src="/images/cover_image_coming_soon/tn.jpg" alt="Drunken Fireworks" height="190" width="130" border="0" /></a><br> <br>
+		
+		</td>
+
+		<td class="PrimaryColumnBuffer" valign="top">&nbsp;</td><td class="LeftColumnBuffer" style="width: 445px;" valign="top">
+		<span class="PodTitles">Drunken Fireworks</span><br>
+		<span class="TinyText1">Release Date: June 30th, 2015</span><br/><br/>
+		<span class="BodyText"><p class="BodyText"><em>Drunken&nbsp;Fireworks</em>&nbsp;is a new short story that&nbsp;will be released exclusively as an audiobook on CD and for download on June 30th 2015.&nbsp;The&nbsp;story&nbsp;will then be published as part of the&nbsp;short story collection,&nbsp;<em>The Bazaar of Bad Dreams</em>, coming&nbsp;November 3rd 2015.</p>
+
+<p class="BodyText">More to come...</p></span> <br> <br>
+
+		</span><br></td><td class="PrimaryColumnBuffer" valign="top">&nbsp;</td></tr>
+		</tbody></table></td></tr><tr class="podbreak_dark"><td class="podbreak_dark" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_dark">
+		<td class="alternate_dark"><table align="left" cellpadding="0" cellspacing="0">
+		<tbody><tr><td class="PrimaryColumnBuffer">&nbsp;</td><td valign="top" style="padding-top:4px;">
+
+		<a href="/images/cover_image_coming_soon/full.jpg" class="highslide" onclick="return hs.expand(this, {captionId: 'caption0'})">
+	    	<img src="/images/cover_image_coming_soon/tn.jpg" alt="The Bazaar of Bad Dreams" height="190" width="130" border="0" /></a><br> <br>
+		
+		</td>
+
+		<td class="PrimaryColumnBuffer" valign="top">&nbsp;</td><td class="LeftColumnBuffer" style="width: 445px;" valign="top">
+		<span class="PodTitles">The Bazaar of Bad Dreams</span><br>
+		<span class="TinyText1">Release Date: November 3rd, 2015</span><br/><br/>
+		<span class="BodyText"><p class="BodyText">The next short story collection containing many of the previously published but hard-to-find short stories published since Just After Sunset.</p></span> <br> <br>
+
+		</span><br></td><td class="PrimaryColumnBuffer" valign="top">&nbsp;</td></tr>
+		</tbody></table></td></tr><tr class="podbreak_light"><td class="podbreak_light" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_light">
+		<td class="alternate_light"><table align="left" cellpadding="0" cellspacing="0">
+		<tbody><tr><td class="PrimaryColumnBuffer">&nbsp;</td><td valign="top" style="padding-top:4px;">
+
+		<a href="/images/limited_edition/salems-lot/salems_lot_dse_full.png" class="highslide" onclick="return hs.expand(this, {captionId: 'caption0'})">
+	    	<img src="/images/limited_edition/salems-lot/salems_lot_dse_tn.png" alt="'Salem's Lot" height="186" width="130" border="0" /></a><br> <br>
+		
+		</td>
+
+		<td class="PrimaryColumnBuffer" valign="top">&nbsp;</td><td class="LeftColumnBuffer" style="width: 445px;" valign="top">
+		<span class="PodTitles">'Salem's Lot</span><br>
+		<span class="TinyText1">Release Date: To Be Determined</span><br/><br/>
+		<span class="BodyText"><p class="BodyText">As the second offering in their six-part &ldquo;Doubleday Years&rdquo; series of classic books by Stephen, Cemetery Dance will publish &#39;Salem&#39;s Lot: The Deluxe Special Edition in the summer of 2015.</p>
+
+<p class="BodyText"><a href="/promo/salems-lot-dse/" style="line-height: 20.7999992370605px;" target="_blank">More Information</a></p></span> <br> <br>
+
+		</span><br></td><td class="PrimaryColumnBuffer" valign="top">&nbsp;</td></tr>
+		</tbody></table></td></tr></tbody></table><br></td>
+<!-- Begin News -->
+
+<td class="PrimaryColumnBuffer" valign="top">&nbsp;</td>
+	<td class="RightColumnBuffer" valign="top">
+	
+	<span class="Titles">Latest News:</span>
+	<br>
+	<div class="under_title_links"><span class="UnderLinks">
+	<a href="/news.html">More News</a>&nbsp; | &nbsp;
+	<a href="/feeds.html">News Feeds</a></span></div>
+	<table style="width: 100%;" class="style1" align="left" cellpadding="0" cellspacing="0">
+	<tbody><tr class="podbreak_dark"><td class="podbreak_dark" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_dark">
+		<td class="alternate_dark" style="padding-right:15px;padding-left:15px;" colspan="2">
+		
+		<span class="PodTitles"><a href="/news_archive/article484.html" style="text-decoration: none;">Reader for Finders Keepers Announced</a><br></span>
+		<span class="TinyText1">Posted: February 19th, 2015 8:41:56 am EST</span><br>	<br>
+		
+		<span class="BodyText"><p>We&rsquo;re excited to announce that award-winning narrator Will Patton will be back to narrate the audiobook edition of FINDERS KEEPERS. Will has been nominated for an Audie Award in the Solo Narration &ndash; Male category for his work both on MR. MERCEDES and DOCTOR SLEEP.</p>
+
+<p><a href="http://stephenking.com//promo/mr_mercedes/#will-patton-finders-keepers" target="_blank">Click here for more information</a></p>
+
+<p>&nbsp;</p></span></td></tr><tr class="podbreak_light"><td class="podbreak_light" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_light">
+		<td class="alternate_light" style="padding-right:15px;padding-left:15px;" colspan="2">
+		
+		<span class="PodTitles"><a href="/news_archive/article483.html" style="text-decoration: none;">Casting for 11/22/63</a><br></span>
+		<span class="TinyText1">Posted: February 12th, 2015 3:16:42 pm EST</span><br>	<br>
+		
+		<span class="BodyText"><p>James Franco has been cast for the part of Jake Epping/George Amberson in the production of 11/22/63 to be broadcast on Hulu.</p>
+
+<p><a href="http://deadline.com/2015/02/james-franco-cast-112263-hulu-series-j-j-abrams-stephen-king-1201372265/" target="_blank">Read the Deadline.com story here</a></p>
+
+<p><a href="/promo/11-22-63/promo_page/">More about 11/22/63</a></p></span></td></tr><tr class="podbreak_dark"><td class="podbreak_dark" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_dark">
+		<td class="alternate_dark" style="padding-right:15px;padding-left:15px;" colspan="2">
+		
+		<span class="PodTitles"><a href="/news_archive/article482.html" style="text-decoration: none;">New short story</a><br></span>
+		<span class="TinyText1">Posted: February 9th, 2015 2:05:00 pm EST</span><br>	<br>
+		
+		<span class="BodyText"><p>Simon &amp; Schuster Audio is thrilled to announce the publication of DRUNKEN FIREWORKS, a brand new story from Stephen King. DRUNKEN FIREWORKS will be released exclusively as an audiobook on June 30, 2015.</p>
+
+<p>DRUNKEN FIREWORKS will be released on CD and as a digital download before it is published as one of the short stories in King&rsquo;s collection, THE BAZAAR OF BAD DREAMS, coming from Simon &amp; Schuster Audio and Scribner in November 2015.</p>
+
+<p>&nbsp;</p></span></td></tr><tr class="podbreak_light"><td class="podbreak_light" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_light">
+		<td class="alternate_light" style="padding-right:15px;padding-left:15px;" colspan="2">
+		
+		<span class="PodTitles"><a href="/news_archive/article481.html" style="text-decoration: none;">A Good Marriage - DVD & 99 Cent Rental on iTunes</a><br></span>
+		<span class="TinyText1">Posted: February 3rd, 2015 7:41:48 pm EST</span><br>	<br>
+		
+		<span class="BodyText"><p>Reno Productions and Screen Media Films have released&nbsp;<em>A Good Marriage</em>&nbsp;on DVD and as a 99&#8373; cent rental from iTunes. See the links below for more information and online retailers.</p>
+
+<p><a href="http://stephenking.com/promo/a-good-marriage/">More Information</a></p>
+
+<p><a href="http://www.walmart.com/store">Buy the DVD at Walmart (Find a Store)</a></p>
+
+<p>Order the DVD:&nbsp;<a href="http://www.walmart.com/ip/41736784" target="_blank">Walmart</a>&nbsp;|&nbsp;<a href="http://www.amazon.com/Stephen-Kings-Good-Marriage-Lang/dp/B00NW6KW16/ref=sr_1_1?ie=UTF8&amp;qid=1422900129&amp;sr=8-1&amp;keywords=stephen king's a good marriage" target="_blank">Amazon</a>&nbsp;|&nbsp;<a href="http://www.rakuten.com/prod/stephen-kings-a-good-marriage/271270620.html" target="_blank">Rakuten</a></p>
+
+<p><a href="https://itunes.apple.com/us/movie/stephen-kings-a-good-marriage/id918631631" target="_blank">Rent A Good Marriage on iTunes for 99&cent; (Limited Time)</a></p>
+
+<p><br />
+<span style="font-size:11px">Please Note: The 99&cent; rental price is only shown in the iTunes Application</span></p></span></td></tr><tr class="podbreak_dark"><td class="podbreak_dark" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_dark">
+		<td class="alternate_dark" style="padding-right:15px;padding-left:15px;" colspan="2">
+		
+		<span class="PodTitles"><a href="/news_archive/article480.html" style="text-decoration: none;">Finders Keepers Cover Reveal</a><br></span>
+		<span class="TinyText1">Posted: January 30th, 2015 8:37:21 am EST</span><br>	<br>
+		
+		<span class="BodyText"><p>The official Scribner cover design for Finders Keepers has been released. Take a look and let us know what you think!</p>
+
+<p><a href="http://stephenking.com/promo/finders-keepers/cover-reveal" target="_blank">See the cover here</a></p></span></td></tr><tr class="podbreak_light"><td class="podbreak_light" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+		<tr class="alternate_light">
+		<td class="alternate_light" style="padding-right:15px;padding-left:15px;" colspan="2">
+		
+		<span class="PodTitles"><a href="/news_archive/article479.html" style="text-decoration: none;">Mr. Mercedes TV series</a><br></span>
+		<span class="TinyText1">Posted: January 13th, 2015 11:43:20 am EST</span><br>	<br>
+		
+		<span class="BodyText"><p>Plans for a limited TV series adaptation based on the Mr. Mercedes trilogy have been announced. The series will be written by David E. Kelley and directed by Jack Bender. A network has not yet been announced for distribution of the series.</p>
+
+<p><a href="http://deadline.com/2015/01/david-e-kelley-stephen-king-mr-mercedes-limited-series-sonar-entertainment-1201348942/" target="_blank">More information</a></p></span></td></tr><tr><td colspan="2"><br>
+	<div class="under_title_links" style="margin-top: -10px;"><span class="UnderLinks">
+	<a href="/news.html">More News</a>&nbsp; | &nbsp;
+	<a href="/feeds.html">News Feeds</a></span></div></td></tr>
+<!-- Begin News -->
+
+</tbody></table>
+	
+	&nbsp;<br/>
+	<div class="ie7_spacer"><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p><p>&nbsp;</p><p>&nbsp;<br/>&nbsp;</p></div>
+	<span class="Titles">Unofficial News:</span>
+	<br>
+	<div class="under_title_links">
+	<span class="UnderLinks">
+	<a href="/unofficial_news_disclaimer.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Disclaimer</a>&nbsp; | &nbsp;
+	<a href="/unofficial_news.html">More Unofficial News</a></span></div>
+	<table style="width: 100%;" class="style1" align="left" cellpadding="0" cellspacing="0">
+	<tbody><tr class="podbreak_dark"><td class="podbreak_dark" colspan="2"><img src="/images/page_elements/spacer.gif" border="0" height="4" width="100" alt="" /></td></tr>
+			<tr class="alternate_dark">
+			<td class="alternate_dark" style="padding-right:15px;padding-left:15px;" colspan="2">
+			
+			<span class="PodTitles">Update on The Stand<br></span>
+			<span class="TinyText1">Posted: October 3rd, 2014 10:05:38 am EDT</span><br>	<br>
+			
+			<span class="BodyText"><p>Stephen recently spoke with MTV to promote <em><a href="http://stephenking.com/promo/a-good-marriage/">A Good Marriage</a></em> and offered some comments about Josh Boone&rsquo;s forthcoming adaptation of <em>The Stand</em>.</p>
+
+<p><a href="http://www.mtv.com/news/1950573/stephen-king-the-stand-movie-interview/" target="_blank">Watch the video on MTV.com</a></p></span></td></tr><tr><td colspan="2"><br>
+	<div class="under_title_links" style="margin-top: -10px;"><span class="UnderLinks">
+	<a href="/unofficial_news_disclaimer.html" onclick="return hs.htmlExpand(this, { objectType: 'iframe', objectWidth: 930, objectHeight: 642, align: 'center' } )" class="highslide">Disclaimer</a>&nbsp; | &nbsp;
+	<a href="/unofficial_news.html">More Unofficial News</a></span></div><br/>&nbsp;</td></tr>
+			<tr><td colspan="2" class="SolidGreyBack" align="center" valign="top" style="padding-top:10px;">
+	<table align="center" border="0" cellpadding="0" cellspacing="0"><tbody><tr>
+	<td colspan="2" align="center">
+	<center><a href="/newsletter.php"><img src="/images/promo_images/newsletter.jpg" height="93" width="336" alt="Sign Up for the Newsletter" border="0" align="middle"></a></center>
+	</td></tr><tr>
+	
+    <td align="center" width="50%" class="BodyText">
+    <a href="/newsletter/archives.php" class="TinyText1" style="text-align:left; padding-left:5px;">Newsletter Archive</a></td>
+    <td style="text-align:right;padding-right:5px;" width="50%"><a href="/privacy_policy.html" class="TinyText1">Privacy Policy</a></td>
+    </tr></tbody></table>
+
+	</td></tr>
+			<tr><td colspan="2" class="SolidGreyBack" align="center" valign="top" style="padding-top:10px;">
+	<table align="center" border="0" cellpadding="0" cellspacing="0"><tbody><tr>
+	<td colspan="2" align="center">
+	<center><a href="/feeds.html"><img src="/images/promo_images/feeds.jpg" height="93" width="336" alt="StephenKing.com News Feeds" border="0" align="middle" /></a></center>
+	</td></tr><tr></tbody></table>
+
+	</td></tr><tr><td class="SolidGreyBack">&nbsp;</td><td class="SolidGreyBack">&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></td><td class="PrimaryGutter" valign="top">&nbsp;</td></tr></tbody></table></td></tr>
+	<tr><td class="ExtendableBodyFiller"><p>&nbsp;</p>
+	<div class="ie7_warning"><span class="BodyText" style="color:#990000">You appear to be using Internet Explorer 7 or earlier.  Please consider updating your browser at <a href="http://www.google.com/search?q=internet+explorer" target="_blank">Microsoft's site</a>, or trying a different browser such as <a href="http://www.getfirefox.com" target="_blank">Firefox</a>, <a href="http://www.opera.com/" target="_blank">Opera</a> or <a href="http://www.google.com/chrome" target="_blank">Chrome</a>.</span>
+	<p>&nbsp;</p></div>
+	<div align="center">
+	<!-- footer banner -->
+	
+	<table width="963" height="450" align="center" border="0" cellpadding="0" cellspacing="0" class="wkit_table">
+	<tr height="34">
+		<td width="531" height="34">&nbsp;</td>
+		<td width="363">&nbsp;</td>
+		<td width="69">&nbsp;</td>
+	</tr>
+	<tr height="217">
+		<td height="217">&nbsp;</td>
+		<td><a href="http://www.cafepress.com/wkitwzonwdme/6007840" target="_blank"><img src="/images/page_elements/spacer.gif" border="0" height="217" width="363" border="0" alt="Buy WKIT Merchandise" /></a></td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr height="176">
+		<td height="176">&nbsp;</td>
+		<td><a href="http://radio.securenetsystems.net/radio_player_large.cfm?stationCallSign=WKIT" target="_blank"><img src="/images/page_elements/spacer.gif" border="0" height="176" width="363" alt="Listen to WKIT" /></a></td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	</table>
+	
+	<!-- end footer banner (create footer)-->
+	</div>
+	
+</td></tr>
+<tr><td class="FooterEndCap">&nbsp;</td></tr></table>
+
+<table width="1018" align="center" cellpadding="0" cellspacing="0" border="0"><tbody>
+	<tr><td class="PrimaryGutter">&nbsp;</td><td class="CenterContent">
+	<a href="/the_library.html" class="UnderLinks">The Library</a><span class="UnderLinks"> | </span>
+
+	<a href="/the_author.html" class="UnderLinks">The Author</a><span class="UnderLinks"> | </span>
+
+	<a href="/news.html" class="UnderLinks">News</a><span class="UnderLinks"> | </span>
+
+	<a href="/future_works.html" class="UnderLinks">Future Works</a><span class="UnderLinks"> | </span>
+
+	<a href="/faq.html" class="UnderLinks">FAQ</a><span class="UnderLinks"> | </span>
+
+	<a href="/multimedia.html" class="UnderLinks">Multimedia</a><span class="UnderLinks"> | </span>
+
+	<a href="/promo/ipt/works/index_ipt.html" class="UnderLinks">Illustrated Publishing Tracker</a><span class="UnderLinks"> | </span>
+
+	<a href="/darktower/" class="UnderLinks">The Dark Tower</a><br />
+	
+	<a href="http://www.cafepress.com/stephenking" target="_blank" class="UnderLinks">Stephen King Merchandise</a><span class="UnderLinks"> | </span>
+
+	<a href="/xf/" class="UnderLinks">The Message Board</a><span class="UnderLinks"> | </span>
+
+	<a href="/galleryxix/" class="UnderLinks">Gallery XIX</a><span class="UnderLinks"> | </span>
+
+	<a href="/links.html" class="UnderLinks">Miscellaneous</a><br />
+
+	<a href="/press.php" class="UnderLinks">Press Biography &amp; Information</a><br /> 	<br />
+	
+	<a href="/privacy_policy.html" class="UnderLinks">Privacy Policy</a><span class="UnderLinks"> | </span>
+
+	<a href="/newsletter.php" class="UnderLinks">Newsletter</a><span class="UnderLinks"> | </span>
+
+	<a href="/contact.php" class="UnderLinks">Email the Webmaster</a><span class="UnderLinks"> | </span><a href="/error-typo.php" class="UnderLinks">Report an Error/Typo in a Book</a><span class="UnderLinks"> | </span>
+
+	<a href="/contact.php?d=f" class="UnderLinks">Send Feedback/Contact Us</a><br /> <br />
+						
+	<span class="TinyText1">Copyright &copy; 2000 - 2015 Stephen King - All Rights Reserved.<br />
+	Contents of this site including text and media may not be reproduced without prior written consent. <br />
+	Audio and video elements of this site are property of their respective owners and are used with permission. </span></td><td class="PrimaryGutter">&nbsp;</td></tr></table></td></tr></table><!-- End footer area -->
+<!-- Start Quantcast tag -->
+<script type="text/javascript">_qoptions={qacct:"p-e14cg_jF5gnT2"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-e14cg_jF5gnT2.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!-- End Quantcast tag -->
+
+<!-- google translate -->
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en'
+  });
+}
+</script><script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- end google translate -->
+
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setCookieDomain", "*.stephenking.com"]);
+  _paq.push(["setDomains", ["*.stephenking.com"]]);
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://stephenking.com/assets/piwik/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><img src="http://stephenking.com/assets/piwik/piwik.php?idsite=1&amp;rec=1" style="border:0" alt="" /></noscript>
+<!-- End Piwik -->
+
+</body></html>";i:2;s:5:"10334";}

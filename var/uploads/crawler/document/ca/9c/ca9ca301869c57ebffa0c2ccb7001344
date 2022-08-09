@@ -1,0 +1,920 @@
+a:3:{i:0;s:22:"http://freshbooks.com/";i:1;s:43900:"<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"Ug4PUVZACQsIXVNXAg=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(5),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(f){"stack"in f&&(t(1),t(4),"addEventListener"in window&&t(2),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(3),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:8,2:5,3:9,4:7,5:21,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(2);t("loader").features.stn=!0,t(1),n.on("fn-start",function(t){var e=t[0];e instanceof Event&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof Event&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:6,2:8,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:21,2:22,ee:"QJf3ax",gos:"7eSDFh"}],6:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState"],"-")},{1:22,2:21,ee:"QJf3ax"}],7:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:22,2:21,ee:"QJf3ax"}],8:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:22,2:21,ee:"QJf3ax"}],9:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),f=s(a),u=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new u(t);try{i.emit("new-xhr",[],e),f.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=u.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:5,2:22,ee:"QJf3ax"}],10:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=e(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=e(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var u=0;c>u;u++)n.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:11,3:9,4:5,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],11:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.licenseKey&&t.applicationID&&f&&f.body){s(h,function(e,n){e in t||(t[e]=n)}),l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=f.createElement("script");e.src=l.proto+t.agent,f.body.appendChild(e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document,u="addEventListener",d="attachEvent",p=(""+location).split("?")[0],h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-515.min.js"},l=e.exports={offset:i(),origin:p,features:{}};f[u]?(f[u]("DOMContentLoaded",o,!1),c[u]("load",n,!1)):(f[d]("onreadystatechange",r),c[d]("onload",n)),a("mark",["firstbyte",i()])},{1:20,handle:"D5DuLP"}],20:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],21:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],22:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:21,ee:"QJf3ax"}]},{},["G9z0Bl",3,10,4]);</script>
+
+		<title>
+			FreshBooks – Online Invoicing, Accounting & Billing Software
+		</title>
+
+		<script src="//cdn.optimizely.com/js/128069571.js"></script>
+
+		
+
+
+	<meta property="og:image" content="/assets/img/seo/freshbooks-opengraph-img.png" />
+
+
+<meta name="author" content="FreshBooks">
+
+<meta name="msvalidate.01" content="ED10DA14718BD57C514D94385B93BC33" />
+<meta name="apple-itunes-app" content="app-id=542796025" />
+
+	<meta name="viewport" content="initial-scale=1">
+
+
+		<link rel="icon" sizes="16x16 32x32" href="/_themes/freshbooks/img/favicon.ico">
+<!--[if IE]>
+	<link rel="shortcut icon" href="/_themes/freshbooks/img/favicon.ico">
+<![endif]-->
+<link rel="shortcut icon" type="image/png" href="/_themes/freshbooks/img/favicon.png">
+
+		
+
+	<link rel="stylesheet" type="text/css" href="/assets/css/home/home.css?v=20150219-10:57:30" />
+	<!--[if IE 8 ]>
+	    <link rel="stylesheet" type="text/css" href="/assets/css/home/home_ie8.css?v=20141203-15:00:24" />
+	<![endif]-->
+
+
+
+
+
+
+
+
+
+
+
+
+	</head>
+
+	<body>
+		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MCH68J"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MCH68J');</script>
+
+		<div class="smartbanner hide">
+	<div class="smartbanner-container">
+		<a href="#" class="smartbanner-close">&times;</a>
+		<span class="smartbanner-icon"></span>
+		<div class="smartbanner-info">
+			<div class="smartbanner-title">Freshbooks</div>
+			<div>Official App</div>
+			<span>Free &ndash; Google Play</span>
+		</div>
+		<a href="https://play.google.com/store/apps/details?id=com.freshbooks.android" class="smartbanner-button">
+			<span class="smartbanner-button-text">Get it</span>
+		</a>
+	</div>
+</div>
+
+
+					<div class="header-background">
+	<header role="banner">
+		<a href="/">
+			<div class="freshbooks-logo"></div>
+		</a>
+		<nav role="navigation">
+			<ul>
+														<li class="header-nav-phone">
+						<span class="nav-phone-number">
+							<a href="/contact">
+								1-866-303-6061
+							</a>
+						</span>
+					</li>
+					<li class="nav-link nav-link-accountants">
+						<a href="/accountants">
+							Accountants
+						</a>
+					</li>
+					<li class="nav-link nav-link-pricing">
+						<a href="https://secure.freshbooks.com/pricing.php">
+							Pricing
+						</a>
+					</li>
+					<li class="nav-link nav-link-login">
+						<a href="https://secure.freshbooks.com/loginsearch">
+							Login
+						</a>
+					</li>
+					<li class="nav-link nav-link-cta ghost-button-cta">
+						<a href="/signup" class="ghost-button">
+							Sign Up Free
+						</a>
+					</li>
+					<li class="nav-link nav-link-cta-small ghost-button-cta">
+						<a href="/signup" class="ghost-button">
+							Sign Up
+						</a>
+					</li>
+
+							</ul>
+		</nav>
+	</header>
+</div>
+
+		
+		
+		<main role="main" class="main ">
+			<div class="hero-background">
+	<section class="hero">
+		<h1 class="hero-h1">
+			Find Out Why Forbes Magazine Calls FreshBooks &ldquo;Incredibly User Friendly&rdquo; 
+		</h1>
+		<h2 class="hero-h2">
+			FreshBooks makes your accounting tasks easy, fast and secure. <span class="hero-h2-break"> Start sending invoices, tracking time and capturing expenses in minutes. </span>
+		</h2>
+		<div class="hero-form">
+			<form name="form" novalidate action="https://secure.freshbooks.com/external/subscribe/view" method="post" class="subscribe-form">
+
+	<input name="company" placeholder="Company Name" type="text" maxlength="50" class="input-company sign-up-field" />
+
+	<input name="email" placeholder="Email Address" type="email" maxlength="50" class="input-email sign-up-field" />
+
+	<button class="sign-up-form-button" type="submit" name="submit">
+		<span class="signup-button-text">
+			Try it Free for 30 Days
+		</span>
+	</button>
+
+</form>
+
+			<p class="signup-form-subtext">
+				No credit card required. No Contracts. Cancel anytime.
+			</p>
+		</div>
+	</section>
+
+	<nav class="subnav" role="navigation">
+		<ul>
+			<li class="subnav-item subnav-home">
+			</li>
+			<li class="subnav-item subnav-invoices">
+				<span class="subnav-link-invoices">
+					<a href="#invoices">
+						Invoices
+					</a>
+				</span>
+			</li>
+			<li class="subnav-item subnav-expenses">
+				<span class="subnav-link-expenses">
+					<a href="#expenses">
+						Expenses
+					</a>
+				</span>
+			</li>
+			<li class="subnav-item subnav-time">
+				<span class="subnav-link-time">
+					<a href="#time">
+						Time Tracking
+					</a>
+				</span>
+			</li>
+			<li class="subnav-item subnav-reports">
+				<span class="subnav-link-reports">
+					<a href="#reports">
+						Reports
+					</a>
+				</span>
+			</li>
+		</ul>
+	</nav>
+</div>
+
+<section class="section-feature section-benefits">
+	<div class="three-columns col1of3">
+		<h2 class="benefit-headline">
+	Save Time Billing
+</h2>
+<p class="benefit-subheadline">
+	FreshBooks customers spend less time on paperwork, freeing up <span class="tooltips" title='Based on a survey of over 2,000 FreshBooks customers'>2 days per month</span> to focus on the work they love. What would you do with that extra time?
+</p>
+
+	</div>
+	<div class="three-columns col2of3">
+		<h2 class="benefit-headline">
+	Get Paid Faster
+</h2>
+<p class="benefit-subheadline">
+	With FreshBooks, you can easily invoice clients from your desk or on the go. In fact, FreshBooks customers are paid an average of <span class="tooltips" title='Based on a survey of over 2,000 FreshBooks customers'>5 days faster</span>.
+</p>
+
+	</div>
+	<div class="three-columns col3of3">
+		<h2 class="benefit-headline">
+	Grow Your Business
+</h2>
+<p class="benefit-subheadline">
+	FreshBooks is built to support the needs of growing businesses. On average, FreshBooks customers <span class="tooltips" title='Based on a random sample of 40,000 FreshBooks customers'>double their revenue</span> in the first 24 months. Woot!
+</p>
+
+	</div>
+</section>
+
+<section class="section-assurances">
+	<div class="assurances-press-container">
+	<div class="assurances-left">
+		<ul>
+			<li class="assurance">
+				<p>&#8220;FreshBooks is the best&#8221;</p>
+				<img class="assurance-logos" alt="PC World" src="/assets/img/partials/assurances/press/pcworld.svg" width="96" height="37">
+			</li>
+
+			<li class="assurance">
+				<p>&#8220;Incredibly user friendly&#8221;</p>
+				<img class="assurance-logos" alt="Forbes" src="/assets/img/partials/assurances/press/forbes.svg" width="102" height="37">
+			</li>
+
+			<li class="assurance assurance-last">
+				<p>&#8220;Refreshingly straight forward&#8221;</p>
+				<img class="assurance-logos" alt="CNET" src="/assets/img/partials/assurances/press/cnet.svg" width="37" height="37" >
+			</li>
+		</ul>
+	</div>
+	<div class="assurances-right">
+		<img class="assurance-percent" alt="94%" src="/assets/img/partials/assurances/94-percent.svg" width="76" height="32">
+		<div class="assurance-percent-text">of customers highly recommend FreshBooks</div>
+	</div>
+</div>
+
+</section>
+
+<section class="section-learn-more">
+		<a href="/tour">Learn more</a> about why you should use FreshBooks
+</section>
+
+<div class="invoices-background">
+	<section class="section-feature section-invoices" id="invoices">
+		<h1 class="invoices-h1">
+			Send Invoices in Seconds
+		</h1>
+		<h2 class="invoices-h2">
+			With FreshBooks, create professional-looking invoices complete with your own logo. When you're ready to bill your client, simply send your invoice via email, download a PDF or print it with a single click.
+		</h2>
+
+		<button class="sign-up-form-button cta-button" type="button">
+	Try it Free for 30 Days
+</button>
+
+		<img data-src="/assets/img/home/invoices/invoice-to-send.png" data-srcset="/assets/img/home/invoices/invoice-to-send.png 1x, /assets/img/home/invoices/invoice-to-send@2x.png 2x" class="invoice-to-send lazyload" height="912" width="512" alt="Invoice to Send">
+	</section>
+</div>
+
+<section class="section-featurelist section-invoices-featurelist">
+	<ul class="featurelist-container">
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon1.svg" alt="Accept Credit Cards and Get Paid Faster">
+	<h2 class="featurelist-title">
+		Accept Credit Cards and Get Paid Faster
+	</h2>
+	<p class="featurelist-description">
+		Accept Visa, Mastercard and Amex online. You can also accept payments via PayPal, cash or even gold bricks.
+	</p>
+</li>
+
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon2.svg" alt="See Exactly When Your Invoice is Viewed">
+	<h2 class="featurelist-title">
+		See Exactly When Your Invoice is Viewed
+	</h2>
+	<p class="featurelist-description">
+		Keep tabs on your <a href='/features/online-invoicing'>invoice</a> from &ldquo;draft&rdquo; to &ldquo;paid&rdquo; with a tidy invoice history. It&rsquo;s like your own private investigator for billing who&rsquo;s on a mission to get you paid.
+	</p>
+</li>
+
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon3.svg" alt="Multi-Currency Invoicing">
+	<h2 class="featurelist-title">
+		Multi-Currency Invoicing
+	</h2>
+	<p class="featurelist-description">
+		Working internationally? No problem! FreshBooks lets you bill in any currency for extra flexibility.
+	</p>
+</li>
+
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon4.svg" alt="Late Payment Reminders">
+	<h2 class="featurelist-title">
+		Late Payment Reminders
+	</h2>
+	<p class="featurelist-description">
+		For clients that have a tough time remembering (ahem) to pay, with FreshBooks you can send automatic reminders and improve your cash flow.
+	</p>
+</li>
+
+	</ul>
+</section>
+
+<section class="testimonial testimonial-tina">
+	<div class="testimonial-container">
+	<figure class="testimonial-face">
+		<img src="/assets/img/partials/testimonials/tina-roth-eisenberg.png" srcset="/assets/img/partials/testimonials/tina-roth-eisenberg@2x.png 2x" alt="Tina Roth-Eisenberg">
+	</figure>
+	<div class="testimonial-text">
+		<h2 class="testimonial-quote">
+			&#8220;FreshBooks not only makes me look professional, it saves me a huge amount of time.&#8221;
+		</h2>
+		<h3 class="testimonial-source">
+			Tina Roth-Eisenberg, Founder of <em>CreativeMornings, swiss-miss.com</em>
+		</h3>
+	</div>
+</div>
+
+</section>
+
+<div class="expenses-background" id="expenses">
+	<section class="section-feature section-expenses section-left-image">
+		<div class="left-image-left-column">
+			<img data-src="/assets/img/home/expenses/expenses-phone.png" data-srcset="/assets/img/home/expenses/expenses-phone.png 1x, /assets/img/home/expenses/expenses-phone@2x.png 2x" class="expenses-phone animatable lazyload" width="542" height="559" alt="Expenses Phone">
+			<img src="/assets/img/home/expenses/snap!.svg" width="80" height="61" class="expenses-snap" alt="Snap!">
+		</div>
+		<div class="left-image-right-column">
+			<h1>
+				Organize Expenses with Ease
+			</h1>
+			<h2>
+				Instantly see how much you're spending by capturing expenses from your desk or on the go. Say goodbye to that shoebox once and for all.
+			</h2>
+			<button class="sign-up-form-button cta-button" type="button">
+	Try it Free for 30 Days
+</button>
+
+			<figure class="left-image-small-viewport">
+				<img src="/assets/img/home/expenses/snap!.svg" width="80" height="61" class="expenses-snap-small" alt="Snap!">
+				<img data-src="/assets/img/home/expenses/expenses-phone.png" data-srcset="/assets/img/home/expenses/expenses-phone.png 1x, /assets/img/home/expenses/expenses-phone@2x.png 2x" class="expenses-phone-small lazyload" width="542" height="559" alt="Expenses Phone">
+			</figure>
+		</div>
+	</section>
+</div>
+
+<section class="section-featurelist section-expenses-featurelist">
+	<ul class="featurelist-container">
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon5.svg" alt="Automatically Import Your Expenses">
+	<h2 class="featurelist-title">
+		Automatically Import Your Expenses
+	</h2>
+	<p class="featurelist-description">
+		Import <a href='/features/capture-expenses'>expenses</a> directly from your bank, then get ready for the most hassle-free expense tracking around.
+	</p>
+</li>
+
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon6.svg" alt="Snap a Pic and Instantly Capture Receipts">
+	<h2 class="featurelist-title">
+		Snap a Pic and Instantly Capture Receipts
+	</h2>
+	<p class="featurelist-description">
+		Never lose another receipt. Log expenses with your phone wherever you are.
+	</p>
+</li>
+
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon7.svg" alt="Track Expenses by Client">
+	<h2 class="featurelist-title">
+		Track Expenses by Client
+	</h2>
+	<p class="featurelist-description">
+		Always know which expense belongs to which client with real-time status.
+	</p>
+</li>
+
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon8.svg" alt="Add Expenses to Invoices in a Flash">
+	<h2 class="featurelist-title">
+		Add Expenses to Invoices in a Flash
+	</h2>
+	<p class="featurelist-description">
+		Assign expenses to clients for automatic reimbursement. Ready, set, recoup!
+	</p>
+</li>
+
+	</ul>
+</section>
+
+<div class="time-background">
+	<section class="section-feature section-time" id="time">
+		<h1 class="time-h1">
+			Track Time Wherever You Are
+		</h1>
+		<h2 class="time-h2">
+			Never miss another billable minute. Log time in FreshBooks from your computer, tablet or phone to invoice clients directly from your timesheets in just two clicks.
+		</h2>
+
+		<button class="sign-up-form-button cta-button" type="button">
+	Try it Free for 30 Days
+</button>
+
+
+		<img data-src="/assets/img/home/time/time-timesheet.png" data-srcset="/assets/img/home/time/time-timesheet.png 1x, /assets/img/home/time/time-timesheet@2x.png 2x" width="876" height="577" class="time-timesheet lazyload" alt="Team Timesheet">
+
+		<img data-src="/assets/img/home/time/time-phone-hand.png" data-srcset="/assets/img/home/time/time-phone-hand.png 1x, /assets/img/home/time/time-phone-hand@2x.png 2x" width="277" height="421" class="time-phone animatable lazyload" alt="Time Phone">
+
+		<img data-src="/assets/img/home/time/time-logged-bubble.svg" width="150" height="99" class="time-logged-bubble lazyload" alt="Time Logged!">
+	</section>
+</div>
+
+<section class="section-featurelist section-invoices-featurelist">
+	<ul class="featurelist-container">
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon9.svg" alt="Track Every Billable Second">
+	<h2 class="featurelist-title">
+		Track Every Billable Second
+	</h2>
+	<p class="featurelist-description">
+		Be ready when inspiration strikes. Record <a href='/features/track-your-time'>billable time</a> anywhere with FreshBooks for iOS and Android.
+	</p>
+</li>
+
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon10.svg" alt="Different Projects Deserve Different Rates">
+	<h2 class="featurelist-title">
+		Different Projects Deserve Different Rates
+	</h2>
+	<p class="featurelist-description">
+		However you bill for time, FreshBooks can handle it. Hourly or flat &ndash; you choose how to turn time into money.
+	</p>
+</li>
+
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon11.svg" alt="Team Time Tracking">
+	<h2 class="featurelist-title">
+		Team Time Tracking
+	</h2>
+	<p class="featurelist-description">
+		With FreshBooks, multiple team members can log time by project into a single, easy to read calendar.
+	</p>
+</li>
+
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon12.svg" alt="Monitor Team Progress">
+	<h2 class="featurelist-title">
+		Monitor Team Progress
+	</h2>
+	<p class="featurelist-description">
+		At a glance, know how and where time is being spent with FreshBooks reports and timesheets.
+	</p>
+</li>
+
+	</ul>
+</section>
+
+<section class="section-feature section-reports" id="reports">
+	<h1 class="reports-h1">
+		Know Your Numbers with FreshBooks Reports
+	</h1>
+	<h2 class="reports-h2">
+		Instantly know how much you're earning and spending with Profit &amp; Loss, Payments Collected, and Expense Reports. Then choose from dozens of other standard business reports that will make your accountant smile.
+	</h2>
+
+	<button class="sign-up-form-button cta-button" type="button">
+	Try it Free for 30 Days
+</button>
+
+
+	<div class="reports-figures">
+		<img data-src="/assets/img/home/reports/reports-paper-profit-loss.svg" width="223" height="276" alt="Profit &amp; Loss" class="reports-paper-profit-loss animatable lazyload">
+
+		<img data-src="/assets/img/home/reports/reports-paper-payments-collected.svg" width="223" height="276" alt="Payments Collected" class="reports-paper-payments-collected animatable lazyload">
+
+		<img data-src="/assets/img/home/reports/reports-paper-expense-report.svg" width="223" height="276" alt="Expense Report" class="reports-paper-expense-report animatable lazyload">
+
+		<img data-src="/assets/img/home/reports/reports-paper-tax-summary.svg" width="223" height="276" alt="Tax Summary" class="reports-paper-tax-summary animatable lazyload">
+
+		<img data-src="/assets/img/home/reports/reports-hifive.svg" width="940" height="556" alt="Know your Numbers" class="reports-hifive lazyload">
+	</div>
+</section>
+
+<section class="section-featurelist section-reports-featurelist">
+	<ul class="featurelist-container">
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon13.svg" alt="Breeze Through Tax Time">
+	<h2 class="featurelist-title">
+		Breeze Through Tax Time
+	</h2>
+	<p class="featurelist-description">
+		FreshBooks makes it super easy to get organized at <a href='/features/know-your-numbers'>tax</a> time. Unleash your inner number-cruncher and filter reports to know your business on a whole new level.
+	</p>
+</li>
+
+		<li class="featurelist-li">
+	<img class="featurelist-icon" width="77" height="47" src="/assets/img/partials/featurelist/featurelist-icon14.svg" alt="Easily Export to QuickBooks">
+	<h2 class="featurelist-title">
+		Easily Export to QuickBooks
+	</h2>
+	<p class="featurelist-description">
+		Share reports and journal entries with your accountant in file types that play nicely with the software they already use. Can you say &ldquo;favorite client ever&rdquo;?
+	</p>
+</li>
+
+	</ul>
+</section>
+
+<section class="testimonial testimonial-melissa">
+	<div class="testimonial-container">
+	<figure class="testimonial-face">
+		<img src="/assets/img/partials/testimonials/melissa-crnic.png" srcset="/assets/img/partials/testimonials/melissa-crnic@2x.png 2x" alt="Melissa Crnic">
+	</figure>
+	<div class="testimonial-text">
+		<h2 class="testimonial-quote">
+			&#8220;<span>FreshBooks makes tax season stress-free by giving us the ability to send our accountant journal entries to do the heavy lifting.</span>&#8221;
+		</h2>
+		<h3 class="testimonial-source">
+			Melissa Crnic, Director of <em>Ladies Learning Code</em>
+		</h3>
+	</div>
+</div>
+
+</section>
+
+<div class="support-background lazyload">
+	<section class="section-feature section-support">
+		<h1 class="support-h1">
+			Award-Winning Support
+		</h1>
+		<h2 class="support-h2">
+			FreshBooks Support Rockstars are all about making your life easier. Help is free forever, and you&#8217;ll always get a real, live human faster than you can say, &ldquo;Wow that was crazy fast!&rdquo;
+		</h2>
+		<ul class="support-options-list">
+			<li class="support-options support-phone">
+				<img src="/assets/img/home/support/phone-white.svg" class="support-icons support-phone-icon" width="20" height="15" alt="Phone Us">
+				Call Toll-Free 1-866-303-6061
+			</li>
+			<li class="support-options support-email">
+				<img src="/assets/img/home/support/support-email.svg" class="support-icons support-email-icon" width="20" height="12" alt="Email Us">
+				<a href="mailto:support@freshbooks.com">
+					support@freshbooks.com
+				</a>
+			</li>
+		</ul>
+	</section>
+</div>
+
+
+<div class="awards-container">
+	<section class="section-feature section-awards">
+	
+			<div class="awards-left">
+			<p>Award-Winning Product</p>
+			<img class="awards-logos awards-logos-stevie" width="90" height="68" alt="Stevie Award" src="/assets/img/partials/assurances/awards/white-icons/awards-stevie.png">
+			<img class="awards-logos awards-logos-ixda" width="187" height="68" alt="IXDA Award" src="/assets/img/partials/assurances/awards/white-icons/awards-ixda.png">
+			<img class="awards-logos awards-logos-webby" width="118" height="68" alt="Webby Nominee" src="/assets/img/partials/assurances/awards/white-icons/awards-webby.png">
+		</div>
+	
+		<div class="awards-right">
+			<span>App Rating</span>
+			<img class="awards-app-stars" width="124" height="27" alt="4.5 Stars" src="/assets/img/partials/assurances/awards/white-icons/app-stars.png">
+		</div>
+		
+		
+</section>
+
+</div>
+
+<section class="section-feature section-integrations">
+	<h1 class="integrations-h1">
+		Connect with Your Favorite Apps
+	</h1>
+	<h2 class="integrations-h2">
+		FreshBooks integrates with apps you already use to run your business.
+		<a href="/addons">
+			Check out the full list
+		</a>
+	</h2>
+	<ul class="integrations-container">
+		
+					<li class="integration-li">
+				<img class="integration-icon" width="200" height="56" src="/assets/img/partials/integrations/paypal.svg" alt="PayPal">
+			</li>
+			<li class="integration-li">
+				<img class="integration-icon" width="200" height="56" src="/assets/img/partials/integrations/stripe.svg" alt="Stripe">
+			</li>
+			<li class="integration-li">
+				<img class="integration-icon" width="200" height="56" src="/assets/img/partials/integrations/google-apps.svg" alt="Google Apps">
+			</li>
+			<li class="integration-li">
+				<img class="integration-icon" width="200" height="56" src="/assets/img/partials/integrations/zenpayroll.svg" alt="ZenPayroll">
+			</li>
+			<li class="integration-li">
+				<img class="integration-icon" width="200" height="56" src="/assets/img/partials/integrations/fundbox.svg" alt="Fundbox">
+			</li>
+			<li class="integration-li">
+				<img class="integration-icon" width="200" height="56" src="/assets/img/partials/integrations/mailchimp.svg" alt="MailChimp">
+			</li>
+			</ul>
+</section>
+
+
+<div class="footer-sign-up-background">
+		<section class="footer-sign-up">
+	<h1 class="footer-sign-up-h1">
+		Join Millions &amp; Get Started for FREE
+	</h1>
+	<h2 class="footer-sign-up-h2">
+		Setup only takes a minute. No credit card required. Cancel anytime.
+	</h2>
+		<form name="form" novalidate action="https://secure.freshbooks.com/external/subscribe/view" method="post" class="subscribe-form">
+
+	<input name="company" placeholder="Company Name" type="text" maxlength="50" class="input-company sign-up-field" />
+
+	<input name="email" placeholder="Email Address" type="email" maxlength="50" class="input-email sign-up-field" />
+
+	<button class="sign-up-form-button" type="submit" name="submit">
+		<span class="signup-button-text">
+			Try it Free for 30 Days
+		</span>
+	</button>
+
+</form>
+
+</section>
+
+	<div class="featured-logos-container">
+		<section class="section-featured-logos">
+	<h1 class="featured-logos-h1">
+		Featured In
+	</h1>
+			<img src="/assets/img/partials/featured-in/pcworld.svg" height="48" width="95" alt="PC World" class="featured-logos featured-logos-pcworld">
+		<img src="/assets/img/partials/featured-in/cnet.svg" height="48" width="48" alt="CNET" class="featured-logos featured-logos-cnet">
+		<img src="/assets/img/partials/featured-in/cnn.svg" height="48" width="52" alt="CNN" class="featured-logos featured-logos-cnn">
+		<img src="/assets/img/partials/featured-in/forbes.svg" height="48" width="95" alt="Forbes" class="featured-logos featured-logos-forbes">
+		<img src="/assets/img/partials/featured-in/nyt.svg" height="48" width="175" alt="New York Times" class="featured-logos featured-logos-nyt">
+	</section>
+
+	</div>
+</div>
+
+		</main>
+
+		
+			<nav role="navigation" class="footer-nav">
+		<div class="footer-nav-column">
+			<h1 class="footer-nav-h1">
+				About
+			</h1>
+			<ul class="footer-nav-ul">
+				<li class="footer-nav-li">
+					<a href="/about">
+						About Us
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/about/story">
+						The FreshBooks Story
+					</a>
+				</li>
+
+
+				<li class="footer-nav-li">
+					<a href="/jobs">
+						We&#8217;re Hiring
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/press">
+						Press Center
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/contact">
+						Contact
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/blog">
+						Blog
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="footer-nav-column">
+			<h1 class="footer-nav-h1">
+				Product
+			</h1>
+			<ul class="footer-nav-ul">
+				<li class="footer-nav-li">
+					<a href="/tour">
+						Tour
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/mobile">
+						Mobile
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/features/online-invoicing">
+						Online Invoicing
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/features/capture-expenses">
+						Capture Expenses
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/features/track-your-time">
+						Time Tracking
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/features/know-your-numbers">
+						Accounting Reports
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/pages/bookkeeping-software">
+						Bookkeeping Software
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/quickbooks-alternative">
+						QuickBooks vs. FreshBooks
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="footer-nav-column">
+			<h1 class="footer-nav-h1">
+				Partners
+			</h1>
+			<ul class="footer-nav-ul">
+				<li class="footer-nav-li">
+					<a href="/accountants">
+						Accountants
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/developers">
+						Developers
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/addons">
+						Add-Ons
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="footer-nav-column">
+			<h1 class="footer-nav-h1">
+				Helpful Links
+			</h1>
+			<ul class="footer-nav-ul">
+				<li class="footer-nav-li">
+					<a href="https://secure.freshbooks.com/loginsearch">
+						Login
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/support">
+						Support
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/breaking-the-time-barrier">
+						Breaking the Time Barrier
+					</a>
+				</li>
+				<li class="footer-nav-li">
+					<a href="/accountants/map">
+						Find an Accountant
+					</a>
+				</li>
+
+				<li class="footer-nav-li">
+					<a href="http://www.freeinvoicecreator.com/">
+						Free Invoice Creator
+					</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="footer-nav-column">
+			<h1 class="footer-nav-h1">
+				Talk to Us
+			</h1>
+				<ul class="footer-nav-ul">
+					<li class="footer-nav-li">
+						Toll-Free (NA): 1-866-303-6061
+					</li>
+					<li class="footer-nav-li">
+						Worldwide: +1-416-481-6946
+					</li>
+				</ul>
+
+			<h1 class="footer-nav-h1 footer-nav-subsection">
+				Get Small Biz Tips
+			</h1>
+			<ul class="footer-nav-ul footer-nav-social">
+				<li class="twitter">
+					<a href="https://twitter.com/freshbooks" class="social-li">
+					</a>
+				</li>
+				<li class="facebook">
+					<a href="https://www.facebook.com/FreshBooks" class="social-li">
+					</a>
+				</li>
+				<li class="pinterest">
+					<a href="http://www.pinterest.com/freshbooks/" class="social-li">
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+
+<footer role="contentinfo">
+	<div class="footer-logo truste" id="cf5745b1-68a7-4df0-abe3-99164468a5dc">
+	<script src="https://privacy-policy.truste.com/privacy-seal/FreshBooks/asc?rid=cf5745b1-68a7-4df0-abe3-99164468a5dc">
+	</script>
+	<a href="https://privacy.truste.com/privacy-seal/FreshBooks/validation?rid=b7a183e6-d5b9-478a-b880-5588656351e8" title="TRUSTe online privacy certification" target="_blank">
+		<img src="https://privacy-policy.truste.com/privacy-seal/FreshBooks/seal?rid=b7a183e6-d5b9-478a-b880-5588656351e8" alt="TRUSTe online privacy certification" />
+	</a>
+</div>
+
+	<figure class="footer-logo rackspace"></figure>
+	<p>
+		FreshBooks, 1655 Dupont St. Suite 250, Toronto, ON M6P 3T1 Canada
+	</p>
+	<p>
+		Copyright &copy; 2000-2015 FreshBooks is a service of 2ndSite Inc.
+		All rights reserved.
+	</p>
+	<p>
+	<a href="/policies/security-safeguards" class="footer-link">Security Safeguards</a>
+	|
+	<a href="/policies/terms-of-service" class="footer-link">Terms of Service</a>
+	|
+	<a href="/policies/privacy" class="footer-link">Privacy Policy</a>
+</p>
+
+
+</footer>
+
+
+		<script type="text/javascript" src="/assets/js/vendor/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/assets/js/freshbooks/multichannel.js"></script>
+<script type="text/javascript" src="/assets/js/freshbooks/android-smartbanner.js"></script>
+
+<!--[if lte IE 9]>
+	<script type="text/javascript" src="/assets/js/vendor/polyfills/svgeezy.js"></script>
+	<script>
+		svgeezy.init(false, 'png');
+	</script>
+	<script type="text/javascript" src="/assets/js/vendor/polyfills/respond.min.js"></script>
+	<script type="text/javascript" src="/assets/js/vendor/polyfills/html5shiv.js"></script>
+<![endif]-->
+
+			<script type="text/javascript">
+		window.lazySizesConfig = { preloadAfterLoad: true };
+		$('img.lazyload').on('load', function() { Waypoint.refreshAll(); });
+	</script>
+	<script src="/assets/js/freshbooks/fb-responsive-interactions.js"></script>
+	<script src="/assets/js/vendor/featherlight.min.js"></script>
+	<script src="/assets/js/vendor/jquery.waypoints.min.js"></script>
+	<script src="/assets/js/vendor/jquery.sticky-kit.js"></script>
+	<!--[if lte IE 9 ]>
+	<script src="/assets/js/vendor/polyfills/jquery.placeholder.js"></script>
+<![endif]-->
+<script src="/assets/js/freshbooks/signup-form-validation.js"></script>
+
+	<script src="/assets/js/vendor/polyfills/modernizr.custom.js"></script>
+	<script src="/assets/js/vendor/jquery.easing.1.3.js"></script>
+	<script src="/assets/js/vendor/jquery.powertip.min.js"></script>
+	<script src="/assets/js/vendor/ls.unveilhooks.min.js"></script>
+	<script src="/assets/js/vendor/lazysizes.min.js"></script>
+	<script src="/assets/js/freshbooks/fb-responsive-home.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","licenseKey":"41a722aaf8","applicationID":"1889255","transactionName":"MlAHNkpUXEZRBxAPDAsaMBBRGltbVAEcSBMNRQ==","queueTime":0,"applicationTime":10,"ttGuid":"","agentToken":"","userAttributes":"","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-515.min.js"}</script></body>
+</html>
+";i:2;s:4:"4995";}

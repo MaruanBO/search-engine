@@ -1,0 +1,62 @@
+a:3:{i:0;s:18:"http://putags.com/";i:1;s:3133:"<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!--<link href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,900,900italic&subset=latin,cyrillic" rel="stylesheet" type="text/css" />-->
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400&subset=latin,cyrillic" rel="stylesheet" type="text/css" />
+        <link href="/design/style.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+        <title>AdsTerra</title>
+    </head>
+    <body>
+        <a href="//adsterra.com/" title="Adsterra.com"></a>
+        <p>This domain is operating by Adsterra Premium Ad Network.</p>
+        <p>
+            Publishers <a href="//publishers.adsterra.com/?action=signup" title="Signup to monetize your traffic">signup</a> if you want to monetize your traffic.<br />
+            Advertisers <a href="//partners.adsterra.com/?action=signup" title="Run your ad campaigns">click here</a> to run your ad campaings.
+        </p>
+        <p>Other inquries — please feel free to <a href="#contact-us" title="Contact us via the form below">contact us</a></p>
+        <form action="" method="post">
+            <span>
+                <label>Name</label><input name="name" type="text" value="" />
+                <br />
+                <label>E-mail</label><input name="email" type="text" value="" />
+                <br />
+                <label>Website URL</label><input name="website" type="text" value="" />
+            </span>
+            <span>
+                <label>Message</label>
+                <textarea cols="" name="message" rows=""></textarea>
+                <br />
+                <input type="submit" value="Submit" />
+            </span>
+        </form>
+        <script type="text/javascript">
+            jQuery(document).ready( function($) {
+                $('a[href="#contact-us"]').click( function(e) {
+                    e.preventDefault();
+                    if ($('form').hasClass('v')) {
+                        $('form > p:first-child').remove();
+                        $('form').removeClass('v');
+                    } else $('form').addClass('v');
+                });
+                $('form').submit( function(e) {
+                    e.preventDefault();
+                    $('input:submit', this).prop('disabled', true);
+                    $('p:first-child', this).remove();
+                    $.ajax({
+                        'url' : '/send-mail.php',
+                        'type' : 'post',
+                        'data' : $(this).serialize(),
+                        'error' : function() { $('input:submit', 'form').prop('disabled', false);},
+                        'success' : function() {
+                            $('input:text, textarea', 'form').val('');
+                            $('form').prepend('<p>Message sent successfully!</p>');
+                            $('input:submit', 'form').prop('disabled', false);
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>";i:2;s:4:"1688";}

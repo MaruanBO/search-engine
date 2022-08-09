@@ -1,0 +1,133 @@
+a:3:{i:0;s:24:"http://choosenissan.com/";i:1;s:7291:"<!doctype html>
+<!--[if lte IE 8 ]> <html class="ie8" ng-app="CN20" ng-controller="SeoCtrl"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9" ng-app="CN20" ng-controller="SeoCtrl"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html ng-app="CN20" ng-controller="SeoCtrl"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="fragment" content="!">
+    <title ng-bind="SeoSrv.getTitle()"></title>
+    <base href="http://www.choosenissan.com/">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="keywords" content="{{ SeoSrv.getMetaKeywords() }}">
+    <meta name="description" content="{{ SeoSrv.getMetaDescription() }}">
+    <link rel="canonical" href="{{ SeoSrv.getCanonical() }}">
+    <link rel="alternate" hreflang="en" href="{{ SeoSrv.getAlternateEnglish() }}">
+    <link rel="alternate" hreflang="es" href="{{ SeoSrv.getAlternateSpanish() }}">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" href="styles/521215ae.bundle.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <!--[if lte IE 8]>
+      <script>
+          document.createElement('ng-include');
+          document.createElement('ng-pluralize');
+          document.createElement('ng-view');
+          document.createElement('ng:include');
+          document.createElement('ng:pluralize');
+          document.createElement('ng:view');
+          document.createElement('timer');
+      </script>
+      <script src="resources/fixIE/html5shiv.js"></script>
+      <script src="resources/fixIE/respond.min.js"></script>
+      <script src="resources/fixIE/excanvas.js"></script>
+      <script src="resources/fixIE/jquery-1.11.1.min.js"></script>
+    <![endif]-->
+
+    <!--[if lte IE 9]>
+      <script src="resources/fixIE/history.iegte8.js"></script>
+    <![endif]-->
+
+    <!--[if gt IE 8 | IE 8]>
+    <style type="text/css">
+        select { background-image: none !important; }
+    </style>
+    <![endif]-->
+</head>
+  <body id="ng-app" ng-click="handleClick($event);" data-ng-keydown="keyDownEvent($event)">
+  <div ng-controller="MainCtrl" ng-if="appready">
+        <div class="general-overlay" ng-if="showGeneralOverlay"></div>
+        <div id="generalOverlayModal" class="general-overlay-modal" ng-if="showGeneralOverlayModal"></div>
+        <div id="modalContainer" ng-show="showmodal" ng-include="'scripts/modal/views/modal.html'"></div>
+        <div class="non-menu-content" ng-class="{hide:showmenu, slide:!showmenu}">
+            <div ng-include="'scripts/header-menu/views/' + appConfig.viewsPrefix + '.header-menu.html'"></div>
+            <div ng-include="'scripts/header-menu/views/' + appConfig.viewsPrefix + '.clip.html'"></div>
+            <div class="nissanContainer" ng-view="" ng-show="!showtakeover"></div>
+            <div class="loadingSectionSpinner" ng-show="!allSectionsWereLoaded">
+                <span class="spinner"></span>
+            </div>
+            <div ng-include="'scripts/header-menu/views/' + appConfig.viewsPrefix + '.footer.html'" id="footer" ng-show="!showtakeover && allSectionsWereLoaded"></div>
+        </div>
+        <div ng-switch=" appConfig.viewsPrefix">
+            <div ng-switch-when="phone">
+                <div ng-include="'scripts/header-menu/views/phone.slidemenu.html'" ng-show="!showtakeover"></div>
+                <div ng-show="showtakeover" ng-include="'scripts/takeover/views/takeover.html'"></div>
+            </div>
+            <div ng-switch-when="tablet">
+                <div ng-include="'scripts/header-menu/views/tablet.slidemenu.html'" ng-show="!showtakeover"></div>
+            </div>
+        </div>
+    </div>
+    <div class="loading-init" ng-if="!appready"><img src="resources/images/spinner.gif"></div>
+    <div class="device-rotation">
+        <div id="device-asset" class="animation dealay10 ease rotate90 loop"></div>
+    </div>
+
+    <!--[if lte IE 8]>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
+<script src="bower_components/angular-timer/dist/angular-timer.js"></script>
+<script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
+<script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+<script src="bower_components/jquery-cookie/jquery.cookie.js"></script>
+<script src="bower_components/angular-css-injector/angular-css-injector.js"></script>
+<![endif]-->
+
+
+    <script src="//cdn.optimizely.com/js/562350306.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script><!-- Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NJ9T9F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>
+        dataLayer = [];
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NJ9T9F');
+    </script>
+    <!-- End Google Tag Manager -->
+
+
+
+    <script src="scripts/3105d964.modules.js"></script>
+
+    <script src="scripts/b4a7081f.scripts.js"></script>
+
+  <script src="resources/external/angular-slider.min.js"></script>
+  <script src="resources/external/omniture.js"></script>
+  <script src="resources/external/campaign_partner.js"></script>
+  <script src="resources/external/jquery.ui.touch-punch.min.js"></script>
+  <script src="resources/external/jquery.thumbnailScroller.js"></script>
+
+    <!-- Begin BlueKai Tag -->
+    <iframe name="__bkframe" height="0" width="0" frameborder="0" src="javascript:void(0)" style="display: none"></iframe>
+    <script type="text/javascript" src="http://tags.bkrtx.com/js/bk-coretag.js"></script>
+    <script type="text/javascript">
+        window.console.log = function(){}; window.console.warn = function(){}; window.console.info = function(){};
+        bk_addPageCtx("vehicle", (typeof(vehicle)!='undefined')?vehicle:'');
+        bk_doJSTag(10365, 10);
+    </script>
+    <!-- End BlueKai Tag -->
+</body>
+</html>";i:2;s:4:"5905";}

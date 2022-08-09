@@ -1,0 +1,1255 @@
+a:3:{i:0;s:21:"http://actionkit.com/";i:1;s:24582:"<html>
+<head>
+
+
+
+
+<link rel="shortcut icon" href="/site_media/images/favicon.ico" />
+
+
+<link rel="stylesheet" href="/site_media/normalize.css" type="text/css" media="screen" />
+
+<link rel="stylesheet" href="/site_media/general.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+
+<script type="text/javascript">
+
+
+
+$(document).ready(function() {
+
+function parallax(){
+    var scrolled = $(window).scrollTop();
+    
+    var pflex = $('#flexible');
+	var offset = pflex.offset();
+	var navheight = $('.fixedElement').height();
+	var flexheight = $('#flexible').height();
+	
+//	}
+	
+}; //end parallax
+
+$(window).scroll(function(e){
+
+	parallax();
+	
+   $el = $('.fixedElement'); 
+    
+  if ($(this).scrollTop() > 200 && $el.css('position') != 'fixed'){ 
+    $('.fixedElement').css({'position': 'fixed', 'top': '0px'}); 
+  } 
+    
+	}); // end window scroll function e
+	
+	
+
+
+// expand/collapse nav
+
+ $("#navbutton").click(function() {
+ 	CheckNavHeight()
+ });
+ 
+ function CheckNavHeight(){
+	
+			if( $('#nav:visible').length > 0 ){ //nav is visible
+//			$('#nav').slideToggle( "slow" );
+			$('#nav').css({'display': 'none'}); 
+				$('#section1').css({'padding-top': '40px' });
+				var navflag=0;
+			}else{ // nav is hidden
+				$('#nav').css({'display': 'block'});
+				var navheight = $('.fixedElement').height();
+				$('#section1').css({'padding-top': navheight + 40 + 'px' });
+				var navflag=1;
+						}
+};
+
+
+// on window resize fix padding on top of section1
+
+$( window ).resize(function() {
+	
+	 var $window = $(window);
+	 var windowsize = $window.width();
+
+        if (windowsize > 568) {
+
+				$('#section1').css({'padding-top': '80px' });
+				$('#nav').css({'display': 'inline'});
+
+	}else{
+					$('#nav').css({'display': 'none'});
+				$('#section1').css({'padding-top': '40px' });
+	
+	}
+
+
+
+});
+
+
+
+// bottom call to action button vertially centered on scroll
+
+function cta_center(){
+
+	var WinHt = window.innerHeight;
+	var WinHt = WinHt +200;
+	var theHt = WinHt + "px";
+	
+	var innerHt = $('#final_call').height();
+	  
+	$('#call_to_action2').css({'height': theHt });
+	 
+	var fc_offset = $("#final_call").offset().top
+	var $docHeight = $( document ).height();
+
+	var how_far_down = $('body').scrollTop();
+
+// start with the height fo the section we're messing with
+// which we've set to window height
+// then subtract (how far down the page it is - how far we've scrolled)
+
+var cta_pad =( ( WinHt - (  fc_offset - how_far_down ) )/2.2 ) - 160;
+
+var cppx = cta_pad + "px";
+
+ $( "#final_call" ).animate({  'padding-top': cppx}, 50  );
+
+
+};
+
+}); // end document ready
+
+</script>
+
+
+<style type="text/css">
+
+/* colors
+
+navy blue: #005c6f
+turquoise: #00a6aa
+red orange: #f4642f
+yellow orange: #feac1f
+grey: #96989c
+light grey: #bebebe
+very light grey: #d8d8d8
+
+headline: #005c6f
+background: #fefaf1
+button/link active: #009dcf
+button/link: #27bbdd
+body text: #45667b
+
+*/
+
+
+
+body {
+	font-family:'open sans','helvetica neue',helvetica,arial,sans-serif;
+	background:#fff;
+	color:#005c6f;
+	}
+
+.wrapper {
+	 background:#fff;
+	 width:960px;
+	 margin:0 auto;
+	 padding:0;
+}
+
+#navbutton {
+	margin:5px;
+	width:35px;
+	position:absolute;
+	top:0;
+	right:0;
+	display:block;
+	height:31px;
+	z-index:1001;
+	display:none;
+	position:fixed;
+	background:#feac1f url('/site_media/images/nav_icon2.png') no-repeat 7px 7px;
+	background-size:20px 17px;
+	border-radius:4px;
+	cursor:pointer;
+}
+
+#nav {
+	display:inline;
+	}
+
+.fixedElement {
+	display:block;
+    background-color: #f4642f;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+	text-align:center;
+	font-family:'open sans light','open sans','helvetica neue',helvetica,arial,sans-serif;
+	font-size:.7rem;
+	letter-spacing:2.5;
+	padding:.25em 0;
+	}
+	
+
+.fixedElement a {
+	color:#fff;
+	text-decoration:none;
+	font-size:1.5rem;
+	text-transform:uppercase;
+	padding-right:1.2rem;
+	}
+
+.fixedElement a:last {
+	padding-right:0;
+	}
+	
+.fixedElement a:hover {
+	color:#fff5c4;
+}
+
+.fixedElement a:active {
+	color:#eee;
+}
+
+.fixedElement .header_sections{
+	display:inline;
+	}
+
+.fixedElement .header_sections a {
+	font-size:1rem;
+}
+
+.section_content{
+	position:relative;
+}
+
+.logos {
+	width:140px;
+}
+
+h1 {
+	margin:0;
+	font-size:4.6em;
+	padding-bottom:0
+}
+
+p.toolstobuild{
+	color:#005c6f;
+	font-size:1.4rem;
+	font-weight:bold;
+	margin-top:0;
+	padding-top:0;
+}
+
+p.cover_org{
+	font-size:1.1em;
+	line-height:1.5;
+	font-weight:400;
+	margin-bottom:0;
+}
+
+h2 {
+	font-size:3rem;
+	color:#f4642f;
+	margin-bottom:0;
+	margin-top:1rem;
+	}
+	
+#solid h2 {
+	margin-top:70px;
+}
+
+#powerful h2 {
+	margin-top:55px;
+}
+
+h4 {
+	font-size:1.2rem;
+	color:#f4642f;
+	margin-top:0;
+	padding-top:0;
+}
+
+ul li {
+	padding-bottom:2rem;
+	}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+	padding: 0;
+}
+
+.sxn {padding:30px 140px;}
+
+h3 {
+	margin-bottom:0;
+	padding-bottom:0;
+	}
+
+#section1{
+	background:url('/site_media/images/pipe_01.png'); 
+	background-size:960px;
+	background-position:center bottom; 
+	padding-top:80px;
+	padding-bottom:45px;
+}
+
+#section1 .span_1_of_4{
+	min-height:130px;
+}
+
+.circle_section{
+	text-align:center;
+    position: absolute;
+    float:right;
+	width:100%;
+	}
+
+#call_to_action{
+	background:url('/site_media/images/pipe_04.png') #005c6f;
+	background-size:960px;
+	background-position:center top;
+	color:#fff;
+	}
+
+#call_to_action, #call_to_action2{
+	text-align:center;
+	font-size:1.1em;
+	font-weight:bold;
+	min-height:270px;
+	}
+
+#call_to_action button{
+	margin-bottom:60px;
+	}
+
+.learn_more{
+	font-size:2.1rem;
+	font-weight:400;
+	margin:0;
+	}
+
+
+#call_to_action .learn_more{
+	padding:1.6rem 0 1.4rem;
+	}
+
+#call_to_action2 .learn_more{
+	padding: 35px 0 17px;
+}
+
+#section2a{
+	background:url('/site_media/images/pipe_05b1.png') #eee; 
+	background-size:960px;
+	background-position:center top; 
+	clear:both;
+	height:30px;
+}
+
+#section2{
+	background:url('/site_media/images/pipe_05b1.png') #eee; 
+	background-size:960px;
+	background-position:center bottom; 
+	padding:0;
+	margin:0;}
+
+#section2 .span_1_of_3{
+	width:22%;
+}
+
+#section2 .span_2_of_3 {
+	width: 54%;
+	}
+	
+#section2 p{	 
+	 font-size:2.3rem;
+	font-family:'open sans','helvetica neue',helvetica,arial,sans-serif;
+	 text-indent:-.3em;
+	 margin-top:0;
+}
+
+#section2 p.attribution{	 
+		padding-top:0;
+		font-size:1.5rem;
+}
+
+#powerful {
+	background:url('/site_media/images/pipe_05c.png') no-repeat #fff;
+	background-size:960px;
+	background-position:center top;
+	padding-top:40px;
+}
+
+#powerful .circle{
+	margin-top:0;
+	background:url('/site_media/images/circle1.png') 697px 90px no-repeat;
+	background-size: 160px 160px;
+	position:absolute;
+	display:inline;
+	float:left;
+	height:260px;
+	}
+
+#powerful p, #flexible p, #solid p{
+	margin-top:0;
+}
+
+#powerflex {
+	background:url('/site_media/images/pipe_05d.png') #fff;
+	background-position:center bottom;
+	background-size:960px;
+	height:157px;
+}
+
+#flexible .circle{
+ 	margin-top:16px;
+	background:url('/site_media/images/circle2.png') 68px 30px no-repeat;
+	position:absolute;
+	float:left;
+	background-size:160px 160px;
+	height:200px;
+}
+
+#solid .circle{
+ 	margin-top:16px;
+	background:url('/site_media/images/circle3bx.png') 655px 120px no-repeat;
+	background-size: 160px 160px;
+	position:absolute;
+	display:inline;
+	float:left;
+	height:420px;
+}
+
+#pricing .circle{
+ 	margin-top:16px;
+	background:url('/site_media/images/circle4a.png') 607px 30px no-repeat;
+	background-size: 160px 160px;
+	position:absolute;
+	display:inline;
+	float:left;
+	height:220px;
+}
+
+
+#flexible {
+	background:url('/site_media/images/pipe_06.png') #eee;
+	background-size:960px;
+	background-position:center bottom; 
+}
+
+#solid{
+	background:url('/site_media/images/pipe_07.png') no-repeat  #fff;
+	background-size:960px;
+	background-position:center top; 
+}
+
+
+#solidpricing {
+	background:url('/site_media/images/pipe_08.png') #fff;
+	background-size:960px;
+	background-position:center top;
+	height:70px;
+}
+
+
+#pricing {
+	background:url('/site_media/images/pipe_10.png') #eee;
+	background-size: 960px;
+	background-position:center bottom;
+}
+
+#call_to_action2{
+	background:url('/site_media/images/pipe_11.png') no-repeat #005c6f;
+	background-size: 960px;
+	background-position:center top;
+	color:#fff;
+	min-height:350px;
+}
+
+
+button {
+	font-size:1.8em;
+	height:90px;
+	padding:0 80px;
+	}
+	
+form{
+	margin:0;
+	padding:0;
+}
+
+#final_call{padding-top:0;}
+
+.akakak{
+	display:inline;
+}
+
+
+
+@media (max-width: 960px) {
+
+#section2{
+	margin:0;
+	padding:10px 10% 30px;
+	}
+
+#section2 .span_2_of_3 {
+	width: 100%;
+	margin:0;
+	padding:0;
+	}
+	
+#section2 .span_1_of_3 {
+	display:none;
+}
+	
+#call_to_action{
+	min-height:180px;
+}
+
+.logos {
+	width:120px;
+	max-width:95%;
+}
+
+.getsmall{font-size:0;}
+
+.wrapper {
+    width: 100%;
+  }
+  
+.sxn{
+	padding:30px 10%;
+	
+}
+
+#powerful{
+	padding-top:0;
+}
+
+#powerful .circle{
+	background:url('/site_media/images/circle1alt.png') center 100px no-repeat;
+	background-size: 960px 160px;
+}
+  
+#flexible .circle{
+	background:url('/site_media/images/circle2alt.png') center no-repeat;
+	background-size: 960px 160px;
+}
+
+#solid .circle{
+	background:url('/site_media/images/circle3alt2.png') center no-repeat;
+	background-size: 960px 160px;
+	}
+
+#pricing .circle{
+	background:url('/site_media/images/circle4alt.png') center no-repeat;
+	background-size: 960px 160px;
+	}
+ 
+button {
+	font-size:1.6em;
+	height:80px;
+	padding:0 40px;
+	}
+
+  
+}
+
+
+
+
+/*  SECTIONS  ============================================================================= */
+
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  GROUPING  ============================================================================= */
+
+
+.group:before,
+.group:after {
+    content:"";
+    display:table;
+}
+.group:after {
+    clear:both;
+}
+.group {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+/*  GRID COLUMN SETUP   ==================================================================== */
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+
+
+@media only screen and (max-width: 720px) {
+
+.fixedElement a {font-size:1rem;}
+.fixedElement .header_sections a {font-size:.8rem;}
+
+	 #section1,
+	 #section2,
+	 #section2a,
+	 #call_to_action,
+	 #call_to_action2,
+	 #powerful,
+	 #flexible,
+	 #solid,
+	 #pricing{
+		 background-image:none;
+	 }
+	 
+	 #section1a,
+	 #section2a,
+	 #flexsolid,
+	 #powertop,
+	 #powerflex,
+	 #flexsolid1,
+	 #solidpricing{
+		 display:none;
+	 }
+	 
+	 #call_to_action{
+		 padding-top:20px;
+	 }
+	 
+	#section2{
+	padding-top:42px;
+	padding-bottom:18px;
+	}
+	
+	
+	.circle_section{
+	width:100%;
+	height:130px;
+	ext-align:center;
+	display:block;
+	}
+
+#solid h2, #powerful h2 {margin-top:0;}
+
+#powerful .circle{
+	background:url('/site_media/images/circle1.png') 85% 54px  no-repeat;
+	background-size: 120px 120px;
+	height:200px;
+}
+
+#flexible .circle{
+	background:url('/site_media/images/circle2.png')  15% 38px  no-repeat;
+	background-size: 120px 120px;
+	height:200px;
+}
+
+#solid .circle{
+	background:url('/site_media/images/circle3bx.png') 85% 28px  no-repeat;
+	background-size: 120px 120px;
+	height:200px;
+}
+
+#pricing .circle{
+	background:url('/site_media/images/circle4a.png') 85% 42px  no-repeat;
+	background-size: 120px 120px;
+	height:200px;
+}
+
+
+
+}
+
+
+
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+/*  actually for this, 568 PIXELS */
+
+@media only screen and (max-width: 568px) {
+
+.fixedElement a {font-size:1.2rem;}
+.fixedElement .header_sections a {font-size:1rem;}
+
+#navbutton {
+	display:block;
+}
+
+#nav {display:none;}
+
+#section1 {
+	padding-top:40px;
+}
+
+#section1 .span_1_of_4{
+	width:100%;
+	text-align:center;
+}
+
+.logos {width:40%;margin-top:10px;}
+
+.circle_section{
+	width:100%;
+	height:130px;
+	ext-align:center;
+	display:block;
+	}
+
+
+#powerful .circle{
+	margin-top:6px;
+	background:url('/site_media/images/circle1.png') center no-repeat;
+	background-size:120px 120px;
+	position:relative;
+	display:block;
+	height:130px;
+	margin-top:16px;
+}
+
+#flexible .circle{
+	background:url('/site_media/images/circle2.png') center 0 no-repeat;
+	background-size:120px 120px;
+	position:relative;
+	display:block;
+	height:130px;
+}
+
+#solid .circle{
+	background:url('/site_media/images/circle3bx.png') center no-repeat;
+	background-size: 120px 120px;
+	position:relative;
+	display:block;
+	height:130px;
+
+}
+
+#pricing .circle{
+	background:url('/site_media/images/circle4a.png') center no-repeat;
+	background-size: 120px 120px;
+	position:relative;
+	display:block;
+	height:130px;
+}
+
+
+#section1 h1{text-align:center;}
+
+p.toolstobuild{text-align:center;}
+
+#section2 {
+	padding-top:42px;
+	padding-bottom:18px;
+}
+#section2 p{
+	font-size:1.6rem;
+}
+
+#section2 p.attribution{
+	font-size:1.2rem;
+}
+
+
+h1{	font-size:3.6rem;}
+
+p.toolstobuild{
+	font-size:1.2rem;
+}
+
+.fixedElement{
+	margin:0;padding:0;
+}
+
+.fixedElement a{
+	display:block;
+	font-size:1.6rem;
+	font-weight:bold;
+	line-height:1.6rem;
+	border-top:1px solid #fff;
+	PADDING-TOP:.5rem;
+	padding-bottom:.5rem;
+	padding-right:0;
+}
+
+.fixedElement .akakak a{
+	border-top:none;
+}
+
+h2{
+	padding:0;
+	margin:0;
+	text-align:center;
+}
+
+h4{
+	MARGIN-bottom:22px;
+	text-align:center;
+	}
+
+.learn_more{
+	font-size:1.5rem;
+	margin-bottom:10px;
+}
+
+button {
+	font-size:1.4rem;
+	height:62px;
+	padding:0 20px;
+	}
+
+
+	.col { 
+		margin: 1% 0 1% 0%;
+	}
+}
+
+
+/*  GRID OF THREE   ============================================================================= */
+
+	
+.span_3_of_3 {
+	width: 100%; 
+}
+
+.span_2_of_3 {
+	width: 66.13%; 
+}
+
+.span_1_of_3 {
+	width: 32.26%; 
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+/*  actually for this, 568 PIXELS */
+
+@media only screen and (max-width: 568px) {
+	.span_3_of_3 {
+		width: 100%; 
+	}
+	.span_2_of_3 {
+		width: 100%; 
+	}
+	.span_1_of_3 {
+		width: 100%;
+	}
+}
+
+
+
+/*  GRID OF FOUR   ============================================================================= */
+
+	
+.span_4_of_4 {
+	width: 100%; 
+}
+
+.span_3_of_4 {
+	width: 74.6%; 
+}
+
+.span_2_of_4 {
+	width: 49.2%; 
+}
+
+.span_1_of_4 {
+	width: 23.8%; 
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 568px) {
+
+	.span_4_of_4 {
+		width: 100%; 
+	}
+	.span_3_of_4 {
+		width: 100%; 
+	}
+	.span_2_of_4 {
+		width: 100%; 
+	}
+	.span_1_of_4 {
+		width: 100%; 
+	}
+}
+
+@media only screen and (min-width: 641px) {
+
+#nav{
+	display:inline;
+	visibility:show;
+	}
+
+}
+
+</style>
+
+
+
+
+
+
+<title>ActionKit</title>
+</head>
+<body  class="front"  >
+
+
+
+
+
+<div class="fixedElement">
+	<div class="akakak">
+		<b><a href="#top" onclick="javascript:ScrollToTop()">ActionKit</a></b>
+	</div>
+	<div id="nav">
+		<div class="header_sections">
+			<a href="#powerful" onclick="javascript:ScrollToPositionA('#powerful')">Powerful</a> <a href="#flexible" onclick="javascript:ScrollToPositionA('#flexible')">Flexible</a> <a href="#solid" onclick="javascript:ScrollToPositionA('#solid')">Solid</a> <a href="#pricing" onclick="javascript:ScrollToPositionA('#pricing')">Pricing</a> 
+		</div>
+	</div>
+</div>
+<div id="navbutton">
+</div>
+<div id="top">
+</div>
+<a name="top"></a> 
+<div class="wrapper">
+	<div id="section1" class="sxn">
+		<div class="section group">
+			<div class="col span_1_of_4">
+				<img class="logos logo1 " src="/site_media/images/logo1.png"> 
+			</div>
+			<div class="col span_3_of_4">
+				<h1>ActionKit</h1> 
+				<p class="toolstobuild">
+					Tools to build a movement
+				</p>
+				<p class="cover_org">
+					A flexible, reliable system engineered to help you achieve more&mdash;more advocacy, more donations, more supporters&mdash;from the team that build MoveOn.org&#8217;s tech.
+			</div>
+		</div>
+	</div>
+<!-- .section1 -->
+	<form id="stay_updated_form" method="link" action="mailto:demos@wawd.com">
+		<div id="call_to_action">
+			<p class="learn_more">
+				Interested in learning more?
+			</p>
+			<button>
+				Schedule a demo
+			</button>
+		</div>
+	</form>
+	<div id="section2a" class="sxn">
+	</div>
+	<div id="section2" class="sxn">
+		<div class="section group">
+			<div class="col span_1_of_3">
+			</div>
+			<div class="col span_2_of_3">
+				<p>
+					&#8220;Without We Also Walk Dogs, our campaigns would be impossible&#8221; 
+				</p>
+				<p class="attribution">
+					<span class="getsmall">&nbsp;&nbsp;</span>&mdash; Wes Boyd, Co-founder of MoveOn.org
+				</p>
+			</div>
+		</div>
+	</div>
+	<div>
+		<a name="powerful"> </a> 
+	</div>
+	<div id="powerful">
+		<div class="circle_section circle">
+		</div>
+		<div class="sxn">
+			<div class="section group">
+				<div class="col span_2_of_3">
+					<h2> Powerful </h2> <h4> Organize your heart out </h4> 
+					<p>
+						ActionKit is used by large groups and small, in the U.S. and internationally, to work on issues from climate change to gun control to disaster relief to social justice and more. <!--They share a commitment to innovation; to constantly finding new ways to use technology to apply old-fashioned organizing principles to the world's most pressing problems.--></p>
+						
+			
+				</div>
+			</div>
+			<div class="section group">
+				<div class="col span_1_of_3">
+					<h3>Fundraising</h3> 
+					<p>
+						Customize ask amounts based on donor history, accept recurring donations and &ldquo;in memory of&rdquo; gifts, and offer premiums.
+						
+					</p>
+				</div>
+				<div class="col span_1_of_3">
+					<h3>Mailings</h3> 
+					<p>
+						Target by geography, user history and more; personalize content; run A/B tests; set up scheduled or recurring e-mails; and send blasts reliably and at high speed.
+					</p>
+				</div>
+			</div>
+			<div class="section group">
+				<div class="col span_1_of_3">
+				   <h3>Advocacy</h3> 
+					   <p>
+						   Recruit users to sign petitions, make calls to their representatives or other decision makers, write letters to the editor, or participate in a whipcount campaign&mdash;then recruit their friends via email or social media.  
+   
+					   </p>
+				   </div>
+					<div class="col span_1_of_3">
+						<h3>Pages</h3> 
+						<p>
+							Revamp our mobile-friendly templates to match your look and feel, and take advantage of detailed tracking of clicks, actions, and sources of users.
+						</p>
+				</div>
+				</div>
+							<div class="section group">
+
+				<div class="col span_1_of_3">
+					<h3>Cultivation</h3>
+					<p>
+					Increase user engagement with surveys, welcome series', and customized outreach; use our sophisticated user search and easily update user information manually or via CSV.
+					</p>
+				</div>
+					<div class="col span_1_of_3">
+
+					<h3>Reports</h3> 
+					<p>
+						Use dozens of built-in reports or build your own with our  easy-to-use graphical query builder or by writing your own SQL queries.
+					</p>
+				</div>
+			</div>
+			<div class="section group">
+				<div class="col span_1_of_3">
+					<h3>Events</h3> 
+					<p>
+						Ask your users to host local events or set up centralized events.
+					</p>
+				</div>
+				<div class="col span_1_of_3">
+					<h3>Global</h3> 
+					<p>
+						Translate pages and mailings, handle international addresses and event locations, and accept donations in non-US currencies.
+					</p>
+			</div>
+		</div>
+	</div>
+	<div id="powerflex">
+	</div>
+	<div id="flexible">
+		<div class="circle_section circle">
+		</div>
+		<div class="sxn">
+			<a name="flexible"></a> 
+			<div class="section group">
+				<div class="col span_1_of_3">
+				</div>
+				<div class="col span_2_of_3">
+					<h2>Flexible</h2> <h4>Radically customizable, and integrates with your tools</h4> 
+					<p>
+						Clients have integrated ActionKit with third-party donation processors and CRMs, get-out-the-vote tools, and their own custom-developed software. 
+					</p>
+				</div>
+			</div>
+			<div class="section group">
+				<div class="col span_1_of_3">
+				</div>
+				<div class="col span_1_of_3">
+					<h3>It&#8217;s your data</h3> 
+					<p>
+						Your list is not locked up with ActionKit; you can access it via our APIs or raw SQL any time.
+					</p>
+				</div>
+				<div class="col span_1_of_3">
+					<h3>Store anything</h3> 
+					<p>
+						Add custom fields to users, actions, and pages, and use merge files to add arbitrary content to mailings.
+					</p>
+				</div>
+			</div>
+			<div class="section group">
+				<div class="col span_1_of_3">
+				</div>
+				<div class="col span_1_of_3">
+					<h3>Easy import/export</h3> 
+					<p>
+						Load data through our importer, or APIs; export it through SQL access or APIs. 
+					</p>
+				</div>
+				<div class="col span_1_of_3">
+					<h3>Front-end flexibility</h3> 
+					<p>
+						Completely redesign templates to fit your look, or host pages on your own servers for even more control.
+					</p>
+				</div>
+			</div>
+			<div class="section group">
+				<div class="col span_1_of_3">
+				</div>
+				<div class="col span_2_of_3">
+					<h3> It&#8217;s not only a toolset, it&#8217;s a platform. </h3> 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="solid" class="section5">
+		<div class="circle_section circle">
+		</div>
+		<div class="sxn">
+			<a name="solid"></a> 
+			<div class="section group">
+				<div class="col span_2_of_3">
+					<h2>Solid</h2> <h4>Sweat your campaigns, not your platform</h4> 
+					<p>
+						All the features in the world mean nothing if your online presence isn&#8217;t reliable. Our clients love the platform&#8217;s reliability and responsive support.
+					</p>
+				</div>
+			</div>
+			<div class="section group">
+				<div class="col span_1_of_3">
+					<h3>Support</h3> 
+					<p>
+						Bug reports go straight to the team that develops ActionKit.
+					</p>
+				</div>
+				<div class="col span_1_of_3">
+					<h3>Performance</h3> 
+					<p>
+						When you're getting thousands of hits a minute, you don't want your platform to collapse. That&#8217;s why ActionKit has speedy SSD-backed database servers and Web serving capacity to spare.
+					</p>
+				</div>
+			</div>
+			<div class="section group">
+				<div class="col span_1_of_3">
+					<h3>Security</h3> 
+					<p>
+						All donation traffic is encrypted, and with the Braintree payment gateway, credit card details needn&#8217;t ever touch our servers. You can also enable filtering for potentially fraudulent donations at no extra cost.
+					</p>
+				</div>
+				<div class="col span_1_of_3">
+					<h3>E-mail deliverability</h3> 
+					<p>
+						Your e-mail sender reputation will never be affected by another organization&#8217;s mistakes, and we work with industry leader SendGrid to make sure your messages get delivered.
+					</p>
+				</div>
+			</div>
+			<div class="section group">
+				<div class="col span_1_of_3">
+					<h3>Reliability</h3> 
+					<p>
+						We have redundant servers and backups so when server hardware inevitably fails, your site doesn&#8217;t.
+					</p>
+				</div>
+				<div class="col span_1_of_3">
+					<h3>Active development</h3> 
+					<p>
+						ActionKit is always improving. We frequently put out new releases with features, bug fixes, and infrastructure improvements.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="solidpricing">
+	</div>
+	<div id="pricing">
+		<div class="circle_section circle">
+		</div>
+		<div class="sxn">
+			<a name="pricing"></a> 
+			<div class="section group">
+				<div class="col span_2_of_3">
+					<h2>Pricing</h2> 
+					<p>
+						Our pricing model is simple. We charge a monthly subscription fee that's based on the number of mailable addresses on your email list, plus a one-time set up fee. No commissions or fees per email sent.
+					</p>
+					<p>
+						If you subscribe you have access to all features and to the same responsive support we provide to all clients. 
+					</p>
+					<p>
+						We provide reliable hosting or you can host most features in your existing content management system or website. 
+					</p>
+					<p>
+						ActionKit starts at $995 a month for groups with up to 50,000 mailable supporters.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="call_to_action2" class="section_content">
+		<div id="final_call">
+			<div>
+				<p class="learn_more">
+					Interested in learning more?
+				</p>
+			</div>
+			<form id="stay_updated_form" method="link" action="mailto:demos@wawd.com">
+				<button id="#demo_button">
+					Schedule a demo
+				</button>
+		</div>
+		</form>
+	</div>
+</div>
+<!-- .content -->
+</div>
+<!-- .wrapper -->
+</body>
+
+
+
+<script type="text/javascript">
+
+
+// scroll to position
+	 
+function ScrollToPositionA(WhereTo) {
+
+ var navheight = $('.fixedElement').height();
+ var akakheight = $('.akakak').height();
+ 
+	$('html,body').animate({
+	scrollTop: $(WhereTo).offset().top - navheight}, 400);
+
+	 var $window = $(window);
+	 var windowsize = $window.width();
+
+        if (windowsize < 568) {  
+				$('#nav').css({'display': 'none'});
+				$('#section1').css({'padding-top': akakheight + 40  + 'px' });
+		}
+
+return false;
+}
+ 
+function ScrollToTop() {
+       $('html,body').animate({scrollTop: 0}, 400);
+       
+       return false;
+}
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
+";i:2;s:5:"10344";}

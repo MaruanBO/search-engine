@@ -1,0 +1,243 @@
+a:3:{i:0;s:14:"http://t1p.de/";i:1;s:10177:"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de"
+	dir="ltr">
+<head>
+<link rel="stylesheet" type="text/css" href="http://t1p.de/css/t1p.de-d-6.css"/>
+<link rel="shortcut icon" type="image/x-icon" href="http://t1p.de/favicon.t1p.de.ico"/>
+<meta http-equiv="content-language" content="de" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="viewport" content="width=850"/><link rel="stylesheet" type="text/css" href="css/jquery-ui.t1p.de.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery-ui-timepicker.js"></script>
+<title>Kurz URLs mit No Referer Funktion &amp; Malware Schutz | t1p.de</title>
+<meta name="description" content="Auf t1p.de kannst du lange URLs (Links) kürzer machen. Die Kurzlinks sind, dank Malware-Schutz und No-Referer Funktion, sicher. t1p.de erstellt kürzere URLs als Tinyurl." />
+<meta name="robots" content="index, follow" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="keywords" content="kurze URL, URL kürzer machen, Link kürzer machen, URL verkürzen, kurzer Link, URL Verkürzer, URL Shortener, Kurzlink, Tinyurl, short URL" />
+
+</head>
+<body>
+
+	
+	<div id="top">
+	
+		<h1><a href="http://t1p.de" title="t1p.de - der URL Shortener">Sichere Kurzlinks erzeugen</a></h1>
+		
+		<span id="slogan"><strong>T<span style="color: blue;">1</span>P.de</strong> ist ein Kurz-URL-Service mit 
+			<a href="faq#phishingschutz" title="Informationen zu unserem Phishing-Schutz">Phishing-</a> &amp; <a title="Informationen zu unserem Malware-Schutz" 
+			href="faq#malwareschutz">Malware-Schutz</a></span>		
+	</div>
+	<div id="centereddiv">
+		<div id="linkstop">
+			<a title="t1p.de - ein Kurzlink Generator" href="http://t1p.de">t1p.de</a>
+			<a title="Fragen und Antworten" href="faq">FAQ</a> 
+			<a title="Mit einem Interaktiven Lesezeichen kannst du von jeder Webseite aus, mit nur einem Klick, einen Kurzlink erstellen." 
+			href="bookmark">Lesezeichen</a>
+			<a title="die Kurzlink App für Android" href="app">App</a>
+		</div>
+		<div id="contentdiv">
+
+<noscript >
+	<div class="javascriptwarnung">Du musst JavaScript aktivieren um Kurzlinks erstellen zu können.</div><br/><br/>
+</noscript>
+
+<strong>Auf <a href="http://t1p.de" title="t1p.de - der Link Verkürzer">t1p.de</a>
+	kannst du
+</strong>
+<ul>
+	<li><strong>einen langen Link kürzer machen</strong></li>
+	<li><strong>das eigentliche Ziel eines Links verstecken</strong></li>
+	<li><strong>verheimlichen, über welche Seite du zu einer anderen
+			gelangt bist</strong> <em><a href="faq#referer">(den Referrer
+				vertuschen)</a> </em></li>				
+</ul>
+
+
+<br/>
+<h2>
+	Kurzlink erstellen  <a id="bmstar" href="bookmark"
+		title="Mit einem Interaktiven Lesezeichen kannst du von jeder Webseite aus, mit nur einem Klick, einen Kurzlink erzeugen, ohne diese Webseite aufrufen zu müssen!">
+		<img alt="Kurzurls mit interaktiven Lesezeichen erstellen"
+		src="img/nadel.t1p.de.png" />
+	</a> <span id="bmhint"><a href="bookmark"> &#8701; Kurzlinks kannst du noch einfacher erzeugen! Klicke auf den Stern!</a></span>
+	</h2>
+<form action="#">
+
+	<div class="dashbox" id="formurlbox">
+		<label for="form_url" id="short_url_label">Dein Link:</label><input name="form_url"
+			id="form_url" type="text"
+			onclick="clearFormUrl()"			value="http://www.google.de/"/>
+		<input name="short_url_button" id="short_url_button" type="button" onclick="getShortenedLink()" value="Link kürzen!" />
+		<div id="result"></div>
+	</div>
+	<a class="showlink" id="showexample">Ein Beispiel gefällig?</a>
+	<div id="example" class="dashbox">
+		<a href="http://0cn.de/berlin" target="_blank" rel="nofollow external">http://0cn.de/berlin</a>
+		ist ein Kurzlink für die URL <a target="_blank" rel="nofollow"
+			href="https://maps.google.de/maps?q=Berlin&amp;hl=de&amp;ll=52.560282,13.440056&amp;spn=0.142135,0.41851&amp;sll=50.928117,13.456666&amp;sspn=2.357876,6.696167&amp;t=h&amp;hnear=Berlin&amp;z=12">
+			https://maps.google.de/maps?q=Berlin&amp;hl=de&amp;ll=52.560282,13.440056&amp;spn=0.142135,0.41851&amp;<br/>sll=50.928117,13.456666&amp;sspn=2.357876,6.696167&amp;t=h&amp;hnear=Berlin&amp;z=12
+		</a>
+	</div>
+	<br/><br/>
+	<div class="dashbox">
+		Du kannst die <strong>Weiterleitung zur Ziel-URL auch durch ein
+			Passwort schützen</strong> oder den <strong>Zugriff auf einen
+			bestimmten Zeitraum oder eine Höchstanzahl an Klicks beschränken.</strong>
+		<br/> <br/>
+		<div id="options">
+
+			<a class="showlink" id="showurlwish">+ Eine Wunsch-URL eingeben</a><br/>
+			<div class="innerdashbox" id="urlwish">
+				<div class="optdescr">
+					Gib deine <strong>Wunsch-URL</strong> ein und klicke auf
+					&quot;Verfügbarkeit prüfen&quot;.
+				</div>
+				<select name="servicedomain" id="servicedomain">
+					<option value="t1p.de">t1p.de/</option>
+											<option value="0cn.de">0cn.de/</option>
+										</select>
+				<input id="form_urlwish"
+					name="form_urlwish" type="text" /> <input type="button"
+					id="form_button_urlwish" value="Verfügbarkeit prüfen"
+					onclick="isUrlAvailable()" />
+				<div id="result_urlwish"></div>
+			</div>
+			<br/> <a class="showlink" id="showpassword">+ Ein Passwort festlegen</a><br/>
+			<div class="innerdashbox" id="password">
+				<div class="optdescr">
+					Gib das gewünschte <strong>Kennwort</strong> ein.
+				</div>
+				<label for="form_password">Passwort</label><input id="form_password"
+					onkeyup="editFormNoRef()" name="form_password" type="text" />
+			</div>
+			<br/> <a class="showlink" id="showtimeslot">+ Gültigkeitszeitraum
+				einschränken</a><br/>
+			<div class="innerdashbox" id="timeslot">
+				<div class="optdescr">
+					In welchem <strong>Zeitraum</strong> soll die Kurz-URL
+					funktionieren?
+				</div>
+				<select id="form_prestart" onchange="setVisible(this, 'form_start')">
+					<option value="0">ab sofort</option>
+					<option value="1">ab ...</option>
+				</select> <input type="text" disabled="disabled"
+					value="Startzeitpunkt festlegen" id="form_start" /> <br/> <select
+					onchange="setVisible(this, 'form_end')" id="form_preend">
+					<option value="0">für immer</option>
+					<option value="1">bis ...</option>
+				</select> <input type="text" disabled="disabled"
+					value="Endzeitpunkt festlegen" id="form_end" />
+			</div>
+			<br/> <a class="showlink" id="showmaxclicks"> + Maximale Zugriffe
+				festlegen</a><br/>
+			<div class="innerdashbox" id="maxclicks">
+				<div class="optdescr">
+					Wie oft darf der <strong>Kurzlink maximal aufgerufen</strong>
+					werden?
+				</div>
+				<select id="form_premaxclicks"
+					onchange="setVisible(this, 'form_maxclicks')">
+					<option value="0">unbegrenzt</option>
+					<option value="1">maximal ...</option>
+				</select> <input type="text" disabled="disabled" value="5"
+					id="form_maxclicks" />x
+			</div>
+			<br/> <a class="showlink" id="showdeletelink">+ Einen Deaktivierungslink
+				erzeugen</a><br/>
+			<div class="innerdashbox" id="deletelink">
+				<div class="optdescr">
+					Soll ein <strong>Deaktivierungslink</strong> erzeugt werden? Mit diesem
+					kannst du die Kurz-URL später jederzeit abschalten.
+				</div>
+				<input type="checkbox" name="form_deletelink" id="form_deletelink" />Deaktivierungslink
+				erzeugen
+			</div>
+			<br/> <a class="showlink" id="shownoref">+ den Referrer vertuschen</a><br/>
+			<div class="innerdashbox" id="noref">
+				<div class="optdescr">
+					Soll bei der Weiterleitung der <strong><a href="faq#referer">Referrer
+							entfernt</a> </strong> werden? Die Weiterleitung dauert dann
+					einen Sekundenbruchteil länger, dafür erfahren die Betreiber der
+					Zielwebseite nicht, auf welcher Seite der Besucher vorher war.
+				</div>
+				<div id="norefpwinfo">Der Referrer wird immer entfernt, wenn ein
+					Passwort aktiviert ist.</div>
+				<div id="norefcontainer">
+					<input type="checkbox" name="form_noref" id="form_noref" />Referrer
+					entfernen
+				</div>
+			</div>
+		</div>
+	</div>
+	<br/>
+</form>
+<script	type="text/javascript" src="js/toolbox-3.js"></script>
+<script type="text/javascript">
+		<!--		
+		var via = "Web";
+		var shownbmhint = false;
+		function setOutputNewLink(){
+			if(ajax.readyState == 4){
+				document.getElementById('result').innerHTML=ajax.responseText;
+				$('#result').fadeOut(300);
+				$('#result').fadeIn(400);
+				enableDisableSB(true);
+								if (!shownbmhint){
+					$('#bmhint').delay(8000).fadeIn(500);
+					$('#bmhint').delay(15000).fadeOut(500);
+					shownbmhint = true;
+				}
+							}
+		}
+		
+		$(document).ready(function () {
+			$('#result').hide();
+			$('#result_urlwish').hide();
+			$('#example').hide();
+			$('#urlwish').hide();		
+			$('#password').hide();	
+			$('#timeslot').hide();
+			$('#maxclicks').hide();		
+			$('#deletelink').hide();	
+			$('#norefpwinfo').hide();
+			$('#noref').hide();	
+			$('#bmhint').hide();
+			$('#form_start').attr('readonly', true);
+			$('#form_end').attr('readonly', true);	
+				
+						$('#bmstar').hide();	
+			var dur = 500;
+			$('#bmstar').delay(500).fadeIn(500);
+			$('#bmstar').delay(3750).fadeOut(dur);	
+			$('#bmstar').fadeIn(dur);	
+			$('#bmstar').fadeOut(dur);	
+			$('#bmstar').fadeIn(dur);	
+			$('#bmstar').fadeOut(dur);	
+			$('#bmstar').fadeIn(dur);	
+			for (var i=0; i<20; i++){
+			$('#bmstar').delay(10000).fadeOut(dur);	
+			$('#bmstar').fadeIn(dur);	
+			$('#bmstar').fadeOut(dur);	
+			$('#bmstar').fadeIn(dur);	
+			$('#bmstar').fadeOut(dur);	
+			$('#bmstar').fadeIn(dur);	
+			}
+					});
+
+	//-->
+	</script>
+		</div>
+		<div id="linksbottom">
+					<a id ="pwbreak" onclick="alert('Versuche die Passwörter zu knacken! Nutze die jeweilige URL als Hinweis!')" title="Knacke die Passwörter. Hinweise musst du der Kurz-URL entnehmen." href="http://t1p.de/tick-trick">Passwörter knacken</a>
+					<a title="Missbrauch melden" href="abuse">Missbrauch</a>
+			<a href="contact">Impressum</a>
+		</div>
+	</div>
+
+
+</body>
+</html>
+";i:2;s:4:"1462";}

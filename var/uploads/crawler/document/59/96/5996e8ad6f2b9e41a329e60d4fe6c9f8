@@ -1,0 +1,161 @@
+a:3:{i:0;s:19:"http://onelook.com/";i:1;s:5802:"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js?load=effects,controls"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<link rel="stylesheet" type="text/css" href="ol.css?2">
+<link rel="search" type="application/opensearchdescription+xml" href="http://www.onelook.com/osdf.xml" title="OneLook Dictionary Search" />
+<title>OneLook Dictionary Search</title>
+<meta name="verify-v1" content="sB0hHHVrwGNsQx2rlf03XszL/j2wus02u/deZpkKddw=" />
+<script language="javascript" type="text/javascript">
+<!--
+function init() {document.form1.w.focus();}
+// -->
+</SCRIPT>
+<STYLE>
+<!--A:hover {text-decoration:bold; color:#FF0000;} A:active {text-decoration:bold; color:#FF0000;}-->
+</STYLE>
+</head>
+<body bgcolor="#ffffff" onLoad="init()"> 
+
+<center>
+
+<br>
+<IMG SRC="/img/img_ol-logo_hp_264x84px.png" alt="OneLook" border=0>
+<br><br>
+
+
+<form name="form1" method="GET" action="/">
+<b>Word, phrase, or pattern:</b>&nbsp;&nbsp;
+<input style="font-size:18px" id="olinput" type="text" name="w" size="30"  value="">
+
+<div id="autocomplete_choices" class="autocompleteclass"></div>
+<script type="text/javascript">
+Ajax.Request.prototype.setRequestHeaders = function() {
+  var headers = {
+    'Accept': 'text/javascript, text/html, application/xml, text/xml, */*'
+  };
+  if (this.method == 'post') {
+    headers['Content-Type'] = this.options.contentType +
+      (this.options.encoding ? '; charset=' + this.options.encoding : '');
+    if (this.transport.overrideMimeType &&
+        (navigator.userAgent.match(/Gecko\/(\d{4})/) || [0,2005])[1] < 2005)
+      headers['Connection'] = 'close';
+  }
+  if (typeof this.options.requestHeaders == 'object') {
+    var extras = this.options.requestHeaders;
+
+    if (Object.isFunction(extras.push))
+      for (var i = 0, length = extras.length; i < length; i += 2)
+        headers[extras[i]] = extras[i+1];
+    else
+      $H(extras).each(function(pair) { headers[pair.key] = pair.value; });
+  }
+  for (var name in headers)
+    this.transport.setRequestHeader(name, headers[name]);
+}
+ new Ajax.Autocompleter("olinput", "autocomplete_choices", "http://api.onelook.com/sug", {
+ paramName: "s",
+ frequency: 0.1,
+ minChars: 999,
+ parameters: "v=ol_gte3",
+ afterUpdateElement: function() { document.form1.submit(); }
+ });
+</script>
+
+<input type="submit" value="Search" style="font-size: 18px;"/><font size=2></font>
+<INPUT TYPE="hidden" NAME="ls" VALUE="a">
+</form>
+
+
+<table width=550>
+
+
+<tr>
+<td colspan=2 align=center><font face="times" size=5>Example searches</font><br><br></td>
+</tr>
+
+<tr><br></tr>
+
+<tr bgcolor="#fafafa">
+<td><a href="/?w=bluebird" style="{text-decoration:none;}">bluebird</a></td>
+<td class="ec">Find definitions of <i>bluebird</i></td>
+</tr>
+
+<tr>
+<td><a href="/?w=blue*" style="{text-decoration:none;}">blue*</a></td>
+<td class="ec">Find words and phrases that start with <i>blue</i></td>
+</tr>
+
+<tr bgcolor="#fafafa">
+<td><a href="/?w=*bird" style="{text-decoration:none;}">*bird</a></td>
+<td class="ec">Find words and phrases that end with <i>bird</i></td>
+</tr>
+
+<tr>
+<td><a href="/?w=bl%3F%3F%3F%3Frd" style="{text-decoration:none;}">bl????rd</a></td>
+<td class="ec">Find words that start with <i>bl</i>, end with <i>rd</i>, with 4 letters in between</td>
+</tr>
+
+<tr bgcolor="#fafafa">
+<td><a href="/?w=bl*%3Asnow" style="{text-decoration:none;}">bl*:snow</a></td>
+<td class="ec">Find words that start with <i>bl</i>and have a meaning related to <i>snow</i></td>
+</tr>
+
+<tr bgcolor="#fafafa">
+<td><a href="/?w=bl*%3Aadjective" style="{text-decoration:none;}">bl*:adjective</a></td>
+<td class="ec">Find any adjectives that start with <i>bl</i></td>
+</tr>
+
+<tr>
+<td><a href="/?w=*%3Asnow" style="{text-decoration:none;}">*:snow</a> or <a href="/?w=%3Asnow" style="{text-decoration:none;}">:snow</a></td>
+<td class="ec">Find any words related to <i>snow</i></td>
+</tr>
+
+<tr bgcolor="#fafafa">
+<td><a href="/?w=*%3Awinter+sport" style="{text-decoration:none;}">*:winter sport</a></td>
+<td class="ec">Find words related to the concept <i>winter sport</i></td>
+</tr>
+
+<tr>
+<td><a href="/?w=**winter**" style="{text-decoration:none;}">**winter**</a></td>
+<td class="ec">Find phrases that contain the word <i>winter</i></td>
+</tr>
+
+<tr bgcolor="#fafafa">
+<td><a href="/?w=expand:nasa" style="{text-decoration:none;}">expand:nasa</a></td>
+<td class="ec">Find phrases that spell out <i>n.a.s.a.</i></td>
+</tr>
+
+<tr>
+<td colspan=2><br></td>
+</tr>
+
+<tr><td colspan=2>
+<center><br>Advanced help with <a href="/?c=faq#patterns">wildcards</a> and the 
+<a href="/reverse-dictionary.shtml">reverse dictionary</a> is available.
+<br><br>19,633,003 words in 1061 dictionaries indexed
+ &mdash;
+<a href="/wotd.shtml">Today's&nbsp;word</a>&nbsp;is&nbsp;<b><A HREF="/?w=secco&loc=wotd">secco</A>
+</b>
+</center>
+
+</td></tr></table>
+
+ 
+<table width="100%" bgcolor="#ffffff" border=0 cellspacing=0>
+<tr><td align=center>
+&nbsp;
+<font size=-10><br></font>
+<a href="/reverse-dictionary.shtml">Reverse Dictionary</a> &nbsp;&nbsp;
+<a href="/?d=all_gen">Browse Dictionaries</a> &nbsp;&nbsp;
+<a href="about.shtml#privacy">Privacy</a> &nbsp;&nbsp;<a href="http://blog.datamuse.com">Blog</a> &nbsp;&nbsp;<a href="/about.shtml">Help</a> 
+<br><br><g:plusone align=middle></g:plusone> <br><font size=-10><br></font>
+</td></tr></table> 
+<br>
+
+</center>
+
+</body></html>
+";i:2;s:5:"10103";}

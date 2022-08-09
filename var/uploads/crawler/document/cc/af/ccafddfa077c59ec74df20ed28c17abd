@@ -1,0 +1,1123 @@
+a:3:{i:0;s:22:"http://partselect.com/";i:1;s:54596:"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en">
+
+<head id="Head1" profile="http://gmpg.org/xfn/11"><link href="https://plus.google.com/113099074246880462503" rel="publisher" />
+     
+	<link rel="stylesheet" href="http://www.partselect.com/css/styles.min.css?v=20150217" type="text/css"/>
+	<!--[if IE 9]> <link rel="stylesheet" type="text/css" href="http://www.partselect.com/css/ie9.min.css?v=20150217" /> <![endif]-->
+	<!--[if lt IE 9]> <link rel="stylesheet" type="text/css" href="http://www.partselect.com/css/ie78.min.css?v=20150217" /> <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=.75" /><link rel="image_src" href="//www.partselect.com/assets/Images/PartSelect-Logo-Square.png" /><meta property="og:image" content="//www.partselect.com/assets/Images/PartSelect-Logo-Square.png" />
+
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
+    <script src="/includes/script.min.js?v=20150217" type="text/javascript"></script>
+    <script src="http://www.google.com/jsapi?key=ABQIAAAA5cb2s1iyG1IAAoiTMw8SghQ6hYf0jmPQGPeBKzbUQgT-_3vilRSvKT-pXLk20aAVXviwOdpxwdY16Q"  type="text/javascript"></script> 
+
+
+     
+    
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+    
+
+    // push all events to this for sending to google (arbitrary functions can be pushed in as well)
+    var _gaq = _gaq || [];
+
+    // section: Header_Analytics_ascx.trackPageView
+    try{
+        _gaq.push(['_setAccount', 'UA-12435659-2']);
+
+        // set domain - required so CSR conversions are tracked
+        _gaq.push(['_setDomainName', 'www.partselect.com']);  
+        _gaq.push(['_setSessionCookieTimeout', 1000 * 60 * 60 * 2]);
+        _gaq.push(['_setAllowAnchor', true]); 
+
+        
+        _gaq.push(['_trackPageview']);       
+        
+    }
+    catch(err){
+       _logException(err, 'Header_Analytics_ascx.trackPageView');
+    }
+
+
+    (function () {
+
+        // section: Header_Analytics_ascx.pushEventsToGoogle
+        try{
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        }
+        catch(err){
+            _logException(err, 'Header_Analytics_ascx.pushEventsToGoogle');
+        }
+
+
+    })();
+
+
+
+    /* track arbitrary event */
+    function AnalyticsTrackEvent(category, action, opt_label, opt_value) {
+        // section: Header_Analytics_ascx.AnalyticsTrackEvent
+        try
+        {
+            // before we do anything, check if this is a search event with no opt_label, if so, return
+            if( category === 'Search' && opt_label === '' )
+            {
+                return;
+            }
+            // push the event to the JS cookie set, it will get sent to Google with the next page load
+            return _pushEventToGoogle(category, action, opt_label, opt_value);
+        }
+        catch(err){
+            _logException(err, 'Header_Analytics_ascx.AnalyticsTrackEvent');
+        }
+    }
+
+
+    /* push event to google */
+    function _pushEventToGoogle(category, action, opt_label, opt_value, opt_noninteraction)
+    {
+
+        // first check that both are set and silently fail if not
+        if (typeof category == "undefined" || category == null || category.length == 0) {
+            return true;
+        }
+        if (typeof action == "undefined" || action == null || action.length == 0) {
+            return true;
+        }
+        if (typeof opt_label == "undefined" || opt_label == null || opt_label.length == 0) {
+            opt_label = '';
+        }
+        if (typeof opt_value == "undefined" || opt_value == null || opt_value.length == 0 || typeof(opt_value)!='number') {
+            opt_value = -1;
+        }
+
+        if (typeof opt_noninteraction == "undefined" || opt_noninteraction == null || opt_noninteraction.length == 0 || typeof (opt_noninteraction) != 'boolean') {
+            opt_noninteraction = true;
+        }
+
+
+
+        /* below, use the correct call to _trackEvent based on what we have as input */
+        if (opt_value > -1) {
+            // section: Header_Analytics_ascx._pushEventToGoogle_ALL
+            try {
+                _gaq.push(['_trackEvent', category, action, opt_label, opt_value, opt_noninteraction]);
+            }
+            catch (err) {
+                _logException(err, 'Header_Analytics_ascx._pushEventToGoogle_ALL');
+            }
+
+            return true;
+          }
+
+        if (opt_label != '') {
+            // section: Header_Analytics_ascx._pushEventToGoogle_OPTLABEL
+            try {
+                _gaq.push(['_trackEvent', category, action, opt_label,, opt_noninteraction]);
+            }
+            catch (err) {
+                _logException(err, 'Header_Analytics_ascx._pushEventToGoogle_OPTLABEL');
+            }
+
+            return true;
+        }
+
+        // section: Header_Analytics_ascx._pushEventToGoogle_CAT_ACTION
+        try {
+            _gaq.push(['_trackEvent', category, action,,, opt_noninteraction]);
+        }
+        catch (err) {
+            _logException(err, 'Header_Analytics_ascx._pushEventToGoogle_CAT_ACTION');
+        }
+
+        return true;
+    }
+
+    /* _logPushTo - log the push to google */
+    function _logPushTo(eventArr, pushTo)
+    {
+        var errCacheBuster = parseInt(Math.random()*99999999);  // cache buster
+        var category = eventArr[0];
+        var action = eventArr[1];
+        var opt_label = eventArr[2];
+        var opt_value = eventArr[3];
+        var qs = 'pushTo=' + escape(pushTo)
+                + '&category=' + escape(category)
+                + '&action=' + escape(action)
+                + '&opt_label=' + escape(opt_label)
+                + '&opt_value=' + escape(opt_value)
+                + '&cacheBuster=' + errCacheBuster;
+        var url = '/assets/images/transparent.gif?' + qs;
+
+        /* if we can append this now, do so, otherwise when body is loaded (because of IE problems, only do this if jQuery is loaded) */
+        if (typeof jQuery != 'undefined') {
+            if( $('body') != null ){
+                $('body').append('<img src=\'' + url + '\' />');
+            }
+            else{
+                $(document).ready(function() {
+                    $('body').append('<img src=\'' + url + '\' />');
+                });
+            }
+        }
+
+
+    }
+
+
+    /* _logException - causes image request to be emitted that records this
+                       exception in the IIS logs as an image request for transparent.gif */
+    function _logException(err, location){
+
+        var errCacheBuster = parseInt(Math.random()*99999999);  // cache buster
+        var errorMsg = 'no description on exception';
+        if( err != null ){
+            errorMsg = err.description;
+        }
+        if( errorMsg != null ){
+            if( errorMsg.length > 1024 ){
+                errorMsg = errorMsg.substring(0,1024);
+            }
+        }
+        else{
+            errorMsg = 'no description on exception';
+        }
+
+        var qs = 'err=' + escape(errorMsg)
+                + '&loc=' + escape(location)
+                + '&cacheBuster=' + errCacheBuster;
+        var url = '/assets/images/transparent.gif?' + qs;
+
+        /* this doesn't seem to work unless it is document.write instead of append */
+        document.write('<img id="err" src=\'' + url + '\' />');
+    }
+
+
+	var google_tag_params =
+	{
+		pagetype: "",
+		prodid: [],
+		pvalue: [],
+		pcat: [],
+		pname: [],
+		ecomm_prodid: [],
+		ecomm_pagetype: "",
+		ecomm_totalvalue: []
+	};
+
+
+	function AnalyticsAddProductForRemarketing (pagetype, prodid, pvalue, pcat, pname)
+	{
+		google_tag_params.pagetype = pagetype;
+		google_tag_params.prodid.push(prodid);
+		google_tag_params.pvalue.push(pvalue);
+		google_tag_params.pcat.push(pcat);
+		google_tag_params.pname.push(pname);
+	};
+
+
+	function AnalyticsAddProductForRemarketing2(pagetype, prodid, pvalue) {
+		google_tag_params.ecomm_pagetype = pagetype;
+		google_tag_params.ecomm_prodid.push(prodid);
+		google_tag_params.ecomm_totalvalue.push(pvalue);
+	};
+    
+    function CRO_SearchXOFF() {
+	    DoSearchSetSearchMethod('standard');
+	    console.log("Set search to STANDARD...");
+	    return true;
+	}
+
+    function CRO_SearchXON() {
+        DoSearchSetSearchMethod('searchx');
+	    console.log("Set search to SEARCHX...");
+	    return true;
+	}
+
+	
+</script>
+
+
+<!-- BEGIN: Google Trusted Store -->
+<script type="text/javascript">
+    var gts = gts || [];
+
+    gts.push(["id", "28366"]);
+
+    (function () {
+        var scheme = (("https:" == document.location.protocol) ? "https://" : "http://");
+        var gts = document.createElement("script");
+        gts.type = "text/javascript";
+        gts.async = true;
+        gts.src = scheme + "www.googlecommerce.com/trustedstores/gtmp_compiled.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(gts, s);
+    })();
+
+
+
+</script>
+<!-- END: Google Trusted Store -->
+
+	<!-- Start Visual Website Optimizer Asynchronous Code -->
+	<script type='text/javascript'>
+		var _vwo_code = (function () {
+			var account_id = 19876,
+            settings_tolerance = 4000,
+            library_tolerance = 4000,
+            use_existing_jquery = true,
+			// DO NOT EDIT BELOW THIS LINE
+	f = false, d = document; return { use_existing_jquery: function () { return use_existing_jquery; }, library_tolerance: function () { return library_tolerance; }, finish: function () { if (!f) { f = true; var a = d.getElementById('_vis_opt_path_hides'); if (a) a.parentNode.removeChild(a); } }, finished: function () { return f; }, load: function (a) { var b = d.createElement('script'); b.src = a; b.type = 'text/javascript'; b.innerText; b.onerror = function () { _vwo_code.finish(); }; d.getElementsByTagName('head')[0].appendChild(b); }, init: function () { settings_timer = setTimeout('_vwo_code.finish()', settings_tolerance); this.load('//dev.visualwebsiteoptimizer.com/j.php?a=' + account_id + '&u=' + encodeURIComponent(d.URL) + '&r=' + Math.random()); var a = d.createElement('style'), b = 'body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}', h = d.getElementsByTagName('head')[0]; a.setAttribute('id', '_vis_opt_path_hides'); a.setAttribute('type', 'text/css'); if (a.styleSheet) a.styleSheet.cssText = b; else a.appendChild(d.createTextNode(b)); h.appendChild(a); return settings_timer; } };
+		} ()); _vwo_settings_timer = _vwo_code.init();
+	</script>
+	<!-- End Visual Website Optimizer Asynchronous Code -->
+<title>
+	Appliance Parts &#38; Consumer Electronic Parts | PartSelect
+</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" /></meta>
+
+    
+	<meta name="description" content="Save when you repair your appliance with PartSelect appliance parts. Same-day shipping, return any part, 100s of installation videos, installation help and the Instant Repairman to help you repair your appliance fast." />
+	<meta name="robots" content="noodp" /> 
+	<meta name="msnrobot" content="noodp" /> 
+	<meta name="googlerobot" content="noodp" /> 
+
+	
+    <link rel="canonical" href="http://www.partselect.com/"  />
+
+
+	<meta name="google-site-verification" content="rh-4mqJzC422i2lT_6MJS8MofMROP3vVbNyITDgFOi0" />
+    <meta name="msvalidate.01" content="AD1B5C7BC45DEDF71FFB1038C61F07BD" />
+
+	<meta property="fb:page_id" content="163551683685937" />
+	<meta property="og:title" content="PartSelect Appliance Parts and Repair Help"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="http://www.partselect.com/"/>
+	<meta property="og:image" content="http://www.partselect.com/Assets/Images/PartSelect-Logo-Square.png"/>
+	<meta property="og:site_name" content="PartSelect"/>
+	<meta property="og:description" content="If you've got an appliance problem, PartSelect can help. They have hundreds of installation videos, step-by-step installation instructions, the Instant Repairman™ and parts for all brands of major appliances."/>
+	<meta property="og:email" content="customerservice@partselect.com"/>
+	<meta property="og:phone_number" content="1-888-895-1535"/>
+
+    
+</head>
+
+
+
+<body>
+<form method="post" action="" id="MasterForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMzM2NzEyOTI3D2QWAmYPZBYCAgMPZBYCAgIPZBYKAggPDxYCHgtOYXZpZ2F0ZVVybAUZaHR0cDovL3d3dy5wYXJ0c2VsZWN0LmNvbWRkAgoPDxYCHwAFLmh0dHA6Ly93d3cucGFydHNlbGVjdC5jb20vQ29udGFjdC5hc3B4I09yZGVyUGhkZAIMD2QWBGYPZBYEAgEPDxYEHwAFLGh0dHBzOi8vd3d3LnBhcnRzZWxlY3QuY29tL1Nob3BwaW5nQ2FydC5hc3B4HgdWaXNpYmxlZ2RkAgUPDxYEHwAFK2h0dHBzOi8vd3d3LnBhcnRzZWxlY3QuY29tL1NlbGZTZXJ2aWNlLmFzcHgfAWdkZAIBD2QWBGYPDxYEHwAFLGh0dHBzOi8vd3d3LnBhcnRzZWxlY3QuY29tL1Nob3BwaW5nQ2FydC5hc3B4HwFnZGQCAg8PFgQfAAUraHR0cHM6Ly93d3cucGFydHNlbGVjdC5jb20vU2VsZlNlcnZpY2UuYXNweB8BZ2RkAg4PFgIfAWdkAhIPFgIfAWdkGAEFIWN0bDAwJEhlYWRlck1haW4kU2l0ZUhlYWRlckNlbnRlcg8PZGZkbjzkch3Dzlmt2wle2SxlQfwbriYC6l/J3PyMQT0DcLw=" />
+
+
+<script src="/ScriptResource.axd?d=t95yYEQtDv6EwpEjHLIxkL1ZdhFu6TWvzyWG9DQ-nanUqbelFE-dioKruVMXPM5vXgeduZfN1P49b5ndU98tGpYWFpROD8iBKlL3kiHtTnJb3BCNyQMdGXPaBMm52dZHKvDPGWfoKQYhjQGdBwITL2ADMlIw5PmWyxA_VE48npw1&amp;t=ca758f3" type="text/javascript"></script>
+    
+
+    
+
+    <div id="wrap">
+        
+        
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+.arrival
+{
+	background: url(/assets/images/shipping-truck.jpg) left no-repeat;
+	padding-left: 65px;
+	margin: -15px 30px 0px 25px;
+	color: #666666;
+	line-height: 1.2em;
+}
+.arrival b
+{
+	color: #666666;
+	font-size: 1.2em;
+	padding: 0px;
+	margin: 0px;
+}
+</style>
+
+
+
+<div class="site-header">
+	<div class="site-header-left">
+		<a id="HeaderMain_SiteLogo" title="PartSelect Appliance Parts" href="http://www.partselect.com"><img title="PartSelect Appliance Parts" src="/assets/images/PartSelect-Logo-Lg.png" alt="" /></a>
+
+		<a class="bbb-Aplus" href="http://www.bbb.org/maritime-provinces/business-reviews/appliances-small-supplies-and-parts/partselectcom-in-truro-ns-17471#sealclick" target="_blank">
+			<img src="/assets/images/biz-bbb-aplus-blue.png" alt="BBB A-Plus" />
+		</a>
+	</div>
+
+	<div class="site-header-right">
+        <!-- MOBILE LINKING TEL NO -->
+        <div class="mobile-service-info">
+            <span>Order By Phone:</span> <a href="tel:18553430066">1 855 343 0066</a>
+            <p>Mon-Fri: 7am-1am EST / Sat-Sun: 7am-11pm EST</p>
+        </div>
+
+		<a id="HeaderMain_HoursBadge" title="&lt;%= PSConfig.SitePhone %>" class="hours-badge" href="http://www.partselect.com/Contact.aspx#OrderPh"><img title="&lt;%= PSConfig.SitePhone %>" src="/assets/images/contact-badge.png" alt="" /></a>
+        <div class="norton-header-badge">
+			<span id="NortonLiveTop" style="display:none;">
+			</span>
+			<span id="NortonPreloadTop">
+				<img src="/assets/images/Sidebar_NortonPreLoad.gif" />
+			</span>
+		</div>
+	</div>
+
+	
+			<div class="site-header-center-no-logo">
+				<ul>
+					<li><a id="HeaderMain_ViewCart1" class="view-cart" href="https://www.partselect.com/ShoppingCart.aspx">View Cart (0)</a></li>
+                    
+					<li><a id="HeaderMain_OrderStatus1" class="order-status" href="https://www.partselect.com/SelfService.aspx">Order Status</a></li>
+				</ul>
+			</div>
+		
+</div>
+
+
+
+	<div id="nav-wrap">
+		<ul id="nav">
+			<li><a href="http://www.partselect.com">Home</a></li>
+			<li><a href="http://www.partselect.com/Help.aspx">Help</a></li>
+			<li><a href="http://www.partselect.com/Contact.aspx">Contact</a></li>
+			<li><a href="http://www.partselect.com/Instant-Repairman.htm">Instant Repairman&trade;</a></li>
+			<li class="cro_head2" style="display:none;"><a href="#">Order Status</a></li>
+		</ul>
+
+		<div id="search">
+			<input id="searchterm_head" type="search" value="Enter model or part number" class="text" />
+        	<button id="searchbutton_head" type="submit" class="blue-header-search">Search</button>
+			<a class="nav-menu-icon" onclick="if ($('.nav-menu').is(':visible')) {$('.nav-menu').slideUp(200).fadeOut(200)} else {$('.nav-menu').slideDown(200).fadeIn(200);};">
+				<img src="/assets/images/nav-menu-icon.png" alt="" />
+			</a>
+		</div>
+
+		<ul class="nav-menu" style="display:none;">
+			<li><a href="http://www.partselect.com">Home</a></li>
+			<li><a href="http://www.partselect.com/Help.aspx">Help</a></li>
+			<li><a href="http://www.partselect.com/Contact.aspx">Contact</a></li>
+			<li><a href="http://www.partselect.com/Instant-Repairman.htm">Instant Repairman&trade;</a></li>
+		</ul>
+	</div>
+
+
+
+
+
+<script type="text/javascript">
+	$('#divAhRedirect').fadeIn();
+
+	$(document).ready(function () {
+		if (window.location.hash.toLowerCase().indexOf("ahredirect") >= 0) 
+		{
+			$('#divAhRedirect').fadeIn();
+        }
+        else 
+		{
+            // hide div
+            $('#divAhRedirect').css('display', 'none');
+            $('#divAhRedirect').hide();
+        }
+    });
+</script>
+
+
+
+<div class="redirect-panel">
+	<a id="divAhRedirect" rel="nofollow" style="display:none;" href="http://www.partselect.com/ApplianceHelp-FAQ.aspx">
+		<span class="title">ApplianceHelp.com is now <b>PartSelect.com</b></span>
+		<p>If you placed an order on ApplianceHelp.com the order is still valid and you can check on its status and make changes here on PartSelect.com. <span>Click here for more details.</span></p>
+	</a>
+</div>
+
+
+
+	<div id="breadcrumbs">
+
+		
+	</div>
+
+
+
+        
+	    <div id="page">
+		    <div id="leftbar" class="sidebar">
+                
+	
+    <div id="parts-menu">
+        <h3 class="title-white-on-blue">Appliance Parts</h3>
+        <ul id="app-menu-full"  class="menu">
+            <li style="display:none;"><a href="http://www.partselect.com/CategoryBar.aspx?ID=16&Var0=Accessories">Accessories</a></li>
+            <li class="shortlist"><a href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Dishwasher" rel="nofollow">Dishwasher</a></li>
+            <li class="shortlist"><a href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Dryer" rel="nofollow">Dryer</a></li>
+            <li style="display:none;"><a href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Range" rel="nofollow">Stove / Oven</a></li>
+            <li style="display:none;"><a href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Microwave" rel="nofollow">Microwave</a></li>
+            <li style="display:none;"><a href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Refrigerator" rel="nofollow">Refrigerator</a></li>
+            <li class="last" rel="nofollow" style="display:none;"><a href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Washer" rel="nofollow">Washer</a></li>
+            <li class="seemore shortlist" id="Sidebar_Appliance_SeeMore"><a href="#">See more&hellip;</a></li>
+        </ul>
+    </div>
+
+
+
+    <div id="parts-menu">
+        <h3 class="title-white-on-blue tight-fit">Lawn Equipment Parts</h3>
+	    <ul id="ope-menu-full" class="menu">
+		    <li class="shortlist"><a href="http://www.partselect.com/Lawn-Mower-Parts.htm" rel="nofollow">Lawn Mower</a></li>
+		    <li class="shortlist"><a href="http://www.partselect.com/Chainsaw-Parts.htm" rel="nofollow">Chainsaw</a></li>
+		    <li style="display:none;"><a href="http://www.partselect.com/Blower-Parts.htm" rel="nofollow">Blower</a></li>
+		    <li style="display:none;"><a href="http://www.partselect.com/Generator-Parts.htm" rel="nofollow">Generator</a></li>
+		    <li style="display:none;"><a href="http://www.partselect.com/Air-Compressor-Parts.htm" rel="nofollow">Air Compressor</a></li>
+		    <li style="display:none;"><a href="http://www.partselect.com/Lawn-Tractor-Parts.htm" rel="nofollow">Lawn Tractor</a></li>
+		    <li style="display:none;"><a href="http://www.partselect.com/Pressure-Washer-Parts.htm" rel="nofollow">Pressure Washer</a></li>
+            <li class="seemore shortlist" id="Sidebar_OPE_SeeMore"><a href="#">See more&hellip;</a></li>
+	    </ul>
+    </div>
+
+
+
+    <div id="parts-menu">
+        
+        <h3 class="title-white-on-blue">Electronics Parts</h3>
+        <ul id="ce-menu-full"  class="menu">
+            <li style="display:none;"><a href="http://www.partselect.com/Cell-Phone-Parts.htm">Cell Phones</a></li>
+            <li style="display:none;"><a href="http://www.partselect.com/Camcorder-Parts.htm">Camcorders</a></li>
+            <li style="display:none;"><a href="http://www.partselect.com/DVD-Player-Parts.htm">DVD Players</a></li>
+            <li style="display:none;"><a href="http://www.partselect.com/Projector-Parts.htm">Projectors and DLP TVs</a></li>
+            <li style="display:none;"><a href="http://www.partselect.com/TV-Parts.htm">TVs</a></li>
+            <li style="display:none;"><a href="http://www.partselect.com/TV-Color-Wheels.htm">TV Color Wheels</a></li>
+            <li class="shortlist"><a href="http://www.partselect.com/TV-Bulbs.htm">TV Lamps & Bulbs</a></li>
+            <li class="last" style="display:none;"><a href="http://www.partselect.com/Remote-Controls.htm">Remote Controls</a></li>
+            <li class="seemore shortlist" id="Sidebar_CE_SeeMore"><a href="#">See more&hellip;</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+<span id="BuySafeSidebarLive" style="display:none;">								
+    <style>
+    ._GUARANTEE_Kicker_175 img { width:170px; }
+    </style>
+    <div style="margin-bottom:20px; float:left;">
+    <span class="_GUARANTEE_Kicker_175" id="_GUARANTEE_Kicker" name="_GUARANTEE_Kicker" type="Kicker Custom 4"></span>
+    </div>
+</span>
+<span id="BuySafeSidebarPreload">
+	<img src="/assets/images/Sidebar_BuysafePreload.png" />
+</span>
+
+
+
+
+<div class="swc-badges">
+    <h3 class="title-white-on-blue">Shop With Confidence</h3>
+	<ul>
+		<li>
+			<img class="half" src="/assets/images/Visa_Logo.png"  />
+			<img class="half" src="/assets/images/Mastercard-Logo-White.gif" />
+		</li>
+		<li>
+			<img class="half" src="/assets/images/Discover-Logo.jpg"  />
+			<img class="half" id="ccamex" src="/assets/images/Amex-Logo.jpg" />
+		</li>
+		<li>
+			<img class="half" src="/assets/images/paypal-verified-small.jpg" />
+			<img class="half" src="/assets/images/Paypal-Logo-Small.gif"/>
+		</li>
+		<li>
+			<a href="http://www.bizrate.com/ratings_guide/cust_reviews__mid--39107.html" target="_blank"><img src="/assets/images/bizrate-platinum-award.jpg" alt="Check PartSelect's Outstanding rating from BizRate and read reviews from customers like you."  /></a>
+		</li>
+
+		<li>
+            <div class="stella">
+			<!-- BEGIN STELLASERVICE SEAL CODE -->
+            <a class="stella-seal"></a>
+            <script defer src="//seal.stellaservice.com/public/js/seal.js?companyUrl=partselect.com"></script>
+            <!-- END STELLASERVICE SEAL CODE -->
+            </div>
+		</li>
+
+		<li>
+            <div class="bbb-aplus">
+			    <a href="http://www.bbb.org/maritime-provinces/business-reviews/appliances-small-supplies-and-parts/partselectcom-in-truro-ns-17471#sealclick" target="_blank"><img src="/assets/images/biz-bbb-A-plus.gif" /></a>
+            </div>
+		</li>
+		<li>
+			<a href="http://www.partselect.com/Thirty-Day-Returns.htm" target="_blank"><img src="/assets/images/money-back-guarantee.gif"/></a>
+		</li>
+        <li>
+            <table class="no-borders" width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose Symantec SSL for secure e-commerce and confidential communications.">
+                <tr>
+                    <td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=www.partselect.com&amp;size=S&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script><br />
+                    <a href="http://www.symantec.com/verisign/ssl-certificates" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a></td>
+                </tr>
+            </table>
+        </li>
+		<li>
+			<img id="qualsys_seal" src="/assets/images/qualsys_seal_preload.png" onclick="window.open('https://seal.qualys.com/sealserv/info/?i=5d07ec32-27cf-4358-8423-a6a6a5974889','qualysSealInfo', 'height=600,width=851,resizable=1')" />
+		</li>
+	</ul>
+</div>
+
+
+
+<div id="social">
+    <span id="FBLive" style="display:none;">
+	    <iframe id="FBIFrame" scrolling="no" frameborder="0" style="border:none; width:165px; height:4.25em; margin:15px 0px 5px 5px; overflow: hidden;" allowTransparency="true"></iframe>
+    </span>
+    <span id="FBPreLoad">
+        <img src="/assets/images/Sidebar_FBPreLoad.png" />
+    </span>
+
+    <span id="GPlusLive" style="display:none;">
+        <g:plusone annotation="none" href="http://www.partselect.com/" ></g:plusone>
+    </span>
+    <span id="GPlusPreload">
+        <a href="https://plus.google.com/+partselect"><img src="/assets/images/Sidebar_GPlusPreLoad.png"/></a>
+    </span>
+
+</div>
+
+
+
+            </div>
+    		
+	        <div id="content" class="threecol">
+                
+
+	
+
+<div id="notes" class="note-tabs ">
+    <a href="http://www.partselect.com/Same-Day-Shipping.htm" >
+        <img id="SameDayShipping" alt="Same Day Shipping" src="/assets/images/notetab_shipping_icon.png"/> 
+    </a>
+
+    <a href="http://www.partselect.com/Thirty-Day-Returns.htm" >
+        <img id="ThirtyDayReturn" alt="30 Day Returns" src="/assets/images/notetab_30day_icon.png"/> 
+    </a>
+
+    <a href="http://www.partselect.com/Two-Million-Parts.htm" >
+        <img id="TwoMillionParts" alt="Two Million Parts" src="/assets/images/notetab_2million_icon.png"/> 
+    </a>
+    
+    <a href="http://www.partselect.com/Easier-on-the-Earth.htm"  >
+        <img id="EasierOnTheEarth" alt="Easier On The Earth" src="/assets/images/notetab_earth_icon.png"/> 
+    </a>
+</div>
+
+	
+
+<div id="splash">
+	    <div class="splash-left">
+		    <h1>Find your part</h1>
+		    <p>Enter your model number or a part number and click "Search"</p>
+	    </div>
+    	
+	    <div class="splash-right">
+		    <h2>Enter model or part number</h2>
+		     <div>
+				<input id="searchterm_sh" type="search" class="text" />
+				<button id="searchbutton_sh" type="submit" class="submit blue-button border">Search</button>
+	    </div>
+        <p><a href="/Model-Number-Locator+1+repair.htm">Need help finding your model number?</a></p>
+    </div> 
+</div>
+		
+	<div class="part-icons">
+		<h1 class="title-standard smallest">Appliance Parts For</h1>
+		<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Dishwasher" class="icon_dishwasher">
+			<span class="icon_dishwasher"></span>
+			<span class="txt">Dishwasher</span>
+		</a> 
+		<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Dryer" class="icon_dryer">
+			<span class="icon_dryer" ></span>
+			<span class="txt">Dryer</span>
+		</a>
+		<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Range" class="icon_range">
+			<span class="icon_range"></span>
+			<span class="txt">Stove</span>
+		</a>
+		<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Microwave" class="icon_microwave">
+			<span class="icon_microwave"></span>
+			<span class="txt">Microwave</span>
+		</a>
+		<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Refrigerator" class="icon_refrigerator">
+			<span class="icon_refrigerator"></span>
+			<span class="txt">Fridge</span>
+		</a>
+		<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Washer" class="icon_washer">
+			<span class="icon_washer"></span>
+			<span class="txt">Washer</span>
+		</a>
+
+		<div id="LessAppliances">
+			<p class="more"><a href="#">More</a></p>
+	    </div>
+
+		<div id="MoreAppliances" class="copy copy-lg">
+			<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Air%20Conditioner" class="icon_airconditioner">
+				<span id="icon_airconditioner" class="icon_airconditioner"></span>
+				<span class="txt">Air Conditioner</span>
+			</a> 
+			<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Dehumidifier" class="icon_dehumidifier">
+				<span id="icon_dehumidifier" class="icon_dehumidifier"></span>
+				<span class="txt">Dehumidifier</span>
+			</a>
+			
+			<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Food%20Waste%20Disposer" class="icon_foodwastedisposer">
+				<span id="icon_foodwastedisposer" class="icon_foodwastedisposer"></span>
+				<span class="txt">Garbage Disposer</span>
+			</a>
+			<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Freezer" class="icon_freezer">
+				<span id="icon_freezer" class="icon_freezer"></span>
+				<span class="txt">Freezer</span>
+			</a>
+			
+			<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Trash%20Compactor" class="icon_trashcompactor">
+				<span id="icon_trashcompactor" class="icon_trashcompactor"></span>
+				<span class="txt">Trash Compactor</span>
+			</a>
+			<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Vent%20Hood" class="icon_venthood">
+				<span id="icon_venthood" class="icon_venthood"></span>
+				<span class="txt">Range Vent Hood</span>
+			</a>
+			<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Ice%20Maker" class="icon_icemaker">
+				<span id="icon_icemaker" class="icon_icemaker"></span>
+				<span class="txt">Ice Maker</span>
+			</a>
+			<a rel="nofollow" href="http://www.partselect.com/PartSearchWizard.aspx?Appliance=Small%20Appliance" class="icon_smallappliance">
+				<span id="icon_smallappliance" class="icon_smallappliance"></span>
+				<span class="txt">Small Appliances</span>
+			</a> 
+		</div>
+	</div>
+
+   	<div class="part-icons">
+		<h1 class="title-standard smallest">Lawn Equipment Parts For</h1>
+		<a href="http://www.partselect.com/Lawn-Mower-Parts.htm" class="icon_push_mower five-column">          
+			<span id="icon_push_mower" class="icon_push_mower"><!-- /Assets/images/icon_push_mower.png --></span>
+			<span class="txt">Lawn Mower</span>
+		</a> 
+		<a href="http://www.partselect.com/Chainsaw-Parts.htm" class="icon_chainsaw five-column">
+            <span id="icon_chainsaw" class="icon_chainsaw"><!-- /Assets/images/icon_chainsaw.png --></span>
+			<span class="txt">Chainsaw</span>
+		</a>
+		<a href="http://www.partselect.com/String-Trimmer-Parts.htm" class="icon_string_trimmer five-column">
+			<span id="icon_string_trimmer" class="icon_string_trimmer"><!-- /Assets/images/icon_string_trimmer.png --></span>
+            <span class="txt">String Trimmer</span>
+		</a>
+		<a href="http://www.partselect.com/Hedge-Trimmer-Parts.htm" class="icon_hedge_trimmer five-column">
+            <span id="icon_hedge_trimmer" class="icon_hedge_trimmer"><!-- /Assets/images/icon_hedge_trimmer.png --></span>
+			<span class="txt">Hedge Trimmer</span>
+		</a>
+		<a href="http://www.partselect.com/Generator-Parts.htm" class="icon_generator five-column">
+            <span id="icon_generator" class="icon_generator"><!-- /Assets/images/icon_generator.png --></span>
+			<span class="txt">Generator</span>
+		</a>
+
+        <div id="LessEquipment">
+			<p class="more"><a href="#">More</a></p>
+	    </div>
+
+        <div id="MoreEquipment" class="copy copy-lg" style="display:none;">
+
+		    <a href="http://www.partselect.com/Pressure-Washer-Parts.htm" class="icon_pressure-washer five-column">
+                <span id="icon_pressure-washer" class="icon_pressure-washer"><!-- /Assets/images/icon_generator.png --></span>
+			    <span class="txt">Pressure Washer</span>
+		    </a>
+
+            <a href="http://www.partselect.com/Clearing-Saw-Parts.htm" class="icon_clearing_saw five-column">
+	            <span id="icon_clearing_saw" class="icon_clearing_saw"><!-- /Assets/images/icon_clearing_saw.png --></span>
+	            <span class="txt">Clearing Saw</span>
+            </a>
+
+            <a href="http://www.partselect.com/Lawn-Tractor-Parts.htm" class="icon_lawn_tractor five-column">
+            	<span id="icon_lawn_tractor" class="icon_lawn_tractor"><!-- /Assets/images/icon_lawn_tractor.png --></span>
+	            <span class="txt">Lawn Tractor</span>
+            </a>
+
+            <a href="http://www.partselect.com/Pole-Saw-Parts.htm" class="icon_pole_saw five-column">
+            	<span id="icon_pole_saw" class="icon_pole_saw"><!-- /Assets/images/icon_pole_saw.png --></span>
+	            <span class="txt">Pole Saw</span>
+            </a>
+
+            <a href="http://www.partselect.com/Air-Compressor-Parts.htm" class="icon_air_compressor five-column">
+        	    <span id="icon_air_compressor" class="icon_air_compressor"><!-- /Assets/images/icon_air_compressor.png --></span>
+	            <span class="txt">Air Compressor</span>
+            </a>
+
+            <a href="http://www.partselect.com/Stump-Grinder-Parts.htm" class="icon_stump_grinder five-column">
+	            <span id="icon_stump_grinder" class="icon_stump_grinder"><!-- /Assets/images/icon_stump_grinder.png --></span>
+	            <span class="txt">Stump Grinder</span>
+            </a>
+
+            <a href="http://www.partselect.com/Snow-Blower-Parts.htm" class="icon_snow_blower five-column">
+            	<span id="icon_snow_blower" class="icon_snow_blower"><!-- /Assets/images/icon_snow_blower.png --></span>
+	            <span class="txt">Snow Blower</span>
+            </a>
+
+	
+
+	
+        </div>
+    </div>
+
+	<div class="part-icons">
+		<h1 class="title-standard smallest">Electronics Parts For</h1>
+		<a href="http://www.partselect.com/Cell-Phone-Parts.htm" class="icon_cellphoneparts five-column" >
+			<span class="icon_cellphoneparts"></span>
+			<span class="txt">Cell Phone</span>
+		</a>
+		<a href="http://www.partselect.com/Camcorder-Parts.htm" class="icon_camcorderparts five-column" >
+			<span class="icon_camcorderparts"></span>
+			<span class="txt">Video Camera</span>
+		</a>
+		<a href="http://www.partselect.com/DVD-Player-Parts.htm" class="icon_dvdplayerparts five-column">
+			<span class="icon_dvdplayerparts"></span>
+			<span class="txt">DVD Player</span>
+		</a>
+		<a href="http://www.partselect.com/Projector-Parts.htm" class="icon_projectorparts five-column">
+			<span class="icon_projectorparts"></span>
+			<span class="txt">TV Projector</span>
+		</a>
+		<a href="http://www.partselect.com/TV-Parts.htm" class="icon_tvparts five-column" >
+			<span class="icon_tvparts"></span>
+			<span class="txt">Television</span>
+		</a>
+	</div>
+
+	<div class="copy cols2 split">
+		<h1 class="title-standard">Welcome to PartSelect.com</h1>
+
+		<p>The leading online retailer of appliance parts, lawn equipment parts and consumer electronic parts. We have over 2 million repair parts and carry all major brands including:</p>
+
+        <ul>
+            <li><a href="http://www.partselect.com/Admiral-Parts.htm" title="Admiral Parts">Admiral Parts</a></li>
+            <li><a href="http://www.partselect.com/Ariens-Parts.htm" title="Ariens Parts">Ariens Parts</a></li>
+            <li><a href="http://www.partselect.com/Briggs-Stratton-Parts.htm" title="Briggs and Stratton Parts">Brigg and Stratton Parts</a></li>
+            <li><a href="http://www.partselect.com/Echo-Parts.htm" title="Echo Parts">Echo Parts</a></li>
+            <li><a href="http://www.partselect.com/Frigidaire-Parts.htm" title="Frigidaire Parts">Frigidaire Parts</a></li>
+            <li><a href="http://www.partselect.com/GE-Parts.htm" title="GE Parts">GE Parts</a></li>
+            <li><a href="http://www.partselect.com/Husqvarna-Parts.htm" title="Husqvarna Parts">Husqvarna Parts</a></li>
+            <li><a href="http://www.partselect.com/Jenn-Air-Parts.htm" title="Jenn Air Parts">Jenn-Air Parts</a></li>
+            <li><a href="http://www.partselect.com/KitchenAid-Parts.htm" title="KitchenAid Parts">KitchenAid Parts</a></li>
+            <li><a href="http://www.partselect.com/LG-Parts.htm" title="LG Parts">LG Parts</a></li>
+            <li><a href="http://www.partselect.com/Maytag-Parts.htm" title="Maytag Parts">Maytag Parts</a></li>
+            <li><a href="http://www.partselect.com/MTD-Parts.htm" title="MTD Parts">MTD Parts</a></li>
+            <li><a href="http://www.partselect.com/Murray-Parts.htm" title="Murray Parts">Murray Parts</a></li>
+            <li><a href="http://www.partselect.com/Poulan-Parts.htm" title="Poulan Parts">Poulan Parts</a></li>
+            <li><a href="http://www.partselect.com/Troy-Bilt-Parts.htm" title="Troy-Bilt Parts">Troy-Bilt Parts</a></li>
+            <li><a href="http://www.partselect.com/Whirlpool-Parts.htm" title="Whirlpool Parts">Whirlpool Parts</a></li>
+            <li><a href="http://www.partselect.com/White-Westinghouse-Parts.htm" title="White-Westinghouse Parts">White-Westinghouse Parts</a></li>
+            <li><a href="http://www.partselect.com/Brands.aspx" title="more brands">More brands...</a></li>
+        </ul>
+
+        <p>With our model number search you can easily find the exact parts that will work for your model. We carry Original Equipment Manufactured parts for all appliances:</p>
+
+        <ul>
+            <li><a href="http://www.partselect.com/Dishwasher-Parts.htm" title="Dishwasher Parts">Dishwasher Parts</a> </li> 
+            <li><a href="http://www.partselect.com/Washer-Parts.htm" title="Washer Parts">Washer Parts</a> </li> 
+            <li><a href="http://www.partselect.com/Refrigerator-Parts.htm" title="Refrigerator Parts">Refrigerator Parts</a> </li> 
+            <li><a href="http://www.partselect.com/Dryer-Parts.htm" title="Dryer Parts">Dryer Parts</a> </li> 
+            <li><a href="http://www.partselect.com/Stove-Parts.htm" title="Stove Parts">Stove Parts</a> </li> 
+            <li><a href="http://www.partselect.com/Oven-Parts.htm" title="Oven Parts">Oven Parts</a> </li> 
+            <li><a href="http://www.partselect.com/Range-Parts.htm" title="Oven Parts">Range Parts</a> </li> 
+            <li><a href="http://www.partselect.com/Microwave-Parts.htm" title="Oven Parts">Microwave Parts</a> </li> 
+            <li><a href="http://www.partselect.com/Appliance-Parts.htm" title="Oven Parts">Appliance Parts</a> </li> 
+            <li><a href="http://www.partselect.com/Lawn-Mower-Parts.htm" title="Lawn Mower Parts">Lawn Mower Parts</a> </li>
+            <li><a href="http://www.partselect.com/Chainsaw-Parts.htm" title="Chainsaw Parts">Chainsaw Parts</a> </li>
+            <li><a href="http://www.partselect.com/Small-Engine-Parts.htm" title="Small Engine Parts">Small Engine Parts</a> </li>
+            <li><a href="http://www.partselect.com/Hedge-Trimmer-Parts.htm" title="Hedge Trimmer Parts">Hedge Trimmer Parts</a> </li>
+            <li><a href="http://www.partselect.com/Edger-Parts.htm" title="Edger Parts">Edger Parts</a> </li>
+            <li><a href="http://www.partselect.com/Tiller-Parts.htm" title="Tiller Parts">Tiller Parts</a> </li>
+            
+        </ul>
+	</div>
+
+	<div class="split">
+		
+<div class="diy">
+    <h3 class="title-standard smaller">Installation Instructions</h3>
+	<ul class="diy-parts">
+		<li><img src="/assets/partimages/304365_1_s.jpg" alt="" /></li>
+		<li><strong>Parts Used </strong>Single Outlet Water Valve</li>
+		<li><strong>Difficulty </strong>Easy</li>
+		<li><strong>Time to complete </strong>Less than 15 mins</li>
+	</ul>
+	
+	<div class="diy-quote">
+        <h4 class="title-standard smallest">Leaking water valve</h4>
+		<blockquote>
+		Removed black cardboard covering on back of refrig with nut driver (6 screws), 
+		turned off water supply to pump, removed cooper waterline to pump with adjustable wrench, 
+		removed 1 screw holding pump to refrigerator, removed plastic waterline from pump by turning hose counter clockwise...
+		</blockquote>
+		<p>
+			<cite>James From Centerville, OH</cite>
+			<strong><a href="http://www.partselect.com/DIYStory.aspx?ID=3718">Read more</a></strong>
+		</p>
+	</div>
+</div>
+		<div class="shop-select">
+			<h3 class="title-standard smaller">Why Shop PartSelect?</h3>
+			
+<img src="/assets/images/csr.jpg" alt="" />
+
+
+            <div class="mobile-service-info">
+                <span>Order By Phone:</span> <a href="tel:18553430066">1 855 343 0066</a>
+                <p>Mon-Fri: 7am-1am EST / Sat-Sun: 7am-11pm EST</p>
+            </div>
+
+			<ul>
+				<li><a href="http://www.partselect.com/Same-Day-Shipping.htm">Same Day Shipping</a></li>
+				<li><a href="http://www.partselect.com/Thirty-Day-Returns.htm">30 Day Returns</a></li>
+				<li><a href="http://www.partselect.com/Two-Million-Parts.htm">Two Million Parts</a></li>
+				<li><a href="http://www.partselect.com/Easier-on-the-Earth.htm">Easier on the Earth</a></li>
+				<li><a href="http://www.partselect.com/Secure-Shopping.htm">Secure Shopping</a></li>
+				<li><a href="http://www.partselect.com/One-Year-Warranty.htm">One-Year Warranty</a></li>
+				<li><a href="http://www.partselect.com/Great-Prices.htm">Great Prices</a></li>
+				<li><a href="http://www.partselect.com/Privacy-Protected.htm">Privacy Protected</a></li>                
+			</ul>
+
+		</div>
+	</div>
+
+
+            </div>
+
+		    <div id="rightbar" class="sidebar">
+                
+	
+
+<h3 class="title-white-on-blue">Parts For</h3>
+<ul class="parts-makers">
+    <li><a href="http://www.partselect.com/Admiral-Parts.htm" title="Admiral Parts" class="logo_Admiral"></a></li>
+    <li><a href="http://www.partselect.com/Ariens-Parts.htm" title="Ariens Parts" class="logo_Ariens"></a></li>
+    <li><a href="http://www.partselect.com/Briggs-Stratton-Parts.htm" title="Briggs & Stratton Parts" class="logo_BriggsStratton"></a></li>
+    <li><a href="http://www.partselect.com/Echo-Parts.htm" title="Echo Parts" class="logo_Echo"></a></li>
+    <li><a href="http://www.partselect.com/Frigidaire-Parts.htm" title="Frigidaire Parts" class="logo_Frigidaire"></a></li>
+    <li><a href="http://www.partselect.com/GE-Parts.htm" title="GE Parts" class="logo_GE"></a></li>
+    <li><a href="http://www.partselect.com/Husqvarna-Parts.htm" title="Husqvarna Parts" class="logo_Husqvarna"></a></li>
+    <li><a href="http://www.partselect.com/Jenn-Air-Parts.htm" title="Jenn Air Parts" class="logo_JennAir"></a></li>
+    <li><a href="http://www.partselect.com/KitchenAid-Parts.htm" title="KitchenAid Parts" class="logo_KitchenAid"></a></li>
+    <li><a href="http://www.partselect.com/LG-Parts.htm" title="LG Parts" class="logo_LG"></a></li>
+    <li><a href="http://www.partselect.com/Maytag-Parts.htm" title="Maytag Parts" class="logo_Maytag"></a></li>
+    <li><a href="http://www.partselect.com/MTD-Parts.htm" title="MTD Parts" class="logo_MTD"></a></li>
+    <li><a href="http://www.partselect.com/Murray-Parts.htm" title="Murray Parts" class="logo_Murray"></a></li>
+    <li><a href="http://www.partselect.com/Poulan-Parts.htm" title="Poulan Parts" class="logo_Poulan"></a></li>
+    <li><a href="http://www.partselect.com/Troy-Bilt-Parts.htm" title="Troy Bilt Parts" class="logo_TroyBilt"></a></li>
+    <li><a href="http://www.partselect.com/Whirlpool-Parts.htm" title="Whirlpool Parts" class="logo_Whirlpool"></a></li>
+    <li><a href="http://www.partselect.com/White-Westinghouse-Parts.htm" title="White Westinghouse Parts" class="logo_Westinghouse"></a></li>
+</ul>
+
+<div class="more"><a href="http://www.partselect.com/Brands.aspx" class="more_brands">More brands</a></div>
+
+            </div>
+	    </div>
+        
+         
+
+<div id="quad">
+   <div class="content">
+    
+	    <div class="quad-box" id="quad1">
+		    <h5 class="title-standard white">PartSelect.com</h5>
+		    <ul>
+			    <li><a href="http://www.partselect.com">Home</a></li>
+			    <li><a href="http://www.partselect.com/Contact.aspx">Contact</a></li>
+			    <li><a href="http://www.partselect.com/About.aspx">About Us</a></li>
+			    <li><a href="http://www.partselect.com/Help.aspx">Help</a></li>
+			    <li><a href="http://www.partselect.com/Help.aspx#YourPrivacy">Privacy Policy</a></li>
+			    <li><a href="http://www.partselect.com/Terms.aspx">Terms of Use</a></li>
+				<li><a href="http://www.partselect.com/JustForFun/Default.aspx">Just For Fun!</a></li>
+				<li><a href="http://www.partselect.com/Recalls/Alerts.htm">Recall Alerts</a></li>
+			    <li><a href="http://www.partselect.ca/Careers/" target="_blank">Careers</a></li>
+			    <li><a href="http://www.partselect.ca">PartSelect Canada</a></li>
+		    </ul>
+	    </div>
+    	
+	    <div class="quad-box" id="quad2">
+		    <h5 class="title-standard white">Free Repair Help</h5>
+		    <ul>
+	            <li><a href="http://www.partselect.com/Repair/">Appliance Repair</a></li>
+	            <li><a href="http://www.partselect.com/Instant-Repairman.htm">Instant Repairman</a></li>
+	            <li><a href="http://www.partselect.com/Repair/Dishwasher/">Dishwasher</a></li>
+	            <li><a href="http://www.partselect.com/Repair/Dryer/">Dryer</a></li>
+	            <li><a href="http://www.partselect.com/microwave+repair+repair.htm">Microwave</a></li>
+	            <li><a href="http://www.partselect.com/Repair/Range-Stove-Oven/">Range / Stove / Oven</a></li>
+	            <li><a href="http://www.partselect.com/Repair/Refrigerator/">Refrigerator</a></li>
+	            <li><a href="http://www.partselect.com/Repair/Washer/">Washing Machine</a></li>
+	            
+	            
+	            
+			    <li><a href="http://www.partselect.com/DIYStories.aspx">Installation Instructions</a></li>
+                <li><a href="http://www.partselect.com/Information-Resources.aspx">Helpful Resources</a></li>
+		    </ul>
+	    </div>
+    	
+	    <div class="quad-box" id="quad3">
+		    <h5 class="title-standard white">PartSelect Community</h5>
+		    <ul>
+			    <li><a href="http://twitter.com/PartSelect/" target="_blank">Twitter</a></li>
+			    <li><a href="http://www.facebook.com/PartSelect/" target="_blank">Facebook Page</a></li>
+			    <li><a href="http://www.youtube.com/PartSelect/" target="_blank">YouTube Channel</a></li>
+                <li><a href="https://plus.google.com/+partselect/" rel="me" target="_blank">Google+</a></li>
+			    <li><a href="http://www.linkedin.com/company/2669151" target="_blank">LinkedIn</a></li>
+			    <li><a href="http://www.partselect.com/media/">Recent News</a></li>
+			    <li><a href="http://www.partselect.com/media/Press-Releases.aspx">Press Releases</a></li>
+			    <li><a href="http://www.partselect.com/media/In-The-News.aspx">PartSelect In The News</a></li>
+			    <li><a href="http://www.partselect.com/media/Web-Awards-Reviews.aspx">Web Awards and Reviews</a></li>
+				<li><a href="http://www.partselect.com/media/PartSelect-Press-Kit.pdf" target="_blank">Press Kit</a></li> 
+		    </ul>
+	    </div>
+    	
+	    <div class="quad-box" id="quad4">
+		    <h5 class="title-standard white">Why Shop PartSelect</h5>
+		    <ul>
+			    <li><a href="http://www.partselect.com/Same-Day-Shipping.htm">Same Day Shipping</a></li>
+			    <li><a href="http://www.partselect.com/Thirty-Day-Returns.htm">30 Day Returns</a></li>
+			    <li><a href="http://www.partselect.com/Two-Million-Parts.htm">Two Million Parts</a></li>
+			    <li><a href="http://www.partselect.com/Easier-on-the-Earth.htm">Easier on the Earth</a></li>
+			    <li><a href="http://www.partselect.com/Secure-Shopping.htm">Secure Shopping</a></li>
+			    <li><a href="http://www.partselect.com/One-Year-Warranty.htm">One-Year Warranty</a></li>
+			    <li><a href="http://www.partselect.com/Great-Prices.htm">Great Prices</a></li>
+			    <li><a href="http://www.partselect.com/Privacy-Protected.htm">Privacy Protected</a></li>
+		    </ul>
+	    </div>
+    </div>
+
+</div>
+
+<div id="subfooter">
+	<ul class="no-bullets">
+		<li><a href="http://www.partselect.com/Admiral-Parts.htm" title="Admiral Parts">Admiral Parts</a></li>
+		<li><a href="http://www.partselect.com/Ariens-Parts.htm" title="Ariens Parts">Ariens Parts</a></li>
+		<li><a href="http://www.partselect.com/Briggs-Stratton-Parts.htm" title="Briggs and Stratton Parts">Briggs and Stratton Parts</a></li>
+		<li><a href="http://www.partselect.com/Echo-Parts.htm" title="Echo Parts">Echo Parts</a></li>
+		<li><a href="http://www.partselect.com/Frigidaire-Parts.htm" title="Frigidaire Parts">Frigidaire Parts</a></li>
+		<li><a href="http://www.partselect.com/GE-Parts.htm" title="GE Parts">GE Parts</a></li>
+        <li><a href="http://www.partselect.com/Husqvarna-Parts.htm" title="Husqvarna Parts">Husqvarna Parts</a></li>
+		<li><a href="http://www.partselect.com/Jenn-Air-Parts.htm" title="Jenn Air Parts">Jenn-Air Parts</a></li>
+		<li><a href="http://www.partselect.com/KitchenAid-Parts.htm" title="KitchenAid Parts">KitchenAid Parts</a></li>
+		<li><a href="http://www.partselect.com/LG-Parts.htm" title="LG Parts">LG Parts</a></li>
+		<li><a href="http://www.partselect.com/Maytag-Parts.htm" title="Maytag Parts">Maytag Parts</a></li>
+		<li><a href="http://www.partselect.com/MTD-Parts.htm" title="MTD Parts">MTD Parts</a></li>
+		<li><a href="http://www.partselect.com/Murray-Parts.htm" title="Murray Parts">Murray Parts</a></li>		
+   		<li><a href="http://www.partselect.com/Poulan-Parts.htm" title="Poulan Parts">Poulan Parts</a></li>
+		<li><a href="http://www.partselect.com/Troy-Bilt-Parts.htm" title="Troy-Bilt Parts">Troy-Bilt Parts</a></li>
+		<li><a href="http://www.partselect.com/Whirlpool-Parts.htm" title="Whirlpool Parts">Whirlpool Parts</a></li>
+		<li><a href="http://www.partselect.com/White-Westinghouse-Parts.htm" title="White-Westinghouse Parts">White-Westinghouse Parts</a></li>
+		<li><a href="http://www.partselect.com/Dishwasher-Parts.htm" title="Dishwasher Parts">Dishwasher Parts</a></li>
+		<li><a href="http://www.partselect.com/Washer-Parts.htm" title="Washer Parts">Washer Parts</a></li>
+		<li><a href="http://www.partselect.com/Refrigerator-Parts.htm" title="Refrigerator Parts">Refrigerator Parts</a></li>
+		<li><a href="http://www.partselect.com/Dryer-Parts.htm" title="Dryer Parts">Dryer Parts</a></li>
+		<li><a href="http://www.partselect.com/Stove-Parts.htm" title="Stove Parts">Stove Parts</a></li>
+		<li><a href="http://www.partselect.com/Oven-Parts.htm" title="Oven Parts">Oven Parts</a></li>
+		<li><a href="http://www.partselect.com/Range-Parts.htm" title="Range Parts">Range Parts</a></li>
+		<li><a href="http://www.partselect.com/Microwave-Parts.htm" title="Microwave Parts">Microwave Parts</a></li>
+		<li><a href="http://www.partselect.com/Appliance-Parts.htm" title="Appliance Parts">Appliance Parts</a></li>
+		<li><a href="http://www.partselect.com/Lawn-Mower-Parts.htm" title="Lawn Mower Parts">Lawn Mower Parts</a></li>
+		
+		<li><a href="http://www.partselect.com/Small-Engine-Parts.htm" title="Small Engine Parts">Small Engine Parts</a></li>
+		<li><a href="http://www.partselect.com/Hedge-Trimmer-Parts.htm" title="Hedge Trimmer Parts">Hedge Trimmer Parts</a></li>
+		<li><a href="http://www.partselect.com/Edger-Parts.htm" title="Edger Parts">Edger Parts</a></li>
+		<li><a href="http://www.partselect.com/Tiller-Parts.htm" title="Tiller Parts">Tiller Parts</a></li>
+	</ul>
+
+
+    <p>All brand logos are trademarks of their respective owners.</p>
+    <p>The PartSelect logo is a Registered Trademark of Atlantic Laundry Centres, Ltd.</p>
+    <p><a href="/Terms.aspx#Copyright" title="Copyright details">Copyright &copy; 1999-2015 , Eldis Group Partnership. All rights reserved.</a></p>
+</div>
+
+                
+        
+    </div>
+
+    
+<script type="text/javascript">
+
+</script>
+
+<!-- Remarketing tags may not be associated with personally identifiable
+information or placed on pages related to sensitive categories. -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1013880857;
+var google_conversion_label = "_GDJCOeZoQQQmbC64wM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div>
+<img height="1" width="1" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1013880857/?value=0&amp;label=_GDJCOeZoQQQmbC64wM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+
+    
+    
+	
+		<!-- Google Code for HomePage - Max Duration Remarketing List -->
+		<script type="text/javascript">
+		/* <![CDATA[ */
+		var google_conversion_id = 1072705519;
+		var google_conversion_language = "en";
+		var google_conversion_format = "3";
+		var google_conversion_color = "666666";
+		var google_conversion_label = "rZsnCIf7qgIQ79_A_wM";
+		var google_conversion_value = 0;
+		/* ]]> */
+		</script>
+		<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+		</script>
+		<noscript>
+		<div>
+		<img height="1" width="1" alt="" src="//www.googleadservices.com/pagead/conversion/1072705519/?label=rZsnCIf7qgIQ79_A_wM&amp;guid=ON&amp;script=0"/>
+		</div>
+		</noscript>
+	
+
+    
+    
+    <span id="_GUARANTEE_SealSpan"></span> 
+    <script type="text/javascript" src="//nsg.symantec.com/private/rollover/rollover.js"></script> 
+    <script type="text/javascript">
+    	if (window._GUARANTEE && _GUARANTEE.Loaded && $(window).width() > 480) {
+    		_GUARANTEE.Hash = "dOlBb5oXcBeu4t3PTeetx6%2FEaPpC97jFLOXk%2Blrzm8hCUXJ5aY9BkJIfkV9rMjkKcMTrlehtj6RSlQ7EwV%2BcLg%3D%3D";
+    		_GUARANTEE.WriteSeal("_GUARANTEE_SealSpan", "GuaranteedSeal");
+    	} 
+    </script> 
+    </form>
+</body>
+</html>
+";i:2;s:4:"4386";}

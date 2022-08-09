@@ -1,0 +1,198 @@
+a:3:{i:0;s:26:"http://onlinesearches.com/";i:1;s:15235:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Public Records and Information Services" />
+<meta name="keywords" content="Public Records, Free Public Records, database search, Web detective" />
+<link rel="stylesheet" type="text/css" href="css/home_v2.css" />
+<link rel="STYLESHEET" type="text/css" href="css/tabs.css">
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
+<![endif]-->
+<title>OnlineSearches - Public Record Resources</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script>
+    var isValidUSZip = function(zipCode) {
+       return /^\d{5}$/.test(zipCode);
+    }
+    
+    var isValidCityState = function(cityState) {
+        return /^[A-Za-z\s\-]+,[ ]?[A-Za-z]{2}$/.test(cityState);
+    }
+    
+    $(function() {
+        var $searchByCityStateOrZip = $('#searchByCityStateOrZip');
+        var $cityStateOrZip = $searchByCityStateOrZip.find('.cityStateOrZip');
+        
+        $searchByCityStateOrZip.submit(function() {
+            var cityStateZipValue = $cityStateOrZip.val();
+            
+            if (cityStateZipValue != '') {
+                if (!isNaN(cityStateZipValue)) {
+                    if (!isValidUSZip(cityStateZipValue)) {
+                        alert('You must provide a valid zip code for your search.');
+                        return false;
+                    } else {
+                        return true;
+                    }
+                } else {
+                    if (!isValidCityState(cityStateZipValue)) {
+                        alert('You must enter either a city name and state abbreviation, or a valid zip code.');
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            } else {
+                return false;
+            }
+        });
+        
+        $( "#public-records-mobile" ).tabs();
+        
+        $(".navtoggle").click(function() {
+            $(".right-container").slideToggle(500);
+        });
+    });
+</script>
+</head>
+<body>
+<div id="online-searches-hp">
+
+    <div class="header">
+        <img src="img/onlinesearches-logo.png" width="207" height="32" alt="OnlineSearches.com" id="logo" />
+        <div id="toggle-bar">
+            <a class="navicon navtoggle"  onclick="return false" href=""><img src="img/menu.png"></a>
+        </div>
+        <div class="right-container">
+        
+            <ul class="nav">
+                <li class="first"><a href="http://publicrecords.onlinesearches.com/" title="Free Public Records Directory Home">Home</a></li> 
+                <li><a href="http://publicrecords.onlinesearches.com/feedback.php" title="contact us">Contact</a></li> 
+                <li><a href="http://publicrecords.onlinesearches.com/free-searches.htm" title="free database search">Free Searches</a></li>
+                <li><a href="http://publicrecords.onlinesearches.com/public-records-blog/" title="public records blog articles">Blog</a></li>
+                <li><a href="http://publicrecords.onlinesearches.com/public-records-tools.htm" title="public records tools">Tools</a></li>
+            </ul>
+            
+            <div class="search">
+                <form action="http://publicrecords.onlinesearches.com/websearch.htm" id="cse-search-box">
+                    <input type="text" name="q" size="18" />
+                    <input type="submit" name="sa" value="Search" />
+                    <input type="hidden" name="cx" value="partner-pub-5811166312060728:e0c67w-fq8h" />
+                    <input type="hidden" name="cof" value="FORID:10" />
+                    <input type="hidden" name="ie" value="ISO-8859-1" />
+                </form>
+            </div>
+            <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="headline">Find Public Records by...</div>
+    <div class="body-content">
+        <div id="public-records-mobile" class="find-public-records clearfix">
+            <ul>
+                <li><a href="#tab1">Town/Zip</a></li>
+                <li><a href="#tab2">Category</a></li>
+                <li><a href="#tab3">State</a></li>
+            </ul>   
+            <div id="tab1" class="public-records-zip">
+                <h3>Find Public Records <strong>by Town or Zip Code</strong></h3>
+                <p>Find Public Records by City and State or by ZIP</p>
+                <form id="searchByCityStateOrZip" method="post" action="http://publicrecords.onlinesearches.com/cgi/prfinder.php"> 
+                    <input type="text" name="qry" size="20" maxlength="25" class="cityStateOrZip" placeholder="City, State or ZIP"/><input type="hidden" name="src" value="" /><input type='submit' value='Go'/>
+                </form> 
+            </div>
+            <div id="tab2" class="public-records-category">
+                <h3>Find Public Records <strong>by Category</strong></h3>
+                <p>Select a public record category below to view all online resources for that category.</p>
+            
+                <form name="MCAT" action="">
+                    <div class="select-container">
+                        <select name="guidelinks" onchange="window.location=document.MCAT.guidelinks.options[document.MCAT.guidelinks.selectedIndex].value"><option selected="selected" value="http://publicrecords.onlinesearches.com/">Select a Category</option><option value='http://publicrecords.onlinesearches.com/Assessor-and-Property-Tax-Records.htm'>Assessor and Property Tax Records</option><option value='http://publicrecords.onlinesearches.com/Land-Records-and-Deeds.htm'>Land Records and Deeds</option><option value='http://publicrecords.onlinesearches.com/Business-Licenses.htm'>Business Licenses</option><option value='http://publicrecords.onlinesearches.com/Contractor-Licenses.htm'>Contractor Licenses</option><option value='http://www.CourtReference.com'>Courts</option><option value='http://publicrecords.onlinesearches.com/Employee-Directory.htm'>Employee Directory</option><option value='http://publicrecords.onlinesearches.com/Foreclosures-and-Tax-Lien-Sales.htm'>Foreclosures and Tax Lien Sales</option><option value='http://publicrecords.onlinesearches.com/GIS-and-Mapping.htm'>GIS and Mapping</option><option value='http://publicrecords.onlinesearches.com/Jail-and-Inmate-Records.htm'>Jail and Inmate Records</option><option value='http://publicrecords.onlinesearches.com/Government-Jobs-and-Employment-Listings.htm'>Government Jobs and Employment Listings</option><option value='http://publicrecords.onlinesearches.com/Laws-and-Codes.htm'>Laws and Codes</option><option value='http://publicrecords.onlinesearches.com/Professional-Licenses.htm'>Professional Licenses</option><option value='http://publicrecords.onlinesearches.com/Bar-Associations.htm'>Bar Associations</option><option value='http://publicrecords.onlinesearches.com/Sex-Offender-Registration.htm'>Sex Offender</option><option value='http://publicrecords.onlinesearches.com/UCC-Filings.htm'>UCC Filings</option><option value='http://publicrecords.onlinesearches.com/Voter-and-Elections-Information.htm'>Voter and Elections Information</option><option value='http://publicrecords.onlinesearches.com/Warrants.htm'>Warrants</option></select>
+                    </div>
+                </form>
+            </div>
+        
+            <div id="tab3" class="public-records-state">
+                <h3>Find Public Records <strong>by State</strong></h3>
+                <p>Go to the public records pages for any state.</p>
+                
+                <form name="ST" action=""> 
+                    <div class="select-container">
+                        <select name="stlinks" onchange="window.location=document.ST.stlinks.options[document.ST.stlinks.selectedIndex].value"> 
+                            <option selected="selected"  value="http://publicrecords.onlinesearches.com/xx">Select a State</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Alabama.htm">Alabama</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Alaska.htm">Alaska</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Arizona.htm">Arizona</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Arkansas.htm">Arkansas</option> 
+                            <option value="http://publicrecords.onlinesearches.com/California.htm">California</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Colorado.htm">Colorado</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Connecticut.htm">Connecticut</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Delaware.htm">Delaware</option> 
+                            <option value="http://publicrecords.onlinesearches.com/DistrictofColumbia.htm">District of Columbia</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Florida.htm">Florida</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Georgia.htm">Georgia</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Hawaii.htm">Hawaii</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Idaho.htm">Idaho</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Illinois.htm">Illinois</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Indiana.htm">Indiana</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Iowa.htm">Iowa</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Kansas.htm">Kansas</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Kentucky.htm">Kentucky</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Louisiana.htm">Louisiana</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Maine.htm">Maine</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Maryland.htm">Maryland</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Massachusetts.htm">Massachusetts</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Michigan.htm">Michigan</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Minnesota.htm">Minnesota</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Mississippi.htm">Mississippi</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Missouri.htm">Missouri</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Montana.htm">Montana</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Nebraska.htm">Nebraska</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Nevada.htm">Nevada</option> 
+                            <option value="http://publicrecords.onlinesearches.com/NewHampshire.htm">New Hampshire</option> 
+                            <option value="http://publicrecords.onlinesearches.com/NewJersey.htm">New Jersey</option> 
+                            <option value="http://publicrecords.onlinesearches.com/NewMexico.htm">New Mexico</option> 
+                            <option value="http://publicrecords.onlinesearches.com/NewYork.htm">New York</option> 
+                            <option value="http://publicrecords.onlinesearches.com/NorthCarolina.htm">North Carolina</option> 
+                            <option value="http://publicrecords.onlinesearches.com/NorthDakota.htm">North Dakota</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Ohio.htm">Ohio</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Oklahoma.htm">Oklahoma</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Oregon.htm">Oregon</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Pennsylvania.htm">Pennsylvania</option> 
+                            <option value="http://publicrecords.onlinesearches.com/RhodeIsland.htm">Rhode Island</option> 
+                            <option value="http://publicrecords.onlinesearches.com/SouthCarolina.htm">South Carolina</option> 
+                            <option value="http://publicrecords.onlinesearches.com/SouthDakota.htm">South Dakota</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Tennessee.htm">Tennessee</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Texas.htm">Texas</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Utah.htm">Utah</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Vermont.htm">Vermont</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Virginia.htm">Virginia</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Washington.htm">Washington</option> 
+                            <option value="http://publicrecords.onlinesearches.com/WestVirginia.htm">West Virginia</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Wisconsin.htm">Wisconsin</option> 
+                            <option value="http://publicrecords.onlinesearches.com/Wyoming.htm">Wyoming</option> 
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="desc">
+            <div class="main-img"></div>
+            <h4 class="top">OnlineSearches.com is your gateway to public records. Use our free <a href="http://publicrecords.onlinesearches.com/">Public Records Directory</a> <span class="no-wrap">to quickly find the public record sources you need.</span></h4>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; Online Searches
+    </div>
+</div>
+
+</body>
+</html>
+";i:2;s:4:"4325";}

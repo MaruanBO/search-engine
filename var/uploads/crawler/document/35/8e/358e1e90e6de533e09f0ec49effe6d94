@@ -1,0 +1,204 @@
+a:3:{i:0;s:18:"http://aeijmp.com/";i:1;s:9969:"<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <title>Scour.com | Search Socially with Scour.com</title>
+  <style type="text/css" media="all">@import "/css/homepage.css?v=1250";</style>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <meta name="description" content="Scour.com is a next gen search engine with Google/Yahoo/Bing results and user comments all on one page. Scour's purpose is to bridge the gap between searchers and relevant results. By providing a platform for the user to vote and comment on relevancy, searchers connect with one another creating a true social search community, attained through innovative solutions to meet the needs of today's web searchers. Join scour.com today!" />
+  <link rel="shortcut icon" href="http://1.assets.scour.com/favicon.ico" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/homepage.js?v=11310"></script>
+  <meta name="verify-v1" content="gGCN2dDdOqQY56qqk7S0TTE/d4bi+RiYEBia3neCYoU=" />
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('#nSearch-container').addClass('hasLocalSearchInput');
+    $('#nSearch-container').addClass('hasLocalSearch');
+    $('#localSearchArea').val(userSettings.lastLocation);
+    if (userSettings.lastLocation == '')
+    {
+      $.ajax({
+        url: '/services/getLocation/',
+        data: { },
+        type: 'post',
+        cache: false,
+        dataType: 'json',
+        success: function (data)
+    		{
+    		  userSettings.lastLocation = data.location;
+          cookies.saveSettings();
+          $('#localSearchArea').val(data.location);
+        }
+      });
+    }
+
+    $('#nSearch-tabs>div').click(function(){
+      if ($('#nSearch-container').hasClass('nSearch-l'))
+      {
+        $txt = $('#txtSearch');
+        if ($txt.val() == '')
+          $txt.addClass('grey').val('ex: pizza, dentist, salon');
+        $txt = $('#localSearchArea');
+        if ($txt.val() == '')
+          $txt.addClass('grey').val('ex: Los Angeles, CA or 90025');
+      }
+      else{
+        $txt = $('#txtSearch');
+        if ($txt.val() == 'ex: pizza, dentist, salon')
+          $txt.removeClass('grey').val('');
+
+        $txt = $('#localSearchArea');
+        if ($txt.val() == 'ex: Los Angeles, CA or 90025')
+          $txt.removeClass('grey').val('');
+      }
+    });
+
+    $('#txtSearch').focus(function(){
+      if ($('#nSearch-container').hasClass('nSearch-l'))
+      {
+        $txt = $('#txtSearch');
+        if ($txt.val() == 'ex: pizza, dentist, salon')
+          $txt.removeClass('grey').val('');
+      }
+    });
+    $('#txtSearch').blur(function(){
+      if ($('#nSearch-container').hasClass('nSearch-l'))
+      {
+        $txt = $('#txtSearch');
+        if ($txt.val() == '')
+          $txt.addClass('grey').val('ex: pizza, dentist, salon');
+      }
+    });
+    $('#localSearchArea').focus(function(){
+      if ($('#nSearch-container').hasClass('nSearch-l'))
+      {
+        $txt = $('#localSearchArea');
+        if ($txt.val() == 'ex: Los Angeles, CA or 90025')
+          $txt.removeClass('grey').val('');
+      }
+    });
+    $('#localSearchArea').blur(function(){
+      if ($('#nSearch-container').hasClass('nSearch-l'))
+      {
+        $txt = $('#localSearchArea');
+        if ($txt.val() == '')
+          $txt.addClass('grey').val('ex: Los Angeles, CA or 90025');
+      }
+    });
+
+  });
+  </script>
+</head>
+<body id="homepage" onload="$('#txtSearch').get(0).focus();">
+  <div id="dropout" style="display:none">
+    <a href="#" onclick="closeDrop();return false;" id="dropclose"></a>
+    <div id="dropleft">
+      <span></span>
+      <div id="dropright"></div>
+      &nbsp;
+    </div>
+  </div>
+  <div id="topbar">
+    <div class="user_submenu">
+      <div id="welcome_user" style="display:none"><strong>Welcome <span id="welcome_user_name"></span></strong> (<span id="logout"><a href="/logout/">logout</a></span>) <a href="/profile/" title="Customize Scour" class="mysettings" accesskey="m">My Scour</a> &nbsp; <span id="header-new-messages" style="display:none;margin-right:5px;"><a href="/profile/messages/inbox/" style="color:red;text-decoration:none" title="New Scour Message"><span id="header-new-message-count" style="margin-left:3px;"></span></a></span><span id="verifyaccount-header" style="display:none"><strong><a href="" style="color:red" id="verifyaccount-header-link">Not Verified</a></strong></span></div>
+      <span id="sign_in_user" class="scour_points_sign_in" style="display:none"><strong>Have Account?</strong> <a href="/login/">Sign in</a> || </span>
+      <span id="new_user" class="scour_points_new_use" style="display:none"><strong>New user?</strong> <a href="/signup/">Join Now</a></span>
+    </div>
+    <span class="toplinkmenu">      
+      <a href="/faq/" title="You have questions - we have answers" accesskey="q">F.A.Q.</a>
+      <a href="#" title="Where you can scream and yell at us or give us a hug" accesskey="f" onclick="UserVoice.Popin.show(); return false;">Feedback</a>
+      <a href="/goodies/" title="Toys we are working on" accesskey="g">Goodies</a>
+      <a href="http://blog.scour.com/" title="Scour Blog" accesskey="b">Scour Blog</a>
+      <a href="/index.html" title="Scour - home" accesskey="h">Home</a>
+    </span>
+  </div>
+
+  <span id="makeHomepage" style="display:none"><span></span> Make Scour Your Homepage!</span>
+  <div id="makeHomepageBox" style="display:none">
+    <a href="http://scour.com"></a>
+  </div>
+
+  <div id="main">
+    <a id="logo" title="Scour Home" href="/"><span>Scour - the social search engine</span></a>
+
+    <div id="nSearch-container" class="nSearch-w">
+      <div id="nSearch-tabs">
+        <div id="nSearch-web"><span>Web</span><span class="nSearch-shadow">Web</span></div>
+        <div id="nSearch-images"><span>Images</span><span class="nSearch-shadow">Images</span></div>
+        <div id="nSearch-videos"><span>Videos</span><span class="nSearch-shadow">Videos</span></div>
+        <div id="nSearch-local"><span>Local</span><span class="nSearch-shadow">Local</span></div>
+        <div id="nSearch-business"><span>Business</span><span class="nSearch-shadow">Business</span></div>
+      </div>
+      <div id="nSearch-area">
+        <form action="#" method="get" id="searchform" onsubmit="return $.scour.homepage.search();">
+          <input type="text" id="txtSearch" />
+          <input type="text" id="localSearchArea" class="localSearchArea" value="" title="ex: Los Angeles, CA or 90025" />
+          <input type="radio" id="localTypeCS" name="localType" checked="checked" />
+          <input type="radio" id="localTypeSP" name="localType" />
+          <div id="nSearch-button"></div>
+        </form>
+      </div>
+    </div>
+
+    <div id="footer">
+      <center>
+        <div style="width:500px;">
+          <div class="footer_link_container"><a href="/about/" title="About Scour">About</a></div>
+          <div class="footer_link_container"><a href="/privacy/" title="Privacy Policy">Privacy Policy</a></div>
+          <div class="footer_link_container"><a href="http://www.advertise.com/cgi-bin/referadvfree.pl?referrerId=scourfooter">Advertise</a></div>
+          <div class="footer_link_container"><a href="http://scour.com/unsubscribe/">Unsubscribe</a></div>
+          <div class="footer_link_container"><a href="/communityguidelines/">Community Guidelines</a></div>
+          <div class="footer_link_container"><a href="http://efacts.com">eFacts</a></div>
+          <center><div class="copyright">&copy; 2012 Scour.com</div></center>
+        </div>
+      </center>
+    </div>
+  </div>
+
+  <div id="verifyemailmodal" class="modal-main padded" style="display:none;">
+    <h2 class="modal-title">Verify your Email</h2>
+    <div id="loginmodal-close" class="modal-close" onclick="$.modal.close();">X</div>
+    <p class="padded"><strong>Note:</strong> To ensure you receive all future Scour Cash Out notifications, please verify your address through the Verification Email we sent you after sign up. Please be sure to <a href="/faq/whitelist/" target="_blank">whitelist Scour</a>.</p>
+    <div class="clear padded">
+      <a href="#" id="verifymodal-resendverification" class="resultTitle" style="border:0">Resend my verification email</a>
+    </div>
+    <div style="display:none" id="verifymodal-notificationsent">
+      <p class="highlight padded">
+      Verification has been re-sent, please check inbox and junk/spam folders.
+      </p>
+    </div>
+    <div class="clear padded">
+      <a href="/profile/settings/editprofile/" class="resultTitle" style="border:0" target="_blank">Change my email address</a>
+    </div>
+  </div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      setTimeout(function() {
+        return;
+        // advertise pixel
+        var s = document.createElement('script');
+        s.src = 'http://ad.advertise.com/pixel?id=570188&t=1';
+        s.type = 'text/javascript';
+        document.getElementsByTagName('head')[0].appendChild(s);
+      }, 2000);
+    });
+  </script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4569478-1']);
+  _gaq.push(['_setDomainName', '.scour.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+";i:2;s:4:"9465";}

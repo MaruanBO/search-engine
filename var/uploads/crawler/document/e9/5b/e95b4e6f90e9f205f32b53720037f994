@@ -1,0 +1,387 @@
+a:3:{i:0;s:17:"http://ab4tn.com/";i:1;s:63629:"/**
+ * API for Cross-Origin callback
+ */
+
+/**
+ * []
+ */
+var JSONP = (function(){
+
+    var module = {
+
+        /**
+         * Make JSONP request
+         *
+         * @param {string} url Request url
+         * @param {Function} callback Response callback
+         * @return void
+         */
+        request : function(url, callback){
+            var head = document.getElementsByTagName('head')[0];
+            var name = 'jsonp' + new Date().getTime() + module.random(0, 1000);
+
+            window[name] = function(data){
+                callback(data);
+
+                delete window[name];
+            }
+
+            url += url.indexOf('?') < 0 ? '?' : '';
+            url += url.charAt(url.length - 1) != '?' ? '&' : '';
+
+            module.attachJs(url + 'callback=' + name, function(script){
+                head.removeChild(script);
+            });
+        },
+
+        /**
+         * Attach java script file to head
+         *
+         * @param {String} src Script url
+         * @param {Function} callback Caller on attach success
+         * @return void
+         */
+        attachJs : function(src, callback){
+            var script = document.createElement('script');
+            var head = document.getElementsByTagName('head')[0];
+
+            script.src = src;
+
+            if(callback instanceof Function) {
+                script.onload = function(){
+                    callback(script);
+                }
+            }
+
+            head.appendChild(script);
+        },
+
+        /**
+         * Random int
+         *
+         * @param {int} min Min value
+         * @param {int} max Max value
+         * @returns {int} Int value
+         */
+        random : function(min, max){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    }
+
+    return {
+        request: module.request,
+        attachJs : module.attachJs
+    }
+})();
+
+var DatingDetect = (function(){
+    var sites = JSON.parse('{"clickandflirt.com":{"id":"c75a229e34a4d484845c196f82b1df6c","url":"http:\/\/clickandflirt.com\/landing\/autologinFromJump","nestedId":"0","cookie":"DatingCPhoenix","domain":"clickandflirt.com","brand":"clickandflirt.com"},"naughtydate.com":{"id":"4d5947a22f09eec399d938bb0e6f7671","url":"http:\/\/naughtydate.com\/landing\/autologinFromJump","nestedId":"1","cookie":"DatingCPhoenix","domain":"naughtydate.com","brand":""},"benaughty.com":{"id":"3c09509e33441cf21f9b1cc3a49413f2","url":"http:\/\/benaughty.com\/landing\/autologinFromJump","nestedId":"3","cookie":"DatingCPhoenix","domain":"benaughty.com","brand":"BN"},"benaughty.se":{"id":"3f37485e2dd02830b80ddfdc50c7f96f","url":"http:\/\/benaughty.se\/landing\/autologinFromJump","nestedId":"4","cookie":"DatingCPhoenix","domain":"benaughty.se","brand":"BN"},"benaughty.be":{"id":"310c5266154fc98ccff234d4e679c62b","url":"http:\/\/benaughty.be\/landing\/autologinFromJump","nestedId":"5","cookie":"DatingCPhoenix","domain":"benaughty.be","brand":"BN"},"benaughty.co.uk":{"id":"2b5035a6205bb474ed68015a084fd04c","url":"http:\/\/benaughty.co.uk\/landing\/autologinFromJump","nestedId":"6","cookie":"DatingCPhoenix","domain":"benaughty.co.uk","brand":"BN"},"benaughty.cz":{"id":"4391ee59d98e59d56faa692341659a19","url":"http:\/\/benaughty.cz\/landing\/autologinFromJump","nestedId":"7","cookie":"DatingCPhoenix","domain":"benaughty.cz","brand":"BN"},"benaughty.dk":{"id":"1cc1458917ece460e5b52ee7c493c06c","url":"http:\/\/benaughty.dk\/landing\/autologinFromJump","nestedId":"8","cookie":"DatingCPhoenix","domain":"benaughty.dk","brand":"BN"},"benaughty.ie":{"id":"5553d408579893219041ed4f33387987","url":"http:\/\/benaughty.ie\/landing\/autologinFromJump","nestedId":"9","cookie":"DatingCPhoenix","domain":"benaughty.ie","brand":"BN"},"benaughty.nl":{"id":"9958d2a8103450eeedf6854c64f655fc","url":"http:\/\/benaughty.nl\/landing\/autologinFromJump","nestedId":"10","cookie":"DatingCPhoenix","domain":"benaughty.nl","brand":"BN"},"benaughty.no":{"id":"e7c09f76872331ae6256b00ed5c2e593","url":"http:\/\/benaughty.no\/landing\/autologinFromJump","nestedId":"11","cookie":"DatingCPhoenix","domain":"benaughty.no","brand":"BN"},"benaughty.pl":{"id":"06d8bb9ffa73d2002f1fa61fd2ab65fc","url":"http:\/\/benaughty.pl\/landing\/autologinFromJump","nestedId":"12","cookie":"DatingCPhoenix","domain":"benaughty.pl","brand":"BN"},"spicymeetings.com":{"id":"9","url":"http:\/\/spicymeetings.com\/external_autologin.php","nestedId":"15","cookie":"DatingCMultiTN","domain":"spicymeetings.com","brand":""},"freesexmatch.com":{"id":"eef88c78ab3e8efd345e411cc399f99d","url":"http:\/\/freesexmatch.com\/landing\/autologinFromJump","nestedId":"16","cookie":"DatingCPhoenix","domain":"freesexmatch.com","brand":""},"playcougar.com":{"id":"5921cf7d348f61797a4df3b5a9f58454","url":"http:\/\/playcougar.com\/landing\/autologinFromJump","nestedId":"17","cookie":"DatingCPhoenix","domain":"playcougar.com","brand":""},"shagaholic.com":{"id":"3ed0b01e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/shagaholic.com\/landing\/autologinFromJump","nestedId":"18","cookie":"DatingCPhoenix","domain":"shagaholic.com","brand":""},"upforit.com":{"id":"30","url":"http:\/\/upforit.com\/external_autologin.php","nestedId":"19","cookie":"DatingCMultiPM","domain":"upforit.com","brand":""},"getnaughty.com":{"id":"31","url":"http:\/\/getnaughty.com\/external_autologin.php","nestedId":"20","cookie":"DatingCMultiPM","domain":"getnaughty.com","brand":""},"saucysingles.com":{"id":"3ed0b6cc7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/saucysingles.com\/landing\/autologinFromJump","nestedId":"21","cookie":"DatingCPhoenix","domain":"saucysingles.com","brand":""},"sololigar.com":{"id":"3ed0b1cc7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/sololigar.com\/landing\/autologinFromJump","nestedId":"22","cookie":"DatingCPhoenix","domain":"sololigar.com","brand":""},"livex.com":{"id":"55","url":"http:\/\/livex.com\/external_autologin.php","nestedId":"23","cookie":"DatingCMultiPM","domain":"livex.com","brand":""},"iwantu.com":{"id":"41","url":"http:\/\/iwantu.com\/external_autologin.php","nestedId":"24","cookie":"DatingCMultiPM","domain":"iwantu.com","brand":""},"cheekylovers.com":{"id":"fa8013b144f11a143db1e6a60c879e70","url":"http:\/\/cheekylovers.com\/landing\/autologinFromJump","nestedId":"25","cookie":"DatingCPhoenix","domain":"cheekylovers.com","brand":"cheekylovers.com"},"iwantumilf.com":{"id":"52158ddd6f12d8c3202e2cbe461bcbdd","url":"http:\/\/iwantumilf.com\/landing\/autologinFromJump","nestedId":"26","cookie":"DatingCPhoenix","domain":"iwantumilf.com","brand":""},"iwantucougar.com":{"id":"484ea00059eb655690494e32327c3852","url":"http:\/\/iwantucougar.com\/landing\/autologinFromJump","nestedId":"27","cookie":"DatingCPhoenix","domain":"iwantucougar.com","brand":""},"ebonyflirt.com":{"id":"d8c4b4f5fdcb0bd217ab8c9698c757c5","url":"http:\/\/ebonyflirt.com\/landing\/autologinFromJump","nestedId":"28","cookie":"DatingCPhoenix","domain":"ebonyflirt.com","brand":""},"iwantubbw.com":{"id":"3c38e4b9d4d4453e5a9786e45682bd8d","url":"http:\/\/iwantubbw.com\/landing\/autologinFromJump","nestedId":"29","cookie":"DatingCPhoenix","domain":"iwantubbw.com","brand":""},"sugarbbw.com":{"id":"12004262","url":"http:\/\/sugarbbw.com\/external_autologin.php","nestedId":"252","cookie":"DatingCMultiPM","domain":"sugarbbw.com","brand":""},"milfberry.com":{"id":"12003818","url":"http:\/\/milfberry.com\/external_autologin.php","nestedId":"251","cookie":"DatingCMultiPM","domain":"milfberry.com","brand":""},"sexlugar.es":{"id":"48","url":"http:\/\/www.sexlugar.es\/external_autologin.php","nestedId":"35","cookie":"DatingCPhoenix","domain":"sexlugar.es","brand":""},"dammisesso.it":{"id":"e8541e31d7985a1ba1dfebefb11fd61f","url":"http:\/\/dammisesso.it\/landing\/autologinFromJump","nestedId":"36","cookie":"DatingCPhoenix","domain":"dammisesso.it","brand":""},"flirt.com":{"id":"c47566362bf21304b8ec57e43804d5ca","url":"http:\/\/flirt.com\/landing\/autologinFromJump","nestedId":"38","cookie":"DatingCPhoenix","domain":"flirt.com","brand":"flirt.com"},"loveaholics.com":{"id":"bb4ffe8873ce5b6a2627b9b19d32bb58","url":"http:\/\/loveaholics.com\/landing\/autologinFromJump","nestedId":"39","cookie":"DatingCPhoenix","domain":"loveaholics.com","brand":""},"wildbuddies.com":{"id":"e84b1134f92700368c4870a3f0c82008","url":"http:\/\/wildbuddies.com\/landing\/autologinFromJump","nestedId":"40","cookie":"DatingCPhoenix","domain":"wildbuddies.com","brand":"wildbuddies.com"},"becoquin.com":{"id":"63a81f205e24ea9c43b14454ec884429","url":"http:\/\/becoquin.com\/landing\/autologinFromJump","nestedId":"41","cookie":"DatingCPhoenix","domain":"becoquin.com","brand":"BN"},"becoquin.fr":{"id":"8a4fe96d3f91836cf75d32fc64947860","url":"http:\/\/becoquin.fr\/landing\/autologinFromJump","nestedId":"42","cookie":"DatingCPhoenix","domain":"becoquin.fr","brand":"BN"},"gibsmir.de":{"id":"f9b0b8a68096fa8fbdd81983563a3e70","url":"http:\/\/gibsmir.de\/landing\/autologinFromJump","nestedId":"44","cookie":"DatingCPhoenix","domain":"gibsmir.de","brand":"BN"},"gibsmir.at":{"id":"f069c917f0463731bdc5ddf947fc645d","url":"http:\/\/gibsmir.at\/landing\/autologinFromJump","nestedId":"45","cookie":"DatingCPhoenix","domain":"gibsmir.at","brand":"BN"},"seifrech.com":{"id":"7f3377c8b0d17665d994172e52a43934","url":"http:\/\/seifrech.com\/landing\/autologinFromJump","nestedId":"49","cookie":"DatingCPhoenix","domain":"seifrech.com","brand":"BN"},"sejaatrevido.com":{"id":"2171d31ed0baa9382cfcf6265df04e10","url":"http:\/\/sejaatrevido.com\/landing\/autologinFromJump","nestedId":"50","cookie":"DatingCPhoenix","domain":"sejaatrevido.com","brand":"BN"},"senzapudore.it":{"id":"67a04ad98e58aebd7c698fbbf9810d5a","url":"http:\/\/senzapudore.it\/landing\/autologinFromJump","nestedId":"51","cookie":"DatingCPhoenix","domain":"senzapudore.it","brand":"BN"},"setravieso.es":{"id":"375dab39a4531ed3b5a78f15a7e1f375","url":"http:\/\/setravieso.es\/landing\/autologinFromJump","nestedId":"52","cookie":"DatingCPhoenix","domain":"setravieso.es","brand":"BN"},"setravieso.com":{"id":"c6b7ff5ba372da648656497734e16253","url":"http:\/\/setravieso.com\/landing\/autologinFromJump","nestedId":"53","cookie":"DatingCPhoenix","domain":"setravieso.com","brand":"BN"},"setravieso.mx":{"id":"fd22961d3936611bd944c9413c810009","url":"http:\/\/setravieso.mx\/landing\/autologinFromJump","nestedId":"54","cookie":"DatingCPhoenix","domain":"setravieso.mx","brand":"BN"},"setravieso.us":{"id":"b6147335f8085bb92e0eea0f07fa6fa5","url":"http:\/\/setravieso.us\/landing\/autologinFromJump","nestedId":"55","cookie":"DatingCPhoenix","domain":"setravieso.us","brand":"BN"},"cougarpourmoi.com":{"id":"3ed0b4607dfb11e3ac4dd4bed9a9456d","url":"http:\/\/cougarpourmoi.com\/landing\/autologinFromJump","nestedId":"56","cookie":"DatingCPhoenix","domain":"cougarpourmoi.com","brand":""},"couplesmeet.com":{"id":"3ed0b0be7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/couplesmeet.com\/landing\/autologinFromJump","nestedId":"57","cookie":"DatingCPhoenix","domain":"couplesmeet.com","brand":""},"hornyasia.com":{"id":"3ed0b15e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/hornyasia.com\/landing\/autologinFromJump","nestedId":"58","cookie":"DatingCPhoenix","domain":"hornyasia.com","brand":""},"hornyplumps.com":{"id":"12013114","url":"http:\/\/hornyplumps.com\/external_autologin.php","nestedId":"282","cookie":"DatingCMultiPM","domain":"hornyplumps.com","brand":""},"madurasyjovenes.com":{"id":"12007887","url":"http:\/\/madurasyjovenes.com\/external_autologin.php","nestedId":"271","cookie":"DatingCMultiPM","domain":"madurasyjovenes.com","brand":""},"maritalhookup.com":{"id":"3ed0b24e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/maritalhookup.com\/landing\/autologinFromJump","nestedId":"61","cookie":"DatingCPhoenix","domain":"maritalhookup.com","brand":""},"maturexmatch.com":{"id":"12006990","url":"http:\/\/maturexmatch.com\/external_autologin.php","nestedId":"260","cookie":"DatingCMultiPM","domain":"maturexmatch.com","brand":""},"meetdivorced.com":{"id":"3ed0b5dc7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/meetdivorced.com\/landing\/autologinFromJump","nestedId":"63","cookie":"DatingCPhoenix","domain":"meetdivorced.com","brand":""},"mybbwmatch.com":{"id":"3ed0b4ba7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/mybbwmatch.com\/landing\/autologinFromJump","nestedId":"64","cookie":"DatingCPhoenix","domain":"mybbwmatch.com","brand":""},"naughtyflirt.com":{"id":"3ed0b1e07dfb11e3ac4dd4bed9a9456d","url":"http:\/\/naughtyflirt.com\/landing\/autologinFromJump","nestedId":"65","cookie":"DatingCPhoenix","domain":"naughtyflirt.com","brand":""},"passionmature.com":{"id":"3ed0b29e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/passionmature.com\/landing\/autologinFromJump","nestedId":"66","cookie":"DatingCPhoenix","domain":"passionmature.com","brand":""},"playingsingles.co.uk":{"id":"3ed0b0507dfb11e3ac4dd4bed9a9456d","url":"http:\/\/playingsingles.co.uk\/landing\/autologinFromJump","nestedId":"67","cookie":"DatingCPhoenix","domain":"playingsingles.co.uk","brand":""},"relacionesmaduras.com":{"id":"12007761","url":"http:\/\/relacionesmaduras.com\/external_autologin.php","nestedId":"265","cookie":"DatingCMultiPM","domain":"relacionesmaduras.com","brand":""},"relacionsecreta.com":{"id":"12007823","url":"http:\/\/relacionsecreta.com\/external_autologin.php","nestedId":"270","cookie":"DatingCMultiPM","domain":"relacionsecreta.com","brand":""},"sinfulmates.com":{"id":"3ed0b5c87dfb11e3ac4dd4bed9a9456d","url":"http:\/\/sinfulmates.com\/landing\/autologinFromJump","nestedId":"70","cookie":"DatingCPhoenix","domain":"sinfulmates.com","brand":""},"soissecret.com":{"id":"3ed0b47e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/soissecret.com\/landing\/autologinFromJump","nestedId":"71","cookie":"DatingCPhoenix","domain":"soissecret.com","brand":""},"flirtspielchen.ch":{"id":"374c280b6a359e6e5aae4f3c6c4dd906","url":"http:\/\/flirtspielchen.ch\/landing\/autologinFromJump","nestedId":"72","cookie":"DatingCPhoenix","domain":"flirtspielchen.ch","brand":"BN"},"flirtspielchen.de":{"id":"1ad28d5d489204ddbca7b21475d6b7be","url":"http:\/\/flirtspielchen.de\/landing\/autologinFromJump","nestedId":"73","cookie":"DatingCPhoenix","domain":"flirtspielchen.de","brand":"BN"},"localsgowild.com":{"id":"8fd646677223c318508942feeca4500a","url":"http:\/\/localsgowild.com\/landing\/autologinFromJump","nestedId":"74","cookie":"DatingCPhoenix","domain":"localsgowild.com","brand":""},"localsgonewild.com":{"id":"fea463f62781f945f8e65c64b92ea857","url":"http:\/\/localsgonewild.com\/landing\/autologinFromJump","nestedId":"75","cookie":"DatingCPhoenix","domain":"localsgonewild.com","brand":""},"matureaffection.com":{"id":"4a2934dee17fa9a91e3bd74787f0bc8a","url":"http:\/\/matureaffection.com\/landing\/autologinFromJump","nestedId":"76","cookie":"DatingCPhoenix","domain":"matureaffection.com","brand":""},"localsgodating.com":{"id":"ebcb27dbad2ed243442e707067e7ccaf","url":"http:\/\/localsgodating.com\/landing\/autologinFromJump","nestedId":"77","cookie":"DatingCPhoenix","domain":"localsgodating.com","brand":""},"datefinder.com":{"id":"5794d02ea693e77587947a1b711f3c9e","url":"http:\/\/datefinder.com\/landing\/autologinFromJump","nestedId":"78","cookie":"DatingCPhoenix","domain":"datefinder.com","brand":""},"sauvagesducoin.fr":{"id":"6ec92236cac211e2aa19091a67b969e0","url":"http:\/\/sauvagesducoin.fr\/landing\/autologinFromJump","nestedId":"79","cookie":"DatingCPhoenix","domain":"sauvagesducoin.fr","brand":""},"allsinglelocals.com":{"id":"e77c81f1cce611e2aa19091a67b969e0","url":"http:\/\/allsinglelocals.com\/landing\/autologinFromJump","nestedId":"80","cookie":"DatingCPhoenix","domain":"allsinglelocals.com","brand":""},"keentomeet.com":{"id":"575bed4791dc678a60dc3d3356172ebb","url":"http:\/\/keentomeet.com\/landing\/autologinFromJump","nestedId":"81","cookie":"DatingCPhoenix","domain":"keentomeet.com","brand":""},"naughtyfever.com":{"id":"38ef4f1b447f81f99dcecba07bef6c12","url":"http:\/\/naughtyfever.com\/landing\/autologinFromJump","nestedId":"82","cookie":"DatingCPhoenix","domain":"naughtyfever.com","brand":""},"douwant.me":{"id":"ecf5d83a45603a08b86ac0165d316d46","url":"http:\/\/douwant.me\/landing\/autologinFromJump","nestedId":"83","cookie":"DatingCPhoenix","domain":"douwant.me","brand":""},"fievrecoquine.com":{"id":"e62cbd9620e896d6f8d30871c96f248d","url":"http:\/\/fievrecoquine.com\/landing\/autologinFromJump","nestedId":"84","cookie":"DatingCPhoenix","domain":"fievrecoquine.com","brand":""},"matesforlove.com":{"id":"c2dd59a2d79b87d77ea372e0b0a448e2","url":"http:\/\/matesforlove.com\/landing\/autologinFromJump","nestedId":"85","cookie":"DatingCPhoenix","domain":"matesforlove.com","brand":""},"meetmesweet.com":{"id":"3ab9dc5c76ae151df892e125e2471b30","url":"http:\/\/meetmesweet.com\/landing\/autologinFromJump","nestedId":"86","cookie":"DatingCPhoenix","domain":"meetmesweet.com","brand":""},"cliccaeflirta.com":{"id":"5a176c88b5c7b92f1d6da9b7956923f3","url":"http:\/\/cliccaeflirta.com\/landing\/autologinFromJump","nestedId":"87","cookie":"DatingCPhoenix","domain":"cliccaeflirta.com","brand":"clickandflirt.com"},"cliccaeflirta.it":{"id":"43bfbef8b94b9e71b66bae805fda6247","url":"http:\/\/cliccaeflirta.it\/landing\/autologinFromJump","nestedId":"88","cookie":"DatingCPhoenix","domain":"cliccaeflirta.it","brand":"clickandflirt.com"},"clickyliga.es":{"id":"f2394d250a7b229a4508b300e5727bd0","url":"http:\/\/clickyliga.es\/landing\/autologinFromJump","nestedId":"89","cookie":"DatingCPhoenix","domain":"clickyliga.es","brand":"clickandflirt.com"},"cliqueetflirte.be":{"id":"dfda3746d724f89196c5f7e45dda4f95","url":"http:\/\/cliqueetflirte.be\/landing\/autologinFromJump","nestedId":"90","cookie":"DatingCPhoenix","domain":"cliqueetflirte.be","brand":"clickandflirt.com"},"cliqueetflirte.fr":{"id":"d0533108522ecf6a900a6a1257e99e3d","url":"http:\/\/cliqueetflirte.fr\/landing\/autologinFromJump","nestedId":"91","cookie":"DatingCPhoenix","domain":"cliqueetflirte.fr","brand":"clickandflirt.com"},"klickundflirt.de":{"id":"408b874f802f10bfcde3fe8028d8e111","url":"http:\/\/klickundflirt.de\/landing\/autologinFromJump","nestedId":"92","cookie":"DatingCPhoenix","domain":"klickundflirt.de","brand":"clickandflirt.com"},"maturedating.platformphoenix.com":{"id":"a5ab312c46020593e94e8d30311dc1fe","url":"http:\/\/maturedating.platformphoenix.com\/landing\/autologinFromJump","nestedId":"93","cookie":"DatingCPhoenix","domain":"maturedating.platformphoenix.com","brand":""},"maturedating.com":{"id":"188682cd740e88df6c35d518bc51fd1f","url":"http:\/\/maturedating.com\/landing\/autologinFromJump","nestedId":"94","cookie":"DatingCPhoenix","domain":"maturedating.com","brand":""},"foreigngirlfriend.com":{"id":"a5515f9cd8853d3e9c35a856f60dc0d6","url":"http:\/\/foreigngirlfriend.com\/landing\/autologinFromJump","nestedId":"95","cookie":"DatingCPhoenix","domain":"foreigngirlfriend.com","brand":""},"cheekylovers.se":{"id":"b86bf760eed1b448d21e92fd4006797b","url":"http:\/\/cheekylovers.se\/landing\/autologinFromJump","nestedId":"96","cookie":"DatingCPhoenix","domain":"cheekylovers.se","brand":"cheekylovers.com"},"amantsespiegles.fr":{"id":"9855b44d5652f61c3585171212a68e51","url":"http:\/\/amantsespiegles.fr\/landing\/autologinFromJump","nestedId":"97","cookie":"DatingCPhoenix","domain":"amantsespiegles.fr","brand":"cheekylovers.com"},"encuentrospicantes.es":{"id":"6dd7fc5ac603864218ba71486cb8eba4","url":"http:\/\/encuentrospicantes.es\/landing\/autologinFromJump","nestedId":"98","cookie":"DatingCPhoenix","domain":"encuentrospicantes.es","brand":"cheekylovers.com"},"encuentrospicantes.com":{"id":"cc5fab246ef01b8b8c0edba2c303506c","url":"http:\/\/encuentrospicantes.com\/landing\/autologinFromJump","nestedId":"99","cookie":"DatingCPhoenix","domain":"encuentrospicantes.com","brand":"cheekylovers.com"},"amantisfacciati.it":{"id":"79fda87a50902323115a8c2d17f9d5ce","url":"http:\/\/amantisfacciati.it\/landing\/autologinFromJump","nestedId":"100","cookie":"DatingCPhoenix","domain":"amantisfacciati.it","brand":"cheekylovers.com"},"scharfeliebe.de":{"id":"86f4dfafff8b867aff0a2aceecc57ad2","url":"http:\/\/scharfeliebe.de\/landing\/autologinFromJump","nestedId":"101","cookie":"DatingCPhoenix","domain":"scharfeliebe.de","brand":"cheekylovers.com"},"cheekylovers.dk":{"id":"609c026dc533a7b5b2b065f9a43d3a02","url":"http:\/\/cheekylovers.dk\/landing\/autologinFromJump","nestedId":"102","cookie":"DatingCPhoenix","domain":"cheekylovers.dk","brand":"cheekylovers.com"},"wildmeets.com":{"id":"bd72e468f47e11e2baf44b331f04b47e","url":"http:\/\/wildmeets.com\/landing\/autologinFromJump","nestedId":"103","cookie":"DatingCPhoenix","domain":"wildmeets.com","brand":""},"idhandleit.com":{"id":"43fc03eaf48411e2baf44b331f04b47e","url":"http:\/\/idhandleit.com\/landing\/autologinFromJump","nestedId":"104","cookie":"DatingCPhoenix","domain":"idhandleit.com","brand":""},"flirt.fr":{"id":"f2ab4e821ab65f0d95f457cc514b1ee3","url":"http:\/\/flirt.fr\/landing\/autologinFromJump","nestedId":"105","cookie":"DatingCPhoenix","domain":"flirt.fr","brand":"flirt.com"},"frechespiele.at":{"id":"911122b8a458c91d2966f4fe11692276","url":"http:\/\/frechespiele.at\/landing\/autologinFromJump","nestedId":"106","cookie":"DatingCPhoenix","domain":"frechespiele.at","brand":"flirt.com"},"frechespiele.ch":{"id":"cd428ded6a362e112e031999289623df","url":"http:\/\/frechespiele.ch\/landing\/autologinFromJump","nestedId":"107","cookie":"DatingCPhoenix","domain":"frechespiele.ch","brand":"flirt.com"},"frechespiele.de":{"id":"0be1fa017efd1cde9bae0a5623657029","url":"http:\/\/frechespiele.de\/landing\/autologinFromJump","nestedId":"108","cookie":"DatingCPhoenix","domain":"frechespiele.de","brand":"flirt.com"},"prapaquerar.com":{"id":"9994ade32391a13eeece0ccfe5a50364","url":"http:\/\/prapaquerar.com\/landing\/autologinFromJump","nestedId":"109","cookie":"DatingCPhoenix","domain":"prapaquerar.com","brand":"flirt.com"},"contactosalocados.com":{"id":"5e20cc011b878b19555f0f8eda2a3fc9","url":"http:\/\/contactosalocados.com\/landing\/autologinFromJump","nestedId":"110","cookie":"DatingCPhoenix","domain":"contactosalocados.com","brand":"wildbuddies.com"},"contactosalocados.es":{"id":"96cc833a12e675e69b9ac33ddba94733","url":"http:\/\/contactosalocados.es\/landing\/autologinFromJump","nestedId":"111","cookie":"DatingCPhoenix","domain":"contactosalocados.es","brand":"wildbuddies.com"},"soifderencontres.com":{"id":"a14db34a91d39a4dee6b8c0cb37d3807","url":"http:\/\/soifderencontres.com\/landing\/autologinFromJump","nestedId":"112","cookie":"DatingCPhoenix","domain":"soifderencontres.com","brand":"wildbuddies.com"},"soifderencontres.fr":{"id":"4059eb1387eff6d81907c266b1cdfe0c","url":"http:\/\/soifderencontres.fr\/landing\/autologinFromJump","nestedId":"113","cookie":"DatingCPhoenix","domain":"soifderencontres.fr","brand":"wildbuddies.com"},"wiewild.de":{"id":"03d94661ca6df9c7216abeb5ec4d8647","url":"http:\/\/wiewild.de\/landing\/autologinFromJump","nestedId":"114","cookie":"DatingCPhoenix","domain":"wiewild.de","brand":"wildbuddies.com"},"wildbuddies.dk":{"id":"13307e52ac95b1adc9eaf047c68b49bc","url":"http:\/\/wildbuddies.dk\/landing\/autologinFromJump","nestedId":"115","cookie":"DatingCPhoenix","domain":"wildbuddies.dk","brand":"wildbuddies.dk"},"spicydesires.com":{"id":"68f37b22bc1449ca317fd61f42319f43","url":"http:\/\/spicydesires.com\/landing\/autologinFromJump","nestedId":"116","cookie":"DatingCPhoenix","domain":"spicydesires.com","brand":""},"lovebook.com":{"id":"324b723f0b4202d9d864f34609bcfbe9","url":"http:\/\/lovebook.com\/landing\/autologinFromJump","nestedId":"117","cookie":"DatingCPhoenix","domain":"lovebook.com","brand":""},"iamon.com":{"id":"bc4d1298708e1bc71e4e1190a36e1514","url":"http:\/\/iamon.com\/landing\/autologinFromJump","nestedId":"118","cookie":"DatingCPhoenix","domain":"iamon.com","brand":""},"upforitnetworks.com":{"id":"85143acc55888de4dd3bd04a7e4e4a72","url":"http:\/\/upforitnetworks.com\/landing\/autologinFromJump","nestedId":"119","cookie":"DatingCPhoenix","domain":"upforitnetworks.com","brand":""},"assets.upforitnetworks.com":{"id":"f75c7ca110b022e17a5794d5b7e54e04","url":"http:\/\/assets.upforitnetworks.com\/landing\/autologinFromJump","nestedId":"120","cookie":"DatingCPhoenix","domain":"assets.upforitnetworks.com","brand":""},"affairdate.com":{"id":"0242dc1b12eb3671ec9c6ff73ef49860","url":"http:\/\/affairdate.com\/landing\/autologinFromJump","nestedId":"121","cookie":"DatingCPhoenix","domain":"affairdate.com","brand":""},"my.ufins.com":{"id":"9e5497401ffffd1e7dd5d6ec3eea9162","url":"http:\/\/my.ufins.com\/landing\/autologinFromJump","nestedId":"122","cookie":"DatingCPhoenix","domain":"my.ufins.com","brand":""},"mynaughtyfeed.com.com":{"id":"0b180078d994cb2b5ed89d7ce8e7eea2","url":"http:\/\/mynaughtyfeed.com.com\/landing\/autologinFromJump","nestedId":"123","cookie":"DatingCPhoenix","domain":"mynaughtyfeed.com.com","brand":""},"naughty123.com":{"id":"3ed0b06e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/naughty123.com\/landing\/autologinFromJump","nestedId":"124","cookie":"DatingCPhoenix","domain":"naughty123.com","brand":""},"luludating.com":{"id":"3ed0b0827dfb11e3ac4dd4bed9a9456d","url":"http:\/\/luludating.com\/landing\/autologinFromJump","nestedId":"125","cookie":"DatingCPhoenix","domain":"luludating.com","brand":""},"ultimatesexcontacts.co.uk":{"id":"3ed0b0aa7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/ultimatesexcontacts.co.uk\/landing\/autologinFromJump","nestedId":"126","cookie":"DatingCPhoenix","domain":"ultimatesexcontacts.co.uk","brand":""},"upforanything.co.uk":{"id":"3ed0b0c87dfb11e3ac4dd4bed9a9456d","url":"http:\/\/upforanything.co.uk\/landing\/autologinFromJump","nestedId":"127","cookie":"DatingCPhoenix","domain":"upforanything.co.uk","brand":""},"sexcontactsclub.co.uk":{"id":"3ed0b0d27dfb11e3ac4dd4bed9a9456d","url":"http:\/\/sexcontactsclub.co.uk\/landing\/autologinFromJump","nestedId":"128","cookie":"DatingCPhoenix","domain":"sexcontactsclub.co.uk","brand":""},"flirtmatch.co.uk":{"id":"3ed0b0dc7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/flirtmatch.co.uk\/landing\/autologinFromJump","nestedId":"129","cookie":"DatingCPhoenix","domain":"flirtmatch.co.uk","brand":""},"friskyflirts.com":{"id":"3ed0b0f07dfb11e3ac4dd4bed9a9456d","url":"http:\/\/friskyflirts.com\/landing\/autologinFromJump","nestedId":"130","cookie":"DatingCPhoenix","domain":"friskyflirts.com","brand":""},"contacts.anywhere.xxx":{"id":"3ed0b0fa7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/contacts.anywhere.xxx\/landing\/autologinFromJump","nestedId":"131","cookie":"DatingCPhoenix","domain":"contacts.anywhere.xxx","brand":""},"onlinesexmatch.com":{"id":"3ed0b1187dfb11e3ac4dd4bed9a9456d","url":"http:\/\/onlinesexmatch.com\/landing\/autologinFromJump","nestedId":"132","cookie":"DatingCPhoenix","domain":"onlinesexmatch.com","brand":""},"bbwsupforit.com":{"id":"12002776","url":"http:\/\/bbwsupforit.com\/external_autologin.php","nestedId":"247","cookie":"DatingCMultiPM","domain":"bbwsupforit.com","brand":""},"matureupforit.com":{"id":"12002779","url":"http:\/\/matureupforit.com\/external_autologin.php","nestedId":"248","cookie":"DatingCMultiPM","domain":"matureupforit.com","brand":""},"amateursupforit.com":{"id":"12002781","url":"http:\/\/amateursupforit.com\/external_autologin.php","nestedId":"249","cookie":"DatingCMultiPM","domain":"amateursupforit.com","brand":""},"cockmad.co.uk":{"id":"3ed0b1907dfb11e3ac4dd4bed9a9456d","url":"http:\/\/cockmad.co.uk\/landing\/autologinFromJump","nestedId":"136","cookie":"DatingCPhoenix","domain":"cockmad.co.uk","brand":""},"dating.flirt.com.au":{"id":"3ed0b1a47dfb11e3ac4dd4bed9a9456d","url":"http:\/\/dating.flirt.com.au\/landing\/autologinFromJump","nestedId":"137","cookie":"DatingCPhoenix","domain":"dating.flirt.com.au","brand":""},"facebookdesexo.es":{"id":"12004803","url":"http:\/\/facebookdesexo.es\/external_autologin.php","nestedId":"254","cookie":"DatingCMultiPM","domain":"facebookdesexo.es","brand":""},"1nightstand.co.uk":{"id":"3ed0b1d67dfb11e3ac4dd4bed9a9456d","url":"http:\/\/1nightstand.co.uk\/landing\/autologinFromJump","nestedId":"139","cookie":"DatingCPhoenix","domain":"1nightstand.co.uk","brand":""},"fkbook.net":{"id":"3ed0b21c7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/fkbook.net\/landing\/autologinFromJump","nestedId":"140","cookie":"DatingCPhoenix","domain":"fkbook.net","brand":""},"undercoverlovers.com":{"id":"3ed0b2267dfb11e3ac4dd4bed9a9456d","url":"http:\/\/undercoverlovers.com\/landing\/autologinFromJump","nestedId":"141","cookie":"DatingCPhoenix","domain":"undercoverlovers.com","brand":""},"newsfilter.org.uk":{"id":"12006856","url":"http:\/\/newsfilter.org.uk\/external_autologin.php","nestedId":"257","cookie":"DatingCMultiPM","domain":"newsfilter.org.uk","brand":""},"town.cougarloversdating.com":{"id":"3ed0b2947dfb11e3ac4dd4bed9a9456d","url":"http:\/\/town.cougarloversdating.com\/landing\/autologinFromJump","nestedId":"143","cookie":"DatingCPhoenix","domain":"town.cougarloversdating.com","brand":""},"dating.private.com":{"id":"12007292","url":"http:\/\/dating.private.com\/external_autologin.php","nestedId":"261","cookie":"DatingCMultiPM","domain":"dating.private.com","brand":""},"findbbwsex.com":{"id":"12007498","url":"http:\/\/findbbwsex.com\/external_autologin.php","nestedId":"262","cookie":"DatingCMultiPM","domain":"findbbwsex.com","brand":""},"dating.avn.com":{"id":"12007359","url":"http:\/\/dating.avn.com\/external_autologin.php","nestedId":"263","cookie":"DatingCMultiPM","domain":"dating.avn.com","brand":""},"iwantcasual.com":{"id":"3ed0b2da7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/iwantcasual.com\/landing\/autologinFromJump","nestedId":"147","cookie":"DatingCPhoenix","domain":"iwantcasual.com","brand":""},"hornyonlinematch.com":{"id":"3ed0b0a07dfb11e3ac4dd4bed9a9456d","url":"http:\/\/hornyonlinematch.com\/landing\/autologinFromJump","nestedId":"148","cookie":"DatingCPhoenix","domain":"hornyonlinematch.com","brand":""},"vraiflirt.com":{"id":"12007688","url":"http:\/\/vraiflirt.com\/external_autologin.php","nestedId":"266","cookie":"DatingCMultiPM","domain":"vraiflirt.com","brand":""},"dating.pornbanana.com":{"id":"12007690","url":"http:\/\/dating.pornbanana.com\/external_autologin.php","nestedId":"267","cookie":"DatingCMultiPM","domain":"dating.pornbanana.com","brand":""},"contactos.freeones.es":{"id":"12007822","url":"http:\/\/contactos.freeones.es\/external_autologin.php","nestedId":"269","cookie":"DatingCMultiPM","domain":"contactos.freeones.es","brand":""},"rolloduro.es":{"id":"3ed0b3707dfb11e3ac4dd4bed9a9456d","url":"http:\/\/rolloduro.es\/landing\/autologinFromJump","nestedId":"152","cookie":"DatingCPhoenix","domain":"rolloduro.es","brand":""},"bemyfuckbuddy.co.uk":{"id":"3ed0b3847dfb11e3ac4dd4bed9a9456d","url":"http:\/\/bemyfuckbuddy.co.uk\/landing\/autologinFromJump","nestedId":"153","cookie":"DatingCPhoenix","domain":"bemyfuckbuddy.co.uk","brand":""},"naughtyhookups.co.uk":{"id":"3ed0b38e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/naughtyhookups.co.uk\/landing\/autologinFromJump","nestedId":"154","cookie":"DatingCPhoenix","domain":"naughtyhookups.co.uk","brand":""},"hornyclub.co.uk":{"id":"3ed0b3987dfb11e3ac4dd4bed9a9456d","url":"http:\/\/hornyclub.co.uk\/landing\/autologinFromJump","nestedId":"155","cookie":"DatingCPhoenix","domain":"hornyclub.co.uk","brand":""},"dateburg.com":{"id":"12008236","url":"http:\/\/dateburg.com\/external_autologin.php","nestedId":"273","cookie":"DatingCMultiPM","domain":"dateburg.com","brand":""},"naughtyfreeandsingle.com":{"id":"3ed0b3b67dfb11e3ac4dd4bed9a9456d","url":"http:\/\/naughtyfreeandsingle.com\/landing\/autologinFromJump","nestedId":"157","cookie":"DatingCPhoenix","domain":"naughtyfreeandsingle.com","brand":""},"casual.divorceddate.com":{"id":"3ed0b3c07dfb11e3ac4dd4bed9a9456d","url":"http:\/\/casual.divorceddate.com\/landing\/autologinFromJump","nestedId":"158","cookie":"DatingCPhoenix","domain":"casual.divorceddate.com","brand":""},"21sexturydating.com":{"id":"12008612","url":"http:\/\/21sexturydating.com\/external_autologin.php","nestedId":"274","cookie":"DatingCMultiPM","domain":"21sexturydating.com","brand":""},"olderwomenseekingsex.com":{"id":"3ed0b3e87dfb11e3ac4dd4bed9a9456d","url":"http:\/\/olderwomenseekingsex.com\/landing\/autologinFromJump","nestedId":"160","cookie":"DatingCPhoenix","domain":"olderwomenseekingsex.com","brand":""},"bbwlocalsex.com":{"id":"3ed0b3fc7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/bbwlocalsex.com\/landing\/autologinFromJump","nestedId":"161","cookie":"DatingCPhoenix","domain":"bbwlocalsex.com","brand":""},"bbwsexdate.com":{"id":"3ed0b4067dfb11e3ac4dd4bed9a9456d","url":"http:\/\/bbwsexdate.com\/landing\/autologinFromJump","nestedId":"162","cookie":"DatingCPhoenix","domain":"bbwsexdate.com","brand":""},"bustymaturehookup.com":{"id":"3ed0b4107dfb11e3ac4dd4bed9a9456d","url":"http:\/\/bustymaturehookup.com\/landing\/autologinFromJump","nestedId":"163","cookie":"DatingCPhoenix","domain":"bustymaturehookup.com","brand":""},"chubbysexdate.com":{"id":"3ed0b4247dfb11e3ac4dd4bed9a9456d","url":"http:\/\/chubbysexdate.com\/landing\/autologinFromJump","nestedId":"164","cookie":"DatingCPhoenix","domain":"chubbysexdate.com","brand":""},"datestation.com":{"id":"3ed0b42e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/datestation.com\/landing\/autologinFromJump","nestedId":"165","cookie":"DatingCPhoenix","domain":"datestation.com","brand":""},"dateflux.com":{"id":"12010006","url":"http:\/\/dateflux.com\/external_autologin.php","nestedId":"275","cookie":"DatingCMultiPM","domain":"dateflux.com","brand":""},"milfparfaite.com":{"id":"3ed0b4747dfb11e3ac4dd4bed9a9456d","url":"http:\/\/milfparfaite.com\/landing\/autologinFromJump","nestedId":"167","cookie":"DatingCPhoenix","domain":"milfparfaite.com","brand":""},"planetemature.com":{"id":"3ed0b4887dfb11e3ac4dd4bed9a9456d","url":"http:\/\/planetemature.com\/landing\/autologinFromJump","nestedId":"168","cookie":"DatingCPhoenix","domain":"planetemature.com","brand":""},"contactsarabes.com":{"id":"3ed0b49c7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/contactsarabes.com\/landing\/autologinFromJump","nestedId":"169","cookie":"DatingCPhoenix","domain":"contactsarabes.com","brand":""},"mysecretmilf.com":{"id":"3ed0b4b07dfb11e3ac4dd4bed9a9456d","url":"http:\/\/mysecretmilf.com\/landing\/autologinFromJump","nestedId":"170","cookie":"DatingCPhoenix","domain":"mysecretmilf.com","brand":""},"dating.cyber-sex.com":{"id":"3ed0b4ec7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/dating.cyber-sex.com\/landing\/autologinFromJump","nestedId":"171","cookie":"DatingCPhoenix","domain":"dating.cyber-sex.com","brand":""},"dating.adult-finder.com":{"id":"3ed0b4f67dfb11e3ac4dd4bed9a9456d","url":"http:\/\/dating.adult-finder.com\/landing\/autologinFromJump","nestedId":"172","cookie":"DatingCPhoenix","domain":"dating.adult-finder.com","brand":""},"mysecretcougar.com":{"id":"3ed0b5007dfb11e3ac4dd4bed9a9456d","url":"http:\/\/mysecretcougar.com\/landing\/autologinFromJump","nestedId":"173","cookie":"DatingCPhoenix","domain":"mysecretcougar.com","brand":""},"mysecretbbw.com":{"id":"3ed0b5147dfb11e3ac4dd4bed9a9456d","url":"http:\/\/mysecretbbw.com\/landing\/autologinFromJump","nestedId":"174","cookie":"DatingCPhoenix","domain":"mysecretbbw.com","brand":""},"fortyandnaughty.com":{"id":"3ed0b51e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/fortyandnaughty.com\/landing\/autologinFromJump","nestedId":"175","cookie":"DatingCPhoenix","domain":"fortyandnaughty.com","brand":""},"chatroomsuk.co.uk":{"id":"3ed0b5287dfb11e3ac4dd4bed9a9456d","url":"http:\/\/chatroomsuk.co.uk\/landing\/autologinFromJump","nestedId":"176","cookie":"DatingCPhoenix","domain":"chatroomsuk.co.uk","brand":""},"bestdatingsites.me.uk":{"id":"12025006","url":"http:\/\/bestdatingsites.me.uk\/external_autologin.php","nestedId":"283","cookie":"DatingCMultiPM","domain":"bestdatingsites.me.uk","brand":""},"dating-websites-uk.com":{"id":"3ed0b5507dfb11e3ac4dd4bed9a9456d","url":"http:\/\/dating-websites-uk.com\/landing\/autologinFromJump","nestedId":"178","cookie":"DatingCPhoenix","domain":"dating-websites-uk.com","brand":""},"adult-friend-finder.org":{"id":"3ed0b5647dfb11e3ac4dd4bed9a9456d","url":"http:\/\/adult-friend-finder.org\/landing\/autologinFromJump","nestedId":"179","cookie":"DatingCPhoenix","domain":"adult-friend-finder.org","brand":""},"freeadultchatrooms.biz":{"id":"3ed0b56e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/freeadultchatrooms.biz\/landing\/autologinFromJump","nestedId":"180","cookie":"DatingCPhoenix","domain":"freeadultchatrooms.biz","brand":""},"3somes.org":{"id":"3ed0b5787dfb11e3ac4dd4bed9a9456d","url":"http:\/\/3somes.org\/landing\/autologinFromJump","nestedId":"181","cookie":"DatingCPhoenix","domain":"3somes.org","brand":""},"free-adultwebcam.org":{"id":"3ed0b58c7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/free-adultwebcam.org\/landing\/autologinFromJump","nestedId":"182","cookie":"DatingCPhoenix","domain":"free-adultwebcam.org","brand":""},"double-sex.com":{"id":"3ed0b5967dfb11e3ac4dd4bed9a9456d","url":"http:\/\/double-sex.com\/landing\/autologinFromJump","nestedId":"183","cookie":"DatingCPhoenix","domain":"double-sex.com","brand":""},"freesexdating.biz":{"id":"3ed0b5a07dfb11e3ac4dd4bed9a9456d","url":"http:\/\/freesexdating.biz\/landing\/autologinFromJump","nestedId":"184","cookie":"DatingCPhoenix","domain":"freesexdating.biz","brand":""},"gay-chatrooms.net":{"id":"3ed0b5aa7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/gay-chatrooms.net\/landing\/autologinFromJump","nestedId":"185","cookie":"DatingCPhoenix","domain":"gay-chatrooms.net","brand":""},"datethelatina.com":{"id":"3ed0b6047dfb11e3ac4dd4bed9a9456d","url":"http:\/\/datethelatina.com\/landing\/autologinFromJump","nestedId":"186","cookie":"DatingCPhoenix","domain":"datethelatina.com","brand":""},"lustmatesforfun.com":{"id":"3ed0b60e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/lustmatesforfun.com\/landing\/autologinFromJump","nestedId":"187","cookie":"DatingCPhoenix","domain":"lustmatesforfun.com","brand":""},"naughtyandhotty.com":{"id":"3ed0b6187dfb11e3ac4dd4bed9a9456d","url":"http:\/\/naughtyandhotty.com\/landing\/autologinFromJump","nestedId":"188","cookie":"DatingCPhoenix","domain":"naughtyandhotty.com","brand":""},"upwithmilf.com":{"id":"3ed0b6227dfb11e3ac4dd4bed9a9456d","url":"http:\/\/upwithmilf.com\/landing\/autologinFromJump","nestedId":"189","cookie":"DatingCPhoenix","domain":"upwithmilf.com","brand":""},"getamilfaffair.com":{"id":"3ed0b6407dfb11e3ac4dd4bed9a9456d","url":"http:\/\/getamilfaffair.com\/landing\/autologinFromJump","nestedId":"190","cookie":"DatingCPhoenix","domain":"getamilfaffair.com","brand":""},"bangwithmilf.com":{"id":"3ed0b6547dfb11e3ac4dd4bed9a9456d","url":"http:\/\/bangwithmilf.com\/landing\/autologinFromJump","nestedId":"191","cookie":"DatingCPhoenix","domain":"bangwithmilf.com","brand":""},"match-milf.com":{"id":"3ed0b65e7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/match-milf.com\/landing\/autologinFromJump","nestedId":"192","cookie":"DatingCPhoenix","domain":"match-milf.com","brand":""},"titbracebbw.com":{"id":"3ed0b6687dfb11e3ac4dd4bed9a9456d","url":"http:\/\/titbracebbw.com\/landing\/autologinFromJump","nestedId":"193","cookie":"DatingCPhoenix","domain":"titbracebbw.com","brand":""},"allmybbw.com":{"id":"3ed0b67c7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/allmybbw.com\/landing\/autologinFromJump","nestedId":"194","cookie":"DatingCPhoenix","domain":"allmybbw.com","brand":""},"bbwsweety.com":{"id":"12025044","url":"http:\/\/bbwsweety.com\/external_autologin.php","nestedId":"284","cookie":"DatingCMultiPM","domain":"bbwsweety.com","brand":""},"breastyaffairs.com":{"id":"12025045","url":"http:\/\/breastyaffairs.com\/external_autologin.php","nestedId":"285","cookie":"DatingCMultiPM","domain":"breastyaffairs.com","brand":""},"cougardatings.com":{"id":"12025046","url":"http:\/\/cougardatings.com\/external_autologin.php","nestedId":"286","cookie":"DatingCMultiPM","domain":"cougardatings.com","brand":""},"mysecretdiary.com":{"id":"3ed0b6d67dfb11e3ac4dd4bed9a9456d","url":"http:\/\/mysecretdiary.com\/landing\/autologinFromJump","nestedId":"198","cookie":"DatingCPhoenix","domain":"mysecretdiary.com","brand":""},"romanticmates.com":{"id":"db2bd0084447ae18d9867ec9a2bdd308","url":"http:\/\/romanticmates.com\/landing\/autologinFromJump","nestedId":"199","cookie":"DatingCPhoenix","domain":"romanticmates.com","brand":""},"findmydarling.com":{"id":"3cc104ce375a8dc392c4cad77e39e391","url":"http:\/\/findmydarling.com\/landing\/autologinFromJump","nestedId":"200","cookie":"DatingCPhoenix","domain":"findmydarling.com","brand":""},"adultswantsex.com":{"id":"fce2f3271555c69518f9a47ae4e6b80b","url":"http:\/\/adultswantsex.com\/landing\/autologinFromJump","nestedId":"201","cookie":"DatingCPhoenix","domain":"adultswantsex.com","brand":""},"oneclickaffair.com":{"id":"06fd43b3f47f34a36755c7c652caebfa","url":"http:\/\/oneclickaffair.com\/landing\/autologinFromJump","nestedId":"202","cookie":"DatingCPhoenix","domain":"oneclickaffair.com","brand":""},"hotsexmatch.com":{"id":"be0308922ac6cdc145a996b05639a87e","url":"http:\/\/hotsexmatch.com\/landing\/autologinFromJump","nestedId":"299","cookie":"DatingCPhoenix","domain":"hotsexmatch.com","brand":""},"bestsexmatch.com":{"id":"1ab49b9de718002de3e60b682a7b4bd0","url":"http:\/\/bestsexmatch.com\/landing\/autologinFromJump","nestedId":"204","cookie":"DatingCPhoenix","domain":"bestsexmatch.com","brand":""},"relacionesprivadas.es":{"id":"12007920","url":"http:\/\/relacionesprivadas.es\/external_autologin.php","nestedId":"272","cookie":"DatingCMultiPM","domain":"relacionesprivadas.es","brand":""},"cambiarpareja.com":{"id":"12004969","url":"http:\/\/cambiarpareja.com\/external_autologin.php","nestedId":"255","cookie":"DatingCMultiPM","domain":"cambiarpareja.com","brand":""},"sexlugar.com":{"id":"b4887931a2c35378148ce4406ac1b2fe","url":"http:\/\/sexlugar.com\/landing\/autologinFromJump","nestedId":"207","cookie":"DatingCPhoenix","domain":"sexlugar.com","brand":""},"piacerediscreto.it":{"id":"6228667425b1c22af455fd5e355fd8cf","url":"http:\/\/piacerediscreto.it\/landing\/autologinFromJump","nestedId":"208","cookie":"DatingCPhoenix","domain":"piacerediscreto.it","brand":""},"gibmirsex.com":{"id":"54","url":"http:\/\/gibmirsex.com\/external_autologin.php","nestedId":"209","cookie":"DatingCMultiPM","domain":"gibmirsex.com","brand":""},"sexigdate.se":{"id":"b3a0fa7c492b5b1b964d84a7795fa52b","url":"http:\/\/sexigdate.se\/landing\/autologinFromJump","nestedId":"210","cookie":"DatingCPhoenix","domain":"sexigdate.se","brand":""},"snuskflirt.se":{"id":"6131a6ebca6e4a3565e813043e4646df","url":"http:\/\/snuskflirt.se\/landing\/autologinFromJump","nestedId":"211","cookie":"DatingCPhoenix","domain":"snuskflirt.se","brand":""},"treffegirls.com":{"id":"53","url":"http:\/\/treffegirls.com\/external_autologin.php","nestedId":"212","cookie":"DatingCMultiPM","domain":"treffegirls.com","brand":""},"fristemeg.no":{"id":"e54ed198be49e70999487bb041cc61c1","url":"http:\/\/fristemeg.no\/landing\/autologinFromJump","nestedId":"213","cookie":"DatingCPhoenix","domain":"fristemeg.no","brand":""},"fristmignu.dk":{"id":"14cd52a6595042fb22b75905482d16d3","url":"http:\/\/fristmignu.dk\/landing\/autologinFromJump","nestedId":"214","cookie":"DatingCPhoenix","domain":"fristmignu.dk","brand":""},"rampetepiker.no":{"id":"0df91ba7a954626eb8e81f0b4f862a89","url":"http:\/\/rampetepiker.no\/landing\/autologinFromJump","nestedId":"215","cookie":"DatingCPhoenix","domain":"rampetepiker.no","brand":""},"seksueltforhold.dk":{"id":"37fa167c120b454448f30ee4b4142ad1","url":"http:\/\/seksueltforhold.dk\/landing\/autologinFromJump","nestedId":"216","cookie":"DatingCPhoenix","domain":"seksueltforhold.dk","brand":""},"hornycontacts.com":{"id":"7fb3c29be523ba3f92d532261fc4ace2","url":"http:\/\/hornycontacts.com\/landing\/autologinFromJump","nestedId":"217","cookie":"DatingCPhoenix","domain":"hornycontacts.com","brand":""},"affairdating.com":{"id":"22be992958ea871e03ffdee6421d8bc5","url":"http:\/\/affairdating.com\/landing\/autologinFromJump","nestedId":"218","cookie":"DatingCPhoenix","domain":"affairdating.com","brand":""},"bbwtodate.com":{"id":"12006727","url":"http:\/\/bbwtodate.com\/external_autologin.php","nestedId":"256","cookie":"DatingCMultiPM","domain":"bbwtodate.com","brand":""},"fatflirt.com":{"id":"12007511","url":"http:\/\/fatflirt.com\/external_autologin.php","nestedId":"264","cookie":"DatingCMultiPM","domain":"fatflirt.com","brand":""},"myfling.com":{"id":"12013107","url":"http:\/\/myfling.com\/external_autologin.php","nestedId":"277","cookie":"DatingCMultiPM","domain":"myfling.com","brand":""},"quierorollo.es":{"id":"3ed0b6fe7dfb11e3ac4dd4bed9a9456d","url":"http:\/\/quierorollo.es\/landing\/autologinFromJump","nestedId":"223","cookie":"DatingCPhoenix","domain":"quierorollo.es","brand":""},"ulove.com":{"id":"3ed0b7087dfb11e3ac4dd4bed9a9456d","url":"http:\/\/ulove.com\/landing\/autologinFromJump","nestedId":"224","cookie":"DatingCPhoenix","domain":"ulove.com","brand":""},"bbwfordate.com":{"id":"3b72ed048aa0e9ffe8f6e34d869c394d","url":"http:\/\/bbwfordate.com\/landing\/autologinFromJump","nestedId":"225","cookie":"DatingCPhoenix","domain":"bbwfordate.com","brand":""},"cougardates.org":{"id":"a249da7fdead297b4adb04bf2a452b93","url":"http:\/\/cougardates.org\/landing\/autologinFromJump","nestedId":"226","cookie":"DatingCPhoenix","domain":"cougardates.org","brand":""},"marriageaffairlove.com":{"id":"bffe43eec87e6104cfb5c94a945130af","url":"http:\/\/marriageaffairlove.com\/landing\/autologinFromJump","nestedId":"227","cookie":"DatingCPhoenix","domain":"marriageaffairlove.com","brand":""},"bestcougardate.com":{"id":"5f4469038c954caa416f31c52fe9478a","url":"http:\/\/bestcougardate.com\/landing\/autologinFromJump","nestedId":"228","cookie":"DatingCPhoenix","domain":"bestcougardate.com","brand":""},"datecougarnow.com":{"id":"58439a0d0a21d7cf8a140b7680331fa1","url":"http:\/\/datecougarnow.com\/landing\/autologinFromJump","nestedId":"229","cookie":"DatingCPhoenix","domain":"datecougarnow.com","brand":""},"affairlove.net":{"id":"5d3260dfe2364e5f9290249870d38ebd","url":"http:\/\/affairlove.net\/landing\/autologinFromJump","nestedId":"230","cookie":"DatingCPhoenix","domain":"affairlove.net","brand":""},"milflovers.org":{"id":"ed115c41b5b71c3c59b65b6a470f7e9a","url":"http:\/\/milflovers.org\/landing\/autologinFromJump","nestedId":"231","cookie":"DatingCPhoenix","domain":"milflovers.org","brand":""},"milffordate.com":{"id":"e61db7084ac72d71c9030795a92d7b0c","url":"http:\/\/milffordate.com\/landing\/autologinFromJump","nestedId":"232","cookie":"DatingCPhoenix","domain":"milffordate.com","brand":""},"bbwlovers.org":{"id":"c3960bdfe60ce75af06511698a1a3e1f","url":"http:\/\/bbwlovers.org\/landing\/autologinFromJump","nestedId":"233","cookie":"DatingCPhoenix","domain":"bbwlovers.org","brand":""},"bbwtomeet.com":{"id":"4579da4606a22ef7ee48d5dafbdd294a","url":"http:\/\/bbwtomeet.com\/landing\/autologinFromJump","nestedId":"234","cookie":"DatingCPhoenix","domain":"bbwtomeet.com","brand":""},"annoncessexy.fr":{"id":"25065","url":"http:\/\/annoncessexy.fr\/external_autologin.php","nestedId":"235","cookie":"DatingCMultiPM","domain":"annoncessexy.fr","brand":""},"freemembers.slutspace.com":{"id":"25067","url":"http:\/\/freemembers.slutspace.com\/external_autologin.php","nestedId":"236","cookie":"DatingCMultiPM","domain":"freemembers.slutspace.com","brand":""},"quickflirt.com":{"id":"23d96a5e9a2f860ee19b2af6725ad12e","url":"http:\/\/quickflirt.com\/landing\/autologinFromJump","nestedId":"237","cookie":"DatingCPhoenix","domain":"quickflirt.com","brand":""},"naughtywoo.com":{"id":"c3d0aa3d46d4c2586b6900e783cbc690","url":"http:\/\/naughtywoo.com\/landing\/autologinFromJump","nestedId":"238","cookie":"DatingCPhoenix","domain":"naughtywoo.com","brand":""},"cum.fr":{"id":"8bcc7e7050c0f0d18998a2d81fe1b6f5","url":"http:\/\/cum.fr\/landing\/autologinFromJump","nestedId":"239","cookie":"DatingCPhoenix","domain":"cum.fr","brand":""},"themeeteor.com":{"id":"60","url":"http:\/\/themeeteor.com\/external_autologin.php","nestedId":"240","cookie":"DatingCMultiTN","domain":"themeeteor.com","brand":""},"spicychats.com":{"id":"4eaf81b887fd5d187563dfe984a87947","url":"http:\/\/spicychats.com\/landing\/autologinFromJump","nestedId":"241","cookie":"DatingCPhoenix","domain":"spicychats.com","brand":""},"wildboyz.de":{"id":"8","url":"http:\/\/wildboyz.de\/external_autologin.php","nestedId":"242","cookie":"DatingCMultiTN","domain":"wildboyz.de","brand":""},"treffegirls.de":{"id":"b519b83f1a7c6b088f856ac22f3af17e","url":"http:\/\/treffegirls.de\/landing\/autologinFromJump","nestedId":"243","cookie":"DatingCPhoenix","domain":"treffegirls.de","brand":""},"gibmirsex.de":{"id":"af319309fed13c64184b7ccb070ddd0c","url":"http:\/\/gibmirsex.de\/landing\/autologinFromJump","nestedId":"244","cookie":"DatingCPhoenix","domain":"gibmirsex.de","brand":""},"tatschmi.com":{"id":"14913b7e1698a52d3976d043f2f7d8a5","url":"http:\/\/tatschmi.com\/landing\/autologinFromJump","nestedId":"245","cookie":"DatingCPhoenix","domain":"tatschmi.com","brand":"flirt.com"},"wilddate4sex.com":{"id":"2cf11d6680ebf8bc18b87df3a88b0917","url":"http:\/\/wilddate4sex.com\/landing\/autologinFromJump","nestedId":"246","cookie":"DatingCPhoenix","domain":"wilddate4sex.com","brand":""},"gaysupforit.com":{"id":"12002937","url":"http:\/\/gaysupforit.com\/external_autologin.php","nestedId":"250","cookie":"DatingCMultiPM","domain":"gaysupforit.com","brand":""},"gaypartners.com":{"id":"12004263","url":"http:\/\/gaypartners.com\/external_autologin.php","nestedId":"253","cookie":"DatingCMultiPM","domain":"gaypartners.com","brand":""},"getanaffair.com":{"id":"12006896","url":"http:\/\/getanaffair.com\/external_autologin.php","nestedId":"258","cookie":"DatingCMultiPM","domain":"getanaffair.com","brand":""},"bediscreet.com":{"id":"3ed0b2627dfb11e3ac4dd4bed9a9456d","url":"http:\/\/bediscreet.com\/landing\/autologinFromJump","nestedId":"259","cookie":"DatingCPhoenix","domain":"bediscreet.com","brand":""},"amissexy.com":{"id":"3ed0b3207dfb11e3ac4dd4bed9a9456d","url":"http:\/\/amissexy.com\/landing\/autologinFromJump","nestedId":"268","cookie":"DatingCPhoenix","domain":"amissexy.com","brand":""},"Milfparfaite.com":{"id":"12013109","url":"http:\/\/milfparfaite.com\/external_autologin.php","nestedId":"276","cookie":"DatingCMultiPM","domain":"Milfparfaite.com","brand":""},"Cougarpourmoi.com":{"id":"12013108","url":"http:\/\/cougarpourmoi.com\/external_autologin.php","nestedId":"278","cookie":"DatingCMultiPM","domain":"Cougarpourmoi.com","brand":""},"Soissecret.com":{"id":"12013110","url":"http:\/\/soissecret.com\/external_autologin.php","nestedId":"279","cookie":"DatingCMultiPM","domain":"Soissecret.com","brand":""},"Planetemature.com":{"id":"12013111","url":"http:\/\/planetemature.com\/external_autologin.php","nestedId":"280","cookie":"DatingCMultiPM","domain":"Planetemature.com","brand":""},"Contactsarabes.com":{"id":"12013112","url":"http:\/\/contactsarabes.com\/external_autologin.php","nestedId":"281","cookie":"DatingCMultiPM","domain":"Contactsarabes.com","brand":""},"Iwantumilf.com":{"id":"12030000","url":"http:\/\/iwantumilf.com\/external_autologin.php","nestedId":"287","cookie":"DatingCMultiPM","domain":"Iwantumilf.com","brand":""},"Iwantucougar.com":{"id":"12030001","url":"http:\/\/iwantucougar.com\/external_autologin.php","nestedId":"288","cookie":"DatingCMultiPM","domain":"Iwantucougar.com","brand":""},"Iwantubbw.com":{"id":"12030003","url":"http:\/\/iwantubbw.com\/external_autologin.php","nestedId":"289","cookie":"DatingCMultiPM","domain":"Iwantubbw.com","brand":""},"Annoncessexy.fr":{"id":"cde95acedb89c0f68bbcba3763bc1c29","url":"http:\/\/annoncessexy.fr\/landing\/autologinFromJump","nestedId":"290","cookie":"DatingCPhoenix","domain":"Annoncessexy.fr","brand":""},"Freemembers.slutspace.com":{"id":"12025067","url":"http:\/\/freemembers.slutspace.com\/external_autologin.php","nestedId":"291","cookie":"DatingCMultiPM","domain":"Freemembers.slutspace.com","brand":""},"iwanthotties.com":{"id":"2cf11d6680ebf8bc18b87df3a88b0917","url":"http:\/\/iwanthotties.com\/landing\/autologinFromJump","nestedId":"292","cookie":"DatingCPhoenix","domain":"iwanthotties.com","brand":""},"nastyhookups.com":{"id":"0cc1d7fa91b64d3d9966835fbfcbdd91","url":"http:\/\/www.nastyhookups.com\/landing\/autologinFromJump","nestedId":"293","cookie":"DatingCPhoenix","domain":"nastyhookups.com","brand":""},"iamnaughty.com":{"id":"16","url":"http:\/\/www.iamnaughty.com\/external_autologin.php","nestedId":"294","cookie":"DatingCMultiPM","domain":"iamnaughty.com","brand":""},"hookupsfinder.com":{"id":"cb9e5abc59ca06f29c298323f2b70b62","url":"http:\/\/www.hookupsfinder.com\/landing\/autologinFromJump","nestedId":"295","cookie":"DatingCPhoenix","domain":"hookupsfinder.com","brand":""},"nfmature.com":{"id":"ee6a358c3a347fac277189e04a169ed3","url":"http:\/\/nfmature.com\/landing\/autologinFromJump","nestedId":"296","cookie":"DatingCPhoenix","domain":"nfmature.com","brand":""},"sexintouch.com":{"id":"811333999CBB8B1707A47EC0D02DB00C","url":"http:\/\/sexintouch.com\/landing\/autologinFromJump","nestedId":"297","cookie":"DatingCPhoenix","domain":"sexintouch.com","brand":""},"copainssexy.com":{"id":"e8e315d1457e58b16c5e174fa262cab3","url":"http:\/\/copainssexy.com\/landing\/autologinFromJump","nestedId":"298","cookie":"DatingCPhoenix","domain":"copainssexy.com","brand":""},"voisinssolitaires.com":{"id":"051b5c33e2bfe578f3604dece9c23f78","url":"http:\/\/voisinssolitaires.com\/landing\/autologinFromJump","nestedId":"300","cookie":"DatingCPhoenix","domain":"voisinssolitaires.com","brand":""},"soloavventure.it":{"id":"940ef8d7b2b4af0e438eb8a18dfb14f9","url":"http:\/\/soloavventure.it\/landing\/autologinFromJump","nestedId":"301","cookie":"DatingCPhoenix","domain":"soloavventure.it","brand":""},"sexosemamor.com":{"id":"3d585ae74c02b21d098e904ad386eb0b","url":"http:\/\/sexosemamor.com\/landing\/autologinFromJump","nestedId":"302","cookie":"DatingCPhoenix","domain":"sexosemamor.com","brand":""},"noitedesexo.com":{"id":"7b8ed3e6b64174c3ad9e3f4d80cdeccb","url":"http:\/\/noitedesexo.com\/landing\/autologinFromJump","nestedId":"303","cookie":"DatingCPhoenix","domain":"noitedesexo.com","brand":""},"tuhmameille.com":{"id":"5182a73fae46381e91a7b032f0d42105","url":"http:\/\/tuhmameille.com\/landing\/autologinFromJump","nestedId":"304","cookie":"DatingCPhoenix","domain":"tuhmameille.com","brand":""},"vittubuddie.com":{"id":"8604147027e83a377b889e0f2e4f1d45","url":"http:\/\/vittubuddie.com\/landing\/autologinFromJump","nestedId":"305","cookie":"DatingCPhoenix","domain":"vittubuddie.com","brand":""},"bangexperts.com":{"id":"71d42d6e5d4627a5711688203e74e142","url":"http:\/\/bangexperts.com\/landing\/autologinFromJump","nestedId":"306","cookie":"DatingCPhoenix","domain":"bangexperts.com","brand":""},"onenightfriend.com":{"id":"4329bfee2dcc66c03e4002b9034b154b","url":"http:\/\/onenightfriend.com\/landing\/autologinFromJump","nestedId":"307","cookie":"DatingCPhoenix","domain":"onenightfriend.com","brand":""}}');
+    var sitesCookie = JSON.parse('{}');
+    var sitesCookieOrig = JSON.parse('{}');
+    var allowCookie = true;
+    var allowCheckLogin = true;
+    var allowS4LA = false;
+
+    /**
+     * Check is logged for domain
+     *
+     * @param {string} domain Domain name
+     * @param {function} callback Callable on success
+     */
+    function getIsLogged(domain, callback){
+        var site = sites[domain];
+
+        var callWithCount = function(countLogin){
+            var cookieLogin = getCookie(domain);
+            var originCookieLogin = getOriginCookie(domain);
+
+            callback({
+                site : domain,
+                site_id : site.id,
+                nested_id : site.nestedId,
+                login_count : countLogin > cookieLogin ? countLogin : cookieLogin ? cookieLogin : 0,
+                login_count_origin : countLogin > originCookieLogin ? countLogin : originCookieLogin ? originCookieLogin : 0,
+                is_logged_in: countLogin || cookieLogin ? 1 : 0,
+                click_info : [],
+                brand: site.brand
+            })
+        }
+
+        if (site && allowCheckLogin) {
+            JSONP.request(site.url, function(isLogged){
+                callWithCount(isLogged ? 1 : 0);
+            });
+        } else {
+            callWithCount(0);
+        }
+    }
+
+    /**
+     * Get login/click count for domain
+     *
+     * @param {function} callback Callable on success
+     */
+    function getLoginCountInfo(callback){
+
+        var sitesInfo = {
+            lg_counters : {},
+            '1click_info' : {}
+        };
+
+        var callWithInfo = function(info) {
+            var siteId;
+            
+            for (siteId in sitesCookie) {
+                if (sitesCookie.hasOwnProperty(siteId)) {
+                    info['1click_info'][siteId] = sitesCookie[siteId];
+                }
+            }           
+            callback(info);
+        }
+
+        if (allowS4LA) {
+            JSONP.attachJs('http://www.s4la.com/tds/uinfo.php?t=4849864250d1e308069ba998bdb98380', function(resp){
+                var i;
+
+                if(typeof s4laExtRedirectDataJson === 'string'){
+                    sitesInfo = JSON.parse(s4laExtRedirectDataJson);
+
+                    for(i in sitesInfo.lg_counters) {
+                        if(sitesInfo.lg_counters.hasOwnProperty(i)){
+                            sitesInfo.lg_counters[i] = parseInt(sitesInfo.lg_counters[i]);
+                        }
+                    }
+
+                }
+
+                callWithInfo(sitesInfo);
+            });
+        } else {
+            callWithInfo(sitesInfo);
+        }
+    }
+
+    /**
+     * Get dating detect cookie (merged)
+     *
+     * @param {string} siteId Count for needle site
+     * @returns {object} Exists or new cookie
+     */
+    function getCookie(domain){
+        var cookie = JSON.parse('[]');
+
+        if (domain) {
+            cookie = sites[domain] && cookie[sites[domain].nestedId] ? cookie[sites[domain].nestedId] : 0;
+        }
+
+        return cookie;
+    }
+
+    /**
+     * Get origin cookies
+     *
+     * @param {string} siteId Count for needle site
+     * @returns {object} Exists or new cookie
+     */
+
+    function getOriginCookie(domain) {
+        var cookie = JSON.parse('{}');
+
+        if (domain) {
+            cookie = sites[domain] && cookie[sites[domain].nestedId] ? cookie[sites[domain].nestedId] : 0;
+        }
+
+        return cookie;
+    }
+
+    /**
+     * Clear cookie
+     *
+     * @return void
+     */
+    function clearCookie()
+    {
+        document.cookie = 'DatingDetect={}';
+    }
+
+    /**
+     * Collect information for given domains
+     *
+     * @param {Array} siteArray Array of domains
+     * @param callback Callable on collect success
+     */
+    function getLoginsCountOnReady(siteArray, callback)
+    {
+        var i;
+        var results = [];
+
+        for(i in siteArray) {
+            siteArray[i] = (siteArray[i] + "").toLowerCase();
+
+            getIsLogged(siteArray[i], function(info){                
+                results.push(info);
+                
+                if(results.length == siteArray.length){
+                    getLoginCountInfo(function(sites_info){                        
+                        for(var i in results) {
+                            if(sites_info.lg_counters[results[i].nested_id]) {
+                                results[i].login_count = sites_info.lg_counters[results[i].nested_id];
+                            }
+                            
+                            if (sites_info['1click_info'][results[i].nested_id]) {
+                                results[i].click_info = sites_info['1click_info'][results[i].nested_id];
+                                if (results[i].login_count <= 0) {
+                                    results[i].login_count = 1;
+                                }
+                            }
+
+                            if (allowCookie && results[i].login_count < getCookie(results[i].site)) {
+                                results[i].login_count = getCookie(results[i].site);
+                                results[i].login_count_origin = getOriginCookie(results[i].site);
+                            }
+                        }
+
+                        callback(results);
+                        results = null;
+                    });
+                }
+            });
+        }
+
+        setTimeout(function(){
+            if (!results) {
+                callback(results);
+            }
+        }, eval('2000'));
+    }
+
+    /**
+     * Get site id
+     *
+     * @param {string} domain Needed domain
+     * @returns {number} ID
+     */
+    function getSiteIdByDomain(domain) {
+        var site_id = 0;
+            domain = (domain + "").toLowerCase();
+
+        if (sites[domain]) {
+            site_id = sites[domain].id;
+        }
+
+        return site_id;
+    }
+
+    /**
+     * List of domains
+     *
+     * @param {string|null} platform Platform name
+     * @returns {Array} Domains list
+     */
+    function getListDomains(platform){
+        var domains = [], domain;
+
+        for (domain in sites) if (sites.hasOwnProperty(domain)) {
+            if (
+                !platform ||
+                (platform == 'phoenix' && sites[domain].url.indexOf('autologinFromJump') > -1) ||
+                (platform == 'multisite' && sites[domain].url.indexOf('external_autologin.php') > -1)
+            ) {
+                domains.push(domain.toLowerCase());
+            }
+        }
+
+        return domains;
+    }
+
+    /**
+     * Get info by brand or first domain with exists info
+     *
+     * @returns void
+     */
+    function getWithInfo(info, callback){
+        var nestedId = null, domain, _sites = [], _exit=false;
+
+        _sites = getSameBrand(info);
+
+        for (nestedId in sitesCookie) {
+            if (sitesCookie.hasOwnProperty(nestedId)) {
+                for (var i in _sites) {
+                    if (_sites[i].nestedId == nestedId) {
+                        _exit = true;
+                        break;
+                    }
+                }
+            }
+            if (_exit === true)
+                break;
+        }
+
+        if (nestedId === null) {
+            for (nestedId in sitesCookie) {
+                if (sitesCookie.hasOwnProperty(nestedId)) {
+                    break;
+                }
+            }
+        }
+
+        if (nestedId) {
+            for (domain in sites) {
+                if (sites.hasOwnProperty(domain) && sites[domain].nestedId == nestedId) {
+                    getLoginsCountOnReady([domain], function(data){
+                        callback(data ? data[0] : data);
+                    });
+                    break;
+                }
+            }
+        } else {
+            callback(null);
+        }
+    }
+
+    /**
+     * Set need check is logged user
+     *
+     * @param {boolean} isCheck Check for logged
+     * @returns void
+     */
+    function setCheckLogin(isCheck){
+        allowCheckLogin = isCheck ? true : false;
+    }
+
+    /**
+     * Set need check is logged user
+     *
+     * @param {boolean} isAllow Check for logged
+     * @returns void
+     */
+    function setS4LA(isAllow){
+        allowS4LA = isAllow ? true : false;
+    }
+
+    function getSameBrand(info) {
+        var results = {};
+
+        if (info.brand.toString().trim() == '')
+            return results;
+
+        for (var i in sites) {
+            if (sites[i].brand == info.brand) {
+                results[sites[i].domain] = sites[i];
+            }
+        }
+
+        return results;
+    }
+
+    return {
+        getLoginsCountOnReady: getLoginsCountOnReady,
+        getSiteIdByDomain : getSiteIdByDomain,
+        getListDomains : getListDomains,
+        getWithInfo : getWithInfo,
+        setCheckLogin : setCheckLogin,
+        setS4LA : setS4LA
+    };
+
+}());
+";i:2;s:4:"9237";}

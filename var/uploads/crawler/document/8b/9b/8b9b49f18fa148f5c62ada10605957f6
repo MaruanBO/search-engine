@@ -1,0 +1,959 @@
+a:3:{i:0;s:20:"http://bobevans.com/";i:1;s:47684:"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><title>
+	Bob Evans, Discover Farm-Fresh Goodness
+</title><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><link id="ctl00_Link1" href="/favicon.ico" rel="icon" type="image/x-icon" /><link id="ctl00_Link2" href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /><link id="ctl00_Link3" type="text/css" rel="stylesheet" href="/includes/css/bobevans.css" /><link id="ctl00_Link4" type="text/css" rel="stylesheet" href="/includes/css/print.css" media="print" />
+
+    <noscript>
+        <link href="/includes/css/noJavaScript.css" rel="stylesheet" type="text/css" />
+    </noscript>
+
+    <script type="text/javascript" src="/includes/js/jquery-1.4.2.min.js"></script>
+
+    <script type="text/javascript" src="/includes/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/includes/js/jquery.hoverIntent.minified.js"> </script>
+    <script src="/includes/js/jquery-ui-1.8.6.custom.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/includes/js/cufon-yui.js"></script>
+    <script type="text/javascript" src="/includes/js/AbadiMT.font.js"></script>
+    <script src="http://ds.serving-sys.com/BurstingRes/CustomScripts/mmConversionTagV3.js"></script>
+
+    <script type="text/javascript">
+
+        var searchWaterMark = "Search";
+        var locateWaterMarkCity = "Enter City";
+        var locateWaterMarkState = "State";
+        var locateWaterMarkZip = "Zip Code";
+
+        var navoff_x = 92;
+        var navoff_y = 150;
+
+
+        if (($.browser.msie) && ($.browser.version == 6.0)) {
+            //alert('ie6');
+            //var i = 0;
+        }
+        else {
+            /*CUFON -should be outside docready*/
+            Cufon.replace('#main-nav li a.main-nav', {
+                color: '#939598',
+                hover: {
+                    color: '#ae2414'
+                }
+            });
+            Cufon.replace('.search-wrapper strong'); // Requires a selector engine for IE 6-7, see above
+            Cufon.replace('.callout-link a'); // Requires a selector engine for IE 6-7, see above
+            Cufon.replace('.socialMediaButton', {
+                color: '#000'
+            });
+
+            Cufon.replace('.btnFeatureNav, .cfon', {
+                color: '#939598'
+            });
+        
+      
+        }
+
+
+        function browserInWhiteList(replaceHtml) {
+            try {
+
+                if ($.browser.msie);
+                {
+
+                    if ($.browser.version >= 7.0) {
+                        //alert(true);
+                        return true;
+                    }
+                }
+
+                if ($.browser.webkit) {
+
+                    return true;
+                }
+
+                if ($.browser.mozilla) {
+                    //alert($.browser.version.substr(0, 3));
+                    if ($.browser.version.substr(0, 3) > 1.8)//Greater than 2.0
+                        return true;
+
+                    else if ($.browser.version.substr(0, 3) == 1.8) {
+                        //alert($.browser.version.substr(2, 3));
+                        if ($.browser.version.substr(2, 3) > 8.0)//GREATER THAN 1.0
+                            return true;
+                    }
+
+
+                }
+
+                if (replaceHtml) {
+                    var noJSDiv = "<div id='divNonSupported'";
+                    noJSDiv = noJSDiv + "</div>";
+
+
+
+
+
+                    $('.altContent').after(noJSDiv);
+
+                    if ($(".altContent").html().toString().substr(0, 10).indexOf("&lt;") == -1) {
+                        $('#divNonSupported').html($(".altContent").html());
+                    }
+                    else {
+                        $('#divNonSupported').html(htmlDecode($(".altContent").html()));
+                    }
+
+
+
+
+                    $('.altContent').remove();
+                }
+            }
+            catch (Error) {
+                //alert('error');
+                return false;
+            }
+
+
+            return false;
+        }
+
+
+        //used to decode/encode html
+        function htmlDecode(value) {
+            return $('<div/>').html(value).text();
+        }
+
+        function htmlEncode(value) {
+            return $('<div/>').text(value).html();
+        }
+        var socialNav = '<div id="whatsNewShareSide"><a class="facebook" target="_blank" href="http://www.facebook.com/bobevans">Facebook</a><a class="twitter" target="_blank" href="http://twitter.com/#!/bobevansfarms">Twitter</a>    <a class="youtube" target="_blank" href="http://www.youtube.com/user/BobEvansFarms">        Youtube</a> <a class="getApps" href="/WhatsNew.aspx#apps">Get Apps</a> <a class="mail" target="_blank" href="http://bobevans.com/bemail/default.aspx">Mail</a></div>';
+
+
+
+
+
+        function setSocialNavPosition() {
+            var x = $('#header').position().left - navoff_x;
+            var y = $('#header').position().top + navoff_y;
+
+
+
+            //bug with jquery .position().left in IE9
+            if (jQuery.browser.msie && jQuery.browser.version == "9.0")
+                x = 0;
+
+           // console.log(x,y);
+            $('#whatsNewShareSide').css('left', x.toString() + 'px');
+            $('#whatsNewShareSide').css('top', y.toString() + 'px');
+
+        }
+        $(function () {
+
+            var carryOutHref = $('.carry_out_li a').eq(0).attr('href');
+            $('.carry_out_li a').eq(0).bind('click', function () { mmConversionTag(301665, this, '_self', '' + carryOutHref + ''); return false; });
+            $('.carry_out_li a').eq(0).attr('href', '');
+
+            $('.bemail_li .dropdown-container').remove();
+            $(window).resize(function () {
+                setSocialNavPosition();
+
+            });
+
+            $('#header').before(socialNav);
+            setSocialNavPosition();
+
+
+            //alert('');
+            if (browserInWhiteList(false)) {
+                $(".search").val(searchWaterMark);
+
+                $(".search").focus(function () {
+
+                    $(this).filter(function () {
+                        // We only want this to apply if there's not
+                        // something actually entered
+                        return $(this).val() == "" || $(this).val() == searchWaterMark;
+                    }).removeClass("watermarkOn").val("");
+
+                });
+
+                $(".search").blur(function () {
+
+                    $(this).filter(function () {
+                        // We only want this to apply if there's not
+                        // something actually entered
+                        return $(this).val() == ""
+                    }).addClass("watermarkOn").val(searchWaterMark);
+
+                });
+
+
+
+                $(".txtLocateCity").val(locateWaterMarkCity);
+
+                $(".txtLocateCity").focus(function () {
+
+                    $(this).filter(function () {
+                        // We only want this to apply if there's not
+                        // something actually entered
+                        return $(this).val() == "" || $(this).val() == locateWaterMarkCity;
+                    }).removeClass("watermarkOn").val("");
+
+                });
+
+                $(".txtLocateCity").blur(function () {
+
+                    $(this).filter(function () {
+                        // We only want this to apply if there's not
+                        // something actually entered
+                        return $(this).val() == ""
+                    }).addClass("watermarkOn").val(locateWaterMarkCity);
+
+                });
+
+                $(".txtLocateState").val(locateWaterMarkState);
+
+                $(".txtLocateState").focus(function () {
+
+                    $(this).filter(function () {
+                        // We only want this to apply if there's not
+                        // something actually entered
+                        return $(this).val() == "" || $(this).val() == locateWaterMarkState;
+                    }).removeClass("watermarkOn").val("");
+
+                });
+
+                $(".txtLocateState").blur(function () {
+
+                    $(this).filter(function () {
+                        // We only want this to apply if there's not
+                        // something actually entered
+                        return $(this).val() == ""
+                    }).addClass("watermarkOn").val(locateWaterMarkState);
+
+                });
+
+                $(".txtLocateZip").val(locateWaterMarkZip);
+
+                $(".txtLocateZip").focus(function () {
+
+                    $(this).filter(function () {
+                        // We only want this to apply if there's not
+                        // something actually entered
+                        return $(this).val() == "" || $(this).val() == locateWaterMarkZip;
+                    }).removeClass("watermarkOn").val("");
+
+                });
+
+                $(".txtLocateZip").blur(function () {
+
+                    $(this).filter(function () {
+                        // We only want this to apply if there's not
+                        // something actually entered
+                        return $(this).val() == ""
+                    }).addClass("watermarkOn").val(locateWaterMarkZip);
+
+                });
+
+
+                $(".locate").keyup(function (e) {
+
+
+                    if (e.keyCode == 13) {
+                        e.returnValue = false;
+                        e.preventDefault();
+
+                        $('.btn-locate').click();
+                    }
+                    return false;
+                });
+
+                //$('.dropdown-container').prepend('<div class="ddc-rightborder"></div>');
+            }
+            else {
+                $('.main-nav').css("font-size", "13px");
+
+            }
+        });
+
+        function RemoveWatermarks() 
+        {
+            $('.watermarkOn').each(function () {
+
+                $(this).removeClass('watermarkOn');
+
+                $(this).val('');
+            });            
+        }   
+    </script>
+
+
+
+
+    
+    <script type="text/javascript">
+        var axel = Math.random() + "";
+        var a = axel * 10000000000000;
+        document.write('<iframe src="http://4315345.fls.doubleclick.net/activityi;src=4315345;type=Homep-;cat=BEHom-;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+    </script>
+    <noscript>
+        <iframe src="http://4315345.fls.doubleclick.net/activityi;src=4315345;type=Homep-;cat=BEHom-;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+    </noscript>
+    <script type='text/javascript'>
+         var ebRand = Math.random() + '';
+         ebRand = ebRand * 1000000;
+         //<![CDATA[ 
+         document.write('<scr' + 'ipt src="HTTP://bs.serving-sys.com/BurstingPipe/ActivityServer.bs?cn=as&amp;ActivityID=301664&amp;rnd=' + ebRand + '"></scr' + 'ipt>');
+         //]]>
+    </script>
+    <noscript>
+        <img width="1" height="1" style="border:0" src="HTTP://bs.serving-sys.com/BurstingPipe/ActivityServer.bs?cn=as&amp;ActivityID=301664&amp;ns=1"/>
+    </noscript>
+
+    <script src="/includes/js/jquery.lwtCountdown-1.0.js" type="text/javascript"></script>
+    <script src="/includes/js/misc.js" type="text/javascript"></script>
+ <script src="includes/js/HomePage.js" type="text/javascript"></script>
+ <script>     document.write('<s' + 'cript language="JavaScript" src="http://view.atdmt.com/jaction/bbpber_BER20100809Homepage_1"></s' + 'cript>')</script><noscript><iframe src="http://view.atdmt.com/iaction/bbpber_BER20100809Homepage_1" width="1" height="1" frameborder="0" scrolling="No" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0"></iframe></noscript>
+ 
+   
+
+
+    <!-- track -->
+    <script type="text/javascript" src="https://tracking.peopletomysite.com/bobevans.js"></script>
+    <script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
+    <!-- track -->
+
+    <!-- Google Tracking --> 
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-4024308-1']);
+     _gaq.push(['_setDomainName', 'bobevans.com']);
+     _gaq.push(['_setAllowLinker', true]);
+     _gaq.push(['_trackPageview']);
+
+        (function () {
+         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+<meta name="description" content="Discover Bob Evans’ Farm-Fresh Goodness – in our restaurants, through catering, carryout and online ordering, at the grocery store, in your recipe box or in your e-mail inbox!" /><meta name="keywords" /></head>
+<body id="ctl00_body" class="home">
+    <div id="ctl00_divTracking" style="display: none;"></div>
+    <div id="ctl00_divMobile" style="display: none;">
+    
+    </div>
+
+    <form name="aspnetForm" method="post" action="Default.aspx" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTc0NDkyODkyNw9kFgJmD2QWAgIDD2QWBAIBDxYCHglpbm5lcmh0bWxlZAIFD2QWCgIDDxYCHgRocmVmBRRodHRwOi8vYm9iZXZhbnMuY29tL2QCBQ8WAh8ABbgCPGxpPjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vZ2lmdGNhcmRzLmFzcHgnID48c3Bhbj5HSUZUIENBUkRTPC9zcGFuPjwvYT48L2xpPjxsaSBjbGFzcz0nZGl2aWRlcic+fDwvbGk+DQo8bGk+PGEgaHJlZj0naHR0cHM6Ly9raWRzLmJvYmV2YW5zLmNvbScgIHRhcmdldD0nX2JsYW5rJyA+PHNwYW4+S0lEUzwvc3Bhbj48L2E+PC9saT48bGkgY2xhc3M9J2RpdmlkZXInPnw8L2xpPg0KPGxpPjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vY29udGFjdHVzL2RlZmF1bHQuYXNweCcgPjxzcGFuPkNPTlRBQ1QgVVM8L3NwYW4+PC9hPjwvbGk+ZAIVDxYCHwAFhz08dWwgaWQ9J21haW4tbmF2Jz4NCjxsaSAgY2xhc3M9J21lbnVzX2xpJz4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vTWVudS9EZWZhdWx0JyBpZD0nbWVudXMnIGNsYXNzPSdtYWluLW5hdicgPk1FTlVTPC9hPg0KPGRpdiBjbGFzcz0nZHJvcGRvd24tY29udGFpbmVyIGRkY19NRU5VUyAnPg0KPHVsPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9tZW51L3N0YXJ0ZXJzLmFzcHgnID4NClN0YXJ0ZXJzDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9tZW51L0JpZ19GYXJtX0J1cmdlcnMuYXNweCcgPg0KQmlnIEZhcm0gQnVyZ2Vycw0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vbWVudS9CZXZlcmFnZXMuYXNweCcgPg0KQmV2ZXJhZ2VzDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9tZW51L2JyZWFrZmFzdC5hc3B4JyA+DQpCcmVha2Zhc3QNCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL21lbnUvTHVuY2guYXNweCcgPg0KTHVuY2gNCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL21lbnUvRGlubmVyLmFzcHgnID4NCkRpbm5lcg0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vbWVudS8zLUNvdXJzZV9EaW5uZXIuYXNweCcgPg0KMyBDb3Vyc2UgRGlubmVyDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9tZW51L1NlYXNvbmFsLmFzcHgnID4NClNlYXNvbmFsDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9tZW51L0Rlc3NlcnRzLmFzcHgnID4NCkRlc3NlcnRzDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9tZW51L0ZhbWlseS1TaXplX01lYWxzLmFzcHgnID4NCkZhbWlseS1TaXplIE1lYWxzDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9DYXRlcmluZycgPg0KQ2F0ZXJpbmcNCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL21lbnUvY2FycnlvdXQuYXNweCcgPg0KQ2FycnkgT3V0DQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9tZW51LyQ1X0NhcnJ5X091dF9WYWx1ZV9NZW51LmFzcHgnID4NCiQ1IENhcnJ5IE91dCBWYWx1ZSBNZW51DQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cHM6Ly9raWRzLmJvYmV2YW5zLmNvbS9tZW51LmFzcCcgIHRhcmdldD0nX2JsYW5rJyA+DQpLaWRzDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9tZW51L0ZpdF9mcm9tX3RoZV9GYXJtXyVDMiVBRS5hc3B4JyA+DQpGaXQgZnJvbSB0aGUgRmFybQ0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vbWVudS9udXRyaXRpb24uYXNweCcgPg0KTnV0cml0aW9uYWwgSW5mb3JtYXRpb24NCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL01lbnUvQWxsZXJnZW4tSW5mb3JtYXRpb24nID4NCkFsbGVyZ2VuIEluZm9ybWF0aW9uDQo8L2E+DQo8L2xpPg0KPC91bD4NCg0KPGRpdiBjbGFzcz0nZHJvcGRvd24tYmctYm90dG9tJz4NCjwvZGl2Pg0KPC9kaXY+DQo8L2xpPg0KDQo8bGkgY2xhc3M9J2RpdmlkZXInPnw8L2xpPg0KPGxpICBjbGFzcz0nY2Fycnlfb3V0X2xpJz4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vTWVudS9DYXJyeS1vdXQnIGlkPSdjYXJyeV9vdXQnIGNsYXNzPSdtYWluLW5hdicgPkNBUlJZIE9VVDwvYT4NCjxkaXYgY2xhc3M9J2Ryb3Bkb3duLWNvbnRhaW5lciBkZGNfQ0FSUllfT1VUICc+DQo8dWw+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL09ubGluZU9yZGVyaW5nJyA+DQpPcmRlciBPbmxpbmUNCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL21lbnUvY2Fycnktb3V0LmFzcHgnID4NCkNhcnJ5IE91dA0KPC9hPg0KPC9saT4NCjwvdWw+DQoNCjxkaXYgY2xhc3M9J2Ryb3Bkb3duLWJnLWJvdHRvbSc+DQo8L2Rpdj4NCjwvZGl2Pg0KPC9saT4NCg0KPGxpIGNsYXNzPSdkaXZpZGVyJz58PC9saT4NCjxsaSAgY2xhc3M9J2dyb2NlcnlfbGknPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9Hcm9jZXJ5JyBpZD0nZ3JvY2VyeScgY2xhc3M9J21haW4tbmF2JyA+R1JPQ0VSWTwvYT4NCjxkaXYgY2xhc3M9J2Ryb3Bkb3duLWNvbnRhaW5lciBkZGNfR1JPQ0VSWSAnPg0KPHVsPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9Qcm9kdWN0cy9GcmVzaF9TYXVzYWdlLmFzcHgnID4NCkZyZXNoIFNhdXNhZ2UNCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL1Byb2R1Y3RzL0Z1bGx5X0Nvb2tlZF9TYXVzYWdlLmFzcHgnID4NCkZ1bGx5IENvb2tlZCBTYXVzYWdlDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9Qcm9kdWN0cy9HcmlsbGluZ19TYXVzYWdlLmFzcHgnID4NCkdyaWxsaW5nIFNhdXNhZ2UNCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL1Byb2R1Y3RzL0JhY29uX2FuZF9IYW0uYXNweCcgPg0KQmFjb24gJiBIYW0NCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL1Byb2R1Y3RzL01hc2hlZF9Qb3RhdG9lcy5hc3B4JyA+DQpNYXNoZWQgUG90YXRvZXMNCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL1Byb2R1Y3RzL0JyZWFrZmFzdF9Qb3RhdG9lcy5hc3B4JyA+DQpCcmVha2Zhc3QgUG90YXRvZXMNCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL1Byb2R1Y3RzL1Bhc3RhX2FuZF9SaWNlLmFzcHgnID4NClBhc3RhICYgUmljZQ0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vUHJvZHVjdHMvRW50cmVlcy5hc3B4JyA+DQpFbnRyZWVzDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9Qcm9kdWN0cy9TaWRlX0Rpc2hlcy5hc3B4JyA+DQpTaWRlIERpc2hlcw0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vUHJvZHVjdHMvU291cHMsX1NhdWNlc19hbmRfR3Jhdmllcy5hc3B4JyA+DQpTb3VwcywgU2F1Y2VzICYgR3Jhdmllcw0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vUHJvZHVjdHMvSGFuZGhlbGRfQnJlYWtmYXN0X0l0ZW1zLmFzcHgnID4NCkhhbmRoZWxkIEJyZWFrZmFzdCBJdGVtcw0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vUHJvZHVjdHMvQnJlYWtmYXN0X0J1cnJpdG9zLmFzcHgnID4NCkJyZWFrZmFzdCBCdXJyaXRvcw0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vUHJvZHVjdHMvQnJlYWtmYXN0X0Jvd2xzLmFzcHgnID4NCkJyZWFrZmFzdCBCb3dscw0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vUHJvZHVjdHMvV3JhcHBlcnMuYXNweCcgPg0KV3JhcHBlcnMNCjwvYT4NCjwvbGk+DQo8bGk+DQo8Yj4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vcHJvZHVjdHMvZ3VhcmFudGVlLmFzcHgnID4NCkZhcm0tRnJlc2ggR29vZG5lc3MgUGxlZGdlDQo8L2E+DQo8L2I+DQo8L2xpPg0KPC91bD4NCg0KPGRpdiBjbGFzcz0nZHJvcGRvd24tYmctYm90dG9tJz4NCjwvZGl2Pg0KPC9kaXY+DQo8L2xpPg0KDQo8bGkgY2xhc3M9J2RpdmlkZXInPnw8L2xpPg0KPGxpICBjbGFzcz0ncmVjaXBlc19saSc+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL1JlY2lwZXMnIGlkPSdyZWNpcGVzJyBjbGFzcz0nbWFpbi1uYXYnID5SRUNJUEVTPC9hPg0KPGRpdiBjbGFzcz0nZHJvcGRvd24tY29udGFpbmVyIGRkY19SRUNJUEVTICc+DQo8dWw+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL3JlY2lwZXMvQXBwZXRpemVycy5hc3B4JyA+DQpBcHBldGl6ZXJzDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9yZWNpcGVzL0JyZWFrZmFzdF9hbmRfQnJ1bmNoLmFzcHgnID4NCkJyZWFrZmFzdCAmIEJydW5jaA0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vcmVjaXBlcy9EZXNzZXJ0cy5hc3B4JyA+DQpEZXNzZXJ0cw0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vcmVjaXBlcy9FbnRyZWVzLmFzcHgnID4NCkVudHJlZXMNCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL3JlY2lwZXMvU2FsYWRzLF9Tb3Vwc19hbmRfU2lkZXMuYXNweCcgPg0KU2FsYWRzLCBTb3VwcyAmIFNpZGVzDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9yZWNpcGVzL1Nsb3dfQ29va2VyLmFzcHgnID4NClNsb3cgQ29va2VyDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9yZWNpcGVzL0VudGVydGFpbmluZ19SZWNpcGVzLmFzcHgnID4NCkVudGVydGFpbmluZyBSZWNpcGVzDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9yZWNpcGVzLzIwX1JlY2lwZXNfZm9yX1VuZGVyXzIwX0J1Y2tzLmFzcHgnID4NCjIwIFJlY2lwZXMgZm9yIFVuZGVyIDIwIEJ1Y2tzDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9yZWNpcGVzL01hZF9BYm91dF9NYXNoZWQuYXNweCcgPg0KTWFkIGFib3V0IE1hc2hlZA0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vcmVjaXBlcy9WaWV3X0FsbC5hc3B4JyA+DQpWaWV3IEFsbA0KPC9hPg0KPC9saT4NCjwvdWw+DQoNCjxkaXYgY2xhc3M9J2Ryb3Bkb3duLWJnLWJvdHRvbSc+DQo8L2Rpdj4NCjwvZGl2Pg0KPC9saT4NCg0KPGxpIGNsYXNzPSdkaXZpZGVyJz58PC9saT4NCjxsaSAgY2xhc3M9J291cl9jb21wYW55X2xpJz4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vT3VyQ29tcGFueS9EZWZhdWx0LmFzcHgnIGlkPSdvdXJfY29tcGFueScgY2xhc3M9J21haW4tbmF2JyA+T1VSIENPTVBBTlk8L2E+DQo8ZGl2IGNsYXNzPSdkcm9wZG93bi1jb250YWluZXIgZGRjX09VUl9DT01QQU5ZICc+DQo8dWw+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL291cmZhcm1zL0RlZmF1bHQuYXNweCcgPg0KT3VyIEZhcm0NCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL291cmZhcm1zL2JvYmV2YW5zZmFybS9hbm51YWxmYXJtZmVzdGl2YWwuYXNweCcgPg0KRmFybSBGZXN0aXZhbA0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vaW52ZXN0b3JzL2RlZmF1bHQuYXNweCcgPg0KSW52ZXN0b3JzDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9vdXJjb21wYW55L2FuaW1hbF93ZWxsX2JlaW5nLmFzcHgnID4NCkFuaW1hbCBXZWxsLUJlaW5nDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9vdXJjb21wYW55L2JlbWFpbC5hc3B4JyA+DQpCRS1NYWlsDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2VtcGxveW1lbnQuYm9iZXZhbnMuY29tICcgPg0KRW1wbG95bWVudA0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vb3VyY29tcGFueS9ldmVudHNjYWxlbmRhci5hc3B4JyA+DQpFdmVudHMgQ2FsZW5kYXINCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL2ludmVzdG9ycy9pbmRleD9pZnJhbWV0b3VzZT1leGVjdXRpdmViaW9zJyA+DQpFeGVjdXRpdmUgQmlvcw0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vb3VyY29tcGFueS9mYWN0c2hlZXQuYXNweCcgPg0KRmFjdCBTaGVldA0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vb3VyY29tcGFueS9zdXJ2ZXkuYXNweCcgPg0KR3Vlc3QgU2F0aXNmYWN0aW9uIFN1cnZleQ0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vb3VyY29tcGFueS9oaXN0b3J5YW5kbGVnYWN5LmFzcHgnID4NCkhpc3RvcnkgYW5kIExlZ2FjeQ0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vbWVkaWFjZW50ZXIvZGVmYXVsdC5hc3B4JyA+DQpNZWRpYSBDZW50ZXINCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL291cmNvbXBhbnkvb3VyYnJhbmRzLmFzcHgnID4NCk91ciBCcmFuZHMNCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL291cmNvbXBhbnkvcGhpbGFudGhyb3B5LmFzcHgnID4NCkdpdmluZyBCYWNrDQo8L2E+DQo8L2xpPg0KPGxpPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9vdXJjb21wYW55L3Byb21vdGlvbnMuYXNweCcgPg0KUHJvbW90aW9ucw0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vb3VyY29tcGFueS9yZWFsZXN0YXRlJyA+DQpSZWFsIEVzdGF0ZQ0KPC9hPg0KPC9saT4NCjxsaT4NCjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vT3VyQ29tcGFueS9Tb2NpYWxNZWRpYScgPg0KU29jaWFsIE1lZGlhDQo8L2E+DQo8L2xpPg0KPC91bD4NCg0KPGRpdiBjbGFzcz0nZHJvcGRvd24tYmctYm90dG9tJz4NCjwvZGl2Pg0KPC9kaXY+DQo8L2xpPg0KDQo8bGkgY2xhc3M9J2RpdmlkZXInPnw8L2xpPg0KPGxpICBjbGFzcz0nY2F0ZXJpbmdfbGknPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9DYXRlcmluZycgaWQ9J2NhdGVyaW5nJyBjbGFzcz0nbWFpbi1uYXYnID5DQVRFUklORzwvYT4NCjwvbGk+DQoNCjxsaSBjbGFzcz0nZGl2aWRlcic+fDwvbGk+DQo8bGkgIGNsYXNzPSdiZW1haWxfbGknPg0KPGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9CRU1haWwvSW5kZXgnIGlkPSdiZW1haWwnIGNsYXNzPSdtYWluLW5hdicgPkJFbWFpbDwvYT4NCjxkaXYgY2xhc3M9J2Ryb3Bkb3duLWNvbnRhaW5lciBkZGNfQkVtYWlsICc+DQo8dWw+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL2JlbWFpbC9kZWZhdWx0LmFzcHgnID4NClNpZ24gVXANCjwvYT4NCjwvbGk+DQo8bGk+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL2JlbWFpbC91cGRhdGVwcm9maWxlLmFzcHgnID4NClVwZGF0ZSBwcm9maWxlDQo8L2E+DQo8L2xpPg0KPC91bD4NCg0KPGRpdiBjbGFzcz0nZHJvcGRvd24tYmctYm90dG9tJz4NCjwvZGl2Pg0KPC9kaXY+DQo8L2xpPg0KDQo8bGkgY2xhc3M9J2RpdmlkZXInPnw8L2xpPg0KPGxpICBjbGFzcz0ncmV3YXJkc19saSc+DQo8YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL1Jld2FyZHMvJyBpZD0ncmV3YXJkcycgY2xhc3M9J21haW4tbmF2JyA+UkVXQVJEUzwvYT4NCjwvbGk+DQoNCjwvdWw+DQpkAhcPZBYmAgEPFgQeA3NyYwUkaW1hZ2VzL2hvbWVwYWdlL2V2ZW4tb3VyLXdlYnNpdGUuUE5HHgNhbHQFBUludHJvZAIDDxYEHwIFMGltYWdlcy9ob21lcGFnZS9KQU4tSE9NRS1ab25lLTFhLVNTLWhvdGNha2VzLmpwZx8DBRVIT1QgT0ZGIFRIRSBHUklERExFICBkAgUPFgQfAgUtaW1hZ2VzL2hvbWVwYWdlL0JvYi1FdmFucy1IbVBnLVNsaWRlcy0wMzIucG5nHwMFGEEgTkVXIFlFQVIsIEEgTkVXIFRBS0UgIGQCBw8WBB8CBTJpbWFnZXMvaG9tZXBhZ2UvSkFOLUhPTUUtWm9uZS0xYy1DSEstTi1OT09ETEVTLmpwZx8DBSBTTE9XLVJPQVNURUQgQ0hJQ0tFTi1OLU5PT0RMRVMgIGQCCQ8WAh8ABRVIT1QgT0ZGIFRIRSBHUklERExFICBkAgsPFgIfAAUYQSBORVcgWUVBUiwgQSBORVcgVEFLRSAgZAINDxYCHwAFIFNMT1ctUk9BU1RFRCBDSElDS0VOLU4tTk9PRExFUyAgZAIPDxYCHwEFOWh0dHA6Ly93d3cuYm9iZXZhbnMuY29tL1JlY2lwZS8xMi9XaWxkZmlyZS1CQlEtUXVlc2FkaWxsYRYCAgEPFgQfAgUzaW1hZ2VzL2hvbWVwYWdlL0JvYi1FdmFucy1Cb3R0b20tQ29udGVudC0xLUxlZnQucG5nHwMFDXN0YXRpYyB0b3V0IDFkAhAPFgIfAQUNL0JFTUFJTC9JbmRleBYCAgEPFgQfAgUxaW1hZ2VzL2hvbWVwYWdlL01BWS1IT01FLVN0YXRpYy1ab25lMi1CRW1haWwyLnBuZx8DBQ1zdGF0aWMgdG91dCAyZAIRDxYCHwEFIWh0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS9ib2JldmFucxYCAgEPFgQfAgU0aW1hZ2VzL2hvbWVwYWdlL0JvYi1FdmFucy1Cb3R0b20tQ29udGVudC0zLVJpZ2h0LnBuZx8DBQ1zdGF0aWMgdG91dCAzZAITDxYCHwAFJmh0dHA6Ly93d3cuYm9iZXZhbnMuY29tL29ubGluZW9yZGVyaW5nZAIUDxYCHwAFQmh0dHA6Ly93d3cuYm9iZXZhbnMuY29tL1JlY2lwZS8yMDUvVmVnZXRhYmxlLVNhdXNhZ2UtU3BhZ2hldHRpDQoNCmQCFQ8WAh8ABSZodHRwOi8vd3d3LmJvYmV2YW5zLmNvbS9vbmxpbmVvcmRlcmluZ2QCFw8WBB8BBSZodHRwOi8vd3d3LmJvYmV2YW5zLmNvbS9vbmxpbmVvcmRlcmluZx8ABRVIT1QgT0ZGIFRIRSBHUklERExFICBkAhkPFgQfAQVCaHR0cDovL3d3dy5ib2JldmFucy5jb20vUmVjaXBlLzIwNS9WZWdldGFibGUtU2F1c2FnZS1TcGFnaGV0dGkNCg0KHwAFGEEgTkVXIFlFQVIsIEEgTkVXIFRBS0UgIGQCGw8WBB8BBSZodHRwOi8vd3d3LmJvYmV2YW5zLmNvbS9vbmxpbmVvcmRlcmluZx8ABSBTTE9XLVJPQVNURUQgQ0hJQ0tFTi1OLU5PT0RMRVMgIGQCHQ8WAh8BBTlodHRwOi8vd3d3LmJvYmV2YW5zLmNvbS9SZWNpcGUvMTIvV2lsZGZpcmUtQkJRLVF1ZXNhZGlsbGEWAgIBDxYEHwMFDXN0YXRpYyB0b3V0IDEfAgUzaW1hZ2VzL2hvbWVwYWdlL0JvYi1FdmFucy1Cb3R0b20tQ29udGVudC0xLUxlZnQucG5nZAIfDxYCHwEFDS9CRU1BSUwvSW5kZXgWAgIBDxYEHwMFDXN0YXRpYyB0b3V0IDIfAgUxaW1hZ2VzL2hvbWVwYWdlL01BWS1IT01FLVN0YXRpYy1ab25lMi1CRW1haWwyLnBuZ2QCIQ8WAh8BBSFodHRwczovL3d3dy5mYWNlYm9vay5jb20vYm9iZXZhbnMWAgIBDxYEHwMFDXN0YXRpYyB0b3V0IDMfAgU0aW1hZ2VzL2hvbWVwYWdlL0JvYi1FdmFucy1Cb3R0b20tQ29udGVudC0zLVJpZ2h0LnBuZ2QCGQ8WAh8ABfEGPGxpPjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vaW52ZXN0b3JzL2RlZmF1bHQuYXNweCcgPjxzcGFuPkludmVzdG9yczwvc3Bhbj48L2E+PC9saT48bGkgY2xhc3M9J2RpdmlkZXInPnw8L2xpPg0KPGxpPjxhIGhyZWY9J2h0dHA6Ly9lbXBsb3ltZW50LmJvYmV2YW5zLmNvbScgPjxzcGFuPkVtcGxveW1lbnQ8L3NwYW4+PC9hPjwvbGk+PGxpIGNsYXNzPSdkaXZpZGVyJz58PC9saT4NCjxsaT48YSBocmVmPSdodHRwOi8vYmVmZm9vZHMuY29tJyA+PHNwYW4+Rm9vZHNlcnZpY2UgU2FsZXM8L3NwYW4+PC9hPjwvbGk+PGxpIGNsYXNzPSdkaXZpZGVyJz58PC9saT4NCjxsaT48YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL21lZGlhY2VudGVyL2RlZmF1bHQuYXNweCcgPjxzcGFuPk1lZGlhIENlbnRlcjwvc3Bhbj48L2E+PC9saT48bGkgY2xhc3M9J2RpdmlkZXInPnw8L2xpPg0KPGxpPjxhIGhyZWY9J2h0dHA6Ly9ib2JldmFucy5jb20vY29udGFjdHVzL2RlZmF1bHQuYXNweCcgPjxzcGFuPkNvbnRhY3QgVXM8L3NwYW4+PC9hPjwvbGk+PGxpIGNsYXNzPSdkaXZpZGVyJz58PC9saT4NCjxsaT48YSBocmVmPSdodHRwOi8vYm9iZXZhbnMuY29tL3ByaXZhY3lwb2xpY3kuYXNweCcgPjxzcGFuPlByaXZhY3kgUG9saWN5PC9zcGFuPjwvYT48L2xpPjxsaSBjbGFzcz0nZGl2aWRlcic+fDwvbGk+DQo8bGk+PGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9sZWdhbHN0YXRlbWVudC5hc3B4JyA+PHNwYW4+TGVnYWwgU3RhdGVtZW50PC9zcGFuPjwvYT48L2xpPjxsaSBjbGFzcz0nZGl2aWRlcic+fDwvbGk+DQo8bGk+PGEgaHJlZj0naHR0cDovL2JvYmV2YW5zLmNvbS9zaXRlbWFwLmFzcHgnID48c3Bhbj5TaXRlIE1hcDwvc3Bhbj48L2E+PC9saT5kGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYDBQ9jdGwwMCRidG5TZWFyY2gFD2N0bDAwJGJ0bkxvY2F0ZQUQY3RsMDAkYnRuTG9jYXRlMYSFr7wPqtauo157L+VklvoEWHAD" />
+
+
+<script src="includes/js/swfobject.js" type="text/javascript"></script>
+<script src="includes/js/common.js" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=2fvcYWPMj4Lo0lU_9q66f49a1__LF4rm9LrMv3hnqC9UjJseFfaXpbrPJR31mHRNZxPP2BgPomceZk0MwKgOrh7B4xTyeWGECwVMHA4w-fOzv1xzvYNpfAaAxTzTNWSawzJvqw2&amp;t=1c6ae475" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCALV+uSMCgLE5ML0AgL9n+COAgLtoLfQDwLgp8nRBQKWren3DgLCrvn0DALtoIveA0XGlKApOi6ocITl/opdvg/lVM6C" />
+    
+    <div id="head-print">
+        <p>
+            print header</p>
+    </div>
+    <div id="header-bg">
+        <div id="header">
+            <a href="http://bobevans.com/" id="ctl00_homeHref" class="btn-logo">Bob Evans, Discover Farm-Fresh
+                Goodness</a>
+            <div class="search-wrapper" style="margin-right:192px;">
+                <ul id="ctl00_TopMenu"><li><a href='http://bobevans.com/giftcards.aspx' ><span>GIFT CARDS</span></a></li><li class='divider'>|</li>
+<li><a href='https://kids.bobevans.com'  target='_blank' ><span>KIDS</span></a></li><li class='divider'>|</li>
+<li><a href='http://bobevans.com/contactus/default.aspx' ><span>CONTACT US</span></a></li></ul>
+                <input name="ctl00$txtSearch" type="text" id="ctl00_txtSearch" class="watermarkOn search" />
+                <input type="image" name="ctl00$btnSearch" id="ctl00_btnSearch" src="images/homepage/btn_arrow.gif" alt="Search" border="0" style="margin-left:0px !important;" />
+            </div>
+            <div id="searchDivider" >
+            </div>
+            <div class="search-wrapper">
+                <strong style="left:-38px">Restaurant Locator</strong>
+                <input type="image" name="ctl00$btnLocate" id="ctl00_btnLocate" class="btn-locate" src="images/homepage/btn_arrow.gif" alt="Search" onclick="RemoveWatermarks();" border="0" style="margin-left:-28px !important;" />
+                <input name="ctl00$txtLocateCity" type="text" id="ctl00_txtLocateCity" class="watermarkOn locate txtLocateCity" style="width:100px !important; display:none" onkeydown="if (event.keyCode == 13) { return false; }" />
+                <label style="float:left !important; margin-top:3px !important; display:none">and/or</label>
+                <input name="ctl00$txtLocateState" type="text" id="ctl00_txtLocateState" maxlength="2" class="watermarkOn locate txtLocateState" style="width:40px !important; margin-left:5px !important; visibility:hidden;" onkeydown="if (event.keyCode == 13) { return false; }" />
+                <label style="float:left !important; margin-top:3px !important;visibility:hidden">and/or</label>
+                <input name="ctl00$txtLocateZip" type="text" id="ctl00_txtLocateZip" maxlength="5" class="watermarkOn locate txtLocateZip" style="width:60px !important; margin-left:5px !important; visibility:hidden" onkeydown="if (event.keyCode == 13) { return false; }" />
+                <input type="image" name="ctl00$btnLocate1" id="ctl00_btnLocate1" class="btn-locate" src="images/homepage/btn_arrow.gif" alt="Search" onclick="RemoveWatermarks();" border="0" style="margin-left:-1px !important;visibility:hidden" />
+            </div>
+            
+            <div id="ctl00_main_nav_wrapper"><ul id='main-nav'>
+<li  class='menus_li'>
+<a href='http://bobevans.com/Menu/Default' id='menus' class='main-nav' >MENUS</a>
+<div class='dropdown-container ddc_MENUS '>
+<ul>
+<li>
+<a href='http://bobevans.com/menu/starters.aspx' >
+Starters
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/Big_Farm_Burgers.aspx' >
+Big Farm Burgers
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/Beverages.aspx' >
+Beverages
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/breakfast.aspx' >
+Breakfast
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/Lunch.aspx' >
+Lunch
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/Dinner.aspx' >
+Dinner
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/3-Course_Dinner.aspx' >
+3 Course Dinner
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/Seasonal.aspx' >
+Seasonal
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/Desserts.aspx' >
+Desserts
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/Family-Size_Meals.aspx' >
+Family-Size Meals
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Catering' >
+Catering
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/carryout.aspx' >
+Carry Out
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/$5_Carry_Out_Value_Menu.aspx' >
+$5 Carry Out Value Menu
+</a>
+</li>
+<li>
+<a href='https://kids.bobevans.com/menu.asp'  target='_blank' >
+Kids
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/Fit_from_the_Farm_%C2%AE.aspx' >
+Fit from the Farm
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/nutrition.aspx' >
+Nutritional Information
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Menu/Allergen-Information' >
+Allergen Information
+</a>
+</li>
+</ul>
+
+<div class='dropdown-bg-bottom'>
+</div>
+</div>
+</li>
+
+<li class='divider'>|</li>
+<li  class='carry_out_li'>
+<a href='http://bobevans.com/Menu/Carry-out' id='carry_out' class='main-nav' >CARRY OUT</a>
+<div class='dropdown-container ddc_CARRY_OUT '>
+<ul>
+<li>
+<a href='http://bobevans.com/OnlineOrdering' >
+Order Online
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/menu/carry-out.aspx' >
+Carry Out
+</a>
+</li>
+</ul>
+
+<div class='dropdown-bg-bottom'>
+</div>
+</div>
+</li>
+
+<li class='divider'>|</li>
+<li  class='grocery_li'>
+<a href='http://bobevans.com/Grocery' id='grocery' class='main-nav' >GROCERY</a>
+<div class='dropdown-container ddc_GROCERY '>
+<ul>
+<li>
+<a href='http://bobevans.com/Products/Fresh_Sausage.aspx' >
+Fresh Sausage
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Fully_Cooked_Sausage.aspx' >
+Fully Cooked Sausage
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Grilling_Sausage.aspx' >
+Grilling Sausage
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Bacon_and_Ham.aspx' >
+Bacon & Ham
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Mashed_Potatoes.aspx' >
+Mashed Potatoes
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Breakfast_Potatoes.aspx' >
+Breakfast Potatoes
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Pasta_and_Rice.aspx' >
+Pasta & Rice
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Entrees.aspx' >
+Entrees
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Side_Dishes.aspx' >
+Side Dishes
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Soups,_Sauces_and_Gravies.aspx' >
+Soups, Sauces & Gravies
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Handheld_Breakfast_Items.aspx' >
+Handheld Breakfast Items
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Breakfast_Burritos.aspx' >
+Breakfast Burritos
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Breakfast_Bowls.aspx' >
+Breakfast Bowls
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/Products/Wrappers.aspx' >
+Wrappers
+</a>
+</li>
+<li>
+<b>
+<a href='http://bobevans.com/products/guarantee.aspx' >
+Farm-Fresh Goodness Pledge
+</a>
+</b>
+</li>
+</ul>
+
+<div class='dropdown-bg-bottom'>
+</div>
+</div>
+</li>
+
+<li class='divider'>|</li>
+<li  class='recipes_li'>
+<a href='http://bobevans.com/Recipes' id='recipes' class='main-nav' >RECIPES</a>
+<div class='dropdown-container ddc_RECIPES '>
+<ul>
+<li>
+<a href='http://bobevans.com/recipes/Appetizers.aspx' >
+Appetizers
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/recipes/Breakfast_and_Brunch.aspx' >
+Breakfast & Brunch
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/recipes/Desserts.aspx' >
+Desserts
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/recipes/Entrees.aspx' >
+Entrees
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/recipes/Salads,_Soups_and_Sides.aspx' >
+Salads, Soups & Sides
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/recipes/Slow_Cooker.aspx' >
+Slow Cooker
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/recipes/Entertaining_Recipes.aspx' >
+Entertaining Recipes
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/recipes/20_Recipes_for_Under_20_Bucks.aspx' >
+20 Recipes for Under 20 Bucks
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/recipes/Mad_About_Mashed.aspx' >
+Mad about Mashed
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/recipes/View_All.aspx' >
+View All
+</a>
+</li>
+</ul>
+
+<div class='dropdown-bg-bottom'>
+</div>
+</div>
+</li>
+
+<li class='divider'>|</li>
+<li  class='our_company_li'>
+<a href='http://bobevans.com/OurCompany/Default.aspx' id='our_company' class='main-nav' >OUR COMPANY</a>
+<div class='dropdown-container ddc_OUR_COMPANY '>
+<ul>
+<li>
+<a href='http://bobevans.com/ourfarms/Default.aspx' >
+Our Farm
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/ourfarms/bobevansfarm/annualfarmfestival.aspx' >
+Farm Festival
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/investors/default.aspx' >
+Investors
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/ourcompany/animal_well_being.aspx' >
+Animal Well-Being
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/ourcompany/bemail.aspx' >
+BE-Mail
+</a>
+</li>
+<li>
+<a href='http://employment.bobevans.com ' >
+Employment
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/ourcompany/eventscalendar.aspx' >
+Events Calendar
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/investors/index?iframetouse=executivebios' >
+Executive Bios
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/ourcompany/factsheet.aspx' >
+Fact Sheet
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/ourcompany/survey.aspx' >
+Guest Satisfaction Survey
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/ourcompany/historyandlegacy.aspx' >
+History and Legacy
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/mediacenter/default.aspx' >
+Media Center
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/ourcompany/ourbrands.aspx' >
+Our Brands
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/ourcompany/philanthropy.aspx' >
+Giving Back
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/ourcompany/promotions.aspx' >
+Promotions
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/ourcompany/realestate' >
+Real Estate
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/OurCompany/SocialMedia' >
+Social Media
+</a>
+</li>
+</ul>
+
+<div class='dropdown-bg-bottom'>
+</div>
+</div>
+</li>
+
+<li class='divider'>|</li>
+<li  class='catering_li'>
+<a href='http://bobevans.com/Catering' id='catering' class='main-nav' >CATERING</a>
+</li>
+
+<li class='divider'>|</li>
+<li  class='bemail_li'>
+<a href='http://bobevans.com/BEMail/Index' id='bemail' class='main-nav' >BEmail</a>
+<div class='dropdown-container ddc_BEmail '>
+<ul>
+<li>
+<a href='http://bobevans.com/bemail/default.aspx' >
+Sign Up
+</a>
+</li>
+<li>
+<a href='http://bobevans.com/bemail/updateprofile.aspx' >
+Update profile
+</a>
+</li>
+</ul>
+
+<div class='dropdown-bg-bottom'>
+</div>
+</div>
+</li>
+
+<li class='divider'>|</li>
+<li  class='rewards_li'>
+<a href='http://bobevans.com/Rewards/' id='rewards' class='main-nav' >REWARDS</a>
+</li>
+
+</ul>
+</div>
+         
+            <div id="order-online-wrapper">
+                <a href="" onclick="mmConversionTag(301666, this, '_self', '/Restaurant/Locate/'); return false;">Order Online</a>
+                
+            </div>
+        </div>
+    </div>
+    
+
+
+  
+
+
+
+    <div id="hasJavaScript" style="display: none">
+        <div class="clear">
+        </div>
+        <div id="hpContent">
+            <!--<div id="mainLeftHolder">
+            <div id="mainLeft1">
+            </div>
+            <div id="mainLeft2">
+            </div>
+            <div id="mainLeft3">
+            </div>
+             buttons 
+            <div id='btnSearch3' class='mlBtn'>
+            </div>
+            <div id='btnBEmail3' class='mlBtn'>
+            </div>
+        </div>-->
+            <div id="mainRightHolder">
+                <div id="mainRight">
+                    Main Right</div>
+                <div id="mainRightAlt">
+                    Main Right Alt</div>
+                <div id="mainR0">
+                    <img src="images/homepage/even-our-website.PNG" id="ctl00_ContentBody_img0" alt="Intro" />
+                </div>
+                <div id="mainR1">
+                    <img src="images/homepage/JAN-HOME-Zone-1a-SS-hotcakes.jpg" id="ctl00_ContentBody_img1" alt="HOT OFF THE GRIDDLE  " />
+                </div>
+                <div id="mainR2">
+                    <img src="images/homepage/Bob-Evans-HmPg-Slides-032.png" id="ctl00_ContentBody_img2" alt="A NEW YEAR, A NEW TAKE  " />
+                </div>
+                <div id="mainR3">
+                    <img src="images/homepage/JAN-HOME-Zone-1c-CHK-N-NOODLES.jpg" id="ctl00_ContentBody_img3" alt="SLOW-ROASTED CHICKEN-N-NOODLES  " />
+                </div>
+            </div>
+            <span class='clear'></span>
+            <div id="featureNavHolder" style="display: none;">
+                <div id="featureNav1" class='btnFeatureNav'>
+                    <span id="ctl00_ContentBody_span1" href="#1">HOT OFF THE GRIDDLE  </span><span class='arrows'></span>
+                </div>
+                <div id="featureNav2" class='btnFeatureNav'>
+                    <span id="ctl00_ContentBody_span2" href="#2">A NEW YEAR, A NEW TAKE  </span><span class='arrows'></span>
+                </div>
+                <div id="featureNav3" class='btnFeatureNav'>
+                    <span id="ctl00_ContentBody_span3" href="#3">SLOW-ROASTED CHICKEN-N-NOODLES  </span><span class='arrows'></span>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div id="bottomNavHolder">
+                <div id="bottomNav" style="position: relative; top: -115px;">
+                    <a href="http://www.bobevans.com/Recipe/12/Wildfire-BBQ-Quesadilla" id="ctl00_ContentBody_bottom1A">
+                        <img src="images/homepage/Bob-Evans-Bottom-Content-1-Left.png" id="ctl00_ContentBody_bottom1" alt="static tout 1" class="bottomLink" />
+                    </a><a href="/BEMAIL/Index" id="ctl00_ContentBody_bottom2A">
+                        <img src="images/homepage/MAY-HOME-Static-Zone2-BEmail2.png" id="ctl00_ContentBody_bottom2" alt="static tout 2" class="bottomLink" />
+                    </a><a href="https://www.facebook.com/bobevans" id="ctl00_ContentBody_bottom3A">
+                        <img src="images/homepage/Bob-Evans-Bottom-Content-3-Right.png" id="ctl00_ContentBody_bottom3" alt="static tout 3" class="bottomLink" />
+                    </a>
+                </div>
+            </div>
+            <span id="ctl00_ContentBody_link1" style="display: none;">http://www.bobevans.com/onlineordering</span><span id="ctl00_ContentBody_link2" style="display: none;">http://www.bobevans.com/Recipe/205/Vegetable-Sausage-Spaghetti
+
+</span><span id="ctl00_ContentBody_link3" style="display: none;">http://www.bobevans.com/onlineordering</span>
+            <input type="hidden" id="currentDiv" value="mainRight" />
+            <input type="hidden" id="currentContentID" value="1" />
+        </div>
+    </div>
+    <noscript class="altContent"> 
+    <div id="noscript">
+        <div id="hpContentNoScript">
+            <div id="NS_1" class="cNS_1">
+            </div>
+           
+                <div id="NS_2" class="cNS_2">
+                    <a href="http://www.bobevans.com/onlineordering" id="ctl00_ContentBody_bottomPromo1_NS">HOT OFF THE GRIDDLE  </a>
+                </div>
+                <div id="NS_3" class="cNS_3">
+                    <a href="http://www.bobevans.com/Recipe/205/Vegetable-Sausage-Spaghetti
+
+" id="ctl00_ContentBody_bottomPromo2_NS">A NEW YEAR, A NEW TAKE  </a>
+                </div>
+                <div id="NS_4" class="cNS_4">
+                    <a href="http://www.bobevans.com/onlineordering" id="ctl00_ContentBody_bottomPromo3_NS">SLOW-ROASTED CHICKEN-N-NOODLES  </a>
+                </div>
+                <div class="clear">
+                </div>
+                <div id="NS_5" class="cNS_5">
+                    <a href="http://www.bobevans.com/Recipe/12/Wildfire-BBQ-Quesadilla" id="ctl00_ContentBody_bottom1A_NS">
+                        <img src="images/homepage/Bob-Evans-Bottom-Content-1-Left.png" id="ctl00_ContentBody_bottom1b" alt="static tout 1" class="bottomLink" />
+                    </a>
+                </div>
+                <div id="NS_6" class="cNS_6">
+                    <a href="/BEMAIL/Index" id="ctl00_ContentBody_bottom2A_NS">
+                        <img src="images/homepage/MAY-HOME-Static-Zone2-BEmail2.png" id="ctl00_ContentBody_bottom2b" alt="static tout 2" class="bottomLink" />
+                    </a>
+                </div>
+                <div id="NS_7" class="cNS_7">
+                    <a href="https://www.facebook.com/bobevans" id="ctl00_ContentBody_bottom3A_NS">
+                        <img src="images/homepage/Bob-Evans-Bottom-Content-3-Right.png" id="ctl00_ContentBody_bottom3b" alt="static tout 3" class="bottomLink" />
+                    </a>
+                </div>
+        </div>
+    </div>
+    </noscript>
+
+    <!-- Adbuyer.com Landing Pixel for engauge ,Bob Evans Home Page-->
+    <script type="text/javascript">
+        var SWJsHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cscript src='" + SWJsHost + "pixel.adbuyer.com/landing?id=11310' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <noscript>
+       <img height='1' width='1' alt='' src='http://pixel.adbuyer.com/landing?id=11310&noscript=1'/>
+    </noscript>
+
+    <div id="foot">
+        <div id="socialMediaHolder" style="margin-bottom: 20px;">
+
+        </div>
+        <div class="clear">
+        </div>
+        <ul id="ctl00_BottomMenu"><li><a href='http://bobevans.com/investors/default.aspx' ><span>Investors</span></a></li><li class='divider'>|</li>
+<li><a href='http://employment.bobevans.com' ><span>Employment</span></a></li><li class='divider'>|</li>
+<li><a href='http://beffoods.com' ><span>Foodservice Sales</span></a></li><li class='divider'>|</li>
+<li><a href='http://bobevans.com/mediacenter/default.aspx' ><span>Media Center</span></a></li><li class='divider'>|</li>
+<li><a href='http://bobevans.com/contactus/default.aspx' ><span>Contact Us</span></a></li><li class='divider'>|</li>
+<li><a href='http://bobevans.com/privacypolicy.aspx' ><span>Privacy Policy</span></a></li><li class='divider'>|</li>
+<li><a href='http://bobevans.com/legalstatement.aspx' ><span>Legal Statement</span></a></li><li class='divider'>|</li>
+<li><a href='http://bobevans.com/sitemap.aspx' ><span>Site Map</span></a></li></ul>
+      
+        <p>
+            </p>
+    </div>
+    <div id="foot-print">
+        <p>
+            print footer</p>
+    </div>
+    </form>
+
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+
+    <script type="text/javascript">        _uacct = "UA-4024308-1"; urchinTracker();</script>
+
+
+    <div id="divMetaEditDialog" style="display: none;">
+        <form name="frm2" action="">
+        <input type="text" id="txtPageUrl" value="" />
+        </form>
+    </div>
+
+    <div id="splash-hidden" style="display:none;">
+        <img src="/images/bemail/splash.gif" alt=""/>
+    </div>
+</body>
+
+</html>
+<!-- LH DW JSm DS JF MR -->
+";i:2;s:4:"4153";}

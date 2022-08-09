@@ -1,0 +1,396 @@
+a:3:{i:0;s:28:"http://propertypanorama.com/";i:1;s:15418:"<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Property Panorama</title>
+    <meta name="description" content="Property Panorama offers virtual tour and marketing solutions for the
+    real estate industry with its InstaView Portfolo.">
+    <meta name="keywords" content="virtual tour, home, house, pano, property, realtor, real estate,
+    video tours, mls, listing, photo stitching, pano maker, instaview, panorama, 360, visual tour, slideshow,
+    photo stitcher, viewer, image stitcher">
+
+    <link href="/static/common/css/mainstyle.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen"/>
+    
+    <link href="/static/common/css/homepage.css" rel="stylesheet" type="text/css" media="screen"/>
+
+
+    
+    <script src="/static/common/js/jquery-1.4.4.min.js"></script>
+
+    <script>
+	var popWin = "";
+	function openwin(url, strWidth, strHeight) {
+	    if (popWin != "") {popWin.close()}
+	    leftStr = (screen.width-strWidth)/2;
+	    topStr = (screen.height-strHeight)/2-50;
+	    windowProperties = "toolbar=no,menubar=no,scrollbars=no,statusbar=no,height="+strHeight+",width="+strWidth+",left="+leftStr+",top="+topStr+"";
+	    popWin = window.open(url,'newWin',windowProperties)
+	}
+
+	$(document).ready(function() {
+        //use 'wait' cursor for clicked links except: links with '#', '_blank' attribute, and have HTTP in the URL
+        $('a').click(function() {
+            if ((this.href.indexOf('#') == -1) && (this.href.indexOf('http') != -1) && (this.target != "_blank") && !$(this).hasClass('ajax')) {
+                $('*').css('cursor','wait');
+            } else {
+            }
+        });
+
+        //clears wait cursor
+        $(window).bind("unload", function() {});
+
+
+
+
+
+
+
+	    $('#menu_login').click(function() {
+	    	if($('#menu_login').hasClass('not_logged_in')) {
+	    		$('.login_panel').removeClass('not_logged_in');
+	    	} else {
+		    	window.location.href = '/logout'
+	    	}
+	    });
+        var window_width = $( window ).width();
+        if (window_width >= 1024) {
+                var move_left = (window_width - 1024) / 2;
+                $('#navwrap').css("width", window_width).css("position","relative").css("left", -move_left).css( "box-shadow", "0 11px 8px -8px #000000");
+            }
+
+	});
+
+    $("a > button").on('click', function() {
+        location.href = $(this).closest("a").attr("href");
+    });
+    </script>
+
+    
+    <script src="/static/common/js/slides.min.jquery.js"></script>
+    <script>
+        $(function () {
+            $('#slides').slides({
+                preload: true,
+                preloadImage: '/static/common/images/loading.gif',
+                play: 7000,
+                pause: 7000,
+                hoverPause: false,
+                slideSpeed: 1800,
+                effect: 'slide',
+                crossfade: true,
+            });
+        });
+    </script>
+    <script src="/static/common/js/jquery.cycle.all.2.74.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.testimonial_container').cycle({
+                fx: 'fade',
+                speed: 3000,
+                timeout: 10000,
+            });
+        });
+    </script>
+
+        <script> //Google Analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-43115028-1', 'propertypanorama.com');
+      ga('send', 'pageview');
+    </script>
+
+</head>
+
+
+<body id="home_bg" class="login_panel not_logged_in">
+
+
+<!-- Main Wrap --><div id="wrap">
+
+    
+<!-- Header --><div id="head" class="login_panel not_logged_in">
+        <a href="/home/" title="Property Panorama" id="mainlogo">
+            <img src="/static/common/images/mainlogo_2.png" alt="Home" width="188" height="75"/>
+        </a>
+
+
+        
+        <div id="memberbox_wrap" class="off_white_bg">
+            <div class="memberbox_content">
+            
+                <form action="https://propertypanorama.com/login/" method="post">
+                    <div class="memberbox_login">
+
+
+                        <input type='hidden' name='csrfmiddlewaretoken' value='P8haUvceUw8dRZ24SduceqcQ9mfRmzps' />
+                        <label for="id_email">Username:</label>
+                        <input id="id_email" name="email" type="text" />
+			<div class="clear"></div>
+                        <label for="id_password">Password:</label>
+                        <input id="id_password" name="password" type="password" />
+		    </div> <!-- "memberbox_login" -->
+		    <div class="clear"> </div>
+                <div class="login_button_wrap">
+                    <input class="button100" type="submit" value="Login" /><br />
+                        <a id="pw_recovery_bttn" href="/accounts/password/reset">Forgot username or password?</a>
+                </div> <!-- "login_button_wrap" -->
+                </form>
+            
+            </div> <!-- "memberbox_content" -->
+        </div> <!-- "memberbox_wrap" -->
+    
+
+    <a id="live_support_link">
+        <a id="small_live_chat_button" class="largebutton200white global_box off_white_bg" onclick="$zoho.livedesk.floatwindow.visible('show')">
+            <img id="small_live_chat_bubbles" src="/static/common/images/icons/live_chat_92x76.png">
+            <span id="small_live_chat_title">Live Chat</span><br>
+        </a>
+    </a>
+
+    </div> <!-- "head" -->
+
+
+    <div class="clear"></div>
+
+    
+        <div id="navwrap" class="login_panel not_logged_in">
+    <ul id="nav">
+            <li><a href="/home/">Home</a></li>
+            <li><a href="/solutions/#solutions_header">Solutions</a></li>
+            <li><a href="/benefits/">Benefits</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="#" id="menu_login" class="login_panel not_logged_in">Login</a></li>
+    </ul>
+</div>
+
+    
+
+    <div class="clear"></div>
+
+    
+    <!-- Featured -->
+    <div id="featured_bg">
+        <div id="featured_container">
+            <div id="example">
+                <div id="slides">
+                    <div class="slides_container">
+                        <a href="/about/" target="_self"><img
+                                src="/static/common/images/slide-3-260.png" width="960" height="260px"
+                                alt="Slide 1"/></a>
+                        <a href="/benefits/" target="_self"><img
+                                src="/static/common/images/slide-2-260.png" width="960" height="260px"
+                                alt="Slide 2"/></a>
+                        <a href="/benefits/" target="_self"><img
+                                src="/static/common/images/slide_3.png" width="960" height="260px" alt="Slide 3"/></a>
+                    </div>
+                    <div id="left_blur"></div>
+                    <div id="right_blur"></div>
+                    <a href="#" class="prev"><img src="/static/common/images/arrow-prev.png" width="17" height="17"
+                                                  alt="Previous"/></a>
+                    <a href="#" class="next"><img src="/static/common/images/arrow-next.png" width="17" height="17"
+                                                  alt="Next"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	
+        <div class="global_announcements" style="text-align: center">
+    <!--p>In observance of the New Year's Holiday, Property Panorama will be closed on Wednesday, December 31st and will
+		be open on Monday, January 5th at 9:00 am EST. <br/>  
+		We thank you for your understanding, and wish you all a safe and happy holiday season.</p-->
+</div>
+
+	
+    <div id="content_wrap">
+        
+    <div id="home_welcome">
+        <h1 class="homepage_heading">Virtual Tour Software</h1>
+
+        <p>Property Panorama is proud to provide cutting-edge, yet highly affordable, Virtual Tour Solutions that allow
+            every
+            Agent to enhance each of their listings with engaging Virtual Tours. Property Panorama's continued
+            determination to create
+            and distribute unprecedented Real Estate marketing technologies allows us to introduce Video Tours,
+            MobileMedia™ Tours
+            with TurboText™, PodCAST Tours, and our new InstaTour Technologies to compliment our world-leading Virtual
+            tour Solution!</p>
+        <a href="/solutions/" class="largebutton350">Discover what our solutions can do for you!</a>
+    </div>
+    <div id="testimonials_header">
+        <h1 class="homepage_heading">Testimonials</h1>
+    </div>
+    <div class="testimonial_container">
+
+        <div id="testimonial_1">
+            <p>"After working with Property Panorama for almost a year now,
+                it is a great program for virtual tours. It is user friendly and has great end results!
+                I would recommend this program to anyone!!"
+                <span class="testimonial_author"><br/>Sarah Logue
+                <br/>RE/MAX Innovations</span></p>
+        </div>
+
+        <div id="testimonial_2" style="display: none;">
+            <p>"I would definitely recommend
+                Property Panorama to other Realtors because of the professional service
+                I received and the quality of the tours and features available for such a low cost."
+                <span class="testimonial_author"><br/>Chris Fetrow
+                <br/>RE/MAX Four Corners
+            <br/>McKinney, TX</span></p>
+        </div>
+
+        <div id="testimonial_3" style="display: none;">
+            <p>"We adopted the Property Panorama lead capture system...
+                To our delight, after using Property Panorama's system for
+                only 3 weeks, our leads increased by 307%!"
+                <span class="testimonial_author"><br/>Gary Jacklin</span></p>
+        </div>
+
+
+        <div id="testimonial_4" style="display: none;">
+            <p>“Property Panorama offers a serene way to view properties through a sharp, clear panoramic video
+                presentation,
+                using the interior and exterior photos of the home. You can insert descriptions of each photo, with
+                calm,
+                relaxing music in the background to add to the viewing experience. The InstaView Portfolio is an
+                excellent
+                tool to enhance the marketing and presentation of your listings.”<br/><br>
+                    <span class="testimonial_author">Wendy Rounds<br/>
+                        Real Estate Agent<br/>
+                        NEOHREX
+                    </span>
+            </p>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+    <hr class="row_divider hr_height_color"/>
+    <div id="home_featured">
+        <h2 class="homepage_heading">Key Features</h2>
+        <img src="/static/common/images/stacked_products_and_iphone_3.png" alt="Products"/>
+        <ul>
+            <li>Panoramic Photos</li>
+            <li>Branding and Customization</li>
+            <li>Social Media Syndication</li>
+            <li>Printable Flyers</li>
+            <li>Mobile Media</li>
+            <li>Free Technical Support and Training</li>
+            <li>Full MLS Synchronization</li>
+            <li>Statistics and Tracking</li>
+        </ul>
+    </div>
+
+    <div id="home_how">
+        <h2 class="homepage_heading">Virtual Tour Syndication</h2>
+
+        <p>Watch how our solutions can take anyone’s photos and convert them into professional,
+            eye catching marketing tools that will result in increased viewing of your listings.</p>
+        <img id="home_syndication_img" src="/static/common/images/social_media_rainbow_2.png" alt="Syndication"/>
+        <span id="benefits_button"><a href="/benefits/" class="largebutton200">Discover our benefits</a></span>
+    </div>
+
+    <div class="clear"></div>
+
+    <hr class="row_divider hr_height_color"/>
+
+    </div> <!-- "content_wrap" -->
+</div> <!-- "wrap" -->
+
+
+    
+<div id="footer_wrap">
+    <div id="footer_content">
+
+        <img src="/static/common/images/footer_logo.gif" width="119" height="46" alt="logo"/>
+
+        <div id="footer_nav_row1">
+            <ul class="footer_nav">
+                <li><a href="/home/">Home</a></li>
+                <li><a href="/solutions/">Solutions</a></li>
+                <li><a href="/benefits/">Benefits</a></li>
+                
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/faq/">FAQ</a></li>
+                <li><a href="/about/">About Us</a></li>
+                <li><a href="/disclaimer/">Disclaimer</a></li>
+                <li>
+                    <div id="sm_container">
+                        <span id="follow">Follow Us</span>
+                        <a  id="twitter_icon" class="sm_icon" target="_blank" href="https://twitter.com/PropPanINC">
+                            <img src="/static/common/images/icons/twitter_32x32.png" />
+                        </a>
+                        <a id="fb_icon" class="sm_icon" target="_blank" href="https://www.facebook.com/PropertyPanoramaInc">
+                            <img src="/static/common/images/icons/facebook_32x32.png" />
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <br />
+        </div>
+
+        
+        <p>&copy; 2001-2015 Property Panorama, Inc. All Rights Reserved. v1.5-607-gd9610bb</p>
+    </div>
+</div>
+
+
+
+<script>
+    var $zoho= $zoho || {livedesk:{values:{},ready:function(){}}};var d=document;s=d.createElement("script");s.type="text/javascript";s.defer=true;s.src="https://livedesk.zoho.com/propertypanorama/float.ls?embedname=propertypanorama";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);
+
+    $zoho.livedesk.ready=function() {
+        $zoho.livedesk.customfield.add({
+            "name" :"First Name",
+            "hint" :"First Name",
+            "required" :"true",
+            "maxlength" :"100",
+            "type" :"text",
+            "visiblity" :"both"
+        });
+
+        $zoho.livedesk.customfield.add({
+            "name" :"Last Name",
+            "hint" :"Last Name",
+            "required" :"true",
+            "maxlength" :"100",
+            "type" :"text",
+            "visiblity" :"both"
+        });
+
+        $zoho.livedesk.customfield.add({
+            "name" :"mls",
+            "hint" :"MLS Provider/Name",
+            "required" :"false",
+            "maxlength" :"100",
+            "type" :"text",
+            "visiblity" :"both"
+        });
+
+        $zoho.livedesk.customfield.add({
+            "name" :"mls_listing_number",
+            "hint" :"MLS Listing Number",
+            "required" :"false",
+            "maxlength" :"100",
+            "type" :"text",
+            "visiblity" :"both"
+        });
+
+        $zoho.livedesk.customfield.add({
+            "name" :"_default.question",
+            "hint" :"Your Question",
+            "required" :"true",
+            "type" :"textarea",
+            "visiblity" :"both"
+        });
+    }
+</script>
+
+
+</body>
+</html>
+";i:2;s:4:"4792";}
