@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerW4TOiVs\App_KernelDevDebugContainer([
     'container.build_hash' => 'W4TOiVs',
-    'container.build_id' => 'a88e1ce4',
-    'container.build_time' => 1660061423,
+    'container.build_id' => 'ede0615f',
+    'container.build_time' => 1661013805,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerW4TOiVs');

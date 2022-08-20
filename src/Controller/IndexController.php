@@ -9,8 +9,8 @@ use App\Service\Index\Indexer;
 use App\Service\Ranker\Ranker;
 use App\Service\Search\Search;
 use Exception;
+use PhpParser\Comment\Doc;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -46,50 +46,58 @@ class IndexController extends AbstractController
 
     /**
      * @Route("/search", name="search", methods={"GET"})
+     *
+     * Should make search and return result and rank..
+     *
      * @param Request $request
      * @return Response
      * @throws Exception
      */
     public function doSearch(Request $request): Response
     {
+
+
         $form = $this->createForm(IndexType::class, null, [
-            'action' => $this->generateUrl('search'),
+            'action' => $this->generateUrl('search'), // send get request to search route..
             'method' => 'GET',
         ]);
 
-        $index = new Index($this->indexDir);
-        $docStore = new Document($this->documentDir);
+        $index = new Index($this->indexDir); // create index to store, should return bin file
+        $doc = new Document($this->documentDir); // create document to search and store document
         $ranker = new Ranker();
+        $search = new Search($index, $doc, $ranker);
 
-        /*$indexer = new Indexer($index, $docStore);
-        $indexer->indexer(array('Hi this is marouane indexing.. some..'));*/
+        $query = $request->query->all(); // get all query to verify if make rigth call
 
-        // do search..
-        $search = new Search($index, $docStore, $ranker);
-        $queryResult = array();
-        $query = $request->query->all();
+        /*$indexer = new Indexer($index, $doc);
+        $indexer->indexer('Hi youtube!');*/
 
-        $starttime = microtime(true);
-        $result = '';
-        $total = 0;
+        // micro time - calculate how time take to do search
+        $startTime = microtime(true);
+        $result = ''; // get array result
+        $total = 0; // get total of result
+
         if (!empty($query['index']['query'])) {
             $query = $query['index']['query'];
+            // loop to make search, should get binary files and search inside document txt files.
             foreach ($search->search($query) as $result) {
                 $queryResult[] = $result;
             }
             $result = $queryResult[1];
             $total = $queryResult[0];
         }
-        $endtime = microtime(true);
 
-        $duration =  number_format(($endtime - $starttime), 2);
+        $endTime = microtime(true);
+
+        // calc time
+        $duration = number_format(($endTime - $startTime), 2);
 
         return $this->render('search/search.html.twig', [
-            'query' => $query,
+            'form' => $form->createView(),
             'result' => $result,
             'total' => $total,
             'timing' => $duration,
-            'form' => $form->createView(),
+            'query' => $query
         ]);
 
     }
